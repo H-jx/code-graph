@@ -1,0 +1,35 @@
+{
+  "name": "@project-knowledge/sdk",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Project Knowledge TypeScript SDK：路由定位、事实搜索、链路追踪、上下游查询与证据读取",
+  "license": "MIT OR Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test test/",
+    "lint:publish": "publint"
+  },
+  "dependencies": {
+    "@project-knowledge/native": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "publint": "catalog:",
+    "typescript": "catalog:"
+  }
+}

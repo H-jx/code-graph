@@ -1,0 +1,75 @@
+name: CI
+
+# 计划 T01 门禁：格式化 / Clippy / 全量检查与测试 / Core-only 构建 / 依赖方向，
+# Node 侧：安装、类型检查、构建与 native 加载冒烟。
+# `pnpm run check:contracts`、`verify:scenarios` 等入口在对应任务实现后才加入本文件。
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: '1'
+
+jobs:
+  rust:
+    name: Rust (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # 主机平台各跑一次全量检查；四平台产物构建在 release.yml（计划 §6.2）
+        os: [windows-latest, ubuntu-24.04, macos-15]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          # 与 rust-toolchain.toml 一致；升级需同步依赖决策记录
+          toolchain: 1.97.1
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - name: Format
+        run: cargo fmt --all -- --check
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets --locked -- -D warnings
+      - name: Check
+        run: cargo check --workspace --all-targets --locked
+      - name: Test
+        run: cargo test --workspace --locked
+      - name: Core-only CLI build (no Rig)
+        run: cargo build -p project-knowledge-cli --no-default-features --locked
+      - name: Dependency direction (Core must not see Rig)
+        shell: bash
+        run: |
+          set -uo pipefail
+          if cargo tree -p project-knowledge-core --edges normal | grep -Eq '(^|[^a-z])rig( v|@)'; then
+            echo "::error::project-knowledge-core 的依赖图中出现 Rig"
+            cargo tree -p project-knowledge-core --edges normal | grep -E 'rig' || true
+            exit 1
+          fi
+          echo "OK：Core 依赖图不含 Rig"
+
+  node:
+    name: Node 24
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      # pnpm 版本取自 package.json 的 packageManager（10.34.8）
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run typecheck
+      - run: pnpm run build:ts
+      - name: Build native binding for host target
+        run: pnpm run build:native
+      - name: Load binding smoke
+        run: node -e "const n=require('./bindings/node/index.js'); if(!n) process.exit(1)"
+      - run: pnpm run fmt:check

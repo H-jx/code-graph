@@ -1,0 +1,18 @@
+﻿cargo :    Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+所在位置 行:1 字符: 293
++ ... tests.log"; cargo test -p project-knowledge-core --test indexing impo ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (   Compiling pr...ph\crates\core):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.61s
+     Running tests\indexing.rs (target\debug\deps\indexing-c3e9ac9e8208a66f.exe)
+
+running 3 tests
+test import_failed_transaction_leaves_current_batch_untouched ... ok
+test import_batch_replaces_current_facts_for_its_replacement_key ... ok
+test import_keeps_other_producers_facts_visible ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 40 filtered out; finished in 0.07s
+
+

@@ -1,0 +1,27 @@
+# pnpm workspace：SDK / MCP / native binding / 开发脚本
+# 版本集中在 catalog，子包用 "catalog:" 引用，避免各处漂移。
+packages:
+  - 'packages/*'
+  - 'bindings/node'
+  - 'scripts'
+
+catalog:
+  # 语言与运行时类型
+  'typescript': '^5.9.3'
+  '@types/node': '^24.19.2'
+
+  # native binding 构建与发布检查
+  '@napi-rs/cli': '^3.10.9'
+  'publint': '^0.3.25'
+
+  # 契约代码生成（计划 T02）
+  'json-schema-to-typescript': '^16.0.0'
+  'execa': '^10.2.1'
+
+  # MCP v2（计划 D13：server/client 2.4.0，stdio；不混用 v1 包路径）
+  '@modelcontextprotocol/server': '~2.4.0'
+  '@modelcontextprotocol/client': '~2.4.0'
+  'zod': '^4.6.7'
+
+  # 格式化
+  'prettier': '^3.9.10'

@@ -1,0 +1,13 @@
+﻿cargo :     Checking project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+所在位置 行:1 字符: 174
++ ... -test.log"; cargo clippy --workspace --all-targets -- -D warnings 2>& ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (    Checking pr...ph\crates\core):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   Compiling project-knowledge-native v0.1.0 (E:\Project\my-project\code-graph\bindings\node)
+    Checking project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+    Checking xtask v0.1.0 (E:\Project\my-project\code-graph\xtask)
+    Checking project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.19s
+

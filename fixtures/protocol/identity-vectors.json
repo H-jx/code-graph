@@ -1,0 +1,460 @@
+{
+  "description": "稳定身份测试向量：Rust Core、Node 与 Python 三种实现必须得到相同 ID。覆盖同名跨作用域/跨仓库/跨数据源、复合键顺序、Unicode、CRLF、匿名与重载碰撞。",
+  "protocolVersion": "1.0",
+  "vectors": [
+    {
+      "id": "entity-file-basic",
+      "note": "普通文件实体",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "file",
+      "slots": [
+        {
+          "name": "repositoryId",
+          "value": "repo.web"
+        },
+        {
+          "name": "path",
+          "value": "src/pages/PurchaseLedger.tsx"
+        },
+        {
+          "name": "scopeId",
+          "value": "app.web"
+        }
+      ],
+      "expectedId": "ent_44aadbb126c35755778801b9f34fdc323e04d42942a6271d36cfdc932232b191"
+    },
+    {
+      "id": "entity-file-other-scope",
+      "note": "同名文件但不同作用域 → 身份不同",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "file",
+      "slots": [
+        {
+          "name": "repositoryId",
+          "value": "repo.web"
+        },
+        {
+          "name": "path",
+          "value": "src/pages/PurchaseLedger.tsx"
+        },
+        {
+          "name": "scopeId",
+          "value": "app.admin"
+        }
+      ],
+      "expectedId": "ent_cbc29dd5d4287d70c2d67163f737efb7a2ea14cf3c14087a06bdf36244d8748d"
+    },
+    {
+      "id": "entity-file-other-repository",
+      "note": "同名文件但不同仓库 → 身份不同",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "file",
+      "slots": [
+        {
+          "name": "repositoryId",
+          "value": "repo.api"
+        },
+        {
+          "name": "path",
+          "value": "src/pages/PurchaseLedger.tsx"
+        },
+        {
+          "name": "scopeId",
+          "value": "app.web"
+        }
+      ],
+      "expectedId": "ent_667f8ffdff40d184ffae2973b2cd17dc10db5f5f6af1de3fa3f8ef596c2a1e64"
+    },
+    {
+      "id": "entity-symbol-unicode",
+      "note": "Unicode 词法路径与中文注释符号",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "symbol",
+      "slots": [
+        {
+          "name": "repositoryId",
+          "value": "repo.web"
+        },
+        {
+          "name": "path",
+          "value": "src/采购台账.tsx"
+        },
+        {
+          "name": "scopeId",
+          "value": "app.web"
+        },
+        {
+          "name": "lexicalPath",
+          "value": "采购台账页面"
+        },
+        {
+          "name": "symbolKind",
+          "value": "function"
+        },
+        {
+          "name": "normalizedSignature",
+          "value": "function采购台账页面()"
+        }
+      ],
+      "expectedId": "ent_8a5231ca2fe132db2e7b855b8457bce1d54278f1cdd1e01f150c6cdf54073197"
+    },
+    {
+      "id": "entity-symbol-crlf-insensitive",
+      "note": "规范化签名不含换行，因此 CRLF/LF 不改变身份",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "symbol",
+      "slots": [
+        {
+          "name": "repositoryId",
+          "value": "repo.web"
+        },
+        {
+          "name": "path",
+          "value": "src/a.ts"
+        },
+        {
+          "name": "scopeId",
+          "value": "app.web"
+        },
+        {
+          "name": "lexicalPath",
+          "value": "listLedger"
+        },
+        {
+          "name": "symbolKind",
+          "value": "function"
+        },
+        {
+          "name": "normalizedSignature",
+          "value": "functionlistLedger(filter:string)"
+        }
+      ],
+      "expectedId": "ent_7e8a2bff8b6d87fb4c54cddf1d0e37cb1bcccdf2a49f19a28caa184d7bb2d50f"
+    },
+    {
+      "id": "entity-data-table-with-catalog",
+      "note": "带 catalog 的数据表",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "dataTable",
+      "slots": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog",
+          "value": "erp"
+        },
+        {
+          "name": "schema",
+          "value": "public"
+        },
+        {
+          "name": "table",
+          "value": "purchase_line"
+        }
+      ],
+      "expectedId": "ent_a3af11368a164a3a1bc4ef038bf4164ef1c240ed8193a6c5e749952bd4d4ffc4"
+    },
+    {
+      "id": "entity-data-table-without-catalog",
+      "note": "缺省槽位编码为 []，与空字符串不同",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "dataTable",
+      "slots": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema",
+          "value": "public"
+        },
+        {
+          "name": "table",
+          "value": "purchase_line"
+        }
+      ],
+      "expectedId": "ent_c65b13afd02a21179ff63e1c53e745ca68c52b5ff28d9ebfe618e98b4ecee2a0"
+    },
+    {
+      "id": "entity-data-table-empty-catalog",
+      "note": "空字符串槽位与缺省槽位必须不同",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "dataTable",
+      "slots": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog",
+          "value": ""
+        },
+        {
+          "name": "schema",
+          "value": "public"
+        },
+        {
+          "name": "table",
+          "value": "purchase_line"
+        }
+      ],
+      "expectedId": "ent_816f9c3a8adade5c0015fab24640a8062fda507b09474f20c1cf9189fafdbded"
+    },
+    {
+      "id": "entity-data-table-other-source",
+      "note": "同名表但不同数据源 → 身份不同",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "dataTable",
+      "slots": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema",
+          "value": "public"
+        },
+        {
+          "name": "table",
+          "value": "purchase_line"
+        }
+      ],
+      "expectedId": "ent_ef3b77fa04102997f9347c4870d7e646badf246850c00ab542a3409bf31b23e7"
+    },
+    {
+      "id": "entity-data-key-order-a",
+      "note": "复合键顺序参与身份",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "dataKey",
+      "slots": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema",
+          "value": "public"
+        },
+        {
+          "name": "table",
+          "value": "purchase_line"
+        },
+        {
+          "name": "keyColumns",
+          "value": [
+            "tenantId",
+            "purchaseNo",
+            "lineNo"
+          ]
+        }
+      ],
+      "expectedId": "ent_16dd6af7c92b7a9dc5a7b505afb6603c063ee0a53a97c441e6913b33a862cc9c"
+    },
+    {
+      "id": "entity-data-key-order-b",
+      "note": "复合键顺序改变 → 身份不同",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "dataKey",
+      "slots": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema",
+          "value": "public"
+        },
+        {
+          "name": "table",
+          "value": "purchase_line"
+        },
+        {
+          "name": "keyColumns",
+          "value": [
+            "tenantId",
+            "lineNo",
+            "purchaseNo"
+          ]
+        }
+      ],
+      "expectedId": "ent_993bdf6376a8032d994aeccd7f74baf4f85b3ef884fdc0cea23bef63e718ab3a"
+    },
+    {
+      "id": "entity-symbol-overload-a",
+      "note": "重载：签名不同 → 身份不同",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "symbol",
+      "slots": [
+        {
+          "name": "repositoryId",
+          "value": "repo.web"
+        },
+        {
+          "name": "path",
+          "value": "src/a.ts"
+        },
+        {
+          "name": "scopeId",
+          "value": "app.web"
+        },
+        {
+          "name": "lexicalPath",
+          "value": "listLedger"
+        },
+        {
+          "name": "symbolKind",
+          "value": "function"
+        },
+        {
+          "name": "normalizedSignature",
+          "value": "functionlistLedger(filter:string)"
+        }
+      ],
+      "expectedId": "ent_7e8a2bff8b6d87fb4c54cddf1d0e37cb1bcccdf2a49f19a28caa184d7bb2d50f"
+    },
+    {
+      "id": "entity-symbol-overload-b",
+      "note": "重载：另一签名",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "symbol",
+      "slots": [
+        {
+          "name": "repositoryId",
+          "value": "repo.web"
+        },
+        {
+          "name": "path",
+          "value": "src/a.ts"
+        },
+        {
+          "name": "scopeId",
+          "value": "app.web"
+        },
+        {
+          "name": "lexicalPath",
+          "value": "listLedger"
+        },
+        {
+          "name": "symbolKind",
+          "value": "function"
+        },
+        {
+          "name": "normalizedSignature",
+          "value": "functionlistLedger(page:number,size:number)"
+        }
+      ],
+      "expectedId": "ent_f456f7866151f15cbce11aad10fc1944776c7d720445fb884fcea42dbbd7bf60"
+    },
+    {
+      "id": "entity-symbol-anonymous",
+      "note": "匿名符号使用父实体 + AST 结构路径，不用行号",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "symbol",
+      "slots": [
+        {
+          "name": "repositoryId",
+          "value": "repo.web"
+        },
+        {
+          "name": "path",
+          "value": "src/a.ts"
+        },
+        {
+          "name": "scopeId",
+          "value": "app.web"
+        },
+        {
+          "name": "lexicalPath",
+          "value": "defaultExport#$0"
+        },
+        {
+          "name": "symbolKind",
+          "value": "function"
+        },
+        {
+          "name": "normalizedSignature",
+          "value": "()=>void"
+        }
+      ],
+      "expectedId": "ent_950f278b3738f63204a96f88db2c8de1a3d485610c48352da291369d1cac7b5d"
+    },
+    {
+      "id": "relation-transitions-basic",
+      "note": "关系身份含两端与限定条件",
+      "type": "relation",
+      "projectId": "erp",
+      "kind": "transitions_to",
+      "fromId": "ent_draft",
+      "toId": "ent_submitted",
+      "qualifiers": {
+        "operationId": "op.submit",
+        "trigger": "click"
+      },
+      "expectedId": "rel_07010daa7d41daa4146b4e95c878c37ce6c56b1369265132e6fe7f0430dba87e"
+    },
+    {
+      "id": "relation-transitions-other-guard",
+      "note": "限定条件变化 → 关系身份不同",
+      "type": "relation",
+      "projectId": "erp",
+      "kind": "transitions_to",
+      "fromId": "ent_draft",
+      "toId": "ent_submitted",
+      "qualifiers": {
+        "operationId": "op.submit",
+        "trigger": "click",
+        "guard": "role=ADMIN"
+      },
+      "expectedId": "rel_f080e9607d6c30288fffc670d759bf371ad54d8f5e2848464fbd9473da4a3f61"
+    },
+    {
+      "id": "source-basic",
+      "note": "来源身份按仓库与相对路径",
+      "type": "source",
+      "projectId": "erp",
+      "repositoryId": "repo.web",
+      "path": "src/pages/PurchaseLedger.tsx",
+      "expectedId": "src_f5a57f5bddcc6a70a2adfc3c0fcf667e8f1e48aaebdd707aa81d590cc9fa14be"
+    },
+    {
+      "id": "evidence-basic",
+      "note": "证据身份含来源版本与字节区间",
+      "type": "evidence",
+      "sourceId": "src_abc",
+      "contentHash": "deadbeef",
+      "startByte": 12,
+      "endByte": 48,
+      "role": "definition",
+      "expectedId": "ev_c60ca8fe3eee812d2f6e88cd48684a1d14275df1350434082d242415d1984372"
+    }
+  ],
+  "generatedBy": "scripts/verify-vectors.mjs"
+}

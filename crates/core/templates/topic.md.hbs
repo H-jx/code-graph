@@ -1,0 +1,44 @@
+<!-- 业务主题模板（骨架）
+     输出文件：references/topics/<topic>.md
+     数据来源：knowledge/context.rs 收集的事实、代码地图与源码片段；
+     自然语言说明来自内置 Agent 或外部 LLM，导入时由 knowledge/documents.rs 校验引用与版本。 -->
+# {{topicTitle}}
+
+快照：generation {{generation}} ｜ 来源版本 {{snapshotVersion}} ｜ 状态 {{status}}
+
+## 一句话结论
+
+{{summary}}
+
+## 跨层链路
+
+```mermaid
+{{mermaid}}
+```
+
+## 页面与操作
+
+{{#each pageSteps}}- {{this}}
+{{/each}}
+
+## 后端与数据
+
+{{#each dataNotes}}- {{this}}
+{{/each}}
+
+## 取数口径与待验证项
+
+{{#each openQuestions}}- {{this}}
+{{/each}}
+
+## 证据
+
+{{#each references}}- {{sourcePath}}:{{startLine}}-{{endLine}} — {{why}}
+{{/each}}
+
+## 推断与未知
+
+{{#each inferred}}- {{this}}
+{{/each}}
+{{#each gaps}}- 缺口：{{this}}
+{{/each}}

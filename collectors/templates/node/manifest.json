@@ -1,0 +1,30 @@
+{
+  "protocolVersion": "1.0",
+  "pluginId": "template.node",
+  "version": "0.1.0",
+  "capabilities": [],
+  "runtime": { "kind": "node", "versionRange": ">=24 <25" },
+  "artifacts": ["manifest.json", "src/collect.mjs"],
+  "stages": [
+    {
+      "id": "extract",
+      "phase": "extract",
+      "entry": "src/collect.mjs",
+      "args": ["--stage", "extract"],
+      "sourceSelectors": [
+        {
+          "id": "all",
+          "repositoryIds": [],
+          "include": ["**/*"],
+          "exclude": []
+        }
+      ],
+      "entitySelectors": [],
+      "dependsOn": [],
+      "replacement": "project"
+    }
+  ],
+  "limits": { "timeoutMs": 60000, "maxInputBytes": 33554432, "maxOutputBytes": 33554432, "maxStderrBytes": 1048576 },
+  "acceptanceCases": [],
+  "extensions": {}
+}

@@ -1,0 +1,49 @@
+{
+  "$comment": "骨架示例：字段以 crates/core/src/contract/collector.rs 生成的 JSON Schema 为准（schema/ 目录）。此处只说明形态，不可直接用于激活。",
+  "id": "erp.purchase",
+  "version": "1.0.0",
+  "protocolVersion": 1,
+  "capabilities": ["routes", "frontend", "api", "database", "link"],
+  "phases": [
+    {
+      "phase": "extract",
+      "runtime": "node",
+      "command": ["node", "src/extract.mjs"],
+      "entries": ["src/extract.mjs"],
+      "inputs": {
+        "repositories": ["repo.main"],
+        "include": ["web/src/**", "api/src/**", "db/**"],
+        "exclude": ["**/*.spec.ts", "**/dist/**"]
+      },
+      "artifactHash": "sha256:<由 Core 按实际文件计算，手写值会被拒绝>",
+      "limits": {
+        "timeoutSeconds": 300,
+        "maxOutputBytes": 67108864,
+        "maxEntities": 200000,
+        "maxRelations": 500000
+      }
+    },
+    {
+      "phase": "link",
+      "runtime": "node",
+      "command": ["node", "src/link.mjs"],
+      "entries": ["src/link.mjs"],
+      "inputs": { "usesExistingEntities": true },
+      "limits": { "timeoutSeconds": 180, "maxOutputBytes": 33554432 }
+    }
+  ],
+  "dependencies": {
+    "declaration": "deps/package.json",
+    "lockfile": "deps/package-lock.json"
+  },
+  "replacementScope": {
+    "entityTypes": ["route", "page", "component", "apiOperation", "table", "column"],
+    "sourceRepositories": ["repo.main"]
+  },
+  "cases": [
+    { "id": "page-to-query", "kind": "happy-path", "input": "cases/page-to-query.input.json" },
+    { "id": "same-name-different-datasource", "kind": "false-link", "input": "cases/same-name.input.json" },
+    { "id": "dynamic-base-url", "kind": "gap", "input": "cases/dynamic.input.json" },
+    { "id": "source-changed", "kind": "staleness", "input": "cases/changed.input.json" }
+  ]
+}

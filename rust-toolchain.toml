@@ -1,0 +1,7 @@
+# 固定构建工具链（plan/NEW-PROJECT-LONG-TASK.md T00/T01）
+# rig = "=0.45.0" 的元数据 MSRV 为 1.97.1，因此不能用浮动 stable 构建 Agent。
+# 本机与 CI 都按本文件解析；升级需同步修改根 Cargo.toml 的 rust-version 与依赖决策记录。
+[toolchain]
+channel = "1.97.1"
+components = ["rustfmt", "clippy"]
+profile = "minimal"

@@ -1,0 +1,16 @@
+# 项目级 Cargo 配置：只放与仓库结构相关的设置。
+# 机器相关配置（registry 镜像、代理、交叉工具链）请写在 ~/.cargo/config.toml，
+# 不要提交到仓库，见 docs/DEPENDENCIES.md「网络与镜像」。
+[alias]
+xtask = "run --package xtask --"
+check-all = "check --workspace --all-targets --all-features"
+test-all = "test --workspace --all-features"
+
+# napi / tree-sitter / rusqlite(bundled) 都会编译 C，Windows 上需要 MSVC Build Tools。
+# 若 CI 或本机需要走代理，用环境变量 HTTPS_PROXY，或在本机 ~/.cargo/config.toml 写：
+#   [http]
+#   proxy = "http://127.0.0.1:<port>"
+#   check-revocation = false
+# 交叉编译 Linux musl 时建议 zig：
+#   [target.x86_64-unknown-linux-musl]
+#   linker = "zig"

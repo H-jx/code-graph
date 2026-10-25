@@ -1,0 +1,37 @@
+{
+  "name": "@project-knowledge/native",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Rust Core 的 Node.js 原生绑定（napi-rs，骨架阶段）",
+  "license": "MIT OR Apache-2.0",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "napi": {
+    "binaryName": "project-knowledge-native",
+    "targets": [
+      "x86_64-pc-windows-msvc",
+      "x86_64-unknown-linux-gnu",
+      "x86_64-apple-darwin",
+      "aarch64-apple-darwin"
+    ]
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "files": ["index.js", "index.d.ts"],
+  "scripts": {
+    "build": "napi build --platform",
+    "build:release": "napi build --platform --release",
+    "build:dist": "napi build --platform --profile dist --strip",
+    "watch": "napi build --platform --watch",
+    "create-npm-dirs": "napi create-npm-dirs",
+    "artifacts": "napi artifacts",
+    "test": "node --test test/"
+  },
+  "optionalDependencies": {},
+  "devDependencies": {
+    "@napi-rs/cli": "catalog:",
+    "@types/node": "catalog:",
+    "typescript": "catalog:"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "phase": "extract",
+  "validateOnly": true,
+  "committed": false,
+  "results": [
+    {
+      "pluginId": "template.node",
+      "version": "0.1.0",
+      "stageId": "extract",
+      "artifactHash": "41b9b59da64793131f0bfe2400bc38df5c113ae77240e068e2a052cd231f069c",
+      "stdoutBytes": 272,
+      "stderrBytes": 67,
+      "durationMs": 47,
+      "entities": 0,
+      "relations": 0,
+      "evidence": 0,
+      "gaps": 0,
+      "validation": {
+        "issues": []
+      },
+      "committed": false,
+      "status": "validated"
+    }
+  ],
+  "note": "正式提交事实需要校验与导入流程（T08/T09）；本命令只运行并校验阶段输出。",
+  "completedAt": "2026-10-25T16:42:33Z"
+}

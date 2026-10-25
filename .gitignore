@@ -1,0 +1,33 @@
+# ---- Rust ----
+/target/
+Cargo.lock.bak
+*.pdb
+*.exp
+
+# ---- Node ----
+node_modules/
+dist/
+artifacts/
+coverage/
+*.tsbuildinfo
+.pnpm-store/
+
+# ---- napi 生成物（构建产物，不入库）----
+bindings/node/*.node
+bindings/node/index.js
+bindings/node/index.d.ts
+bindings/node/npm/
+bindings/node/artifacts/
+
+# ---- 产品自身在目标项目产生的数据（dogfood 时）----
+.project-knowledge/
+.agents/skills/
+*.sqlite
+*.sqlite-wal
+*.sqlite-shm
+
+# ---- 编辑器与系统 ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

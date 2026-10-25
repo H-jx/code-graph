@@ -1,0 +1,40 @@
+[package]
+name = "project-knowledge-agent"
+description = "内置 Rig Agent：项目约定调查、采集插件生成与修复、知识主题产出（依赖 Core，不直接写索引表）"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = false
+
+[lints]
+workspace = true
+
+[features]
+default = []
+
+[dependencies]
+project-knowledge-core = { workspace = true }
+
+# Rig：模型接入 + 多轮工具调用 + Hooks（计划 D12：使用 rig facade，精确锁定 0.45.0）
+rig = { workspace = true }
+async-trait = { workspace = true }
+futures = { workspace = true }
+
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+schemars = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+tracing = { workspace = true }
+handlebars = { workspace = true }
+chrono = { workspace = true }
+uuid = { workspace = true }
+# prompts/ 在 crate 外，打包发布由 xtask 负责收集
+include_dir = { workspace = true }
+
+[dev-dependencies]
+insta = { workspace = true }
+tempfile = { workspace = true }

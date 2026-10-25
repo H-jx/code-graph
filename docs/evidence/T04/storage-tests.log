@@ -1,0 +1,19 @@
+﻿cargo :     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.43s
+所在位置 行:1 字符: 114
++ ... | Out-Null; cargo test -p project-knowledge-core --test indexing stor ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (    Finished `t...get(s) in 0.43s:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+     Running tests\indexing.rs (target\debug\deps\indexing-05b7ede8f810136e.exe)
+
+running 5 tests
+test storage_readonly_open_missing_database_is_an_error ... ok
+test storage_migration_creates_expected_schema ... ok
+test storage_batch_state_is_one_way_after_invalidation ... ok
+test storage_two_producers_assert_same_entity_and_one_is_replaced ... ok
+test storage_backup_copies_consistent_database ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 34 filtered out; finished in 0.22s
+
+

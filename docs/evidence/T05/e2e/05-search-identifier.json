@@ -1,0 +1,210 @@
+﻿{
+  "protocolVersion": "1.0",
+  "requestId": "req_92be4947-ab9d-4edc-b246-9031463fb69f",
+  "snapshot": {
+    "indexId": "5ea4b039-c803-4a25-bd1a-b8dba8e05aea",
+    "generation": "2",
+    "sourceSnapshotId": "snap_ae844075416adae22d6115aba04feb934cf601261091b9f2ce31e1a8e264bdba"
+  },
+  "status": "complete",
+  "data": {
+    "results": [
+      {
+        "entityRef": {
+          "snapshot": {
+            "indexId": "5ea4b039-c803-4a25-bd1a-b8dba8e05aea",
+            "generation": "2",
+            "sourceSnapshotId": "snap_ae844075416adae22d6115aba04feb934cf601261091b9f2ce31e1a8e264bdba"
+          },
+          "entityId": "ent_db4ee9c9633d9953a798f6c3ab695f7883b0e6b293e7890e279fa0be811d09a0"
+        },
+        "kind": "symbol",
+        "scopeId": "repo.repo.main",
+        "name": "listLedger",
+        "matchReason": "identifier",
+        "exactRank": 3,
+        "bm25": -6.593143118129041e-6,
+        "projection": "entity",
+        "assertions": [
+          {
+            "assertionId": "as_d8012ce3ec74fa7a571b3bee7b4a9e227d33c3edf6790474ab19dde2dc82b3c9",
+            "producerKey": "core.base",
+            "batchId": "bat_381ed7dc8b25683615349018bff1535668b08017d4bccea620e3c6ba2defd870",
+            "basis": "observed",
+            "origin": "static",
+            "evidenceRefs": [
+              "ev_9fcf9c1a4035988befe3e683ba03e50690a32e915ea54b0552ab9e83b5f2c95e"
+            ]
+          }
+        ]
+      },
+      {
+        "entityRef": {
+          "snapshot": {
+            "indexId": "5ea4b039-c803-4a25-bd1a-b8dba8e05aea",
+            "generation": "2",
+            "sourceSnapshotId": "snap_ae844075416adae22d6115aba04feb934cf601261091b9f2ce31e1a8e264bdba"
+          },
+          "entityId": "ent_aa7f87341d5c4d41a7cb5cff727fdab5edf324c09b9fbec0df04b170d2897e9c"
+        },
+        "kind": "file",
+        "scopeId": "repo.repo.main",
+        "name": "web/src/pages/PurchaseLedger.tsx",
+        "matchReason": "identifier",
+        "exactRank": 3,
+        "bm25": -6.2102037585030865e-6,
+        "projection": "source",
+        "assertions": [
+          {
+            "assertionId": "as_3f593a93bf5051a348a4a40ab73119cf9c43203a12a64428082dfe22b30fd41b",
+            "producerKey": "core.base",
+            "batchId": "bat_381ed7dc8b25683615349018bff1535668b08017d4bccea620e3c6ba2defd870",
+            "basis": "observed",
+            "origin": "static",
+            "evidenceRefs": [
+              "ev_033f8d7ed69b938a5cd753fdab80e14bc550eb868dc1c7b5a815234e383436ed"
+            ]
+          }
+        ]
+      },
+      {
+        "entityRef": {
+          "snapshot": {
+            "indexId": "5ea4b039-c803-4a25-bd1a-b8dba8e05aea",
+            "generation": "2",
+            "sourceSnapshotId": "snap_ae844075416adae22d6115aba04feb934cf601261091b9f2ce31e1a8e264bdba"
+          },
+          "entityId": "ent_d21ddea7bd4874ed72b17ab1e9ff4df64272d5015935e77a76e7de58b42697ec"
+        },
+        "kind": "file",
+        "scopeId": "repo.repo.main",
+        "name": "api/src/ledger.ts",
+        "matchReason": "substring",
+        "exactRank": 2,
+        "bm25": -7.844872937715614e-6,
+        "projection": "source",
+        "assertions": [
+          {
+            "assertionId": "as_673b01050e34df9666cd952f5b06e816402da7e39e45e481cd196b1411e896e2",
+            "producerKey": "core.base",
+            "batchId": "bat_381ed7dc8b25683615349018bff1535668b08017d4bccea620e3c6ba2defd870",
+            "basis": "observed",
+            "origin": "static",
+            "evidenceRefs": [
+              "ev_064d1d537a50d2891146d47fde4e678e0ae6e46454dcc396db43c8a69520995d"
+            ]
+          }
+        ]
+      },
+      {
+        "entityRef": {
+          "snapshot": {
+            "indexId": "5ea4b039-c803-4a25-bd1a-b8dba8e05aea",
+            "generation": "2",
+            "sourceSnapshotId": "snap_ae844075416adae22d6115aba04feb934cf601261091b9f2ce31e1a8e264bdba"
+          },
+          "entityId": "ent_ec2b450283b42ad0a8a856460d2a71544106f1a4c6cf60bc06c9aea28e7523ff"
+        },
+        "kind": "symbol",
+        "scopeId": "repo.repo.main",
+        "name": "rows",
+        "matchReason": "substring",
+        "exactRank": 2,
+        "bm25": -6.535503652551672e-6,
+        "projection": "entity",
+        "assertions": [
+          {
+            "assertionId": "as_836a463e94781436b97cff81fc75e76b9d95633f6111bb89b312b79533630edf",
+            "producerKey": "core.base",
+            "batchId": "bat_381ed7dc8b25683615349018bff1535668b08017d4bccea620e3c6ba2defd870",
+            "basis": "observed",
+            "origin": "static",
+            "evidenceRefs": [
+              "ev_7d840c84b4621c9569ebfd75027ab145cd542ee31341a37fef8d78cf8314d0de"
+            ]
+          }
+        ]
+      },
+      {
+        "entityRef": {
+          "snapshot": {
+            "indexId": "5ea4b039-c803-4a25-bd1a-b8dba8e05aea",
+            "generation": "2",
+            "sourceSnapshotId": "snap_ae844075416adae22d6115aba04feb934cf601261091b9f2ce31e1a8e264bdba"
+          },
+          "entityId": "ent_33714e54e1f3d807f0ae1abc4f89464866e576612489adb98aca7bd06459ba82"
+        },
+        "kind": "symbol",
+        "scopeId": "repo.repo.main",
+        "name": "#0",
+        "matchReason": "substring",
+        "exactRank": 2,
+        "bm25": -6.478886672845194e-6,
+        "projection": "entity",
+        "assertions": [
+          {
+            "assertionId": "as_c9a8c6813131fc0173bb938ccc185d380d244ca8903d475eaaac023946662473",
+            "producerKey": "core.base",
+            "batchId": "bat_381ed7dc8b25683615349018bff1535668b08017d4bccea620e3c6ba2defd870",
+            "basis": "observed",
+            "origin": "static",
+            "evidenceRefs": [
+              "ev_0421afedf2808c46916ca756f4665728148087947b24ce00b9409ff2725a1814"
+            ]
+          }
+        ]
+      },
+      {
+        "entityRef": {
+          "snapshot": {
+            "indexId": "5ea4b039-c803-4a25-bd1a-b8dba8e05aea",
+            "generation": "2",
+            "sourceSnapshotId": "snap_ae844075416adae22d6115aba04feb934cf601261091b9f2ce31e1a8e264bdba"
+          },
+          "entityId": "ent_ace42609441c0c9c26a7af9ff7f65d969970122e7ea07645a725c7badba07c16"
+        },
+        "kind": "symbol",
+        "scopeId": "repo.repo.main",
+        "name": "PurchaseLedgerPage",
+        "matchReason": "substring",
+        "exactRank": 2,
+        "bm25": -6.1591738083154e-6,
+        "projection": "entity",
+        "assertions": [
+          {
+            "assertionId": "as_736d85a3ef9f56a174de9e3478f0d0da067f2cbb750032d615b87fffe216fec3",
+            "producerKey": "core.base",
+            "batchId": "bat_381ed7dc8b25683615349018bff1535668b08017d4bccea620e3c6ba2defd870",
+            "basis": "observed",
+            "origin": "static",
+            "evidenceRefs": [
+              "ev_8c7e6ee2d756f23e69b9ed9fb6953e1e45b7bc79bc623477814bacf7aabea514"
+            ]
+          }
+        ]
+      }
+    ],
+    "total": 6,
+    "fields": []
+  },
+  "sourceReferences": [],
+  "gaps": [],
+  "completeness": {
+    "freshness": "unknown",
+    "diskChecked": false,
+    "checkedAt": "2026-10-25T16:29:04Z",
+    "coverage": "partial",
+    "candidateSetsComplete": true,
+    "truncated": false,
+    "reasons": []
+  },
+  "budgetUsed": {
+    "entities": 6,
+    "relations": 0,
+    "visited": 160,
+    "elapsedMs": 0,
+    "responseChars": 0
+  },
+  "nextQueries": []
+}
+

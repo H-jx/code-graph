@@ -1,0 +1,25 @@
+# 统一行尾：仓库内一律 LF，检出也保持 LF（Windows 下避免 diff 噪声）
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.ico binary
+*.node binary
+*.sqlite binary
+*.gz binary
+*.zip binary
+
+*.rs text eol=lf
+*.toml text eol=lf
+*.ts text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.hbs text eol=lf
+*.sql text eol=lf
+*.py text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# 生成文件不参与 diff
+packages/sdk/src/generated/** linguist-generated=true
+schema/** linguist-generated=true

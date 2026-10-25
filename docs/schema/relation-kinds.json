@@ -1,0 +1,341 @@
+{
+  "relationKinds": [
+    {
+      "allowedFrom": [
+        "file",
+        "module",
+        "component"
+      ],
+      "allowedTo": [
+        "file",
+        "symbol",
+        "component",
+        "module",
+        "operation",
+        "route",
+        "entrypoint",
+        "workflowState",
+        "documentType",
+        "queryImplementation",
+        "reportField",
+        "title",
+        "comment",
+        "event",
+        "request",
+        "dataTable",
+        "dataColumn",
+        "dataKey",
+        "service",
+        "dataSource"
+      ],
+      "kind": "contains"
+    },
+    {
+      "allowedFrom": [
+        "file",
+        "module",
+        "component",
+        "service",
+        "dataSource"
+      ],
+      "allowedTo": [
+        "symbol",
+        "component",
+        "operation",
+        "route",
+        "httpEndpoint",
+        "graphqlOperation",
+        "graphqlField",
+        "dataTable",
+        "dataColumn",
+        "dataKey",
+        "event",
+        "entrypoint",
+        "workflowState",
+        "documentType",
+        "queryImplementation",
+        "reportField",
+        "title"
+      ],
+      "kind": "defines"
+    },
+    {
+      "allowedFrom": [
+        "file",
+        "symbol",
+        "component"
+      ],
+      "allowedTo": [
+        "file",
+        "symbol",
+        "module"
+      ],
+      "kind": "imports"
+    },
+    {
+      "allowedFrom": [
+        "symbol",
+        "component",
+        "operation",
+        "route",
+        "httpEndpoint",
+        "graphqlOperation",
+        "graphqlField",
+        "queryImplementation",
+        "reportField",
+        "comment",
+        "title",
+        "event",
+        "request",
+        "documentType",
+        "workflowState"
+      ],
+      "allowedTo": [
+        "symbol",
+        "file",
+        "component",
+        "route",
+        "httpEndpoint",
+        "graphqlOperation",
+        "graphqlField",
+        "dataTable",
+        "dataColumn",
+        "dataKey",
+        "documentType",
+        "workflowState",
+        "queryImplementation",
+        "reportField",
+        "service",
+        "dataSource"
+      ],
+      "kind": "references"
+    },
+    {
+      "allowedFrom": [
+        "symbol",
+        "operation",
+        "component",
+        "httpEndpoint",
+        "graphqlOperation",
+        "entrypoint",
+        "event",
+        "request"
+      ],
+      "allowedTo": [
+        "symbol",
+        "operation",
+        "httpEndpoint",
+        "graphqlOperation",
+        "service",
+        "queryImplementation"
+      ],
+      "kind": "calls"
+    },
+    {
+      "allowedFrom": [
+        "route",
+        "component",
+        "file"
+      ],
+      "allowedTo": [
+        "title",
+        "component",
+        "comment",
+        "documentType"
+      ],
+      "kind": "renders"
+    },
+    {
+      "allowedFrom": [
+        "httpEndpoint",
+        "graphqlOperation",
+        "event",
+        "entrypoint",
+        "route"
+      ],
+      "allowedTo": [
+        "symbol",
+        "operation",
+        "component"
+      ],
+      "kind": "handles"
+    },
+    {
+      "allowedFrom": [
+        "event",
+        "operation",
+        "request"
+      ],
+      "allowedTo": [
+        "symbol",
+        "operation",
+        "httpEndpoint",
+        "graphqlOperation",
+        "workflowState"
+      ],
+      "kind": "triggers"
+    },
+    {
+      "allowedFrom": [
+        "symbol",
+        "component",
+        "request"
+      ],
+      "allowedTo": [
+        "symbol",
+        "component",
+        "operation",
+        "httpEndpoint",
+        "graphqlOperation"
+      ],
+      "kind": "wraps"
+    },
+    {
+      "allowedFrom": [
+        "component",
+        "symbol",
+        "operation",
+        "event"
+      ],
+      "allowedTo": [
+        "httpEndpoint",
+        "graphqlOperation",
+        "request",
+        "service"
+      ],
+      "kind": "requests"
+    },
+    {
+      "allowedFrom": [
+        "service"
+      ],
+      "allowedTo": [
+        "httpEndpoint",
+        "graphqlOperation"
+      ],
+      "kind": "serves"
+    },
+    {
+      "allowedFrom": [
+        "graphqlOperation",
+        "graphqlField"
+      ],
+      "allowedTo": [
+        "symbol",
+        "operation"
+      ],
+      "kind": "resolves"
+    },
+    {
+      "allowedFrom": [
+        "symbol",
+        "operation",
+        "queryImplementation"
+      ],
+      "allowedTo": [
+        "dataTable",
+        "dataColumn",
+        "dataKey",
+        "dataSource"
+      ],
+      "kind": "reads"
+    },
+    {
+      "allowedFrom": [
+        "symbol",
+        "operation",
+        "queryImplementation"
+      ],
+      "allowedTo": [
+        "dataTable",
+        "dataColumn",
+        "dataKey",
+        "dataSource"
+      ],
+      "kind": "writes"
+    },
+    {
+      "allowedFrom": [
+        "dataColumn",
+        "dataKey",
+        "dataTable",
+        "symbol",
+        "operation"
+      ],
+      "allowedTo": [
+        "dataColumn",
+        "dataKey",
+        "dataTable",
+        "symbol",
+        "operation"
+      ],
+      "kind": "maps_to"
+    },
+    {
+      "allowedFrom": [
+        "queryImplementation",
+        "operation",
+        "symbol"
+      ],
+      "allowedTo": [
+        "dataTable",
+        "dataColumn",
+        "dataKey"
+      ],
+      "kind": "joins"
+    },
+    {
+      "allowedFrom": [
+        "workflowState",
+        "operation"
+      ],
+      "allowedTo": [
+        "workflowState"
+      ],
+      "kind": "transitions_to"
+    },
+    {
+      "allowedFrom": [
+        "operation",
+        "workflowState",
+        "documentType"
+      ],
+      "allowedTo": [
+        "operation",
+        "workflowState",
+        "documentType"
+      ],
+      "kind": "precedes"
+    },
+    {
+      "allowedFrom": [
+        "operation",
+        "workflowState",
+        "documentType",
+        "queryImplementation"
+      ],
+      "allowedTo": [
+        "documentType"
+      ],
+      "kind": "relates_document"
+    },
+    {
+      "allowedFrom": [
+        "comment",
+        "title",
+        "documentType"
+      ],
+      "allowedTo": [
+        "symbol",
+        "component",
+        "operation",
+        "route",
+        "httpEndpoint",
+        "dataTable",
+        "workflowState",
+        "documentType"
+      ],
+      "kind": "describes"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "@project-knowledge/mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Project Knowledge 本地 stdio MCP：query 模式只读，maintenance 模式显式开启维护工具",
+  "license": "MIT OR Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "project-knowledge-mcp": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test test/",
+    "lint:publish": "publint"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "catalog:",
+    "@project-knowledge/sdk": "workspace:*",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "catalog:",
+    "@types/node": "catalog:",
+    "publint": "catalog:",
+    "typescript": "catalog:"
+  }
+}

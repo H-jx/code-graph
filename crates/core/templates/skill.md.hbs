@@ -1,0 +1,27 @@
+<!-- Skill 入口模板（骨架，占位符待 knowledge/skill.rs 渲染）
+     数据来自：project.json、index-manifest、活动插件清单、代表性业务入口。
+     渲染要求：先检查新鲜度；过期说明只作为调查线索，不冒充当前事实。 -->
+# {{projectName}} 项目知识与链路查询
+
+适用范围：{{scope}}
+
+## 使用场景
+
+{{#each scenarios}}- {{this}}
+{{/each}}
+
+## 查询方式
+
+- 状态与新鲜度：`project-knowledge status --config .project-knowledge/project.json --check-freshness`
+- 事实搜索：`search`（业务词、路由、符号、路径）
+- 需求定位：`locate_feature`（需求 + 可选 routeHint）
+- 链路追踪：`trace_links`（原样传回实体引用）
+- 源码精读：`read_source`（使用返回的来源引用，不手工拼 ID）
+
+## 阅读顺序
+
+1. 先看 `index_status` 的 freshness 与覆盖缺口。
+2. 再读 references/{{firstReference}}。
+3. 主题说明见 references/topics/，过期主题只作线索。
+
+<!-- TODO(pk)：内容预算与引用完整性由 knowledge/skill.rs 校验后输出 -->

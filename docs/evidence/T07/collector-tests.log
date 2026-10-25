@@ -1,0 +1,29 @@
+﻿cargo :    Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+所在位置 行:1 字符: 40
++ ... ode-graph"; cargo test -p project-knowledge-core --test collectors -- ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (   Compiling pr...ph\crates\core):String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.26s
+     Running tests\collectors.rs (target\debug\deps\collectors-525cb3f3d5598009.exe)
+
+running 14 tests
+test collector_output_round_trips_through_json ... ok
+test stage_command_uses_manifest_arguments ... ok
+test manifest_stage_dag_rejects_cycles_and_illegal_phases ... ok
+test manifest_template_files_are_valid ... ok
+test manifest_dependencies_are_validated_against_registry ... ok
+test manifest_validation_rejects_paths_outside_the_artifact_directory ... ok
+test deps_cache_is_reused_and_verified ... ok
+test runner_limits_input_size ... ok
+test deps_plan_requires_lock_file_and_reports_missing_runtime ... ok
+test runner_executes_node_template_and_returns_collector_output ... ok
+test runner_enforces_output_limit ... ok
+test runner_rejects_non_zero_exit_and_invalid_json ... ok
+test runner_supports_cancellation ... ok
+test runner_enforces_timeout_and_kills_process_tree ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.62s
+
+

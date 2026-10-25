@@ -1,0 +1,10 @@
+{
+  "configPath": "\\\\?\\C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-collect-b934ca598bbd45a4987b2a53effcf4bd\\workspace\\.project-knowledge\\project.json",
+  "projectId": "workspace",
+  "root": "\\\\?\\C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-collect-b934ca598bbd45a4987b2a53effcf4bd\\workspace",
+  "createdAt": "2026-10-25T16:42:33Z",
+  "indexDatabase": "\\\\?\\C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-collect-b934ca598bbd45a4987b2a53effcf4bd\\workspace\\.project-knowledge\\index.sqlite",
+  "next": [
+    "project-knowledge index --config <config> --base"
+  ]
+}

@@ -1,0 +1,25 @@
+﻿cargo.exe :     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.42s
+所在位置 C:\Users\hubo9\AppData\Local\Temp\opencode\collect-evidence.ps1:46 字符: 1
++ & cargo test -p project-knowledge-core --test indexing contract_ --me ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (    Finished `t...get(s) in 0.42s:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+     Running tests\indexing.rs (target\debug\deps\indexing-05b7ede8f810136e.exe)
+
+running 11 tests
+test contract_canonical_json_sorts_keys_and_rejects_floats ... ok
+test contract_entity_id_is_stable_and_scope_sensitive ... ok
+test contract_source_and_evidence_ids_are_deterministic ... ok
+test contract_optional_identity_slot_distinguishes_absent_from_empty ... ok
+test contract_entity_and_relation_round_trip_through_json ... ok
+test contract_rejects_unknown_fields_and_bad_protocol_versions ... ok
+test contract_relation_endpoint_kinds_are_restricted ... ok
+test contract_relation_id_depends_on_qualifiers_but_not_evidence ... ok
+test contract_unknown_business_field_uses_status_unknown ... ok
+test contract_error_envelope_shape_is_stable ... ok
+test contract_identity_vectors_match_shared_fixture ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 28 filtered out; finished in 0.00s
+
+

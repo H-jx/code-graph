@@ -1,0 +1,2 @@
+﻿952d890f53b460a460e258bb94845390e8069bb69b682e589cdf82ed53449085  <workspace>\.project-knowledge\index.sqlite
+117bb926b5550a5194be63ac14c8be955f20ccf187a17f1dc3c862ae4dae43b1  <workspace>\.project-knowledge\project.json

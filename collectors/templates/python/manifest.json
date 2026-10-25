@@ -1,0 +1,30 @@
+{
+  "protocolVersion": "1.0",
+  "pluginId": "template.python",
+  "version": "0.1.0",
+  "capabilities": [],
+  "runtime": { "kind": "python", "versionRange": ">=3.12 <3.13" },
+  "artifacts": ["manifest.json", "src/collect.py"],
+  "stages": [
+    {
+      "id": "extract",
+      "phase": "extract",
+      "entry": "src/collect.py",
+      "args": [],
+      "sourceSelectors": [
+        {
+          "id": "all",
+          "repositoryIds": [],
+          "include": ["**/*"],
+          "exclude": []
+        }
+      ],
+      "entitySelectors": [],
+      "dependsOn": [],
+      "replacement": "project"
+    }
+  ],
+  "limits": { "timeoutMs": 60000, "maxInputBytes": 33554432, "maxOutputBytes": 33555432, "maxStderrBytes": 1048576 },
+  "acceptanceCases": [],
+  "extensions": {}
+}

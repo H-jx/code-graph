@@ -1,0 +1,6 @@
+﻿2a38a587b16c9cbb7b7f26e654bbda51eed46d3d6cb9f6873b7c6909f32af81d  <workspace>\.project-knowledge\index.sqlite
+fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb  <workspace>\.project-knowledge\index.sqlite-shm
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  <workspace>\.project-knowledge\index.sqlite-wal
+b9cac78a2710cde8e8e21f61aee16cdca3b80d6c8655856616b1d7f963963a8e  <workspace>\.project-knowledge\project.json
+85b1439079118c4568bbac5d9e162d04ff349721e42e5f668186fd78b0fdfd8b  <workspace>\.project-knowledge\collectors\template.node\manifest.json
+facf1a8e83d58e0b2986b9347079da220ba12802469c7b62c9d0e6ddd7d2442b  <workspace>\.project-knowledge\collectors\template.node\src\collect.mjs

@@ -1,0 +1,123 @@
+﻿{
+  "protocolVersion": "1.0",
+  "requestId": "req_54575ee1-17f7-4843-ba4a-1f1a744b14dd",
+  "snapshot": {
+    "indexId": "5ea4b039-c803-4a25-bd1a-b8dba8e05aea",
+    "generation": "2",
+    "sourceSnapshotId": "snap_ae844075416adae22d6115aba04feb934cf601261091b9f2ce31e1a8e264bdba"
+  },
+  "status": "complete",
+  "data": {
+    "results": [
+      {
+        "entityRef": {
+          "snapshot": {
+            "indexId": "5ea4b039-c803-4a25-bd1a-b8dba8e05aea",
+            "generation": "2",
+            "sourceSnapshotId": "snap_ae844075416adae22d6115aba04feb934cf601261091b9f2ce31e1a8e264bdba"
+          },
+          "entityId": "ent_461dbd686e18d69799a2cd24e4d9d4661560d17091c1e9d8318ab71f11a50d16"
+        },
+        "kind": "symbol",
+        "scopeId": "repo.repo.main",
+        "name": "title",
+        "matchReason": "substring",
+        "exactRank": 2,
+        "bm25": -4.727472427054471,
+        "projection": "entity",
+        "assertions": [
+          {
+            "assertionId": "as_dd1573fa2fc06569557521c18500def3e4aed9b83fee5d1bedff32b983d84212",
+            "producerKey": "core.base",
+            "batchId": "bat_381ed7dc8b25683615349018bff1535668b08017d4bccea620e3c6ba2defd870",
+            "basis": "observed",
+            "origin": "static",
+            "evidenceRefs": [
+              "ev_b35d62b60a3d9969b7361deb4b6d6d86e4d0363ef9b334fcca4d65794af4b903"
+            ]
+          }
+        ]
+      },
+      {
+        "entityRef": {
+          "snapshot": {
+            "indexId": "5ea4b039-c803-4a25-bd1a-b8dba8e05aea",
+            "generation": "2",
+            "sourceSnapshotId": "snap_ae844075416adae22d6115aba04feb934cf601261091b9f2ce31e1a8e264bdba"
+          },
+          "entityId": "ent_6c4785e47ba6b7c7506a732c80b6444d5b7618e2ebad3bf89fe5b1a0873a5fbc"
+        },
+        "kind": "symbol",
+        "scopeId": "repo.repo.main",
+        "name": "#0",
+        "matchReason": "substring",
+        "exactRank": 2,
+        "bm25": -4.674953060483276,
+        "projection": "entity",
+        "assertions": [
+          {
+            "assertionId": "as_ce49408ccffbac18253a2d15110e13ece5e49fc2fe8907fca31bba829f89cc47",
+            "producerKey": "core.base",
+            "batchId": "bat_381ed7dc8b25683615349018bff1535668b08017d4bccea620e3c6ba2defd870",
+            "basis": "observed",
+            "origin": "static",
+            "evidenceRefs": [
+              "ev_81d66a375c8b0272e14d88ae38350d55917eb872d31d2655b0679bb601c6e107"
+            ]
+          }
+        ]
+      },
+      {
+        "entityRef": {
+          "snapshot": {
+            "indexId": "5ea4b039-c803-4a25-bd1a-b8dba8e05aea",
+            "generation": "2",
+            "sourceSnapshotId": "snap_ae844075416adae22d6115aba04feb934cf601261091b9f2ce31e1a8e264bdba"
+          },
+          "entityId": "ent_aa7f87341d5c4d41a7cb5cff727fdab5edf324c09b9fbec0df04b170d2897e9c"
+        },
+        "kind": "file",
+        "scopeId": "repo.repo.main",
+        "name": "web/src/pages/PurchaseLedger.tsx",
+        "matchReason": "substring",
+        "exactRank": 2,
+        "bm25": -4.674953060483276,
+        "projection": "source",
+        "assertions": [
+          {
+            "assertionId": "as_3f593a93bf5051a348a4a40ab73119cf9c43203a12a64428082dfe22b30fd41b",
+            "producerKey": "core.base",
+            "batchId": "bat_381ed7dc8b25683615349018bff1535668b08017d4bccea620e3c6ba2defd870",
+            "basis": "observed",
+            "origin": "static",
+            "evidenceRefs": [
+              "ev_033f8d7ed69b938a5cd753fdab80e14bc550eb868dc1c7b5a815234e383436ed"
+            ]
+          }
+        ]
+      }
+    ],
+    "total": 3,
+    "fields": []
+  },
+  "sourceReferences": [],
+  "gaps": [],
+  "completeness": {
+    "freshness": "unknown",
+    "diskChecked": false,
+    "checkedAt": "2026-10-25T16:29:04Z",
+    "coverage": "partial",
+    "candidateSetsComplete": true,
+    "truncated": false,
+    "reasons": []
+  },
+  "budgetUsed": {
+    "entities": 3,
+    "relations": 0,
+    "visited": 64,
+    "elapsedMs": 0,
+    "responseChars": 0
+  },
+  "nextQueries": []
+}
+

@@ -1,0 +1,16 @@
+﻿project-knowledge.exe : error: [NOT_IMPLEMENTED] `collect` 灏氭湭瀹炵幇锛堣 plan/NEW-PROJECT-LONG-TASK.md 鐨勫搴斾换鍔★級
+所在位置 C:\Users\hubo9\AppData\Local\Temp\opencode\e2e-evidence.ps1:59 字符: 41
++ ... -not-implemented" { & $exe collect --config $config --phase extract }
++                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (error: [NOT_IMP...SK.md 鐨勫搴斾换鍔★級:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+{
+  "error": {
+    "code": "NOT_IMPLEMENTED",
+    "message": "`collect` 灏氭湭瀹炵幇锛堣 plan/NEW-PROJECT-LONG-TASK.md 鐨勫搴斾换鍔★級",
+    "retryable": false,
+    "issues": []
+  }
+}
+

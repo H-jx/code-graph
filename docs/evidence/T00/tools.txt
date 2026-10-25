@@ -1,0 +1,14 @@
+﻿## 鏈満宸ュ叿鐗堟湰锛圱00 鏍稿鏃ユ湡锛?026-10-25/26锛?
+rustc   : rustc 1.97.1 (8bab26f4f 2026-07-14)
+cargo   : cargo 1.97.1 (c980f4866 2026-06-30)
+rustup  : 1.97.1-x86_64-pc-windows-msvc (overridden by 'E:\Project\my-project\code-graph\rust-toolchain.toml')
+node    : v24.14.0
+pnpm    : 10.34.8
+python  :   # 鏈満娌℃湁鍙敤 Python锛圵indowsApps 鍗犱綅锛?git     : git version 2.33.0.windows.2
+
+## 鍏抽敭渚濊禆鐨勯攣瀹氱増鏈紙鏉ヨ嚜 Cargo.lock / pnpm-lock.yaml锛?rig           : version = "0.45.0"
+rusqlite      : version = "0.41.0"
+schemars      : version = "0.9.0"version = "1.2.3"
+jsonschema    : version = "0.60.1"
+tree-sitter   : version = "0.27.1"
+napi          : version = "3.15.0"

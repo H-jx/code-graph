@@ -1,0 +1,87 @@
+[package]
+name = "project-knowledge-core"
+description = "项目知识核心库：接入、采集宿主、索引、存储、检索、图查询、证据与知识输出"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = false
+
+[lints]
+workspace = true
+
+[features]
+default = ["syntax"]
+# 通用语法能力（Tree-sitter 调度、符号与保守调用事实）。需要 C 编译器。
+syntax = [
+  "dep:tree-sitter",
+  "dep:tree-sitter-language",
+  "dep:tree-sitter-typescript",
+  "dep:tree-sitter-javascript",
+  "dep:tree-sitter-python",
+]
+# SCIP 与 Repomix 属后续接入（计划 §1.2），本版不引入依赖；
+# 中文检索用 Rust 生成的单字/双字 token 与标识符拆词（计划 D10），不引入分词库。
+
+[dependencies]
+# 契约与序列化
+serde = { workspace = true }
+serde_json = { workspace = true }
+schemars = { workspace = true }
+indexmap = { workspace = true }
+strum = { workspace = true }
+thiserror = { workspace = true }
+
+# 异步与并发（提取器子进程、取消、并行哈希）
+tokio = { workspace = true }
+tokio-util = { workspace = true }
+futures = { workspace = true }
+rayon = { workspace = true }
+parking_lot = { workspace = true }
+arc-swap = { workspace = true }
+async-trait = { workspace = true }
+
+# 项目接入与文件范围
+ignore = { workspace = true }
+globset = { workspace = true }
+regex = { workspace = true }
+dirs = { workspace = true }
+home = { workspace = true }
+pathdiff = { workspace = true }
+url = { workspace = true }
+
+# 存储、检索与校验
+rusqlite = { workspace = true }
+jsonschema = { workspace = true }
+sha2 = { workspace = true }
+hex = { workspace = true }
+uuid = { workspace = true }
+tempfile = { workspace = true }
+chrono = { workspace = true }
+
+# 图与排序
+petgraph = { workspace = true }
+rustc-hash = { workspace = true }
+
+# 知识输出
+handlebars = { workspace = true }
+tracing = { workspace = true }
+
+# 可选语法能力
+tree-sitter = { workspace = true, optional = true }
+tree-sitter-language = { workspace = true, optional = true }
+tree-sitter-typescript = { workspace = true, optional = true }
+tree-sitter-javascript = { workspace = true, optional = true }
+tree-sitter-python = { workspace = true, optional = true }
+
+[dev-dependencies]
+insta = { workspace = true }
+proptest = { workspace = true }
+
+# 进程树终止：Unix 进程组 / Windows Job Object（计划 §3.5）。
+[target.'cfg(unix)'.dependencies]
+libc = { workspace = true }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { workspace = true }

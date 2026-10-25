@@ -1,0 +1,12 @@
+# 保持原样、不被 prettier 改写的目录与产物
+target/
+node_modules/
+dist/
+artifacts/
+coverage/
+pnpm-lock.yaml
+Cargo.lock
+docs/schema/
+packages/sdk/src/generated/
+bindings/node/npm/
+docs/

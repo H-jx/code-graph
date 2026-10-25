@@ -1,0 +1,5 @@
+# Clippy 全局设置（只用稳定项）
+msrv = "1.97.1"
+too-many-arguments-threshold = 8
+type-complexity-threshold = 300
+disallowed-methods = []

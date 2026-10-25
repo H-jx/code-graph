@@ -1,0 +1,10 @@
+﻿椤圭洰鐭ヨ瘑绱㈠紩涓庢煡璇細澶氫粨搴撴帴鍏ャ€佸熀纭€绱㈠紩銆佷簨瀹炴绱笌璇佹嵁璇诲彇
+
+Usage: project-knowledge.exe <COMMAND>
+
+Commands:
+  init      鍒濆鍖栫洰鏍囬」鐩殑閰嶇疆涓庣储寮曠洰褰曘€?  index     寤虹珛鎴栨洿鏂扮储寮曘€?  status    鏌ョ湅绱㈠紩鏂伴矞搴︺€佽鐩栦笌缂哄彛锛堝彧璇伙級銆?  query     鎵ц鏌ヨ銆?  collect   杩愯宸叉縺娲荤殑閲囬泦闃舵銆?  plugin    鍊欓€夋彃浠剁殑鎻愪氦銆侀獙璇併€佹縺娲讳笌鍥炴粴銆?  agent     鍐呯疆 Rig Agent锛氶厤缃€佺敓鎴愩€佷慨澶嶄笌鎭㈠銆?  generate  瀵煎嚭涓婁笅鏂囥€佸鍏ヤ富棰樹笌娓叉煋 Skill銆?
+Options:
+  -h, --help     Print help
+  -V, --version  Print version
+

@@ -1,0 +1,160 @@
+﻿
+### 01-init
+command: E:\Project\my-project\code-graph\target\debug\project-knowledge.exe init --root "C:\Users\hubo9\AppData\Local\Temp\pk-collect-b934ca598bbd45a4987b2a53effcf4bd\workspace"
+exit=0
+{
+  "configPath": "\\\\?\\C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-collect-b934ca598bbd45a4987b2a53effcf4bd\\workspace\\.project-knowledge\\project.json",
+  "projectId": "workspace",
+  "root": "\\\\?\\C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-collect-b934ca598bbd45a4987b2a53effcf4bd\\workspace",
+  "createdAt": "2026-10-25T16:42:33Z",
+  "indexDatabase": "\\\\?\\C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-collect-b934ca598bbd45a4987b2a53effcf4bd\\workspace\\.project-knowledge\\index.sqlite",
+  "next": [
+    "project-knowledge index --config <config> --base"
+  ]
+}
+
+### 02-index-base
+command: E:\Project\my-project\code-graph\target\debug\project-knowledge.exe index --config "C:\Users\hubo9\AppData\Local\Temp\pk-collect-b934ca598bbd45a4987b2a53effcf4bd\workspace\.project-knowledge\project.json" --base
+exit=0
+{
+  "mode": "base",
+  "configPath": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-collect-b934ca598bbd45a4987b2a53effcf4bd\\workspace\\.project-knowledge\\project.json",
+  "indexDatabase": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-collect-b934ca598bbd45a4987b2a53effcf4bd\\workspace\\.project-knowledge\\index.sqlite",
+  "indexId": "75c20ab1-6e1e-468b-9f12-fc4e5a1f21d0",
+  "generation": "2",
+  "sourceSnapshotId": "snap_acf840106fd0ad70351aed13264373cdef08d1bd12c38a059a99e5984aff06a9",
+  "sourceSetHash": "3cbf855216bc3f45911e428764e3316e49e6d994ac2ea83968d620a2232400b2",
+  "entities": 4,
+  "relations": 3,
+  "searchDocuments": 4,
+  "gaps": 0,
+  "invalidated": [],
+  "completedAt": "2026-10-25T16:42:33Z",
+  "coverage": {
+    "base@repo.repo.main": {
+      "capability": "base",
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "complete",
+      "gapIds": []
+    },
+    "routes@repo.repo.main": {
+      "capability": "routes",
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "frontend@repo.repo.main": {
+      "capability": "frontend",
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "api@repo.repo.main": {
+      "capability": "api",
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "database@repo.repo.main": {
+      "capability": "database",
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "workflow@repo.repo.main": {
+      "capability": "workflow",
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "report@repo.repo.main": {
+      "capability": "report",
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "not_configured",
+      "gapIds": []
+    }
+  }
+}
+
+### 03-collect-extract
+command: E:\Project\my-project\code-graph\target\debug\project-knowledge.exe collect --config "C:\Users\hubo9\AppData\Local\Temp\pk-collect-b934ca598bbd45a4987b2a53effcf4bd\workspace\.project-knowledge\project.json" --phase extract --validate-only
+exit=0
+{
+  "phase": "extract",
+  "validateOnly": true,
+  "committed": false,
+  "results": [
+    {
+      "pluginId": "template.node",
+      "version": "0.1.0",
+      "stageId": "extract",
+      "artifactHash": "41b9b59da64793131f0bfe2400bc38df5c113ae77240e068e2a052cd231f069c",
+      "stdoutBytes": 272,
+      "stderrBytes": 67,
+      "durationMs": 47,
+      "entities": 0,
+      "relations": 0,
+      "evidence": 0,
+      "gaps": 0,
+      "validation": {
+        "issues": []
+      },
+      "committed": false,
+      "status": "validated"
+    }
+  ],
+  "note": "正式提交事实需要校验与导入流程（T08/T09）；本命令只运行并校验阶段输出。",
+  "completedAt": "2026-10-25T16:42:33Z"
+}
+
+### 04-collect-extract-plugin-filter
+command: E:\Project\my-project\code-graph\target\debug\project-knowledge.exe collect --config "C:\Users\hubo9\AppData\Local\Temp\pk-collect-b934ca598bbd45a4987b2a53effcf4bd\workspace\.project-knowledge\project.json" --phase extract --plugin template.node --validate-only
+exit=0
+{
+  "phase": "extract",
+  "validateOnly": true,
+  "committed": false,
+  "results": [
+    {
+      "pluginId": "template.node",
+      "version": "0.1.0",
+      "stageId": "extract",
+      "artifactHash": "41b9b59da64793131f0bfe2400bc38df5c113ae77240e068e2a052cd231f069c",
+      "stdoutBytes": 272,
+      "stderrBytes": 67,
+      "durationMs": 52,
+      "entities": 0,
+      "relations": 0,
+      "evidence": 0,
+      "gaps": 0,
+      "validation": {
+        "issues": []
+      },
+      "committed": false,
+      "status": "validated"
+    }
+  ],
+  "note": "正式提交事实需要校验与导入流程（T08/T09）；本命令只运行并校验阶段输出。",
+  "completedAt": "2026-10-25T16:42:33Z"
+}
+
+### 05-collect-unknown-plugin
+command: E:\Project\my-project\code-graph\target\debug\project-knowledge.exe collect --config "C:\Users\hubo9\AppData\Local\Temp\pk-collect-b934ca598bbd45a4987b2a53effcf4bd\workspace\.project-knowledge\project.json" --phase extract --plugin not.exists --validate-only
+exit=1
+error: [INDEX_MISSING] no collector manifest found; register one under `collectors` or `plugins.directories`
+{
+  "error": {
+    "code": "INDEX_MISSING",
+    "message": "no collector manifest found; register one under `collectors` or `plugins.directories`",
+    "retryable": false,
+    "issues": []
+  }
+}
+

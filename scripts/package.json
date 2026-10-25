@@ -1,0 +1,25 @@
+{
+  "name": "@project-knowledge/scripts",
+  "version": "0.1.0",
+  "private": true,
+  "description": "开发辅助脚本：契约类型生成、任务计划校验、场景验收、制品与安装验收",
+  "license": "MIT OR Apache-2.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "generate-types": "node ./generate-types.mjs",
+    "verify:plan": "node ./verify-plan.mjs",
+    "verify:scenarios": "node ./verify-scenarios.mjs",
+    "verify:plugins": "node ./verify-plugins.mjs",
+    "verify:packages": "node ./verify-packages.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "execa": "catalog:",
+    "json-schema-to-typescript": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  }
+}

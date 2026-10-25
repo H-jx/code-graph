@@ -1,0 +1,82 @@
+﻿{
+  "protocolVersion": "1.0",
+  "requestId": "req_35eb0454-c334-462f-867f-7571b8ca4647",
+  "snapshot": {
+    "indexId": "5ea4b039-c803-4a25-bd1a-b8dba8e05aea",
+    "generation": "2",
+    "sourceSnapshotId": "snap_ae844075416adae22d6115aba04feb934cf601261091b9f2ce31e1a8e264bdba"
+  },
+  "status": "complete",
+  "data": {
+    "base": {
+      "state": "fresh",
+      "coverage": {
+        "api@repo.repo.main": {
+          "capability": "api",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "base@repo.repo.main": {
+          "capability": "base",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "complete"
+        },
+        "database@repo.repo.main": {
+          "capability": "database",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "frontend@repo.repo.main": {
+          "capability": "frontend",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "report@repo.repo.main": {
+          "capability": "report",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "routes@repo.repo.main": {
+          "capability": "routes",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "workflow@repo.repo.main": {
+          "capability": "workflow",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        }
+      }
+    },
+    "collectors": [],
+    "knowledge": null,
+    "activeVersions": {}
+  },
+  "sourceReferences": [],
+  "gaps": [],
+  "completeness": {
+    "freshness": "fresh",
+    "diskChecked": true,
+    "checkedAt": "2026-10-25T16:29:04Z",
+    "coverage": "partial",
+    "candidateSetsComplete": true,
+    "truncated": false,
+    "reasons": []
+  },
+  "budgetUsed": {
+    "entities": 0,
+    "relations": 0,
+    "visited": 0,
+    "elapsedMs": 0,
+    "responseChars": 0
+  },
+  "nextQueries": []
+}
+

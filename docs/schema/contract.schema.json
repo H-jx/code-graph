@@ -1,0 +1,2919 @@
+{
+  "$defs": {
+    "AssertionInput": {
+      "additionalProperties": false,
+      "description": "已存在的断言。",
+      "properties": {
+        "assertionId": {
+          "type": "string"
+        },
+        "attributes": {
+          "additionalProperties": true,
+          "default": {},
+          "type": "object"
+        },
+        "basis": {
+          "$ref": "#/$defs/Basis"
+        },
+        "batchId": {
+          "type": "string"
+        },
+        "evidenceRefs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "origin": {
+          "$ref": "#/$defs/Origin"
+        },
+        "producerKey": {
+          "type": "string"
+        },
+        "resolution": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Resolution"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "assertionId",
+        "producerKey",
+        "batchId",
+        "basis",
+        "origin"
+      ],
+      "type": "object"
+    },
+    "AssertionOutput": {
+      "additionalProperties": false,
+      "description": "插件产出的断言。",
+      "properties": {
+        "attributes": {
+          "additionalProperties": true,
+          "default": {},
+          "type": "object"
+        },
+        "basis": {
+          "$ref": "#/$defs/Basis"
+        },
+        "evidenceRefs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "origin": {
+          "$ref": "#/$defs/Origin"
+        },
+        "producerKey": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "producerKey",
+        "basis",
+        "origin"
+      ],
+      "type": "object"
+    },
+    "Basis": {
+      "description": "事实依据。",
+      "oneOf": [
+        {
+          "const": "observed",
+          "description": "原始代码或配置中可观察的结构。",
+          "type": "string"
+        },
+        {
+          "const": "declared",
+          "description": "原始规范或资料中的声明。",
+          "type": "string"
+        },
+        {
+          "const": "inferred",
+          "description": "推断。",
+          "type": "string"
+        }
+      ]
+    },
+    "Budget": {
+      "additionalProperties": false,
+      "description": "查询预算。",
+      "properties": {
+        "maxDepth": {
+          "format": "uint32",
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "maxEntities": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "maxRelations": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "maxResponseChars": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "maxVisited": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "timeoutMs": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "BudgetUsed": {
+      "additionalProperties": false,
+      "description": "预算使用情况。",
+      "properties": {
+        "elapsedMs": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "entities": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "relations": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "responseChars": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "visited": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "entities",
+        "relations",
+        "visited",
+        "elapsedMs",
+        "responseChars"
+      ],
+      "type": "object"
+    },
+    "CandidateSet": {
+      "additionalProperties": false,
+      "description": "候选集合摘要。",
+      "properties": {
+        "complete": {
+          "type": "boolean"
+        },
+        "digest": {
+          "type": "string"
+        },
+        "entityIds": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "selectorId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "selectorId",
+        "digest",
+        "complete"
+      ],
+      "type": "object"
+    },
+    "CollectorInput": {
+      "additionalProperties": false,
+      "description": "插件输入。",
+      "properties": {
+        "allowedExtensions": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "candidateSets": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/CandidateSet"
+          },
+          "type": "array"
+        },
+        "configSubset": {
+          "default": null
+        },
+        "entities": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EntityInput"
+          },
+          "type": "array"
+        },
+        "inputSnapshotId": {
+          "type": "string"
+        },
+        "limits": {
+          "$ref": "#/$defs/Limits"
+        },
+        "pluginId": {
+          "type": "string"
+        },
+        "protocolVersion": {
+          "type": "string"
+        },
+        "relations": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/RelationInput"
+          },
+          "type": "array"
+        },
+        "runId": {
+          "type": "string"
+        },
+        "snapshot": {
+          "$ref": "#/$defs/SnapshotRef"
+        },
+        "sourceSets": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/SourceSet"
+          },
+          "type": "array"
+        },
+        "sources": {
+          "items": {
+            "$ref": "#/$defs/SourcePayload"
+          },
+          "type": "array"
+        },
+        "stageId": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "runId",
+        "pluginId",
+        "version",
+        "stageId",
+        "snapshot",
+        "inputSnapshotId",
+        "sources",
+        "limits"
+      ],
+      "type": "object"
+    },
+    "CollectorOutput": {
+      "additionalProperties": false,
+      "description": "插件输出。",
+      "properties": {
+        "coverage": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Coverage"
+          },
+          "type": "array"
+        },
+        "dependencies": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Dependency"
+          },
+          "type": "array"
+        },
+        "entities": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EntityOutput"
+          },
+          "type": "array"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "type": "array"
+        },
+        "gaps": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Gap"
+          },
+          "type": "array"
+        },
+        "inputSnapshotId": {
+          "type": "string"
+        },
+        "protocolVersion": {
+          "type": "string"
+        },
+        "relations": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/RelationOutput"
+          },
+          "type": "array"
+        },
+        "runId": {
+          "type": "string"
+        },
+        "stageId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "runId",
+        "stageId",
+        "inputSnapshotId"
+      ],
+      "type": "object"
+    },
+    "CommonFilters": {
+      "additionalProperties": false,
+      "description": "公共过滤条件。",
+      "properties": {
+        "basisFilter": {
+          "description": "依据过滤，默认 `observed` + `declared`。",
+          "items": {
+            "$ref": "#/$defs/Basis"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "freshnessPolicy": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/FreshnessPolicy"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "新鲜度策略，默认 `verify`。"
+        },
+        "includeCandidates": {
+          "description": "是否包含候选关系，默认 `false`。",
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "kinds": {
+          "items": {
+            "$ref": "#/$defs/EntityKind"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "repositoryIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "scopeIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "Completeness": {
+      "additionalProperties": false,
+      "description": "完整性信息。",
+      "properties": {
+        "candidateSetsComplete": {
+          "type": "boolean"
+        },
+        "checkedAt": {
+          "type": "string"
+        },
+        "coverage": {
+          "$ref": "#/$defs/CoverageLevel"
+        },
+        "diskChecked": {
+          "type": "boolean"
+        },
+        "freshness": {
+          "$ref": "#/$defs/Freshness"
+        },
+        "reasons": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "truncated": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "freshness",
+        "diskChecked",
+        "checkedAt",
+        "coverage",
+        "candidateSetsComplete",
+        "truncated"
+      ],
+      "type": "object"
+    },
+    "Coverage": {
+      "additionalProperties": false,
+      "description": "覆盖声明。",
+      "properties": {
+        "capability": {
+          "type": "string"
+        },
+        "counts": {
+          "additionalProperties": true,
+          "default": {},
+          "type": "object"
+        },
+        "gapIds": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "scopeId": {
+          "type": "string"
+        },
+        "sourceSetId": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/CoverageStatus"
+        }
+      },
+      "required": [
+        "capability",
+        "scopeId",
+        "sourceSetId",
+        "status"
+      ],
+      "type": "object"
+    },
+    "CoverageLevel": {
+      "description": "覆盖级别。",
+      "enum": [
+        "complete",
+        "partial",
+        "notConfigured",
+        "failed"
+      ],
+      "type": "string"
+    },
+    "CoverageStatus": {
+      "description": "覆盖状态。",
+      "enum": [
+        "complete",
+        "partial",
+        "notConfigured",
+        "failed"
+      ],
+      "type": "string"
+    },
+    "Dependency": {
+      "additionalProperties": false,
+      "description": "依赖记录。`digest` 由 Core 计算或复核，插件不能自报任意新鲜值。",
+      "properties": {
+        "digest": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/DependencyKind"
+        }
+      },
+      "required": [
+        "kind",
+        "key",
+        "digest"
+      ],
+      "type": "object"
+    },
+    "DependencyKind": {
+      "description": "依赖种类。",
+      "enum": [
+        "source",
+        "sourceSet",
+        "config",
+        "artifact",
+        "runtime",
+        "candidateSet",
+        "upstreamBatch",
+        "prompt",
+        "topicInput"
+      ],
+      "type": "string"
+    },
+    "DependencyManagerKind": {
+      "description": "依赖管理方式。",
+      "enum": [
+        "npm",
+        "pip"
+      ],
+      "type": "string"
+    },
+    "DependencySpec": {
+      "additionalProperties": false,
+      "description": "依赖声明。",
+      "properties": {
+        "kind": {
+          "$ref": "#/$defs/DependencyManagerKind"
+        },
+        "lockFile": {
+          "type": "string"
+        },
+        "manifest": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind",
+        "manifest",
+        "lockFile"
+      ],
+      "type": "object"
+    },
+    "Direction": {
+      "description": "遍历方向。",
+      "enum": [
+        "in",
+        "out",
+        "both"
+      ],
+      "type": "string"
+    },
+    "Entity": {
+      "additionalProperties": false,
+      "description": "实体。",
+      "properties": {
+        "attributes": {
+          "additionalProperties": true,
+          "default": {},
+          "type": "object"
+        },
+        "basis": {
+          "$ref": "#/$defs/Basis"
+        },
+        "evidenceRefs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "extensions": {
+          "additionalProperties": true,
+          "default": {},
+          "type": "object"
+        },
+        "id": {
+          "type": "string"
+        },
+        "identity": {
+          "items": {
+            "$ref": "#/$defs/IdentitySlot"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "$ref": "#/$defs/EntityKind"
+        },
+        "origin": {
+          "$ref": "#/$defs/Origin"
+        },
+        "scopeId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "scopeId",
+        "identity",
+        "basis",
+        "origin"
+      ],
+      "type": "object"
+    },
+    "EntityInput": {
+      "additionalProperties": false,
+      "description": "插件输入中的实体（只读）。",
+      "properties": {
+        "assertions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/AssertionInput"
+          },
+          "type": "array"
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "identity": {
+          "items": {
+            "$ref": "#/$defs/IdentitySlot"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "$ref": "#/$defs/EntityKind"
+        },
+        "scopeId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "entityId",
+        "kind",
+        "scopeId",
+        "identity"
+      ],
+      "type": "object"
+    },
+    "EntityKind": {
+      "description": "内置实体类型。扩展类型形如 `x.<pluginId>.<localName>`，另行注册。",
+      "enum": [
+        "file",
+        "symbol",
+        "component",
+        "operation",
+        "route",
+        "httpEndpoint",
+        "graphqlOperation",
+        "graphqlField",
+        "dataTable",
+        "dataColumn",
+        "dataKey",
+        "module",
+        "entrypoint",
+        "workflowState",
+        "documentType",
+        "queryImplementation",
+        "reportField",
+        "event",
+        "request",
+        "title",
+        "comment",
+        "dataSource",
+        "service"
+      ],
+      "type": "string"
+    },
+    "EntityOutput": {
+      "additionalProperties": false,
+      "description": "插件产出的实体。",
+      "properties": {
+        "assertion": {
+          "$ref": "#/$defs/AssertionOutput"
+        },
+        "entityId": {
+          "type": "string"
+        },
+        "identity": {
+          "items": {
+            "$ref": "#/$defs/IdentitySlot"
+          },
+          "type": "array"
+        },
+        "kind": {
+          "$ref": "#/$defs/EntityKind"
+        },
+        "scopeId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "entityId",
+        "kind",
+        "scopeId",
+        "identity",
+        "assertion"
+      ],
+      "type": "object"
+    },
+    "EntityRef": {
+      "additionalProperties": false,
+      "description": "实体引用。",
+      "properties": {
+        "entityId": {
+          "type": "string"
+        },
+        "snapshot": {
+          "$ref": "#/$defs/SnapshotRef"
+        }
+      },
+      "required": [
+        "snapshot",
+        "entityId"
+      ],
+      "type": "object"
+    },
+    "EntitySelector": {
+      "additionalProperties": false,
+      "description": "实体选择器。",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "kinds": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EntityKind"
+          },
+          "type": "array"
+        },
+        "scopeIds": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "ErrorBody": {
+      "additionalProperties": false,
+      "description": "错误内容。",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "issues": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Issue"
+          },
+          "type": "array"
+        },
+        "message": {
+          "type": "string"
+        },
+        "phase": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "retryable": {
+          "type": "boolean"
+        },
+        "runId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "message",
+        "retryable"
+      ],
+      "type": "object"
+    },
+    "ErrorEnvelope": {
+      "additionalProperties": false,
+      "description": "统一错误信封。",
+      "properties": {
+        "error": {
+          "$ref": "#/$defs/ErrorBody"
+        }
+      },
+      "required": [
+        "error"
+      ],
+      "type": "object"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "description": "证据：指向来源版本中的字节区间。",
+      "properties": {
+        "contentHash": {
+          "type": "string"
+        },
+        "endByte": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "endLine": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "startByte": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "startLine": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "id",
+        "sourceId",
+        "contentHash",
+        "startByte",
+        "endByte",
+        "startLine",
+        "endLine",
+        "role"
+      ],
+      "type": "object"
+    },
+    "Freshness": {
+      "description": "新鲜度。",
+      "enum": [
+        "fresh",
+        "stale",
+        "unknown"
+      ],
+      "type": "string"
+    },
+    "FreshnessPolicy": {
+      "description": "新鲜度策略。",
+      "oneOf": [
+        {
+          "const": "verify",
+          "description": "在预算内核对相关来源与集合；确认不了返回 unknown。",
+          "type": "string"
+        },
+        {
+          "const": "indexed",
+          "description": "只说明库内状态，不核验磁盘。",
+          "type": "string"
+        },
+        {
+          "const": "allowStale",
+          "description": "明确返回历史断言并附警示。",
+          "type": "string"
+        }
+      ]
+    },
+    "Gap": {
+      "additionalProperties": false,
+      "description": "缺口。",
+      "properties": {
+        "candidateIds": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "capability": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "requiredEvidence": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "scopeId": {
+          "type": "string"
+        },
+        "sourceRefs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "code",
+        "capability",
+        "scopeId",
+        "reason"
+      ],
+      "type": "object"
+    },
+    "Gap2": {
+      "additionalProperties": false,
+      "description": "缺口（查询响应内使用）。",
+      "properties": {
+        "candidateIds": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "capability": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        },
+        "requiredEvidence": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "scopeId": {
+          "type": "string"
+        },
+        "sourceRefs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "code",
+        "capability",
+        "scopeId",
+        "reason"
+      ],
+      "type": "object"
+    },
+    "IdentitySlot": {
+      "additionalProperties": false,
+      "description": "一个身份槽位。`value` 为 `None` 表示该槽位缺省（只允许可选槽位）。",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/IdentityValue"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "IdentityValue": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "format": "int64",
+          "type": "integer"
+        },
+        {
+          "items": {
+            "$ref": "#/$defs/IdentityValue"
+          },
+          "type": "array"
+        }
+      ],
+      "description": "身份值的规范取值。"
+    },
+    "Issue": {
+      "additionalProperties": false,
+      "description": "校验问题明细。",
+      "properties": {
+        "actual": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "code": {
+          "type": "string"
+        },
+        "expected": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "instancePath": {
+          "description": "JSON Pointer。",
+          "type": "string"
+        },
+        "repairHint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sourceReference": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/SourceReference"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "instancePath"
+      ],
+      "type": "object"
+    },
+    "Limits": {
+      "additionalProperties": false,
+      "description": "运行限额。",
+      "properties": {
+        "maxInputBytes": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "maxOutputBytes": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "maxStderrBytes": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "timeoutMs": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "timeoutMs",
+        "maxInputBytes",
+        "maxOutputBytes",
+        "maxStderrBytes"
+      ],
+      "type": "object"
+    },
+    "NextQuery": {
+      "additionalProperties": false,
+      "description": "建议的下一条查询。",
+      "properties": {
+        "arguments": {
+          "additionalProperties": true,
+          "default": {},
+          "type": "object"
+        },
+        "operation": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operation",
+        "reason"
+      ],
+      "type": "object"
+    },
+    "Origin": {
+      "description": "断言来源。",
+      "oneOf": [
+        {
+          "const": "static",
+          "description": "静态规则或插件脚本产生。",
+          "type": "string"
+        },
+        {
+          "const": "human",
+          "description": "人工登记。",
+          "type": "string"
+        },
+        {
+          "const": "ai",
+          "description": "模型判断（必须是 `inferred` 依据）。",
+          "type": "string"
+        }
+      ]
+    },
+    "PluginManifest": {
+      "additionalProperties": false,
+      "description": "插件 manifest。",
+      "properties": {
+        "acceptanceCases": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "artifacts": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "capabilities": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "dependencies": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/DependencySpec"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "extensions": {
+          "additionalProperties": true,
+          "default": {},
+          "type": "object"
+        },
+        "limits": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Limits"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "pluginId": {
+          "type": "string"
+        },
+        "protocolVersion": {
+          "type": "string"
+        },
+        "runtime": {
+          "$ref": "#/$defs/RuntimeSpec"
+        },
+        "stages": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/StageSpec"
+          },
+          "type": "array"
+        },
+        "version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "pluginId",
+        "version",
+        "runtime"
+      ],
+      "type": "object"
+    },
+    "QueryRequest": {
+      "description": "查询请求。",
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "description": "状态查询。",
+          "properties": {
+            "checkFreshness": {
+              "default": true,
+              "type": "boolean"
+            },
+            "operation": {
+              "const": "status",
+              "type": "string"
+            }
+          },
+          "required": [
+            "operation"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "搜索请求。",
+          "properties": {
+            "budget": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Budget"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "continuation": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "fields": {
+              "items": {
+                "$ref": "#/$defs/SearchField"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "filters": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/CommonFilters"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "operation": {
+              "const": "search",
+              "type": "string"
+            },
+            "pageSize": {
+              "format": "uint32",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "query": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "operation",
+            "query"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "需求定位请求。",
+          "properties": {
+            "budget": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Budget"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "filters": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/CommonFilters"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "operation": {
+              "const": "locateFeature",
+              "type": "string"
+            },
+            "query": {
+              "type": "string"
+            },
+            "rootFilter": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/RootFilter"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "routeHint": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "traversal": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Traversal"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "view": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "operation",
+            "query"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "链路追踪请求。",
+          "properties": {
+            "budget": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Budget"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "direction": {
+              "$ref": "#/$defs/Direction"
+            },
+            "filters": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/CommonFilters"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "maxDepth": {
+              "format": "uint32",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "operation": {
+              "const": "trace",
+              "type": "string"
+            },
+            "relationKinds": {
+              "items": {
+                "$ref": "#/$defs/RelationKind"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "roots": {
+              "items": {
+                "$ref": "#/$defs/EntityRef"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "operation",
+            "roots",
+            "direction"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "代码地图请求。",
+          "properties": {
+            "budget": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Budget"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "filters": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/CommonFilters"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "maxFiles": {
+              "format": "uint32",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "maxSymbols": {
+              "format": "uint32",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "operation": {
+              "const": "codeMap",
+              "type": "string"
+            },
+            "query": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "roots": {
+              "items": {
+                "$ref": "#/$defs/EntityRef"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "operation"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "读取来源请求。",
+          "properties": {
+            "filters": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/CommonFilters"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "maxResponseChars": {
+              "format": "uint64",
+              "minimum": 0,
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "operation": {
+              "const": "readSource",
+              "type": "string"
+            },
+            "references": {
+              "items": {
+                "$ref": "#/$defs/SourceReference"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "operation",
+            "references"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "页面查询请求。",
+          "properties": {
+            "budget": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Budget"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "filters": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/CommonFilters"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "operation": {
+              "const": "page",
+              "type": "string"
+            },
+            "route": {
+              "type": "string"
+            },
+            "scopeIds": {
+              "items": {
+                "type": "string"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "operation",
+            "route"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "流程查询请求。",
+          "properties": {
+            "budget": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Budget"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "filters": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/CommonFilters"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "operation": {
+              "const": "workflow",
+              "type": "string"
+            },
+            "query": {
+              "type": "string"
+            },
+            "roots": {
+              "items": {
+                "$ref": "#/$defs/EntityRef"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "scopeIds": {
+              "items": {
+                "type": "string"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "operation",
+            "query"
+          ],
+          "type": "object"
+        },
+        {
+          "additionalProperties": false,
+          "description": "台账查询请求。",
+          "properties": {
+            "budget": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/Budget"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "filters": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/CommonFilters"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "operation": {
+              "const": "report",
+              "type": "string"
+            },
+            "query": {
+              "type": "string"
+            },
+            "roots": {
+              "items": {
+                "$ref": "#/$defs/EntityRef"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            },
+            "scopeIds": {
+              "items": {
+                "type": "string"
+              },
+              "type": [
+                "array",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "operation",
+            "query"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "QueryResponse": {
+      "additionalProperties": false,
+      "description": "查询响应。",
+      "properties": {
+        "budgetUsed": {
+          "$ref": "#/$defs/BudgetUsed"
+        },
+        "completeness": {
+          "$ref": "#/$defs/Completeness"
+        },
+        "continuation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "data": true,
+        "gaps": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Gap2"
+          },
+          "type": "array"
+        },
+        "nextQueries": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/NextQuery"
+          },
+          "type": "array"
+        },
+        "protocolVersion": {
+          "type": "string"
+        },
+        "requestId": {
+          "type": "string"
+        },
+        "snapshot": {
+          "$ref": "#/$defs/SnapshotRef"
+        },
+        "sourceReferences": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/SourceReference"
+          },
+          "type": "array"
+        },
+        "status": {
+          "$ref": "#/$defs/ResponseStatus"
+        }
+      },
+      "required": [
+        "protocolVersion",
+        "requestId",
+        "snapshot",
+        "status",
+        "data",
+        "completeness",
+        "budgetUsed"
+      ],
+      "type": "object"
+    },
+    "Relation": {
+      "additionalProperties": false,
+      "description": "关系。",
+      "properties": {
+        "basis": {
+          "$ref": "#/$defs/Basis"
+        },
+        "evidenceRefs": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "extensions": {
+          "additionalProperties": true,
+          "default": {},
+          "type": "object"
+        },
+        "fromId": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/RelationKind"
+        },
+        "origin": {
+          "$ref": "#/$defs/Origin"
+        },
+        "qualifiers": {
+          "additionalProperties": true,
+          "default": {},
+          "type": "object"
+        },
+        "resolution": {
+          "$ref": "#/$defs/Resolution"
+        },
+        "toId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "fromId",
+        "toId",
+        "basis",
+        "origin",
+        "resolution"
+      ],
+      "type": "object"
+    },
+    "RelationInput": {
+      "additionalProperties": false,
+      "description": "插件输入中的关系（只读）。",
+      "properties": {
+        "assertions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/AssertionInput"
+          },
+          "type": "array"
+        },
+        "fromId": {
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/RelationKind"
+        },
+        "qualifiers": {
+          "additionalProperties": true,
+          "default": {},
+          "type": "object"
+        },
+        "relationId": {
+          "type": "string"
+        },
+        "toId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "relationId",
+        "kind",
+        "fromId",
+        "toId"
+      ],
+      "type": "object"
+    },
+    "RelationKind": {
+      "description": "内置关系类型。扩展类型形如 `x.<pluginId>.<localName>`，另行注册。",
+      "enum": [
+        "contains",
+        "defines",
+        "imports",
+        "references",
+        "calls",
+        "renders",
+        "handles",
+        "triggers",
+        "wraps",
+        "requests",
+        "serves",
+        "resolves",
+        "reads",
+        "writes",
+        "mapsTo",
+        "joins",
+        "transitionsTo",
+        "precedes",
+        "relatesDocument",
+        "describes"
+      ],
+      "type": "string"
+    },
+    "RelationOutput": {
+      "additionalProperties": false,
+      "description": "插件产出的关系。",
+      "properties": {
+        "assertion": {
+          "$ref": "#/$defs/AssertionOutput"
+        },
+        "fromId": {
+          "type": "string"
+        },
+        "kind": {
+          "$ref": "#/$defs/RelationKind"
+        },
+        "qualifiers": {
+          "additionalProperties": true,
+          "default": {},
+          "type": "object"
+        },
+        "relationId": {
+          "type": "string"
+        },
+        "resolution": {
+          "$ref": "#/$defs/Resolution"
+        },
+        "toId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "relationId",
+        "kind",
+        "fromId",
+        "toId",
+        "resolution",
+        "assertion"
+      ],
+      "type": "object"
+    },
+    "ReplacementScope": {
+      "description": "替换范围。v1 只支持整项目替换。",
+      "enum": [
+        "project"
+      ],
+      "type": "string"
+    },
+    "Resolution": {
+      "description": "关系解析状态。",
+      "enum": [
+        "confirmed",
+        "candidate"
+      ],
+      "type": "string"
+    },
+    "ResponseStatus": {
+      "description": "响应状态。`complete` 只代表请求范围和预算内结果完整。",
+      "enum": [
+        "complete",
+        "partial"
+      ],
+      "type": "string"
+    },
+    "RootFilter": {
+      "additionalProperties": false,
+      "description": "根选择过滤：只限制起点，不限制后续遍历类型。",
+      "properties": {
+        "kinds": {
+          "items": {
+            "$ref": "#/$defs/EntityKind"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "scopeIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "RuntimeKind": {
+      "description": "运行时种类。",
+      "enum": [
+        "node",
+        "python",
+        "executable"
+      ],
+      "type": "string"
+    },
+    "RuntimeSpec": {
+      "additionalProperties": false,
+      "description": "运行时声明。",
+      "properties": {
+        "executableId": {
+          "description": "`executable` 运行时只能引用项目显式配置的 runtime ID。",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "$ref": "#/$defs/RuntimeKind"
+        },
+        "versionRange": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "type": "object"
+    },
+    "SearchField": {
+      "description": "搜索字段。",
+      "enum": [
+        "businessTerm",
+        "route",
+        "title",
+        "comment",
+        "module",
+        "symbol",
+        "path",
+        "source"
+      ],
+      "type": "string"
+    },
+    "SnapshotRef": {
+      "additionalProperties": false,
+      "description": "索引快照标识。",
+      "properties": {
+        "generation": {
+          "description": "无符号十进制字符串。",
+          "type": "string"
+        },
+        "indexId": {
+          "type": "string"
+        },
+        "sourceSnapshotId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "indexId",
+        "generation"
+      ],
+      "type": "object"
+    },
+    "Source": {
+      "additionalProperties": false,
+      "description": "来源身份：按仓库与相对路径确定。",
+      "properties": {
+        "byteLength": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "contentHash": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "repositoryId": {
+          "type": "string"
+        },
+        "sourceClass": {
+          "$ref": "#/$defs/SourceClass"
+        }
+      },
+      "required": [
+        "id",
+        "repositoryId",
+        "path",
+        "sourceClass",
+        "contentHash",
+        "byteLength"
+      ],
+      "type": "object"
+    },
+    "SourceClass": {
+      "description": "来源类别。",
+      "oneOf": [
+        {
+          "enum": [
+            "code",
+            "config",
+            "schema",
+            "documentation"
+          ],
+          "type": "string"
+        },
+        {
+          "const": "derivedConvention",
+          "description": "已调查、派生自原始资料的约定。",
+          "type": "string"
+        },
+        {
+          "const": "generatedKnowledge",
+          "description": "模型生成的材料；不得作为事实采集来源。",
+          "type": "string"
+        }
+      ]
+    },
+    "SourcePayload": {
+      "additionalProperties": false,
+      "description": "带内容的来源。",
+      "properties": {
+        "byteLength": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "content": {
+          "description": "原始字节内容（UTF-8 文本）。",
+          "type": "string"
+        },
+        "contentHash": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "type": "string"
+        },
+        "repositoryId": {
+          "type": "string"
+        },
+        "sourceClass": {
+          "$ref": "#/$defs/SourceClass"
+        }
+      },
+      "required": [
+        "id",
+        "repositoryId",
+        "path",
+        "sourceClass",
+        "contentHash",
+        "byteLength",
+        "content"
+      ],
+      "type": "object"
+    },
+    "SourceReference": {
+      "additionalProperties": false,
+      "description": "查询响应中回传的来源引用；客户端必须原样传回，不得自行拼接 ID。",
+      "properties": {
+        "contentHash": {
+          "type": "string"
+        },
+        "endByte": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "evidenceId": {
+          "type": "string"
+        },
+        "snapshot": {
+          "$ref": "#/$defs/SnapshotRef"
+        },
+        "sourceId": {
+          "type": "string"
+        },
+        "startByte": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "snapshot",
+        "evidenceId",
+        "sourceId",
+        "contentHash",
+        "startByte",
+        "endByte"
+      ],
+      "type": "object"
+    },
+    "SourceSelector": {
+      "additionalProperties": false,
+      "description": "来源选择器。",
+      "properties": {
+        "exclude": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "id": {
+          "type": "string"
+        },
+        "include": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "repositoryIds": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "type": "object"
+    },
+    "SourceSet": {
+      "additionalProperties": false,
+      "description": "来源集合摘要。",
+      "properties": {
+        "complete": {
+          "description": "集合是否完整导出；`false` 表示被限额截断。",
+          "type": "boolean"
+        },
+        "digest": {
+          "type": "string"
+        },
+        "selectorId": {
+          "type": "string"
+        },
+        "sourceIds": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "selectorId",
+        "digest",
+        "complete"
+      ],
+      "type": "object"
+    },
+    "StagePhase": {
+      "description": "阶段所属阶段。",
+      "enum": [
+        "extract",
+        "link"
+      ],
+      "type": "string"
+    },
+    "StageSpec": {
+      "additionalProperties": false,
+      "description": "阶段声明。",
+      "properties": {
+        "args": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "dependsOn": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "entitySelectors": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/EntitySelector"
+          },
+          "type": "array"
+        },
+        "entry": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "phase": {
+          "$ref": "#/$defs/StagePhase"
+        },
+        "replacement": {
+          "$ref": "#/$defs/ReplacementScope"
+        },
+        "sourceSelectors": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/SourceSelector"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "phase",
+        "entry",
+        "replacement"
+      ],
+      "type": "object"
+    },
+    "Traversal": {
+      "additionalProperties": false,
+      "description": "遍历参数。",
+      "properties": {
+        "direction": {
+          "$ref": "#/$defs/Direction"
+        },
+        "filter": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/TraversalFilter"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "maxDepth": {
+          "format": "uint32",
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "direction"
+      ],
+      "type": "object"
+    },
+    "TraversalFilter": {
+      "additionalProperties": false,
+      "description": "遍历过滤。",
+      "properties": {
+        "kinds": {
+          "items": {
+            "$ref": "#/$defs/EntityKind"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "relationKinds": {
+          "items": {
+            "$ref": "#/$defs/RelationKind"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "type": "object"
+    }
+  },
+  "$id": "https://project-knowledge.invalid/schema/contract.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Core、CLI、SDK、MCP 与插件共同遵守的协议；类型由 Rust 契约导出。",
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "description": "状态查询。",
+      "properties": {
+        "checkFreshness": {
+          "default": true,
+          "type": "boolean"
+        },
+        "operation": {
+          "const": "status",
+          "type": "string"
+        }
+      },
+      "required": [
+        "operation"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "description": "搜索请求。",
+      "properties": {
+        "budget": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Budget"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "continuation": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fields": {
+          "items": {
+            "$ref": "#/$defs/SearchField"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "filters": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CommonFilters"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "operation": {
+          "const": "search",
+          "type": "string"
+        },
+        "pageSize": {
+          "format": "uint32",
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "query": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operation",
+        "query"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "description": "需求定位请求。",
+      "properties": {
+        "budget": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Budget"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "filters": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CommonFilters"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "operation": {
+          "const": "locateFeature",
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "rootFilter": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RootFilter"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "routeHint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "traversal": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Traversal"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "view": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "operation",
+        "query"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "description": "链路追踪请求。",
+      "properties": {
+        "budget": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Budget"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "direction": {
+          "$ref": "#/$defs/Direction"
+        },
+        "filters": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CommonFilters"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "maxDepth": {
+          "format": "uint32",
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "operation": {
+          "const": "trace",
+          "type": "string"
+        },
+        "relationKinds": {
+          "items": {
+            "$ref": "#/$defs/RelationKind"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "roots": {
+          "items": {
+            "$ref": "#/$defs/EntityRef"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "roots",
+        "direction"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "description": "代码地图请求。",
+      "properties": {
+        "budget": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Budget"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "filters": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CommonFilters"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "maxFiles": {
+          "format": "uint32",
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "maxSymbols": {
+          "format": "uint32",
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "operation": {
+          "const": "codeMap",
+          "type": "string"
+        },
+        "query": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "roots": {
+          "items": {
+            "$ref": "#/$defs/EntityRef"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "operation"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "description": "读取来源请求。",
+      "properties": {
+        "filters": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CommonFilters"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "maxResponseChars": {
+          "format": "uint64",
+          "minimum": 0,
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "operation": {
+          "const": "readSource",
+          "type": "string"
+        },
+        "references": {
+          "items": {
+            "$ref": "#/$defs/SourceReference"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "operation",
+        "references"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "description": "页面查询请求。",
+      "properties": {
+        "budget": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Budget"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "filters": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CommonFilters"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "operation": {
+          "const": "page",
+          "type": "string"
+        },
+        "route": {
+          "type": "string"
+        },
+        "scopeIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "operation",
+        "route"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "description": "流程查询请求。",
+      "properties": {
+        "budget": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Budget"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "filters": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CommonFilters"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "operation": {
+          "const": "workflow",
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "roots": {
+          "items": {
+            "$ref": "#/$defs/EntityRef"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "scopeIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "operation",
+        "query"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "description": "台账查询请求。",
+      "properties": {
+        "budget": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Budget"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "filters": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CommonFilters"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "operation": {
+          "const": "report",
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "roots": {
+          "items": {
+            "$ref": "#/$defs/EntityRef"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "scopeIds": {
+          "items": {
+            "type": "string"
+          },
+          "type": [
+            "array",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "operation",
+        "query"
+      ],
+      "type": "object"
+    }
+  ],
+  "title": "Project Knowledge Contract",
+  "x-protocolVersion": "1.0",
+  "x-schemaVersion": 1
+}

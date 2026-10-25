@@ -1,0 +1,41 @@
+{
+  "name": "project-knowledge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Rust Core + Rig Agent + TypeScript SDK/MCP 单仓骨架（结构与依赖就绪，功能待实现）",
+  "license": "MIT OR Apache-2.0",
+  "type": "module",
+  "packageManager": "pnpm@10.34.8",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "build:contracts": "cargo run -p xtask -- export-contracts && node scripts/generate-types.mjs",
+    "check:contracts": "cargo run -p xtask -- export-contracts --check && node scripts/generate-types.mjs --check",
+    "build:native": "pnpm --filter @project-knowledge/native run build",
+    "build:native:release": "pnpm --filter @project-knowledge/native run build:release",
+    "build:sdk": "pnpm --filter @project-knowledge/sdk run build",
+    "build:mcp": "pnpm --filter @project-knowledge/sdk run build && pnpm --filter @project-knowledge/mcp run build",
+    "build:ts": "pnpm run build:sdk && pnpm run build:mcp",
+    "typecheck": "pnpm run build:sdk && tsc -p packages/sdk --noEmit && tsc -p packages/mcp --noEmit",
+    "test:sdk": "pnpm --filter @project-knowledge/sdk run test",
+    "test:mcp": "pnpm --filter @project-knowledge/mcp run test",
+    "test:plugins": "node scripts/verify-plugins.mjs",
+    "verify:scenarios": "node scripts/verify-scenarios.mjs",
+    "verify:docs": "node scripts/verify-plan.mjs",
+    "verify:packages": "node scripts/verify-packages.mjs",
+    "test:rust": "cargo test --workspace --locked",
+    "check:rust": "cargo check --workspace --all-targets --locked",
+    "lint:rust": "cargo clippy --workspace --all-targets --locked -- -D warnings",
+    "fmt:rust": "cargo fmt --all --",
+    "check:core-only": "cargo build -p project-knowledge-cli --no-default-features --locked",
+    "deny": "cargo deny check",
+    "fmt": "prettier --write .",
+    "fmt:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "prettier": "catalog:",
+    "typescript": "catalog:"
+  }
+}

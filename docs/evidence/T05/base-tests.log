@@ -1,0 +1,31 @@
+﻿cargo.exe :     Finished `test` profile [unoptimized + debuginfo] target(s) in 0.43s
+所在位置 C:\Users\hubo9\AppData\Local\Temp\opencode\collect-evidence.ps1:57 字符: 1
++ & cargo test -p project-knowledge-core --test indexing base_ --messag ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (    Finished `t...get(s) in 0.43s:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+     Running tests\indexing.rs (target\debug\deps\indexing-05b7ede8f810136e.exe)
+
+running 17 tests
+test base_index_evidence_requires_non_empty_range ... ok
+test base_index_line_map_handles_crlf_and_multibyte ... ok
+test base_index_entity_identity_round_trips ... ok
+test base_index_rejects_out_of_range_and_utf16_positions ... ok
+test base_index_source_and_evidence_types_are_exported ... ok
+test storage_readonly_open_missing_database_is_an_error ... ok
+test base_index_snapshot_members_track_selection_status ... ok
+test base_index_creates_entities_relations_and_evidence ... ok
+test base_index_sources_table_keeps_only_current_hash ... ok
+test base_index_search_finds_comments_and_titles ... ok
+test base_index_status_reports_freshness_and_does_not_write ... ok
+test base_index_search_finds_chinese_text_and_identifiers ... ok
+test base_index_runs_without_node_python_or_model ... ok
+test base_index_reads_source_with_byte_positions ... ok
+test base_index_source_and_evidence_are_consistent ... ok
+test base_index_declares_unconfigured_capabilities ... ok
+test base_index_detects_changed_sources_as_stale ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 22 filtered out; finished in 0.14s
+
+

@@ -1,0 +1,18 @@
+{
+  "printWidth": 100,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": ["*.md"],
+      "options": { "proseWrap": "preserve", "embeddedLanguageFormatting": "off" }
+    },
+    {
+      "files": ["*.yaml", "*.yml"],
+      "options": { "singleQuote": false }
+    }
+  ]
+}

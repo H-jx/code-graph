@@ -1,0 +1,9 @@
+error: [INDEX_MISSING] no collector manifest found; register one under `collectors` or `plugins.directories`
+{
+  "error": {
+    "code": "INDEX_MISSING",
+    "message": "no collector manifest found; register one under `collectors` or `plugins.directories`",
+    "retryable": false,
+    "issues": []
+  }
+}
