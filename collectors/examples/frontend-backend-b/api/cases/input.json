@@ -1,0 +1,125 @@
+{
+  "protocolVersion": "1.0",
+  "runId": "frozen-api-case",
+  "pluginId": "example.b.api",
+  "version": "1.0.0",
+  "stageId": "extract",
+  "snapshot": {
+    "indexId": "api-case",
+    "generation": "0"
+  },
+  "inputSnapshotId": "api.b",
+  "configSubset": {
+    "schemaVersion": 1,
+    "projectId": "acceptance.b",
+    "repositories": [
+      {
+        "id": "front",
+        "root": "client/ui"
+      },
+      {
+        "id": "back",
+        "root": "server/domain"
+      }
+    ],
+    "selection": {},
+    "scopes": [
+      {
+        "id": "app.web",
+        "repositoryIds": [
+          "front"
+        ],
+        "kind": "application"
+      },
+      {
+        "id": "svc.erp",
+        "repositoryIds": [
+          "back"
+        ],
+        "kind": "service"
+      }
+    ],
+    "services": [
+      {
+        "id": "erp",
+        "scopeId": "svc.erp",
+        "protocol": "http",
+        "baseUrls": [
+          "/erp"
+        ]
+      }
+    ],
+    "dataSources": [
+      {
+        "id": "ds.erp",
+        "scopeId": "svc.erp",
+        "dialect": "sqlite"
+      },
+      {
+        "id": "ds.analytics",
+        "scopeId": "svc.erp",
+        "dialect": "sqlite"
+      }
+    ],
+    "bindings": [
+      {
+        "id": "erp-client",
+        "kind": "clientToService",
+        "scopeId": "app.web",
+        "from": "http",
+        "to": "erp"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "src_398528ee0c733bc414825f8f8932d167b5f15ab1c5458962149a5fc871e26325",
+      "repositoryId": "back",
+      "path": "expose.py",
+      "sourceClass": "code",
+      "contentHash": "1f2869704b11d35d9fbe5f6704594ff63e349bab326958019002c7abf42f784b",
+      "byteLength": 117,
+      "content": "from .queries import ledger\napp.get('/purchase/ledger')(ledger)\ngraphql.register('Query', 'purchaseSummary', ledger)\n"
+    },
+    {
+      "id": "src_1a3931ff411e01ec8573b8ad56f946afcc6cca3fac2bf0d25446d69d6de4c5d7",
+      "repositoryId": "back",
+      "path": "models.py",
+      "sourceClass": "code",
+      "contentHash": "04f336a2a1bbee6c4cb34e3967ba5f015c2dba2ca714d8b4eefa2d330874deab",
+      "byteLength": 241,
+      "content": "erp = orm.connect('ds.erp')\nanalytics = orm.connect('ds.analytics')\nPurchase = erp.model('purchase_detail', ['tenant_id', 'purchase_no', 'line_no'])\nOtherPurchase = analytics.model('purchase_detail', ['tenant_id', 'purchase_no', 'line_no'])\n"
+    },
+    {
+      "id": "src_dca73d98eb14a2756388187e40066b71adf012323106ce91dbfc00fa7da6e125",
+      "repositoryId": "back",
+      "path": "queries.py",
+      "sourceClass": "code",
+      "contentHash": "74a8425871350024e7f23f8705c36312588056ac2438f2e48cb0f8f83a5b2f05",
+      "byteLength": 168,
+      "content": "def ledger():\n    return erp.query(\"SELECT * FROM purchase_detail WHERE tenant_id = :tenant\")\n\ndef dynamic_query(table):\n    return erp.query(\"SELECT * FROM \" + table)\n"
+    }
+  ],
+  "sourceSets": [
+    {
+      "selectorId": "backend",
+      "digest": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+      "sourceIds": [
+        "src_398528ee0c733bc414825f8f8932d167b5f15ab1c5458962149a5fc871e26325",
+        "src_1a3931ff411e01ec8573b8ad56f946afcc6cca3fac2bf0d25446d69d6de4c5d7",
+        "src_dca73d98eb14a2756388187e40066b71adf012323106ce91dbfc00fa7da6e125"
+      ],
+      "complete": true
+    }
+  ],
+  "entities": [],
+  "relations": [],
+  "candidateSets": [],
+  "allowedExtensions": [],
+  "limits": {
+    "timeoutMs": 60000,
+    "maxInputBytes": 33554432,
+    "maxOutputBytes": 33554432,
+    "maxStderrBytes": 1048576
+  }
+}

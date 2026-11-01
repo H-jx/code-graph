@@ -1,0 +1,525 @@
+{
+  "codeMap": {
+    "budgetUsed": {
+      "elapsedMs": 14,
+      "entities": 1,
+      "relations": 0,
+      "responseChars": 2319,
+      "visited": 17
+    },
+    "completeness": {
+      "candidateSetsComplete": true,
+      "checkedAt": "next",
+      "coverage": "complete",
+      "diskChecked": true,
+      "freshness": "fresh",
+      "reasons": [],
+      "truncated": false
+    },
+    "data": {
+      "files": [
+        {
+          "path": "src/actual.ts",
+          "repositoryId": "main",
+          "sourceId": "src_139ecbd5f77f154aeab29d5722955ab1924f8f86c269901f44f9800e3b7fc3ee"
+        }
+      ],
+      "symbols": [
+        {
+          "assertionId": "as_4f7125c733ddb2b376cfe195c7fdf3f9f7c18c95f817c92d9b018eb323e7f183",
+          "basis": "observed",
+          "entityRef": {
+            "entityId": "ent_0201fb27675120c391354aaa90a788f7b17569465aaa71016d4b0aa9eee27fbc",
+            "snapshot": {
+              "generation": "2",
+              "indexId": "c63b4f0f-5cf1-4563-8e3d-04049e3a5d50",
+              "sourceSnapshotId": "snap_37f21cea3d332f6752ef4efff07d28cb4e9e2a594bce0f6c032275d6680a091d"
+            }
+          },
+          "evidenceRefs": [
+            "ev_98355e5341b871d5188e61c29a0c3dec127214bc5d8194a32321ffe01599a936"
+          ],
+          "kind": "symbol",
+          "locations": [
+            {
+              "endByte": 27,
+              "path": "src/actual.ts",
+              "repositoryId": "main",
+              "startByte": 16
+            }
+          ],
+          "name": "preciseCode",
+          "origin": "static",
+          "rank": 0,
+          "scopeId": "repo.main",
+          "signature": "functionpreciseCode(){return1;}"
+        }
+      ],
+      "uncoveredLanguages": []
+    },
+    "gaps": [],
+    "nextQueries": [],
+    "protocolVersion": "1.0",
+    "requestId": "req_2d9a720e-3eee-45e9-b314-b1fdc659203f",
+    "snapshot": {
+      "generation": "2",
+      "indexId": "c63b4f0f-5cf1-4563-8e3d-04049e3a5d50",
+      "sourceSnapshotId": "snap_37f21cea3d332f6752ef4efff07d28cb4e9e2a594bce0f6c032275d6680a091d"
+    },
+    "sourceReferences": [
+      {
+        "contentHash": "ed9d7a6cb4455f41a1724ebbf4c359d42bf886788131da22876e73124ae08b56",
+        "endByte": 1,
+        "evidenceId": "ev_24aac48faf569efbb9a165e15725a0c1cc73da4f04a1ee4f53771016130aa308",
+        "snapshot": {
+          "generation": "2",
+          "indexId": "c63b4f0f-5cf1-4563-8e3d-04049e3a5d50",
+          "sourceSnapshotId": "snap_37f21cea3d332f6752ef4efff07d28cb4e9e2a594bce0f6c032275d6680a091d"
+        },
+        "sourceId": "src_139ecbd5f77f154aeab29d5722955ab1924f8f86c269901f44f9800e3b7fc3ee",
+        "startByte": 0
+      },
+      {
+        "contentHash": "ed9d7a6cb4455f41a1724ebbf4c359d42bf886788131da22876e73124ae08b56",
+        "endByte": 27,
+        "evidenceId": "ev_98355e5341b871d5188e61c29a0c3dec127214bc5d8194a32321ffe01599a936",
+        "snapshot": {
+          "generation": "2",
+          "indexId": "c63b4f0f-5cf1-4563-8e3d-04049e3a5d50",
+          "sourceSnapshotId": "snap_37f21cea3d332f6752ef4efff07d28cb4e9e2a594bce0f6c032275d6680a091d"
+        },
+        "sourceId": "src_139ecbd5f77f154aeab29d5722955ab1924f8f86c269901f44f9800e3b7fc3ee",
+        "startByte": 16
+      }
+    ],
+    "status": "complete"
+  },
+  "conventions": [],
+  "coverage": [
+    {
+      "capability": "api",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "base",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "complete"
+    },
+    {
+      "capability": "database",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "frontend",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "report",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "routes",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "workflow",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "api",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "base",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "complete"
+    },
+    {
+      "capability": "database",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "frontend",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "report",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "routes",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "workflow",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    }
+  ],
+  "dependencies": [
+    {
+      "digest": "387ead30d5fbe09b11c845b1420621e12fd3e7b3549fd2d0a410931fe81cb95e",
+      "key": "project",
+      "kind": "config"
+    },
+    {
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "key": "all",
+      "kind": "conventions"
+    },
+    {
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "key": "[\"main\"]",
+      "kind": "facts"
+    },
+    {
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "key": "[\"main\"]",
+      "kind": "plugins"
+    },
+    {
+      "digest": "c918ecd7f60af4f710c1f744d0e069cf63eb3f42b27b8280a5caa3f5a0de91c2",
+      "key": "knowledge",
+      "kind": "prompt"
+    },
+    {
+      "digest": "0e679488822af0ce943d5d25117bb26ad7e5f7ab41ae52390e357fef549ca525",
+      "key": "main",
+      "kind": "sourceSet"
+    },
+    {
+      "digest": "2812eb889355f58643d197f61873c80f2c562f7a549e370e5d493f3676337007",
+      "key": "skill",
+      "kind": "template"
+    }
+  ],
+  "facts": {
+    "budgetUsed": {
+      "elapsedMs": 21,
+      "entities": 2,
+      "relations": 0,
+      "responseChars": 3780,
+      "visited": 10
+    },
+    "completeness": {
+      "candidateSetsComplete": true,
+      "checkedAt": "next",
+      "coverage": "complete",
+      "diskChecked": true,
+      "freshness": "fresh",
+      "reasons": [],
+      "truncated": false
+    },
+    "data": {
+      "candidateSetComplete": true,
+      "fields": null,
+      "results": [
+        {
+          "assertions": [
+            {
+              "assertionId": "as_4f7125c733ddb2b376cfe195c7fdf3f9f7c18c95f817c92d9b018eb323e7f183",
+              "attributes": {
+                "entityId": "ent_project_metadata",
+                "lexicalPath": "preciseCode",
+                "name": "preciseCode",
+                "normalizedSignature": "functionpreciseCode(){return1;}",
+                "path": "src/actual.ts",
+                "symbolKind": "function"
+              },
+              "basis": "observed",
+              "batchId": "bat_42be2a3b010009c44a19b4e8dbdadeaf4a9213cafff1e9e981533a7ca3415dfe",
+              "evidenceRefs": [
+                "ev_98355e5341b871d5188e61c29a0c3dec127214bc5d8194a32321ffe01599a936"
+              ],
+              "name": "preciseCode",
+              "origin": "static",
+              "producerKey": "core.base"
+            }
+          ],
+          "bm25": -3.942896234767737,
+          "entityRef": {
+            "entityId": "ent_0201fb27675120c391354aaa90a788f7b17569465aaa71016d4b0aa9eee27fbc",
+            "snapshot": {
+              "generation": "2",
+              "indexId": "c63b4f0f-5cf1-4563-8e3d-04049e3a5d50",
+              "sourceSnapshotId": "snap_37f21cea3d332f6752ef4efff07d28cb4e9e2a594bce0f6c032275d6680a091d"
+            }
+          },
+          "exactRank": 3,
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "main"
+            },
+            {
+              "name": "path",
+              "value": "src/actual.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "repo.main"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "preciseCode"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionpreciseCode(){return1;}"
+            }
+          ],
+          "kind": "symbol",
+          "matchReason": "identifier",
+          "name": "preciseCode",
+          "projection": "entity",
+          "scopeId": "repo.main"
+        },
+        {
+          "assertions": [
+            {
+              "assertionId": "as_3003637b6f3bc235fa330c1062c399f239546f0d2a2354b14e6dd9005de9366e",
+              "attributes": {
+                "byteLength": 44,
+                "language": "typescript",
+                "path": "src/actual.ts",
+                "repositoryId": "main"
+              },
+              "basis": "observed",
+              "batchId": "bat_42be2a3b010009c44a19b4e8dbdadeaf4a9213cafff1e9e981533a7ca3415dfe",
+              "evidenceRefs": [
+                "ev_24aac48faf569efbb9a165e15725a0c1cc73da4f04a1ee4f53771016130aa308"
+              ],
+              "name": "src/actual.ts",
+              "origin": "static",
+              "producerKey": "core.base"
+            }
+          ],
+          "bm25": -5.368797371000435,
+          "entityRef": {
+            "entityId": "ent_aff7f3c23b71dc56f95338e9499670609a4f5c6ea868502d0eb4bd65c477599e",
+            "snapshot": {
+              "generation": "2",
+              "indexId": "c63b4f0f-5cf1-4563-8e3d-04049e3a5d50",
+              "sourceSnapshotId": "snap_37f21cea3d332f6752ef4efff07d28cb4e9e2a594bce0f6c032275d6680a091d"
+            }
+          },
+          "exactRank": 2,
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "main"
+            },
+            {
+              "name": "path",
+              "value": "src/actual.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "repo.main"
+            }
+          ],
+          "kind": "file",
+          "matchReason": "substring",
+          "name": "src/actual.ts",
+          "projection": "source",
+          "scopeId": "repo.main"
+        }
+      ]
+    },
+    "gaps": [],
+    "nextQueries": [],
+    "protocolVersion": "1.0",
+    "requestId": "req_8e7c3de6-5c95-424d-86bd-1ab7afb91a23",
+    "snapshot": {
+      "generation": "2",
+      "indexId": "c63b4f0f-5cf1-4563-8e3d-04049e3a5d50",
+      "sourceSnapshotId": "snap_37f21cea3d332f6752ef4efff07d28cb4e9e2a594bce0f6c032275d6680a091d"
+    },
+    "sourceReferences": [
+      {
+        "contentHash": "ed9d7a6cb4455f41a1724ebbf4c359d42bf886788131da22876e73124ae08b56",
+        "endByte": 1,
+        "evidenceId": "ev_24aac48faf569efbb9a165e15725a0c1cc73da4f04a1ee4f53771016130aa308",
+        "snapshot": {
+          "generation": "2",
+          "indexId": "c63b4f0f-5cf1-4563-8e3d-04049e3a5d50",
+          "sourceSnapshotId": "snap_37f21cea3d332f6752ef4efff07d28cb4e9e2a594bce0f6c032275d6680a091d"
+        },
+        "sourceId": "src_139ecbd5f77f154aeab29d5722955ab1924f8f86c269901f44f9800e3b7fc3ee",
+        "startByte": 0
+      },
+      {
+        "contentHash": "ed9d7a6cb4455f41a1724ebbf4c359d42bf886788131da22876e73124ae08b56",
+        "endByte": 27,
+        "evidenceId": "ev_98355e5341b871d5188e61c29a0c3dec127214bc5d8194a32321ffe01599a936",
+        "snapshot": {
+          "generation": "2",
+          "indexId": "c63b4f0f-5cf1-4563-8e3d-04049e3a5d50",
+          "sourceSnapshotId": "snap_37f21cea3d332f6752ef4efff07d28cb4e9e2a594bce0f6c032275d6680a091d"
+        },
+        "sourceId": "src_139ecbd5f77f154aeab29d5722955ab1924f8f86c269901f44f9800e3b7fc3ee",
+        "startByte": 16
+      }
+    ],
+    "status": "complete"
+  },
+  "gaps": [],
+  "inputDigest": "439e77ceee7668b900ea370857c56bdf437ccec3ffd19381b9fedc4c9d842742",
+  "materialDigest": "534e5ac408f4b62eaa0a0c28fee61a9065d852bf69515c0e24ee79f45b9769a6",
+  "promptHash": "c918ecd7f60af4f710c1f744d0e069cf63eb3f42b27b8280a5caa3f5a0de91c2",
+  "protocolVersion": "1.0",
+  "request": {
+    "maxChars": 80000,
+    "query": {
+      "filters": {
+        "repositoryIds": [
+          "main"
+        ]
+      },
+      "operation": "search",
+      "pageSize": 8,
+      "query": "preciseCode"
+    },
+    "topicId": "misleading_topic"
+  },
+  "snapshot": {
+    "generation": "2",
+    "indexId": "c63b4f0f-5cf1-4563-8e3d-04049e3a5d50",
+    "sourceSnapshotId": "snap_37f21cea3d332f6752ef4efff07d28cb4e9e2a594bce0f6c032275d6680a091d"
+  },
+  "sourceReads": {
+    "reads": [
+      {
+        "checkedAt": "next",
+        "evidenceId": "ev_24aac48faf569efbb9a165e15725a0c1cc73da4f04a1ee4f53771016130aa308",
+        "lineMap": {
+          "endLine": 1,
+          "startLine": 1
+        },
+        "path": "src/actual.ts",
+        "returnedEndByte": 1,
+        "snippet": "e",
+        "snippetTruncated": false,
+        "sourceId": "src_139ecbd5f77f154aeab29d5722955ab1924f8f86c269901f44f9800e3b7fc3ee",
+        "startByte": 0,
+        "status": "current",
+        "storedVersion": null
+      },
+      {
+        "checkedAt": "next",
+        "evidenceId": "ev_98355e5341b871d5188e61c29a0c3dec127214bc5d8194a32321ffe01599a936",
+        "lineMap": {
+          "endLine": 1,
+          "startLine": 1
+        },
+        "path": "src/actual.ts",
+        "returnedEndByte": 27,
+        "snippet": "preciseCode",
+        "snippetTruncated": false,
+        "sourceId": "src_139ecbd5f77f154aeab29d5722955ab1924f8f86c269901f44f9800e3b7fc3ee",
+        "startByte": 16,
+        "status": "current",
+        "storedVersion": null
+      },
+      {
+        "checkedAt": "next",
+        "evidenceId": "ev_f1735811807cb6b3b976ed070833222f9a18469cfdf8da45babcf7f73ad6ec42",
+        "lineMap": {
+          "endLine": 1,
+          "startLine": 1
+        },
+        "path": "src/actual.ts",
+        "returnedEndByte": 44,
+        "snippet": "export function preciseCode() { return 1; }\n",
+        "snippetTruncated": false,
+        "sourceId": "src_139ecbd5f77f154aeab29d5722955ab1924f8f86c269901f44f9800e3b7fc3ee",
+        "startByte": 0,
+        "status": "current",
+        "storedVersion": null
+      }
+    ]
+  },
+  "sourceReferences": [
+    {
+      "contentHash": "ed9d7a6cb4455f41a1724ebbf4c359d42bf886788131da22876e73124ae08b56",
+      "endByte": 1,
+      "evidenceId": "ev_24aac48faf569efbb9a165e15725a0c1cc73da4f04a1ee4f53771016130aa308",
+      "snapshot": {
+        "generation": "2",
+        "indexId": "c63b4f0f-5cf1-4563-8e3d-04049e3a5d50",
+        "sourceSnapshotId": "snap_37f21cea3d332f6752ef4efff07d28cb4e9e2a594bce0f6c032275d6680a091d"
+      },
+      "sourceId": "src_139ecbd5f77f154aeab29d5722955ab1924f8f86c269901f44f9800e3b7fc3ee",
+      "startByte": 0
+    },
+    {
+      "contentHash": "ed9d7a6cb4455f41a1724ebbf4c359d42bf886788131da22876e73124ae08b56",
+      "endByte": 27,
+      "evidenceId": "ev_98355e5341b871d5188e61c29a0c3dec127214bc5d8194a32321ffe01599a936",
+      "snapshot": {
+        "generation": "2",
+        "indexId": "c63b4f0f-5cf1-4563-8e3d-04049e3a5d50",
+        "sourceSnapshotId": "snap_37f21cea3d332f6752ef4efff07d28cb4e9e2a594bce0f6c032275d6680a091d"
+      },
+      "sourceId": "src_139ecbd5f77f154aeab29d5722955ab1924f8f86c269901f44f9800e3b7fc3ee",
+      "startByte": 16
+    },
+    {
+      "contentHash": "ed9d7a6cb4455f41a1724ebbf4c359d42bf886788131da22876e73124ae08b56",
+      "endByte": 44,
+      "evidenceId": "ev_f1735811807cb6b3b976ed070833222f9a18469cfdf8da45babcf7f73ad6ec42",
+      "snapshot": {
+        "generation": "2",
+        "indexId": "c63b4f0f-5cf1-4563-8e3d-04049e3a5d50",
+        "sourceSnapshotId": "snap_37f21cea3d332f6752ef4efff07d28cb4e9e2a594bce0f6c032275d6680a091d"
+      },
+      "sourceId": "src_139ecbd5f77f154aeab29d5722955ab1924f8f86c269901f44f9800e3b7fc3ee",
+      "startByte": 0
+    }
+  ],
+  "templateHash": "2812eb889355f58643d197f61873c80f2c562f7a549e370e5d493f3676337007",
+  "topicId": "misleading_topic"
+}

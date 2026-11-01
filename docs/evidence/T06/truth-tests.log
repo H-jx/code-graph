@@ -1,0 +1,17 @@
+
+running 4 tests
+test truth_frontend_expected_and_forbidden_identities_are_complete ... ok
+test truth_numeric_sql_matches_frozen_rows_and_rejects_both_mutants ... ok
+test truth_candidate_writer_cannot_modify_the_baseline ... ok
+test truth_frozen_sources_citations_and_provenance ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.99s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-c86b9f40fcb79f80.exe)

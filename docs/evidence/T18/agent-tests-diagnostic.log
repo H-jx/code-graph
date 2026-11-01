@@ -1,0 +1,227 @@
+   Compiling project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\agent_lifecycle-04d3121e40356954.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\agent_lifecycle-04d3121e40356954.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-agent` (test "agent_lifecycle") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.20s
+     Running tests\agent_lifecycle.rs (target\debug\deps\agent_lifecycle-04d3121e40356954.exe)
+
+running 8 tests
+test config_dotenv_validation_precedence_and_secret_boundaries ... ok
+mock request read: 无法立即完成一个非阻止性套接字操作。 (os error 10035); bytes=0
+
+thread 'config_provider_errors_cancellation_timeout_and_turn_budget' (8868) panicked at crates\agent\tests\agent_lifecycle.rs:297:9:
+assertion `left == right` failed
+  left: String("MODEL_REQUEST_FAILED")
+ right: "MODEL_RATE_LIMITED"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test config_provider_errors_cancellation_timeout_and_turn_budget ... FAILED
+mock request read: 无法立即完成一个非阻止性套接字操作。 (os error 10035); bytes=0
+
+thread 'lifecycle_pending_activation_and_skill_partial' (43300) panicked at crates\agent\tests\agent_lifecycle.rs:455:5:
+assertion `left == right` failed: {
+  "runId": "agent_82815c61-6dc3-422c-a924-7238ffb11403",
+  "status": "failed",
+  "phase": "preflight",
+  "goal": "Collect source-driven routes",
+  "focus": "routes",
+  "withSkill": false,
+  "configHash": "b410210e65b5f6a4a0693061efc5c385d983829eb0833f81ee2c2b4872fba64e",
+  "sourceSnapshotId": "snap_200dd71d958dd4917db8ecd50ba36745a9b2c1d45776cef8e5baad3b99be4f78",
+  "activeVersions": [],
+  "modelTurns": 1,
+  "toolCalls": 0,
+  "repairs": 0,
+  "elapsedMs": 60,
+  "deadlineMs": 1793111581039,
+  "repairPlugin": null,
+  "smoke": false,
+  "revision": 0,
+  "candidateId": null,
+  "candidateHash": null,
+  "validationId": null,
+  "activation": null,
+  "investigation": null,
+  "readSource": false,
+  "readMap": false,
+  "issues": [
+    {
+      "error": {
+        "code": "MODEL_REQUEST_FAILED",
+        "message": "model request failed (HTTP unavailable, http); provider body withheld",
+        "retryable": true,
+        "runId": "agent_82815c61-6dc3-422c-a924-7238ffb11403",
+        "phase": "preflight",
+        "issues": []
+      }
+    }
+  ],
+  "events": [],
+  "provider": "openai-compatible",
+  "model": "test-model",
+  "promptHash": "c8f928ab762936aba6e2b340ecd04c52bc2669d19ff904d71ecbd940fdfaf8a5",
+  "budget": {
+    "enabled": true,
+    "provider": "openai-compatible",
+    "model": "test-model",
+    "baseUrl": "http://127.0.0.1:57068/v1",
+    "apiKeyEnv": "AGENT_TEST_SECRET",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 60,
+    "maxInputChars": 180000,
+    "maxOutputTokens": 8192,
+    "autoActivate": false
+  }
+}
+  left: String("failed")
+ right: "pending_activation"
+test lifecycle_pending_activation_and_skill_partial ... FAILED
+mock request read: 无法立即完成一个非阻止性套接字操作。 (os error 10035); bytes=0
+
+thread 'lifecycle_repairs_validates_activates_and_runs_without_model' (40824) panicked at crates\agent\tests\agent_lifecycle.rs:422:5:
+assertion `left == right` failed: {
+  "runId": "agent_20fadc44-0b8f-406d-8359-d56e9ce2a632",
+  "status": "failed",
+  "phase": "preflight",
+  "goal": "Collect source-driven routes",
+  "focus": "routes",
+  "withSkill": false,
+  "configHash": "cde73a99acb6cc5d604dd2880ece76c256f0926781bc0316ab62bf4b738648fb",
+  "sourceSnapshotId": "snap_e7be24b6878879a582bd1c80d9d60355826a5af79a65ce59bbc799238ab41f72",
+  "activeVersions": [],
+  "modelTurns": 1,
+  "toolCalls": 0,
+  "repairs": 0,
+  "elapsedMs": 39,
+  "deadlineMs": 1793111581225,
+  "repairPlugin": null,
+  "smoke": false,
+  "revision": 0,
+  "candidateId": null,
+  "candidateHash": null,
+  "validationId": null,
+  "activation": null,
+  "investigation": null,
+  "readSource": false,
+  "readMap": false,
+  "issues": [
+    {
+      "error": {
+        "code": "MODEL_REQUEST_FAILED",
+        "message": "model request failed (HTTP unavailable, http); provider body withheld",
+        "retryable": true,
+        "runId": "agent_20fadc44-0b8f-406d-8359-d56e9ce2a632",
+        "phase": "preflight",
+        "issues": []
+      }
+    }
+  ],
+  "events": [],
+  "provider": "openai-compatible",
+  "model": "test-model",
+  "promptHash": "c8f928ab762936aba6e2b340ecd04c52bc2669d19ff904d71ecbd940fdfaf8a5",
+  "budget": {
+    "enabled": true,
+    "provider": "openai-compatible",
+    "model": "test-model",
+    "baseUrl": "http://127.0.0.1:57070/v1",
+    "apiKeyEnv": "AGENT_TEST_SECRET",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 60,
+    "maxInputChars": 180000,
+    "maxOutputTokens": 8192
+  }
+}
+  left: String("failed")
+ right: "complete"
+test lifecycle_repairs_validates_activates_and_runs_without_model ... FAILED
+mock request read: 无法立即完成一个非阻止性套接字操作。 (os error 10035); bytes=0
+test lifecycle_resume_rechecks_sources_and_retains_spent_budget ... ok
+test tools_candidate_paths_reject_traversal_absolute_and_duplicate_files ... ok
+mock request read: 无法立即完成一个非阻止性套接字操作。 (os error 10035); bytes=0
+
+thread 'tools_errors_keep_json_pointers_and_budget_is_global' (43516) panicked at crates\agent\tests\agent_lifecycle.rs:358:5:
+assertion `left == right` failed
+  left: Null
+ right: "/query"
+test tools_errors_keep_json_pointers_and_budget_is_global ... FAILED
+mock request read: 无法立即完成一个非阻止性套接字操作。 (os error 10035); bytes=0
+direct mock transport: Ok(CompletionResponse { choice: [ToolCall(ToolCall { id: Provider(ProviderCallId("call-status")), function: ToolFunction { name: ToolName("status"), arguments: {}, invalid_arguments: None }, native: Some(Native { item: Object {"id": String("call-status"), "type": String("function"), "function": Object {"name": String("status"), "arguments": String("{}")}}, fingerprint: Fingerprint(13286304618755644314) }) })], usage: Usage { input_tokens: Some(10), output_tokens: Some(10), total_tokens: Some(20), cached_input_tokens: None, cache_creation_input_tokens: None, tool_use_prompt_tokens: None, reasoning_tokens: None, cost: None }, origin: Origin { api: Api("openai.chat"), provider: "openai", model: "test-model", response_model: Some("test-model"), response_id: Some("mock-response"), context: None }, error: None, aborted: None, provider_request_id: None, finish_reason: Some(ToolCalls), accepts_unknown_finish_reasons: false, unfinished_calls: [], raw: Object {"id": String("mock-response"), "object": String("chat.completion"), "created": Number(1), "model": String("test-model"), "choices": Array [Object {"index": Number(0), "message": Object {"role": String("assistant"), "content": Null, "tool_calls": Array [Object {"id": String("call-status"), "type": String("function"), "function": Object {"name": String("status"), "arguments": String("{}")}}]}, "finish_reason": String("tool_calls")}], "usage": Object {"prompt_tokens": Number(10), "completion_tokens": Number(10), "total_tokens": Number(20)}} })
+
+thread 'tools_roundtrip_and_no_tool_model_is_not_success' (7752) panicked at crates\agent\tests\agent_lifecycle.rs:261:5:
+assertion `left == right` failed: result={
+  "runId": "agent_e86e0a91-f87c-4763-a686-a6f8d29093dc",
+  "status": "failed",
+  "phase": "preflight",
+  "goal": "Collect source-driven routes",
+  "focus": "routes",
+  "withSkill": false,
+  "configHash": "cbd2d5b3e5de63b0e334bc66445e8dbccef915843b1eadb5a0ac60423ab6f7f4",
+  "sourceSnapshotId": "snap_a3db1ace216fa769217173714d527f63d1e50319359153576f651724aca02f1f",
+  "activeVersions": [],
+  "modelTurns": 1,
+  "toolCalls": 0,
+  "repairs": 0,
+  "elapsedMs": 27,
+  "deadlineMs": 1793111581821,
+  "repairPlugin": null,
+  "smoke": true,
+  "revision": 0,
+  "candidateId": null,
+  "candidateHash": null,
+  "validationId": null,
+  "activation": null,
+  "investigation": null,
+  "readSource": false,
+  "readMap": false,
+  "issues": [
+    {
+      "error": {
+        "code": "MODEL_REQUEST_FAILED",
+        "message": "model request failed (HTTP unavailable, http); provider body withheld",
+        "retryable": true,
+        "runId": "agent_e86e0a91-f87c-4763-a686-a6f8d29093dc",
+        "phase": "preflight",
+        "issues": []
+      }
+    }
+  ],
+  "events": [],
+  "provider": "openai-compatible",
+  "model": "test-model",
+  "promptHash": "a4d4c76924abbd50e7e3fda11226ede4370953cd08ca35270248e04f0f51f303",
+  "budget": {
+    "enabled": true,
+    "provider": "openai-compatible",
+    "model": "test-model",
+    "baseUrl": "http://127.0.0.1:57077/v1",
+    "apiKeyEnv": "AGENT_TEST_SECRET",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 60,
+    "maxInputChars": 180000,
+    "maxOutputTokens": 8192
+  }
+}, requests=1
+  left: String("failed")
+ right: "complete"
+error: test failed, to rerun pass `-p project-knowledge-agent --test agent_lifecycle`
+test tools_roundtrip_and_no_tool_model_is_not_success ... FAILED
+
+failures:
+
+failures:
+    config_provider_errors_cancellation_timeout_and_turn_budget
+    lifecycle_pending_activation_and_skill_partial
+    lifecycle_repairs_validates_activates_and_runs_without_model
+    tools_errors_keep_json_pointers_and_budget_is_global
+    tools_roundtrip_and_no_tool_model_is_not_success
+
+test result: FAILED. 3 passed; 5 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.28s
+

@@ -1,1 +1,1 @@
-﻿contract.schema.json sha256 = 32fe5c490a86f4de2f61dff8a4a3caf2eafdc82d651b948d709374f1b6dfde82
+contract.schema.json sha256 = 47b21c59153c268afcf1121a99d9eb637bf2f3f01cce5507303b80ad47e595fc

@@ -1,0 +1,12 @@
+{
+  "httpObject": "app",
+  "httpMethods": [
+    "get",
+    "post",
+    "put",
+    "patch",
+    "delete"
+  ],
+  "graphqlObject": "graphql",
+  "graphqlRegister": "register"
+}

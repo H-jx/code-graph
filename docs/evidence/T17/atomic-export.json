@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "errorCode": "DEPENDENCY_CHANGED",
+      "id": "08f89b26-40d1-4e53-99b2-6be257457753",
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpA1WK8S\\main\\.agents\\skills\\ledger",
+      "state": "failed"
+    },
+    {
+      "errorCode": "CANCELLED",
+      "id": "627dbce0-6f2b-48e9-89e6-ba9a05ce7305",
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpA1WK8S\\main\\.agents\\skills\\ledger",
+      "state": "failed"
+    },
+    {
+      "errorCode": "CANCELLED",
+      "id": "c16cdeaf-0d5b-49b9-9fee-41cfa5f0e303",
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpA1WK8S\\main\\.agents\\skills\\ledger",
+      "state": "failed"
+    },
+    {
+      "errorCode": "CANCELLED",
+      "id": "eb4bd780-dde5-4398-9750-06e14606c2c8",
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpA1WK8S\\main\\.agents\\skills\\ledger",
+      "state": "failed"
+    },
+    {
+      "errorCode": null,
+      "id": "61b7d998-c7d5-4cdf-9be9-3af50950677a",
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpA1WK8S\\main\\.agents\\skills\\ledger",
+      "state": "complete"
+    }
+  ],
+  "diskChecked": true,
+  "exports": [
+    {
+      "freshness": "stale",
+      "id": "61b7d998-c7d5-4cdf-9be9-3af50950677a",
+      "integrity": true,
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpA1WK8S\\main\\.agents\\skills\\ledger\\versions\\61b7d998-c7d5-4cdf-9be9-3af50950677a"
+    }
+  ],
+  "topics": [
+    {
+      "dependenciesRechecked": false,
+      "freshness": "stale",
+      "gapIds": [
+        "knowledge_material_partial"
+      ],
+      "inputDigest": "a57c16b3cfa25ab7634e5a74a899c7c4cfd37899600839e8f6e2a195c43c99e2",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "bd553f82-4243-418c-8e2d-cd9133758511",
+        "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+      },
+      "topicId": "ledger",
+      "version": 1
+    }
+  ]
+}

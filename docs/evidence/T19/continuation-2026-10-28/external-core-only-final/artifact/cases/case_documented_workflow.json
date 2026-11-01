@@ -1,0 +1,18 @@
+{
+  "id": "case_documented_workflow",
+  "inputFixture": "fixtures/case_documented_workflow.input.json",
+  "expected": {
+    "entities": [
+      "ent_779926f6d5f33fb37e78270f54c73a270fc850fbded4ce37b07a1b1977edef94",
+      "ent_7810a0a2e8e179e5e6d539581b0b9479956df5c047b713df9a78d5562d06cbe7",
+      "ent_2df3715c28156e30f5e58f58751cb87293604d84011e9cb7ef9140a394912094"
+    ],
+    "relations": [
+      "rel_d63f2c46c94d04c8842743ba07036bcc431ecd7bc1016bb854713cb4ee1be308"
+    ],
+    "forbiddenRelations": [],
+    "gapCodes": []
+  },
+  "truthRef": null,
+  "truthHash": null
+}

@@ -1,0 +1,405 @@
+{
+  "date": "2026-10-28 Asia/Shanghai",
+  "task": "T16",
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "business_scenarios",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/business-regression.log",
+      "logSha256": "91173c4d6ede5cb7197d6e76e1ad5e5bcdcedc23e7f0eb38b4bb81c2cbb8e26f"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "indexing",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/indexing-final.log",
+      "logSha256": "49a7ab142494bf7222a44058659c4dcdff2408dedc9c65c4085bef4cd496e5b5"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-agent",
+        "-p",
+        "project-knowledge-cli",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/agent-cli-regression.log",
+      "logSha256": "32715a284b5546dea785d5ea3404c24e4c2cd1328d6f5ab05691ad232a673a0e"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/clippy.log",
+      "logSha256": "0351e90eb9cb06b1e1cfca3542c58ce048b9b1656e0ee9009fa0988a0d4b1442"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/fmt.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "-p",
+        "xtask",
+        "--locked",
+        "--",
+        "export-contracts",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/contracts.log",
+      "logSha256": "536ec9f792bb641e9b892caa172ef00bcb4cbe8c9025cc014b551b624c5f87b9"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/generate-types.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/types.log",
+      "logSha256": "ffd79024bf74c3f0e1a4a224e1b3a1783273115da81cc2ac0624af9984867368"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-contract-types.mjs"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/type-boundaries.log",
+      "logSha256": "ad333cbf26840bfb1904ed96b21df370ec69e86830df247dc15bc2799c31e7d5"
+    },
+    {
+      "command": [
+        "powershell",
+        "-NoProfile",
+        "-Command",
+        "pnpm run typecheck"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/typecheck.log",
+      "logSha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/package-example-collectors.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/package-frontend.log",
+      "logSha256": "22fc22e9133da901200b1c1476b4f2f194f03a9d8047c79a92422591af2779e3"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/package-api-examples.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/package-api.log",
+      "logSha256": "9cfd9460fbca0bbc9aa1dd1ee393cb5cff1af5408be5aa9b4500aac0a89749b7"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/package-database-examples.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/package-database.log",
+      "logSha256": "0311d80deb1f894622252871a0cd344a30e14b8811cb03211226076b9229d3ed"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/package-link-examples.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/package-link.log",
+      "logSha256": "6f0b3496e6b0a7707cb0d3815a91256843ae102d3c17aaa072b8d4ac36efa241"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/package-semantic-examples.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/package-semantic.log",
+      "logSha256": "6813db820b0c4010fec22bee10c7f514520691ecf8c3601012be8c10548772a8"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-truth.py"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/truth-final.log",
+      "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/audit-source.mjs",
+        "--output",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T16\\source-audit.json"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/source-audit.log",
+      "logSha256": "df25622135b39e87faf345818df3a1aa8759de34cbd922d00c5f923791965a1c"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-plan.mjs",
+        "--plan",
+        "../plan/NEW-PROJECT-LONG-TASK.md"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/plan.log",
+      "logSha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T16/diff.log",
+      "logSha256": "0b3fc84b7e316f9e83ae5e1040572c2e86fcdf3bac40d45100201ea872530062"
+    }
+  ],
+  "cliCommands": [
+    {
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "project-knowledge-cli",
+        "--locked",
+        "-j",
+        "1"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/T16/cli-build.log",
+      "logSha256": "8e623a91164ce454dde5dd35761b439e5abab9bf6b6729fe360d19b70daa78d9"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "business_scenarios",
+        "scenario_",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/T16/cli-scenarios.log",
+      "logSha256": "b57d0ca4f9337cb5f3e0e84867842d116b766be0d643c3692d569c8bd42eb539"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "business_scenarios",
+        "truth_numeric_sql_",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/T16/numeric-sql.log",
+      "logSha256": "af5cd3e18c4e400dd8a597fc92c62cd8f19d3250ce218588bc5e122bba699886"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-truth.py"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/T16/integer-oracle.log",
+      "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+    }
+  ],
+  "cliSha256": "b0278351f34145e6fe46d4e19b10edc4895d67d63103e78a7a259372fa8cb96c",
+  "fileHashes": {
+    "Cargo.lock": "37ac843abb2c07134ae3a0a38268c197e8bbe21686881f122969555771b54aee",
+    "Cargo.toml": "7e1fcb25d6a1b5591f627e9ea47420f6eac17efceee304e20b1d2726303f1d83",
+    "collectors/examples/frontend-backend-a/database/cases/database.json": "c867e2b229572cf967b414251693ca1b48e0caa5daef75e015b455f7bbe2e773",
+    "collectors/examples/frontend-backend-a/database/cases/input.json": "ff3d332f1230edcca0ad1bc755a2f0ed9a5c691933ddb31bd2a3faa1fedeceb9",
+    "collectors/examples/frontend-backend-a/database/cases/truth.json": "c59bfa400fe1e49f2713e80374d1d97e9c5aa85e1744484c238578564d4ef6c6",
+    "collectors/examples/frontend-backend-a/database/collect.py": "79b00687537a8eca07f4d15f632961d859fee8a57834bdbb53788bb8336e7c9b",
+    "collectors/examples/frontend-backend-a/database/conventions.json": "126490e751b9b282cd090b35d68c8bf2fbcae607c16b5b85b2d9e999e8dae1f7",
+    "collectors/examples/frontend-backend-a/database/database_ast.py": "8ca9da563f29cf73e77f3efc1344cf0102a926c17577c71926ff80f2c54aaa3a",
+    "collectors/examples/frontend-backend-a/database/deps/requirements.in": "b84fc5591778663e176dd23833693f777ae8c06d044412cddb01dddb7c79683c",
+    "collectors/examples/frontend-backend-a/database/deps/requirements.lock": "6a16754fceda86f7c3d53f8deb805c611d62bbd942617384429c8432428dd6b2",
+    "collectors/examples/frontend-backend-a/database/identity-spec.json": "81c166af9f562d29ed5fed8c0f8cee2f99f92e9d55f002a6b301f97ce3cdb92d",
+    "collectors/examples/frontend-backend-a/database/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-a/database/manifest.json": "c822d0b99a6f17861808f89eca7dac80bdb4a23a09cf41096b273eb4351754dc",
+    "collectors/examples/frontend-backend-a/database/source_ast.py": "323c09317d3910f6afcfc219d9ef7fd1401d126ff22317574a59eaf76524e1f9",
+    "collectors/examples/frontend-backend-b/database/cases/database.json": "5d7659527d081aa00bf80985c4b868692c1cfc87701d16716ec8f107787d236e",
+    "collectors/examples/frontend-backend-b/database/cases/input.json": "a8302ef031599e2f510525b67b5c1a55681f306be18b7cacd6fdace444ee68bb",
+    "collectors/examples/frontend-backend-b/database/cases/truth.json": "c59bfa400fe1e49f2713e80374d1d97e9c5aa85e1744484c238578564d4ef6c6",
+    "collectors/examples/frontend-backend-b/database/collect.py": "79b00687537a8eca07f4d15f632961d859fee8a57834bdbb53788bb8336e7c9b",
+    "collectors/examples/frontend-backend-b/database/conventions.json": "126490e751b9b282cd090b35d68c8bf2fbcae607c16b5b85b2d9e999e8dae1f7",
+    "collectors/examples/frontend-backend-b/database/database_ast.py": "8ca9da563f29cf73e77f3efc1344cf0102a926c17577c71926ff80f2c54aaa3a",
+    "collectors/examples/frontend-backend-b/database/deps/requirements.in": "b84fc5591778663e176dd23833693f777ae8c06d044412cddb01dddb7c79683c",
+    "collectors/examples/frontend-backend-b/database/deps/requirements.lock": "6a16754fceda86f7c3d53f8deb805c611d62bbd942617384429c8432428dd6b2",
+    "collectors/examples/frontend-backend-b/database/identity-spec.json": "81c166af9f562d29ed5fed8c0f8cee2f99f92e9d55f002a6b301f97ce3cdb92d",
+    "collectors/examples/frontend-backend-b/database/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-b/database/manifest.json": "051bb52d9b57fd9e46dc2adf85f5925a96d6b8015be6742475aef2a472721799",
+    "collectors/examples/frontend-backend-b/database/source_ast.py": "323c09317d3910f6afcfc219d9ef7fd1401d126ff22317574a59eaf76524e1f9",
+    "collectors/templates/python/lib/database_ast.py": "8ca9da563f29cf73e77f3efc1344cf0102a926c17577c71926ff80f2c54aaa3a",
+    "crates/core/src/graph/paths.rs": "667cb52c3f474e4c3bc77a3ae64cfbeabe5cb35b3e4084f8883537cd90cf310c",
+    "crates/core/src/query/feature.rs": "5fb949ecfe2c84f47987ea24770d999833889a576cc4681dff66816d22fed9ff",
+    "crates/core/src/query/generic.rs": "7777bb695a427a4de5699f0c54195004957c7f2fe64e381bbb59c590580f0e1d",
+    "crates/core/src/query/mod.rs": "4c95c7a5b718fb4fcb786f68394fe208c2c64fa009d7b16208140598a1104552",
+    "crates/core/src/query/page.rs": "e813e87ce34cd2ebd2f6bc884ee83b3f83beffcd2a199891a83e5253e314b2d7",
+    "crates/core/src/query/report.rs": "9f32133951ff826ef75eb3fc3546a6c399392404f851d98ebccfd34f98ee1008",
+    "crates/core/src/query/runtime.rs": "3441efbf7111fd64027c8bf5e799e1c5bf3bdd59c44d6aed972155efb5c3e408",
+    "crates/core/src/query/scenario.rs": "853866d90da17e2c0a1bb5816e58b5776b251fc4c08743c1f28ac4dbc931c0df",
+    "crates/core/src/query/workflow.rs": "a085bc24d6a3e839778c337d10ec14a8e11e160ba0c81980b7cce4f86253dd42",
+    "crates/core/src/search/documents.rs": "9b4a42ba679bf956d34bf45bdc42a6c39bcd4453882db2bba880f0cbd375d1de",
+    "crates/core/tests/business_scenarios.rs": "9d0977d9da1287bd295d957030999c11c3d4f82e2db46cf00a3459b8bc7f146d",
+    "crates/core/tests/support/queries.rs": "beac02db2d8c1234bd2e077110896b7d7f98f1bd20c969ec50d3abf8285c397f",
+    "crates/core/tests/support/scenarios.rs": "c766a9abd36487d487acb473df5c54b181ac87f36e956637144ffa13b9c53888",
+    "crates/core/tests/support/semantics.rs": "0313d1f315063dbd19976cf4e762915ba3279e1af323134980d4696936049ceb",
+    "docs/evidence/T16/verify.py": "d4116096e6e3e6f4d53f2f48b6d968599bf9384e1f18d52a5eac60d75aa16ea1",
+    "fixtures/truth-supplements/T16-bindings/queries.py": "d089e1fed83239ac8b49480df0312c580a44fbbd0270438e7bd1f254c24f1d94",
+    "fixtures/truth-supplements/T16-bindings/review.json": "12e7fae1fcdb6943880ef2f0c9ee3555eee73b3e3872ec9e5f541071fbead6b0",
+    "fixtures/truth-supplements/T16-bindings/service.ts": "7f1df1b2156d98709a33a7fc64b01443e6da26348ad288090858962dfb6cfd4f",
+    "scripts/verify-scenarios.mjs": "aed462444f23aa1ddfa3fb54f3ddc763c0e38e96325cea03b0e48f803b3b3fef",
+    "docs/evidence/T16/README.md": "6a8138ae4a9e6836bbd5df1c9f065c655a3aef6339447107a10370498ea899c9",
+    ".gitattributes": "1b07018153ac64fe7674778c9ce3ec4d1a28b3bedafa92282e935d877a34ed9d",
+    "docs/collectors.md": "b3b409bc46b3994e165948a7ecd575a880764aa175a25d75aa4badfea66be11c",
+    "docs/evidence/T16/core-json-features.log": "1cb7f0b51ba145b0add54044027e7fe76a9a75f85093b8eaa92cf6bcffb754f9",
+    "docs/protocol.md": "093c6d5c910a1131ba90017e7c7f8b958fa2759a8d3607322869045d53f3e05f",
+    "docs/evidence/T16/cli-json-features.log": "0734f1ccb1f4420465a273bc75b9b10daa1456e6539fa76258d7bdc32b4ffd68"
+  },
+  "snapshotHashes": {
+    "a-page.json": "0729c8aba671038d20b8adcc3f2a256c5e4101bd1285b957f6b4185311a28cc4",
+    "a-workflow.json": "ad3272152dd825c621ad0a2ed21b7676cb5962a856b9a0990b4ded1130aa9671",
+    "a-report.json": "d2038550c1805ef2da7fcfc9ac5e2119cd2ee9fcda8d8bc58923e1d9a2303264",
+    "b-page.json": "382e0ceef644dc06a0fe2a2111b5918ea63f0ce58bd6bfb0d3eb56f2f65110ea",
+    "b-workflow.json": "a8fad89125fa4ab1a446b1badd3a2f5b08171c78acdff70524804d0ed0618255",
+    "b-report.json": "df4a99b813af07663dc6ddfb9ae5aa71fcd8e28b464a0fd73a33703d687c3db3",
+    "a-natural-feature.json": "deab1aede8f884ad4477dc9b742004ae47cf38791661ceae75f7cdc4c8a68392",
+    "b-natural-feature.json": "32f94779713492535ab3b00e4d026a3da943a929eb124b882b92fbe34182a1b2",
+    "a-cross-client-cursor.json": "c462272773fa634c2ea4ed7c1d8f3a9d89552643aa148ac2827bd8b904e8d448",
+    "b-cross-client-cursor.json": "488900f37eef08b03ff8b7fe3bf40335c49e4eb08f76fc878d3e5e0008476d64",
+    "route-ambiguity.json": "89007f9dd4ec7120659f3c28c069dff087971f2ca1042cb6b8669deec5fc277d",
+    "workflow-code-only.json": "d53c38e8c8b7b49d605ddd5628830846bd8c60b89288728ad1ac225b2b0d6bbe",
+    "numeric-sql.json": "61cf6cf303370bb8a07a822699cbfe9b4ea040f8f382d1e2bb30c855cbdc861e",
+    "cli-report.json": "3907c94af852afbd97b16c87a73a76531c6a99e0185aecb421000b5bab8ec39a"
+  },
+  "testSummaries": [
+    "test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 402.20s",
+    "test result: ok. 49 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.84s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.54s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.53s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.28s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+  ],
+  "baselineTruthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "cliResponses": 6,
+  "layouts": 2,
+  "statesPerLayout": 6,
+  "transitionsPerLayout": 14,
+  "reportFieldsPerLayout": 9,
+  "queryColumnsPerLayout": 7,
+  "externalModelRequests": 0,
+  "businessDatabaseConnections": 0,
+  "productionAccuracyClaimed": false,
+  "limitations": [
+    "Windows x64 only",
+    "Natural-language feature fallback is explicit lexical matching and partial, not generated business interpretation",
+    "Unknown time fields, units and cardinality stay gaps",
+    "SDK/MCP and knowledge/dependency acceptance remain their own tasks"
+  ],
+  "cliArtifactPath": "target/verified-cli/b0278351f34145e6fe46d4e19b10edc4895d67d63103e78a7a259372fa8cb96c/project-knowledge.exe",
+  "closure": "Final CLI matrix rerun against an SHA-addressed copy after broader Cargo tests rebuilt the debug executable; all product source hashes unchanged from the complete regression."
+}

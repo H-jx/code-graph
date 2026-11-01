@@ -1,0 +1,366 @@
+{
+  "protocolVersion": "1.0",
+  "requestId": "req_54c4d442-d72a-47ed-b065-971c4648efc0",
+  "snapshot": {
+    "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+    "generation": "13",
+    "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+  },
+  "status": "partial",
+  "data": {
+    "query": "purchase",
+    "operations": [],
+    "states": [],
+    "transitions": [],
+    "documents": [
+      {
+        "snapshot": {
+          "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+          "generation": "13",
+          "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+        },
+        "entityId": "ent_2df3715c28156e30f5e58f58751cb87293604d84011e9cb7ef9140a394912094"
+      },
+      {
+        "snapshot": {
+          "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+          "generation": "13",
+          "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+        },
+        "entityId": "ent_b0ca029bede45acdff01570ba1c8670a5dd32a3f64d18a32139096bfe7d272ba"
+      },
+      {
+        "snapshot": {
+          "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+          "generation": "13",
+          "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+        },
+        "entityId": "ent_f5bfb5c1f696ef46baa0faac9d49124dcd252858d7328f524d19e186134616c6"
+      }
+    ],
+    "previousPages": [],
+    "nextPages": [],
+    "documentLinks": [
+      {
+        "relationId": "rel_70e54a5525bb048e62a8034905f1fcd4fb07414a4db65ceb7664dd77d8d29cd8",
+        "kind": "relates_document",
+        "fromId": "ent_2df3715c28156e30f5e58f58751cb87293604d84011e9cb7ef9140a394912094",
+        "toId": "ent_b0ca029bede45acdff01570ba1c8670a5dd32a3f64d18a32139096bfe7d272ba",
+        "direction": "out",
+        "assertionId": "as_f0daf30aee1cd19f1c1977bbe0de2d62facb6cb0dd9643f485017d5dff5b25f9",
+        "basis": "declared",
+        "origin": "static",
+        "resolution": "confirmed",
+        "batchId": "bat_a39b281955650737c17bdd21b09fb953afd3672fbd8a60eecdf142756ea07c5b",
+        "producerKey": "t19-audited.workflow@3.0.0:fd24dd3d586ba2b3671ee1c66397f167a32cb20f455e9d908577a483fb71328f:extract",
+        "qualifiers": {
+          "documentTypeId": "ent_2df3715c28156e30f5e58f58751cb87293604d84011e9cb7ef9140a394912094",
+          "orderedKeys": [
+            "tenant_id",
+            "purchase_no",
+            "line_no"
+          ]
+        },
+        "depth": 1,
+        "evidenceRefs": [
+          "ev_8e6001765c33822231d2c4026acdb50e8e54e27a4e9d8e240497d4cdee07df10"
+        ],
+        "relationRef": {
+          "snapshot": {
+            "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+            "generation": "13",
+            "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+          },
+          "relationId": "rel_70e54a5525bb048e62a8034905f1fcd4fb07414a4db65ceb7664dd77d8d29cd8"
+        }
+      },
+      {
+        "relationId": "rel_aab44aeff37f4d3524ac02081e947704d15f05c9d66671a6fcfe41092013509e",
+        "kind": "relates_document",
+        "fromId": "ent_b0ca029bede45acdff01570ba1c8670a5dd32a3f64d18a32139096bfe7d272ba",
+        "toId": "ent_f5bfb5c1f696ef46baa0faac9d49124dcd252858d7328f524d19e186134616c6",
+        "direction": "out",
+        "assertionId": "as_bee44c2b1e74f9a2902212efc1923c2d0f80d32ec50cbb9ffcb52dab0859cb97",
+        "basis": "declared",
+        "origin": "static",
+        "resolution": "confirmed",
+        "batchId": "bat_a39b281955650737c17bdd21b09fb953afd3672fbd8a60eecdf142756ea07c5b",
+        "producerKey": "t19-audited.workflow@3.0.0:fd24dd3d586ba2b3671ee1c66397f167a32cb20f455e9d908577a483fb71328f:extract",
+        "qualifiers": {
+          "documentTypeId": "ent_b0ca029bede45acdff01570ba1c8670a5dd32a3f64d18a32139096bfe7d272ba",
+          "orderedKeys": [
+            "tenant_id",
+            "purchase_no",
+            "line_no"
+          ]
+        },
+        "depth": 2,
+        "evidenceRefs": [
+          "ev_8e6001765c33822231d2c4026acdb50e8e54e27a4e9d8e240497d4cdee07df10"
+        ],
+        "relationRef": {
+          "snapshot": {
+            "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+            "generation": "13",
+            "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+          },
+          "relationId": "rel_aab44aeff37f4d3524ac02081e947704d15f05c9d66671a6fcfe41092013509e"
+        }
+      }
+    ],
+    "codeCalls": [],
+    "roots": [
+      {
+        "snapshot": {
+          "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+          "generation": "13",
+          "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+        },
+        "entityId": "ent_2df3715c28156e30f5e58f58751cb87293604d84011e9cb7ef9140a394912094"
+      }
+    ],
+    "entities": [
+      {
+        "entityRef": {
+          "snapshot": {
+            "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+            "generation": "13",
+            "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+          },
+          "entityId": "ent_2df3715c28156e30f5e58f58751cb87293604d84011e9cb7ef9140a394912094"
+        },
+        "kind": "documentType",
+        "scopeId": "repo.business",
+        "identity": [
+          {
+            "name": "scopeId",
+            "value": "repo.business"
+          },
+          {
+            "name": "semanticKey",
+            "value": "purchase"
+          }
+        ],
+        "name": "purchase",
+        "assertions": [
+          {
+            "assertionId": "as_8c3a1d28d3d176c373f2eb1fc469fc6c4a187beee33e35e5d7d21afc7d06db57",
+            "producerKey": "t19-audited.workflow@3.0.0:fd24dd3d586ba2b3671ee1c66397f167a32cb20f455e9d908577a483fb71328f:extract",
+            "batchId": "bat_a39b281955650737c17bdd21b09fb953afd3672fbd8a60eecdf142756ea07c5b",
+            "basis": "declared",
+            "origin": "static",
+            "name": "purchase",
+            "attributes": {},
+            "evidenceRefs": [
+              "ev_8e6001765c33822231d2c4026acdb50e8e54e27a4e9d8e240497d4cdee07df10"
+            ]
+          }
+        ]
+      },
+      {
+        "entityRef": {
+          "snapshot": {
+            "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+            "generation": "13",
+            "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+          },
+          "entityId": "ent_b0ca029bede45acdff01570ba1c8670a5dd32a3f64d18a32139096bfe7d272ba"
+        },
+        "kind": "documentType",
+        "scopeId": "repo.business",
+        "identity": [
+          {
+            "name": "scopeId",
+            "value": "repo.business"
+          },
+          {
+            "name": "semanticKey",
+            "value": "receipt"
+          }
+        ],
+        "name": "receipt",
+        "assertions": [
+          {
+            "assertionId": "as_91bd5a5a482b5f75cd8c387cbe19bb34ec8505ffd4502c0da7e9935af86e784a",
+            "producerKey": "t19-audited.workflow@3.0.0:fd24dd3d586ba2b3671ee1c66397f167a32cb20f455e9d908577a483fb71328f:extract",
+            "batchId": "bat_a39b281955650737c17bdd21b09fb953afd3672fbd8a60eecdf142756ea07c5b",
+            "basis": "declared",
+            "origin": "static",
+            "name": "receipt",
+            "attributes": {},
+            "evidenceRefs": [
+              "ev_8e6001765c33822231d2c4026acdb50e8e54e27a4e9d8e240497d4cdee07df10"
+            ]
+          }
+        ]
+      },
+      {
+        "entityRef": {
+          "snapshot": {
+            "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+            "generation": "13",
+            "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+          },
+          "entityId": "ent_f5bfb5c1f696ef46baa0faac9d49124dcd252858d7328f524d19e186134616c6"
+        },
+        "kind": "documentType",
+        "scopeId": "repo.business",
+        "identity": [
+          {
+            "name": "scopeId",
+            "value": "repo.business"
+          },
+          {
+            "name": "semanticKey",
+            "value": "return"
+          }
+        ],
+        "name": "return",
+        "assertions": [
+          {
+            "assertionId": "as_685041ceb6e9f7874c2650ac92ff6a7bd688a5219300d0c7465b3c48a34e36ee",
+            "producerKey": "t19-audited.workflow@3.0.0:fd24dd3d586ba2b3671ee1c66397f167a32cb20f455e9d908577a483fb71328f:extract",
+            "batchId": "bat_a39b281955650737c17bdd21b09fb953afd3672fbd8a60eecdf142756ea07c5b",
+            "basis": "declared",
+            "origin": "static",
+            "name": "return",
+            "attributes": {},
+            "evidenceRefs": [
+              "ev_8e6001765c33822231d2c4026acdb50e8e54e27a4e9d8e240497d4cdee07df10"
+            ]
+          }
+        ]
+      }
+    ],
+    "hops": [
+      {
+        "relationId": "rel_70e54a5525bb048e62a8034905f1fcd4fb07414a4db65ceb7664dd77d8d29cd8",
+        "kind": "relates_document",
+        "fromId": "ent_2df3715c28156e30f5e58f58751cb87293604d84011e9cb7ef9140a394912094",
+        "toId": "ent_b0ca029bede45acdff01570ba1c8670a5dd32a3f64d18a32139096bfe7d272ba",
+        "direction": "out",
+        "assertionId": "as_f0daf30aee1cd19f1c1977bbe0de2d62facb6cb0dd9643f485017d5dff5b25f9",
+        "basis": "declared",
+        "origin": "static",
+        "resolution": "confirmed",
+        "batchId": "bat_a39b281955650737c17bdd21b09fb953afd3672fbd8a60eecdf142756ea07c5b",
+        "producerKey": "t19-audited.workflow@3.0.0:fd24dd3d586ba2b3671ee1c66397f167a32cb20f455e9d908577a483fb71328f:extract",
+        "qualifiers": {
+          "documentTypeId": "ent_2df3715c28156e30f5e58f58751cb87293604d84011e9cb7ef9140a394912094",
+          "orderedKeys": [
+            "tenant_id",
+            "purchase_no",
+            "line_no"
+          ]
+        },
+        "depth": 1,
+        "evidenceRefs": [
+          "ev_8e6001765c33822231d2c4026acdb50e8e54e27a4e9d8e240497d4cdee07df10"
+        ],
+        "relationRef": {
+          "snapshot": {
+            "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+            "generation": "13",
+            "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+          },
+          "relationId": "rel_70e54a5525bb048e62a8034905f1fcd4fb07414a4db65ceb7664dd77d8d29cd8"
+        }
+      },
+      {
+        "relationId": "rel_aab44aeff37f4d3524ac02081e947704d15f05c9d66671a6fcfe41092013509e",
+        "kind": "relates_document",
+        "fromId": "ent_b0ca029bede45acdff01570ba1c8670a5dd32a3f64d18a32139096bfe7d272ba",
+        "toId": "ent_f5bfb5c1f696ef46baa0faac9d49124dcd252858d7328f524d19e186134616c6",
+        "direction": "out",
+        "assertionId": "as_bee44c2b1e74f9a2902212efc1923c2d0f80d32ec50cbb9ffcb52dab0859cb97",
+        "basis": "declared",
+        "origin": "static",
+        "resolution": "confirmed",
+        "batchId": "bat_a39b281955650737c17bdd21b09fb953afd3672fbd8a60eecdf142756ea07c5b",
+        "producerKey": "t19-audited.workflow@3.0.0:fd24dd3d586ba2b3671ee1c66397f167a32cb20f455e9d908577a483fb71328f:extract",
+        "qualifiers": {
+          "documentTypeId": "ent_b0ca029bede45acdff01570ba1c8670a5dd32a3f64d18a32139096bfe7d272ba",
+          "orderedKeys": [
+            "tenant_id",
+            "purchase_no",
+            "line_no"
+          ]
+        },
+        "depth": 2,
+        "evidenceRefs": [
+          "ev_8e6001765c33822231d2c4026acdb50e8e54e27a4e9d8e240497d4cdee07df10"
+        ],
+        "relationRef": {
+          "snapshot": {
+            "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+            "generation": "13",
+            "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+          },
+          "relationId": "rel_aab44aeff37f4d3524ac02081e947704d15f05c9d66671a6fcfe41092013509e"
+        }
+      }
+    ],
+    "frontier": [],
+    "coverage": [
+      {
+        "capability": "workflow",
+        "scopeId": "repo.business",
+        "sourceSetId": "business",
+        "status": "not_configured",
+        "batchId": "bat_785f214ce29480d0f7c80c06e7f9175ef3986e0ed15c30a86353fd41a57d66e9"
+      },
+      {
+        "capability": "workflow",
+        "scopeId": "repo.business",
+        "sourceSetId": "rules",
+        "status": "complete",
+        "batchId": "bat_a39b281955650737c17bdd21b09fb953afd3672fbd8a60eecdf142756ea07c5b"
+      }
+    ]
+  },
+  "sourceReferences": [
+    {
+      "snapshot": {
+        "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+        "generation": "13",
+        "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+      },
+      "evidenceId": "ev_8e6001765c33822231d2c4026acdb50e8e54e27a4e9d8e240497d4cdee07df10",
+      "sourceId": "src_0f7166c8fe49c44014a8401875c46def903637df30ebdc47805ee50182d687fa",
+      "contentHash": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+      "startByte": 0,
+      "endByte": 1057
+    }
+  ],
+  "gaps": [
+    {
+      "id": "gap_58d2f2e507d7e100be514a847214ac10f0b7a17f32b3c423cafe4f431b68855e",
+      "code": "WORKFLOW_EVIDENCE_MISSING",
+      "capability": "workflow",
+      "scopeId": "",
+      "sourceRefs": [],
+      "candidateIds": [],
+      "reason": "no original business transition was found; calls do not establish workflow successors",
+      "requiredEvidence": [
+        "collect the missing original evidence in the requested scope"
+      ]
+    }
+  ],
+  "completeness": {
+    "freshness": "fresh",
+    "diskChecked": true,
+    "checkedAt": "2026-10-29T00:38:47Z",
+    "coverage": "partial",
+    "candidateSetsComplete": true,
+    "truncated": false,
+    "reasons": []
+  },
+  "budgetUsed": {
+    "entities": 3,
+    "relations": 2,
+    "visited": 23,
+    "elapsedMs": 17,
+    "responseChars": 10260
+  },
+  "nextQueries": []
+}

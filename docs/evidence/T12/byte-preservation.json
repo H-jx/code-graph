@@ -1,0 +1,32 @@
+{
+  "checks": [
+    {
+      "path": "fixtures/original/synes/frontend/config/routes.ts",
+      "rawGitObject": "6bdf179c4c4fa79a80a93d40f783f4179dbccb6b",
+      "filteredGitObject": "6bdf179c4c4fa79a80a93d40f783f4179dbccb6b",
+      "equal": true
+    },
+    {
+      "path": "docs/evidence/T06/arithmetic-oracle.json",
+      "rawGitObject": "a3ac614955750ff6c49cbbff67a45a89914bfaf6",
+      "filteredGitObject": "a3ac614955750ff6c49cbbff67a45a89914bfaf6",
+      "equal": true
+    },
+    {
+      "path": "docs/evidence/T11/workspace-tests.log",
+      "rawGitObject": "50439278f7ce50a4f1a2b1ba2b57d6192b98c414",
+      "filteredGitObject": "50439278f7ce50a4f1a2b1ba2b57d6192b98c414",
+      "equal": true
+    },
+    {
+      "path": "docs/evidence/T12/workspace-tests.log",
+      "rawGitObject": "4b3e8e29076e8b7fc16b5743fbf18f7bf909f26c",
+      "filteredGitObject": "4b3e8e29076e8b7fc16b5743fbf18f7bf909f26c",
+      "equal": true
+    }
+  ],
+  "pythonRuntime": {
+    "executable": "C:\\Users\\hubo9\\AppData\\Roaming\\uv\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe",
+    "version": "Python 3.12.13"
+  }
+}

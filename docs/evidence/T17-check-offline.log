@@ -1,0 +1,14 @@
+    Blocking waiting for file lock on package cache
+    Checking project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+    Checking project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli)
+warning: function `not_implemented` is never used
+  --> crates\cli\src\commands\mod.rs:63:8
+   |
+63 | pub fn not_implemented(feature: &str) -> CoreError {
+   |        ^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default
+
+warning: `project-knowledge-cli` (bin "project-knowledge") generated 1 warning
+warning: `project-knowledge-cli` (bin "project-knowledge" test) generated 1 warning (1 duplicate)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.54s

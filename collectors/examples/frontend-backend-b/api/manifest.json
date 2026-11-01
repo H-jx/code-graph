@@ -1,0 +1,47 @@
+{
+  "protocolVersion": "1.0",
+  "pluginId": "example.b.api",
+  "version": "1.0.0",
+  "capabilities": [
+    "api"
+  ],
+  "runtime": {
+    "kind": "python",
+    "versionRange": ">=3.12 <3.13"
+  },
+  "artifacts": [
+    "manifest.json",
+    "conventions.json",
+    "cases/api.json",
+    "cases/input.json",
+    "cases/truth.json",
+    "api_ast.py",
+    "identity.py",
+    "identity-spec.json",
+    "collect.py"
+  ],
+  "stages": [
+    {
+      "id": "extract",
+      "phase": "extract",
+      "entry": "collect.py",
+      "replacement": "project",
+      "sourceSelectors": [
+        {
+          "id": "backend",
+          "repositoryIds": [
+            "back"
+          ],
+          "include": [
+            "**/*.ts",
+            "**/*.js",
+            "**/*.py"
+          ]
+        }
+      ]
+    }
+  ],
+  "acceptanceCases": [
+    "cases/api.json"
+  ]
+}

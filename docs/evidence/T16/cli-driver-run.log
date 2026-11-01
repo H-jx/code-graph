@@ -1,0 +1,14 @@
+{"command":["cargo","build","-p","project-knowledge-cli","--locked","-j","1"],"exitCode":0,"log":"docs/evidence/T16/cli-build.log","logSha256":"dee2bd0d95d41b8edaef4382e0adf2fbef04cb200f5336bf0ba9b4fd7a4b03b3"}
+{"command":["cargo","test","-p","project-knowledge-core","--test","business_scenarios","scenario_","--locked","-j","1","--","--test-threads=1"],"exitCode":101,"log":"docs/evidence/T16/cli-scenarios.log","logSha256":"d9cf29fa94d67252066d703bf458d2b0d0bc25f7dadfbc814169a6677d05c4a9"}
+file:///E:/Project/my-project/code-graph/scripts/verify-scenarios.mjs:30
+  if (result.error || result.status !== 0) throw result.error ?? Error(`${name} failed; inspect ${log}`);
+                                                                 ^
+
+Error: cli-scenarios failed; inspect E:\Project\my-project\code-graph\docs\evidence\T16\cli-scenarios.log
+    at run (file:///E:/Project/my-project/code-graph/scripts/verify-scenarios.mjs:30:66)
+    at file:///E:/Project/my-project/code-graph/scripts/verify-scenarios.mjs:34:17
+    at ModuleJob.run (node:internal/modules/esm/module_job:430:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:661:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.14.0

@@ -6,6 +6,8 @@
 //! - `contract` 是共用类型的唯一来源，JSON Schema 由它导出，Node 侧类型再由 Schema 生成；
 //! - `storage` 是数据库写入的唯一入口，其他模块只能通过它使用事务与查询。
 
+/// Native/SDK/MCP 的通用查询与显式维护入口。
+pub mod client;
 /// 代码地图：面向当前问题的相关符号与文件轮廓。
 pub mod codemap;
 /// 外部提取器宿主：manifest、注册、运行、校验与导入。

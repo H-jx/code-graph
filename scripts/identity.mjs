@@ -9,13 +9,13 @@
  * - ID = `<前缀> + sha256(UTF8(canonicalIdentity))`，64 位小写十六进制。
  */
 
-import { createHash } from "node:crypto";
+import { createHash } from 'node:crypto';
 
 export const ID_PREFIX = {
-  entity: "ent_",
-  relation: "rel_",
-  evidence: "ev_",
-  source: "src_",
+  entity: 'ent_',
+  relation: 'rel_',
+  evidence: 'ev_',
+  source: 'src_',
 };
 
 /**
@@ -24,160 +24,161 @@ export const ID_PREFIX = {
  */
 export const ENTITY_COMPONENTS = {
   file: [
-    ["repositoryId", true],
-    ["path", true],
-    ["scopeId", true],
+    ['repositoryId', true],
+    ['path', true],
+    ['scopeId', true],
   ],
   symbol: [
-    ["repositoryId", true],
-    ["path", true],
-    ["scopeId", true],
-    ["lexicalPath", true],
-    ["symbolKind", true],
-    ["normalizedSignature", true],
+    ['repositoryId', true],
+    ['path', true],
+    ['scopeId', true],
+    ['lexicalPath', true],
+    ['symbolKind', true],
+    ['normalizedSignature', true],
   ],
   component: [
-    ["repositoryId", true],
-    ["path", true],
-    ["scopeId", true],
-    ["lexicalPath", true],
+    ['repositoryId', true],
+    ['path', true],
+    ['scopeId', true],
+    ['lexicalPath', true],
   ],
   operation: [
-    ["repositoryId", true],
-    ["path", true],
-    ["scopeId", true],
-    ["lexicalPath", true],
-    ["normalizedSignature", true],
+    ['repositoryId', true],
+    ['path', true],
+    ['scopeId', true],
+    ['lexicalPath', true],
+    ['normalizedSignature', true],
   ],
   route: [
-    ["scopeId", true],
-    ["routerId", true],
-    ["mode", true],
-    ["declaredPath", true],
+    ['scopeId', true],
+    ['routerId', true],
+    ['mode', true],
+    ['declaredPath', true],
   ],
   httpEndpoint: [
-    ["serviceId", true],
-    ["method", true],
-    ["registeredPath", true],
+    ['serviceId', true],
+    ['method', true],
+    ['registeredPath', true],
   ],
   graphqlOperation: [
-    ["serviceId", true],
-    ["operationType", true],
-    ["operationName", true],
+    ['serviceId', true],
+    ['operationType', true],
+    ['operationName', true],
   ],
   graphqlField: [
-    ["serviceId", true],
-    ["schemaType", true],
-    ["fieldName", true],
+    ['serviceId', true],
+    ['schemaType', true],
+    ['fieldName', true],
   ],
   dataTable: [
-    ["dataSourceId", true],
-    ["catalog", false],
-    ["schema", false],
-    ["table", true],
+    ['dataSourceId', true],
+    ['catalog', false],
+    ['schema', false],
+    ['table', true],
   ],
   dataColumn: [
-    ["dataSourceId", true],
-    ["catalog", false],
-    ["schema", false],
-    ["table", true],
-    ["column", true],
+    ['dataSourceId', true],
+    ['catalog', false],
+    ['schema', false],
+    ['table', true],
+    ['column', true],
   ],
   dataKey: [
-    ["dataSourceId", true],
-    ["catalog", false],
-    ["schema", false],
-    ["table", true],
-    ["keyColumns", true],
+    ['dataSourceId', true],
+    ['catalog', false],
+    ['schema', false],
+    ['table', true],
+    ['keyColumns', true],
   ],
   module: [
-    ["scopeId", true],
-    ["semanticKey", true],
+    ['scopeId', true],
+    ['semanticKey', true],
   ],
   entrypoint: [
-    ["scopeId", true],
-    ["semanticKey", true],
+    ['scopeId', true],
+    ['semanticKey', true],
   ],
   workflowState: [
-    ["scopeId", true],
-    ["workflowId", true],
-    ["semanticKey", true],
+    ['scopeId', true],
+    ['workflowId', true],
+    ['semanticKey', true],
   ],
   documentType: [
-    ["scopeId", true],
-    ["semanticKey", true],
+    ['scopeId', true],
+    ['semanticKey', true],
   ],
   queryImplementation: [
-    ["scopeId", true],
-    ["semanticKey", true],
+    ['scopeId', true],
+    ['semanticKey', true],
   ],
   reportField: [
-    ["scopeId", true],
-    ["semanticKey", true],
+    ['scopeId', true],
+    ['semanticKey', true],
   ],
   service: [
-    ["scopeId", true],
-    ["configuredId", true],
+    ['scopeId', true],
+    ['configuredId', true],
   ],
   dataSource: [
-    ["scopeId", true],
-    ["configuredId", true],
+    ['scopeId', true],
+    ['configuredId', true],
   ],
   event: [
-    ["repositoryId", true],
-    ["path", true],
-    ["scopeId", true],
-    ["lexicalPath", true],
+    ['repositoryId', true],
+    ['path', true],
+    ['scopeId', true],
+    ['lexicalPath', true],
   ],
   title: [
-    ["repositoryId", true],
-    ["path", true],
-    ["scopeId", true],
-    ["lexicalPath", true],
+    ['repositoryId', true],
+    ['path', true],
+    ['scopeId', true],
+    ['lexicalPath', true],
   ],
   comment: [
-    ["repositoryId", true],
-    ["path", true],
-    ["scopeId", true],
-    ["lexicalPath", true],
+    ['repositoryId', true],
+    ['path', true],
+    ['scopeId', true],
+    ['lexicalPath', true],
   ],
   request: [
-    ["scopeId", true],
-    ["requestKey", true],
+    ['scopeId', true],
+    ['requestKey', true],
   ],
 };
 
 /** 规范 JSON 序列化：对象键递归排序，禁止浮点数。 */
 export function canonicalJson(value) {
   if (value === null) {
-    throw new Error("null is not allowed inside an identity");
+    throw new Error('null is not allowed inside an identity');
   }
-  if (typeof value === "boolean") {
-    throw new Error("boolean is not allowed inside an identity");
+  if (typeof value === 'boolean') {
+    throw new Error('boolean is not allowed inside an identity');
   }
-  if (typeof value === "number") {
+  if (typeof value === 'number') {
     if (!Number.isInteger(value)) {
       throw new Error(`non-integer number ${value} is not allowed inside an identity`);
     }
     return JSON.stringify(value);
   }
-  if (typeof value === "string") {
+  if (typeof value === 'string') {
+    if (!value.isWellFormed()) throw new Error('identity strings must contain valid Unicode');
     return JSON.stringify(value);
   }
   if (Array.isArray(value)) {
-    return `[${value.map((item) => canonicalJson(item)).join(",")}]`;
+    return `[${value.map((item) => canonicalJson(item)).join(',')}]`;
   }
-  if (typeof value === "object") {
-    const keys = Object.keys(value).sort();
-    return `{${keys
-      .map((key) => `${JSON.stringify(key)}:${canonicalJson(value[key])}`)
-      .join(",")}}`;
+  if (typeof value === 'object') {
+    const keys = Object.keys(value).sort((a, b) =>
+      Buffer.compare(Buffer.from(a, 'utf8'), Buffer.from(b, 'utf8')),
+    );
+    return `{${keys.map((key) => `${canonicalJson(key)}:${canonicalJson(value[key])}`).join(',')}}`;
   }
   throw new Error(`unsupported identity value: ${typeof value}`);
 }
 
 function sha256Hex(text) {
-  return createHash("sha256").update(Buffer.from(text, "utf8")).digest("hex");
+  return createHash('sha256').update(Buffer.from(text, 'utf8')).digest('hex');
 }
 
 /**
@@ -187,7 +188,22 @@ function sha256Hex(text) {
 export function canonicalEntityIdentity(projectId, kind, slots) {
   const spec = ENTITY_COMPONENTS[kind];
   if (!spec) {
-    throw new Error(`unknown entity kind: ${kind}`);
+    if (!/^x\.[A-Za-z0-9_-]+(?:\.[A-Za-z0-9_-]+)*\.[A-Za-z][A-Za-z0-9_-]*$/.test(kind)) {
+      throw new Error(`unknown entity kind: ${kind}`);
+    }
+    if (
+      slots[0]?.name !== 'scopeId' ||
+      typeof slots[0].value !== 'string' ||
+      slots.some((s) => !s.name || Object.keys(s).some((k) => k !== 'name' && k !== 'value')) ||
+      new Set(slots.map((s) => s.name)).size !== slots.length
+    ) {
+      throw new Error('extension identity needs unique named slots beginning with scopeId');
+    }
+    return canonicalJson([
+      projectId,
+      kind,
+      slots.map((s) => [s.name, Object.prototype.hasOwnProperty.call(s, 'value') ? [s.value] : []]),
+    ]);
   }
   if (spec.length !== slots.length) {
     throw new Error(
@@ -198,11 +214,9 @@ export function canonicalEntityIdentity(projectId, kind, slots) {
   spec.forEach(([name, required], index) => {
     const slot = slots[index];
     if (slot.name !== name) {
-      throw new Error(
-        `identity slot ${index} must be "${name}", got "${slot.name}"`,
-      );
+      throw new Error(`identity slot ${index} must be "${name}", got "${slot.name}"`);
     }
-    const present = Object.prototype.hasOwnProperty.call(slot, "value");
+    const present = Object.prototype.hasOwnProperty.call(slot, 'value');
     if (required) {
       if (!present) {
         throw new Error(`required identity slot "${name}" is missing`);
@@ -224,28 +238,18 @@ export function computeEntityId(projectId, kind, slots) {
 
 /** 关系 ID：`[projectId, kind, fromId, toId, ...qualifiers]`。 */
 export function computeRelationId(projectId, kind, fromId, toId, qualifiers = {}) {
-  const canonical = canonicalJson([
-    projectId,
-    kind,
-    fromId,
-    toId,
-    qualifiers,
-  ]);
+  const canonical = canonicalJson([projectId, kind, fromId, toId, qualifiers]);
   return ID_PREFIX.relation + sha256Hex(canonical);
 }
 
 /** 来源 ID：`[projectId, repositoryId, path]`。 */
 export function computeSourceId(projectId, repositoryId, path) {
-  return (
-    ID_PREFIX.source +
-    sha256Hex(canonicalJson([projectId, repositoryId, path]))
-  );
+  return ID_PREFIX.source + sha256Hex(canonicalJson([projectId, repositoryId, path]));
 }
 
 /** 证据 ID：`[sourceId, contentHash, startByte, endByte, role]`。 */
 export function computeEvidenceId(sourceId, contentHash, startByte, endByte, role) {
   return (
-    ID_PREFIX.evidence +
-    sha256Hex(canonicalJson([sourceId, contentHash, startByte, endByte, role]))
+    ID_PREFIX.evidence + sha256Hex(canonicalJson([sourceId, contentHash, startByte, endByte, role]))
   );
 }

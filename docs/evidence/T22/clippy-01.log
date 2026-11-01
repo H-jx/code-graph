@@ -1,0 +1,12 @@
+    Checking project-knowledge-native v0.1.0 (E:\Project\my-project\code-graph\bindings\node)
+    Checking xtask v0.1.0 (E:\Project\my-project\code-graph\xtask)
+error: unused import: `anyhow`
+  --> xtask\src\main.rs:16:23
+   |
+16 | use anyhow::{Context, anyhow, bail};
+   |                       ^^^^^^
+   |
+   = note: `-D unused-imports` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(unused_imports)]`
+
+error: could not compile `xtask` (bin "xtask") due to 1 previous error

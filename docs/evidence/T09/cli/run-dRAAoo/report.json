@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-26T00:11:32.521Z",
+  "origin": "synthetic-smoke",
+  "independentBusinessTruth": false,
+  "node": "v24.14.0",
+  "platform": "win32",
+  "arch": "x64",
+  "commands": [
+    {
+      "label": "01-base",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "index",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\project.json",
+        "--base"
+      ],
+      "exitCode": 0,
+      "outputHash": "29341bdfe8a8e9a8d55a4130140186901bff55a4bdad522285765403cae9932f"
+    },
+    {
+      "label": "02-validate-only",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "collect",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\project.json",
+        "--manifest",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\plugin\\manifest.json",
+        "--validate-only"
+      ],
+      "exitCode": 0,
+      "outputHash": "5da7b047545b1e694551c54d41d47d7710e1de0516d66611b879cdf18bf694ef"
+    },
+    {
+      "label": "03-submit",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\project.json",
+        "submit",
+        "--path",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\plugin"
+      ],
+      "exitCode": 0,
+      "outputHash": "4fd56a421a1cf64f3cf0b345e41be70659588788327ec559e3b8c784d6396427"
+    },
+    {
+      "label": "04-validate",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\project.json",
+        "validate",
+        "--candidate",
+        "candidate_157cc7e4-64e2-41a7-8e7a-a5916e94c2a5"
+      ],
+      "exitCode": 0,
+      "outputHash": "fe49de310d3d712bbaf37fe0cf44013493957a4b00a85e1d1a04d706ed29ff77"
+    },
+    {
+      "label": "05-activate",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\project.json",
+        "activate",
+        "--candidate",
+        "candidate_157cc7e4-64e2-41a7-8e7a-a5916e94c2a5"
+      ],
+      "exitCode": 0,
+      "outputHash": "3bc2ca0b7b313d7ebcf66670bd3432c9c6f7c3bf1d84efc3a9e89979de5b5e6d"
+    },
+    {
+      "label": "06-collect",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "collect",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\project.json"
+      ],
+      "exitCode": 0,
+      "outputHash": "31a00660e023fd3f80bef8ac59198fdc7c260121052ed19942479a3fac5e49ba"
+    },
+    {
+      "label": "07-bad-link",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "collect",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\project.json",
+        "--manifest",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\plugin\\manifest.json",
+        "--validate-only"
+      ],
+      "exitCode": 1,
+      "outputHash": "1e82a8d44e4a78ed4c8b3f5ab8352843316ff04647c16371ddbace9c901dd583"
+    },
+    {
+      "label": "08-rollback",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\project.json",
+        "rollback",
+        "--plugin",
+        "smoke.plugin",
+        "--version",
+        "1.0.0"
+      ],
+      "exitCode": 0,
+      "outputHash": "2aa3d6a97fe8af3507dc599ed44abf877e9271d22a5cfb6ae0c3eb070ba31698"
+    }
+  ],
+  "hashes": {
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\project.json": "66a0faa5c68f2c13fc42b04848dc3636fad50f68c9234180d6c42127c1e4e61a",
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\plugin\\manifest.json": "5ed0d303d69478be746336a83dc0dab66317fe29ce5fc0f240b9025b478aca03",
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\plugin\\collect.mjs": "6ec5e361b4edc231e1827bc68d1bb3da4558c8caa3957545d812cb33f1c373c9",
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-dRAAoo\\repo\\a.ts": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+    "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe": "42f5fa97fa2f84c2a8077838ca612ba2def8a07f16c0aa3e9a03be2f991d26e4"
+  },
+  "assertions": {
+    "validateOnlyDoesNotCommit": true,
+    "activationSwitchesOnce": true,
+    "collectCommits": true,
+    "badLinkFails": true,
+    "rollbackCreatesNewGeneration": true
+  }
+}

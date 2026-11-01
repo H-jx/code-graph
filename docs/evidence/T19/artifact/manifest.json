@@ -1,0 +1,25 @@
+{
+  "protocolVersion": "1.0",
+  "pluginId": "live-project.routes",
+  "version": "0.1.0",
+  "capabilities": ["routes"],
+  "runtime": { "kind": "node", "versionRange": ">=24 <25" },
+  "artifacts": ["manifest.json", "src/collect.mjs", "identity.mjs", "cases/routes-orders.json", "input/routes-extract.json"],
+  "stages": [
+    {
+      "id": "extract",
+      "phase": "extract",
+      "entry": "src/collect.mjs",
+      "args": ["--stage", "extract"],
+      "sourceSelectors": [
+        { "id": "routes-config", "repositoryIds": ["repo.main"], "include": ["**/routes.json"], "exclude": [] }
+      ],
+      "entitySelectors": [],
+      "dependsOn": [],
+      "replacement": "project"
+    }
+  ],
+  "limits": { "timeoutMs": 60000, "maxInputBytes": 33554432, "maxOutputBytes": 33554432, "maxStderrBytes": 1048576 },
+  "acceptanceCases": ["cases/routes-orders.json"],
+  "extensions": {}
+}

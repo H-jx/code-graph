@@ -1,0 +1,16 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\indexing-3727bf85cd66c432.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\indexing-3727bf85cd66c432.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "indexing") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.72s
+     Running tests\indexing.rs (target\debug\deps\indexing-3727bf85cd66c432.exe)
+
+running 3 tests
+test queries::query_neighbors_bfs_cycles_filters_and_strict_budgets ... ok
+test queries::query_search_keyset_fields_unicode_generation_and_readonly ... ok
+test queries::query_stale_unknown_cancel_zero_and_index_plans_are_explicit ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 45 filtered out; finished in 1.38s
+

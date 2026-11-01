@@ -1,0 +1,10 @@
+[workspace]
+resolver = "3"
+members = ["native", "rig"]
+
+[workspace.dependencies]
+project-knowledge-core = { path = "../../../../crates/core" }
+serde = { version = "=1.0.229", features = ["derive"] }
+serde_json = "=1.0.154"
+schemars = "=1.2.3"
+tokio = { version = "=1.54.1", features = ["rt-multi-thread", "macros", "time", "sync"] }

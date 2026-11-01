@@ -1,0 +1,32 @@
+{
+  "routesExport": "screens",
+  "routerExport": "router",
+  "pathKey": "url",
+  "componentKey": "load",
+  "titleKey": "labelKey",
+  "titleLiteralKey": "title",
+  "messagesExport": "messages",
+  "moduleExport": "moduleInfo",
+  "clientFactory": "createClient",
+  "httpMethods": [
+    "get",
+    "post",
+    "put",
+    "patch",
+    "delete"
+  ],
+  "entrypoints": [
+    {
+      "call": "scheduler.register",
+      "kind": "schedule"
+    },
+    {
+      "call": "messages.subscribe",
+      "kind": "message"
+    },
+    {
+      "call": "commands.register",
+      "kind": "command"
+    }
+  ]
+}

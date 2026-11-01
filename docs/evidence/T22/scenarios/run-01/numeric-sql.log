@@ -1,0 +1,13 @@
+
+running 1 test
+test truth_numeric_sql_matches_frozen_rows_and_rejects_both_mutants ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 17 filtered out; finished in 0.00s
+
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-6f89a518d2d90297.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-6f89a518d2d90297.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.60s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-6f89a518d2d90297.exe)

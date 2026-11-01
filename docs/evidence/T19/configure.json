@@ -1,0 +1,20 @@
+{
+  "status": "configured",
+  "agent": {
+    "enabled": true,
+    "provider": "anthropic",
+    "model": "qwen3.8-flash",
+    "baseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic",
+    "apiKeyEnv": "PROJECT_KNOWLEDGE_LLM_KEY",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 600,
+    "maxInputChars": 500000,
+    "maxOutputTokens": 8192,
+    "thinking": false
+  },
+  "keyConfigured": true,
+  "endpointVerified": false,
+  "envFile": ".env"
+}

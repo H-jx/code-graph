@@ -1,0 +1,24 @@
+
+> project-knowledge@0.1.0 build:ts E:\Project\my-project\code-graph
+> pnpm run build:sdk && pnpm run build:mcp
+
+
+> project-knowledge@0.1.0 build:sdk E:\Project\my-project\code-graph
+> pnpm --filter @project-knowledge/sdk run build
+
+
+> @project-knowledge/sdk@0.1.0 build E:\Project\my-project\code-graph\packages\sdk
+> tsc -p tsconfig.json
+
+
+> project-knowledge@0.1.0 build:mcp E:\Project\my-project\code-graph
+> pnpm --filter @project-knowledge/sdk run build && pnpm --filter @project-knowledge/mcp run build
+
+
+> @project-knowledge/sdk@0.1.0 build E:\Project\my-project\code-graph\packages\sdk
+> tsc -p tsconfig.json
+
+
+> @project-knowledge/mcp@0.1.0 build E:\Project\my-project\code-graph\packages\mcp
+> tsc -p tsconfig.json
+

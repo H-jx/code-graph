@@ -1,0 +1,763 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "get-capabilities",
+      "description": "Read ONE schema: output, input, case, manifest, template. schema=identity computes a stable entityId with kind and string slots object for case expected.entities; never guess hashes. schema=candidate lists current candidate files/manifest; add path to read one exact file when fixing validation issues. Do not call every enum value.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "schema": {
+            "type": "string",
+            "enum": [
+              "manifest",
+              "input",
+              "output",
+              "case",
+              "template",
+              "identity",
+              "candidate",
+              "topic",
+              "conventions"
+            ]
+          },
+          "kind": {
+            "type": "string"
+          },
+          "slots": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "status",
+      "description": "Read Core project freshness and coverage. No arguments.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "search",
+      "description": "Search indexed code. Required query is a string; optional pageSize is an integer.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "uint32",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "code-map",
+      "description": "Read a bounded map. Pass {} or query; numeric limits must be JSON numbers. No roots or filters arguments.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "maxFiles": {
+            "type": "integer",
+            "format": "uint32",
+            "minimum": 0
+          },
+          "maxSymbols": {
+            "type": "integer",
+            "format": "uint32",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "read-source",
+      "description": "Read current original source. Pass sourceId from export-snapshot, optionally maxChars as a number. Host supplies and validates the full reference.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "sourceId": {
+            "type": "string"
+          },
+          "maxChars": {
+            "type": "integer",
+            "format": "uint64",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "sourceId"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "export-snapshot",
+      "description": "Export CollectorInput and references. Pass include as an array of globs. Returned source IDs work with read-source and import-conventions; input is a case fixture after changing stageId to your stage.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "update-base",
+      "description": "Core maintenance on this run. No arbitrary commands or business source edits.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "import-conventions",
+      "description": "After code-map and read-source, import notes and sourceIds through Core. Optional identityDelta requires expectedConfigHash from capabilities. If identityChangesApplied, call update-base and inspect the new snapshot before building a candidate.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "notes": {
+            "type": "string"
+          },
+          "sourceIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "expectedConfigHash": {
+            "type": "string",
+            "default": null
+          },
+          "identityDelta": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "scopes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "repositoryIds": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "default": []
+                    },
+                    "roots": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "properties": {
+                          "repositoryId": {
+                            "type": "string"
+                          },
+                          "path": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "repositoryId",
+                          "path"
+                        ],
+                        "description": "作用域根。"
+                      },
+                      "default": []
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "application",
+                        "module",
+                        "service"
+                      ],
+                      "description": "作用域种类。"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "kind"
+                  ],
+                  "description": "作用域。"
+                },
+                "default": []
+              },
+              "services": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "scopeId": {
+                      "type": "string"
+                    },
+                    "protocol": {
+                      "type": "string"
+                    },
+                    "baseUrls": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "default": []
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "scopeId",
+                    "protocol"
+                  ],
+                  "description": "服务登记。"
+                },
+                "default": []
+              },
+              "dataSources": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "scopeId": {
+                      "type": "string"
+                    },
+                    "dialect": {
+                      "type": "string"
+                    },
+                    "catalog": {
+                      "type": "string"
+                    },
+                    "schema": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "scopeId",
+                    "dialect"
+                  ],
+                  "description": "数据源登记。"
+                },
+                "default": []
+              },
+              "bindings": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "kind": {
+                      "type": "string",
+                      "enum": [
+                        "clientToService",
+                        "proxyToService",
+                        "ormInstanceToDataSource"
+                      ],
+                      "description": "绑定种类。"
+                    },
+                    "scopeId": {
+                      "type": "string"
+                    },
+                    "from": {
+                      "type": "string"
+                    },
+                    "to": {
+                      "type": "string"
+                    },
+                    "evidenceRefs": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      },
+                      "default": []
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "kind",
+                    "scopeId",
+                    "from",
+                    "to"
+                  ],
+                  "description": "绑定登记：客户端或代理 → service，或 ORM instance → dataSource。"
+                },
+                "default": []
+              }
+            },
+            "description": "身份增量：只允许新增或显式修改，不允许按名字覆盖既有 ID。"
+          }
+        },
+        "required": [
+          "notes",
+          "sourceIds"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "write-candidate",
+      "description": "Write file updates as path/content objects. Updates merge into a new immutable revision; omitted files remain. includeIdentityHelper=true adds identity.mjs (list it in artifacts). Cases and input JSON must exist before validate-plugin. Repair budget counts modifications after a validation failure, not assembly calls.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "content": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "content"
+              ]
+            }
+          },
+          "includeIdentityHelper": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "required": [
+          "files"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "prepare-plugin",
+      "description": "Core maintenance on this run. No arbitrary commands or business source edits.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "validate-plugin",
+      "description": "Submit candidate, prepare dependencies, run Core validators and cases, then activate under project policy. No arguments. On successful activation stop; otherwise repair within budget.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "run-plugin-cases",
+      "description": "Submit candidate, prepare dependencies, run Core validators and cases, then activate under project policy. No arguments. On successful activation stop; otherwise repair within budget.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "activate-plugin",
+      "description": "Activate the validated candidate under project policy. No arguments; idempotent.",
+      "parameters": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "export-topic-context",
+      "description": "After activation, select current original facts for a topic. topicId is a safe identifier; query is a search term or page route; view is search, locateFeature, page, workflow or report. Budget includes the whole context. Keep inputDigest, snapshot, hashes and all gaps for import.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "topicId": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "view": {
+            "type": "string",
+            "enum": [
+              "search",
+              "locateFeature",
+              "page",
+              "workflow",
+              "report"
+            ]
+          },
+          "scopeIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "maxChars": {
+            "type": "integer",
+            "format": "uint64",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "topicId",
+          "query"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "import-topic",
+      "description": "Import Core TopicArtifact from context exported in this run. Each explanation line cites [[claim:id]]. Retain context gaps; AI judgements must be inferred with gapIds. Return original source references unchanged. Inspect schema=topic when needed.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "protocolVersion": {
+            "type": "string"
+          },
+          "topicId": {
+            "type": "string"
+          },
+          "modelInfo": {
+            "$ref": "#/$defs/TopicModelInfo"
+          },
+          "snapshot": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "indexId": {
+                "type": "string"
+              },
+              "generation": {
+                "type": "string",
+                "description": "无符号十进制字符串。"
+              },
+              "sourceSnapshotId": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "indexId",
+              "generation"
+            ],
+            "description": "索引快照标识。"
+          },
+          "inputDigest": {
+            "type": "string"
+          },
+          "markdown": {
+            "type": "string"
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "basis": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "const": "observed",
+                      "description": "原始代码或配置中可观察的结构。"
+                    },
+                    {
+                      "type": "string",
+                      "const": "declared",
+                      "description": "原始规范或资料中的声明。"
+                    },
+                    {
+                      "type": "string",
+                      "const": "inferred",
+                      "description": "推断。"
+                    }
+                  ],
+                  "description": "事实依据。"
+                },
+                "origin": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "const": "static",
+                      "description": "静态规则或插件脚本产生。"
+                    },
+                    {
+                      "type": "string",
+                      "const": "human",
+                      "description": "人工登记。"
+                    },
+                    {
+                      "type": "string",
+                      "const": "ai",
+                      "description": "模型判断（必须是 `inferred` 依据）。"
+                    }
+                  ],
+                  "description": "断言来源。"
+                },
+                "evidenceRefs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "default": []
+                },
+                "gapIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "default": []
+                }
+              },
+              "required": [
+                "id",
+                "text",
+                "basis",
+                "origin"
+              ]
+            }
+          },
+          "sourceReferences": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "snapshot": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "indexId": {
+                      "type": "string"
+                    },
+                    "generation": {
+                      "type": "string",
+                      "description": "无符号十进制字符串。"
+                    },
+                    "sourceSnapshotId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "indexId",
+                    "generation"
+                  ],
+                  "description": "索引快照标识。"
+                },
+                "evidenceId": {
+                  "type": "string"
+                },
+                "sourceId": {
+                  "type": "string"
+                },
+                "contentHash": {
+                  "type": "string"
+                },
+                "startByte": {
+                  "type": "integer",
+                  "format": "uint64",
+                  "minimum": 0
+                },
+                "endByte": {
+                  "type": "integer",
+                  "format": "uint64",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "snapshot",
+                "evidenceId",
+                "sourceId",
+                "contentHash",
+                "startByte",
+                "endByte"
+              ],
+              "description": "查询响应中回传的来源引用；客户端必须原样传回，不得自行拼接 ID。"
+            }
+          },
+          "gaps": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "code": {
+                  "type": "string"
+                },
+                "capability": {
+                  "type": "string"
+                },
+                "scopeId": {
+                  "type": "string"
+                },
+                "sourceRefs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "default": []
+                },
+                "candidateIds": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "default": []
+                },
+                "reason": {
+                  "type": "string"
+                },
+                "requiredEvidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "default": []
+                }
+              },
+              "required": [
+                "id",
+                "code",
+                "capability",
+                "scopeId",
+                "reason"
+              ],
+              "description": "缺口（查询响应内使用）。"
+            }
+          },
+          "promptHash": {
+            "type": "string"
+          },
+          "templateHash": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "protocolVersion",
+          "topicId",
+          "title",
+          "snapshot",
+          "inputDigest",
+          "markdown",
+          "claims",
+          "sourceReferences",
+          "gaps",
+          "promptHash",
+          "templateHash"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "export-skill",
+      "description": "After importing current topics, render a complete Skill. Pass name only; Core owns output directory, freshness and atomic publication. Partial or stale results are not complete.",
+      "parameters": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      }
+    }
+  }
+]

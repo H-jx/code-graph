@@ -1,0 +1,738 @@
+{
+  "codeMap": {
+    "budgetUsed": {
+      "elapsedMs": 17,
+      "entities": 3,
+      "relations": 0,
+      "responseChars": 4475,
+      "visited": 28
+    },
+    "completeness": {
+      "candidateSetsComplete": true,
+      "checkedAt": "now",
+      "coverage": "complete",
+      "diskChecked": true,
+      "freshness": "fresh",
+      "reasons": [],
+      "truncated": false
+    },
+    "data": {
+      "files": [
+        {
+          "path": "src/plugin.ts",
+          "repositoryId": "main",
+          "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986"
+        }
+      ],
+      "symbols": [
+        {
+          "assertionId": "as_d82904d1c3fe0e68441ed6030aedc717a0ef644deac5aef6a28628f9305ec532",
+          "basis": "observed",
+          "entityRef": {
+            "entityId": "ent_00c655062f39e1fc0470161efb7e332c373fef979e1b213bc4fefe1ed72494fe",
+            "snapshot": {
+              "generation": "3",
+              "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+              "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+            }
+          },
+          "evidenceRefs": [
+            "ev_b4182dcdf5dd35974c6bd78870823b4fd8ed3c7672f826e68049e9776fe6036f"
+          ],
+          "kind": "symbol",
+          "locations": [
+            {
+              "endByte": 18,
+              "path": "src/plugin.ts",
+              "repositoryId": "main",
+              "startByte": 13
+            }
+          ],
+          "name": "smoke",
+          "origin": "static",
+          "rank": 0,
+          "scopeId": "repo.main",
+          "signature": "smoke=1"
+        },
+        {
+          "assertionId": "as_c43b20d4c8eb10c339a7b01cf28c1f2fac3af5c8e0b891447829bf62614050db",
+          "basis": "observed",
+          "entityRef": {
+            "entityId": "ent_e02573c2b29d16fd7f85628d032f3a07e44c07d5284988b1e0c7797e9b0a0006",
+            "snapshot": {
+              "generation": "3",
+              "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+              "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+            }
+          },
+          "evidenceRefs": [
+            "ev_1310742a81d013061dcead284ca5bffb01bd264f334b97c82be65d2c45311750"
+          ],
+          "kind": "route",
+          "locations": [
+            {
+              "endByte": 1,
+              "path": "src/plugin.ts",
+              "repositoryId": "main",
+              "startByte": 0
+            }
+          ],
+          "name": "Smoke route",
+          "origin": "static",
+          "rank": 0,
+          "scopeId": "repo.main",
+          "signature": null
+        },
+        {
+          "assertionId": "as_ec35c5d13181ff0f792a35f5cbf0a0ca0675f98164fe0c6d02bf25ab2d125b9d",
+          "basis": "observed",
+          "entityRef": {
+            "entityId": "ent_c0e6b11022a35bc7ec1d0eb338a4e4a1057b459ecc2d0008cde08a47ecf85fa2",
+            "snapshot": {
+              "generation": "3",
+              "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+              "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+            }
+          },
+          "evidenceRefs": [
+            "ev_5c2badea6b7b999c8ad32a94b8948d1ddeaa775ae1d3f96973e2beb6c474da1a"
+          ],
+          "kind": "symbol",
+          "locations": [
+            {
+              "endByte": 23,
+              "path": "src/plugin.ts",
+              "repositoryId": "main",
+              "startByte": 7
+            }
+          ],
+          "name": "#0",
+          "origin": "static",
+          "rank": 2,
+          "scopeId": "repo.main",
+          "signature": "constsmoke=1;"
+        }
+      ],
+      "uncoveredLanguages": []
+    },
+    "gaps": [],
+    "nextQueries": [],
+    "protocolVersion": "1.0",
+    "requestId": "req_9129827e-3b09-4158-9adc-499f9a0c9f65",
+    "snapshot": {
+      "generation": "3",
+      "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+      "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+    },
+    "sourceReferences": [
+      {
+        "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+        "endByte": 1,
+        "evidenceId": "ev_1310742a81d013061dcead284ca5bffb01bd264f334b97c82be65d2c45311750",
+        "snapshot": {
+          "generation": "3",
+          "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+          "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+        },
+        "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+        "startByte": 0
+      },
+      {
+        "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+        "endByte": 23,
+        "evidenceId": "ev_5c2badea6b7b999c8ad32a94b8948d1ddeaa775ae1d3f96973e2beb6c474da1a",
+        "snapshot": {
+          "generation": "3",
+          "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+          "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+        },
+        "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+        "startByte": 7
+      },
+      {
+        "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+        "endByte": 1,
+        "evidenceId": "ev_8d0adc43f21be765b90c4886dee8edbd8aab86f7f7768ea6b17d4586f9315ea8",
+        "snapshot": {
+          "generation": "3",
+          "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+          "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+        },
+        "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+        "startByte": 0
+      },
+      {
+        "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+        "endByte": 18,
+        "evidenceId": "ev_b4182dcdf5dd35974c6bd78870823b4fd8ed3c7672f826e68049e9776fe6036f",
+        "snapshot": {
+          "generation": "3",
+          "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+          "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+        },
+        "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+        "startByte": 13
+      }
+    ],
+    "status": "complete"
+  },
+  "conventions": [],
+  "coverage": [
+    {
+      "capability": "api",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "base",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "complete"
+    },
+    {
+      "capability": "database",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "frontend",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "report",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "routes",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "workflow",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "api",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "base",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "complete"
+    },
+    {
+      "capability": "database",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "frontend",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "report",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "routes",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "workflow",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    }
+  ],
+  "dependencies": [
+    {
+      "digest": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+      "key": "smoke.plugin",
+      "kind": "artifact"
+    },
+    {
+      "digest": "7ef1fa5e2b1a211ca1203d66fbebb855fc803de1368e8a58cbc737dc91f822f3",
+      "key": "(smoke.plugin,extract,knowledge-fixture)",
+      "kind": "batch"
+    },
+    {
+      "digest": "387ead30d5fbe09b11c845b1420621e12fd3e7b3549fd2d0a410931fe81cb95e",
+      "key": "project",
+      "kind": "config"
+    },
+    {
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "key": "all",
+      "kind": "conventions"
+    },
+    {
+      "digest": "d7b1e51fccc3f03205a025392ea004b4e39d7b1ed8cd29e5872844f67dd360cc",
+      "key": "[\"main\",\"other\"]",
+      "kind": "facts"
+    },
+    {
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "key": "[\"main\",\"other\"]",
+      "kind": "plugins"
+    },
+    {
+      "digest": "c918ecd7f60af4f710c1f744d0e069cf63eb3f42b27b8280a5caa3f5a0de91c2",
+      "key": "knowledge",
+      "kind": "prompt"
+    },
+    {
+      "digest": "1b2257082656a620dc95ba94a239050a17df80ee715d6a872a70e9c277f9528f",
+      "key": "smoke.plugin",
+      "kind": "selectors"
+    },
+    {
+      "digest": "127e269f2dea07df8a8fdfca0c06b67dc92e67554e7058ea74a74af506d65563",
+      "key": "main",
+      "kind": "sourceSet"
+    },
+    {
+      "digest": "3722c190aab6b12cf40cbd95565a6a65788640fd5de2692f050fbab1b8e29316",
+      "key": "other",
+      "kind": "sourceSet"
+    },
+    {
+      "digest": "2812eb889355f58643d197f61873c80f2c562f7a549e370e5d493f3676337007",
+      "key": "skill",
+      "kind": "template"
+    }
+  ],
+  "facts": {
+    "budgetUsed": {
+      "elapsedMs": 13,
+      "entities": 3,
+      "relations": 0,
+      "responseChars": 5142,
+      "visited": 9
+    },
+    "completeness": {
+      "candidateSetsComplete": true,
+      "checkedAt": "now",
+      "coverage": "complete",
+      "diskChecked": true,
+      "freshness": "fresh",
+      "reasons": [],
+      "truncated": false
+    },
+    "data": {
+      "candidateSetComplete": true,
+      "fields": null,
+      "results": [
+        {
+          "assertions": [
+            {
+              "assertionId": "as_e7526fcf3e72f1fc2dbdcf0b48de15a20600d7d5928f2615841669040325d41a",
+              "attributes": {
+                "byteLength": 24,
+                "language": "typescript",
+                "path": "src/plugin.ts",
+                "repositoryId": "main"
+              },
+              "basis": "observed",
+              "batchId": "bat_f18987c7a47d98bb9f9fd5cb429714c16b3a2bd21b48ce2a58dc147475293bb7",
+              "evidenceRefs": [
+                "ev_8d0adc43f21be765b90c4886dee8edbd8aab86f7f7768ea6b17d4586f9315ea8"
+              ],
+              "name": "src/plugin.ts",
+              "origin": "static",
+              "producerKey": "core.base"
+            }
+          ],
+          "bm25": -0.8014415611525249,
+          "entityRef": {
+            "entityId": "ent_ab50e9c5c9ee308bb98df0f36b47e77d21365bc1f0922a35990ecc5a04297a03",
+            "snapshot": {
+              "generation": "3",
+              "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+              "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+            }
+          },
+          "exactRank": 3,
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "main"
+            },
+            {
+              "name": "path",
+              "value": "src/plugin.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "repo.main"
+            }
+          ],
+          "kind": "file",
+          "matchReason": "identifier",
+          "name": "src/plugin.ts",
+          "projection": "source",
+          "scopeId": "repo.main"
+        },
+        {
+          "assertions": [
+            {
+              "assertionId": "as_d82904d1c3fe0e68441ed6030aedc717a0ef644deac5aef6a28628f9305ec532",
+              "attributes": {
+                "lexicalPath": "smoke",
+                "name": "smoke",
+                "normalizedSignature": "smoke=1",
+                "path": "src/plugin.ts",
+                "symbolKind": "variable"
+              },
+              "basis": "observed",
+              "batchId": "bat_f18987c7a47d98bb9f9fd5cb429714c16b3a2bd21b48ce2a58dc147475293bb7",
+              "evidenceRefs": [
+                "ev_b4182dcdf5dd35974c6bd78870823b4fd8ed3c7672f826e68049e9776fe6036f"
+              ],
+              "name": "smoke",
+              "origin": "static",
+              "producerKey": "core.base"
+            }
+          ],
+          "bm25": -0.533042581880111,
+          "entityRef": {
+            "entityId": "ent_00c655062f39e1fc0470161efb7e332c373fef979e1b213bc4fefe1ed72494fe",
+            "snapshot": {
+              "generation": "3",
+              "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+              "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+            }
+          },
+          "exactRank": 3,
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "main"
+            },
+            {
+              "name": "path",
+              "value": "src/plugin.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "repo.main"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "smoke"
+            },
+            {
+              "name": "symbolKind",
+              "value": "variable"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "smoke=1"
+            }
+          ],
+          "kind": "symbol",
+          "matchReason": "identifier",
+          "name": "smoke",
+          "projection": "entity",
+          "scopeId": "repo.main"
+        },
+        {
+          "assertions": [
+            {
+              "assertionId": "as_c43b20d4c8eb10c339a7b01cf28c1f2fac3af5c8e0b891447829bf62614050db",
+              "attributes": {},
+              "basis": "observed",
+              "batchId": "bat_f3302815e7269a19e724d359a80ba5b7fd0ac5cb0a28e0a0342c2405dd690365",
+              "evidenceRefs": [
+                "ev_1310742a81d013061dcead284ca5bffb01bd264f334b97c82be65d2c45311750"
+              ],
+              "name": "Smoke route",
+              "origin": "static",
+              "producerKey": "smoke.plugin@1.0.0:d87ed05658a56db0b2ba2c27246bfbcc7c126a140a01b943c9e352c5750a86ac:extract"
+            }
+          ],
+          "bm25": -1.1022390920838088,
+          "entityRef": {
+            "entityId": "ent_e02573c2b29d16fd7f85628d032f3a07e44c07d5284988b1e0c7797e9b0a0006",
+            "snapshot": {
+              "generation": "3",
+              "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+              "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+            }
+          },
+          "exactRank": 2,
+          "identity": [
+            {
+              "name": "scopeId",
+              "value": "repo.main"
+            },
+            {
+              "name": "routerId",
+              "value": "router"
+            },
+            {
+              "name": "mode",
+              "value": "history"
+            },
+            {
+              "name": "declaredPath",
+              "value": "/smoke"
+            }
+          ],
+          "kind": "route",
+          "matchReason": "substring",
+          "name": "Smoke route",
+          "projection": "entity",
+          "scopeId": "repo.main"
+        }
+      ]
+    },
+    "gaps": [],
+    "nextQueries": [],
+    "protocolVersion": "1.0",
+    "requestId": "req_f21dda97-278c-4c25-9b81-30b6ee41b4d0",
+    "snapshot": {
+      "generation": "3",
+      "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+      "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+    },
+    "sourceReferences": [
+      {
+        "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+        "endByte": 1,
+        "evidenceId": "ev_1310742a81d013061dcead284ca5bffb01bd264f334b97c82be65d2c45311750",
+        "snapshot": {
+          "generation": "3",
+          "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+          "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+        },
+        "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+        "startByte": 0
+      },
+      {
+        "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+        "endByte": 1,
+        "evidenceId": "ev_8d0adc43f21be765b90c4886dee8edbd8aab86f7f7768ea6b17d4586f9315ea8",
+        "snapshot": {
+          "generation": "3",
+          "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+          "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+        },
+        "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+        "startByte": 0
+      },
+      {
+        "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+        "endByte": 18,
+        "evidenceId": "ev_b4182dcdf5dd35974c6bd78870823b4fd8ed3c7672f826e68049e9776fe6036f",
+        "snapshot": {
+          "generation": "3",
+          "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+          "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+        },
+        "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+        "startByte": 13
+      }
+    ],
+    "status": "complete"
+  },
+  "gaps": [],
+  "inputDigest": "2f524dd5147a9e7e55b425608792cfcf8878d0a37b72ed52e739c77a2e8c39e9",
+  "materialDigest": "2adc577fc4c3e320cd59f1fc0fd404a8a21732aa4ca2caa89a2e235d8e489434",
+  "promptHash": "c918ecd7f60af4f710c1f744d0e069cf63eb3f42b27b8280a5caa3f5a0de91c2",
+  "protocolVersion": "1.0",
+  "request": {
+    "maxChars": 120000,
+    "query": {
+      "operation": "search",
+      "pageSize": 8,
+      "query": "smoke"
+    },
+    "topicId": "smoke"
+  },
+  "snapshot": {
+    "generation": "3",
+    "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+    "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+  },
+  "sourceReads": {
+    "reads": [
+      {
+        "checkedAt": "now",
+        "evidenceId": "ev_1310742a81d013061dcead284ca5bffb01bd264f334b97c82be65d2c45311750",
+        "lineMap": {
+          "endLine": 1,
+          "startLine": 1
+        },
+        "path": "src/plugin.ts",
+        "returnedEndByte": 1,
+        "snippet": "e",
+        "snippetTruncated": false,
+        "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+        "startByte": 0,
+        "status": "current",
+        "storedVersion": null
+      },
+      {
+        "checkedAt": "now",
+        "evidenceId": "ev_5c2badea6b7b999c8ad32a94b8948d1ddeaa775ae1d3f96973e2beb6c474da1a",
+        "lineMap": {
+          "endLine": 1,
+          "startLine": 1
+        },
+        "path": "src/plugin.ts",
+        "returnedEndByte": 23,
+        "snippet": "const smoke = 1;",
+        "snippetTruncated": false,
+        "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+        "startByte": 7,
+        "status": "current",
+        "storedVersion": null
+      },
+      {
+        "checkedAt": "now",
+        "evidenceId": "ev_68952a0ba1a822c75b4ed4212a974c0ad4882337297eae355a635a3694453e96",
+        "lineMap": {
+          "endLine": 1,
+          "startLine": 1
+        },
+        "path": "src/plugin.ts",
+        "returnedEndByte": 24,
+        "snippet": "export const smoke = 1;\n",
+        "snippetTruncated": false,
+        "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+        "startByte": 0,
+        "status": "current",
+        "storedVersion": null
+      },
+      {
+        "checkedAt": "now",
+        "evidenceId": "ev_8d0adc43f21be765b90c4886dee8edbd8aab86f7f7768ea6b17d4586f9315ea8",
+        "lineMap": {
+          "endLine": 1,
+          "startLine": 1
+        },
+        "path": "src/plugin.ts",
+        "returnedEndByte": 1,
+        "snippet": "e",
+        "snippetTruncated": false,
+        "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+        "startByte": 0,
+        "status": "current",
+        "storedVersion": null
+      },
+      {
+        "checkedAt": "now",
+        "evidenceId": "ev_b4182dcdf5dd35974c6bd78870823b4fd8ed3c7672f826e68049e9776fe6036f",
+        "lineMap": {
+          "endLine": 1,
+          "startLine": 1
+        },
+        "path": "src/plugin.ts",
+        "returnedEndByte": 18,
+        "snippet": "smoke",
+        "snippetTruncated": false,
+        "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+        "startByte": 13,
+        "status": "current",
+        "storedVersion": null
+      }
+    ]
+  },
+  "sourceReferences": [
+    {
+      "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+      "endByte": 1,
+      "evidenceId": "ev_1310742a81d013061dcead284ca5bffb01bd264f334b97c82be65d2c45311750",
+      "snapshot": {
+        "generation": "3",
+        "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+        "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+      },
+      "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+      "startByte": 0
+    },
+    {
+      "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+      "endByte": 23,
+      "evidenceId": "ev_5c2badea6b7b999c8ad32a94b8948d1ddeaa775ae1d3f96973e2beb6c474da1a",
+      "snapshot": {
+        "generation": "3",
+        "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+        "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+      },
+      "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+      "startByte": 7
+    },
+    {
+      "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+      "endByte": 24,
+      "evidenceId": "ev_68952a0ba1a822c75b4ed4212a974c0ad4882337297eae355a635a3694453e96",
+      "snapshot": {
+        "generation": "3",
+        "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+        "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+      },
+      "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+      "startByte": 0
+    },
+    {
+      "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+      "endByte": 1,
+      "evidenceId": "ev_8d0adc43f21be765b90c4886dee8edbd8aab86f7f7768ea6b17d4586f9315ea8",
+      "snapshot": {
+        "generation": "3",
+        "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+        "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+      },
+      "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+      "startByte": 0
+    },
+    {
+      "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+      "endByte": 18,
+      "evidenceId": "ev_b4182dcdf5dd35974c6bd78870823b4fd8ed3c7672f826e68049e9776fe6036f",
+      "snapshot": {
+        "generation": "3",
+        "indexId": "c7d45e02-332c-4bc6-9994-b22e7ab773db",
+        "sourceSnapshotId": "snap_f4807cd6221f57823a2560dfe1fb195eecf9b1d5365ba06551cb4d257794748a"
+      },
+      "sourceId": "src_9e66c7fdb33d16a69edb67d6f119617ce9bf0e4f411b2771e0c7a771b8d22986",
+      "startByte": 13
+    }
+  ],
+  "templateHash": "2812eb889355f58643d197f61873c80f2c562f7a549e370e5d493f3676337007",
+  "topicId": "smoke"
+}

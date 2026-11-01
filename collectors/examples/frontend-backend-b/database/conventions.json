@@ -1,0 +1,16 @@
+{
+  "dialects": [
+    "sqlite"
+  ],
+  "ormObject": "orm",
+  "connectMethod": "connect",
+  "modelMethod": "model",
+  "queryMethod": "query",
+  "sourceBindings": {
+    "schema.sql": "ds.erp",
+    "analytics.sql": "ds.analytics",
+    "correct.sql": "ds.erp",
+    "fanout.sql": "ds.erp",
+    "where-child.sql": "ds.erp"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "filesScanned": 160,
+  "zeroByteSources": 0,
+  "commentOnlySources": [
+    {
+      "path": "bindings/node/src/lib.rs",
+      "task": "T20"
+    },
+    {
+      "path": "crates/core/src/codemap/rank.rs",
+      "task": "T15"
+    },
+    {
+      "path": "crates/core/src/codemap/render.rs",
+      "task": "T15"
+    },
+    {
+      "path": "crates/core/src/graph/neighbors.rs",
+      "task": "T15"
+    },
+    {
+      "path": "crates/core/src/graph/paths.rs",
+      "task": "T15"
+    },
+    {
+      "path": "crates/core/src/knowledge/context.rs",
+      "task": "T17"
+    },
+    {
+      "path": "crates/core/src/knowledge/documents.rs",
+      "task": "T17"
+    },
+    {
+      "path": "crates/core/src/knowledge/skill.rs",
+      "task": "T17"
+    },
+    {
+      "path": "crates/core/src/syntax/scip.rs",
+      "task": "optional-out-of-scope"
+    }
+  ],
+  "emptyModuleSources": [
+    {
+      "path": "packages/mcp/src/index.ts",
+      "task": "T21"
+    },
+    {
+      "path": "packages/mcp/src/resources.ts",
+      "task": "T21"
+    },
+    {
+      "path": "packages/mcp/src/tools.ts",
+      "task": "T21"
+    },
+    {
+      "path": "packages/sdk/src/client.ts",
+      "task": "T20"
+    },
+    {
+      "path": "packages/sdk/src/index.ts",
+      "task": "T20"
+    }
+  ],
+  "explicitPlaceholderFiles": 25
+}

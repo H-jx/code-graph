@@ -1,0 +1,18 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.08s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-c86b9f40fcb79f80.exe)
+
+running 2 tests
+test semantics::semantics_code_calls_without_flow_and_missing_or_unsafe_report_policy_remain_gaps ... ok
+test semantics::semantics_workflow_report_preserve_original_conflicts_and_all_field_lineage ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 14 filtered out; finished in 416.20s
+

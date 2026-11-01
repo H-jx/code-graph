@@ -1,0 +1,30 @@
+{
+  "classification": "synthetic-source-reviewed-smoke",
+  "expectedEntities": 13,
+  "expectedRelations": 10,
+  "forbiddenHits": 0,
+  "report": {
+    "cases": [
+      {
+        "id": "frontend.b",
+        "origin": "candidate",
+        "passed": true,
+        "truthHash": "f2f67faea50a075e32916c2d5e2482f3daa4cb144489c2686de92eb06ca5e3d4"
+      }
+    ],
+    "expectedGeneration": "1",
+    "runId": "run_d454722b-7c25-4b17-b155-f92e3427d2ff",
+    "stagedResultHash": "cffa9a05e43e4f0787857664d7fe60ff5ffba86a54e6a521661474787848f002",
+    "stages": [
+      {
+        "batchId": "bat_912b100610eeb639e78149a61c4097e274dbff6a9dc2a6f2d79446b4e982d474",
+        "dependencies": 13,
+        "entities": 26,
+        "relations": 22,
+        "replacementKey": "(example.b.frontend,extract,acceptance.b)"
+      }
+    ],
+    "status": "validated"
+  },
+  "truthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed"
+}

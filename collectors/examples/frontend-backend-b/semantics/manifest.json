@@ -1,0 +1,114 @@
+{
+  "protocolVersion": "1.0",
+  "pluginId": "example.b.semantics",
+  "version": "1.0.0",
+  "runtime": {
+    "kind": "python",
+    "versionRange": ">=3.12 <3.13"
+  },
+  "capabilities": [
+    "workflow",
+    "report"
+  ],
+  "artifacts": [
+    "manifest.json",
+    "conventions.json",
+    "collect.py",
+    "semantic_facts.py",
+    "workflow_ast.py",
+    "report_ast.py",
+    "source_ast.py",
+    "identity.py",
+    "identity-spec.json",
+    "deps/requirements.in",
+    "deps/requirements.lock",
+    "cases/workflow-input.json",
+    "cases/report-input.json",
+    "cases/workflow.json",
+    "cases/report.json",
+    "cases/truth.json"
+  ],
+  "dependencies": {
+    "kind": "pip",
+    "manifest": "deps/requirements.in",
+    "lockFile": "deps/requirements.lock"
+  },
+  "stages": [
+    {
+      "id": "workflow",
+      "phase": "extract",
+      "entry": "collect.py",
+      "replacement": "project",
+      "sourceSelectors": [
+        {
+          "id": "semantics",
+          "repositoryIds": [
+            "back"
+          ],
+          "include": [
+            "**/*.ts",
+            "**/*.py",
+            "**/*.sql",
+            "**/*.md"
+          ]
+        }
+      ],
+      "entitySelectors": [
+        {
+          "id": "targets",
+          "kinds": [
+            "dataSource",
+            "dataTable",
+            "dataColumn",
+            "dataKey"
+          ],
+          "scopeIds": []
+        }
+      ],
+      "dependsOn": [
+        "example.b.database:extract"
+      ]
+    },
+    {
+      "id": "report",
+      "phase": "link",
+      "entry": "collect.py",
+      "replacement": "project",
+      "sourceSelectors": [
+        {
+          "id": "semantics",
+          "repositoryIds": [
+            "back"
+          ],
+          "include": [
+            "**/*.ts",
+            "**/*.py",
+            "**/*.sql",
+            "**/*.md"
+          ]
+        }
+      ],
+      "entitySelectors": [
+        {
+          "id": "targets",
+          "kinds": [
+            "dataSource",
+            "dataTable",
+            "dataColumn",
+            "dataKey",
+            "queryImplementation"
+          ],
+          "scopeIds": []
+        }
+      ],
+      "dependsOn": [
+        "example.b.semantics:workflow",
+        "example.b.link:link"
+      ]
+    }
+  ],
+  "acceptanceCases": [
+    "cases/workflow.json",
+    "cases/report.json"
+  ]
+}

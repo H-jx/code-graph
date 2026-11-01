@@ -1,0 +1,20 @@
+
+running 1 test
+test tests::panic_is_contained_without_exposing_payload ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Compiling derive_builder v0.20.2
+   Compiling ignore v0.4.33
+   Compiling handlebars v6.4.4
+   Compiling napi v3.15.0
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+   Compiling napi-derive v3.6.13
+   Compiling project-knowledge-native v0.1.0 (E:\Project\my-project\code-graph\bindings\node)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge_native-44e488652ff8282a.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge_native-44e488652ff8282a.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-native` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 05s
+     Running unittests src\lib.rs (target\debug\deps\project_knowledge_native-44e488652ff8282a.exe)

@@ -1,0 +1,63 @@
+{
+  "runId": "agent_7d0694f5-3018-429d-84c5-3fd04f74529e",
+  "status": "complete",
+  "phase": "preflight",
+  "goal": "Verify a Core status tool round trip",
+  "focus": null,
+  "withSkill": false,
+  "configHash": "b7374d22f1816ed6504777442ddbaea96e30df9d843bf7b49235aa24b62ee169",
+  "sourceSnapshotId": "snap_0ee180808a462c33451d27dbeee41314c945a7748480fee9ea46a2469efc5aa6",
+  "activeVersions": [],
+  "modelTurns": 2,
+  "toolCalls": 1,
+  "repairs": 0,
+  "needsRepair": false,
+  "elapsedMs": 4255,
+  "deadlineMs": 1793116494939,
+  "repairPlugin": null,
+  "smoke": true,
+  "revision": 0,
+  "candidateId": null,
+  "candidateHash": null,
+  "validationId": null,
+  "activation": null,
+  "investigation": null,
+  "readSource": false,
+  "readMap": false,
+  "issues": [],
+  "events": [
+    {
+      "modelTurn": 1,
+      "responseId": "chatcmpl-e0cec55f-daab-452e-b46f-7bcc20bcf277",
+      "elapsedMs": 732
+    },
+    {
+      "tool": "status",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "modelTurn": 2,
+      "responseId": "chatcmpl-fae793fd-7d09-4f7b-9cc6-232c2caedf2a",
+      "elapsedMs": 4208
+    }
+  ],
+  "provider": "openai-compatible",
+  "model": "qwen3.8-flash",
+  "promptHash": "a4d4c76924abbd50e7e3fda11226ede4370953cd08ca35270248e04f0f51f303",
+  "budget": {
+    "enabled": true,
+    "provider": "openai-compatible",
+    "model": "qwen3.8-flash",
+    "baseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/compatible-mode/v1",
+    "apiKeyEnv": "PROJECT_KNOWLEDGE_LLM_KEY",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 600,
+    "maxInputChars": 500000,
+    "maxOutputTokens": 8192,
+    "thinking": false
+  }
+}

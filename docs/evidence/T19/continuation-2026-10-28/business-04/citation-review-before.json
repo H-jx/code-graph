@@ -1,0 +1,63 @@
+{
+  "passed": false,
+  "runId": "agent_d7bb589f-5b0e-40af-8dc4-0c518f56688c",
+  "explanation": "Core citation structure passed, but the identifier-only source range does not support the guard statement; an independent source review requires correction.",
+  "checks": [
+    {
+      "topicId": "flow-guard",
+      "version": 1,
+      "claim": {
+        "id": "guard",
+        "text": "The finish guard compares net received quantity and validates receipts.",
+        "basis": "observed",
+        "origin": "static",
+        "evidenceRefs": [
+          "ev_b7f9da54b83bf02a0d30fe92b8ca4749710420347f7d96c6f99bd831d98947f8"
+        ],
+        "gapIds": []
+      },
+      "reference": {
+        "snapshot": {
+          "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+          "generation": "3",
+          "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+        },
+        "evidenceId": "ev_b7f9da54b83bf02a0d30fe92b8ca4749710420347f7d96c6f99bd831d98947f8",
+        "sourceId": "src_f4be1ceeaabcebaae684900161fc5eefbf24bd70e7f0d77a61cdd1bee2b64fac",
+        "contentHash": "3b8fa55c4a63cb3695bc33037235b7025b7628b40219af452288d021f1fb7af2",
+        "startByte": 576,
+        "endByte": 582
+      },
+      "snippet": "finish",
+      "supportsGuard": false
+    },
+    {
+      "topicId": "purchase-workflow",
+      "version": 9,
+      "claim": {
+        "id": "guard",
+        "text": "The finish guard compares net received quantity and validates receipts.",
+        "basis": "observed",
+        "origin": "static",
+        "evidenceRefs": [
+          "ev_b7f9da54b83bf02a0d30fe92b8ca4749710420347f7d96c6f99bd831d98947f8"
+        ],
+        "gapIds": []
+      },
+      "reference": {
+        "snapshot": {
+          "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+          "generation": "3",
+          "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+        },
+        "evidenceId": "ev_b7f9da54b83bf02a0d30fe92b8ca4749710420347f7d96c6f99bd831d98947f8",
+        "sourceId": "src_f4be1ceeaabcebaae684900161fc5eefbf24bd70e7f0d77a61cdd1bee2b64fac",
+        "contentHash": "3b8fa55c4a63cb3695bc33037235b7025b7628b40219af452288d021f1fb7af2",
+        "startByte": 576,
+        "endByte": 582
+      },
+      "snippet": "finish",
+      "supportsGuard": false
+    }
+  ]
+}

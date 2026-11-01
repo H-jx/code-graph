@@ -1,6 +1,6 @@
 # 业务文档与流程资料整理规范
 
-> 骨架文件。用于约定：哪些内容可以作为业务依据，怎样标注未知项。
+调查约定保留原始证据引用；模型解释经过 TopicArtifact 校验后才保存为主题版本。
 
 ## 可以采信的材料
 
@@ -21,3 +21,8 @@
 
 主题产物包含：结论、跨层链路、页面操作、后端与数据、取数口径、证据列表、推断与未知项、
 覆盖缺口。引用必须与所用索引快照一致；快照过期时先刷新或明确按旧版本调查。
+
+TopicArtifact 的每条 claim 包含 id/text/basis/origin/evidenceRefs/gapIds。正文每个解释行引用 `[[claim:id]]`；
+Mermaid 的每个节点/边行用 `%% [[claim:id]]` 对应声明。链接由渲染器依据引用生成。
+observed/declared 需要原始 evidence，origin=ai 必须 inferred；inferred 必须注明 gap。
+保留 context 全部 gaps、inputDigest、snapshot、promptHash、templateHash；生成知识不能作为原始证据或证明另一主题。

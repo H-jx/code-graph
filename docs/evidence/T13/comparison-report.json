@@ -1,0 +1,62 @@
+{
+  "comparisons": [
+    {
+      "layout": "a",
+      "state": "ambiguous",
+      "equal": true,
+      "counts": {
+        "entities": 202,
+        "relations": 255,
+        "coverage": 37
+      },
+      "files": {
+        "docs/evidence/T13/normalized-a-ambiguous-incremental.json": "4e774a0f6ee9b9487d04f2ca0f07a9c57f1c1f7cc03b3442befe7029f0d2f03e",
+        "docs/evidence/T13/normalized-a-ambiguous-clean.json": "4e774a0f6ee9b9487d04f2ca0f07a9c57f1c1f7cc03b3442befe7029f0d2f03e"
+      }
+    },
+    {
+      "layout": "a",
+      "state": "proxy-datasource",
+      "equal": true,
+      "counts": {
+        "entities": 202,
+        "relations": 253,
+        "coverage": 37
+      },
+      "files": {
+        "docs/evidence/T13/normalized-a-proxy-datasource-incremental.json": "fffd30f8a99c02ff66f0d84b09256ccc135e6274f50f86301025acb3a6c8c291",
+        "docs/evidence/T13/normalized-a-proxy-datasource-clean.json": "fffd30f8a99c02ff66f0d84b09256ccc135e6274f50f86301025acb3a6c8c291"
+      }
+    },
+    {
+      "layout": "b",
+      "state": "ambiguous",
+      "equal": true,
+      "counts": {
+        "entities": 192,
+        "relations": 243,
+        "coverage": 37
+      },
+      "files": {
+        "docs/evidence/T13/normalized-b-ambiguous-incremental.json": "3e6e5a6d94ecf9d9a30ac258a837e73d3354a8ee401c71175fcdc0061045d3d3",
+        "docs/evidence/T13/normalized-b-ambiguous-clean.json": "3e6e5a6d94ecf9d9a30ac258a837e73d3354a8ee401c71175fcdc0061045d3d3"
+      }
+    },
+    {
+      "layout": "b",
+      "state": "proxy-datasource",
+      "equal": true,
+      "counts": {
+        "entities": 192,
+        "relations": 241,
+        "coverage": 37
+      },
+      "files": {
+        "docs/evidence/T13/normalized-b-proxy-datasource-incremental.json": "d6a211db389197de7c8848b24bb0230faf91ae0148848e4b9dd133021b1e368f",
+        "docs/evidence/T13/normalized-b-proxy-datasource-clean.json": "d6a211db389197de7c8848b24bb0230faf91ae0148848e4b9dd133021b1e368f"
+      }
+    }
+  ],
+  "sourceHashMatches": 71,
+  "productModelRequests": 0
+}

@@ -11,7 +11,7 @@ use std::path::{Path, PathBuf};
 
 use project_knowledge_core::contract::entity::{Basis, Entity, EntityKind, MaybeKnown, Origin};
 use project_knowledge_core::contract::error::{CoreError, ErrorEnvelope, codes};
-use project_knowledge_core::contract::evidence::{Evidence, SnapshotRef, Source};
+use project_knowledge_core::contract::evidence::{Evidence, Source};
 use project_knowledge_core::contract::identity::{
     IdentitySlot, IdentityValue, canonical_entity_identity, canonical_json, compute_entity_id,
     compute_evidence_id, compute_relation_id, compute_source_id, content_hash,
@@ -36,7 +36,101 @@ use project_knowledge_core::storage::database::Database;
 use rusqlite::OptionalExtension;
 use serde_json::{Value, json};
 
+#[path = "support/knowledge.rs"]
+mod knowledge;
+#[path = "support/queries.rs"]
+mod queries;
+
 // ---------------------------------------------------------------- 契约测试
+
+#[test]
+fn contract_identity_presence_and_canonical_roundtrip_are_strict() {
+    for value in [
+        json!({"name":"catalog"}),
+        json!({"name":"catalog","value":""}),
+        json!({"name":"key","value":[["中文😀",1]]}),
+    ] {
+        let slot: IdentitySlot = serde_json::from_value(value.clone()).unwrap();
+        project_knowledge_core::contract::schema::validate::<IdentitySlot>(&value, "").unwrap();
+        assert_eq!(serde_json::to_value(slot).unwrap(), value);
+    }
+    for value in [
+        json!({"name":"catalog","value":null}),
+        json!({"name":"catalog","value":true}),
+        json!({"name":"catalog","value":1.5}),
+        json!({"name":"catalog","unknown":1}),
+    ] {
+        assert!(serde_json::from_value::<IdentitySlot>(value.clone()).is_err());
+        assert!(
+            project_knowledge_core::contract::schema::validate::<IdentitySlot>(&value, "").is_err()
+        );
+    }
+    let kind = EntityKind::parse("x.example.invoice").unwrap();
+    let slots = vec![
+        IdentitySlot::required("scopeId", "scope"),
+        IdentitySlot {
+            name: "key".into(),
+            value: Some(IdentityValue::list(vec![IdentityValue::list(vec![
+                IdentityValue::text("中文😀"),
+                IdentityValue::number(1),
+            ])])),
+        },
+        IdentitySlot::optional("catalog", None::<String>),
+    ];
+    let canonical = canonical_entity_identity("erp", kind.clone(), &slots).unwrap();
+    assert_eq!(
+        identity_slots_from_canonical(kind.clone(), &canonical).unwrap(),
+        slots
+    );
+    for canonical in [
+        r#"["erp","x.other.invoice",[]]"#,
+        r#"["erp","x.example.invoice",[["scopeId",["scope"]],["key",[1,2]]]]"#,
+        r#"["erp","x.example.invoice",[["scopeId",["scope"]],["scopeId",["scope"]]]]"#,
+    ] {
+        assert!(identity_slots_from_canonical(kind.clone(), canonical).is_err());
+    }
+    for canonical in [
+        r#"["erp","dataTable","db",[],[],"table","extra"]"#,
+        r#"["erp","dataTable","db",["a","b"],[],"table"]"#,
+        r#"["erp","dataTable","db",null,[],"table"]"#,
+    ] {
+        assert!(identity_slots_from_canonical(EntityKind::DataTable, canonical).is_err());
+    }
+}
+
+#[test]
+fn storage_migrates_v1_only_on_maintenance_and_preserves_index_generation() {
+    let temp = tempfile::tempdir().unwrap();
+    let path = temp.path().join("v1.sqlite");
+    let connection = rusqlite::Connection::open(&path).unwrap();
+    connection
+        .execute_batch(project_knowledge_core::storage::database::MIGRATION_0001)
+        .unwrap();
+    connection.execute("INSERT INTO schema_migrations(version,checksum,applied_at) VALUES (1,'original','now')",[]).unwrap();
+    connection.execute("INSERT INTO index_meta(id,index_id,project_id,generation,config_hash,created_at) VALUES (1,'original-index','erp',7,'cfg','now')",[]).unwrap();
+    drop(connection);
+    assert!(Database::open_readonly(&path).is_err());
+    let database = Database::open_maintenance(&path, "erp", "cfg", "now").unwrap();
+    assert_eq!(database.generation().unwrap(), 7);
+    assert_eq!(database.index_id().unwrap(), "original-index");
+    assert_eq!(
+        database
+            .connection()
+            .query_row("SELECT count(*) FROM schema_migrations", [], |r| r
+                .get::<_, i64>(0))
+            .unwrap(),
+        project_knowledge_core::storage::SCHEMA_VERSION
+    );
+    assert_eq!(
+        database
+            .connection()
+            .query_row("SELECT count(*) FROM plugin_candidates", [], |r| r
+                .get::<_, i64>(0))
+            .unwrap(),
+        0
+    );
+    assert!(Database::open_readonly(&path).is_ok());
+}
 
 #[test]
 fn contract_entity_id_is_stable_and_scope_sensitive() {
@@ -188,7 +282,10 @@ fn contract_relation_endpoint_kinds_are_restricted() {
         "httpEndpoint"
     ));
     for kind in ALL_RELATION_KINDS {
-        let (from, to) = project_knowledge_core::contract::endpoint_kinds(*kind);
+        let wire = serde_json::to_value(kind).unwrap();
+        assert_eq!(wire, kind.as_str());
+        assert_eq!(serde_json::from_value::<RelationKind>(wire).unwrap(), *kind);
+        let (from, to) = project_knowledge_core::contract::endpoint_kinds(kind.clone());
         assert!(!from.is_empty() && !to.is_empty());
     }
 }
@@ -1717,17 +1814,29 @@ fn base_index_reads_source_with_byte_positions() {
     let source_id = compute_source_id("erp", "repo.web", "src/pages/PurchaseLedger.tsx");
     let content_hash =
         content_hash(&std::fs::read(web.join("src/pages/PurchaseLedger.tsx")).expect("read"));
-    let reference = project_knowledge_core::contract::evidence::SourceReference {
-        snapshot: SnapshotRef {
-            index_id: database.index_id().expect("index id"),
-            generation: database.generation_string().expect("generation"),
-            source_snapshot_id: None,
+    let end_byte = 10;
+    let evidence_id = compute_evidence_id(&source_id, &content_hash, 0, end_byte, "definition");
+    project_knowledge_core::storage::insert_evidence(
+        database.connection(),
+        &Evidence {
+            id: evidence_id.clone(),
+            source_id: source_id.clone(),
+            content_hash: content_hash.clone(),
+            start_byte: 0,
+            end_byte,
+            start_line: 1,
+            end_line: 1,
+            role: "definition".into(),
         },
-        evidence_id: compute_evidence_id(&source_id, &content_hash, 0, 10, "definition"),
+    )
+    .unwrap();
+    let reference = project_knowledge_core::contract::evidence::SourceReference {
+        snapshot: project_knowledge_core::query::snapshot_ref(&database).unwrap(),
+        evidence_id,
         source_id,
         content_hash,
         start_byte: 0,
-        end_byte: 10,
+        end_byte,
     };
 
     let mut context = QueryContext {
@@ -1739,7 +1848,7 @@ fn base_index_reads_source_with_byte_positions() {
         &mut context,
         &QueryRequest::ReadSource(ReadSourceRequest {
             references: vec![reference.clone()],
-            max_response_chars: Some(1024),
+            max_response_chars: Some(8000),
             filters: None,
         }),
     )

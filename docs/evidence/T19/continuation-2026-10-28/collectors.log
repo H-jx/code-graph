@@ -1,0 +1,49 @@
+
+running 36 tests
+test collector_output_round_trips_through_json ... ok
+test deps_cache_is_reused_and_verified ... ok
+test deps_plan_requires_lock_file_and_reports_missing_runtime ... ok
+test manifest_dependencies_are_validated_against_registry ... ok
+test manifest_extensions_reject_remote_refs_namespace_hijacks_and_public_overrides ... ok
+test manifest_stage_dag_rejects_cycles_and_illegal_phases ... ok
+test manifest_template_files_are_valid ... ok
+test manifest_validation_rejects_paths_outside_the_artifact_directory ... ok
+test runner_bounds_blocked_input_and_simultaneous_output_floods ... ok
+test runner_enforces_output_limit ... ok
+test runner_enforces_timeout_and_kills_process_tree ... ok
+test runner_executes_node_template_and_returns_collector_output ... ok
+test runner_limits_input_size ... ok
+test runner_python_template_faults_and_unicode_paths ... ok
+test runner_rejects_non_zero_exit_and_invalid_json ... ok
+test runner_staging_never_resolves_business_node_modules ... ok
+test runner_supports_cancellation ... ok
+test stage_command_uses_manifest_arguments ... ok
+test validation_acceptance_replays_fixture_and_failure_blocks_commit ... ok
+test validation_accepts_a_correct_output ... ok
+test validation_bad_link_and_forged_dependency_leave_formal_database_unchanged ... ok
+test validation_commit_rechecks_source_artifact_and_generation ... ok
+test validation_empty_extract_invalidates_downstream_and_preserves_base ... ok
+test validation_extensions_keep_payload_endpoint_and_evidence_guards ... ok
+test validation_registered_extensions_stage_commit_search_and_reexport ... ok
+test validation_rejects_dangling_relation_endpoints ... ok
+test validation_rejects_forged_evidence_positions ... ok
+test validation_rejects_generated_knowledge_as_evidence ... ok
+test validation_rejects_missing_evidence_and_bad_identity ... ok
+test validation_rejects_truncated_candidates_and_relation_identity ... ok
+test validation_rejects_unknown_protocol_version ... ok
+test validation_rejects_wrong_line_numbers ... ok
+test validation_schema_invalid_fixtures_match_serde_and_exact_pointers ... ok
+test validation_source_and_candidate_digests_track_content_attributes_and_skips ... ok
+test validation_staging_reexports_extract_and_commits_group_once ... ok
+test validation_unregistered_extension_names_are_semantic_errors ... ok
+
+test result: ok. 36 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 22.69s
+
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\collectors-bb58421c8d707a95.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\collectors-bb58421c8d707a95.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "collectors") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.77s
+     Running tests\collectors.rs (target\debug\deps\collectors-bb58421c8d707a95.exe)

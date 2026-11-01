@@ -1,0 +1,30 @@
+{
+  "candidateId": "candidate_6a6266ff-bb69-49c0-ac35-31b0de6815db",
+  "candidateIds": [
+    "candidate_6a6266ff-bb69-49c0-ac35-31b0de6815db"
+  ],
+  "report": {
+    "cases": [
+      {
+        "id": "case_documented_workflow",
+        "origin": "candidate",
+        "passed": true,
+        "truthHash": null
+      }
+    ],
+    "expectedGeneration": "1",
+    "runId": "run_756f2047-9bc1-4b7e-bf44-8d14a6b52f46",
+    "stagedResultHash": "f8abd1bae9fc8db81ff11d75ca87d2ffa776b2253fd3604f6876e60ec5e48e55",
+    "stages": [
+      {
+        "batchId": "bat_886574ad9f4a3e1d446f552367a332ae53b5ae260373a8f15f609ff3c95fbc99",
+        "dependencies": 5,
+        "entities": 9,
+        "relations": 8,
+        "replacementKey": "(t19-audited.workflow,extract,T19-audited-purchase)"
+      }
+    ],
+    "status": "validated"
+  },
+  "validationId": "validation_2ddd9f04-5764-4855-8286-18d913a23358"
+}

@@ -1,0 +1,79 @@
+{
+  "scope": "185 product/example/script source files; build/dependency output excluded",
+  "zeroByteSources": 0,
+  "commentOnly": [
+    {
+      "path": "bindings/node/src/lib.rs",
+      "task": "T20",
+      "sha256": "454af4c9eac51e168be7eb8978d5f7eae7f2f6703d962e7d81777a73e5404e1f"
+    },
+    {
+      "path": "crates/core/src/syntax/scip.rs",
+      "task": "optional-out-of-scope",
+      "sha256": "6b78e8a31a2a408a418bcc18439db7450e252986d156e9046b8a295c2ed85cb5"
+    }
+  ],
+  "emptyExports": [
+    {
+      "path": "packages/mcp/src/index.ts",
+      "task": "T21",
+      "sha256": "cb9a8719597ec9d860f11e42320dc4e51b912ec1cd3813494cd5c0f0bfdbbb02"
+    },
+    {
+      "path": "packages/mcp/src/resources.ts",
+      "task": "T21",
+      "sha256": "fea3aed5525157a008c706b3a4166b24eaedcc970d3b17876985871b2d76cfbc"
+    },
+    {
+      "path": "packages/mcp/src/tools.ts",
+      "task": "T21",
+      "sha256": "3f7693bfda0f9ad1cdc03e4319154c3b96be6535ed339d3d082b7c52f4dd51b9"
+    },
+    {
+      "path": "packages/sdk/src/client.ts",
+      "task": "T20",
+      "sha256": "23c408f23fe47efbc34651cf313ad34dfbcb9674868cf3bea39cd9a48d5874f7"
+    },
+    {
+      "path": "packages/sdk/src/index.ts",
+      "task": "T20",
+      "sha256": "beb7bf85c2d97d30104bdae0d273059abd71d5ac7f40e77659e74a2308fa9e86"
+    }
+  ],
+  "otherExplicitUnfinished": [
+    {
+      "path": "scripts/verify-packages.mjs",
+      "task": "T23",
+      "behavior": "fails explicitly until release artifacts exist"
+    },
+    {
+      "path": "xtask/src/main.rs",
+      "task": "T23",
+      "behavior": "package action fails explicitly; contract export is implemented"
+    },
+    {
+      "path": "scripts/verify-scenarios.mjs",
+      "task": "T22",
+      "behavior": "CLI is implemented; SDK/MCP/all wait for transports"
+    },
+    {
+      "path": "crates/agent/src/tools.rs",
+      "task": "T18/T19",
+      "behavior": "investigation draft exists; knowledgeAvailable and identityImportAvailable remain false; no silent empty success"
+    }
+  ],
+  "reviewedFalsePositives": [
+    "Small graph/codemap/evidence mod.rs files export implemented modules",
+    "Empty callback bodies occur in fault-injection fixtures and test source literals",
+    "The scanner matches its own marker regex; this is not an unfinished product implementation",
+    "NOT_IMPLEMENTED for an intentionally disabled optional Agent feature is a capability boundary"
+  ],
+  "resolvedThisTask": [
+    "knowledge/context.rs",
+    "knowledge/documents.rs",
+    "knowledge/skill.rs",
+    "CLI generate action",
+    "strict knowledge rendering templates"
+  ],
+  "nextDependencySatisfiedTask": "T18"
+}

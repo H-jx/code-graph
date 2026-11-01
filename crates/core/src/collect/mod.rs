@@ -3,6 +3,7 @@
 //! 脚本使用统一的 JSON stdin/stdout 协议接入；Core 负责 manifest 校验、运行时检查、
 //! 依赖准备、子进程限额与结果校验。
 
+pub mod candidate;
 pub mod commit;
 pub mod deps;
 pub mod import;
@@ -10,7 +11,9 @@ pub mod manifest;
 pub mod process;
 pub mod registry;
 pub mod runner;
+pub mod staging;
 pub mod validate;
+pub(crate) mod workspace;
 
 pub use commit::{StagedBatch, StagedEntity, StagedRelation, commit_batch};
 pub use deps::{

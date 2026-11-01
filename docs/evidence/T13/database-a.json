@@ -1,0 +1,29 @@
+{
+  "report": {
+    "status": "validated",
+    "runId": "run_cafd901f-b7eb-421e-8a3b-7afd3a76d817",
+    "expectedGeneration": "1",
+    "stagedResultHash": "b42490df56df5d4bc1b7171d14ed74f9de98b38e76b27d0a4ab9db08c7e234a5",
+    "cases": [
+      {
+        "id": "database.a",
+        "passed": true,
+        "truthHash": "c59bfa400fe1e49f2713e80374d1d97e9c5aa85e1744484c238578564d4ef6c6",
+        "origin": "candidate"
+      }
+    ],
+    "stages": [
+      {
+        "replacementKey": "(example.a.database,extract,acceptance.a)",
+        "batchId": "bat_891003582e2d92cc517511e9813b0d5220641b7ea2d8e67883d85a0f888b1d67",
+        "entities": 104,
+        "relations": 178,
+        "dependencies": 14
+      }
+    ]
+  },
+  "expectedDdlEntities": 90,
+  "expectedCorrectJoins": 4,
+  "forbiddenCrossDatasourceReads": 0,
+  "classification": "source-reviewed synthetic smoke"
+}

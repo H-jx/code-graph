@@ -1,0 +1,151 @@
+{
+  "progress": {
+    "runId": "agent_fca09abe-5a02-4a7e-a21f-8e7a256080f0",
+    "status": "failed",
+    "phase": "investigate",
+    "goal": "Collect source-driven routes",
+    "focus": "routes",
+    "withSkill": false,
+    "configHash": "d05b589c95e9216b348b661dfd5c475ab72255fab5e491f08a3bed0505d1dfae",
+    "sourceSnapshotId": "snap_4b615ff389d2a163ff43f2b3eadc334005198c5f83f759495f56f97c000c25fd",
+    "activeVersions": [],
+    "modelTurns": 7,
+    "toolCalls": 6,
+    "repairs": 0,
+    "needsRepair": false,
+    "elapsedMs": 374,
+    "deadlineMs": 1793234291221,
+    "repairPlugin": null,
+    "smoke": false,
+    "revision": 0,
+    "candidateId": null,
+    "candidateHash": null,
+    "validationId": null,
+    "activation": null,
+    "investigation": null,
+    "topicContexts": [],
+    "topics": [],
+    "skill": null,
+    "readSource": false,
+    "readMap": true,
+    "issues": [
+      {
+        "error": {
+          "code": "AGENT_INCOMPLETE",
+          "message": "model stopped before Core validation and activation completed"
+        }
+      }
+    ],
+    "events": [
+      {
+        "modelTurn": 1,
+        "responseId": "mock-response",
+        "elapsedMs": 58
+      },
+      {
+        "tool": "code-map",
+        "ok": true,
+        "turn": 1,
+        "revision": 0
+      },
+      {
+        "modelTurn": 2,
+        "responseId": "mock-response",
+        "elapsedMs": 132
+      },
+      {
+        "tool": "export-snapshot",
+        "ok": true,
+        "turn": 2,
+        "revision": 0
+      },
+      {
+        "modelTurn": 3,
+        "responseId": "mock-response",
+        "elapsedMs": 177
+      },
+      {
+        "tool": "read-source",
+        "ok": true,
+        "turn": 3,
+        "revision": 0
+      },
+      {
+        "modelTurn": 4,
+        "responseId": "mock-response",
+        "elapsedMs": 210
+      },
+      {
+        "tool": "get-capabilities",
+        "ok": true,
+        "turn": 4,
+        "revision": 0
+      },
+      {
+        "modelTurn": 5,
+        "responseId": "mock-response",
+        "elapsedMs": 240
+      },
+      {
+        "tool": "import-conventions",
+        "ok": true,
+        "turn": 5,
+        "revision": 0
+      },
+      {
+        "modelTurn": 6,
+        "responseId": "mock-response",
+        "elapsedMs": 303
+      },
+      {
+        "tool": "update-base",
+        "ok": true,
+        "turn": 6,
+        "revision": 0
+      },
+      {
+        "modelTurn": 7,
+        "responseId": "mock-response",
+        "elapsedMs": 355
+      }
+    ],
+    "provider": "openai-compatible",
+    "model": "test-model",
+    "promptHash": "411535e0949c78595c9fc3afc225a1ee3aec8bcf38d1dc4dfd6b76dd47230f34",
+    "budget": {
+      "enabled": true,
+      "provider": "openai-compatible",
+      "model": "test-model",
+      "baseUrl": "http://127.0.0.1:55556/v1",
+      "apiKeyEnv": "AGENT_TEST_SECRET",
+      "maxTurns": 24,
+      "maxToolCalls": 80,
+      "maxRepairAttempts": 2,
+      "timeoutSeconds": 60,
+      "maxInputChars": 180000,
+      "maxOutputTokens": 8192
+    }
+  },
+  "conventions": [
+    {
+      "id": "d83867a5e4290ae21878d01de49687bb51ef38f1ccbe00a07a7c410c6715c6b9",
+      "sourceClass": "derivedConvention",
+      "notes": "An explicit test module grounded in the original source.",
+      "sourceReferences": [
+        {
+          "snapshot": {
+            "indexId": "590aab3b-134c-40c6-b495-f67f4479074e",
+            "generation": "1",
+            "sourceSnapshotId": "snap_a04b24c9de8f861908eea0131f924bb25522ae6687110eecbf3d85e81bef8479"
+          },
+          "evidenceId": "ev_a6035ac688ff4927825dc803bc9b583d58cb6277f88061cca62871385e4583b2",
+          "sourceId": "src_dd9aadedc51afac86b4a28f1d4fa887b1fbbd8b06135db15716b75e1114c18c0",
+          "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+          "startByte": 0,
+          "endByte": 24
+        }
+      ],
+      "configHash": "d05b589c95e9216b348b661dfd5c475ab72255fab5e491f08a3bed0505d1dfae"
+    }
+  ]
+}

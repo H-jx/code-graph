@@ -1,0 +1,5 @@
+{"command":["cargo","build","-p","project-knowledge-cli","--locked","-j","1"],"exitCode":0,"log":"docs/evidence/T16/cli-build.log","logSha256":"8e623a91164ce454dde5dd35761b439e5abab9bf6b6729fe360d19b70daa78d9"}
+{"command":["cargo","test","-p","project-knowledge-core","--test","business_scenarios","scenario_","--locked","-j","1","--","--test-threads=1"],"exitCode":0,"log":"docs/evidence/T16/cli-scenarios.log","logSha256":"b57d0ca4f9337cb5f3e0e84867842d116b766be0d643c3692d569c8bd42eb539"}
+{"command":["cargo","test","-p","project-knowledge-core","--test","business_scenarios","truth_numeric_sql_","--locked","-j","1","--","--test-threads=1"],"exitCode":0,"log":"docs/evidence/T16/numeric-sql.log","logSha256":"af5cd3e18c4e400dd8a597fc92c62cd8f19d3250ce218588bc5e122bba699886"}
+{"command":["python","scripts/verify-truth.py"],"exitCode":0,"log":"docs/evidence/T16/integer-oracle.log","logSha256":"64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"}
+{"ok":true,"scenario":"all","transport":"cli","layouts":2,"cliResponses":6,"truthHash":"aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed"}

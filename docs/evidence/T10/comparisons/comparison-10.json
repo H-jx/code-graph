@@ -1,0 +1,144 @@
+{
+  "executed": [
+    "smoke.plugin:extract",
+    "smoke.plugin:link"
+  ],
+  "invalidated": [
+    "(core.base,r)",
+    "(smoke.plugin,extract,smoke)",
+    "(smoke.plugin,link,smoke)"
+  ],
+  "incremental": {
+    "entities": [],
+    "relations": [],
+    "search": [],
+    "evidence": [],
+    "sources": [],
+    "coverage": [
+      [
+        "api",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "base",
+        "repo.r",
+        "r",
+        "complete",
+        "{\"entities\":0,\"relations\":0,\"files\":0}",
+        "[]"
+      ],
+      [
+        "database",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "frontend",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "report",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "routes",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "workflow",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ]
+    ]
+  },
+  "clean": {
+    "entities": [],
+    "relations": [],
+    "search": [],
+    "evidence": [],
+    "sources": [],
+    "coverage": [
+      [
+        "api",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "base",
+        "repo.r",
+        "r",
+        "complete",
+        "{\"entities\":0,\"relations\":0,\"files\":0}",
+        "[]"
+      ],
+      [
+        "database",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "frontend",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "report",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "routes",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "workflow",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ]
+    ]
+  },
+  "equal": true,
+  "modelRequests": 0,
+  "modelCounterBasis": "Core has no Agent/Rig dependency and constructs no model client"
+}

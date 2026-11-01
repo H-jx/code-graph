@@ -1,0 +1,28 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 21.91s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-c86b9f40fcb79f80.exe)
+
+running 2 tests
+test linking::linking_new_resolver_proxy_and_datasource_changes_match_clean_rebuild ... FAILED
+test linking::linking_two_layouts_use_original_bindings_and_reject_missing_or_incomplete_proof ... ok
+
+failures:
+
+---- linking::linking_new_resolver_proxy_and_datasource_changes_match_clean_rebuild stdout ----
+
+thread 'linking::linking_new_resolver_proxy_and_datasource_changes_match_clean_rebuild' (36572) panicked at crates\core\tests\support\linking.rs:77:18:
+called `Result::unwrap()` on an `Err` value: SqlInputError { error: Error { code: Unknown, extended_code: 1 }, msg: "no such column: ea.producer_key", sql: "SELECT json_array(e.id,e.kind,e.scope_id,ea.producer_key,ea.name,ea.attributes_json) FROM entities e JOIN entity_assertions ea ON ea.entity_id=e.id JOIN current_batches cb ON cb.batch_id=ea.batch_id JOIN batches b ON b.id=cb.batch_id WHERE b.state='fresh' ORDER BY e.id,ea.producer_key", offset: 41 }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    linking::linking_new_resolver_proxy_and_datasource_changes_match_clean_rebuild
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 12 filtered out; finished in 147.68s
+
+error: test failed, to rerun pass `-p project-knowledge-core --test business_scenarios`

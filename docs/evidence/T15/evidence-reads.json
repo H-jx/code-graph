@@ -1,0 +1,189 @@
+{
+  "current": {
+    "protocolVersion": "1.0",
+    "requestId": "req_b3e17841-c902-4602-94df-4e6fe1cf60f9",
+    "snapshot": {
+      "indexId": "2737818e-c42a-4b2e-a164-46f2e23962c2",
+      "generation": "1",
+      "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+    },
+    "status": "complete",
+    "data": {
+      "reads": [
+        {
+          "status": "current",
+          "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+          "path": "src/采购😀.ts",
+          "evidenceId": "ev_4208ba2310ed0d4e4736cba9dadde056f65ae140e96f46cfcf22517e0b35c6e0",
+          "startByte": 1128,
+          "returnedEndByte": 1144,
+          "snippetTruncated": false,
+          "snippet": "budgetPurchase17",
+          "lineMap": {
+            "startLine": 18,
+            "endLine": 18
+          },
+          "storedVersion": null,
+          "checkedAt": "now"
+        }
+      ]
+    },
+    "sourceReferences": [
+      {
+        "snapshot": {
+          "indexId": "2737818e-c42a-4b2e-a164-46f2e23962c2",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_4208ba2310ed0d4e4736cba9dadde056f65ae140e96f46cfcf22517e0b35c6e0",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1128,
+        "endByte": 1144
+      }
+    ],
+    "gaps": [],
+    "completeness": {
+      "freshness": "fresh",
+      "diskChecked": true,
+      "checkedAt": "now",
+      "coverage": "complete",
+      "candidateSetsComplete": true,
+      "truncated": false,
+      "reasons": []
+    },
+    "budgetUsed": {
+      "entities": 0,
+      "relations": 0,
+      "visited": 1,
+      "elapsedMs": 0,
+      "responseChars": 1411
+    },
+    "nextQueries": []
+  },
+  "expired": {
+    "protocolVersion": "1.0",
+    "requestId": "req_3858552f-0cec-4159-8608-8dad52302277",
+    "snapshot": {
+      "indexId": "2737818e-c42a-4b2e-a164-46f2e23962c2",
+      "generation": "1",
+      "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+    },
+    "status": "partial",
+    "data": {
+      "reads": [
+        {
+          "status": "missing",
+          "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+          "path": "src/采购😀.ts",
+          "evidenceId": "ev_4208ba2310ed0d4e4736cba9dadde056f65ae140e96f46cfcf22517e0b35c6e0",
+          "startByte": 1128,
+          "returnedEndByte": 1128,
+          "snippetTruncated": false,
+          "snippet": "",
+          "lineMap": {
+            "startLine": 18,
+            "endLine": 18
+          },
+          "storedVersion": null,
+          "checkedAt": "now"
+        }
+      ]
+    },
+    "sourceReferences": [
+      {
+        "snapshot": {
+          "indexId": "2737818e-c42a-4b2e-a164-46f2e23962c2",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_4208ba2310ed0d4e4736cba9dadde056f65ae140e96f46cfcf22517e0b35c6e0",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1128,
+        "endByte": 1144
+      }
+    ],
+    "gaps": [],
+    "completeness": {
+      "freshness": "stale",
+      "diskChecked": true,
+      "checkedAt": "now",
+      "coverage": "complete",
+      "candidateSetsComplete": true,
+      "truncated": false,
+      "reasons": []
+    },
+    "budgetUsed": {
+      "entities": 0,
+      "relations": 0,
+      "visited": 1,
+      "elapsedMs": 0,
+      "responseChars": 1394
+    },
+    "nextQueries": []
+  },
+  "historical": {
+    "protocolVersion": "1.0",
+    "requestId": "req_662c8c9c-e3e0-4019-8de3-3d2d4e375438",
+    "snapshot": {
+      "indexId": "2737818e-c42a-4b2e-a164-46f2e23962c2",
+      "generation": "1",
+      "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+    },
+    "status": "partial",
+    "data": {
+      "reads": [
+        {
+          "status": "missing",
+          "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+          "path": "src/采购😀.ts",
+          "evidenceId": "ev_4208ba2310ed0d4e4736cba9dadde056f65ae140e96f46cfcf22517e0b35c6e0",
+          "startByte": 1128,
+          "returnedEndByte": 1144,
+          "snippetTruncated": false,
+          "snippet": "budgetPurchase17",
+          "lineMap": {
+            "startLine": 18,
+            "endLine": 18
+          },
+          "storedVersion": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+          "checkedAt": "now"
+        }
+      ]
+    },
+    "sourceReferences": [
+      {
+        "snapshot": {
+          "indexId": "2737818e-c42a-4b2e-a164-46f2e23962c2",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_4208ba2310ed0d4e4736cba9dadde056f65ae140e96f46cfcf22517e0b35c6e0",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1128,
+        "endByte": 1144
+      }
+    ],
+    "gaps": [],
+    "completeness": {
+      "freshness": "stale",
+      "diskChecked": true,
+      "checkedAt": "now",
+      "coverage": "complete",
+      "candidateSetsComplete": true,
+      "truncated": false,
+      "reasons": []
+    },
+    "budgetUsed": {
+      "entities": 0,
+      "relations": 0,
+      "visited": 1,
+      "elapsedMs": 0,
+      "responseChars": 1472
+    },
+    "nextQueries": []
+  },
+  "forgedCode": "EVIDENCE_INVALID"
+}

@@ -1,0 +1,276 @@
+{
+  "executed": [
+    "smoke.plugin:extract",
+    "smoke.plugin:link"
+  ],
+  "invalidated": [
+    "(core.base,r)",
+    "(smoke.plugin,extract,smoke)",
+    "(smoke.plugin,link,smoke)"
+  ],
+  "incremental": {
+    "entities": [
+      [
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "file",
+        "repo.r",
+        "b.ts",
+        "{\"path\":\"b.ts\",\"repositoryId\":\"r\",\"byteLength\":14,\"language\":\"typescript\"}"
+      ],
+      [
+        "ent_c1b0a9ae4b4de720665d6d2f6b0b10751b36dd1fdced9f7d4a72c619500d2311",
+        "route",
+        "repo.r",
+        "// ROUTE:/two",
+        "{\"text\":\"// ROUTE:/two\"}"
+      ]
+    ],
+    "relations": [
+      [
+        "rel_1de638af582ee3b3d60acfec98bb3ceeda3c8c7b2d5657060376f231f63c37e0",
+        "contains",
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "ent_c1b0a9ae4b4de720665d6d2f6b0b10751b36dd1fdced9f7d4a72c619500d2311",
+        "confirmed"
+      ]
+    ],
+    "search": [
+      [
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "repo.r",
+        null,
+        "b.ts\n// ROUTE:/two\n",
+        "ROUTE b route ts two",
+        "source"
+      ],
+      [
+        "ent_c1b0a9ae4b4de720665d6d2f6b0b10751b36dd1fdced9f7d4a72c619500d2311",
+        "repo.r",
+        "/two",
+        "// ROUTE:/two\nroute\ntext=// ROUTE:/two",
+        "ROUTE route text two",
+        "entity"
+      ]
+    ],
+    "evidence": [
+      [
+        "src_d032b82da0a3f3cccb73b022d043b7f85f48cabb72dbaa6f5cd131875a7ce6af",
+        "0b801e5b6f4c64578e37fe4125f3c57179a9b43e572aef1d39cab8146e179251",
+        0,
+        1,
+        1,
+        1,
+        "binding"
+      ],
+      [
+        "src_d032b82da0a3f3cccb73b022d043b7f85f48cabb72dbaa6f5cd131875a7ce6af",
+        "0b801e5b6f4c64578e37fe4125f3c57179a9b43e572aef1d39cab8146e179251",
+        0,
+        1,
+        1,
+        1,
+        "file"
+      ]
+    ],
+    "sources": [
+      [
+        "r",
+        "b.ts",
+        "0b801e5b6f4c64578e37fe4125f3c57179a9b43e572aef1d39cab8146e179251",
+        "selected"
+      ]
+    ],
+    "coverage": [
+      [
+        "api",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "base",
+        "repo.r",
+        "r",
+        "complete",
+        "{\"entities\":1,\"relations\":0,\"files\":1}",
+        "[]"
+      ],
+      [
+        "database",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "frontend",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "report",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "routes",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "workflow",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ]
+    ]
+  },
+  "clean": {
+    "entities": [
+      [
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "file",
+        "repo.r",
+        "b.ts",
+        "{\"path\":\"b.ts\",\"repositoryId\":\"r\",\"byteLength\":14,\"language\":\"typescript\"}"
+      ],
+      [
+        "ent_c1b0a9ae4b4de720665d6d2f6b0b10751b36dd1fdced9f7d4a72c619500d2311",
+        "route",
+        "repo.r",
+        "// ROUTE:/two",
+        "{\"text\":\"// ROUTE:/two\"}"
+      ]
+    ],
+    "relations": [
+      [
+        "rel_1de638af582ee3b3d60acfec98bb3ceeda3c8c7b2d5657060376f231f63c37e0",
+        "contains",
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "ent_c1b0a9ae4b4de720665d6d2f6b0b10751b36dd1fdced9f7d4a72c619500d2311",
+        "confirmed"
+      ]
+    ],
+    "search": [
+      [
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "repo.r",
+        null,
+        "b.ts\n// ROUTE:/two\n",
+        "ROUTE b route ts two",
+        "source"
+      ],
+      [
+        "ent_c1b0a9ae4b4de720665d6d2f6b0b10751b36dd1fdced9f7d4a72c619500d2311",
+        "repo.r",
+        "/two",
+        "// ROUTE:/two\nroute\ntext=// ROUTE:/two",
+        "ROUTE route text two",
+        "entity"
+      ]
+    ],
+    "evidence": [
+      [
+        "src_d032b82da0a3f3cccb73b022d043b7f85f48cabb72dbaa6f5cd131875a7ce6af",
+        "0b801e5b6f4c64578e37fe4125f3c57179a9b43e572aef1d39cab8146e179251",
+        0,
+        1,
+        1,
+        1,
+        "binding"
+      ],
+      [
+        "src_d032b82da0a3f3cccb73b022d043b7f85f48cabb72dbaa6f5cd131875a7ce6af",
+        "0b801e5b6f4c64578e37fe4125f3c57179a9b43e572aef1d39cab8146e179251",
+        0,
+        1,
+        1,
+        1,
+        "file"
+      ]
+    ],
+    "sources": [
+      [
+        "r",
+        "b.ts",
+        "0b801e5b6f4c64578e37fe4125f3c57179a9b43e572aef1d39cab8146e179251",
+        "selected"
+      ]
+    ],
+    "coverage": [
+      [
+        "api",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "base",
+        "repo.r",
+        "r",
+        "complete",
+        "{\"entities\":1,\"relations\":0,\"files\":1}",
+        "[]"
+      ],
+      [
+        "database",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "frontend",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "report",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "routes",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "workflow",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ]
+    ]
+  },
+  "equal": true,
+  "modelRequests": 0,
+  "modelCounterBasis": "Core has no Agent/Rig dependency and constructs no model client"
+}

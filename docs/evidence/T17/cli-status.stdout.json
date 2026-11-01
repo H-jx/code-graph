@@ -1,0 +1,116 @@
+{
+  "protocolVersion": "1.0",
+  "requestId": "req_12a51b0e-2871-4b42-bfdb-f5b81959265a",
+  "snapshot": {
+    "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+    "generation": "1",
+    "sourceSnapshotId": "snap_f4d908ac87c8fe748f929b77847b14f6522dd1edf7457b762160993e5fd03714"
+  },
+  "status": "partial",
+  "data": {
+    "base": {
+      "state": "fresh",
+      "coverage": {
+        "api@repo.main": {
+          "capability": "api",
+          "scopeId": "repo.main",
+          "sourceSetId": "main",
+          "status": "not_configured"
+        },
+        "base@repo.main": {
+          "capability": "base",
+          "scopeId": "repo.main",
+          "sourceSetId": "main",
+          "status": "complete"
+        },
+        "database@repo.main": {
+          "capability": "database",
+          "scopeId": "repo.main",
+          "sourceSetId": "main",
+          "status": "not_configured"
+        },
+        "frontend@repo.main": {
+          "capability": "frontend",
+          "scopeId": "repo.main",
+          "sourceSetId": "main",
+          "status": "not_configured"
+        },
+        "report@repo.main": {
+          "capability": "report",
+          "scopeId": "repo.main",
+          "sourceSetId": "main",
+          "status": "not_configured"
+        },
+        "routes@repo.main": {
+          "capability": "routes",
+          "scopeId": "repo.main",
+          "sourceSetId": "main",
+          "status": "not_configured"
+        },
+        "workflow@repo.main": {
+          "capability": "workflow",
+          "scopeId": "repo.main",
+          "sourceSetId": "main",
+          "status": "not_configured"
+        }
+      }
+    },
+    "collectors": [],
+    "knowledge": {
+      "topics": [
+        {
+          "topicId": "ledger",
+          "version": 1,
+          "freshness": "fresh",
+          "snapshot": {
+            "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+            "generation": "1",
+            "sourceSnapshotId": "snap_f4d908ac87c8fe748f929b77847b14f6522dd1edf7457b762160993e5fd03714"
+          },
+          "inputDigest": "4ae06d1232c06e71427dff1578d8d6a7c4f1ff8fcdfaef3be587f6489830f199",
+          "dependenciesRechecked": true,
+          "gapIds": [
+            "knowledge_material_partial"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "id": "4ded2980-01bd-4400-8242-da0982d0e868",
+          "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.agents\\skills\\ledger\\versions\\4ded2980-01bd-4400-8242-da0982d0e868",
+          "integrity": true,
+          "freshness": "fresh"
+        }
+      ],
+      "attempts": [
+        {
+          "id": "4ded2980-01bd-4400-8242-da0982d0e868",
+          "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.agents\\skills\\ledger",
+          "state": "complete",
+          "errorCode": null
+        }
+      ],
+      "diskChecked": true
+    },
+    "activeVersions": {}
+  },
+  "sourceReferences": [],
+  "gaps": [],
+  "completeness": {
+    "freshness": "fresh",
+    "diskChecked": true,
+    "checkedAt": "2026-10-28T14:16:33Z",
+    "coverage": "partial",
+    "candidateSetsComplete": true,
+    "truncated": false,
+    "reasons": []
+  },
+  "budgetUsed": {
+    "entities": 0,
+    "relations": 0,
+    "visited": 18,
+    "elapsedMs": 13,
+    "responseChars": 2305
+  },
+  "nextQueries": []
+}

@@ -1,0 +1,200 @@
+    Checking project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+    Checking project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+    Checking xtask v0.1.0 (E:\Project\my-project\code-graph\xtask)
+    Checking project-knowledge-native v0.1.0 (E:\Project\my-project\code-graph\bindings\node)
+    Checking project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli)
+error[E0786]: found invalid metadata files for crate `project_knowledge_core`
+ --> crates\cli\src\commands\agent.rs:9:5
+  |
+9 | use project_knowledge_core::contract::error::CoreError;
+  |     ^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: failed to mmap rmeta metadata: '\\?\E:\Project\my-project\code-graph\target\debug\deps\libproject_knowledge_core-429f86d5b9e43085.rmeta'
+
+For more information about this error, try `rustc --explain E0786`.
+error[E0786]: found invalid metadata files for crate `test`
+    --> crates\core\tests\indexing.rs:1918:1
+     |
+1917 |   #[test]
+     |   ------- in this attribute macro expansion
+1918 | / fn base_index_detects_changed_sources_as_stale() {
+1919 | |     let temp = tempfile::tempdir().expect("tempdir");
+1920 | |     let (config_path, web) = build_fixture(temp.path());
+1921 | |     let project = LoadedProject::load(&config_path).expect("load");
+...    |
+1949 | |     assert!(response.completeness.disk_checked, "核验必须真的读取磁盘");
+1950 | | }
+     | |_^
+     |
+     = note: failed to mmap rmeta metadata: 'C:\Users\hubo9\.rustup\toolchains\1.97.1-x86_64-pc-windows-msvc\lib\rustlib\x86_64-pc-windows-msvc\lib\libtest-a55db7a77a277664.rmeta'
+     = note: failed to mmap file 'C:\Users\hubo9\.rustup\toolchains\1.97.1-x86_64-pc-windows-msvc\lib\rustlib\x86_64-pc-windows-msvc\lib\libtest-a55db7a77a277664.rlib': 页面文件太小，无法完成操作。 (os error 1455)
+
+error: only metadata stub found for `rlib` dependency `std` please provide path to the corresponding .rmeta file with full metadata
+ --> crates\cli\src\commands\agent.rs:6:5
+  |
+6 | use std::path::PathBuf;
+  |     ^^^
+
+error: could not compile `project-knowledge-cli` (bin "project-knowledge") due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error[E0463]: can't find crate for `project_knowledge_core`
+  --> crates\core\tests\indexing.rs:12:5
+   |
+12 | use project_knowledge_core::contract::entity::{Basis, Entity, EntityKind, MaybeKnown, Origin};
+   |     ^^^^^^^^^^^^^^^^^^^^^^ can't find crate
+
+Some errors have detailed explanations: E0463, E0786.
+For more information about an error, try `rustc --explain E0463`.
+error[E0460]: found possibly newer version of crate `bstr` which `project_knowledge_core` depends on
+  --> xtask\src\main.rs:18:5
+   |
+18 | use project_knowledge_core::contract::entity::{ALL_ENTITY_KINDS, EntityKind};
+   |     ^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: perhaps that crate needs to be recompiled?
+   = note: the following crate versions were found:
+           crate `bstr`: E:\Project\my-project\code-graph\target\debug\deps\libbstr-03c73fd237c57e61.rmeta
+           crate `bstr`: E:\Project\my-project\code-graph\target\debug\deps\libbstr-03c73fd237c57e61.rlib
+           crate `bstr`: E:\Project\my-project\code-graph\target\debug\deps\libbstr-489a9c985787dfc3.rmeta
+           crate `bstr`: E:\Project\my-project\code-graph\target\debug\deps\libbstr-eebdf9b257e9f01b.rmeta
+           crate `bstr`: E:\Project\my-project\code-graph\target\debug\deps\libbstr-eebdf9b257e9f01b.rlib
+           crate `bstr`: E:\Project\my-project\code-graph\target\debug\deps\libbstr-3ed92b92dd6fc544.rmeta
+           crate `bstr`: E:\Project\my-project\code-graph\target\debug\deps\libbstr-57d3cca53af24154.rmeta
+           crate `project_knowledge_core`: \\?\E:\Project\my-project\code-graph\target\debug\deps\libproject_knowledge_core-429f86d5b9e43085.rmeta
+
+error: could not compile `project-knowledge-core` (test "indexing") due to 2 previous errors
+For more information about this error, try `rustc --explain E0460`.
+error: could not compile `xtask` (bin "xtask") due to 1 previous error
+error[E0463]: can't find crate for `project_knowledge_core`
+ --> crates\core\tests\collectors.rs:9:5
+  |
+9 | use project_knowledge_core::collect::deps::{
+  |     ^^^^^^^^^^^^^^^^^^^^^^ can't find crate
+
+For more information about this error, try `rustc --explain E0463`.
+error: could not compile `project-knowledge-core` (test "collectors") due to 1 previous error
+error[E0463]: can't find crate for `project_knowledge_core`
+ --> crates\cli\tests\..\..\core\tests\support\collection.rs:1:5
+  |
+1 | use project_knowledge_core::collect::{load_manifest, staging::stage_collection};
+  |     ^^^^^^^^^^^^^^^^^^^^^^ can't find crate
+
+error: could not compile `project-knowledge-cli` (bin "project-knowledge" test) due to 1 previous error
+error[E0463]: can't find crate for `tokio_util`
+ --> crates\cli\tests\..\..\core\tests\support\collection.rs:7:5
+  |
+7 | use tokio_util::sync::CancellationToken;
+  |     ^^^^^^^^^^ can't find crate
+
+error[E0463]: can't find crate for `project_knowledge_core`
+  --> xtask\src\main.rs:18:5
+   |
+18 | use project_knowledge_core::contract::entity::{ALL_ENTITY_KINDS, EntityKind};
+   |     ^^^^^^^^^^^^^^^^^^^^^^ can't find crate
+
+error[E0463]: can't find crate for `schemars`
+  --> xtask\src\main.rs:28:5
+   |
+28 | use schemars::SchemaGenerator;
+   |     ^^^^^^^^ can't find crate
+
+error[E0463]: can't find crate for `serde_json`
+  --> xtask\src\main.rs:29:5
+   |
+29 | use serde_json::{Map, Value, json};
+   |     ^^^^^^^^^^ can't find crate
+
+error: could not compile `project-knowledge-cli` (test "collect") due to 2 previous errors
+error: could not compile `xtask` (bin "xtask" test) due to 3 previous errors
+error: internal compiler error: /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452\compiler\rustc_hir_typeck\src\expr_use_visitor.rs:1431:20: unexpected definition in ExprUseVisitor: Err
+  --> crates\core\tests\support\collection.rs:20:9
+   |
+20 |         std::fs::create_dir(root.join("repo")).unwrap();
+   |         ^^^^^^^^^^^^^^^^^^^
+
+
+thread 'rustc' (30560) panicked at /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452\compiler\rustc_hir_typeck\src\expr_use_visitor.rs:1431:20:
+Box<dyn Any>
+stack backtrace:
+   0:     0x7ff8ad22f38e - std::backtrace_rs::backtrace::win64::trace
+                               at /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\std\src\..\..\backtrace\src\backtrace\win64.rs:85
+   1:     0x7ff8ad22f38e - std::backtrace_rs::backtrace::trace_unsynchronized
+                               at /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\std\src\..\..\backtrace\src\backtrace\mod.rs:66
+   2:     0x7ff8ad22f38e - std::sys::backtrace::_print_fmt
+                               at /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\std\src\sys\backtrace.rs:74
+   3:     0x7ff8ad22f38e - std::sys::backtrace::impl$0::print::impl$0::fmt
+                               at /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\std\src\sys\backtrace.rs:44
+   4:     0x7ff8ad257c61 - core::fmt::write
+                               at /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\core\src\fmt\mod.rs:0
+   5:     0x7ff8ad23f7e4 - std::io::default_write_fmt
+                               at /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\std\src\io\mod.rs:622
+   6:     0x7ff8ad23f7e4 - std::io::Write::write_fmt<std::sys::stdio::windows::Stderr>
+                               at /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\std\src\io\mod.rs:1977
+   7:     0x7ff8ad208189 - std::sys::backtrace::BacktraceLock::print
+                               at /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\std\src\sys\backtrace.rs:47
+   8:     0x7ff8ad208189 - std::panicking::default_hook::closure$0
+                               at /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\std\src\panicking.rs:292
+   9:     0x7ff8ad222a18 - std::panicking::default_hook
+                               at /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\std\src\panicking.rs:319
+  10:     0x7ff8aea9c2cb - core[3b42104b74debb2e]::slice::sort::unstable::heapsort::heapsort::<((rustc_lint_defs[2520521cc992afd]::Level, &str), usize), <((rustc_lint_defs[2520521cc992afd]::Level, &str), usize) as core[3b42104b74debb2e]::cmp::PartialOrd>::lt>
+  11:     0x7ff8ad222d14 - std::panicking::panic_with_hook
+                               at /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\std\src\panicking.rs:833
+  12:     0x7ff8b1631143 - core[3b42104b74debb2e]::slice::sort::stable::quicksort::quicksort::<rustc_errors[e58c852d5db12327]::annotate_snippet_emitter_writer::Annotation, <[rustc_errors[e58c852d5db12327]::annotate_snippet_emitter_writer::Annotation]>::sort_by_key<usize, rustc_errors[e58c852d5db12327]::annotate_snippet_emitter_writer::collect_annotations::{closure#2}>::{closure#0}>
+  13:     0x7ff8b1629969 - std[fc79cc53f84b73ec]::sys::backtrace::__rust_end_short_backtrace::<std[fc79cc53f84b73ec]::panicking::begin_panic<rustc_errors[e58c852d5db12327]::ExplicitBug>::{closure#0}, !>
+  14:     0x7ff8b16296a6 - std[fc79cc53f84b73ec]::panicking::begin_panic::<rustc_errors[e58c852d5db12327]::ExplicitBug>
+  15:     0x7ff8b163e225 - <rustc_errors[e58c852d5db12327]::diagnostic::BugAbort as rustc_errors[e58c852d5db12327]::diagnostic::EmissionGuarantee>::emit_producing_guarantee
+  16:     0x7ff8b13443af - <rustc_serialize[56c3dbe30efd7738]::opaque::mem_encoder::MemEncoder>::panic_invalid_write::<5usize>
+  17:     0x7ff8b137f832 - <rustc_data_structures[a0aabe1ba95bce04]::profiling::SelfProfilerRef>::exec::cold_call::<<rustc_data_structures[a0aabe1ba95bce04]::profiling::SelfProfilerRef>::incr_result_hashing::{closure#0}>
+  18:     0x7ff8b137f8e5 - <rustc_data_structures[a0aabe1ba95bce04]::profiling::SelfProfilerRef>::exec::cold_call::<<rustc_data_structures[a0aabe1ba95bce04]::profiling::SelfProfilerRef>::incr_result_hashing::{closure#0}>
+  19:     0x7ff8b1369656 - std[fc79cc53f84b73ec]::sys::backtrace::__rust_end_short_backtrace::<std[fc79cc53f84b73ec]::panicking::begin_panic<alloc[61df5e49bb59a840]::string::String>::{closure#0}, !>
+  20:     0x7ff8b136896a - rustc_middle[327ca6dd13956ce7]::util::bug::span_bug_fmt::<rustc_span[a22c952567ebb123]::span_encoding::Span>
+  21:     0x7ff729eac5ba - <unknown>
+  22:     0x7ff729ead6d2 - <unknown>
+  23:     0x7ff729e7afb6 - <unknown>
+  24:     0x7ff729e7bc0e - <unknown>
+  25:     0x7ff729e7afee - <unknown>
+  26:     0x7ff729e7bc4e - <unknown>
+  27:     0x7ff729e7afee - <unknown>
+  28:     0x7ff729e7bcdd - <unknown>
+  29:     0x7ff729e7afee - <unknown>
+  30:     0x7ff72a0eaecb - <unknown>
+  31:     0x7ff8b0c96989 - <rustc_lint[12f952a8da7c4f41]::default_could_be_derived::WrongDefaultImpl as rustc_errors[e58c852d5db12327]::diagnostic::Diagnostic<()>>::into_diag
+  32:     0x7ff8b0caf738 - <rustc_lint[12f952a8da7c4f41]::builtin::InternalEqTraitMethodImpls as rustc_lint[12f952a8da7c4f41]::passes::LateLintPass>::check_impl_item
+  33:     0x7ff8b0c24b9b - core[3b42104b74debb2e]::slice::sort::unstable::heapsort::heapsort::<rustc_span[a22c952567ebb123]::span_encoding::Span, <rustc_span[a22c952567ebb123]::span_encoding::Span as core[3b42104b74debb2e]::cmp::PartialOrd>::lt>
+  34:     0x7ff8b0cae94f - <rustc_lint[12f952a8da7c4f41]::builtin::InternalEqTraitMethodImpls as rustc_lint[12f952a8da7c4f41]::passes::LateLintPass>::check_impl_item
+  35:     0x7ff8b0c24b9b - core[3b42104b74debb2e]::slice::sort::unstable::heapsort::heapsort::<rustc_span[a22c952567ebb123]::span_encoding::Span, <rustc_span[a22c952567ebb123]::span_encoding::Span as core[3b42104b74debb2e]::cmp::PartialOrd>::lt>
+  36:     0x7ff8acd81c52 - RINvNtNtNtNtCs55qC6OcLGgs_4core5slice4sort6stable9quicksort9quicksortTRNtNtCsdVfrV9B22WJ_10rustc_span6symbol6SymbolRNtNtB1b_13span_encoding4SpanENCINvMNtCs8oYkXk2gzQW_5alloc5sliceSB15_11sort_by_keyB1P_NCNvXNtCs1CZRe5GMczl_10rustc_lint16non_ascii_identsNtB3
+  37:     0x7ff8acd9326d - rustc_lint[12f952a8da7c4f41]::late::check_crate
+  38:     0x7ff8aa5266bf - <jiff[adef77f368a83633]::fmt::strtime::Display as core[3b42104b74debb2e]::fmt::Display>::fmt
+  39:     0x7ff8ad1fc38a - rustc_data_structures[a0aabe1ba95bce04]::sync::parallel::par_fns
+  40:     0x7ff8aa5292b9 - <jiff[adef77f368a83633]::fmt::strtime::Display as core[3b42104b74debb2e]::fmt::Display>::fmt
+  41:     0x7ff8ad1fc38a - rustc_data_structures[a0aabe1ba95bce04]::sync::parallel::par_fns
+  42:     0x7ff8ad289d93 - rustc_interface[7971ec2362d01f78]::passes::analysis
+  43:     0x7ff8acd4415a - llvm::TargetTransformInfoImplBase::canHaveNonUndefGlobalInitializerInAddressSpace
+  44:     0x7ff8acc2a0a1 - <<rustc_ty_utils[526278a885831dab]::opaque_types::OpaqueTypeCollector>::collect_taits_declared_in_body::TaitInBodyFinder as rustc_hir[1ea8a90067a68ca8]::intravisit::Visitor>::visit_nested_item
+  45:     0x7ff8acd441c0 - llvm::TargetTransformInfoImplBase::canHaveNonUndefGlobalInitializerInAddressSpace
+  46:     0x7ff8aa4de63a - std[fc79cc53f84b73ec]::sys::backtrace::__rust_begin_short_backtrace::<std[fc79cc53f84b73ec]::thread::lifecycle::spawn_unchecked<ctrlc[85c6d45e5360c17e]::set_handler_inner<rustc_driver_impl[3c242465527f1190]::install_ctrlc_handler::{closure#0}>::{closure#0}, ()>::{closure#1}::{closure#0}::{closure#0}, ()>
+  47:     0x7ff8aa4da591 - RINvNtNtCslFVcyoAu48q_3std3sys9backtrace28___rust_begin_short_backtraceNCNCINvNtCsaqrPHTSpvJs_15rustc_interface4util26run_in_thread_with_globalsNCINvB1e_31run_in_thread_pool_with_globalsNCINvNtB1g_9interface12run_compileruNCNvCs5a844wrxEGq_17rustc_driver_i
+  48:     0x7ff8aa4e3507 - std[fc79cc53f84b73ec]::sys::backtrace::__rust_begin_short_backtrace::<std[fc79cc53f84b73ec]::thread::lifecycle::spawn_unchecked<ctrlc[85c6d45e5360c17e]::set_handler_inner<rustc_driver_impl[3c242465527f1190]::install_ctrlc_handler::{closure#0}>::{closure#0}, ()>::{closure#1}::{closure#0}::{closure#0}, ()>
+  49:     0x7ff8ad22c55a - std::sys::thread::windows::impl$0::new::thread_start
+                               at /rustc/8bab26f4f68e0e26f0bb7960be334d5b520ea452/library\std\src\sys\thread\windows.rs:58
+  50:     0x7ffa2bc5dda7 - BaseThreadInitThunk
+  51:     0x7ffa2c23ee4c - RtlUserThreadStart
+
+note: we would appreciate a bug report: https://github.com/rust-lang/rust-clippy/issues/new?template=ice.yml
+
+note: rustc 1.97.1 (8bab26f4f 2026-07-14) running on x86_64-pc-windows-msvc
+
+note: compiler flags: -C embed-bitcode=no -C debuginfo=2
+
+note: some of the compiler flags provided by cargo are hidden
+
+query stack during panic:
+#0 [analysis] running analysis passes on crate `lifecycle`
+end of query stack
+note: Clippy version: clippy 0.1.97 (8bab26f4f6 2026-07-14)
+
+error: could not compile `project-knowledge-core` (test "lifecycle")
+
+Caused by:
+  process didn't exit successfully: `C:\Users\hubo9\.rustup\toolchains\1.97.1-x86_64-pc-windows-msvc\bin\clippy-driver.exe C:\Users\hubo9\.rustup\toolchains\1.97.1-x86_64-pc-windows-msvc\bin\rustc.exe --crate-name lifecycle --edition=2024 crates\core\tests\lifecycle.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,metadata -C embed-bitcode=no -C debuginfo=2 --warn=unused_lifetimes --deny=unsafe_code --allow=clippy::type_complexity --allow=clippy::result_large_err --allow=clippy::must_use_candidate --allow=clippy::module_name_repetitions --allow=missing_docs --test --cfg "feature=\"default\"" --cfg "feature=\"syntax\"" --check-cfg cfg(docsrs,test) --check-cfg "cfg(feature, values(\"default\", \"syntax\"))" -C metadata=1624744d304e7fe1 -C extra-filename=-176f90badd516cef --out-dir E:\Project\my-project\code-graph\target\debug\deps -L dependency=E:\Project\my-project\code-graph\target\debug\deps --extern arc_swap=E:\Project\my-project\code-graph\target\debug\deps\libarc_swap-b3028843cb7d1880.rmeta --extern async_trait=E:\Project\my-project\code-graph\target\debug\deps\async_trait-b2b4429d48747d25.dll --extern chrono=E:\Project\my-project\code-graph\target\debug\deps\libchrono-8ee464cd066e2b3b.rmeta --extern dirs=E:\Project\my-project\code-graph\target\debug\deps\libdirs-23b02fa8b6bce06e.rmeta --extern futures=E:\Project\my-project\code-graph\target\debug\deps\libfutures-326286a40ea5d93f.rmeta --extern globset=E:\Project\my-project\code-graph\target\debug\deps\libglobset-dcb6f1e57f694fcb.rmeta --extern handlebars=E:\Project\my-project\code-graph\target\debug\deps\libhandlebars-4c8ecf1590beefbe.rmeta --extern hex=E:\Project\my-project\code-graph\target\debug\deps\libhex-4642146e1db91d16.rmeta --extern home=E:\Project\my-project\code-graph\target\debug\deps\libhome-a55d4b8663e63b47.rmeta --extern ignore=E:\Project\my-project\code-graph\target\debug\deps\libignore-cd0328c69cd20419.rmeta --extern indexmap=E:\Project\my-project\code-graph\target\debug\deps\libindexmap-d4df1c40422db471.rmeta --extern insta=E:\Project\my-project\code-graph\target\debug\deps\libinsta-e966a0cb7ec76b93.rmeta --extern jsonschema=E:\Project\my-project\code-graph\target\debug\deps\libjsonschema-7f36c8f9a6395bc9.rmeta --extern parking_lot=E:\Project\my-project\code-graph\target\debug\deps\libparking_lot-ba59ccf81f05a22b.rmeta --extern pathdiff=E:\Project\my-project\code-graph\target\debug\deps\libpathdiff-4f1d9d5fde0a127f.rmeta --extern petgraph=E:\Project\my-project\code-graph\target\debug\deps\libpetgraph-fec78e8ac5674e04.rmeta --extern project_knowledge_core=E:\Project\my-project\code-graph\target\debug\deps\libproject_knowledge_core-429f86d5b9e43085.rmeta --extern proptest=E:\Project\my-project\code-graph\target\debug\deps\libproptest-43427b62bcf6d38c.rmeta --extern rayon=E:\Project\my-project\code-graph\target\debug\deps\librayon-4d56c0f16c922e72.rmeta --extern regex=E:\Project\my-project\code-graph\target\debug\deps\libregex-ea28296a5f52268c.rmeta --extern rusqlite=E:\Project\my-project\code-graph\target\debug\deps\librusqlite-89cdab28603d6912.rmeta --extern rustc_hash=E:\Project\my-project\code-graph\target\debug\deps\librustc_hash-22623ad47278b36d.rmeta --extern schemars=E:\Project\my-project\code-graph\target\debug\deps\libschemars-f25d6835c5f9400a.rmeta --extern serde=E:\Project\my-project\code-graph\target\debug\deps\libserde-192cec7b49b7c181.rmeta --extern serde_json=E:\Project\my-project\code-graph\target\debug\deps\libserde_json-b473aac1b3694217.rmeta --extern sha2=E:\Project\my-project\code-graph\target\debug\deps\libsha2-8b9159e6b5a1e34b.rmeta --extern strum=E:\Project\my-project\code-graph\target\debug\deps\libstrum-2469896bec9e6967.rmeta --extern tempfile=E:\Project\my-project\code-graph\target\debug\deps\libtempfile-62c6e35a92815bec.rmeta --extern thiserror=E:\Project\my-project\code-graph\target\debug\deps\libthiserror-d822cf3ffe8a5276.rmeta --extern tokio=E:\Project\my-project\code-graph\target\debug\deps\libtokio-414df242c1db3891.rmeta --extern tokio_util=E:\Project\my-project\code-graph\target\debug\deps\libtokio_util-66dc92c69939191c.rmeta --extern tracing=E:\Project\my-project\code-graph\target\debug\deps\libtracing-dbbd67ed04321bed.rmeta --extern tree_sitter=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter-b258db7d795ffe49.rmeta --extern tree_sitter_javascript=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter_javascript-3823d757908b4be3.rmeta --extern tree_sitter_language=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter_language-51b7cb52db6c1c42.rmeta --extern tree_sitter_python=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter_python-f9a85835f39e8689.rmeta --extern tree_sitter_typescript=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter_typescript-b320edab86367708.rmeta --extern url=E:\Project\my-project\code-graph\target\debug\deps\liburl-1f5834b0a447b403.rmeta --extern uuid=E:\Project\my-project\code-graph\target\debug\deps\libuuid-83294e7efc2a80ed.rmeta --extern windows_sys=E:\Project\my-project\code-graph\target\debug\deps\libwindows_sys-8921d90b74a2f437.rmeta -L native=E:\Project\my-project\code-graph\target\debug\build\psm-730fd7be6243fc23\out -L native=E:\Project\my-project\code-graph\target\debug\build\stacker-ffb59c42fd5c6a30\out -L native=E:\Project\my-project\code-graph\target\debug\build\libsqlite3-sys-14c4c974e71144d3\out -L native=E:\Project\my-project\code-graph\target\debug\build\tree-sitter-15631dbcca9b4081\out -L native=E:\Project\my-project\code-graph\target\debug\build\tree-sitter-javascript-0afa70b5ad4ec46c\out -L native=E:\Project\my-project\code-graph\target\debug\build\tree-sitter-python-5e0c240a1410ffd2\out -L native=E:\Project\my-project\code-graph\target\debug\build\tree-sitter-typescript-2fd44b0d184f7e20\out` (exit code: 101)

@@ -1,0 +1,458 @@
+{
+  "scope": "Product, example plugin and verification source; excludes dependency/build output and .gitkeep.",
+  "method": "Zero byte check; comment-only lexical check; explicit placeholder/skeleton markers. Semantic completeness still requires source review and task acceptance.",
+  "filesScanned": 185,
+  "zeroByteSources": [],
+  "commentOnlySources": [
+    {
+      "path": "bindings/node/src/lib.rs",
+      "bytes": 621,
+      "sha256": "454af4c9eac51e168be7eb8978d5f7eae7f2f6703d962e7d81777a73e5404e1f",
+      "zeroBytes": false,
+      "commentOnly": true,
+      "emptyModule": false,
+      "task": "T20",
+      "markers": [
+        {
+          "line": 9,
+          "text": "// TODO(pk)：在此用 #[napi] / #[napi(ts_args_type = ...)] 暴露 open/status/search/"
+        }
+      ]
+    },
+    {
+      "path": "crates/core/src/syntax/scip.rs",
+      "bytes": 102,
+      "sha256": "6b78e8a31a2a408a418bcc18439db7450e252986d156e9046b8a295c2ed85cb5",
+      "zeroBytes": false,
+      "commentOnly": true,
+      "emptyModule": false,
+      "task": "optional-out-of-scope",
+      "markers": [
+        {
+          "line": 1,
+          "text": "//! TODO(pk)：导入外部 SCIP 精确索引"
+        }
+      ]
+    }
+  ],
+  "emptyModuleSources": [
+    {
+      "path": "packages/mcp/src/index.ts",
+      "bytes": 127,
+      "sha256": "cb9a8719597ec9d860f11e42320dc4e51b912ec1cd3813494cd5c0f0bfdbbb02",
+      "zeroBytes": false,
+      "commentOnly": false,
+      "emptyModule": true,
+      "task": "T21",
+      "markers": [
+        {
+          "line": 1,
+          "text": "/** TODO(pk)：本地 stdio MCP 服务入口与 bin。 职责与调用关系见 docs/NEW-PROJECT-STRUCTURE.md。 */"
+        }
+      ]
+    },
+    {
+      "path": "packages/mcp/src/resources.ts",
+      "bytes": 137,
+      "sha256": "fea3aed5525157a008c706b3a4166b24eaedcc970d3b17876985871b2d76cfbc",
+      "zeroBytes": false,
+      "commentOnly": false,
+      "emptyModule": true,
+      "task": "T21",
+      "markers": [
+        {
+          "line": 1,
+          "text": "/** TODO(pk)：事实、证据、项目说明与 Skill 资源。 职责与调用关系见 docs/NEW-PROJECT-STRUCTURE.md。 */"
+        }
+      ]
+    },
+    {
+      "path": "packages/mcp/src/tools.ts",
+      "bytes": 170,
+      "sha256": "3f7693bfda0f9ad1cdc03e4319154c3b96be6535ed339d3d082b7c52f4dd51b9",
+      "zeroBytes": false,
+      "commentOnly": false,
+      "emptyModule": true,
+      "task": "T21",
+      "markers": [
+        {
+          "line": 1,
+          "text": "/** TODO(pk)：将 SDK 查询映射为 MCP 工具（只读查询与维护两套分开登记）。 职责与调用关系见 docs/NEW-PROJECT-STRUCTURE.md。 */"
+        }
+      ]
+    },
+    {
+      "path": "packages/sdk/src/client.ts",
+      "bytes": 134,
+      "sha256": "23c408f23fe47efbc34651cf313ad34dfbcb9674868cf3bea39cd9a48d5874f7",
+      "zeroBytes": false,
+      "commentOnly": false,
+      "emptyModule": true,
+      "task": "T20",
+      "markers": [
+        {
+          "line": 1,
+          "text": "/** TODO(pk)：打开索引、调用 native、关闭资源。 职责与调用关系见 docs/NEW-PROJECT-STRUCTURE.md。 */"
+        }
+      ]
+    },
+    {
+      "path": "packages/sdk/src/index.ts",
+      "bytes": 145,
+      "sha256": "beb7bf85c2d97d30104bdae0d273059abd71d5ac7f40e77659e74a2308fa9e86",
+      "zeroBytes": false,
+      "commentOnly": false,
+      "emptyModule": true,
+      "task": "T20",
+      "markers": [
+        {
+          "line": 1,
+          "text": "/** TODO(pk)：SDK 出口：re-export client 与生成的契约类型。 职责与调用关系见 docs/NEW-PROJECT-STRUCTURE.md。 */"
+        }
+      ]
+    }
+  ],
+  "explicitPlaceholders": [
+    {
+      "path": "bindings/node/src/lib.rs",
+      "bytes": 621,
+      "sha256": "454af4c9eac51e168be7eb8978d5f7eae7f2f6703d962e7d81777a73e5404e1f",
+      "zeroBytes": false,
+      "commentOnly": true,
+      "emptyModule": false,
+      "task": "T20",
+      "markers": [
+        {
+          "line": 9,
+          "text": "// TODO(pk)：在此用 #[napi] / #[napi(ts_args_type = ...)] 暴露 open/status/search/"
+        }
+      ]
+    },
+    {
+      "path": "crates/core/src/syntax/scip.rs",
+      "bytes": 102,
+      "sha256": "6b78e8a31a2a408a418bcc18439db7450e252986d156e9046b8a295c2ed85cb5",
+      "zeroBytes": false,
+      "commentOnly": true,
+      "emptyModule": false,
+      "task": "optional-out-of-scope",
+      "markers": [
+        {
+          "line": 1,
+          "text": "//! TODO(pk)：导入外部 SCIP 精确索引"
+        }
+      ]
+    },
+    {
+      "path": "packages/mcp/src/index.ts",
+      "bytes": 127,
+      "sha256": "cb9a8719597ec9d860f11e42320dc4e51b912ec1cd3813494cd5c0f0bfdbbb02",
+      "zeroBytes": false,
+      "commentOnly": false,
+      "emptyModule": true,
+      "task": "T21",
+      "markers": [
+        {
+          "line": 1,
+          "text": "/** TODO(pk)：本地 stdio MCP 服务入口与 bin。 职责与调用关系见 docs/NEW-PROJECT-STRUCTURE.md。 */"
+        }
+      ]
+    },
+    {
+      "path": "packages/mcp/src/resources.ts",
+      "bytes": 137,
+      "sha256": "fea3aed5525157a008c706b3a4166b24eaedcc970d3b17876985871b2d76cfbc",
+      "zeroBytes": false,
+      "commentOnly": false,
+      "emptyModule": true,
+      "task": "T21",
+      "markers": [
+        {
+          "line": 1,
+          "text": "/** TODO(pk)：事实、证据、项目说明与 Skill 资源。 职责与调用关系见 docs/NEW-PROJECT-STRUCTURE.md。 */"
+        }
+      ]
+    },
+    {
+      "path": "packages/mcp/src/tools.ts",
+      "bytes": 170,
+      "sha256": "3f7693bfda0f9ad1cdc03e4319154c3b96be6535ed339d3d082b7c52f4dd51b9",
+      "zeroBytes": false,
+      "commentOnly": false,
+      "emptyModule": true,
+      "task": "T21",
+      "markers": [
+        {
+          "line": 1,
+          "text": "/** TODO(pk)：将 SDK 查询映射为 MCP 工具（只读查询与维护两套分开登记）。 职责与调用关系见 docs/NEW-PROJECT-STRUCTURE.md。 */"
+        }
+      ]
+    },
+    {
+      "path": "packages/sdk/src/client.ts",
+      "bytes": 134,
+      "sha256": "23c408f23fe47efbc34651cf313ad34dfbcb9674868cf3bea39cd9a48d5874f7",
+      "zeroBytes": false,
+      "commentOnly": false,
+      "emptyModule": true,
+      "task": "T20",
+      "markers": [
+        {
+          "line": 1,
+          "text": "/** TODO(pk)：打开索引、调用 native、关闭资源。 职责与调用关系见 docs/NEW-PROJECT-STRUCTURE.md。 */"
+        }
+      ]
+    },
+    {
+      "path": "packages/sdk/src/index.ts",
+      "bytes": 145,
+      "sha256": "beb7bf85c2d97d30104bdae0d273059abd71d5ac7f40e77659e74a2308fa9e86",
+      "zeroBytes": false,
+      "commentOnly": false,
+      "emptyModule": true,
+      "task": "T20",
+      "markers": [
+        {
+          "line": 1,
+          "text": "/** TODO(pk)：SDK 出口：re-export client 与生成的契约类型。 职责与调用关系见 docs/NEW-PROJECT-STRUCTURE.md。 */"
+        }
+      ]
+    },
+    {
+      "path": "scripts/audit-source.mjs",
+      "bytes": 3736,
+      "sha256": "5f72fcd28c45287b6bcce66dacc5c785675de2a2a623599403ac862904c3bd50",
+      "zeroBytes": false,
+      "commentOnly": false,
+      "emptyModule": false,
+      "task": null,
+      "markers": [
+        {
+          "line": 47,
+          "text": "/TODO\\(pk\\)|todo!\\s*\\(|unimplemented!\\s*\\(|尚未实现|未实现|scenario_skeleton\\s*\\(/.test(line)"
+        }
+      ]
+    },
+    {
+      "path": "scripts/verify-packages.mjs",
+      "bytes": 603,
+      "sha256": "1f139fd1e5011f1139854c73fe5ecfea36ccb5d7c786374b2523477b22afdd65",
+      "zeroBytes": false,
+      "commentOnly": false,
+      "emptyModule": false,
+      "task": "T23",
+      "markers": [
+        {
+          "line": 11,
+          "text": "console.error('TODO(pk) T23: verify-packages 未实现（需 xtask package 产出制品目录）。');"
+        }
+      ]
+    },
+    {
+      "path": "xtask/src/main.rs",
+      "bytes": 11972,
+      "sha256": "69676b74d2a4b097d86a73d6228f505dafdabe1434e30b5bf157ebc12ee754b5",
+      "zeroBytes": false,
+      "commentOnly": false,
+      "emptyModule": false,
+      "task": "T23",
+      "markers": [
+        {
+          "line": 49,
+          "text": "/// 组装发布候选（T23 尚未实现，明确失败）。"
+        },
+        {
+          "line": 307,
+          "text": "\"package --target {target} 尚未实现（见 plan/NEW-PROJECT-LONG-TASK.md T23）\""
+        }
+      ]
+    }
+  ],
+  "fileHashes": {
+    "bindings/node/build.rs": "8024395cb5399b866d9244062763ccbcfd76c29e2a4529f1c0875998721b2365",
+    "bindings/node/src/lib.rs": "454af4c9eac51e168be7eb8978d5f7eae7f2f6703d962e7d81777a73e5404e1f",
+    "collectors/examples/frontend-backend-a/api/api-ast.mjs": "8262259f25a502804e1706ac594185040f3a5ea6a590a76da463fceef259231f",
+    "collectors/examples/frontend-backend-a/api/collect.mjs": "402ef469d897e2cba4d486f8391ab1061dd56a964c3415ec5ccecda4a2500e80",
+    "collectors/examples/frontend-backend-a/api/frontend-ast.mjs": "ca382cb96cf9207e620848743faca185fc98a6c224a66b7a287536a71f94ba49",
+    "collectors/examples/frontend-backend-a/api/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-a/database/collect.py": "79b00687537a8eca07f4d15f632961d859fee8a57834bdbb53788bb8336e7c9b",
+    "collectors/examples/frontend-backend-a/database/database_ast.py": "8ca9da563f29cf73e77f3efc1344cf0102a926c17577c71926ff80f2c54aaa3a",
+    "collectors/examples/frontend-backend-a/database/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-a/database/source_ast.py": "323c09317d3910f6afcfc219d9ef7fd1401d126ff22317574a59eaf76524e1f9",
+    "collectors/examples/frontend-backend-a/frontend/collect.mjs": "febfb345b10d8a417bd0c13f4c5330b911f5d6a7b058d13296b2ebe3841acbac",
+    "collectors/examples/frontend-backend-a/frontend/frontend-ast.mjs": "ca382cb96cf9207e620848743faca185fc98a6c224a66b7a287536a71f94ba49",
+    "collectors/examples/frontend-backend-a/frontend/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-a/link/collect.mjs": "b865310224d42d108aa9477ddebe71f835f7145d31d4d59b37086a59bdccac5f",
+    "collectors/examples/frontend-backend-a/link/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-a/link/link-facts.mjs": "9d7b28aa92ecbe6c097f81700c0b52f345846c11cb7c78a4f9b81e50e14196ef",
+    "collectors/examples/frontend-backend-a/semantics/collect.py": "6d28cb0f10df3008fa9ef8ceb6f927804ae93c6b08318f2641d294485bec5ebe",
+    "collectors/examples/frontend-backend-a/semantics/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-a/semantics/report_ast.py": "bdaefc33f4b4aaa0a430602bfe3a1b69bee8d62d171b6604c713aa0ac1189d31",
+    "collectors/examples/frontend-backend-a/semantics/semantic_facts.py": "44bbb50e16b9a8e6a335b3c4ab2c2008155e70d2bf3bc4009a6e3dd28e3cff7a",
+    "collectors/examples/frontend-backend-a/semantics/source_ast.py": "323c09317d3910f6afcfc219d9ef7fd1401d126ff22317574a59eaf76524e1f9",
+    "collectors/examples/frontend-backend-a/semantics/workflow_ast.py": "82d83eb819e9e0a1259fdf8800604f4cad874164c8a9d45b2afb5564436e3d36",
+    "collectors/examples/frontend-backend-b/api/api_ast.py": "75f989a6fa3cfc36167933c195d85f83e9a66b0d262152f79b6c93c68fc5c5ae",
+    "collectors/examples/frontend-backend-b/api/collect.py": "7cea22aedcee7979da63b96ccca1e3b638eff79918fa2773b9ee4f50c53e7ca9",
+    "collectors/examples/frontend-backend-b/api/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-b/database/collect.py": "79b00687537a8eca07f4d15f632961d859fee8a57834bdbb53788bb8336e7c9b",
+    "collectors/examples/frontend-backend-b/database/database_ast.py": "8ca9da563f29cf73e77f3efc1344cf0102a926c17577c71926ff80f2c54aaa3a",
+    "collectors/examples/frontend-backend-b/database/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-b/database/source_ast.py": "323c09317d3910f6afcfc219d9ef7fd1401d126ff22317574a59eaf76524e1f9",
+    "collectors/examples/frontend-backend-b/frontend/collect.mjs": "febfb345b10d8a417bd0c13f4c5330b911f5d6a7b058d13296b2ebe3841acbac",
+    "collectors/examples/frontend-backend-b/frontend/frontend-ast.mjs": "ca382cb96cf9207e620848743faca185fc98a6c224a66b7a287536a71f94ba49",
+    "collectors/examples/frontend-backend-b/frontend/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-b/link/collect.mjs": "b865310224d42d108aa9477ddebe71f835f7145d31d4d59b37086a59bdccac5f",
+    "collectors/examples/frontend-backend-b/link/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-b/link/link-facts.mjs": "9d7b28aa92ecbe6c097f81700c0b52f345846c11cb7c78a4f9b81e50e14196ef",
+    "collectors/examples/frontend-backend-b/semantics/collect.py": "6d28cb0f10df3008fa9ef8ceb6f927804ae93c6b08318f2641d294485bec5ebe",
+    "collectors/examples/frontend-backend-b/semantics/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-b/semantics/report_ast.py": "bdaefc33f4b4aaa0a430602bfe3a1b69bee8d62d171b6604c713aa0ac1189d31",
+    "collectors/examples/frontend-backend-b/semantics/semantic_facts.py": "44bbb50e16b9a8e6a335b3c4ab2c2008155e70d2bf3bc4009a6e3dd28e3cff7a",
+    "collectors/examples/frontend-backend-b/semantics/source_ast.py": "323c09317d3910f6afcfc219d9ef7fd1401d126ff22317574a59eaf76524e1f9",
+    "collectors/examples/frontend-backend-b/semantics/workflow_ast.py": "82d83eb819e9e0a1259fdf8800604f4cad874164c8a9d45b2afb5564436e3d36",
+    "collectors/templates/node/faults/bad-json.mjs": "eab1dccf4d08383ce03d70e18aedf3dd7021db2d486315a18da670bb70a14def",
+    "collectors/templates/node/faults/nonzero-exit.mjs": "b117dffe65b0276e33a03175e4c499a95551b46f4716ceda7d0ddc8b978fea08",
+    "collectors/templates/node/faults/output-flood.mjs": "282cafa7b9084c8bf0839be3871b580b934852e549dfb9d340b66fce5f952da4",
+    "collectors/templates/node/faults/timeout.mjs": "87875a2e07a0b158a006593721c751c66472a6064187e244d720ebe83a84569d",
+    "collectors/templates/node/lib/api-ast.mjs": "8262259f25a502804e1706ac594185040f3a5ea6a590a76da463fceef259231f",
+    "collectors/templates/node/lib/frontend-ast.mjs": "ca382cb96cf9207e620848743faca185fc98a6c224a66b7a287536a71f94ba49",
+    "collectors/templates/node/lib/link-facts.mjs": "9d7b28aa92ecbe6c097f81700c0b52f345846c11cb7c78a4f9b81e50e14196ef",
+    "collectors/templates/node/src/collect.mjs": "facf1a8e83d58e0b2986b9347079da220ba12802469c7b62c9d0e6ddd7d2442b",
+    "collectors/templates/python/faults/bad_json.py": "f00711e0af48e056f726c2311286bce1c94478aa839816faa637882959704502",
+    "collectors/templates/python/faults/nonzero_exit.py": "2e700bef4e90e009160b765f1c5a393f3bd62f02f947866241d07570622a9be5",
+    "collectors/templates/python/faults/timeout.py": "b496b05a686e9dc40d470d4ea2a993ceadcd9d5d7ddd3c8561d89f9a83419107",
+    "collectors/templates/python/lib/api_ast.py": "75f989a6fa3cfc36167933c195d85f83e9a66b0d262152f79b6c93c68fc5c5ae",
+    "collectors/templates/python/lib/database_ast.py": "8ca9da563f29cf73e77f3efc1344cf0102a926c17577c71926ff80f2c54aaa3a",
+    "collectors/templates/python/lib/report_ast.py": "bdaefc33f4b4aaa0a430602bfe3a1b69bee8d62d171b6604c713aa0ac1189d31",
+    "collectors/templates/python/lib/semantic_facts.py": "44bbb50e16b9a8e6a335b3c4ab2c2008155e70d2bf3bc4009a6e3dd28e3cff7a",
+    "collectors/templates/python/lib/source_ast.py": "323c09317d3910f6afcfc219d9ef7fd1401d126ff22317574a59eaf76524e1f9",
+    "collectors/templates/python/lib/workflow_ast.py": "82d83eb819e9e0a1259fdf8800604f4cad874164c8a9d45b2afb5564436e3d36",
+    "collectors/templates/python/src/collect.py": "286274557809bdbfc4fc90a50e86dd1478c46522dae0efc468a0e1f867ceb427",
+    "crates/agent/src/config.rs": "37980c01b0047521811c120a23d4db83f9f115f6680d0ebdd2a1ed0c0a114685",
+    "crates/agent/src/lib.rs": "d4ea9a7c4983a9ffd0985215c4d5e2410f9eb93fbdeb470c4fb78c0065e00671",
+    "crates/agent/src/prompts.rs": "c99b3734de9de731463273b25604a212f487ea902f554771e107c1facbbb4cba",
+    "crates/agent/src/runner.rs": "06c17830f26b29ed56f64f5affa02e3d7bc7535d0f82ef0ec0c851ce8ca35503",
+    "crates/agent/src/tools.rs": "167a4f11aa86c4a926c400661a9fed47d354a92529e115e68b78ae3a850232be",
+    "crates/agent/tests/agent_lifecycle.rs": "f8a31fe9b5deaead13d4f3e1cdcca683508c95d96595d74110466549b33b8ee9",
+    "crates/cli/src/commands/agent.rs": "c374faced55df86346f19921e3e2eb662a57cf0e921310c7bbe8e64d0483a023",
+    "crates/cli/src/commands/collect.rs": "1b06e77f9acc36ae6124dcf57edad7bbf049a00d11f8e859a5f106f047233374",
+    "crates/cli/src/commands/generate.rs": "31a0c29add7ce072df44dd4a4e5957e31e60f9f5a598e69fd791fd6e4000de56",
+    "crates/cli/src/commands/index.rs": "352004f85d92feb27ecdefb186ac19d52069ac4cded43631759d6b4438d5acc6",
+    "crates/cli/src/commands/init.rs": "d19e86a6c42f4d99edcf1bc59f9b47450b0df816d0423840c838c364ee3b399a",
+    "crates/cli/src/commands/mod.rs": "742a8269eb6defb66e4934ad98f2e81370e428ce35c91a347fa7b34010b89490",
+    "crates/cli/src/commands/plugin.rs": "ece4ecbf869d479e14f32b59f5f0ad4844b22506011adb4641fa7705696d9740",
+    "crates/cli/src/commands/query.rs": "65e7a8b1df0360769e504a27165c022f7d7c78a5164779e654c029fc445716d5",
+    "crates/cli/src/commands/status.rs": "a4e03767bd9f64b6eb0e24c78a658706cd5a3ffedac78a105aa4c75a5090b6d1",
+    "crates/cli/src/main.rs": "a3488d788437425ae2192619bd080439c068100d5dca909457d7221b63a90450",
+    "crates/cli/tests/agent.rs": "2628830cd9756a58dc39f937dffd4011dc73e7085e0cd3cfe58d683a3062be71",
+    "crates/cli/tests/collect.rs": "a78a2514ff21c354686f94632e36e45f55de48d6c9c56475230a27ba29b76d68",
+    "crates/core/src/codemap/mod.rs": "e77e4bf6275a77ed95976e27c1319ec48e42d91bfd3ae45bb28c0223767e3f48",
+    "crates/core/src/codemap/rank.rs": "39c520e472acc1f1e1ce501f9acc0c381afe3e14f598d1b6cc013b1efd11856c",
+    "crates/core/src/codemap/render.rs": "a13978568ac53bd0654a35f7b38d9b5fafa98a627d0ae5974984db2c3f8a7d05",
+    "crates/core/src/collect/candidate.rs": "1511837cb846682107e167005a70d20a55d49a0801e838b3f9f0c976a82c1c45",
+    "crates/core/src/collect/commit.rs": "4a5c93860f263a8374ca2351c0c07ba09af64324dad3e4919d8296f09d55ca76",
+    "crates/core/src/collect/deps.rs": "34fbe894f943d6974afb58125c7688656621af8060e3bcbab0d9c73f748019bc",
+    "crates/core/src/collect/import.rs": "2fb44cbd6afc1fd4631129f7b648d983e9a27f3dcdc7eb6f0d31d9e6b29d74ef",
+    "crates/core/src/collect/manifest.rs": "0f7413cee35c8f297afbfe7256ea5c09c6ed869fdb88f5b0fa6063d791477b1f",
+    "crates/core/src/collect/mod.rs": "2c616ba5c47b77a56614e0ff2faf8099f97ff3a4cb0cbf40c531126b8434ed22",
+    "crates/core/src/collect/process.rs": "7c38c76c7022694c200dc43046d53e008dc816966b4a6fc800dbafa53ac29216",
+    "crates/core/src/collect/registry.rs": "6b9fe403a24d8ae1c462f46e213256cd9e3583c9111ae88e33bd01cb90ffaab6",
+    "crates/core/src/collect/runner.rs": "a152e2130d35e2c8125b3957f4c7901a1fe6aa85484033072df200039bbd7b72",
+    "crates/core/src/collect/staging.rs": "eee8ed861d86b03c3b2adabe12f7527b743a68e12fcf7a4ba4dffb9c55c9c1bc",
+    "crates/core/src/collect/validate.rs": "02bfb8069703c1bc8e93a07b74cb6574392c61f0f379b63e16dbc5b05b232244",
+    "crates/core/src/collect/workspace.rs": "0a51c1e1fcb35744113661db6327b0087c64b16c6cff3086add7e41f8f52f6b9",
+    "crates/core/src/contract/collector.rs": "e86ad023d46eedd54bb8f1056cdcdc9245fb92f6b964817507370bbe6bf048ea",
+    "crates/core/src/contract/entity.rs": "977d85bf5dee93cb055173e07077e102716c1ed86e4f9ddd6e83ca282fd91ad0",
+    "crates/core/src/contract/error.rs": "413b33b0d5ca510677080b7ced12a38d5d7e6e64ca84a943d9e31ca5f75dc06a",
+    "crates/core/src/contract/evidence.rs": "14fada71a80db8c7c6f0777d71659dd28dbda24c6dd2628bd84dcff889d242a9",
+    "crates/core/src/contract/extensions.rs": "8a19c9dcdde3187476214f6e7898a9ea751c13109f84a4b60743aa3f110d1484",
+    "crates/core/src/contract/identity.rs": "388f1f233e13a830194cc92643b6a10ac04aba7d2f7f3d332ccebda2ab58065b",
+    "crates/core/src/contract/knowledge.rs": "dc3142849dacd2708e6f6402e77c7f7b3fe64937c07e2b46b2b738d3cefec4a1",
+    "crates/core/src/contract/mod.rs": "c23ccaad06715cf56a517e7590a023a7af254be59b7176064007c815ce4c839e",
+    "crates/core/src/contract/query.rs": "8a0fcc4f78260af0289254ab4c2b65cd66353f877afc9c1251b430c635874817",
+    "crates/core/src/contract/relation.rs": "4cff6fa023105f355655e41126dfd550c4f6b3b086aa065640deb9bceeb40245",
+    "crates/core/src/contract/schema.rs": "59267ffa0fa2b4ae8c3f438c23e3cd0845282fe9747a1b9e17b48539ef4ebbcc",
+    "crates/core/src/evidence/mod.rs": "4974efc07d3aa826fb29c0d3601fdf9923bd195e0cf0373ba7d9369f725c6125",
+    "crates/core/src/evidence/position.rs": "34aaf6dfc66428bba45a5016afeab054c179feaa957474d7b6bf7c1067d09478",
+    "crates/core/src/evidence/read.rs": "95dd1dd3305cdb645cd83438935eff4d5882020165e0d1fdce87330c6c3905e4",
+    "crates/core/src/graph/mod.rs": "818a6583e7aa300362e1b7c1220adac292aec75fdecbbe9e59050b6ddb0f479d",
+    "crates/core/src/graph/neighbors.rs": "4bbe0716dc095020ddbba0c3934cbffcbd5cd3063a1849d5c0c5cd654390daca",
+    "crates/core/src/graph/paths.rs": "667cb52c3f474e4c3bc77a3ae64cfbeabe5cb35b3e4084f8883537cd90cf310c",
+    "crates/core/src/index/build.rs": "11bc82381bf09d1019bffe696511f53a788d555427e8dc5a2f6f2dd4f5f8b063",
+    "crates/core/src/index/dependencies.rs": "99c41b2db3cecd6cae9c03a782898432191ebe727a767e607aa6782f16797ad2",
+    "crates/core/src/index/incremental.rs": "4d265fa96d4b3c3e82622249bc386213fe40744513eccee76e2c39f564838505",
+    "crates/core/src/index/mod.rs": "c4f726654409dcc0f7e4ec1a90539a2bcb1a75fbf8a867d72e0c1fe7356d232f",
+    "crates/core/src/knowledge/context.rs": "6c816468ef1d4832cdaadc7a104df135217f2b62e82d1561a6df7636a3f98c8d",
+    "crates/core/src/knowledge/documents.rs": "645bbccae52be34aa17b07267d1f0948e68813eafebda8f1ef1c730da1f5743d",
+    "crates/core/src/knowledge/mod.rs": "fa1672ec420b8619e3f5e18335ce443d7ecc18d8eec60ec3f1083fc09609232e",
+    "crates/core/src/knowledge/skill.rs": "cfab06753eec839e399ea8bfe45b4ee7d4922be3812d22f78a92a84276e7fcca",
+    "crates/core/src/lib.rs": "566d7f606402d278afe050d2299f0c20a08c9cbb04cce5d03f4170ceea0e8387",
+    "crates/core/src/project/config.rs": "b81a9c31f94fe6fdbe5f091d99cd6c2e51a2cbd91dbbcc71652e501af2aeaf93",
+    "crates/core/src/project/mod.rs": "fe1a35e4f4af5bc30b30dc18bb5ab2d99d178b0f94245c17902b503958a2edf8",
+    "crates/core/src/project/scan.rs": "88cef723b253e08ea018b97c493cac20611743bbbf4806a7f844774ce178553d",
+    "crates/core/src/project/snapshot.rs": "aa03737106a3fb8b63c4ca680c38297be69aab2fb0005022b79b38c633b6d589",
+    "crates/core/src/query/feature.rs": "5fb949ecfe2c84f47987ea24770d999833889a576cc4681dff66816d22fed9ff",
+    "crates/core/src/query/generic.rs": "7777bb695a427a4de5699f0c54195004957c7f2fe64e381bbb59c590580f0e1d",
+    "crates/core/src/query/mod.rs": "7750f302e23daf6560a6b9342bd435fe48fa429442cd404a68ea07b826feeb72",
+    "crates/core/src/query/page.rs": "e813e87ce34cd2ebd2f6bc884ee83b3f83beffcd2a199891a83e5253e314b2d7",
+    "crates/core/src/query/report.rs": "9f32133951ff826ef75eb3fc3546a6c399392404f851d98ebccfd34f98ee1008",
+    "crates/core/src/query/runtime.rs": "3441efbf7111fd64027c8bf5e799e1c5bf3bdd59c44d6aed972155efb5c3e408",
+    "crates/core/src/query/scenario.rs": "853866d90da17e2c0a1bb5816e58b5776b251fc4c08743c1f28ac4dbc931c0df",
+    "crates/core/src/query/workflow.rs": "a085bc24d6a3e839778c337d10ec14a8e11e160ba0c81980b7cce4f86253dd42",
+    "crates/core/src/search/documents.rs": "9b4a42ba679bf956d34bf45bdc42a6c39bcd4453882db2bba880f0cbd375d1de",
+    "crates/core/src/search/mod.rs": "79d247b5918de420775e29fa95a1152d674af5a7aa1df6121f163a16f3625bc6",
+    "crates/core/src/search/rank.rs": "211f296aa748a31ff37ffd23cebecfe8638c4c0d69944423902dd66740cff700",
+    "crates/core/src/search/tokenize.rs": "7f9147cec1fda3f6e7df557faece1df4ea3fb85aaf6065cfb929d3a77014c197",
+    "crates/core/src/storage/database.rs": "5685432d860e4e1894168ed9ae3f00f42d8e4dd52a2cc12ae9e77bd270fbb7a1",
+    "crates/core/src/storage/entities.rs": "65270af0164f3401256fe94a8375f716e1c1a568a7f0380dccb110b09eeeae2c",
+    "crates/core/src/storage/knowledge.rs": "c0b0fb8e958423b053dec386c45764e5107e01fe951955230050ff31cce07558",
+    "crates/core/src/storage/mod.rs": "58358ace7e2a7f87060be0770d62155658bdce67e1e46488bfa8cfa7f57bab99",
+    "crates/core/src/storage/plugins.rs": "4df11ac3ab7a1459b2d3e1b6fc3fc0c0dad5a934fdcaced1253291481a3fa48b",
+    "crates/core/src/storage/relations.rs": "cfbc2f96204651df470b3157b97c5bd6f370b826f43565abceb095a4bfcd0fcb",
+    "crates/core/src/storage/runs.rs": "032027a5e7633a06584a7ea7ea73b9eb22e129b6a2f78895e1f2781a9b0b0695",
+    "crates/core/src/storage/search.rs": "846c52b918d041c77581c23985c0b6d30ad26673562af5f6fee0b9e2b90cd250",
+    "crates/core/src/storage/sources.rs": "f8e3b4d5a02badca8c5fb21040b6396ddb950bbc4f3570a3438f5ed33785333d",
+    "crates/core/src/syntax/mod.rs": "503bd1c822b8469b24287d57ece98128c9075f2b1538bf932efb5898d72f8e5c",
+    "crates/core/src/syntax/parser.rs": "dddecdff9abc53d2b8a970e2ca577baadff1000ebe38f99199cc88e9d29a6e03",
+    "crates/core/src/syntax/scip.rs": "6b78e8a31a2a408a418bcc18439db7450e252986d156e9046b8a295c2ed85cb5",
+    "crates/core/src/syntax/symbols.rs": "292b8ee4f0ffc1e453d2284708c2f9357d0c8a1e6d458d67c6d9b0567ecc3f7d",
+    "crates/core/tests/business_scenarios.rs": "9d0977d9da1287bd295d957030999c11c3d4f82e2db46cf00a3459b8bc7f146d",
+    "crates/core/tests/collectors.rs": "0bccc7e9c2ee176906915271c954ea95622868a31c1c6671266eee5aecb14039",
+    "crates/core/tests/indexing.rs": "75f38bc52ec6f902c3f9f76a99d55dde2c6ab8c18f78d5eca6433d3c18a4b2d5",
+    "crates/core/tests/lifecycle.rs": "150b7e708977d3738c1e6de03bf1d1044e143201e979b0db77d82d1fe71b70d2",
+    "crates/core/tests/support/collection.rs": "a49e37e63a630f64d20ebe532dc62bf7e0b8ea6e93ab98d78c8256a4ebbe6fbb",
+    "crates/core/tests/support/knowledge.rs": "88796408b3421fd7c85a5dad9b3f3532fbc812da37f2788bc9eb1003c875ce0e",
+    "crates/core/tests/support/linking.rs": "867322b351ab60e6dd9f6229b0d9690a0d044d55e20c8507e0ba03989df6a750",
+    "crates/core/tests/support/queries.rs": "beac02db2d8c1234bd2e077110896b7d7f98f1bd20c969ec50d3abf8285c397f",
+    "crates/core/tests/support/scenarios.rs": "c766a9abd36487d487acb473df5c54b181ac87f36e956637144ffa13b9c53888",
+    "crates/core/tests/support/semantics.rs": "0313d1f315063dbd19976cf4e762915ba3279e1af323134980d4696936049ceb",
+    "packages/mcp/src/index.ts": "cb9a8719597ec9d860f11e42320dc4e51b912ec1cd3813494cd5c0f0bfdbbb02",
+    "packages/mcp/src/resources.ts": "fea3aed5525157a008c706b3a4166b24eaedcc970d3b17876985871b2d76cfbc",
+    "packages/mcp/src/tools.ts": "3f7693bfda0f9ad1cdc03e4319154c3b96be6535ed339d3d082b7c52f4dd51b9",
+    "packages/sdk/src/client.ts": "23c408f23fe47efbc34651cf313ad34dfbcb9674868cf3bea39cd9a48d5874f7",
+    "packages/sdk/src/generated/contract.ts": "f1422a72144d4abf09a3323196e1d05dac30d45e709c3585d63c17c88f9d185d",
+    "packages/sdk/src/index.ts": "beb7bf85c2d97d30104bdae0d273059abd71d5ac7f40e77659e74a2308fa9e86",
+    "scripts/audit-source.mjs": "5f72fcd28c45287b6bcce66dacc5c785675de2a2a623599403ac862904c3bd50",
+    "scripts/generate-types.mjs": "0756c9a3695de3dbac329e1a4a7eaec25560b183c000a8dbe59215bb6376f5f1",
+    "scripts/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "scripts/package-api-examples.mjs": "09e28d515be03c83247b4c7fc84c59346f981fead0dc994229bed9ea11c69d45",
+    "scripts/package-database-examples.mjs": "7ec0d28f2d567f375f85902d334047736fc12e05e1383cb11b5ec7f868203f92",
+    "scripts/package-example-collectors.mjs": "3f86e3516ce4553af709b71aafd7d9d14c2cae5263220e2da970731270a00e46",
+    "scripts/package-link-examples.mjs": "ee90355ffd8124637b5a7cce8f363bc365139e2f87e5b2d5b53f0e31594c4a18",
+    "scripts/package-semantic-examples.mjs": "290dc52f7d747f6be6c8deead7c95cb781d0a6188265e08d441c7095b1583591",
+    "scripts/task-status.mjs": "cc9dc9128a1e65c2f7f7ea3d42d33a90fd8bf9e15fff50e1b8769320ea7e3072",
+    "scripts/verify-collection.mjs": "c69792171083cb4fd117e5b1ac25d7aea9357e24998e1b24a4a6e9ca7b1a49c4",
+    "scripts/verify-contract-types.mjs": "18cd0556826fc34a10c7f7934de73e06f8947c56458eaeb3fd977fe90b0a5974",
+    "scripts/verify-core-dependencies.mjs": "ead055794bd66d3ef3bcc8879924990170fac2de46da97bc12b8ce102b98f9c4",
+    "scripts/verify-dependencies.mjs": "551f281823c0553441dc632db39857082faecb122f792f759d7c136fe9949237",
+    "scripts/verify-integration-probes.mjs": "197bd8f8423abdf04915e9261cd54940c4263d734342e61b159bf7dc671e36a2",
+    "scripts/verify-packages.mjs": "1f139fd1e5011f1139854c73fe5ecfea36ccb5d7c786374b2523477b22afdd65",
+    "scripts/verify-plan.mjs": "8b5d93ec12d442a9357cffcdca0853597516d806e7c29dc1b7610e0865192ea7",
+    "scripts/verify-plugins.mjs": "d133fd972fd26e05bd0aa94e2b778953de07904a68ed0ed9761977f3a0c602a1",
+    "scripts/verify-scenarios.mjs": "aed462444f23aa1ddfa3fb54f3ddc763c0e38e96325cea03b0e48f803b3b3fef",
+    "scripts/verify-truth.py": "158b6752587b9534c6405e6b4a2dc2f988041ce568525796eaa6bb7390c8db46",
+    "scripts/verify-vectors.mjs": "af7678238a4a733015f2aef36f70904bdf692f44187609fe9a0cf82fa3b18deb",
+    "scripts/verify-vectors.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "xtask/src/main.rs": "69676b74d2a4b097d86a73d6228f505dafdabe1434e30b5bf157ebc12ee754b5"
+  }
+}

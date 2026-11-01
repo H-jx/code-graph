@@ -1,0 +1,29 @@
+{
+  "id": "T16-original-binding-supplement",
+  "classification": "Source-reviewed synthetic completion of missing imports; no collector-derived truth or production claim",
+  "baselineTruthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "fileHashes": {
+    "fixtures/truth-supplements/T16-bindings/service.ts": "7f1df1b2156d98709a33a7fc64b01443e6da26348ad288090858962dfb6cfd4f",
+    "fixtures/truth-supplements/T16-bindings/queries.py": "d089e1fed83239ac8b49480df0312c580a44fbbd0270438e7bd1f254c24f1d94",
+    "fixtures/page-location/a/api/service.ts": "8a074249eb61987452bad91134f988ed2550de7213b56a106c04984bb7ad5706",
+    "fixtures/page-location/b/server/domain/queries.py": "74a8425871350024e7f23f8705c36312588056ac2438f2e48cb0f8f83a5b2f05",
+    "fixtures/page-location/a/api/models.ts": "efa1244ca2a57619224f25a3db4cde555c988890605164426f609c19865f84a3",
+    "fixtures/page-location/b/server/domain/models.py": "04f336a2a1bbee6c4cb34e3967ba5f015c2dba2ca714d8b4eefa2d330874deab",
+    "fixtures/purchase-ledger/schema.sql": "b11f24040c65a21fa62732f219ff17866bb447861568c918cb08b3e9268dc0ff"
+  },
+  "changes": [
+    "The frozen service implementations refer to erp without importing its owner; retain their queries and add the explicit relative import in an owned fixture copy.",
+    "Original 50 frozen files stay unchanged; absence of this import remains a missing-binding counterexample."
+  ],
+  "dataSourceId": "ds.erp",
+  "table": "purchase_detail",
+  "columns": [
+    "tenant_id",
+    "purchase_no",
+    "line_no",
+    "supplier_id",
+    "ordered_qty",
+    "unit_price_cents",
+    "status"
+  ]
+}

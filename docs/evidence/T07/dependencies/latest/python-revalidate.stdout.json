@@ -1,0 +1,23 @@
+{
+  "candidateId": "candidate_1adeb1a4-958f-487b-8faf-0bf880f13893",
+  "candidateIds": [
+    "candidate_1adeb1a4-958f-487b-8faf-0bf880f13893"
+  ],
+  "report": {
+    "cases": [],
+    "expectedGeneration": "7",
+    "runId": "run_129b6c92-7bbe-4380-9258-1a92021154a6",
+    "stagedResultHash": "1968f49d4eba653b3dc79b0b0f2e0402ef837b9ca6684ff79994dc08a68c48c7",
+    "stages": [
+      {
+        "batchId": "bat_959c368abda39a360a5e0d91acfe5f14062459cbd68c92d5b7f3bae6701203b8",
+        "dependencies": 4,
+        "entities": 0,
+        "relations": 0,
+        "replacementKey": "(deps.python,extract,dependency-smoke)"
+      }
+    ],
+    "status": "validated"
+  },
+  "validationId": "validation_b296a3d8-6b78-489b-93ce-1146139bb954"
+}

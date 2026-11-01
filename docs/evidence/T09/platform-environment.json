@@ -1,0 +1,19 @@
+[
+  {
+    "distribution": "Ubuntu-24.04",
+    "exitCode": 4294967295,
+    "stdout": "无法将磁盘“D:\\WSL\\Ubuntu-24.04\\ext4.vhdx”附加到 WSL2: 系统找不到指定的路径。 \r\n错误代码: Wsl/Service/CreateInstance/MountDisk/HCS/ERROR_PATH_NOT_FOUND\r\n",
+    "stderr": ""
+  },
+  {
+    "distribution": "Ubuntu-legacy",
+    "exitCode": 0,
+    "stdout": "Linux 6.6.87.2-microsoft-standard-WSL2 x86_64\n0\n/usr/bin/python3\n",
+    "stderr": ""
+  },
+  {
+    "command": "git remote -v",
+    "exitCode": 0,
+    "stdout": ""
+  }
+]

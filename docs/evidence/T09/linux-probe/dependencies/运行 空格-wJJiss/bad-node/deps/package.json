@@ -1,0 +1,1 @@
+{"name":"project-knowledge-dependency-smoke","version":"1.0.0","private":true,"dependencies":{"is-number":"6.0.0"},"scripts":{"preinstall":"node -e \"require('node:fs').writeFileSync('install-script-ran','bad')\""}}

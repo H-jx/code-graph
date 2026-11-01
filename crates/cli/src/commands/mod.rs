@@ -13,8 +13,6 @@ pub mod status;
 
 use std::path::{Path, PathBuf};
 
-use project_knowledge_core::contract::error::CoreError;
-
 /// 成功完整。
 pub const EXIT_OK: u8 = 0;
 /// 请求或执行失败。
@@ -57,12 +55,4 @@ pub fn database_path(config_path: &Path) -> PathBuf {
 /// 当前时间戳（秒级，UTC）。
 pub fn now_timestamp() -> String {
     chrono::Utc::now().to_rfc3339_opts(chrono::SecondsFormat::Secs, true)
-}
-
-/// 尚未实现的能力：明确失败，不返回假成功。
-pub fn not_implemented(feature: &str) -> CoreError {
-    CoreError::new(
-        project_knowledge_core::contract::error::codes::NOT_IMPLEMENTED,
-        format!("`{feature}` 尚未实现（见 plan/NEW-PROJECT-LONG-TASK.md 的对应任务）"),
-    )
 }

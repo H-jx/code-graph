@@ -43,14 +43,10 @@ pub const ENV_ALLOWLIST: &[&str] = &[
     "LANG",
     "LC_ALL",
     "TZ",
-    "NODE_PATH",
-    "PYTHONPATH",
-    "PYTHONHOME",
-    "VIRTUAL_ENV",
 ];
 
 /// 解析后的运行时。
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub struct ResolvedRuntime {
     /// 可执行文件绝对路径。
     pub executable: PathBuf,
@@ -176,83 +172,65 @@ impl PluginRunner {
         })?;
         let mut guard = crate::collect::process::ProcessTreeGuard::attach(&mut child);
 
-        if let Some(mut stdin) = child.stdin.take() {
-            // 写入输入并关闭 stdin，插件据此判断输入结束。
-            let write_result = stdin.write_all(&input).await;
-            let _ = stdin.shutdown().await;
-            write_result.map_err(|error| {
-                CoreError::new(
-                    codes::PLUGIN_EXIT,
-                    format!("cannot write collector input: {error}"),
-                )
-            })?;
-        }
-
-        let stdout_limit = request.limits.max_output_bytes;
-        let stderr_limit = request.limits.max_stderr_bytes;
-        let stdout_task = child
-            .stdout
-            .take()
-            .map(|stdout| tokio::spawn(async move { read_bounded(stdout, stdout_limit).await }));
-        let stderr_task = child
-            .stderr
-            .take()
-            .map(|stderr| tokio::spawn(async move { read_bounded(stderr, stderr_limit).await }));
-
-        let status = tokio::select! {
+        let mut stdin = child.stdin.take().expect("piped stdin");
+        let stdout = child.stdout.take().expect("piped stdout");
+        let stderr = child.stderr.take().expect("piped stderr");
+        // 写输入、排空两个输出流和等待退出同时运行，整个交换受同一时限控制。
+        let exchange = async {
+            let (status, (), stdout, stderr) = tokio::try_join!(
+                async {
+                    child
+                        .wait()
+                        .await
+                        .map_err(|e| CoreError::new(codes::PLUGIN_EXIT, e.to_string()))
+                },
+                async {
+                    stdin
+                        .write_all(&input)
+                        .await
+                        .map_err(|e| CoreError::new(codes::PLUGIN_EXIT, e.to_string()))?;
+                    let result = stdin
+                        .shutdown()
+                        .await
+                        .map_err(|e| CoreError::new(codes::PLUGIN_EXIT, e.to_string()));
+                    drop(stdin);
+                    result
+                },
+                read_bounded(stdout, request.limits.max_output_bytes),
+                read_bounded(stderr, request.limits.max_stderr_bytes)
+            )?;
+            Ok::<_, CoreError>((status, stdout, stderr))
+        };
+        let result = tokio::select! {
             biased;
             _ = cancel.cancelled() => {
-                guard.terminate();
-                return Err(CoreError::new(
+                Err(CoreError::new(
                     codes::CANCELLED,
                     "collector run was cancelled",
-                ));
+                ))
             }
             status = tokio::time::timeout(
                 std::time::Duration::from_millis(request.limits.timeout_ms),
-                child.wait(),
+                exchange,
             ) => {
                 match status {
-                    Ok(Ok(status)) => status,
-                    Ok(Err(error)) => {
-                        guard.terminate();
-                        return Err(CoreError::new(
-                            codes::PLUGIN_EXIT,
-                            format!("collector process failed: {error}"),
-                        ));
-                    }
+                    Ok(result) => result,
                     Err(_) => {
-                        guard.terminate();
-                        return Err(CoreError::new(
+                        Err(CoreError::new(
                             codes::PLUGIN_TIMEOUT,
                             format!(
                                 "collector exceeded the {} ms timeout",
                                 request.limits.timeout_ms
                             ),
-                        ));
+                        ))
                     }
                 }
             }
         };
 
-        let stdout_bytes = match stdout_task {
-            Some(handle) => handle.await.map_err(|error| {
-                CoreError::new(
-                    codes::PLUGIN_EXIT,
-                    format!("collector stdout task failed: {error}"),
-                )
-            })??,
-            None => Vec::new(),
-        };
-        let stderr_bytes = match stderr_task {
-            Some(handle) => handle.await.map_err(|error| {
-                CoreError::new(
-                    codes::PLUGIN_EXIT,
-                    format!("collector stderr task failed: {error}"),
-                )
-            })??,
-            None => Vec::new(),
-        };
+        guard.terminate();
+        let _ = tokio::time::timeout(std::time::Duration::from_secs(1), child.wait()).await;
+        let (status, stdout_bytes, stderr_bytes) = result?;
 
         let duration_ms = started.elapsed().as_millis() as u64;
         let stderr_excerpt = String::from_utf8_lossy(&stderr_bytes).to_string();
@@ -276,7 +254,7 @@ impl PluginRunner {
         let text = String::from_utf8(stdout_bytes.clone()).map_err(|_| {
             CoreError::new(codes::SCHEMA_INVALID, "collector stdout is not valid UTF-8")
         })?;
-        let output: CollectorOutput = serde_json::from_str(&text).map_err(|error| {
+        let value: serde_json::Value = serde_json::from_str(&text).map_err(|error| {
             CoreError::new(
                 codes::SCHEMA_INVALID,
                 format!("collector stdout is not a valid CollectorOutput: {error}"),
@@ -287,6 +265,9 @@ impl PluginRunner {
                     .with_hint("stdout 必须只有一个 CollectorOutput JSON 对象"),
             ])
         })?;
+        crate::contract::schema::validate::<CollectorOutput>(&value, "")?;
+        let output: CollectorOutput = serde_json::from_value(value)
+            .map_err(|e| CoreError::new(codes::SCHEMA_INVALID, e.to_string()))?;
 
         Ok(RunOutcome {
             output,
@@ -306,10 +287,12 @@ fn environment_for(extra: &BTreeMap<String, String>) -> Vec<(String, String)> {
         }
     }
     for (key, value) in extra {
-        if !result.iter().any(|(existing, _)| existing == key) {
-            result.push((key.clone(), value.clone()));
-        }
+        result.retain(|(existing, _)| !existing.eq_ignore_ascii_case(key));
+        result.push((key.clone(), value.clone()));
     }
+    result.push(("PYTHONUTF8".into(), "1".into()));
+    result.push(("PYTHONDONTWRITEBYTECODE".into(), "1".into()));
+    result.push(("PYTHONNOUSERSITE".into(), "1".into()));
     result
 }
 

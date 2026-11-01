@@ -1,0 +1,151 @@
+{
+  "progress": {
+    "runId": "agent_95687a4c-f96e-498f-b66a-347d7e69fac3",
+    "status": "failed",
+    "phase": "investigate",
+    "goal": "Collect source-driven routes",
+    "focus": "routes",
+    "withSkill": false,
+    "configHash": "70ec38e60cb4d48ddb750147055d32218a7930f9262f869cec72bf74d87252bd",
+    "sourceSnapshotId": "snap_7c601bac2addca7a172f576d2db805e8417879d892a7c4a5625302c4d3955a0e",
+    "activeVersions": [],
+    "modelTurns": 7,
+    "toolCalls": 6,
+    "repairs": 0,
+    "needsRepair": false,
+    "elapsedMs": 368,
+    "deadlineMs": 1793199525808,
+    "repairPlugin": null,
+    "smoke": false,
+    "revision": 0,
+    "candidateId": null,
+    "candidateHash": null,
+    "validationId": null,
+    "activation": null,
+    "investigation": null,
+    "topicContexts": [],
+    "topics": [],
+    "skill": null,
+    "readSource": false,
+    "readMap": true,
+    "issues": [
+      {
+        "error": {
+          "code": "AGENT_INCOMPLETE",
+          "message": "model stopped before Core validation and activation completed"
+        }
+      }
+    ],
+    "events": [
+      {
+        "modelTurn": 1,
+        "responseId": "mock-response",
+        "elapsedMs": 63
+      },
+      {
+        "tool": "code-map",
+        "ok": true,
+        "turn": 1,
+        "revision": 0
+      },
+      {
+        "modelTurn": 2,
+        "responseId": "mock-response",
+        "elapsedMs": 150
+      },
+      {
+        "tool": "export-snapshot",
+        "ok": true,
+        "turn": 2,
+        "revision": 0
+      },
+      {
+        "modelTurn": 3,
+        "responseId": "mock-response",
+        "elapsedMs": 202
+      },
+      {
+        "tool": "read-source",
+        "ok": true,
+        "turn": 3,
+        "revision": 0
+      },
+      {
+        "modelTurn": 4,
+        "responseId": "mock-response",
+        "elapsedMs": 230
+      },
+      {
+        "tool": "get-capabilities",
+        "ok": true,
+        "turn": 4,
+        "revision": 0
+      },
+      {
+        "modelTurn": 5,
+        "responseId": "mock-response",
+        "elapsedMs": 252
+      },
+      {
+        "tool": "import-conventions",
+        "ok": true,
+        "turn": 5,
+        "revision": 0
+      },
+      {
+        "modelTurn": 6,
+        "responseId": "mock-response",
+        "elapsedMs": 306
+      },
+      {
+        "tool": "update-base",
+        "ok": true,
+        "turn": 6,
+        "revision": 0
+      },
+      {
+        "modelTurn": 7,
+        "responseId": "mock-response",
+        "elapsedMs": 350
+      }
+    ],
+    "provider": "openai-compatible",
+    "model": "test-model",
+    "promptHash": "f66e37197ca7c9753db9c655f50e40b94d4c3f2940d9b184eaa3254e6e5a0354",
+    "budget": {
+      "enabled": true,
+      "provider": "openai-compatible",
+      "model": "test-model",
+      "baseUrl": "http://127.0.0.1:55035/v1",
+      "apiKeyEnv": "AGENT_TEST_SECRET",
+      "maxTurns": 24,
+      "maxToolCalls": 80,
+      "maxRepairAttempts": 2,
+      "timeoutSeconds": 60,
+      "maxInputChars": 180000,
+      "maxOutputTokens": 8192
+    }
+  },
+  "conventions": [
+    {
+      "id": "b68a034ed52ef3c48f37b67b5032b10ee934139ae004d2f62c165d97c2d683d6",
+      "sourceClass": "derivedConvention",
+      "notes": "An explicit test module grounded in the original source.",
+      "sourceReferences": [
+        {
+          "snapshot": {
+            "indexId": "8a94c568-3969-4339-b920-15fe0a9f9e29",
+            "generation": "1",
+            "sourceSnapshotId": "snap_c236d8e620ab1b304afcd5525a82319d0472f44085207fa4fc32d128cf13c376"
+          },
+          "evidenceId": "ev_a6035ac688ff4927825dc803bc9b583d58cb6277f88061cca62871385e4583b2",
+          "sourceId": "src_dd9aadedc51afac86b4a28f1d4fa887b1fbbd8b06135db15716b75e1114c18c0",
+          "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+          "startByte": 0,
+          "endByte": 24
+        }
+      ],
+      "configHash": "70ec38e60cb4d48ddb750147055d32218a7930f9262f869cec72bf74d87252bd"
+    }
+  ]
+}

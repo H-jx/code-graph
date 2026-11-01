@@ -1,0 +1,66 @@
+{
+  "claims": [
+    {
+      "basis": "observed",
+      "evidenceRefs": [
+        "ev_2790544bf02ff9392f85ac80fe05e628a43213f10a25cd5bd6de4ea0f78a57ae"
+      ],
+      "gapIds": [],
+      "id": "select_quantity",
+      "origin": "human",
+      "text": "The original local SQL selects ordered_qty from purchase_line."
+    }
+  ],
+  "gaps": [
+    {
+      "candidateIds": [],
+      "capability": "knowledge",
+      "code": "KNOWLEDGE_MATERIAL_PARTIAL",
+      "id": "knowledge_material_partial",
+      "reason": "Some selected facts, outlines or source reads are partial; explanation completeness is limited by that material",
+      "requiredEvidence": [
+        "inspect completeness reasons and obtain the missing original material"
+      ],
+      "scopeId": "",
+      "sourceRefs": []
+    }
+  ],
+  "inputDigest": "1d5b0c301e2c56a04c18476d9202bccf6363a44f42a2b661601e23be7df2ccd9",
+  "markdown": "The original local SQL selects ordered_qty from purchase_line. [[claim:select_quantity]]",
+  "promptHash": "c918ecd7f60af4f710c1f744d0e069cf63eb3f42b27b8280a5caa3f5a0de91c2",
+  "protocolVersion": "1.0",
+  "snapshot": {
+    "generation": "1",
+    "indexId": "f4029c49-ec6c-4e46-8009-a1132c42a379",
+    "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+  },
+  "sourceReferences": [
+    {
+      "contentHash": "b9c2001c8690f69a51b6a35ed1e910667d76cee244b53e06871bde555a8d823d",
+      "endByte": 1,
+      "evidenceId": "ev_018db450b58b4234e39726d97e69384fb882b4a1d9a423ec5ca807d0bfed124d",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "f4029c49-ec6c-4e46-8009-a1132c42a379",
+        "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+      },
+      "sourceId": "src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607",
+      "startByte": 0
+    },
+    {
+      "contentHash": "b9c2001c8690f69a51b6a35ed1e910667d76cee244b53e06871bde555a8d823d",
+      "endByte": 82,
+      "evidenceId": "ev_2790544bf02ff9392f85ac80fe05e628a43213f10a25cd5bd6de4ea0f78a57ae",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "f4029c49-ec6c-4e46-8009-a1132c42a379",
+        "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+      },
+      "sourceId": "src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607",
+      "startByte": 0
+    }
+  ],
+  "templateHash": "2812eb889355f58643d197f61873c80f2c562f7a549e370e5d493f3676337007",
+  "title": "Local ledger SQL",
+  "topicId": "ledger"
+}

@@ -1,0 +1,15 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\lifecycle-2ea662d02cbad676.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\lifecycle-2ea662d02cbad676.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "lifecycle") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.74s
+     Running tests\lifecycle.rs (target\debug\deps\lifecycle-2ea662d02cbad676.exe)
+
+running 2 tests
+test incremental_candidates_zero_one_two_rename_attributes_delete_and_clean_rebuild_agree ... ok
+test incremental_failure_cancel_base_only_and_restored_content_keep_old_batches_stale ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 13 filtered out; finished in 12.19s
+

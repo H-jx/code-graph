@@ -1,0 +1,197 @@
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\collectors-37b148f27c61d47b.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\collectors-37b148f27c61d47b.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "collectors") generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\indexing-cb703ca7789686d1.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\indexing-cb703ca7789686d1.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\lifecycle-e5b33ee04fc86ff4.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\lifecycle-e5b33ee04fc86ff4.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "indexing") generated 1 warning
+warning: `project-knowledge-core` (test "lifecycle") generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge_native.dll.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge_native.dll.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-native` (lib) generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\collect-92445e1e76b001ee.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\collect-92445e1e76b001ee.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+   Compiling project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli)
+warning: `project-knowledge-cli` (test "collect") generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-cli` (bin "project-knowledge") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.25s
+     Running unittests src\lib.rs (target\debug\deps\project_knowledge_agent-3dd0a0bbdf97c602.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\main.rs (target\debug\deps\project_knowledge-f6bd44f4ec0ba5f1.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\collect.rs (target\debug\deps\collect-92445e1e76b001ee.exe)
+
+running 3 tests
+test collector_host_termination_cleans_descendants_and_releases_maintenance_lock ... ok
+test plugin_cli_submit_validate_activate_and_rollback ... ok
+test collect_cli_validates_commits_and_returns_failure_for_invalid_output ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.00s
+
+     Running unittests src\lib.rs (target\debug\deps\project_knowledge_core-0ef44fdcf456af2e.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-d7c20e1605408678.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\collectors.rs (target\debug\deps\collectors-37b148f27c61d47b.exe)
+
+running 29 tests
+test collector_output_round_trips_through_json ... ok
+test stage_command_uses_manifest_arguments ... ok
+test validation_rejects_forged_evidence_positions ... ok
+test validation_accepts_a_correct_output ... ok
+test validation_rejects_dangling_relation_endpoints ... ok
+test manifest_stage_dag_rejects_cycles_and_illegal_phases ... ok
+test runner_limits_input_size ... ok
+test validation_rejects_missing_evidence_and_bad_identity ... ok
+test validation_rejects_unknown_protocol_version ... ok
+test validation_rejects_truncated_candidates_and_relation_identity ... ok
+test validation_rejects_wrong_line_numbers ... ok
+test validation_rejects_generated_knowledge_as_evidence ... ok
+test manifest_template_files_are_valid ... ok
+test manifest_dependencies_are_validated_against_registry ... ok
+test manifest_validation_rejects_paths_outside_the_artifact_directory ... ok
+test validation_schema_invalid_fixtures_match_serde_and_exact_pointers ... ok
+test deps_plan_requires_lock_file_and_reports_missing_runtime ... ok
+test deps_cache_is_reused_and_verified ... ok
+test runner_executes_node_template_and_returns_collector_output ... ok
+test runner_enforces_output_limit ... ok
+test runner_rejects_non_zero_exit_and_invalid_json ... ok
+test runner_supports_cancellation ... ok
+test validation_source_and_candidate_digests_track_content_attributes_and_skips ... ok
+test validation_bad_link_and_forged_dependency_leave_formal_database_unchanged ... ok
+test validation_empty_extract_invalidates_downstream_and_preserves_base ... ok
+test validation_acceptance_replays_fixture_and_failure_blocks_commit ... ok
+test validation_staging_reexports_extract_and_commits_group_once ... ok
+test validation_commit_rechecks_source_artifact_and_generation ... ok
+test runner_enforces_timeout_and_kills_process_tree ... ok
+
+test result: ok. 29 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.59s
+
+     Running tests\indexing.rs (target\debug\deps\indexing-cb703ca7789686d1.exe)
+
+running 44 tests
+test base_index_evidence_requires_non_empty_range ... ok
+test base_index_line_map_handles_crlf_and_multibyte ... ok
+test base_index_entity_identity_round_trips ... ok
+test base_index_rejects_out_of_range_and_utf16_positions ... ok
+test base_index_source_and_evidence_types_are_exported ... ok
+test contract_canonical_json_sorts_keys_and_rejects_floats ... ok
+test contract_entity_id_is_stable_and_scope_sensitive ... ok
+test contract_error_envelope_shape_is_stable ... ok
+test contract_entity_and_relation_round_trip_through_json ... ok
+test contract_optional_identity_slot_distinguishes_absent_from_empty ... ok
+test contract_relation_endpoint_kinds_are_restricted ... ok
+test contract_rejects_unknown_fields_and_bad_protocol_versions ... ok
+test contract_relation_id_depends_on_qualifiers_but_not_evidence ... ok
+test contract_unknown_business_field_uses_status_unknown ... ok
+test contract_source_and_evidence_ids_are_deterministic ... ok
+test contract_identity_vectors_match_shared_fixture ... ok
+test base_index_snapshot_members_track_selection_status ... ok
+test project_config_rejects_overlapping_repository_roots ... ok
+test project_config_identity_delta_uses_compare_and_swap ... ok
+test project_scope_selection_uses_longest_matching_root ... ok
+test project_scan_reports_selection_and_gaps ... ok
+test project_scan_handles_chinese_paths_crlf_and_relocated_repositories ... ok
+test project_scan_respects_gitignore_with_and_without_git_directory ... ok
+test storage_readonly_open_missing_database_is_an_error ... ok
+test project_source_set_digest_changes_with_file_set ... ok
+test import_failed_transaction_leaves_current_batch_untouched ... ok
+test import_keeps_other_producers_facts_visible ... ok
+test import_batch_replaces_current_facts_for_its_replacement_key ... ok
+test base_index_creates_entities_relations_and_evidence ... ok
+test storage_migration_creates_expected_schema ... ok
+test storage_two_producers_assert_same_entity_and_one_is_replaced ... ok
+test storage_batch_state_is_one_way_after_invalidation ... ok
+test storage_rejects_invalid_batches_and_rolls_back_failed_transactions ... ok
+test base_index_declares_unconfigured_capabilities ... ok
+test base_index_search_finds_chinese_text_and_identifiers ... ok
+test base_index_search_finds_comments_and_titles ... ok
+test base_index_runs_without_node_python_or_model ... ok
+test base_index_sources_table_keeps_only_current_hash ... ok
+test storage_backup_copies_consistent_database ... ok
+test base_index_source_and_evidence_are_consistent ... ok
+test base_index_reads_source_with_byte_positions ... ok
+test base_index_status_reports_freshness_and_does_not_write ... ok
+test base_index_detects_changed_sources_as_stale ... ok
+test storage_migrates_v1_only_on_maintenance_and_preserves_index_generation ... ok
+
+test result: ok. 44 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.62s
+
+     Running tests\lifecycle.rs (target\debug\deps\lifecycle-e5b33ee04fc86ff4.exe)
+
+running 11 tests
+test activation_discovery_deduplicates_and_auto_load_false_skips_directories ... ok
+test activation_auto_activate_false_keeps_validated_candidate ... ok
+test activation_current_sources_artifacts_and_project_lock_are_rechecked ... ok
+test activation_submit_validate_publish_and_atomic_version_switch ... ok
+test activation_publish_io_failure_preserves_active_state_and_published_versions_are_immutable ... ok
+test activation_new_candidate_group_validates_and_switches_together ... ok
+test activation_source_change_is_persistently_stale_even_when_content_is_restored ... ok
+test activation_concurrent_candidates_and_readers_never_mix_versions ... ok
+test activation_rollback_runs_new_batches_and_tampering_persists_stale ... ok
+test activation_includes_affected_active_link_from_other_plugin ... ok
+test activation_failure_points_recover_to_complete_old_or_new_state ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.59s
+
+     Running unittests src\lib.rs (target\debug\deps\project_knowledge_native-5f958de3baff82b3.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\main.rs (target\debug\deps\xtask-628b1570ea526657.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests project_knowledge_agent
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests project_knowledge_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests project_knowledge_native
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

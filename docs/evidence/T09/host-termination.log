@@ -1,0 +1,23 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+   Compiling project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\collect-a629bb11c370189a.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\collect-a629bb11c370189a.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-cli` (test "collect") generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-cli` (bin "project-knowledge") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.43s
+     Running tests\collect.rs (target\debug\deps\collect-a629bb11c370189a.exe)
+
+running 1 test
+test collector_host_termination_cleans_descendants_and_releases_maintenance_lock ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 1.25s
+

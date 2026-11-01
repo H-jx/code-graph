@@ -311,7 +311,7 @@ pub fn assertion_id(kind: &str, batch_id: &str, payload_hash: &str) -> String {
 pub fn entity_row<'a>(entity: &'a Entity, identity_json: &'a str) -> EntityRow<'a> {
     EntityRow {
         id: &entity.id,
-        kind: entity.kind,
+        kind: entity.kind.clone(),
         scope_id: &entity.scope_id,
         identity_json,
     }

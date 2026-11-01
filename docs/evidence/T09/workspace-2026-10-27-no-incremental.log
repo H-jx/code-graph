@@ -1,0 +1,108 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+   Compiling project-knowledge-native v0.1.0 (E:\Project\my-project\code-graph\bindings\node)
+memory allocation of 2359312 bytes failed
+stack backtrace:
+   0:     0x7ff89ac5f38e - <unknown>
+   1:     0x7ff89ac87c61 - <unknown>
+   2:     0x7ff89ac6f7e4 - <unknown>
+   3:     0x7ff89ac52794 - <unknown>
+   4:     0x7ff89ac3808c - <unknown>
+   5:     0x7ff89ac3579f - <unknown>
+   6:     0x7ff89ac5283b - <unknown>
+   7:     0x7ff89ac38fd8 - <unknown>
+   8:     0x7ff89f1ecbf9 - <unknown>
+   9:     0x7ff89f1ea20e - <unknown>
+  10:     0x7ff89aa2e802 - <unknown>
+  11:     0x7ff89c2892bf - <unknown>
+  12:     0x7ff89c333b3e - <unknown>
+  13:     0x7ff89befca18 - <unknown>
+  14:     0x7ff89bd1b3c2 - <unknown>
+  15:     0x7ff89be35825 - <unknown>
+  16:     0x7ff89bcb3d1c - <unknown>
+  17:     0x7ff89be2b2e1 - <unknown>
+  18:     0x7ff89af5f315 - <unknown>
+  19:     0x7ff89af1d8af - <unknown>
+  20:     0x7ff89ae7b93c - <unknown>
+  21:     0x7ff89ae35a1e - <unknown>
+  22:     0x7ff89ae4df47 - <unknown>
+  23:     0x7ff89aeb0906 - <unknown>
+  24:     0x7ff89aeb571e - <unknown>
+  25:     0x7ff89ae4df13 - <unknown>
+  26:     0x7ff89af49e12 - <unknown>
+  27:     0x7ff89adfddbe - <unknown>
+  28:     0x7ff89ae14630 - <unknown>
+  29:     0x7ff89bb838cb - <unknown>
+  30:     0x7ff89ba897ed - <unknown>
+  31:     0x7ff89bb83948 - <unknown>
+  32:     0x7ff89afbe748 - <unknown>
+  33:     0x7ff89acb8c5c - <unknown>
+  34:     0x7ff89a77415a - <unknown>
+  35:     0x7ff89a65a0a1 - <unknown>
+  36:     0x7ff89a7741c0 - <unknown>
+  37:     0x7ff897f0e63a - <unknown>
+  38:     0x7ff897f0a591 - <unknown>
+  39:     0x7ff897f13507 - <unknown>
+  40:     0x7ff89ac5c55a - <unknown>
+  41:     0x7ffa2bc5dda7 - BaseThreadInitThunk
+  42:     0x7ffa2c23ee4c - RtlUserThreadStart
+memory allocation of 2359312 bytes failed
+stack backtrace:
+   0:     0x7ff89ac5f38e - <unknown>
+   1:     0x7ff89ac87c61 - <unknown>
+   2:     0x7ff89ac6f7e4 - <unknown>
+   3:     0x7ff89ac52794 - <unknown>
+   4:     0x7ff89ac3808c - <unknown>
+   5:     0x7ff89ac3579f - <unknown>
+   6:     0x7ff89ac5283b - <unknown>
+   7:     0x7ff89ac38fd8 - <unknown>
+   8:     0x7ff89f1ecbf9 - <unknown>
+   9:     0x7ff89f1ea20e - <unknown>
+  10:     0x7ff89aa2e802 - <unknown>
+  11:     0x7ff89c28a5ba - <unknown>
+  12:     0x7ff89c33ee44 - <unknown>
+  13:     0x7ff89be6489c - <unknown>
+  14:     0x7ff89bd49866 - <unknown>
+  15:     0x7ff89bdc6fe6 - <unknown>
+  16:     0x7ff89aec0312 - <unknown>
+  17:     0x7ff89ae3a59e - <unknown>
+  18:     0x7ff89ae4df47 - <unknown>
+  19:     0x7ff89ae1b6fc - <unknown>
+  20:     0x7ff89ae4e973 - <unknown>
+  21:     0x7ff89aeb5a1c - <unknown>
+  22:     0x7ff89ae4df13 - <unknown>
+  23:     0x7ff89ae581da - <unknown>
+  24:     0x7ff89ae4e90e - <unknown>
+  25:     0x7ff89aeb5a1c - <unknown>
+  26:     0x7ff89a2b4aa6 - <unknown>
+  27:     0x7ff89ae4ec77 - <unknown>
+  28:     0x7ff89ae581da - <unknown>
+  29:     0x7ff89ae4e90e - <unknown>
+  30:     0x7ff89ae4eda5 - <unknown>
+  31:     0x7ff89aeb5a1c - <unknown>
+  32:     0x7ff89ae4df13 - <unknown>
+  33:     0x7ff89af49e12 - <unknown>
+  34:     0x7ff89adfddbe - <unknown>
+  35:     0x7ff89ae14630 - <unknown>
+  36:     0x7ff89bb838cb - <unknown>
+  37:     0x7ff89ba897ed - <unknown>
+  38:     0x7ff89bb83948 - <unknown>
+  39:     0x7ff89afbe748 - <unknown>
+  40:     0x7ff89acb8c5c - <unknown>
+  41:     0x7ff89a77415a - <unknown>
+  42:     0x7ff89a65a0a1 - <unknown>
+  43:     0x7ff89a7741c0 - <unknown>
+  44:     0x7ff897f0e63a - <unknown>
+  45:     0x7ff897f0a591 - <unknown>
+  46:     0x7ff897f13507 - <unknown>
+  47:     0x7ff89ac5c55a - <unknown>
+  48:     0x7ffa2bc5dda7 - BaseThreadInitThunk
+  49:     0x7ffa2c23ee4c - RtlUserThreadStart
+error: could not compile `project-knowledge-core` (lib test)
+
+Caused by:
+  process didn't exit successfully: `C:\Users\hubo9\.rustup\toolchains\1.97.1-x86_64-pc-windows-msvc\bin\rustc.exe --crate-name project_knowledge_core --edition=2024 crates\core\src\lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C embed-bitcode=no -C debuginfo=2 --warn=unused_lifetimes --deny=unsafe_code --allow=clippy::type_complexity --allow=clippy::result_large_err --allow=clippy::must_use_candidate --allow=clippy::module_name_repetitions --allow=missing_docs --test --cfg "feature=\"default\"" --cfg "feature=\"syntax\"" --check-cfg cfg(docsrs,test) --check-cfg "cfg(feature, values(\"default\", \"syntax\"))" -C metadata=7d1d13242f5eba9a -C extra-filename=-df95f96b2358f1ba --out-dir E:\Project\my-project\code-graph\target\debug\deps -L dependency=E:\Project\my-project\code-graph\target\debug\deps --extern arc_swap=E:\Project\my-project\code-graph\target\debug\deps\libarc_swap-b9781419f940f403.rlib --extern async_trait=E:\Project\my-project\code-graph\target\debug\deps\async_trait-b2b4429d48747d25.dll --extern chrono=E:\Project\my-project\code-graph\target\debug\deps\libchrono-84ce57a4ed80a549.rlib --extern dirs=E:\Project\my-project\code-graph\target\debug\deps\libdirs-ed95ce9eb425d658.rlib --extern futures=E:\Project\my-project\code-graph\target\debug\deps\libfutures-dd837bea2b8167de.rlib --extern globset=E:\Project\my-project\code-graph\target\debug\deps\libglobset-9f2bb2d0fe8767e8.rlib --extern handlebars=E:\Project\my-project\code-graph\target\debug\deps\libhandlebars-382bdd17dd8375fe.rlib --extern hex=E:\Project\my-project\code-graph\target\debug\deps\libhex-7e333c22a8c52dd5.rlib --extern home=E:\Project\my-project\code-graph\target\debug\deps\libhome-5571922d37ce86bb.rlib --extern ignore=E:\Project\my-project\code-graph\target\debug\deps\libignore-b4439a08911f31df.rlib --extern indexmap=E:\Project\my-project\code-graph\target\debug\deps\libindexmap-21b477b5a65ac2b5.rlib --extern insta=E:\Project\my-project\code-graph\target\debug\deps\libinsta-fbeaea25861c467c.rlib --extern jsonschema=E:\Project\my-project\code-graph\target\debug\deps\libjsonschema-881e0eaa0bc231a5.rlib --extern parking_lot=E:\Project\my-project\code-graph\target\debug\deps\libparking_lot-069c5ef4a4f66a5e.rlib --extern pathdiff=E:\Project\my-project\code-graph\target\debug\deps\libpathdiff-34c1c13a8113ffa4.rlib --extern petgraph=E:\Project\my-project\code-graph\target\debug\deps\libpetgraph-8fa041e5324d1809.rlib --extern proptest=E:\Project\my-project\code-graph\target\debug\deps\libproptest-24235efffb385ff2.rlib --extern rayon=E:\Project\my-project\code-graph\target\debug\deps\librayon-df85e74a7b3d9134.rlib --extern regex=E:\Project\my-project\code-graph\target\debug\deps\libregex-841482961e6aadfb.rlib --extern rusqlite=E:\Project\my-project\code-graph\target\debug\deps\librusqlite-ca9db0057f1387f4.rlib --extern rustc_hash=E:\Project\my-project\code-graph\target\debug\deps\librustc_hash-fe041587ade7d0b4.rlib --extern schemars=E:\Project\my-project\code-graph\target\debug\deps\libschemars-469f5c77a83eb1ef.rlib --extern serde=E:\Project\my-project\code-graph\target\debug\deps\libserde-ea1d194ade92e696.rlib --extern serde_json=E:\Project\my-project\code-graph\target\debug\deps\libserde_json-2b6d79fd6acd15ba.rlib --extern sha2=E:\Project\my-project\code-graph\target\debug\deps\libsha2-0a4ca10dbaec65ee.rlib --extern strum=E:\Project\my-project\code-graph\target\debug\deps\libstrum-01f6bf92106a1cf6.rlib --extern tempfile=E:\Project\my-project\code-graph\target\debug\deps\libtempfile-ac996a5e7c1396c7.rlib --extern thiserror=E:\Project\my-project\code-graph\target\debug\deps\libthiserror-9cebdf317d1e221d.rlib --extern tokio=E:\Project\my-project\code-graph\target\debug\deps\libtokio-bc906c718b1572d3.rlib --extern tokio_util=E:\Project\my-project\code-graph\target\debug\deps\libtokio_util-e5ca32aebcc33a1b.rlib --extern tracing=E:\Project\my-project\code-graph\target\debug\deps\libtracing-40433da6fc0a6349.rlib --extern tree_sitter=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter-5448434c63966c37.rlib --extern tree_sitter_javascript=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter_javascript-2c2f5c20cd6b7cad.rlib --extern tree_sitter_language=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter_language-b207de748aac1fa8.rlib --extern tree_sitter_python=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter_python-6a32c991f4ed88c6.rlib --extern tree_sitter_typescript=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter_typescript-608e421b0395f38d.rlib --extern url=E:\Project\my-project\code-graph\target\debug\deps\liburl-580714d16af7259a.rlib --extern uuid=E:\Project\my-project\code-graph\target\debug\deps\libuuid-cc51c9860cf98bf3.rlib --extern windows_sys=E:\Project\my-project\code-graph\target\debug\deps\libwindows_sys-a6cb0d38fa861386.rlib -L native=E:\Project\my-project\code-graph\target\debug\build\psm-f888b304c62caede\out -L native=E:\Project\my-project\code-graph\target\debug\build\stacker-11052265e9315cb7\out -L native=E:\Project\my-project\code-graph\target\debug\build\libsqlite3-sys-efbc986f80690e32\out -L native=E:\Project\my-project\code-graph\target\debug\build\tree-sitter-6db75d9955470275\out -L native=E:\Project\my-project\code-graph\target\debug\build\tree-sitter-javascript-e3087452136b9ea8\out -L native=E:\Project\my-project\code-graph\target\debug\build\tree-sitter-python-1643fb8c62317a61\out -L native=E:\Project\my-project\code-graph\target\debug\build\tree-sitter-typescript-1f053074f0b1e24b\out` (exit code: 0xc0000409, STATUS_STACK_BUFFER_OVERRUN)
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `project-knowledge-core` (lib)
+
+Caused by:
+  process didn't exit successfully: `C:\Users\hubo9\.rustup\toolchains\1.97.1-x86_64-pc-windows-msvc\bin\rustc.exe --crate-name project_knowledge_core --edition=2024 crates\core\src\lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C embed-bitcode=no -C debuginfo=2 --warn=unused_lifetimes --deny=unsafe_code --allow=clippy::type_complexity --allow=clippy::result_large_err --allow=clippy::must_use_candidate --allow=clippy::module_name_repetitions --allow=missing_docs --cfg "feature=\"default\"" --cfg "feature=\"syntax\"" --check-cfg cfg(docsrs,test) --check-cfg "cfg(feature, values(\"default\", \"syntax\"))" -C metadata=1bf0d51893564f6a -C extra-filename=-03b441f4dc5d3425 --out-dir E:\Project\my-project\code-graph\target\debug\deps -L dependency=E:\Project\my-project\code-graph\target\debug\deps --extern arc_swap=E:\Project\my-project\code-graph\target\debug\deps\libarc_swap-b9781419f940f403.rmeta --extern async_trait=E:\Project\my-project\code-graph\target\debug\deps\async_trait-b2b4429d48747d25.dll --extern chrono=E:\Project\my-project\code-graph\target\debug\deps\libchrono-84ce57a4ed80a549.rmeta --extern dirs=E:\Project\my-project\code-graph\target\debug\deps\libdirs-ed95ce9eb425d658.rmeta --extern futures=E:\Project\my-project\code-graph\target\debug\deps\libfutures-dd837bea2b8167de.rmeta --extern globset=E:\Project\my-project\code-graph\target\debug\deps\libglobset-9f2bb2d0fe8767e8.rmeta --extern handlebars=E:\Project\my-project\code-graph\target\debug\deps\libhandlebars-382bdd17dd8375fe.rmeta --extern hex=E:\Project\my-project\code-graph\target\debug\deps\libhex-7e333c22a8c52dd5.rmeta --extern home=E:\Project\my-project\code-graph\target\debug\deps\libhome-5571922d37ce86bb.rmeta --extern ignore=E:\Project\my-project\code-graph\target\debug\deps\libignore-b4439a08911f31df.rmeta --extern indexmap=E:\Project\my-project\code-graph\target\debug\deps\libindexmap-21b477b5a65ac2b5.rmeta --extern jsonschema=E:\Project\my-project\code-graph\target\debug\deps\libjsonschema-881e0eaa0bc231a5.rmeta --extern parking_lot=E:\Project\my-project\code-graph\target\debug\deps\libparking_lot-069c5ef4a4f66a5e.rmeta --extern pathdiff=E:\Project\my-project\code-graph\target\debug\deps\libpathdiff-34c1c13a8113ffa4.rmeta --extern petgraph=E:\Project\my-project\code-graph\target\debug\deps\libpetgraph-8fa041e5324d1809.rmeta --extern rayon=E:\Project\my-project\code-graph\target\debug\deps\librayon-df85e74a7b3d9134.rmeta --extern regex=E:\Project\my-project\code-graph\target\debug\deps\libregex-841482961e6aadfb.rmeta --extern rusqlite=E:\Project\my-project\code-graph\target\debug\deps\librusqlite-ca9db0057f1387f4.rmeta --extern rustc_hash=E:\Project\my-project\code-graph\target\debug\deps\librustc_hash-fe041587ade7d0b4.rmeta --extern schemars=E:\Project\my-project\code-graph\target\debug\deps\libschemars-469f5c77a83eb1ef.rmeta --extern serde=E:\Project\my-project\code-graph\target\debug\deps\libserde-ea1d194ade92e696.rmeta --extern serde_json=E:\Project\my-project\code-graph\target\debug\deps\libserde_json-2b6d79fd6acd15ba.rmeta --extern sha2=E:\Project\my-project\code-graph\target\debug\deps\libsha2-0a4ca10dbaec65ee.rmeta --extern strum=E:\Project\my-project\code-graph\target\debug\deps\libstrum-01f6bf92106a1cf6.rmeta --extern tempfile=E:\Project\my-project\code-graph\target\debug\deps\libtempfile-ac996a5e7c1396c7.rmeta --extern thiserror=E:\Project\my-project\code-graph\target\debug\deps\libthiserror-9cebdf317d1e221d.rmeta --extern tokio=E:\Project\my-project\code-graph\target\debug\deps\libtokio-bc906c718b1572d3.rmeta --extern tokio_util=E:\Project\my-project\code-graph\target\debug\deps\libtokio_util-e5ca32aebcc33a1b.rmeta --extern tracing=E:\Project\my-project\code-graph\target\debug\deps\libtracing-40433da6fc0a6349.rmeta --extern tree_sitter=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter-5448434c63966c37.rmeta --extern tree_sitter_javascript=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter_javascript-2c2f5c20cd6b7cad.rmeta --extern tree_sitter_language=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter_language-b207de748aac1fa8.rmeta --extern tree_sitter_python=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter_python-6a32c991f4ed88c6.rmeta --extern tree_sitter_typescript=E:\Project\my-project\code-graph\target\debug\deps\libtree_sitter_typescript-608e421b0395f38d.rmeta --extern url=E:\Project\my-project\code-graph\target\debug\deps\liburl-580714d16af7259a.rmeta --extern uuid=E:\Project\my-project\code-graph\target\debug\deps\libuuid-cc51c9860cf98bf3.rmeta --extern windows_sys=E:\Project\my-project\code-graph\target\debug\deps\libwindows_sys-a6cb0d38fa861386.rmeta -L native=E:\Project\my-project\code-graph\target\debug\build\psm-f888b304c62caede\out -L native=E:\Project\my-project\code-graph\target\debug\build\stacker-11052265e9315cb7\out -L native=E:\Project\my-project\code-graph\target\debug\build\libsqlite3-sys-efbc986f80690e32\out -L native=E:\Project\my-project\code-graph\target\debug\build\tree-sitter-6db75d9955470275\out -L native=E:\Project\my-project\code-graph\target\debug\build\tree-sitter-javascript-e3087452136b9ea8\out -L native=E:\Project\my-project\code-graph\target\debug\build\tree-sitter-python-1643fb8c62317a61\out -L native=E:\Project\my-project\code-graph\target\debug\build\tree-sitter-typescript-1f053074f0b1e24b\out` (exit code: 0xc0000409, STATUS_STACK_BUFFER_OVERRUN)

@@ -10,7 +10,7 @@ use serde_json::{Map, Value};
 use crate::contract::entity::{Attributes, Basis, MaybeKnown, Origin};
 
 /// 内置关系类型。扩展类型形如 `x.<pluginId>.<localName>`，另行注册。
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "camelCase")]
 pub enum RelationKind {
     Contains,
@@ -27,16 +27,21 @@ pub enum RelationKind {
     Resolves,
     Reads,
     Writes,
+    #[serde(rename = "maps_to")]
     MapsTo,
     Joins,
+    #[serde(rename = "transitions_to")]
     TransitionsTo,
     Precedes,
+    #[serde(rename = "relates_document")]
     RelatesDocument,
     Describes,
+    #[serde(untagged)]
+    Extension(crate::contract::extensions::ExtensionName),
 }
 
 impl RelationKind {
-    pub fn as_str(&self) -> &'static str {
+    pub fn as_str(&self) -> &str {
         match self {
             RelationKind::Contains => "contains",
             RelationKind::Defines => "defines",
@@ -58,14 +63,20 @@ impl RelationKind {
             RelationKind::Precedes => "precedes",
             RelationKind::RelatesDocument => "relates_document",
             RelationKind::Describes => "describes",
+            RelationKind::Extension(name) => name.as_str(),
         }
     }
 
     pub fn parse(value: &str) -> Option<Self> {
         ALL_RELATION_KINDS
             .iter()
-            .copied()
             .find(|kind| kind.as_str() == value)
+            .cloned()
+            .or_else(|| {
+                crate::contract::extensions::ExtensionName::new(value)
+                    .ok()
+                    .map(Self::Extension)
+            })
     }
 }
 
@@ -270,6 +281,9 @@ pub struct ReportFieldAttributes {
 ///
 /// 每种关系类型声明允许的起点类型与终点类型；扩展类型另行注册。
 pub fn endpoint_allowed(kind: RelationKind, from: &str, to: &str) -> bool {
+    if matches!(&kind, RelationKind::Extension(_)) {
+        return false;
+    }
     let allowed: (&[&str], &[&str]) = match kind {
         RelationKind::Contains => (
             &["file", "module", "component"],
@@ -465,6 +479,7 @@ pub fn endpoint_allowed(kind: RelationKind, from: &str, to: &str) -> bool {
                 "documentType",
             ],
         ),
+        RelationKind::Extension(_) => (&[], &[]),
     };
     allowed.0.contains(&from) && allowed.1.contains(&to)
 }
@@ -472,6 +487,7 @@ pub fn endpoint_allowed(kind: RelationKind, from: &str, to: &str) -> bool {
 /// 关系类型登记表：返回该关系允许的端点类型列表（用于 Schema 与文档）。
 pub fn endpoint_kinds(kind: RelationKind) -> (&'static [&'static str], &'static [&'static str]) {
     match kind {
+        RelationKind::Extension(_) => (&[], &[]),
         RelationKind::Contains => (
             &["file", "module", "component"],
             &[

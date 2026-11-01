@@ -1,0 +1,249 @@
+{
+  "commands": [
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+        "index",
+        "--config",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+        "--base"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "expectedExitCodes": [
+        0,
+        2
+      ],
+      "stdout": "cli-index.stdout.json",
+      "stderr": "cli-index.stderr.log"
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+        "generate",
+        "--config",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+        "context",
+        "--topic",
+        "ledger",
+        "--request",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\query.json",
+        "--output",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\context.json"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 2,
+      "expectedExitCodes": [
+        0,
+        2
+      ],
+      "stdout": "cli-context.stdout.json",
+      "stderr": "cli-context.stderr.log"
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+        "query",
+        "--config",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+        "--request",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\read.json"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "expectedExitCodes": [
+        0,
+        2
+      ],
+      "stdout": "cli-read-source.stdout.json",
+      "stderr": "cli-read-source.stderr.log"
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+        "generate",
+        "--config",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+        "docs",
+        "--input",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\topic.json"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 2,
+      "expectedExitCodes": [
+        0,
+        2
+      ],
+      "stdout": "cli-import.stdout.json",
+      "stderr": "cli-import.stderr.log"
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+        "generate",
+        "--config",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+        "skill",
+        "--name",
+        "ledger",
+        "--output",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.agents\\skills\\ledger"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 2,
+      "expectedExitCodes": [
+        0,
+        2
+      ],
+      "stdout": "cli-skill.stdout.json",
+      "stderr": "cli-skill.stderr.log"
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+        "status",
+        "--config",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+        "--check-freshness"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "expectedExitCodes": [
+        0,
+        2
+      ],
+      "stdout": "cli-status.stdout.json",
+      "stderr": "cli-status.stderr.log"
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+        "status",
+        "--config",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+        "--check-freshness"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 2,
+      "expectedExitCodes": [
+        0,
+        2
+      ],
+      "stdout": "cli-stale.stdout.json",
+      "stderr": "cli-stale.stderr.log"
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+        "generate",
+        "--config",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+        "skill",
+        "--name",
+        "ledger",
+        "--output",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.agents\\skills\\ledger"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 2,
+      "expectedExitCodes": [
+        2
+      ],
+      "stdout": "cli-stale-render.stdout.json",
+      "stderr": "cli-stale-render.stderr.log"
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+        "index",
+        "--config",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+        "--base"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "expectedExitCodes": [
+        0,
+        2
+      ],
+      "stdout": "cli-reindex.stdout.json",
+      "stderr": "cli-reindex.stderr.log"
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+        "generate",
+        "--config",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+        "context",
+        "--topic",
+        "ledger",
+        "--request",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\query.json"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 2,
+      "expectedExitCodes": [
+        0,
+        2
+      ],
+      "stdout": "cli-current-context.stdout.json",
+      "stderr": "cli-current-context.stderr.log"
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+        "generate",
+        "--config",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+        "docs",
+        "--input",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\topic.json"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 2,
+      "expectedExitCodes": [
+        0,
+        2
+      ],
+      "stdout": "cli-reimport.stdout.json",
+      "stderr": "cli-reimport.stderr.log"
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+        "generate",
+        "--config",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+        "skill",
+        "--name",
+        "ledger",
+        "--output",
+        "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.agents\\skills\\ledger"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 2,
+      "expectedExitCodes": [
+        0,
+        2
+      ],
+      "stdout": "cli-current-skill.stdout.json",
+      "stderr": "cli-current-skill.stderr.log"
+    }
+  ],
+  "cliArtifactPath": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+  "cliSha256": "4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2",
+  "topicVersions": [
+    1,
+    2
+  ],
+  "initialSourceSha256": "21d47bb15f3578eaaccd401a70b147333032f5c7355f2fb8a2d52fbb8a4a2c3f",
+  "freshnessSequence": [
+    "fresh",
+    "stale",
+    "stale",
+    "fresh"
+  ],
+  "modelsCalled": 0,
+  "businessDatabaseConnections": 0
+}

@@ -1,0 +1,15 @@
+{
+  "cache": {
+    "digest": "9be86281e9bdf8578b2ce5e410ea07aecd43710466bd7b3dc10f6f39509a0ce7",
+    "directory": "/root/.cache/project-knowledge/dependencies/9be86281e9bdf8578b2ce5e410ea07aecd43710466bd7b3dc10f6f39509a0ce7",
+    "env": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONUTF8": "1",
+      "VIRTUAL_ENV": "/root/.cache/project-knowledge/dependencies/9be86281e9bdf8578b2ce5e410ea07aecd43710466bd7b3dc10f6f39509a0ce7/venv"
+    },
+    "executable": "/root/.cache/project-knowledge/dependencies/9be86281e9bdf8578b2ce5e410ea07aecd43710466bd7b3dc10f6f39509a0ce7/venv/bin/python",
+    "integrity": "fc31dffeb157509a5d97e8447cb85700ce3b1082d6682e8c5b352057ede7ef10"
+  },
+  "candidateId": "candidate_cf75ff48-d8e2-41c5-8a2f-e6f1701afe59",
+  "status": "dependenciesPrepared"
+}

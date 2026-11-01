@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-26T00:34:19.111Z",
+  "origin": "synthetic-smoke",
+  "independentBusinessTruth": false,
+  "node": "v24.14.0",
+  "platform": "win32",
+  "arch": "x64",
+  "commands": [
+    {
+      "label": "01-base",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "index",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\project.json",
+        "--base"
+      ],
+      "exitCode": 0,
+      "outputHash": "0f3a494ede4e8b1e3582f4420d727c512c3620e67369e7dcd7c7ae7608f861f9"
+    },
+    {
+      "label": "02-validate-only",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "collect",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\project.json",
+        "--manifest",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\plugin\\manifest.json",
+        "--validate-only"
+      ],
+      "exitCode": 0,
+      "outputHash": "2fe15ef2d1056ec9563b62ce593d637beab1a608fb896ccb1b17a5fb8063b8c8"
+    },
+    {
+      "label": "03-submit",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\project.json",
+        "submit",
+        "--path",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\plugin"
+      ],
+      "exitCode": 0,
+      "outputHash": "b4c9f8f874e1b7f31b1d1e4c1d6e66482ecc6bd96d8efdb2d9c6af783a8b15a8"
+    },
+    {
+      "label": "04-validate",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\project.json",
+        "validate",
+        "--candidate",
+        "candidate_00b60357-400c-4a42-bc54-2e6d7aea37a4"
+      ],
+      "exitCode": 0,
+      "outputHash": "dedfc6ac1ea0a1b7044e1fb7c16813b6dc5cac9e93cd3d90e84c590ec4f5c594"
+    },
+    {
+      "label": "05-activate",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\project.json",
+        "activate",
+        "--candidate",
+        "candidate_00b60357-400c-4a42-bc54-2e6d7aea37a4"
+      ],
+      "exitCode": 0,
+      "outputHash": "8fb944d9b464e78a2a4d53107098e67ca49227abcd4f807ebde53bc6c969067a"
+    },
+    {
+      "label": "06-collect",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "collect",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\project.json"
+      ],
+      "exitCode": 0,
+      "outputHash": "2686f8b8817e63a230e19bbdebd6592ec75321fb2ff29eedb13d15f56577d9ad"
+    },
+    {
+      "label": "07-bad-link",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "collect",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\project.json",
+        "--manifest",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\plugin\\manifest.json",
+        "--validate-only"
+      ],
+      "exitCode": 1,
+      "outputHash": "1d2c830c44df5142467b721f2c4fce029522e26728957ca1993cb4f19e296199"
+    },
+    {
+      "label": "08-rollback",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\project.json",
+        "rollback",
+        "--plugin",
+        "smoke.plugin",
+        "--version",
+        "1.0.0"
+      ],
+      "exitCode": 0,
+      "outputHash": "9e2c365734ab0698dcb713ffeec6356e15bdf64e7432fb2420d1cb14bfd960c4"
+    }
+  ],
+  "hashes": {
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\project.json": "66a0faa5c68f2c13fc42b04848dc3636fad50f68c9234180d6c42127c1e4e61a",
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\plugin\\manifest.json": "5ed0d303d69478be746336a83dc0dab66317fe29ce5fc0f240b9025b478aca03",
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\plugin\\collect.mjs": "e062bb7a89d810c73be1a92fea208eb4541b5ef766776b22188b90d729c9206e",
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\repo\\a.ts": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+    "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe": "03e2e18a515d5e3e693c7eb638a5047e52cf13307a3500e116a39efe9d5a415d"
+  },
+  "assertions": {
+    "validateOnlyDoesNotCommit": true,
+    "activationSwitchesOnce": true,
+    "collectCommits": true,
+    "badLinkFails": true,
+    "rollbackCreatesNewGeneration": true
+  }
+}

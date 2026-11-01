@@ -14,7 +14,7 @@ pub const PROJECTION_ENTITY: &str = "entity";
 pub const PROJECTION_SOURCE: &str = "source";
 
 /// 一行搜索投影。
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub struct SearchDocument {
     pub assertion_id: String,
     pub entity_id: String,
@@ -72,16 +72,7 @@ pub fn entity_projection(
         text.push('\n');
         text.push_str(signature);
     }
-    if let Some(attributes) = attributes.as_object() {
-        for (key, value) in attributes {
-            if let Some(text_value) = value.as_str() {
-                text.push('\n');
-                text.push_str(key);
-                text.push('=');
-                text.push_str(text_value);
-            }
-        }
-    }
+    append_attribute_text(attributes, &mut text);
     SearchDocument::new(
         assertion_id.to_string(),
         entity_id.to_string(),
@@ -90,6 +81,30 @@ pub fn entity_projection(
         route_exact,
         text,
     )
+}
+
+// Semantic statements, i18n metadata and lineage live in nested attributes too.
+// Index their original string values; do not invent a flattened business assertion.
+fn append_attribute_text(value: &serde_json::Value, text: &mut String) {
+    match value {
+        serde_json::Value::String(value) => {
+            text.push('\n');
+            text.push_str(value);
+        }
+        serde_json::Value::Array(values) => {
+            for value in values {
+                append_attribute_text(value, text);
+            }
+        }
+        serde_json::Value::Object(values) => {
+            for (key, value) in values {
+                text.push('\n');
+                text.push_str(key);
+                append_attribute_text(value, text);
+            }
+        }
+        _ => (),
+    }
 }
 
 /// 来源投影：整份被选中的原始文本。

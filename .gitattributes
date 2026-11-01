@@ -23,3 +23,13 @@
 # 生成文件不参与 diff
 packages/sdk/src/generated/** linguist-generated=true
 schema/** linguist-generated=true
+
+# Frozen source and byte-hashed evidence retain their captured bytes on checkout.
+fixtures/original/** -text
+docs/evidence/T06/** -text
+docs/evidence/T11/** -text
+docs/evidence/T12/** -text
+docs/evidence/T13/** -text
+docs/evidence/T14/** -text
+docs/evidence/T15/** -text
+docs/evidence/T16/** -text

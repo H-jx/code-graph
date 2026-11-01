@@ -1,0 +1,182 @@
+{
+  "runId": "agent_a6bab82a-37a4-4817-a0e8-07a5450ad338",
+  "status": "failed",
+  "phase": "generate",
+  "goal": "Create a minimal source-driven routes.json Node plugin. Call code-map {}, export-snapshot include [\"routes.json\"], read-source by sourceId, import-conventions notes/sourceIds, then get output/case schemas. Compute the exact case route ID using get-capabilities schema=identity,kind=route,slots={scopeId:repo.repo.main,routerId:app,mode:history,declaredPath:/orders}. Script under 100 lines, JSON.parse current source content, emit each current route using source routerId/mode, actual UTF-8 evidence, no fixed facts. Use includeIdentityHelper=true and identity.mjs artifact. File writes merge and can be split across calls. Include ONE meaningful case requiring the exact /orders entityId and its CollectorInput fixture from export with stageId=extract. truthRef/truthHash are optional; if supplied they must identify an exact exported original source with matching hash (the host now copies those bytes automatically). Do not remove or weaken a valid case. After all files exist call validate-plugin, fix structured issues within budget, and stop after activation.",
+  "focus": "routes",
+  "withSkill": false,
+  "configHash": "a92d220fa47273471d432cb62fe3eb6901f2ca468767b40a5903686b25dac8ba",
+  "sourceSnapshotId": "snap_0ee180808a462c33451d27dbeee41314c945a7748480fee9ea46a2469efc5aa6",
+  "activeVersions": [],
+  "modelTurns": 8,
+  "toolCalls": 11,
+  "repairs": 0,
+  "needsRepair": false,
+  "elapsedMs": 42230,
+  "deadlineMs": 1793115757857,
+  "repairPlugin": null,
+  "smoke": false,
+  "revision": 0,
+  "candidateId": null,
+  "candidateHash": null,
+  "validationId": null,
+  "activation": null,
+  "investigation": {
+    "status": "draft",
+    "notes": "Investigation of routes source (project \"live-project\", scope repo.repo.main):\n\n1. Single route-registry source: `routes.json` at repository root (`repo.main`, sourceClass=config, encoding UTF-8 with CRLF line ending). Exported sourceId `src_b2dd364bf4438e6e3826e795629e5d8693507bb127b52cde0afbbdf8ca98ffce`, contentHash `ed7c08383e568fcdcbbe6daae45d60f4cc8c9534d04ba85e3524bcb292a3f102`, byteLength 124 (read-source status=current, coverage=complete).\n\n2. Confirmed document shape (observed from current bytes): top-level object with `routerId` (string, currently \"app\"), `mode` (string, currently \"history\"), and `routes` (array of objects with `path` (string, leading-slash declared path, currently \"/orders\" and \"/inventory\") and `name` (string display name)). Derived 124-byte content ends with \"\\r\\n\".\n\n3. Route identity convention (from Core identity schema, kind=route): required slots `scopeId`, `routerId`, `mode`, `declaredPath`. For the current file this yields two routes; the /orders entity ID computed via Core identity service with slots {scopeId:\"repo.repo.main\", routerId:\"app\", mode:\"history\", declaredPath:\"/orders\"} = `ent_d023c5b7b1847d6433677bfab770467189c7f74667609124f1f89523aff31a3f` (memory only — not a hardcoded script output; script must always recompute from current source).\n\n4. No frontend framework, HTTP API, or DB mapping registered yet (status shows api/database/frontend/report/workflow coverage = not_configured; routes = not_configured). The plugin therefore only implements the `routes` capability in an `extract` phase over the source set selected by include pattern `routes.json`; no relation-building (link) stage is justified by current sources.\n\n5. Evidence rule adopted: emit one evidence entry per route using the actual UTF-8 byte offsets of the route object within the current source text (Buffer.byteLength prefix slicing), plus whole-file evidence, referencing the source's own id/contentHash from CollectorInput rather than any snapshot-time constants. Unknown/extra fields, missing routerId/mode, non-array routes, or duplicate (routerId,mode,path) are emitted as coverage gaps instead of guessed facts.",
+    "evidenceRefs": [
+      {
+        "snapshot": {
+          "indexId": "866e331c-0354-4794-b187-546fa50b974d",
+          "generation": "7",
+          "sourceSnapshotId": "snap_0ee180808a462c33451d27dbeee41314c945a7748480fee9ea46a2469efc5aa6"
+        },
+        "evidenceId": "ev_06003cea0a9a8286886917099cfde9684377e6ba9ee921107bf3511ac26717e6",
+        "sourceId": "src_b2dd364bf4438e6e3826e795629e5d8693507bb127b52cde0afbbdf8ca98ffce",
+        "contentHash": "ed7c08383e568fcdcbbe6daae45d60f4cc8c9534d04ba85e3524bcb292a3f102",
+        "startByte": 0,
+        "endByte": 124
+      }
+    ],
+    "identityChangesApplied": false
+  },
+  "readSource": true,
+  "readMap": true,
+  "issues": [
+    {
+      "error": {
+        "code": "MODEL_RESPONSE_INVALID",
+        "message": "model tool loop failed; raw model output withheld",
+        "retryable": false,
+        "runId": "agent_a6bab82a-37a4-4817-a0e8-07a5450ad338",
+        "phase": "generate",
+        "issues": []
+      }
+    }
+  ],
+  "events": [
+    {
+      "modelTurn": 1,
+      "responseId": "msg_1c365a62-3156-421a-948a-ccace2ef51ff",
+      "elapsedMs": 1211
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "tool": "status",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "modelTurn": 2,
+      "responseId": "msg_e765bfeb-8923-4a23-acdd-f060afbbf9c5",
+      "elapsedMs": 2181
+    },
+    {
+      "tool": "code-map",
+      "ok": true,
+      "turn": 2,
+      "revision": 0
+    },
+    {
+      "modelTurn": 3,
+      "responseId": "msg_653e5bc6-f315-4ef8-a3bc-cd4bc4f39d60",
+      "elapsedMs": 2908
+    },
+    {
+      "tool": "export-snapshot",
+      "ok": true,
+      "turn": 3,
+      "revision": 0
+    },
+    {
+      "modelTurn": 4,
+      "responseId": "msg_7abb207f-e084-4866-b685-6fd9818304fb",
+      "elapsedMs": 4805
+    },
+    {
+      "tool": "read-source",
+      "ok": true,
+      "turn": 4,
+      "revision": 0
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 4,
+      "revision": 0
+    },
+    {
+      "modelTurn": 5,
+      "responseId": "msg_225e85f5-fafe-41fb-937c-913186ac5ff1",
+      "elapsedMs": 6307
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 5,
+      "revision": 0
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 5,
+      "revision": 0
+    },
+    {
+      "modelTurn": 6,
+      "responseId": "msg_b43abcf7-c34a-433d-8761-fc6265d54e88",
+      "elapsedMs": 14767
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 6,
+      "revision": 0
+    },
+    {
+      "tool": "import-conventions",
+      "ok": true,
+      "turn": 6,
+      "revision": 0
+    },
+    {
+      "modelTurn": 7,
+      "responseId": "msg_b6749f8a-92a9-4c10-8c90-251cb2aa76a3",
+      "elapsedMs": 15991
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 7,
+      "revision": 0
+    },
+    {
+      "modelTurn": 8,
+      "responseId": "msg_355ee56d-bddb-4ba6-a3bc-dae2c5e9746f",
+      "elapsedMs": 42210
+    }
+  ],
+  "provider": "anthropic",
+  "model": "qwen3.8-flash",
+  "promptHash": "daf22c3ac12068ca5b87d4a38950853fcc74a65649a6520798461471c9a5309f",
+  "budget": {
+    "enabled": true,
+    "provider": "anthropic",
+    "model": "qwen3.8-flash",
+    "baseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic",
+    "apiKeyEnv": "PROJECT_KNOWLEDGE_LLM_KEY",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 600,
+    "maxInputChars": 500000,
+    "maxOutputTokens": 8192,
+    "thinking": false
+  }
+}

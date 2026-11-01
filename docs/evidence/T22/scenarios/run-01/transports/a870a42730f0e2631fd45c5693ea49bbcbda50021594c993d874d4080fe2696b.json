@@ -1,0 +1,474 @@
+{
+  "passed": true,
+  "request": {
+    "budget": {
+      "maxDepth": 16,
+      "maxEntities": 1000,
+      "maxRelations": 3000,
+      "maxResponseChars": 200000,
+      "maxVisited": 20000,
+      "timeoutMs": 30000
+    },
+    "filters": {
+      "kinds": [
+        "queryImplementation"
+      ]
+    },
+    "operation": "search",
+    "pageSize": 1,
+    "query": "purchase"
+  },
+  "cli": {
+    "protocolVersion": "1.0",
+    "requestId": "req_0f42c753-8ad0-4f90-a404-e42c95541fea",
+    "snapshot": {
+      "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+      "generation": "6",
+      "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+    },
+    "status": "partial",
+    "data": {
+      "results": [
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+              "generation": "6",
+              "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+            },
+            "entityId": "ent_5c3a8c520cd7203d97b3ac8b83fe1fa153c662b81b30b92be38babff676995a7"
+          },
+          "kind": "queryImplementation",
+          "scopeId": "svc.erp",
+          "identity": [
+            {
+              "name": "scopeId",
+              "value": "svc.erp"
+            },
+            {
+              "name": "semanticKey",
+              "value": "back:database.ts:boundLedger:query:0:0"
+            }
+          ],
+          "name": "back:database.ts:boundLedger:query:0:0",
+          "assertions": [
+            {
+              "assertionId": "as_54eed39bcfe9ec2a642910e72d746a14d6ddfb9f973b36e8aea1c5c820aef008",
+              "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract",
+              "batchId": "bat_945c3e5d65384212562a489c4314653a383153218da596e029c507544a511af1",
+              "basis": "observed",
+              "origin": "static",
+              "name": "back:database.ts:boundLedger:query:0:0",
+              "attributes": {
+                "aggregates": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "dialect": "sqlite",
+                "grainColumnIds": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "joins": [],
+                "nullHandling": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "statement": {
+                  "endByte": 287,
+                  "startByte": 187,
+                  "text": "erp.query(\"SELECT tenant_id, purchase_no, line_no FROM purchase_detail WHERE status = 'APPROVED'\\n\")"
+                },
+                "timeFields": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "units": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "validStates": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                }
+              },
+              "evidenceRefs": [
+                "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c",
+                "ev_c93dafcad0cf28f519add9c47ab6ce042e636d595885704fd063d98abaccdfa1"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -0.4570836671163377,
+          "projection": "entity"
+        }
+      ],
+      "fields": null,
+      "candidateSetComplete": true
+    },
+    "sourceReferences": [
+      {
+        "snapshot": {
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "generation": "6",
+          "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+        },
+        "evidenceId": "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c",
+        "sourceId": "src_5bc0570c79e06ded56625446cb894cbf05225691151764f7c600e89211024818",
+        "contentHash": "efa1244ca2a57619224f25a3db4cde555c988890605164426f609c19865f84a3",
+        "startByte": 13,
+        "endByte": 40
+      },
+      {
+        "snapshot": {
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "generation": "6",
+          "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+        },
+        "evidenceId": "ev_c93dafcad0cf28f519add9c47ab6ce042e636d595885704fd063d98abaccdfa1",
+        "sourceId": "src_fbdd4a592aa41b91b2a81c6cdf1058f0df27eb0f4afa23bc692f2a68d539a0c1",
+        "contentHash": "88f2a25b595683ea9015456a8d342b9439c9468838be7d343e2cfa00090bb735",
+        "startByte": 187,
+        "endByte": 287
+      }
+    ],
+    "gaps": [],
+    "completeness": {
+      "freshness": "fresh",
+      "diskChecked": true,
+      "checkedAt": "2026-10-29T15:28:19Z",
+      "coverage": "complete",
+      "candidateSetsComplete": true,
+      "truncated": true,
+      "reasons": [
+        "query budget or page boundary reached"
+      ]
+    },
+    "budgetUsed": {
+      "entities": 1,
+      "relations": 0,
+      "visited": 124,
+      "elapsedMs": 17,
+      "responseChars": 4481
+    },
+    "continuation": "7b2276657273696f6e223a312c22736e617073686f74223a7b22696e6465784964223a2264303231653039372d373732302d343035352d616364632d646633386261333531623531222c2267656e65726174696f6e223a2236222c22736f75726365536e617073686f744964223a22736e61705f37333166373730363665653462643766303834363664353432363538393230633134393163653063643039633662356165386263353364653439626564306534227d2c227265717565737448617368223a2230363962623633633432316466366135613634376538616132303739306663346433346639383931353261616133663866393162336165656662393834326666222c226c617374223a5b322c2d302e343537303833363637313136333337372c22656e745f35633361386335323063643732303364393762336163386238336665316661313533633636326238316233306239326265333862616266663637363939356137222c2261735f35346565643339626366653965633261363432393130653732643734366131346436646466623966393733623336653861656131633563383230616566303038225d7d",
+    "nextQueries": []
+  },
+  "sdk": {
+    "budgetUsed": {
+      "elapsedMs": 16,
+      "entities": 1,
+      "relations": 0,
+      "responseChars": 4477,
+      "visited": 124
+    },
+    "completeness": {
+      "candidateSetsComplete": true,
+      "checkedAt": "2026-10-29T15:28:19Z",
+      "coverage": "complete",
+      "diskChecked": true,
+      "freshness": "fresh",
+      "reasons": [
+        "query budget or page boundary reached"
+      ],
+      "truncated": true
+    },
+    "continuation": "7b2276657273696f6e223a312c22736e617073686f74223a7b22696e6465784964223a2264303231653039372d373732302d343035352d616364632d646633386261333531623531222c2267656e65726174696f6e223a2236222c22736f75726365536e617073686f744964223a22736e61705f37333166373730363665653462643766303834363664353432363538393230633134393163653063643039633662356165386263353364653439626564306534227d2c227265717565737448617368223a2230363962623633633432316466366135613634376538616132303739306663346433346639383931353261616133663866393162336165656662393834326666222c226c617374223a5b322c2d302e343537303833363637313136333337372c22656e745f35633361386335323063643732303364393762336163386238336665316661313533633636326238316233306239326265333862616266663637363939356137222c2261735f35346565643339626366653965633261363432393130653732643734366131346436646466623966393733623336653861656131633563383230616566303038225d7d",
+    "data": {
+      "candidateSetComplete": true,
+      "fields": null,
+      "results": [
+        {
+          "assertions": [
+            {
+              "assertionId": "as_54eed39bcfe9ec2a642910e72d746a14d6ddfb9f973b36e8aea1c5c820aef008",
+              "attributes": {
+                "aggregates": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "dialect": "sqlite",
+                "grainColumnIds": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "joins": [],
+                "nullHandling": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "statement": {
+                  "endByte": 287,
+                  "startByte": 187,
+                  "text": "erp.query(\"SELECT tenant_id, purchase_no, line_no FROM purchase_detail WHERE status = 'APPROVED'\\n\")"
+                },
+                "timeFields": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "units": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "validStates": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                }
+              },
+              "basis": "observed",
+              "batchId": "bat_945c3e5d65384212562a489c4314653a383153218da596e029c507544a511af1",
+              "evidenceRefs": [
+                "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c",
+                "ev_c93dafcad0cf28f519add9c47ab6ce042e636d595885704fd063d98abaccdfa1"
+              ],
+              "name": "back:database.ts:boundLedger:query:0:0",
+              "origin": "static",
+              "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract"
+            }
+          ],
+          "bm25": -0.4570836671163377,
+          "entityRef": {
+            "entityId": "ent_5c3a8c520cd7203d97b3ac8b83fe1fa153c662b81b30b92be38babff676995a7",
+            "snapshot": {
+              "generation": "6",
+              "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+              "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+            }
+          },
+          "exactRank": 2,
+          "identity": [
+            {
+              "name": "scopeId",
+              "value": "svc.erp"
+            },
+            {
+              "name": "semanticKey",
+              "value": "back:database.ts:boundLedger:query:0:0"
+            }
+          ],
+          "kind": "queryImplementation",
+          "matchReason": "substring",
+          "name": "back:database.ts:boundLedger:query:0:0",
+          "projection": "entity",
+          "scopeId": "svc.erp"
+        }
+      ]
+    },
+    "gaps": [],
+    "nextQueries": [],
+    "protocolVersion": "1.0",
+    "requestId": "ad0b1372-8982-432d-8717-0103cad0f663",
+    "snapshot": {
+      "generation": "6",
+      "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+      "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+    },
+    "sourceReferences": [
+      {
+        "contentHash": "efa1244ca2a57619224f25a3db4cde555c988890605164426f609c19865f84a3",
+        "endByte": 40,
+        "evidenceId": "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+        },
+        "sourceId": "src_5bc0570c79e06ded56625446cb894cbf05225691151764f7c600e89211024818",
+        "startByte": 13
+      },
+      {
+        "contentHash": "88f2a25b595683ea9015456a8d342b9439c9468838be7d343e2cfa00090bb735",
+        "endByte": 287,
+        "evidenceId": "ev_c93dafcad0cf28f519add9c47ab6ce042e636d595885704fd063d98abaccdfa1",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+        },
+        "sourceId": "src_fbdd4a592aa41b91b2a81c6cdf1058f0df27eb0f4afa23bc692f2a68d539a0c1",
+        "startByte": 187
+      }
+    ],
+    "status": "partial"
+  },
+  "mcp": {
+    "budgetUsed": {
+      "elapsedMs": 15,
+      "entities": 1,
+      "relations": 0,
+      "responseChars": 4509,
+      "visited": 124
+    },
+    "completeness": {
+      "candidateSetsComplete": true,
+      "checkedAt": "2026-10-29T15:28:20Z",
+      "coverage": "complete",
+      "diskChecked": true,
+      "freshness": "fresh",
+      "reasons": [
+        "query budget or page boundary reached"
+      ],
+      "truncated": true
+    },
+    "continuation": "7b2276657273696f6e223a312c22736e617073686f74223a7b22696e6465784964223a2264303231653039372d373732302d343035352d616364632d646633386261333531623531222c2267656e65726174696f6e223a2236222c22736f75726365536e617073686f744964223a22736e61705f37333166373730363665653462643766303834363664353432363538393230633134393163653063643039633662356165386263353364653439626564306534227d2c227265717565737448617368223a2230363962623633633432316466366135613634376538616132303739306663346433346639383931353261616133663866393162336165656662393834326666222c226c617374223a5b322c2d302e343537303833363637313136333337372c22656e745f35633361386335323063643732303364393762336163386238336665316661313533633636326238316233306239326265333862616266663637363939356137222c2261735f35346565643339626366653965633261363432393130653732643734366131346436646466623966393733623336653861656131633563383230616566303038225d7d",
+    "data": {
+      "candidateSetComplete": true,
+      "fields": null,
+      "results": [
+        {
+          "assertions": [
+            {
+              "assertionId": "as_54eed39bcfe9ec2a642910e72d746a14d6ddfb9f973b36e8aea1c5c820aef008",
+              "attributes": {
+                "aggregates": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "dialect": "sqlite",
+                "grainColumnIds": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "joins": [],
+                "nullHandling": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "statement": {
+                  "endByte": 287,
+                  "startByte": 187,
+                  "text": "erp.query(\"SELECT tenant_id, purchase_no, line_no FROM purchase_detail WHERE status = 'APPROVED'\\n\")"
+                },
+                "timeFields": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "units": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                },
+                "validStates": {
+                  "gapIds": [
+                    "gap_4d80c92dbd5be23c5a5fefda35910115c77c8aca88e83ee52ff4c83034bda49e"
+                  ],
+                  "status": "unknown"
+                }
+              },
+              "basis": "observed",
+              "batchId": "bat_945c3e5d65384212562a489c4314653a383153218da596e029c507544a511af1",
+              "evidenceRefs": [
+                "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c",
+                "ev_c93dafcad0cf28f519add9c47ab6ce042e636d595885704fd063d98abaccdfa1"
+              ],
+              "name": "back:database.ts:boundLedger:query:0:0",
+              "origin": "static",
+              "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract"
+            }
+          ],
+          "bm25": -0.4570836671163377,
+          "entityRef": {
+            "entityId": "ent_5c3a8c520cd7203d97b3ac8b83fe1fa153c662b81b30b92be38babff676995a7",
+            "snapshot": {
+              "generation": "6",
+              "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+              "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+            }
+          },
+          "exactRank": 2,
+          "identity": [
+            {
+              "name": "scopeId",
+              "value": "svc.erp"
+            },
+            {
+              "name": "semanticKey",
+              "value": "back:database.ts:boundLedger:query:0:0"
+            }
+          ],
+          "kind": "queryImplementation",
+          "matchReason": "substring",
+          "name": "back:database.ts:boundLedger:query:0:0",
+          "projection": "entity",
+          "scopeId": "svc.erp"
+        }
+      ]
+    },
+    "gaps": [],
+    "nextQueries": [],
+    "protocolVersion": "1.0",
+    "requestId": "mcp-57df7e17fbd3739f95d3f169e7aae4b798d0f44def79e783e6a7cc18c3f5658d",
+    "snapshot": {
+      "generation": "6",
+      "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+      "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+    },
+    "sourceReferences": [
+      {
+        "contentHash": "efa1244ca2a57619224f25a3db4cde555c988890605164426f609c19865f84a3",
+        "endByte": 40,
+        "evidenceId": "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+        },
+        "sourceId": "src_5bc0570c79e06ded56625446cb894cbf05225691151764f7c600e89211024818",
+        "startByte": 13
+      },
+      {
+        "contentHash": "88f2a25b595683ea9015456a8d342b9439c9468838be7d343e2cfa00090bb735",
+        "endByte": 287,
+        "evidenceId": "ev_c93dafcad0cf28f519add9c47ab6ce042e636d595885704fd063d98abaccdfa1",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+        },
+        "sourceId": "src_fbdd4a592aa41b91b2a81c6cdf1058f0df27eb0f4afa23bc692f2a68d539a0c1",
+        "startByte": 187
+      }
+    ],
+    "status": "partial"
+  },
+  "normalization": [
+    "requestId",
+    "checkedAt",
+    "elapsedMs",
+    "responseChars"
+  ]
+}

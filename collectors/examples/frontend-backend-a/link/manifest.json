@@ -1,0 +1,71 @@
+{
+  "protocolVersion": "1.0",
+  "pluginId": "example.a.link",
+  "version": "1.0.0",
+  "capabilities": [
+    "link"
+  ],
+  "runtime": {
+    "kind": "node",
+    "versionRange": ">=24 <25"
+  },
+  "artifacts": [
+    "manifest.json",
+    "collect.mjs",
+    "link-facts.mjs",
+    "identity.mjs",
+    "cases/input.json",
+    "cases/link.json",
+    "cases/truth.json"
+  ],
+  "stages": [
+    {
+      "id": "link",
+      "phase": "link",
+      "entry": "collect.mjs",
+      "replacement": "project",
+      "dependsOn": [
+        "example.a.frontend:extract",
+        "example.a.api:extract",
+        "example.a.database:extract"
+      ],
+      "sourceSelectors": [
+        {
+          "id": "bindings",
+          "repositoryIds": [
+            "front",
+            "back"
+          ],
+          "include": [
+            "**/*.ts",
+            "**/*.tsx",
+            "**/*.js",
+            "**/*.py",
+            "**/*.sql"
+          ]
+        }
+      ],
+      "entitySelectors": [
+        {
+          "id": "targets",
+          "kinds": [
+            "request",
+            "httpEndpoint",
+            "graphqlOperation",
+            "graphqlField",
+            "operation",
+            "queryImplementation",
+            "dataSource",
+            "dataTable",
+            "dataColumn",
+            "dataKey"
+          ],
+          "scopeIds": []
+        }
+      ]
+    }
+  ],
+  "acceptanceCases": [
+    "cases/link.json"
+  ]
+}

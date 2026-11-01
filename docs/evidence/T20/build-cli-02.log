@@ -1,0 +1,6 @@
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-cli` (bin "project-knowledge") generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.51s

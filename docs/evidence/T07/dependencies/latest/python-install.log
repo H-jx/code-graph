@@ -1,0 +1,8 @@
+executable=C:\Users\hubo9\AppData\Roaming\uv\python\cpython-3.12.13-windows-x86_64-none\python.exe args=["-m","venv","D:\\WpSystem\\S-1-5-21-2994935133-1947544876-937300672-1001\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\project-knowledge\\dependencies\\prepare_jeTTes\\venv"] exit=exit code: 0
+
+executable=\\?\D:\WpSystem\S-1-5-21-2994935133-1947544876-937300672-1001\AppData\Local\Packages\OpenAI.Codex_2p2nqsd0c76g0\LocalCache\Local\project-knowledge\dependencies\prepare_jeTTes\venv\Scripts\python.exe args=["-m","pip","install","--require-hashes","--only-binary=:all:","--no-input","--disable-pip-version-check","--index-url=https://pypi.org/simple","-r","D:\\WpSystem\\S-1-5-21-2994935133-1947544876-937300672-1001\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\project-knowledge\\dependencies\\prepare_jeTTes\\requirements.lock"] exit=exit code: 0
+Collecting packaging==25.0 (from -r D:\WpSystem\S-1-5-21-2994935133-1947544876-937300672-1001\AppData\Local\Packages\OpenAI.Codex_2p2nqsd0c76g0\LocalCache\Local\project-knowledge\dependencies\prepare_jeTTes\requirements.lock (line 1))
+  Using cached packaging-25.0-py3-none-any.whl (66 kB)
+Installing collected packages: packaging
+Successfully installed packaging-25.0
+

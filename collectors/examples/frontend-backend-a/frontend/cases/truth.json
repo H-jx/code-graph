@@ -1,0 +1,1005 @@
+{
+  "id": "frontend",
+  "layouts": [
+    {
+      "layout": "a",
+      "projectId": "acceptance.a",
+      "scopeId": "app.web",
+      "routerId": "main",
+      "mode": "hash",
+      "routePath": "/Other/purchaseLedger",
+      "alias": "/purchase",
+      "routeFile": "routes.ts",
+      "pageFile": "pages/Ledger.tsx",
+      "component": "Ledger",
+      "handler": "query",
+      "wrapper": "fetchLedger",
+      "requestFile": "requests.ts",
+      "title": "采购台账 🧾",
+      "titleKey": "purchase.title",
+      "messageFile": "messages.ts",
+      "http": {
+        "method": "GET",
+        "path": "/purchase/ledger",
+        "serviceId": "erp",
+        "baseURL": "/erp"
+      },
+      "graphql": {
+        "type": "query",
+        "name": "PurchaseSummary",
+        "field": "purchaseSummary"
+      },
+      "entrypoints": [
+        "nightly-ledger",
+        "purchase.refresh",
+        "refresh-ledger"
+      ],
+      "registrationFile": "registrations.ts",
+      "workerFile": "workers.ts",
+      "worker": "query",
+      "expectedEntities": [
+        {
+          "key": "route",
+          "kind": "route",
+          "scopeId": "app.web",
+          "identity": {
+            "scopeId": "app.web",
+            "routerId": "main",
+            "mode": "hash",
+            "declaredPath": "/Other/purchaseLedger"
+          },
+          "attributes": {
+            "declaredPath": "/Other/purchaseLedger",
+            "alias": "/purchase"
+          },
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/routes.ts",
+              "startLine": 3,
+              "endLine": 3,
+              "text": "/Other/purchaseLedger"
+            }
+          ]
+        },
+        {
+          "key": "page",
+          "kind": "component",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "pages/Ledger.tsx",
+            "scopeId": "app.web",
+            "lexicalPath": "Ledger"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/pages/Ledger.tsx",
+              "startLine": 3,
+              "endLine": 3,
+              "text": "function Ledger"
+            }
+          ]
+        },
+        {
+          "key": "title",
+          "kind": "title",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "messages.ts",
+            "scopeId": "app.web",
+            "lexicalPath": "purchase.title"
+          },
+          "attributes": {
+            "text": "采购台账 🧾",
+            "i18nKey": "purchase.title"
+          },
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/messages.ts",
+              "startLine": 1,
+              "endLine": 1,
+              "text": "采购台账 🧾"
+            }
+          ]
+        },
+        {
+          "key": "handler",
+          "kind": "operation",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "pages/Ledger.tsx",
+            "scopeId": "app.web",
+            "lexicalPath": "Ledger.query",
+            "normalizedSignature": "()"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/pages/Ledger.tsx",
+              "startLine": 4,
+              "endLine": 4,
+              "text": "function query"
+            }
+          ]
+        },
+        {
+          "key": "event",
+          "kind": "event",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "pages/Ledger.tsx",
+            "scopeId": "app.web",
+            "lexicalPath": "Ledger.onClick.query"
+          },
+          "attributes": {
+            "event": "onClick"
+          },
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/pages/Ledger.tsx",
+              "startLine": 6,
+              "endLine": 6,
+              "text": "onClick={query}"
+            }
+          ]
+        },
+        {
+          "key": "wrapper",
+          "kind": "operation",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "requests.ts",
+            "scopeId": "app.web",
+            "lexicalPath": "fetchLedger",
+            "normalizedSignature": "()"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/requests.ts",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "function fetchLedger"
+            }
+          ]
+        },
+        {
+          "key": "request",
+          "kind": "request",
+          "scopeId": "app.web",
+          "identity": {
+            "scopeId": "app.web",
+            "requestKey": "requests.ts#fetchLedger"
+          },
+          "attributes": {
+            "method": "GET",
+            "path": "/purchase/ledger",
+            "baseURL": "/erp",
+            "serviceId": "erp"
+          },
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/requests.ts",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "http.get('/purchase/ledger')"
+            }
+          ]
+        },
+        {
+          "key": "worker",
+          "kind": "operation",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "workers.ts",
+            "scopeId": "app.web",
+            "lexicalPath": "query",
+            "normalizedSignature": "()"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/workers.ts",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "function query"
+            }
+          ]
+        },
+        {
+          "key": "module",
+          "kind": "module",
+          "scopeId": "app.web",
+          "identity": {
+            "scopeId": "app.web",
+            "semanticKey": "purchase"
+          },
+          "attributes": {
+            "name": "采购模块"
+          },
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/registrations.ts",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "moduleInfo"
+            }
+          ]
+        },
+        {
+          "key": "comment",
+          "kind": "comment",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "pages/Ledger.tsx",
+            "scopeId": "app.web",
+            "lexicalPath": "Ledger.doc"
+          },
+          "attributes": {
+            "text": "采购台账：供应商筛选。"
+          },
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/pages/Ledger.tsx",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "采购台账：供应商筛选"
+            }
+          ]
+        },
+        {
+          "key": "entry:nightly-ledger",
+          "kind": "entrypoint",
+          "scopeId": "app.web",
+          "identity": {
+            "scopeId": "app.web",
+            "semanticKey": "nightly-ledger"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/registrations.ts",
+              "startLine": 3,
+              "endLine": 3,
+              "text": "'nightly-ledger'"
+            }
+          ]
+        },
+        {
+          "key": "entry:purchase.refresh",
+          "kind": "entrypoint",
+          "scopeId": "app.web",
+          "identity": {
+            "scopeId": "app.web",
+            "semanticKey": "purchase.refresh"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/registrations.ts",
+              "startLine": 4,
+              "endLine": 4,
+              "text": "'purchase.refresh'"
+            }
+          ]
+        },
+        {
+          "key": "entry:refresh-ledger",
+          "kind": "entrypoint",
+          "scopeId": "app.web",
+          "identity": {
+            "scopeId": "app.web",
+            "semanticKey": "refresh-ledger"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/registrations.ts",
+              "startLine": 5,
+              "endLine": 5,
+              "text": "'refresh-ledger'"
+            }
+          ]
+        }
+      ],
+      "expectedRelations": [
+        {
+          "kind": "renders",
+          "from": "route",
+          "to": "page",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/routes.ts",
+              "startLine": 3,
+              "endLine": 3,
+              "text": "/Other/purchaseLedger"
+            }
+          ]
+        },
+        {
+          "kind": "describes",
+          "from": "title",
+          "to": "route",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/routes.ts",
+              "startLine": 3,
+              "endLine": 3,
+              "text": "purchase.title"
+            }
+          ]
+        },
+        {
+          "kind": "contains",
+          "from": "page",
+          "to": "handler",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/pages/Ledger.tsx",
+              "startLine": 4,
+              "endLine": 4,
+              "text": "function query"
+            }
+          ]
+        },
+        {
+          "kind": "triggers",
+          "from": "event",
+          "to": "handler",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/pages/Ledger.tsx",
+              "startLine": 6,
+              "endLine": 6,
+              "text": "onClick={query}"
+            }
+          ]
+        },
+        {
+          "kind": "calls",
+          "from": "handler",
+          "to": "wrapper",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/pages/Ledger.tsx",
+              "startLine": 4,
+              "endLine": 4,
+              "text": "return fetchLedger()"
+            }
+          ]
+        },
+        {
+          "kind": "requests",
+          "from": "wrapper",
+          "to": "request",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/requests.ts",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "http.get('/purchase/ledger')"
+            }
+          ]
+        },
+        {
+          "kind": "describes",
+          "from": "comment",
+          "to": "page",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/pages/Ledger.tsx",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "采购台账：供应商筛选"
+            }
+          ]
+        },
+        {
+          "kind": "handles",
+          "from": "entry:nightly-ledger",
+          "to": "worker",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/registrations.ts",
+              "startLine": 3,
+              "endLine": 3,
+              "text": "'nightly-ledger'"
+            }
+          ]
+        },
+        {
+          "kind": "handles",
+          "from": "entry:purchase.refresh",
+          "to": "worker",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/registrations.ts",
+              "startLine": 4,
+              "endLine": 4,
+              "text": "'purchase.refresh'"
+            }
+          ]
+        },
+        {
+          "kind": "handles",
+          "from": "entry:refresh-ledger",
+          "to": "worker",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/registrations.ts",
+              "startLine": 5,
+              "endLine": 5,
+              "text": "'refresh-ledger'"
+            }
+          ]
+        }
+      ],
+      "forbiddenRelations": [
+        {
+          "kind": "renders",
+          "from": "route",
+          "toIdentity": {
+            "repositoryId": "front",
+            "path": "decoy/Ledger.tsx",
+            "scopeId": "app.web",
+            "lexicalPath": "Ledger"
+          },
+          "toKind": "component",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/a/web/routes.ts",
+              "startLine": 3,
+              "endLine": 3,
+              "text": "/Other/purchaseLedger"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "path": "fixtures/page-location/a/web/routes.ts",
+          "startLine": 3,
+          "endLine": 3,
+          "text": "/Other/purchaseLedger"
+        },
+        {
+          "path": "fixtures/page-location/a/web/pages/Ledger.tsx",
+          "startLine": 3,
+          "endLine": 3,
+          "text": "function Ledger"
+        },
+        {
+          "path": "fixtures/page-location/a/web/requests.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "text": "http.get('/purchase/ledger')"
+        },
+        {
+          "path": "fixtures/page-location/a/web/messages.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "text": "采购台账 🧾"
+        }
+      ],
+      "classification": "synthetic-source-reviewed-smoke; not production accuracy"
+    },
+    {
+      "layout": "b",
+      "projectId": "acceptance.b",
+      "scopeId": "app.web",
+      "routerId": "workspace",
+      "mode": "history",
+      "routePath": "/Other/purchaseLedger",
+      "alias": "/purchase",
+      "routeFile": "navigation.js",
+      "pageFile": "views/Board.tsx",
+      "component": "Board",
+      "handler": "search",
+      "wrapper": "loadRows",
+      "requestFile": "network.js",
+      "title": "采购台账 🧾",
+      "titleKey": "purchase.title",
+      "messageFile": "language.js",
+      "http": {
+        "method": "GET",
+        "path": "/purchase/ledger",
+        "serviceId": "erp",
+        "baseURL": "/erp"
+      },
+      "graphql": {
+        "type": "query",
+        "name": "PurchaseSummary",
+        "field": "purchaseSummary"
+      },
+      "entrypoints": [
+        "nightly-ledger",
+        "purchase.refresh",
+        "refresh-ledger"
+      ],
+      "registrationFile": "startup.js",
+      "workerFile": "jobs.js",
+      "worker": "search",
+      "expectedEntities": [
+        {
+          "key": "route",
+          "kind": "route",
+          "scopeId": "app.web",
+          "identity": {
+            "scopeId": "app.web",
+            "routerId": "workspace",
+            "mode": "history",
+            "declaredPath": "/Other/purchaseLedger"
+          },
+          "attributes": {
+            "declaredPath": "/Other/purchaseLedger",
+            "alias": "/purchase"
+          },
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/navigation.js",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "/Other/purchaseLedger"
+            }
+          ]
+        },
+        {
+          "key": "page",
+          "kind": "component",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "views/Board.tsx",
+            "scopeId": "app.web",
+            "lexicalPath": "Board"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/views/Board.tsx",
+              "startLine": 3,
+              "endLine": 3,
+              "text": "function Board"
+            }
+          ]
+        },
+        {
+          "key": "title",
+          "kind": "title",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "language.js",
+            "scopeId": "app.web",
+            "lexicalPath": "purchase.title"
+          },
+          "attributes": {
+            "text": "采购台账 🧾",
+            "i18nKey": "purchase.title"
+          },
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/language.js",
+              "startLine": 1,
+              "endLine": 1,
+              "text": "采购台账 🧾"
+            }
+          ]
+        },
+        {
+          "key": "handler",
+          "kind": "operation",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "views/Board.tsx",
+            "scopeId": "app.web",
+            "lexicalPath": "Board.search",
+            "normalizedSignature": "()"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/views/Board.tsx",
+              "startLine": 4,
+              "endLine": 4,
+              "text": "function search"
+            }
+          ]
+        },
+        {
+          "key": "event",
+          "kind": "event",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "views/Board.tsx",
+            "scopeId": "app.web",
+            "lexicalPath": "Board.onClick.search"
+          },
+          "attributes": {
+            "event": "onClick"
+          },
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/views/Board.tsx",
+              "startLine": 6,
+              "endLine": 6,
+              "text": "onClick={search}"
+            }
+          ]
+        },
+        {
+          "key": "wrapper",
+          "kind": "operation",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "network.js",
+            "scopeId": "app.web",
+            "lexicalPath": "loadRows",
+            "normalizedSignature": "()"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/network.js",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "function loadRows"
+            }
+          ]
+        },
+        {
+          "key": "request",
+          "kind": "request",
+          "scopeId": "app.web",
+          "identity": {
+            "scopeId": "app.web",
+            "requestKey": "network.js#loadRows"
+          },
+          "attributes": {
+            "method": "GET",
+            "path": "/purchase/ledger",
+            "baseURL": "/erp",
+            "serviceId": "erp"
+          },
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/network.js",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "http.get('/purchase/ledger')"
+            }
+          ]
+        },
+        {
+          "key": "worker",
+          "kind": "operation",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "jobs.js",
+            "scopeId": "app.web",
+            "lexicalPath": "search",
+            "normalizedSignature": "()"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/jobs.js",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "function search"
+            }
+          ]
+        },
+        {
+          "key": "module",
+          "kind": "module",
+          "scopeId": "app.web",
+          "identity": {
+            "scopeId": "app.web",
+            "semanticKey": "purchase"
+          },
+          "attributes": {
+            "name": "采购模块"
+          },
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/startup.js",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "moduleInfo"
+            }
+          ]
+        },
+        {
+          "key": "comment",
+          "kind": "comment",
+          "scopeId": "app.web",
+          "identity": {
+            "repositoryId": "front",
+            "path": "views/Board.tsx",
+            "scopeId": "app.web",
+            "lexicalPath": "Board.doc"
+          },
+          "attributes": {
+            "text": "采购台账：供应商筛选。"
+          },
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/views/Board.tsx",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "采购台账：供应商筛选"
+            }
+          ]
+        },
+        {
+          "key": "entry:nightly-ledger",
+          "kind": "entrypoint",
+          "scopeId": "app.web",
+          "identity": {
+            "scopeId": "app.web",
+            "semanticKey": "nightly-ledger"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/startup.js",
+              "startLine": 3,
+              "endLine": 3,
+              "text": "'nightly-ledger'"
+            }
+          ]
+        },
+        {
+          "key": "entry:purchase.refresh",
+          "kind": "entrypoint",
+          "scopeId": "app.web",
+          "identity": {
+            "scopeId": "app.web",
+            "semanticKey": "purchase.refresh"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/startup.js",
+              "startLine": 4,
+              "endLine": 4,
+              "text": "'purchase.refresh'"
+            }
+          ]
+        },
+        {
+          "key": "entry:refresh-ledger",
+          "kind": "entrypoint",
+          "scopeId": "app.web",
+          "identity": {
+            "scopeId": "app.web",
+            "semanticKey": "refresh-ledger"
+          },
+          "attributes": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/startup.js",
+              "startLine": 5,
+              "endLine": 5,
+              "text": "'refresh-ledger'"
+            }
+          ]
+        }
+      ],
+      "expectedRelations": [
+        {
+          "kind": "renders",
+          "from": "route",
+          "to": "page",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/navigation.js",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "/Other/purchaseLedger"
+            }
+          ]
+        },
+        {
+          "kind": "describes",
+          "from": "title",
+          "to": "route",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/navigation.js",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "purchase.title"
+            }
+          ]
+        },
+        {
+          "kind": "contains",
+          "from": "page",
+          "to": "handler",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/views/Board.tsx",
+              "startLine": 4,
+              "endLine": 4,
+              "text": "function search"
+            }
+          ]
+        },
+        {
+          "kind": "triggers",
+          "from": "event",
+          "to": "handler",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/views/Board.tsx",
+              "startLine": 6,
+              "endLine": 6,
+              "text": "onClick={search}"
+            }
+          ]
+        },
+        {
+          "kind": "calls",
+          "from": "handler",
+          "to": "wrapper",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/views/Board.tsx",
+              "startLine": 4,
+              "endLine": 4,
+              "text": "return loadRows()"
+            }
+          ]
+        },
+        {
+          "kind": "requests",
+          "from": "wrapper",
+          "to": "request",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/network.js",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "http.get('/purchase/ledger')"
+            }
+          ]
+        },
+        {
+          "kind": "describes",
+          "from": "comment",
+          "to": "page",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/views/Board.tsx",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "采购台账：供应商筛选"
+            }
+          ]
+        },
+        {
+          "kind": "handles",
+          "from": "entry:nightly-ledger",
+          "to": "worker",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/startup.js",
+              "startLine": 3,
+              "endLine": 3,
+              "text": "'nightly-ledger'"
+            }
+          ]
+        },
+        {
+          "kind": "handles",
+          "from": "entry:purchase.refresh",
+          "to": "worker",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/startup.js",
+              "startLine": 4,
+              "endLine": 4,
+              "text": "'purchase.refresh'"
+            }
+          ]
+        },
+        {
+          "kind": "handles",
+          "from": "entry:refresh-ledger",
+          "to": "worker",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/startup.js",
+              "startLine": 5,
+              "endLine": 5,
+              "text": "'refresh-ledger'"
+            }
+          ]
+        }
+      ],
+      "forbiddenRelations": [
+        {
+          "kind": "renders",
+          "from": "route",
+          "toIdentity": {
+            "repositoryId": "front",
+            "path": "unrelated/Board.tsx",
+            "scopeId": "app.web",
+            "lexicalPath": "Board"
+          },
+          "toKind": "component",
+          "qualifiers": {},
+          "evidence": [
+            {
+              "path": "fixtures/page-location/b/client/ui/navigation.js",
+              "startLine": 2,
+              "endLine": 2,
+              "text": "/Other/purchaseLedger"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "path": "fixtures/page-location/b/client/ui/navigation.js",
+          "startLine": 2,
+          "endLine": 2,
+          "text": "/Other/purchaseLedger"
+        },
+        {
+          "path": "fixtures/page-location/b/client/ui/views/Board.tsx",
+          "startLine": 3,
+          "endLine": 3,
+          "text": "function Board"
+        },
+        {
+          "path": "fixtures/page-location/b/client/ui/network.js",
+          "startLine": 2,
+          "endLine": 2,
+          "text": "http.get('/purchase/ledger')"
+        },
+        {
+          "path": "fixtures/page-location/b/client/ui/language.js",
+          "startLine": 1,
+          "endLine": 1,
+          "text": "采购台账 🧾"
+        }
+      ],
+      "classification": "synthetic-source-reviewed-smoke; not production accuracy"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "link.b",
+  "inputFixture": "cases/input.json",
+  "truthRef": "cases/truth.json",
+  "truthHash": "3bcdf39118aedc61f2ac2187672b58a46b11e025681b5ceefa76c4c6939187fa",
+  "expected": {
+    "relations": [
+      "rel_cbf3618d257f8dc89c780affcb97b708bdacb5b5f44915d6ec7da64820fd6385",
+      "rel_cdbdd4f17a5165a7e7661007c143bcc86af8b7e147094272e11f56c51ea6f2f8"
+    ]
+  }
+}

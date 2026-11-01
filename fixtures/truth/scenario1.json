@@ -1,0 +1,134 @@
+{
+  "id": "scenario1",
+  "origin": "original-source-review",
+  "facts": [
+    {
+      "id": "real-route",
+      "value": "/Other/purchaseLedger",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/frontend/config/routes.ts",
+          "startLine": 637,
+          "endLine": 637,
+          "text": "path: '/Other/purchaseLedger'"
+        }
+      ]
+    },
+    {
+      "id": "real-component",
+      "value": "ResearchPurchaseLedger",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/frontend/config/routes.ts",
+          "startLine": 640,
+          "endLine": 640,
+          "text": "component: '../modules/purchase/production-request/pages/ResearchPurchaseLedger/index'"
+        },
+        {
+          "path": "fixtures/original/synes/frontend/src/modules/purchase/production-request/pages/ResearchPurchaseLedger/index.tsx",
+          "startLine": 22,
+          "endLine": 22,
+          "text": "const ResearchPurchaseLedger:"
+        }
+      ]
+    },
+    {
+      "id": "real-menu-title",
+      "value": "生产采购申请",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/frontend/src/locales/zh-CN/menu.ts",
+          "startLine": 110,
+          "endLine": 110,
+          "text": "'menu.other.purchaseLedger': '生产采购申请'"
+        }
+      ]
+    },
+    {
+      "id": "real-access",
+      "value": "canAccessResearchPurchaseRequestLedger",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/frontend/config/routes.ts",
+          "startLine": 639,
+          "endLine": 639,
+          "text": "access: 'canAccessResearchPurchaseRequestLedger'"
+        }
+      ]
+    },
+    {
+      "id": "real-request-tab",
+      "value": "PurchaseRequestTabContent",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/frontend/src/modules/purchase/production-request/pages/ResearchPurchaseLedger/index.tsx",
+          "startLine": 47,
+          "endLine": 47,
+          "text": "<PurchaseRequestTabContent"
+        }
+      ]
+    },
+    {
+      "id": "real-graphql",
+      "value": "purchaseRequests",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/frontend/src/modules/purchase/production-request/requests/queries/purchase-request.query.ts",
+          "startLine": 24,
+          "endLine": 24,
+          "text": "purchaseRequests(pagination:"
+        },
+        {
+          "path": "fixtures/original/synes/backend/src/modules/purchase-request/interface/graphql/resolvers/purchase-request.resolver.ts",
+          "startLine": 118,
+          "endLine": 118,
+          "text": "async purchaseRequests("
+        }
+      ]
+    },
+    {
+      "id": "real-table",
+      "value": "PurchaseRequest",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/backend/src/modules/purchase-request/infrastructure/entities/purchase-request.orm-entity.ts",
+          "startLine": 24,
+          "endLine": 24,
+          "text": "@Entity({ tableName: 'PurchaseRequest' })"
+        }
+      ]
+    }
+  ],
+  "forbidden": [
+    {
+      "id": "no-other-to-procure",
+      "reason": "same route name does not bind to another route",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/frontend/config/routes.ts",
+          "startLine": 161,
+          "endLine": 161,
+          "text": "path: '/Procure/purchaseLedger'"
+        },
+        {
+          "path": "fixtures/original/synes/frontend/config/routes.ts",
+          "startLine": 637,
+          "endLine": 637,
+          "text": "path: '/Other/purchaseLedger'"
+        }
+      ]
+    },
+    {
+      "id": "no-invented-title",
+      "reason": "the actual menu is not the generic 采购台账 title",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/frontend/src/locales/zh-CN/menu.ts",
+          "startLine": 110,
+          "endLine": 110,
+          "text": "'menu.other.purchaseLedger': '生产采购申请'"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-26T00:09:38.348Z",
+  "origin": "synthetic-smoke",
+  "independentBusinessTruth": false,
+  "node": "v24.14.0",
+  "platform": "win32",
+  "arch": "x64",
+  "commands": [
+    {
+      "label": "01-base",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "index",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\project.json",
+        "--base"
+      ],
+      "exitCode": 0,
+      "outputHash": "c114289a447f0eb83bb38133f594a59cabd0c5b93bff65fdaf3e9e3bca665073"
+    },
+    {
+      "label": "02-validate-only",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "collect",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\project.json",
+        "--manifest",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\plugin\\manifest.json",
+        "--validate-only"
+      ],
+      "exitCode": 0,
+      "outputHash": "4edf206d27a3e23fbf0b4b339c3a04ddfd08fcc000a3ad0b4ec64e43bbb959cc"
+    },
+    {
+      "label": "03-submit",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\project.json",
+        "submit",
+        "--path",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\plugin"
+      ],
+      "exitCode": 0,
+      "outputHash": "c1c37ff4edffd51bc54b12991b2af0e08e7b4d82576262d73dc5efe7007bb315"
+    },
+    {
+      "label": "04-validate",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\project.json",
+        "validate",
+        "--candidate",
+        "candidate_bc0fc442-f1f4-4e48-8fce-3cf95ac65ad2"
+      ],
+      "exitCode": 0,
+      "outputHash": "58ac5b2700074e2a251f73a5e94bf2110368f372cc1f5fde4e2696a96bffafdf"
+    },
+    {
+      "label": "05-activate",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\project.json",
+        "activate",
+        "--candidate",
+        "candidate_bc0fc442-f1f4-4e48-8fce-3cf95ac65ad2"
+      ],
+      "exitCode": 0,
+      "outputHash": "23cd53ac8b35880e82ad0a0dc4005a22020bb24a7cfcae337cce81173a76a514"
+    },
+    {
+      "label": "06-collect",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "collect",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\project.json"
+      ],
+      "exitCode": 0,
+      "outputHash": "6cce835b3ddbad03d72c809c92fc17b796abe15ea632177494dab6c1cf1d9486"
+    },
+    {
+      "label": "07-bad-link",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "collect",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\project.json",
+        "--manifest",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\plugin\\manifest.json",
+        "--validate-only"
+      ],
+      "exitCode": 1,
+      "outputHash": "1e82a8d44e4a78ed4c8b3f5ab8352843316ff04647c16371ddbace9c901dd583"
+    },
+    {
+      "label": "08-rollback",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\project.json",
+        "rollback",
+        "--plugin",
+        "smoke.plugin",
+        "--version",
+        "1.0.0"
+      ],
+      "exitCode": 0,
+      "outputHash": "f265d3919e10bbafa16910967247e1d79392a42c54ba39ae46996129eb173d05"
+    }
+  ],
+  "hashes": {
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\project.json": "66a0faa5c68f2c13fc42b04848dc3636fad50f68c9234180d6c42127c1e4e61a",
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\plugin\\manifest.json": "5ed0d303d69478be746336a83dc0dab66317fe29ce5fc0f240b9025b478aca03",
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\plugin\\collect.mjs": "efe23389d0fc71a4c32edde820dac973ca353ff2171f208b8e185752691d8311",
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-JVdbMD\\repo\\a.ts": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+    "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe": "42f5fa97fa2f84c2a8077838ca612ba2def8a07f16c0aa3e9a03be2f991d26e4"
+  },
+  "assertions": {
+    "validateOnlyDoesNotCommit": true,
+    "activationSwitchesOnce": true,
+    "collectCommits": true,
+    "badLinkFails": true,
+    "rollbackCreatesNewGeneration": true
+  }
+}

@@ -1,6 +1,6 @@
 # 跨层关联（link）
 
-> 骨架文件。运行时注入：extract 提交后的实体快照、服务与数据源边界、实际绑定位置。
+运行时输入：extract 提交后的实体快照、服务与数据源边界、实际绑定位置。
 
 ## 目标
 
@@ -15,7 +15,7 @@
 
 ## 输出要求
 
-- `resolved`：绑定明确，附来源引用与行范围。
-- `candidate`：同名或关键词重合，附缺失依据。
-- `inferred`：由模型判断得出，必须标注并留待人工或脚本核对。
+- `resolution=confirmed`：绑定明确，附原始来源引用与行范围。
+- `resolution=candidate`：同名或关键词重合，附缺失依据。
+- `basis=inferred, origin=ai`：模型判断保持推断，不能把 inferred 写作 resolution。
 - 动态目标无法确定时写入缺口，不建立边。

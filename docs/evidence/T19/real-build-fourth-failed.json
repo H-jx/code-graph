@@ -1,0 +1,292 @@
+{
+  "runId": "agent_a99efd63-0da1-451d-b853-eb2f808088c7",
+  "status": "failed",
+  "phase": "generate",
+  "goal": "Build a SMALL source-driven plugin for routes.json only. Do these steps: code-map {}; export-snapshot include [\"routes.json\"]; read-source by sourceId; import-conventions with notes and sourceIds; read output and case schemas once; write-candidate; validate-plugin. Keep the script under 150 lines. JSON.parse each current source; emit only route entities with scope repo.<repositoryId>, routerId and mode from the JSON, declaredPath from each current route. Use real UTF-8 evidence bytes. No file entities or relations needed. Include ONE meaningful acceptance case requiring the current /orders route ID plus its CollectorInput fixture copied from the export with stageId=extract. Set includeIdentityHelper=true, list identity.mjs in artifacts, import its tested identity functions. files must be a real JSON array of path/content objects, never a JSON-encoded string. Do not copy the identity helper body. Do not hardcode route output facts. Stop after successful validation/activation.",
+  "focus": "routes",
+  "withSkill": false,
+  "configHash": "0a779e3daa96f3f5b25863be40300fc6c43e56f1cd35d29f4217f4a140ed3949",
+  "sourceSnapshotId": "snap_54da82696c2fd74a68e962b77ffbbdc8a65b760f2cff918946d06317b6cf35b2",
+  "activeVersions": [],
+  "modelTurns": 13,
+  "toolCalls": 14,
+  "repairs": 2,
+  "elapsedMs": 228567,
+  "deadlineMs": 1793113756854,
+  "repairPlugin": null,
+  "smoke": false,
+  "revision": 3,
+  "candidateId": null,
+  "candidateHash": null,
+  "validationId": null,
+  "activation": null,
+  "investigation": {
+    "status": "draft",
+    "notes": "## 调查结论：routes 能力（来源快照 snap_54da8269…cf35b2）\n\n### 作用域与仓库\n- `configSubset.projectId = live-project`；唯一仓库 `repo.main`（root `..`），因此路由 scopeId = `repo.repo.main`（status.coverage 中所有能力均使用该 scopeId 形态）。来源：export-snapshot.input.configSubset + status.data.base.coverage。\n\n### 路由注册方式（declared）\n- 项目使用单个根配置文件 `routes.json`（sourceClass=config，路径 `routes.json`，字节长度 124，contentHash `ed7c0838…a3f102`）。code-map 未索引任何文件或符号（files=[]、symbols=[]），说明该约定只由 JSON 配置声明，不存在 AST 路由注册表。\n- 顶层键：`routerId`（值 `\"app\"`）、`mode`（值 `\"history\"`）、`routes`（数组）。三者均为字符串/数组字面量，无动态值、无别名、无文件路由、无菜单或 i18n title 来源参与身份。\n- `routes[]` 每项包含 `path`（以 `/` 开头的绝对声明路径）与 `name`（业务别名，仅用于人类阅读，不参与 route 身份槽位）。当前声明项：`/orders`（name Orders）、`/inventory`（name Inventory）。\n\n### 身份映射\n- 输出实体 kind 只用 `route`，身份槽位按协议顺序：`scopeId`（=`repo.repo.main`）、`routerId`（来自 JSON `routerId`）、`mode`（来自 JSON `mode`）、`declaredPath`（来自每条 `routes[].path`）。不输出 file / symbol 实体，不输出任何关系（无需 link 阶段）。\n- 插件运行时必须对每个 `sourceClass=config` 且 `path` 结尾为 `routes.json` 的当前源做 `JSON.parse`，从解析结果读取 routerId/mode/routes，不得把本次调查看到的 `/orders`、`/inventory`、`app`、`history` 写死为输出事实。\n\n### 证据规则\n- 每条 route 实体的 evidence 必须引用真实 UTF-8 字节区间：`sourceId` = Core 导出的 src_ ID，`contentHash` = 源 contentHash，`startByte`/`endByte` 为该 `routes[]` 元素对象在原始字节串中的起止偏移（用 indexOf/JSON.stringify 定位后校验字节长度，CRLF `\\r\\n` 计入行尾但不属于路由对象），`role=declares`。整文件区间 `[0, byteLength)` 作为 source-level 兜底证据。\n- 若某条 route 的字节定位失败，保留实体但降级 evidence 为整文件区间并在 `gaps` 报告定位缺口，不猜测精确区间。\n\n### 覆盖缺口与非目标\n- 不采集 frontend/api/database/workflow/report 能力（status 显示 not_configured），不做 baseURL/代理/请求封装核对。\n- `routes[].name` 未映射到任何实体（无 title/comment 采集要求）。\n- 未在源码中找到动态 path、嵌套 children 或 lazy 注册；若未来出现需扩展解析，当前按缺口处理。\n",
+    "evidenceRefs": [
+      {
+        "snapshot": {
+          "indexId": "866e331c-0354-4794-b187-546fa50b974d",
+          "generation": "5",
+          "sourceSnapshotId": "snap_54da82696c2fd74a68e962b77ffbbdc8a65b760f2cff918946d06317b6cf35b2"
+        },
+        "evidenceId": "ev_06003cea0a9a8286886917099cfde9684377e6ba9ee921107bf3511ac26717e6",
+        "sourceId": "src_b2dd364bf4438e6e3826e795629e5d8693507bb127b52cde0afbbdf8ca98ffce",
+        "contentHash": "ed7c08383e568fcdcbbe6daae45d60f4cc8c9534d04ba85e3524bcb292a3f102",
+        "startByte": 0,
+        "endByte": 124
+      }
+    ],
+    "identityChangesApplied": false
+  },
+  "readSource": true,
+  "readMap": true,
+  "issues": [
+    {
+      "error": {
+        "code": "CONFIG_INVALID",
+        "message": "plugin manifest is invalid",
+        "retryable": false,
+        "issues": [
+          {
+            "code": "CONFIG_INVALID",
+            "instancePath": "/acceptanceCases",
+            "actual": "routes-orders-history",
+            "repairHint": "系统找不到指定的文件。 (os error 2)"
+          }
+        ]
+      }
+    },
+    {
+      "error": {
+        "code": "CONFIG_INVALID",
+        "message": "plugin manifest is invalid",
+        "retryable": false,
+        "issues": [
+          {
+            "code": "CONFIG_INVALID",
+            "instancePath": "/acceptanceCases",
+            "actual": "cases/routes-orders-history.json",
+            "repairHint": "系统找不到指定的文件。 (os error 2)"
+          }
+        ]
+      }
+    },
+    {
+      "error": {
+        "code": "CONFIG_INVALID",
+        "message": "plugin manifest is invalid",
+        "retryable": false,
+        "issues": [
+          {
+            "code": "CONFIG_INVALID",
+            "instancePath": "/acceptanceCases",
+            "actual": "cases/routes-orders-history.json",
+            "repairHint": "系统找不到指定的文件。 (os error 2)"
+          }
+        ]
+      }
+    },
+    {
+      "error": {
+        "code": "CONFIG_INVALID",
+        "message": "plugin manifest is invalid",
+        "retryable": false,
+        "issues": [
+          {
+            "code": "CONFIG_INVALID",
+            "instancePath": "/acceptanceCases",
+            "actual": "cases/routes-orders-history.json",
+            "repairHint": "系统找不到指定的文件。 (os error 2)"
+          }
+        ]
+      }
+    },
+    {
+      "error": {
+        "code": "BUDGET_EXHAUSTED",
+        "message": "agent repair budget exhausted",
+        "retryable": false,
+        "issues": []
+      }
+    },
+    {
+      "error": {
+        "code": "BUDGET_EXHAUSTED",
+        "message": "agent repair budget exhausted",
+        "retryable": false,
+        "runId": "agent_a99efd63-0da1-451d-b853-eb2f808088c7",
+        "phase": "generate",
+        "issues": []
+      }
+    }
+  ],
+  "events": [
+    {
+      "modelTurn": 1,
+      "responseId": "msg_66642a91-8848-420e-99a9-a2b90a3202ea",
+      "elapsedMs": 7085
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "tool": "status",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "modelTurn": 2,
+      "responseId": "msg_8e706a23-3bab-4c4b-a303-e10eeacd1468",
+      "elapsedMs": 8398
+    },
+    {
+      "tool": "code-map",
+      "ok": true,
+      "turn": 2,
+      "revision": 0
+    },
+    {
+      "modelTurn": 3,
+      "responseId": "msg_4e1e8ced-020c-48f1-bbe3-06c793062cf9",
+      "elapsedMs": 9553
+    },
+    {
+      "tool": "export-snapshot",
+      "ok": true,
+      "turn": 3,
+      "revision": 0
+    },
+    {
+      "modelTurn": 4,
+      "responseId": "msg_5181b8f1-789c-4340-89b6-2bcf6d3b837a",
+      "elapsedMs": 11832
+    },
+    {
+      "tool": "read-source",
+      "ok": true,
+      "turn": 4,
+      "revision": 0
+    },
+    {
+      "modelTurn": 5,
+      "responseId": "msg_361effdf-ebca-4ed7-9150-f606e39cb0f1",
+      "elapsedMs": 28491
+    },
+    {
+      "tool": "import-conventions",
+      "ok": true,
+      "turn": 5,
+      "revision": 0
+    },
+    {
+      "modelTurn": 6,
+      "responseId": "msg_bfbfe7fc-513f-4caf-8c32-2e628ef52d25",
+      "elapsedMs": 29626
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 6,
+      "revision": 0
+    },
+    {
+      "modelTurn": 7,
+      "responseId": "msg_ed49ecf5-f4e2-4cca-a5d3-d28fca71a5ff",
+      "elapsedMs": 31767
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 7,
+      "revision": 0
+    },
+    {
+      "modelTurn": 8,
+      "responseId": "msg_0ccf9d17-4d6d-4866-8b29-c685f0723dd4",
+      "elapsedMs": 89802
+    },
+    {
+      "tool": "write-candidate",
+      "ok": false,
+      "turn": 8,
+      "revision": 1
+    },
+    {
+      "modelTurn": 9,
+      "responseId": "msg_0b652bca-95aa-48bb-b84e-ec79d9895826",
+      "elapsedMs": 131360
+    },
+    {
+      "tool": "write-candidate",
+      "ok": false,
+      "turn": 9,
+      "revision": 2
+    },
+    {
+      "modelTurn": 10,
+      "responseId": "msg_a82a99ce-ad5b-4fdb-9228-b9989b89cd35",
+      "elapsedMs": 133676
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 10,
+      "revision": 2
+    },
+    {
+      "modelTurn": 11,
+      "responseId": "msg_c346ac1c-045b-4ded-b781-82577b75342f",
+      "elapsedMs": 135838
+    },
+    {
+      "tool": "validate-plugin",
+      "ok": false,
+      "turn": 11,
+      "revision": 2
+    },
+    {
+      "modelTurn": 12,
+      "responseId": "msg_0e575e04-266d-4ae1-8af4-5bec940877ca",
+      "elapsedMs": 183678
+    },
+    {
+      "tool": "write-candidate",
+      "ok": false,
+      "turn": 12,
+      "revision": 3
+    },
+    {
+      "modelTurn": 13,
+      "responseId": "msg_afa6cc31-16b8-41ae-92f1-ac76ceea6495",
+      "elapsedMs": 228514
+    },
+    {
+      "tool": "write-candidate",
+      "ok": false,
+      "turn": 13,
+      "revision": 3
+    }
+  ],
+  "provider": "anthropic",
+  "model": "qwen3.8-flash",
+  "promptHash": "c8f928ab762936aba6e2b340ecd04c52bc2669d19ff904d71ecbd940fdfaf8a5",
+  "budget": {
+    "enabled": true,
+    "provider": "anthropic",
+    "model": "qwen3.8-flash",
+    "baseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic",
+    "apiKeyEnv": "PROJECT_KNOWLEDGE_LLM_KEY",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 600,
+    "maxInputChars": 180000,
+    "maxOutputTokens": 8192,
+    "thinking": false
+  }
+}

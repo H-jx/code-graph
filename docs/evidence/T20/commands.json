@@ -1,0 +1,472 @@
+[
+  {
+    "name": "build-native",
+    "group": "build",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run build:native"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 17.579,
+    "log": "build-native-01.log",
+    "logSha256": "983df913426af436ab622e4b068ac4e68c7a2b55f57ee5e023ca40eedd558c39"
+  },
+  {
+    "name": "build-sdk",
+    "group": "build",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run build:sdk"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 1.578,
+    "log": "build-sdk-01.log",
+    "logSha256": "c96cbb252707b84aef93ecac14f2ea4975be91b939453cd981bf0eb174699d8f"
+  },
+  {
+    "name": "build-cli",
+    "group": "build",
+    "command": [
+      "cargo",
+      "build",
+      "-p",
+      "project-knowledge-cli",
+      "--no-default-features",
+      "--locked"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 20.344,
+    "log": "build-cli-01.log",
+    "logSha256": "712a757556299465a1c1dfb087769d853d4aa3d77b77d7541a1ee80fe2e34fa6"
+  },
+  {
+    "name": "sdk-tests",
+    "group": "sdk",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run test:sdk"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 7.766,
+    "log": "sdk-tests-01.log",
+    "logSha256": "f9b05625c0c29904d1cee730c92e69e4a5d2e9efac63a3c4c3d7dd7b0b1acbef"
+  },
+  {
+    "name": "core-tests",
+    "group": "rust",
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "project-knowledge-core",
+      "--tests",
+      "--locked",
+      "-j",
+      "1",
+      "--",
+      "--test-threads=1"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 640.671,
+    "log": "core-tests-01.log",
+    "logSha256": "a87bb515fe6c6a0a4725e3a1ea65c47fb50b7480cd8447a1a7cb9b0a28f1ae41"
+  },
+  {
+    "name": "native-tests",
+    "group": "rust",
+    "command": [
+      "cargo",
+      "test",
+      "-p",
+      "project-knowledge-native",
+      "--lib",
+      "--locked",
+      "-j",
+      "1"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 66.641,
+    "log": "native-tests-01.log",
+    "logSha256": "7f503bc8e3690283352ff2f2eb25669ad95880fc376dea04631b038d6003cc3a"
+  },
+  {
+    "name": "clippy",
+    "group": "static",
+    "command": [
+      "cargo",
+      "clippy",
+      "--workspace",
+      "--all-targets",
+      "--locked",
+      "-j",
+      "1",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 34.641,
+    "log": "clippy-01.log",
+    "logSha256": "8fcae9e4cddaee62a4e4902654b560ae37041a532bbd019b8c1e563eeb876d7a"
+  },
+  {
+    "name": "fmt",
+    "group": "static",
+    "command": [
+      "cargo",
+      "fmt",
+      "--all",
+      "--",
+      "--check"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.547,
+    "log": "fmt-01.log",
+    "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "contracts",
+    "group": "static",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run check:contracts"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 14.719,
+    "log": "contracts-01.log",
+    "logSha256": "1fb402d860988d2bb5bfe16369b877c362a992a20647383dfcf7c62b11e436f0"
+  },
+  {
+    "name": "typecheck",
+    "group": "static",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run typecheck"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 2.922,
+    "log": "typecheck-01.log",
+    "logSha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"
+  },
+  {
+    "name": "core-deps",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/verify-core-dependencies.mjs"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.5,
+    "log": "core-deps-01.log",
+    "logSha256": "d86cb488322612776fab22096a18b89f5f09cb436176051d29f703cb26c6227d"
+  },
+  {
+    "name": "native-deps",
+    "group": "static",
+    "command": [
+      "cargo",
+      "tree",
+      "-p",
+      "project-knowledge-native",
+      "--locked",
+      "--prefix",
+      "none"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.375,
+    "log": "native-deps-01.log",
+    "logSha256": "060b6fef5b22b99025c0d760bb3199de2953c605644ebf73a1c3642071fca4e4"
+  },
+  {
+    "name": "truth",
+    "group": "static",
+    "command": [
+      "D:\\AppData\\Local\\miniconda3\\python.exe",
+      "scripts/verify-truth.py"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.172,
+    "log": "truth-01.log",
+    "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+  },
+  {
+    "name": "plan",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/verify-plan.mjs"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.11,
+    "log": "plan-01.log",
+    "logSha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+  },
+  {
+    "name": "source-audit",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/audit-source.mjs",
+      "--output",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T20\\source-audit.json"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.86,
+    "log": "source-audit-01.log",
+    "logSha256": "c95f0775d669aae44db9dc75e82f9f80b0f1809be9b8118ad5cef0d432485f2f"
+  },
+  {
+    "name": "diff",
+    "group": "static",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.11,
+    "log": "diff-01.log",
+    "logSha256": "5490c0e223860002230e8c7c0067fb925741c246b9b606736456300a64b33262"
+  },
+  {
+    "name": "build-native",
+    "group": "build",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run build:native"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 13.172,
+    "log": "build-native-02.log",
+    "logSha256": "814ee5809d3e056604e4d2a1045df02a84e713ad3d972522f13da66145f100b3"
+  },
+  {
+    "name": "build-sdk",
+    "group": "build",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run build:sdk"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 1.625,
+    "log": "build-sdk-02.log",
+    "logSha256": "c96cbb252707b84aef93ecac14f2ea4975be91b939453cd981bf0eb174699d8f"
+  },
+  {
+    "name": "build-cli",
+    "group": "build",
+    "command": [
+      "cargo",
+      "build",
+      "-p",
+      "project-knowledge-cli",
+      "--no-default-features",
+      "--locked"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.641,
+    "log": "build-cli-02.log",
+    "logSha256": "739903bc7b598f6803bd096322ef2dd518e260b0d2b62fffa67985073be64c8e"
+  },
+  {
+    "name": "sdk-tests",
+    "group": "sdk",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run test:sdk"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 5.015,
+    "log": "sdk-tests-02.log",
+    "logSha256": "edc1d7cc710bbb34633181f3b7d4ff958a4184269f2d22fc3a4848f613af227c"
+  },
+  {
+    "name": "clippy",
+    "group": "static",
+    "command": [
+      "cargo",
+      "clippy",
+      "--workspace",
+      "--all-targets",
+      "--locked",
+      "-j",
+      "1",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 1.188,
+    "log": "clippy-02.log",
+    "logSha256": "722d29ea08e9c02d30dfca303565fa46ef94610bb96adaf4242a9fabe05e9436"
+  },
+  {
+    "name": "fmt",
+    "group": "static",
+    "command": [
+      "cargo",
+      "fmt",
+      "--all",
+      "--",
+      "--check"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.594,
+    "log": "fmt-02.log",
+    "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "contracts",
+    "group": "static",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run check:contracts"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 2.031,
+    "log": "contracts-02.log",
+    "logSha256": "6bad60411db859bdffb582b4ec6bf2850a20596d25ed15ad112c950472fdb857"
+  },
+  {
+    "name": "typecheck",
+    "group": "static",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run typecheck"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 2.593,
+    "log": "typecheck-02.log",
+    "logSha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"
+  },
+  {
+    "name": "core-deps",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/verify-core-dependencies.mjs"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.422,
+    "log": "core-deps-02.log",
+    "logSha256": "d86cb488322612776fab22096a18b89f5f09cb436176051d29f703cb26c6227d"
+  },
+  {
+    "name": "native-deps",
+    "group": "static",
+    "command": [
+      "cargo",
+      "tree",
+      "-p",
+      "project-knowledge-native",
+      "--locked",
+      "--prefix",
+      "none"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.391,
+    "log": "native-deps-02.log",
+    "logSha256": "060b6fef5b22b99025c0d760bb3199de2953c605644ebf73a1c3642071fca4e4"
+  },
+  {
+    "name": "truth",
+    "group": "static",
+    "command": [
+      "D:\\AppData\\Local\\miniconda3\\python.exe",
+      "scripts/verify-truth.py"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.11,
+    "log": "truth-02.log",
+    "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+  },
+  {
+    "name": "plan",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/verify-plan.mjs"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.078,
+    "log": "plan-02.log",
+    "logSha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+  },
+  {
+    "name": "source-audit",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/audit-source.mjs",
+      "--output",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T20\\source-audit.json"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.125,
+    "log": "source-audit-02.log",
+    "logSha256": "c95f0775d669aae44db9dc75e82f9f80b0f1809be9b8118ad5cef0d432485f2f"
+  },
+  {
+    "name": "diff",
+    "group": "static",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "cwd": "E:\\Project\\my-project\\code-graph",
+    "exitCode": 0,
+    "elapsedSeconds": 0.063,
+    "log": "diff-02.log",
+    "logSha256": "5490c0e223860002230e8c7c0067fb925741c246b9b606736456300a64b33262"
+  }
+]

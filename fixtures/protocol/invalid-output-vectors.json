@@ -1,0 +1,117 @@
+[
+  {
+    "id": "missing-required-array",
+    "value": {
+      "protocolVersion": "1.0",
+      "runId": "run",
+      "stageId": "extract",
+      "inputSnapshotId": "input",
+      "entities": [],
+      "relations": [],
+      "evidence": [],
+      "dependencies": [],
+      "coverage": []
+    },
+    "expected": {
+      "code": "SCHEMA_INVALID",
+      "instancePath": "/gaps"
+    }
+  },
+  {
+    "id": "malformed-extension-kind",
+    "value": {
+      "protocolVersion": "1.0",
+      "runId": "run",
+      "stageId": "extract",
+      "inputSnapshotId": "input",
+      "entities": [
+        {
+          "entityId": "ent",
+          "kind": "x..route",
+          "scopeId": "scope",
+          "identity": [],
+          "assertion": {
+            "producerKey": "producer",
+            "basis": "observed",
+            "origin": "static"
+          }
+        }
+      ],
+      "relations": [],
+      "evidence": [],
+      "dependencies": [],
+      "coverage": [],
+      "gaps": []
+    },
+    "expected": {
+      "code": "SCHEMA_INVALID",
+      "instancePath": "/entities/0/kind"
+    }
+  },
+  {
+    "id": "wrong-byte-type",
+    "value": {
+      "protocolVersion": "1.0",
+      "runId": "run",
+      "stageId": "extract",
+      "inputSnapshotId": "input",
+      "entities": [],
+      "relations": [],
+      "evidence": [
+        {
+          "id": "ev",
+          "sourceId": "source",
+          "contentHash": "hash",
+          "startByte": 0,
+          "endByte": "6",
+          "startLine": 1,
+          "endLine": 1,
+          "role": "binding"
+        }
+      ],
+      "dependencies": [],
+      "coverage": [],
+      "gaps": []
+    },
+    "expected": {
+      "code": "SCHEMA_INVALID",
+      "instancePath": "/evidence/0/endByte"
+    }
+  },
+  {
+    "id": "null-identity-value",
+    "value": {
+      "protocolVersion": "1.0",
+      "runId": "run",
+      "stageId": "extract",
+      "inputSnapshotId": "input",
+      "entities": [
+        {
+          "entityId": "ent",
+          "kind": "file",
+          "scopeId": "scope",
+          "identity": [
+            {
+              "name": "catalog",
+              "value": null
+            }
+          ],
+          "assertion": {
+            "producerKey": "producer",
+            "basis": "observed",
+            "origin": "static"
+          }
+        }
+      ],
+      "relations": [],
+      "evidence": [],
+      "dependencies": [],
+      "coverage": [],
+      "gaps": []
+    },
+    "expected": {
+      "code": "SCHEMA_INVALID",
+      "instancePath": "/entities/0/identity/0/value"
+    }
+  }
+]

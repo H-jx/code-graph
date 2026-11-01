@@ -1,0 +1,8 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+   Compiling t00-native-probe v0.0.0 (E:\Project\my-project\code-graph\docs\evidence\T00\probe\native)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\t00_native_probe.dll.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\t00_native_probe.dll.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `t00-native-probe` (lib) generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 22.07s

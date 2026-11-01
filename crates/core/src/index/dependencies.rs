@@ -98,6 +98,7 @@ pub fn dependency_closure(
                 "SELECT b.id, b.replacement_key
                    FROM dependencies d
                    JOIN batches b ON b.id = d.batch_id
+                   JOIN current_batches cb ON cb.batch_id = b.id
                   WHERE d.kind = ?1 AND d.key = ?2
                     AND (?3 = '' OR d.digest <> ?3)",
             )
@@ -139,7 +140,7 @@ pub fn dependency_closure(
         index += 1;
         let mut statement = connection
             .prepare(
-                "SELECT d.batch_id FROM dependencies d
+                "SELECT d.batch_id FROM dependencies d JOIN current_batches cb ON cb.batch_id=d.batch_id
                   WHERE d.kind = 'upstreamBatch' AND d.key = ?1",
             )
             .map_err(|error| {

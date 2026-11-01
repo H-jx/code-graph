@@ -1,0 +1,209 @@
+{
+  "date": "2026-10-28 Asia/Shanghai",
+  "task": "T12",
+  "baselineTruthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "reviewHash": "c59bfa400fe1e49f2713e80374d1d97e9c5aa85e1744484c238578564d4ef6c6",
+  "commands": [
+    {
+      "command": [
+        "node",
+        "scripts/verify-plugins.mjs",
+        "--capabilities",
+        "api,database"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/plugins.log",
+      "logSha256": "28ab614c90b83a24ad7ec4958a7973c226a250a35b3560bc2f2ba97564f264db"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--workspace",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/workspace-tests.log",
+      "logSha256": "1d9b007f5c21c20b0f9d39f1d8acc9170f691249b94b7b7c12aa07571d70e1b1"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/clippy.log",
+      "logSha256": "a00fd614f6015c7886f22f1efc6f8528a13bbf77951adf36a7299a6a76c883b5"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/fmt.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "-p",
+        "xtask",
+        "--locked",
+        "--",
+        "export-contracts",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/contracts.log",
+      "logSha256": "5a2ee233e412348032a75f261a92e034e22e0da3ff6514582fae8b20f769c149"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/generate-types.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/types.log",
+      "logSha256": "ffd79024bf74c3f0e1a4a224e1b3a1783273115da81cc2ac0624af9984867368"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-contract-types.mjs"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/type-boundaries.log",
+      "logSha256": "8da70dbc9bb1ddcfa33365795b959aef29d9f2db35720bd41fda12da62aa4c12"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-truth.py"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/truth.log",
+      "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-plan.mjs",
+        "--plan",
+        "../plan/NEW-PROJECT-LONG-TASK.md"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/plan.log",
+      "logSha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/audit-source.mjs",
+        "--output",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T12\\database\\source-audit.json"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/source-audit.log",
+      "logSha256": "ccaa23e5acb0e8e9810cc0aac74dd17036d8618f3e187b22e6e9c7b961be5d39"
+    }
+  ],
+  "fileHashes": {
+    "collectors/examples/frontend-backend-a/database/cases/database.json": "c867e2b229572cf967b414251693ca1b48e0caa5daef75e015b455f7bbe2e773",
+    "collectors/examples/frontend-backend-a/database/cases/input.json": "ff3d332f1230edcca0ad1bc755a2f0ed9a5c691933ddb31bd2a3faa1fedeceb9",
+    "collectors/examples/frontend-backend-a/database/cases/truth.json": "c59bfa400fe1e49f2713e80374d1d97e9c5aa85e1744484c238578564d4ef6c6",
+    "collectors/examples/frontend-backend-a/database/collect.py": "79b00687537a8eca07f4d15f632961d859fee8a57834bdbb53788bb8336e7c9b",
+    "collectors/examples/frontend-backend-a/database/conventions.json": "126490e751b9b282cd090b35d68c8bf2fbcae607c16b5b85b2d9e999e8dae1f7",
+    "collectors/examples/frontend-backend-a/database/database_ast.py": "4485ab8c75337fd4f0fb3835fb1d8da74c7f7a4bb2fa12b79958475d4f420abe",
+    "collectors/examples/frontend-backend-a/database/deps/requirements.in": "b84fc5591778663e176dd23833693f777ae8c06d044412cddb01dddb7c79683c",
+    "collectors/examples/frontend-backend-a/database/deps/requirements.lock": "6a16754fceda86f7c3d53f8deb805c611d62bbd942617384429c8432428dd6b2",
+    "collectors/examples/frontend-backend-a/database/identity-spec.json": "81c166af9f562d29ed5fed8c0f8cee2f99f92e9d55f002a6b301f97ce3cdb92d",
+    "collectors/examples/frontend-backend-a/database/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-a/database/manifest.json": "c822d0b99a6f17861808f89eca7dac80bdb4a23a09cf41096b273eb4351754dc",
+    "collectors/examples/frontend-backend-a/database/source_ast.py": "3fdef4e2a5d2803a287c3291d26fccd1526bf536fce6be7c66b47ee2c3185549",
+    "collectors/examples/frontend-backend-b/database/cases/database.json": "5d7659527d081aa00bf80985c4b868692c1cfc87701d16716ec8f107787d236e",
+    "collectors/examples/frontend-backend-b/database/cases/input.json": "a8302ef031599e2f510525b67b5c1a55681f306be18b7cacd6fdace444ee68bb",
+    "collectors/examples/frontend-backend-b/database/cases/truth.json": "c59bfa400fe1e49f2713e80374d1d97e9c5aa85e1744484c238578564d4ef6c6",
+    "collectors/examples/frontend-backend-b/database/collect.py": "79b00687537a8eca07f4d15f632961d859fee8a57834bdbb53788bb8336e7c9b",
+    "collectors/examples/frontend-backend-b/database/conventions.json": "126490e751b9b282cd090b35d68c8bf2fbcae607c16b5b85b2d9e999e8dae1f7",
+    "collectors/examples/frontend-backend-b/database/database_ast.py": "4485ab8c75337fd4f0fb3835fb1d8da74c7f7a4bb2fa12b79958475d4f420abe",
+    "collectors/examples/frontend-backend-b/database/deps/requirements.in": "b84fc5591778663e176dd23833693f777ae8c06d044412cddb01dddb7c79683c",
+    "collectors/examples/frontend-backend-b/database/deps/requirements.lock": "6a16754fceda86f7c3d53f8deb805c611d62bbd942617384429c8432428dd6b2",
+    "collectors/examples/frontend-backend-b/database/identity-spec.json": "81c166af9f562d29ed5fed8c0f8cee2f99f92e9d55f002a6b301f97ce3cdb92d",
+    "collectors/examples/frontend-backend-b/database/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-b/database/manifest.json": "051bb52d9b57fd9e46dc2adf85f5925a96d6b8015be6742475aef2a472721799",
+    "collectors/examples/frontend-backend-b/database/source_ast.py": "3fdef4e2a5d2803a287c3291d26fccd1526bf536fce6be7c66b47ee2c3185549",
+    "collectors/templates/python/lib/database_ast.py": "4485ab8c75337fd4f0fb3835fb1d8da74c7f7a4bb2fa12b79958475d4f420abe",
+    "collectors/templates/python/lib/source_ast.py": "3fdef4e2a5d2803a287c3291d26fccd1526bf536fce6be7c66b47ee2c3185549",
+    "crates/core/src/contract/relation.rs": "4cff6fa023105f355655e41126dfd550c4f6b3b086aa065640deb9bceeb40245",
+    "crates/core/tests/business_scenarios.rs": "56d1c85731234c7fe82a091cffb5e09d8afaa55d5cfd8026683f71c4207cbd10",
+    "crates/core/tests/indexing.rs": "bee150ce9b22c46ef64cda3e45042c81d6f2929683f5ee52dbe996a2cedd6ff6",
+    "docs/schema/contract.schema.json": "042f9fbb05baad0a3f3e408ebfef7e9ab94e75d0e1030de659aa3b91804835d3",
+    "docs/schema/protocol.json": "b1248d0dc75cc5cc184bef9a0c424e75251c8e431b22562ef4e0f2aeeb2e8b5e",
+    "fixtures/truth-supplements/T12-database/database.py": "b7e20b959b8a949761830ca1fd3b37f877f7f9d3a25e7879e6590a1654965268",
+    "fixtures/truth-supplements/T12-database/database.ts": "88f2a25b595683ea9015456a8d342b9439c9468838be7d343e2cfa00090bb735",
+    "fixtures/truth-supplements/T12-database/review.json": "c59bfa400fe1e49f2713e80374d1d97e9c5aa85e1744484c238578564d4ef6c6",
+    "packages/sdk/src/generated/contract.ts": "a7d8149789c78fe844958c87b59306f3766cf203734862e93707bcc098e56bef",
+    "scripts/audit-source.mjs": "5f72fcd28c45287b6bcce66dacc5c785675de2a2a623599403ac862904c3bd50",
+    "scripts/package-database-examples.mjs": "7ec0d28f2d567f375f85902d334047736fc12e05e1383cb11b5ec7f868203f92",
+    "scripts/verify-plugins.mjs": "d41b3120876762a8d76c164decfb0c2117be96f6cf9097eeb9628fbf8e2f2115"
+  },
+  "testSummaries": [
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.16s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.09s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.58s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 55.70s",
+    "test result: ok. 36 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 15.49s",
+    "test result: ok. 45 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.11s",
+    "test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 36.78s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+  ],
+  "expectedDdlEntitiesPerLayout": 90,
+  "correctOrderedJoinsPerLayout": 4,
+  "forbiddenCrossDatasourceReads": 0,
+  "productModelRequests": 0,
+  "businessDatabaseConnections": 0,
+  "productionAccuracyClaimed": false,
+  "supportedDialect": "sqlite",
+  "supportedOrm": "explicit lexical/imported connect/model/query/findAll; source is never executed",
+  "limitations": [
+    "Report/workflow business semantics remain T14",
+    "Runtime/dynamic SQL/ORM and undeclared bindings stay gaps",
+    "Windows x64 execution only in this run; other platforms are T23 acceptance"
+  ],
+  "status": "done"
+}

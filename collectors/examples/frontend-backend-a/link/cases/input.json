@@ -1,0 +1,675 @@
+{
+  "protocolVersion": "1.0",
+  "runId": "frozen-link-case",
+  "pluginId": "example.a.link",
+  "version": "1.0.0",
+  "stageId": "link",
+  "snapshot": {
+    "indexId": "frozen-case",
+    "generation": "0",
+    "sourceSnapshotId": "fixture.a"
+  },
+  "inputSnapshotId": "fixture.a",
+  "configSubset": {
+    "schemaVersion": 1,
+    "projectId": "acceptance.a",
+    "repositories": [
+      {
+        "id": "front",
+        "root": "web"
+      },
+      {
+        "id": "back",
+        "root": "api"
+      }
+    ],
+    "selection": {},
+    "scopes": [
+      {
+        "id": "app.web",
+        "repositoryIds": [
+          "front"
+        ],
+        "kind": "application"
+      },
+      {
+        "id": "svc.erp",
+        "repositoryIds": [
+          "back"
+        ],
+        "kind": "service"
+      }
+    ],
+    "services": [
+      {
+        "id": "erp",
+        "scopeId": "svc.erp",
+        "protocol": "http",
+        "baseUrls": [
+          "/erp"
+        ]
+      }
+    ],
+    "dataSources": [
+      {
+        "id": "ds.erp",
+        "scopeId": "svc.erp",
+        "dialect": "sqlite"
+      },
+      {
+        "id": "ds.analytics",
+        "scopeId": "svc.erp",
+        "dialect": "sqlite"
+      }
+    ],
+    "bindings": [
+      {
+        "id": "erp-client",
+        "kind": "clientToService",
+        "scopeId": "app.web",
+        "from": "http",
+        "to": "erp"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "src_b2b7e1752879363ea4d78f417053da689e80cc3fb433c74b7f1c85820ea819ba",
+      "repositoryId": "front",
+      "path": "decoy/Ledger.tsx",
+      "sourceClass": "code",
+      "contentHash": "b839a87d42b1ab7b55d93ddd6dac0c930ca0173b08ef3da1033fe1767a696406",
+      "byteLength": 114,
+      "content": "export function Ledger() { function query() { return 'decoy'; } return <button onClick={query}>查询</button>; }\n"
+    },
+    {
+      "id": "src_ae0dd2dd9b2bcf5373d314bce0637302485e27fd08f124a5023e4085911b4148",
+      "repositoryId": "front",
+      "path": "messages.ts",
+      "sourceClass": "code",
+      "contentHash": "ac7d78379b516265affd8fc3f180067c1d6d08a59c7e42b6784906102471ab62",
+      "byteLength": 67,
+      "content": "export const messages = { 'purchase.title': '采购台账 🧾' };\n"
+    },
+    {
+      "id": "src_ab4723ede98a37fb4fd489fbd1187cab1471478d21b0adb414a30d7c547d173c",
+      "repositoryId": "front",
+      "path": "pages/Ledger.tsx",
+      "sourceClass": "code",
+      "contentHash": "9d8913bf48bc1a324cb35f45c2a176a67dcfa9251e10f28329c44274763be272",
+      "byteLength": 435,
+      "content": "import { fetchLedger, fetchSummary, dynamicRequest } from '../requests';\n/** 采购台账：供应商筛选。 */\nexport function Ledger() {\n  async function query() { return fetchLedger(); }\n  async function summary() { return fetchSummary(); }\n  return <section><button onClick={query}>查询</button><button onClick={summary}>汇总</button><button onClick={dynamicRequest}>动态查询</button></section>;\n}\nexport default Ledger;\n"
+    },
+    {
+      "id": "src_ed9f40cbd09606d84a6a1aa0a47cc11494c5b51cbe735ceed440c34855410d51",
+      "repositoryId": "front",
+      "path": "registrations.ts",
+      "sourceClass": "code",
+      "contentHash": "dab60edb4fea6bb4b0013fe1ae1495d113c5f1fdde646e3f17dbb3a576a6b792",
+      "byteLength": 240,
+      "content": "import { query } from './workers';\nexport const moduleInfo = { key: 'purchase', name: '采购模块' };\nscheduler.register('nightly-ledger', query);\nmessages.subscribe('purchase.refresh', query);\ncommands.register('refresh-ledger', query);\n"
+    },
+    {
+      "id": "src_181522f95a09ddf58640c4b9bcf9965c09703aa6a2b4c6936d6a1d62cca9768c",
+      "repositoryId": "front",
+      "path": "requests.ts",
+      "sourceClass": "code",
+      "contentHash": "62274a3356d2ebf558b5132bf6d8b9ae1e5c3d98aa80f86e7b50ce05fe38fa5b",
+      "byteLength": 306,
+      "content": "import { http } from './transport';\nexport function fetchLedger() { return http.get('/purchase/ledger'); }\nexport function fetchSummary() { return http.graphql(`query PurchaseSummary { purchaseSummary { count } }`); }\nexport function dynamicRequest() { return http.get('/purchase/' + globalThis.target); }\n"
+    },
+    {
+      "id": "src_85d5d8cb0b4ac042c790d4bc83555d0b6558b44a4fa06ab9b228e4ba4a24a360",
+      "repositoryId": "front",
+      "path": "routes.ts",
+      "sourceClass": "code",
+      "contentHash": "2af7c16c198eb43c5116c1df26c1fd077c57e5087541b4c1c27b93433886b613",
+      "byteLength": 215,
+      "content": "import Ledger from './pages/Ledger';\nexport const router = { id: 'main', mode: 'hash' };\nexport const routes = [{ path: '/Other/purchaseLedger', alias: '/purchase', titleKey: 'purchase.title', component: Ledger }];\n"
+    },
+    {
+      "id": "src_4976fdcc8779668e793e4bf9552014fb86e508ce9dde5ff11399f83afb943d75",
+      "repositoryId": "front",
+      "path": "transport.ts",
+      "sourceClass": "code",
+      "contentHash": "8f73aef409c888c7d4fbd80fc0e73b5e00944014cb38d2f7e48d8df0f11c2db4",
+      "byteLength": 73,
+      "content": "export const http = createClient({ baseURL: '/erp', serviceId: 'erp' });\n"
+    },
+    {
+      "id": "src_0776dea7f871d45e8d45b26d456668c8e29172cebcc3f770b19f5425847b2d08",
+      "repositoryId": "front",
+      "path": "workers.ts",
+      "sourceClass": "code",
+      "contentHash": "6db31b413a2e234cf68e7b3d452d73b4877b6f5faef3ed9e4c83f5f023f2feb3",
+      "byteLength": 81,
+      "content": "/** 采购台账缓存更新。 */\nexport function query() { return 'refresh'; }\n"
+    },
+    {
+      "id": "src_5bc0570c79e06ded56625446cb894cbf05225691151764f7c600e89211024818",
+      "repositoryId": "back",
+      "path": "models.ts",
+      "sourceClass": "code",
+      "contentHash": "efa1244ca2a57619224f25a3db4cde555c988890605164426f609c19865f84a3",
+      "byteLength": 297,
+      "content": "export const erp = orm.connect('ds.erp');\nexport const analytics = orm.connect('ds.analytics');\nexport const Purchase = erp.model('purchase_detail', ['tenant_id', 'purchase_no', 'line_no']);\nexport const OtherPurchase = analytics.model('purchase_detail', ['tenant_id', 'purchase_no', 'line_no']);\n"
+    },
+    {
+      "id": "src_052cd96d0a615f5ed1fb6922cb8c5a6a3727c2d959bcf844114b241f58246412",
+      "repositoryId": "back",
+      "path": "register.ts",
+      "sourceClass": "code",
+      "contentHash": "a805ae98b52dba22fb94e6540370854efe2616db885326a25ee972c0dfb82457",
+      "byteLength": 128,
+      "content": "import { ledger } from './service';\nhttp.get('/purchase/ledger', ledger);\ngraphql.register('Query', 'purchaseSummary', ledger);\n"
+    },
+    {
+      "id": "src_55538f634dc513a1e7ed271619b130d57b6b9250118bca2932e7602dc4e6c82f",
+      "repositoryId": "back",
+      "path": "service.ts",
+      "sourceClass": "code",
+      "contentHash": "8a074249eb61987452bad91134f988ed2550de7213b56a106c04984bb7ad5706",
+      "byteLength": 201,
+      "content": "export function ledger() { return erp.query(ledgerSql); }\nexport const ledgerSql = `SELECT * FROM purchase_detail WHERE tenant_id = :tenant`;\nexport const dynamicSql = 'SELECT * FROM ' + runtimeTable;\n"
+    }
+  ],
+  "sourceSets": [
+    {
+      "selectorId": "bindings",
+      "digest": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+      "sourceIds": [
+        "src_b2b7e1752879363ea4d78f417053da689e80cc3fb433c74b7f1c85820ea819ba",
+        "src_ae0dd2dd9b2bcf5373d314bce0637302485e27fd08f124a5023e4085911b4148",
+        "src_ab4723ede98a37fb4fd489fbd1187cab1471478d21b0adb414a30d7c547d173c",
+        "src_ed9f40cbd09606d84a6a1aa0a47cc11494c5b51cbe735ceed440c34855410d51",
+        "src_181522f95a09ddf58640c4b9bcf9965c09703aa6a2b4c6936d6a1d62cca9768c",
+        "src_85d5d8cb0b4ac042c790d4bc83555d0b6558b44a4fa06ab9b228e4ba4a24a360",
+        "src_4976fdcc8779668e793e4bf9552014fb86e508ce9dde5ff11399f83afb943d75",
+        "src_0776dea7f871d45e8d45b26d456668c8e29172cebcc3f770b19f5425847b2d08",
+        "src_5bc0570c79e06ded56625446cb894cbf05225691151764f7c600e89211024818",
+        "src_052cd96d0a615f5ed1fb6922cb8c5a6a3727c2d959bcf844114b241f58246412",
+        "src_55538f634dc513a1e7ed271619b130d57b6b9250118bca2932e7602dc4e6c82f"
+      ],
+      "complete": true
+    }
+  ],
+  "entities": [
+    {
+      "entityId": "ent_bfd0bea6b263cb28a26dba9f6424192b19b2ab116015d2c566e807cab8025aa8",
+      "kind": "operation",
+      "scopeId": "app.web",
+      "identity": [
+        {
+          "name": "repositoryId",
+          "value": "front"
+        },
+        {
+          "name": "path",
+          "value": "requests.ts"
+        },
+        {
+          "name": "scopeId",
+          "value": "app.web"
+        },
+        {
+          "name": "lexicalPath",
+          "value": "fetchLedger"
+        },
+        {
+          "name": "normalizedSignature",
+          "value": "()"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_bfd0bea6b263cb28a26dba9f6424192b19b2ab116015d2c566e807cab8025aa8",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_7b88cd55569f95d71b65b83a71a8d5f448992512eb352ae88c8ea9bb12675f0e"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_c9ef4f6a4b80a63de3e49f1be2f0d9abd7f936bcb18df6b96331bfe990e6ca37",
+      "kind": "operation",
+      "scopeId": "app.web",
+      "identity": [
+        {
+          "name": "repositoryId",
+          "value": "front"
+        },
+        {
+          "name": "path",
+          "value": "requests.ts"
+        },
+        {
+          "name": "scopeId",
+          "value": "app.web"
+        },
+        {
+          "name": "lexicalPath",
+          "value": "fetchSummary"
+        },
+        {
+          "name": "normalizedSignature",
+          "value": "()"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_c9ef4f6a4b80a63de3e49f1be2f0d9abd7f936bcb18df6b96331bfe990e6ca37",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_7b88cd55569f95d71b65b83a71a8d5f448992512eb352ae88c8ea9bb12675f0e"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_3cbc6012d5ab57a7ddabbe49db5bc7704bb581e2aab8bee82a8b9be04189c6e8",
+      "kind": "request",
+      "scopeId": "app.web",
+      "identity": [
+        {
+          "name": "scopeId",
+          "value": "app.web"
+        },
+        {
+          "name": "requestKey",
+          "value": "requests.ts#fetchLedger"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_3cbc6012d5ab57a7ddabbe49db5bc7704bb581e2aab8bee82a8b9be04189c6e8",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "attributes": {
+            "clientName": "http",
+            "serviceId": "erp",
+            "baseURL": "/erp",
+            "bindingComplete": true,
+            "method": "GET",
+            "path": "/purchase/ledger"
+          },
+          "evidenceRefs": [
+            "ev_7b88cd55569f95d71b65b83a71a8d5f448992512eb352ae88c8ea9bb12675f0e"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_b0cb144ec2e5163ad0f0325063c6dbc481a248af65b8b656aa29f8427e67793a",
+      "kind": "request",
+      "scopeId": "app.web",
+      "identity": [
+        {
+          "name": "scopeId",
+          "value": "app.web"
+        },
+        {
+          "name": "requestKey",
+          "value": "requests.ts#fetchSummary"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_b0cb144ec2e5163ad0f0325063c6dbc481a248af65b8b656aa29f8427e67793a",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "attributes": {
+            "clientName": "http",
+            "serviceId": "erp",
+            "baseURL": "/erp",
+            "bindingComplete": true
+          },
+          "evidenceRefs": [
+            "ev_7b88cd55569f95d71b65b83a71a8d5f448992512eb352ae88c8ea9bb12675f0e"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_4b0a0b622f4202ceaaf47c6044d08e666e950c3007b3e159ce4ded3843945b02",
+      "kind": "httpEndpoint",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "serviceId",
+          "value": "erp"
+        },
+        {
+          "name": "method",
+          "value": "GET"
+        },
+        {
+          "name": "registeredPath",
+          "value": "/purchase/ledger"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_4b0a0b622f4202ceaaf47c6044d08e666e950c3007b3e159ce4ded3843945b02",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_7381ae804fdedd67611c36b138c362e851ecc30ea54b08108120af3c112951d2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_3d064ec771de2e391b5a5810dbb87b0675012035f9d8070f60a31e9ecb6f2229",
+      "kind": "graphqlOperation",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "serviceId",
+          "value": "erp"
+        },
+        {
+          "name": "operationType",
+          "value": "query"
+        },
+        {
+          "name": "operationName",
+          "value": "PurchaseSummary"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_3d064ec771de2e391b5a5810dbb87b0675012035f9d8070f60a31e9ecb6f2229",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_7b88cd55569f95d71b65b83a71a8d5f448992512eb352ae88c8ea9bb12675f0e"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_895b0bdff079b374985473324c8009a99631d384228abecf5dec60168ab1fa0e",
+      "kind": "graphqlField",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "serviceId",
+          "value": "erp"
+        },
+        {
+          "name": "schemaType",
+          "value": "Query"
+        },
+        {
+          "name": "fieldName",
+          "value": "purchaseSummary"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_895b0bdff079b374985473324c8009a99631d384228abecf5dec60168ab1fa0e",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_7381ae804fdedd67611c36b138c362e851ecc30ea54b08108120af3c112951d2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_e95d3192add1afbb65469f8afbb70b1e3f6a1923b1abe2ef45b485d79f5c5121",
+      "kind": "operation",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "repositoryId",
+          "value": "back"
+        },
+        {
+          "name": "path",
+          "value": "service.ts"
+        },
+        {
+          "name": "scopeId",
+          "value": "svc.erp"
+        },
+        {
+          "name": "lexicalPath",
+          "value": "ledger"
+        },
+        {
+          "name": "normalizedSignature",
+          "value": "()"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_e95d3192add1afbb65469f8afbb70b1e3f6a1923b1abe2ef45b485d79f5c5121",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_5b357b70b7e0b111b66b6269b76174fcea0a49210612c577b27d73c06b1dacfe"
+          ]
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "relationId": "rel_6f35d33c1c2be72015b913278aaa8a66d5b75e81298eb921ad16f5254614e9dd",
+      "kind": "requests",
+      "fromId": "ent_bfd0bea6b263cb28a26dba9f6424192b19b2ab116015d2c566e807cab8025aa8",
+      "toId": "ent_3cbc6012d5ab57a7ddabbe49db5bc7704bb581e2aab8bee82a8b9be04189c6e8",
+      "qualifiers": {},
+      "assertions": [
+        {
+          "assertionId": "case:rel_6f35d33c1c2be72015b913278aaa8a66d5b75e81298eb921ad16f5254614e9dd",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "resolution": "confirmed",
+          "evidenceRefs": [
+            "ev_7b88cd55569f95d71b65b83a71a8d5f448992512eb352ae88c8ea9bb12675f0e",
+            "ev_e63711a4bde47eae5ac7ba781eacde634c94667b9bc4d7cece8778e5cee382c0"
+          ]
+        }
+      ]
+    },
+    {
+      "relationId": "rel_757bca9d5f7b979d3fc4b8a6e25f90e20cc0477968f954697b6378524686fb5a",
+      "kind": "requests",
+      "fromId": "ent_c9ef4f6a4b80a63de3e49f1be2f0d9abd7f936bcb18df6b96331bfe990e6ca37",
+      "toId": "ent_b0cb144ec2e5163ad0f0325063c6dbc481a248af65b8b656aa29f8427e67793a",
+      "qualifiers": {},
+      "assertions": [
+        {
+          "assertionId": "case:rel_757bca9d5f7b979d3fc4b8a6e25f90e20cc0477968f954697b6378524686fb5a",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "resolution": "confirmed",
+          "evidenceRefs": [
+            "ev_7b88cd55569f95d71b65b83a71a8d5f448992512eb352ae88c8ea9bb12675f0e",
+            "ev_e63711a4bde47eae5ac7ba781eacde634c94667b9bc4d7cece8778e5cee382c0"
+          ]
+        }
+      ]
+    },
+    {
+      "relationId": "rel_05aa495f19dca9366db89426d3f69115714bc40bf7a2bb57c7cf58297b614f71",
+      "kind": "handles",
+      "fromId": "ent_4b0a0b622f4202ceaaf47c6044d08e666e950c3007b3e159ce4ded3843945b02",
+      "toId": "ent_e95d3192add1afbb65469f8afbb70b1e3f6a1923b1abe2ef45b485d79f5c5121",
+      "qualifiers": {},
+      "assertions": [
+        {
+          "assertionId": "case:rel_05aa495f19dca9366db89426d3f69115714bc40bf7a2bb57c7cf58297b614f71",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "resolution": "confirmed",
+          "evidenceRefs": [
+            "ev_7381ae804fdedd67611c36b138c362e851ecc30ea54b08108120af3c112951d2",
+            "ev_5b357b70b7e0b111b66b6269b76174fcea0a49210612c577b27d73c06b1dacfe"
+          ]
+        }
+      ]
+    },
+    {
+      "relationId": "rel_3a2a0ba7da4977ef28ff02a1cfc2446bc7d98c3325fb814c518f288e56778981",
+      "kind": "references",
+      "fromId": "ent_b0cb144ec2e5163ad0f0325063c6dbc481a248af65b8b656aa29f8427e67793a",
+      "toId": "ent_3d064ec771de2e391b5a5810dbb87b0675012035f9d8070f60a31e9ecb6f2229",
+      "qualifiers": {},
+      "assertions": [
+        {
+          "assertionId": "case:rel_3a2a0ba7da4977ef28ff02a1cfc2446bc7d98c3325fb814c518f288e56778981",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "resolution": "confirmed",
+          "evidenceRefs": [
+            "ev_7b88cd55569f95d71b65b83a71a8d5f448992512eb352ae88c8ea9bb12675f0e",
+            "ev_e63711a4bde47eae5ac7ba781eacde634c94667b9bc4d7cece8778e5cee382c0"
+          ]
+        }
+      ]
+    },
+    {
+      "relationId": "rel_e802ad7a646b272cb71ccaceed94ba0f61c5dfe74bafbf68973b0e014187b5a7",
+      "kind": "references",
+      "fromId": "ent_3d064ec771de2e391b5a5810dbb87b0675012035f9d8070f60a31e9ecb6f2229",
+      "toId": "ent_895b0bdff079b374985473324c8009a99631d384228abecf5dec60168ab1fa0e",
+      "qualifiers": {},
+      "assertions": [
+        {
+          "assertionId": "case:rel_e802ad7a646b272cb71ccaceed94ba0f61c5dfe74bafbf68973b0e014187b5a7",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "resolution": "confirmed",
+          "evidenceRefs": [
+            "ev_7b88cd55569f95d71b65b83a71a8d5f448992512eb352ae88c8ea9bb12675f0e"
+          ]
+        }
+      ]
+    },
+    {
+      "relationId": "rel_b84108ed81630a5c2a845d1aeff25d583bcfff6eaa3c1a3794b53270777438dc",
+      "kind": "resolves",
+      "fromId": "ent_895b0bdff079b374985473324c8009a99631d384228abecf5dec60168ab1fa0e",
+      "toId": "ent_e95d3192add1afbb65469f8afbb70b1e3f6a1923b1abe2ef45b485d79f5c5121",
+      "qualifiers": {},
+      "assertions": [
+        {
+          "assertionId": "case:rel_b84108ed81630a5c2a845d1aeff25d583bcfff6eaa3c1a3794b53270777438dc",
+          "producerKey": "source-reviewed.case",
+          "batchId": "case",
+          "basis": "observed",
+          "origin": "static",
+          "resolution": "confirmed",
+          "evidenceRefs": [
+            "ev_7381ae804fdedd67611c36b138c362e851ecc30ea54b08108120af3c112951d2",
+            "ev_5b357b70b7e0b111b66b6269b76174fcea0a49210612c577b27d73c06b1dacfe"
+          ]
+        }
+      ]
+    }
+  ],
+  "candidateSets": [
+    {
+      "selectorId": "targets",
+      "digest": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+      "entityIds": [
+        "ent_bfd0bea6b263cb28a26dba9f6424192b19b2ab116015d2c566e807cab8025aa8",
+        "ent_c9ef4f6a4b80a63de3e49f1be2f0d9abd7f936bcb18df6b96331bfe990e6ca37",
+        "ent_3cbc6012d5ab57a7ddabbe49db5bc7704bb581e2aab8bee82a8b9be04189c6e8",
+        "ent_b0cb144ec2e5163ad0f0325063c6dbc481a248af65b8b656aa29f8427e67793a",
+        "ent_4b0a0b622f4202ceaaf47c6044d08e666e950c3007b3e159ce4ded3843945b02",
+        "ent_3d064ec771de2e391b5a5810dbb87b0675012035f9d8070f60a31e9ecb6f2229",
+        "ent_895b0bdff079b374985473324c8009a99631d384228abecf5dec60168ab1fa0e",
+        "ent_e95d3192add1afbb65469f8afbb70b1e3f6a1923b1abe2ef45b485d79f5c5121"
+      ],
+      "complete": true
+    }
+  ],
+  "allowedExtensions": [],
+  "limits": {
+    "timeoutMs": 60000,
+    "maxInputBytes": 33554432,
+    "maxOutputBytes": 33554432,
+    "maxStderrBytes": 1048576
+  },
+  "evidence": [
+    {
+      "id": "ev_7b88cd55569f95d71b65b83a71a8d5f448992512eb352ae88c8ea9bb12675f0e",
+      "sourceId": "src_181522f95a09ddf58640c4b9bcf9965c09703aa6a2b4c6936d6a1d62cca9768c",
+      "contentHash": "62274a3356d2ebf558b5132bf6d8b9ae1e5c3d98aa80f86e7b50ce05fe38fa5b",
+      "startByte": 0,
+      "endByte": 306,
+      "startLine": 1,
+      "endLine": 4,
+      "role": "binding"
+    },
+    {
+      "id": "ev_e63711a4bde47eae5ac7ba781eacde634c94667b9bc4d7cece8778e5cee382c0",
+      "sourceId": "src_4976fdcc8779668e793e4bf9552014fb86e508ce9dde5ff11399f83afb943d75",
+      "contentHash": "8f73aef409c888c7d4fbd80fc0e73b5e00944014cb38d2f7e48d8df0f11c2db4",
+      "startByte": 0,
+      "endByte": 73,
+      "startLine": 1,
+      "endLine": 1,
+      "role": "binding"
+    },
+    {
+      "id": "ev_7381ae804fdedd67611c36b138c362e851ecc30ea54b08108120af3c112951d2",
+      "sourceId": "src_052cd96d0a615f5ed1fb6922cb8c5a6a3727c2d959bcf844114b241f58246412",
+      "contentHash": "a805ae98b52dba22fb94e6540370854efe2616db885326a25ee972c0dfb82457",
+      "startByte": 0,
+      "endByte": 128,
+      "startLine": 1,
+      "endLine": 3,
+      "role": "binding"
+    },
+    {
+      "id": "ev_5b357b70b7e0b111b66b6269b76174fcea0a49210612c577b27d73c06b1dacfe",
+      "sourceId": "src_55538f634dc513a1e7ed271619b130d57b6b9250118bca2932e7602dc4e6c82f",
+      "contentHash": "8a074249eb61987452bad91134f988ed2550de7213b56a106c04984bb7ad5706",
+      "startByte": 0,
+      "endByte": 201,
+      "startLine": 1,
+      "endLine": 3,
+      "role": "binding"
+    }
+  ]
+}

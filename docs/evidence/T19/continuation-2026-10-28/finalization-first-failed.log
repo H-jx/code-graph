@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\verify.py", line 169, in <module>
+    main()
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\verify.py", line 144, in main
+    snapshots = [p for p in HERE.rglob("*") if p.is_file() and p.suffix in (".json", ".log", ".py", ".md", ".mjs")
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\verify.py", line 144, in <listcomp>
+    snapshots = [p for p in HERE.rglob("*") if p.is_file() and p.suffix in (".json", ".log", ".py", ".md", ".mjs")
+  File "D:\AppData\Local\miniconda3\lib\pathlib.py", line 1047, in rglob
+    for p in selector.select_from(self):
+  File "D:\AppData\Local\miniconda3\lib\pathlib.py", line 493, in _select_from
+    for p in successor_select(starting_point, is_dir, exists, scandir):
+  File "D:\AppData\Local\miniconda3\lib\pathlib.py", line 440, in _select_from
+    with scandir(parent_path) as scandir_it:
+FileNotFoundError: [WinError 3] ϵͳ�Ҳ���ָ����·����: 'E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\external-core-only-final\\project\\.project-knowledge\\.project-knowledge\\collectors\\t19-audited.workflow\\3.0.0\\fd24dd3d586ba2b3671ee1c66397f167a32cb20f455e9d908577a483fb71328f\\fixtures'

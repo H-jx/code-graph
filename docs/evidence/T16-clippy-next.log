@@ -1,0 +1,6 @@
+    Checking project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+    Checking project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+    Checking project-knowledge-native v0.1.0 (E:\Project\my-project\code-graph\bindings\node)
+    Checking xtask v0.1.0 (E:\Project\my-project\code-graph\xtask)
+    Checking project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 15.65s

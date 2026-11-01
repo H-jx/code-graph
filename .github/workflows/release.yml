@@ -1,127 +1,120 @@
-name: Release
-
-# 计划 §6.2 首版平台矩阵（四平台）：Windows x64 MSVC、Linux x64 glibc、macOS x64、macOS arm64。
-# 首版不发布 Windows arm64、Linux arm64/musl、浏览器或 WASM；glibc 下限由实测构建记录写入发布清单。
-# 触发：v* 标签。发布作业需要人工批准的 `release` 环境；未获授权时只产出可审查制品，不公开发布。
+name: Project Knowledge Release
 
 on:
   push:
-    tags: ['v*']
-  workflow_dispatch: {}
+    tags: ["v*"]
+  workflow_dispatch:
 
 permissions:
-  contents: write
-  id-token: write
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  matrix:
-    name: Build ${{ matrix.os_name }}
-    runs-on: ${{ matrix.os }}
+  build:
+    name: Build ${{ matrix.target }}
     strategy:
       fail-fast: false
       matrix:
         include:
-          - os: windows-latest
-            os_name: windows-x64
-            target: x86_64-pc-windows-msvc
-            suffix: win32-x64-msvc
-            ext: zip
-          - os: ubuntu-24.04
-            os_name: linux-x64-gnu
-            target: x86_64-unknown-linux-gnu
-            suffix: linux-x64-gnu
-            ext: tar.gz
-          - os: macos-15-intel
-            os_name: darwin-x64
-            target: x86_64-apple-darwin
-            suffix: darwin-x64
-            ext: tar.gz
-          - os: macos-15
-            os_name: darwin-arm64
-            target: aarch64-apple-darwin
-            suffix: darwin-arm64
-            ext: tar.gz
+          - target: x86_64-pc-windows-msvc
+            runner: windows-2022
+            artifact: project-knowledge-win32-x64-msvc
+          - target: x86_64-unknown-linux-gnu
+            runner: ubuntu-24.04
+            artifact: project-knowledge-linux-x64-gnu
+          - target: x86_64-apple-darwin
+            runner: macos-15-intel
+            artifact: project-knowledge-darwin-x64
+          - target: aarch64-apple-darwin
+            runner: macos-14
+            artifact: project-knowledge-darwin-arm64
+    runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@master
-        with:
-          toolchain: 1.97.1
-          targets: ${{ matrix.target }}
-      - uses: Swatinem/rust-cache@v2
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: '24.14.0'
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
-
-      # native 绑定（dist profile：fat LTO + strip）
-      - name: Build addon
-        working-directory: bindings/node
-        run: pnpm exec napi build --target ${{ matrix.target }} --platform --profile dist --output-dir artifacts --strip
-      - uses: actions/upload-artifact@v4
+      - uses: actions/setup-python@v5
         with:
-          name: native-${{ matrix.suffix }}
-          path: bindings/node/artifacts/project-knowledge-native.${{ matrix.suffix }}.node
-          if-no-files-found: error
-
-      # CLI：默认含 Agent；另附 Core-only 构建说明（计划 §6.3 第 2 步）
-      - name: Build CLI (default features)
-        run: cargo build -p project-knowledge-cli --bin project-knowledge --profile dist --target ${{ matrix.target }}
-      - name: Package CLI
-        shell: bash
+          python-version: '3.12.10'
+      - uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8
+        with:
+          toolchain: 1.97.1
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - name: Verify project
+        if: matrix.target == 'x86_64-pc-windows-msvc'
         run: |
-          set -euo pipefail
-          bin="target/${{ matrix.target }}/dist/project-knowledge"
-          [ -f "${bin}.exe" ] && bin="${bin}.exe"
-          mkdir -p out && cp "$bin" out/
-          sha256sum out/* | sed 's#out/##' > "project-knowledge-${{ matrix.target }}.sha256"
-          cd out
-          if [ "${{ matrix.ext }}" = "zip" ]; then 7z a -tzip "../project-knowledge-${{ matrix.target }}.zip" .
-          else tar czf "../project-knowledge-${{ matrix.target }}.tar.gz" .; fi
+          python scripts/verify-final.py
+          node scripts/verify-acceptance.mjs
+      - name: Build and verify release candidate
+        run: cargo run -p xtask -- package --target ${{ matrix.target }}
+      - name: Verify isolated package installation
+        shell: pwsh
+        if: runner.os == 'Windows'
+        run: |
+          $candidate = Get-ChildItem -LiteralPath target/release-candidate/0.1.0/${{ matrix.target }} -Directory | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+          pnpm run verify:packages -- --artifacts $candidate.FullName
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Verify isolated package installation
+        if: runner.os != 'Windows'
+        run: pnpm run verify:packages -- --artifacts "$(find target/release-candidate/0.1.0/${{ matrix.target }} -mindepth 1 -maxdepth 1 -type d | sort | tail -n 1)"
       - uses: actions/upload-artifact@v4
         with:
-          name: cli-${{ matrix.target }}
-          path: |
-            project-knowledge-${{ matrix.target }}.${{ matrix.ext }}
-            project-knowledge-${{ matrix.target }}.sha256
+          name: ${{ matrix.artifact }}
+          path: target/release-candidate/**/*.tgz
+          if-no-files-found: error
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}-release
+          path: target/release-candidate/**
           if-no-files-found: error
 
   publish:
-    name: Publish (manual approval)
-    if: startsWith(github.ref, 'refs/tags/v')
-    needs: matrix
+    name: Publish npm packages
+    needs: build
     runs-on: ubuntu-24.04
-    environment: release
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '24'
-          cache: pnpm
+          node-version: '24.14.0'
           registry-url: https://registry.npmjs.org
-      - uses: dtolnay/rust-toolchain@master
-        with:
-          toolchain: 1.97.1
-      - run: pnpm install --frozen-lockfile
       - uses: actions/download-artifact@v4
         with:
-          pattern: native-*
-          path: bindings/node/artifacts
+          pattern: project-knowledge-*-release
+          path: candidates
           merge-multiple: true
-      - name: Create platform package dirs
-        working-directory: bindings/node
-        run: pnpm exec napi create-npm-dirs
-      - name: Collect artifacts
-        working-directory: bindings/node
-        run: pnpm exec napi artifacts --artifacts-dir artifacts --npm-dir npm
-      # 计划 §6.3：先平台包 → native root → SDK → MCP；包名与发布权限须已在 T23 核验。
-      - name: Publish
-        working-directory: bindings/node
+      - name: Publish platform and wrapper packages
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: pnpm exec napi pre-publish -t npm
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="${GITHUB_REF_NAME#v}"
+          for package in candidates/*/*.tgz; do
+            npm publish "$package" --access public --ignore-scripts
+          done
+      - uses: actions/download-artifact@v4
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          pattern: project-knowledge-*-release
+          path: release-assets
+          merge-multiple: true
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh release create "$GITHUB_REF_NAME" release-assets/**/project-knowledge-*.tar.gz release-assets/**/release-manifest.json release-assets/**/sbom.json release-assets/**/SHA256SUMS --verify-tag --generate-notes

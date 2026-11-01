@@ -5,6 +5,129 @@ use rusqlite::{Connection, OptionalExtension, params};
 use crate::contract::error::{CoreError, codes};
 use crate::contract::identity::content_hash;
 
+#[derive(Debug, Clone, serde::Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Candidate {
+    pub id: String,
+    pub plugin_id: String,
+    pub version: String,
+    pub artifact_hash: String,
+    pub directory: String,
+    pub state: String,
+    pub validation_id: Option<String>,
+    #[serde(skip_serializing)]
+    pub(crate) staged_json: Option<String>,
+}
+
+pub fn candidate(connection: &Connection, id: &str) -> Result<Candidate, CoreError> {
+    connection.query_row("SELECT id, plugin_id, version, artifact_hash, directory, state, validation_id, staged_json FROM plugin_candidates WHERE id = ?1",
+        [id], |r| Ok(Candidate { id:r.get(0)?,plugin_id:r.get(1)?,version:r.get(2)?,artifact_hash:r.get(3)?,directory:r.get(4)?,
+            state:r.get(5)?,validation_id:r.get(6)?,staged_json:r.get(7)? }))
+        .optional().map_err(super::database_error)?
+        .ok_or_else(|| CoreError::new(codes::REFERENCE_MISSING, "candidate not found"))
+}
+
+pub fn validated_candidate_id(
+    connection: &Connection,
+    plugin: &str,
+    version: &str,
+) -> Result<String, CoreError> {
+    let mut statement = connection.prepare("SELECT id FROM plugin_candidates WHERE plugin_id = ?1 AND version = ?2 AND state IN ('validated','published') ORDER BY id")
+        .map_err(super::database_error)?;
+    let ids = statement
+        .query_map(params![plugin, version], |r| r.get(0))
+        .map_err(super::database_error)?
+        .collect::<Result<Vec<String>, _>>()
+        .map_err(super::database_error)?;
+    if ids.len() != 1 {
+        return Err(CoreError::new(
+            codes::INVALID_REQUEST,
+            "select one validated candidate by --candidate; plugin/version is missing or ambiguous",
+        ));
+    }
+    Ok(ids[0].clone())
+}
+
+pub fn insert_candidate(
+    connection: &Connection,
+    candidate: &Candidate,
+    now: &str,
+) -> Result<(), CoreError> {
+    connection.execute("INSERT INTO plugin_candidates (id,plugin_id,version,artifact_hash,directory,state,created_at) VALUES (?1,?2,?3,?4,?5,?6,?7)",
+        params![candidate.id,candidate.plugin_id,candidate.version,candidate.artifact_hash,candidate.directory,candidate.state,now])
+        .map_err(super::database_error)?;
+    Ok(())
+}
+
+pub fn update_candidate(
+    connection: &Connection,
+    id: &str,
+    state: &str,
+    validation_id: Option<&str>,
+    staged_json: Option<&str>,
+    error: Option<&str>,
+) -> Result<(), CoreError> {
+    connection.execute("UPDATE plugin_candidates SET state = ?2, validation_id = COALESCE(?3, validation_id), staged_json = COALESCE(?4, staged_json), error_json = ?5 WHERE id = ?1",
+        params![id,state,validation_id,staged_json,error]).map_err(super::database_error)?;
+    Ok(())
+}
+
+pub fn published_manifest(
+    connection: &Connection,
+    plugin: &str,
+    version: &str,
+) -> Result<std::path::PathBuf, CoreError> {
+    let path: String = connection
+        .query_row(
+            "SELECT artifact_path FROM plugin_versions WHERE plugin_id = ?1 AND version = ?2",
+            params![plugin, version],
+            |r| r.get(0),
+        )
+        .optional()
+        .map_err(super::database_error)?
+        .ok_or_else(|| {
+            CoreError::new(codes::REFERENCE_MISSING, "plugin version is not published")
+        })?;
+    Ok(std::path::PathBuf::from(path).join("manifest.json"))
+}
+
+/// 只读活动版本的已登记 manifest，不扫描插件目录或运行插件。
+pub fn active_manifests(
+    connection: &Connection,
+) -> Result<Vec<crate::contract::collector::PluginManifest>, CoreError> {
+    let mut statement = connection.prepare("SELECT v.manifest_json FROM active_plugins a JOIN plugin_versions v ON v.plugin_id = a.plugin_id AND v.version = a.version ORDER BY a.plugin_id").map_err(super::database_error)?;
+    let rows = statement
+        .query_map([], |r| r.get::<_, String>(0))
+        .map_err(super::database_error)?;
+    rows.map(|row| {
+        let json = row.map_err(super::database_error)?;
+        serde_json::from_str(&json).map_err(|e| {
+            CoreError::new(
+                codes::SCHEMA_INVALID,
+                format!("stored active manifest: {e}"),
+            )
+        })
+    })
+    .collect()
+}
+
+pub fn recover_candidates(connection: &Connection, now: &str) -> Result<usize, CoreError> {
+    connection
+        .execute(
+            "UPDATE runs SET status = 'interrupted', finished_at = ?1 WHERE status = 'running'",
+            [now],
+        )
+        .map_err(super::database_error)?;
+    connection
+        .execute(
+            "UPDATE activations SET status = 'failed' WHERE status = 'pending'",
+            [],
+        )
+        .map_err(super::database_error)?;
+    connection.execute("UPDATE plugin_candidates SET state = 'failed', error_json = '{\"code\":\"INTERRUPTED\"}' WHERE state = 'prepared'", [])
+        .map_err(super::database_error)
+}
+
 /// 登记插件版本。同版本不同哈希必须拒绝。
 #[allow(clippy::too_many_arguments)]
 pub fn register_plugin_version(

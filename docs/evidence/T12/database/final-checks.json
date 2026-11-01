@@ -1,0 +1,75 @@
+{
+  "commands": [
+    {
+      "command": [
+        "powershell",
+        "-NoProfile",
+        "-Command",
+        "rustc --version; cargo --version; node --version; pnpm --version; & '.project-knowledge/work/t12-database-probe/Scripts/python.exe' --version"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/tools.log",
+      "logSha256": "c594d049abd4685f9e80e2e64f70145b7743d0d7cbadbba7253fbb16ad33e22b"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/package-database-examples.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/artifacts-final.log",
+      "logSha256": "0311d80deb1f894622252871a0cd344a30e14b8811cb03211226076b9229d3ed"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-plan.mjs",
+        "--plan",
+        "../plan/NEW-PROJECT-LONG-TASK.md"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/plan-final.log",
+      "logSha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/audit-source.mjs",
+        "--output",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T12\\database\\source-audit.json"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/source-audit-final.log",
+      "logSha256": "ccaa23e5acb0e8e9810cc0aac74dd17036d8618f3e187b22e6e9c7b961be5d39"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/diff-final.log",
+      "logSha256": "0b3fc84b7e316f9e83ae5e1040572c2e86fcdf3bac40d45100201ea872530062"
+    },
+    {
+      "command": [
+        "pnpm",
+        "run",
+        "typecheck"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/database/typecheck.log",
+      "logSha256": "b10e50a35df65853894ded887fac5532d94012698396d7c9554004cfcaecc13c"
+    }
+  ],
+  "sourceHashesRechecked": 38,
+  "verificationReportHash": "b5815c0208dd232c26a8bd51bc6a76cc2e14c1eef0a78bb6cd782c39ddd12f4b"
+}

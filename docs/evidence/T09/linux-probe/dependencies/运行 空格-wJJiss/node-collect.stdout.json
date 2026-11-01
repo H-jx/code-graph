@@ -1,0 +1,19 @@
+{
+  "cases": [],
+  "committed": true,
+  "expectedGeneration": "3",
+  "generation": "4",
+  "runId": "run_e2fb6b19-2c66-4178-9d03-0930e00715bf",
+  "stagedResultHash": "60fbb9dbc5621c0751ebcd8698c54b6ad7d50649459f67c4aff5a8d8875e97ec",
+  "stages": [
+    {
+      "batchId": "bat_3d0e6084fbd3b851b530d9a8290f0772053ebce9763ab57a731f7b6832dc767d",
+      "dependencies": 4,
+      "entities": 0,
+      "relations": 0,
+      "replacementKey": "(deps.node,extract,dependency-smoke)"
+    }
+  ],
+  "status": "committed",
+  "validateOnly": false
+}

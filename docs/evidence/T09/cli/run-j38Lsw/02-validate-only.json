@@ -1,0 +1,25 @@
+{
+  "status": "validated",
+  "runId": "run_d382dfd4-32c9-4428-93c7-cfea2de2529a",
+  "expectedGeneration": "2",
+  "stagedResultHash": "dc5f7287abf2f1bdb502be71ed7798b369710a535dd39afebf9e5437b99ca659",
+  "cases": [],
+  "stages": [
+    {
+      "replacementKey": "(smoke.plugin,extract,smoke)",
+      "batchId": "bat_9db96c4af56f5be5baa3eeaa99db34981daacfb47dda1054077bd8c1c164e687",
+      "entities": 1,
+      "relations": 0,
+      "dependencies": 7
+    },
+    {
+      "replacementKey": "(smoke.plugin,link,smoke)",
+      "batchId": "bat_d3c7bd78725e2bf852379ab78e3c6baff5e25f59107d97964f754e2176125576",
+      "entities": 0,
+      "relations": 1,
+      "dependencies": 8
+    }
+  ],
+  "validateOnly": true,
+  "committed": false
+}

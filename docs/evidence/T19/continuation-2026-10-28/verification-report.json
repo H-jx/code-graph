@@ -1,0 +1,773 @@
+{
+  "started": "2026-10-28 Asia/Shanghai",
+  "completed": "2026-10-29 Asia/Shanghai",
+  "task": "T19",
+  "passed": true,
+  "platform": "Windows x64",
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "indexing",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "exitCode": 0,
+      "log": "indexing.log",
+      "logSha256": "9d714ceba12138dcf855a089dd3284964206ea532c6b8f5dcaa8bb8800571c92"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "collectors",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "exitCode": 0,
+      "log": "collectors.log",
+      "logSha256": "59a20684120782fa781259c8f556f3fa987943a87e5f16ab1b3a1689f1762b2e"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "lifecycle",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "exitCode": 0,
+      "log": "lifecycle.log",
+      "logSha256": "eb8593dc8e253ed3854c6f7118d1c48e7dc589db9344aecf131558d56df53ddd"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exitCode": 0,
+      "log": "clippy-gate.log",
+      "logSha256": "216063cd9e65470aa89459e7b3b7c446d23c6708ebc965d0273d8e9a101eb106"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "fmt.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "-p",
+        "xtask",
+        "--locked",
+        "--",
+        "export-contracts",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "contracts.log",
+      "logSha256": "b7dca596e0c8dc75a2e5f49c236c978af410a47585ed04deeb7fd15b7b74270a"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/generate-types.mjs",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "types.log",
+      "logSha256": "ffd79024bf74c3f0e1a4a224e1b3a1783273115da81cc2ac0624af9984867368"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-contract-types.mjs"
+      ],
+      "exitCode": 0,
+      "log": "type-boundaries.log",
+      "logSha256": "ad333cbf26840bfb1904ed96b21df370ec69e86830df247dc15bc2799c31e7d5"
+    },
+    {
+      "command": [
+        "powershell",
+        "-NoProfile",
+        "-Command",
+        "pnpm run typecheck"
+      ],
+      "exitCode": 0,
+      "log": "typecheck.log",
+      "logSha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-core-dependencies.mjs"
+      ],
+      "exitCode": 0,
+      "log": "core-dependencies.log",
+      "logSha256": "d86cb488322612776fab22096a18b89f5f09cb436176051d29f703cb26c6227d"
+    },
+    {
+      "command": [
+        "D:\\AppData\\Local\\miniconda3\\python.exe",
+        "scripts/verify-truth.py"
+      ],
+      "exitCode": 0,
+      "log": "truth.log",
+      "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/audit-source.mjs",
+        "--output",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\source-audit.json"
+      ],
+      "exitCode": 0,
+      "log": "source-audit.log",
+      "logSha256": "f883ba6badd7749e255e39f507249e7904302821f56f7d0c7d3f345cdec8787c"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-plan.mjs",
+        "--plan",
+        "../plan/NEW-PROJECT-LONG-TASK.md"
+      ],
+      "exitCode": 0,
+      "log": "plan.log",
+      "logSha256": "71661198a7904771d1f016c66fd0d8d820784b0283cf51d0b9132d6fb48b6f60"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "diff.log",
+      "logSha256": "e3b7c5c014a87e11499a4d691326fd11c2c0ceae443a6190329f9c5499be103f"
+    }
+  ],
+  "sourceHashes": {
+    "crates/agent/src/config.rs": "37980c01b0047521811c120a23d4db83f9f115f6680d0ebdd2a1ed0c0a114685",
+    "crates/agent/src/lib.rs": "d4ea9a7c4983a9ffd0985215c4d5e2410f9eb93fbdeb470c4fb78c0065e00671",
+    "crates/agent/src/prompts.rs": "f6ddde0f1c080d6c27e4e7fdb2cfd15de3b9b76a10e21f67f5104bff30adefc3",
+    "crates/agent/src/runner.rs": "4035f347c0223cf2be94c7ee4186cf7c32e8acb63d6f7216c8dc355d4f03ca54",
+    "crates/agent/src/tools.rs": "138c56dbdb7fc94aca5b4e0cf351c7c1da16b1be28ab06c7b6b95f8bf16e408d",
+    "crates/agent/tests/agent_lifecycle.rs": "0a1065bf34c0b22ff612a9ff72de190fe178d9262cec88d3fc5820e25fe24342",
+    "crates/cli/src/commands/agent.rs": "d1a206b3db11ddae58b5639d033f6f702f9cb0fedf5fc4d7d7ad95a602cec7e3",
+    "crates/core/src/knowledge/context.rs": "5727fd8943a535ec4fbbbf0d9bffdb48098c6d87d3e1173fa8de13041d76d87f",
+    "crates/core/tests/support/knowledge.rs": "92a11b9e3cb48b59ed2ee60413445d30ca304fc45afef89fca83120058e95f92",
+    "prompts/collector.md": "3086dd4e7b087c9f30726d127d23865bd335a687422580647655bfef70a81b49",
+    "prompts/investigate.md": "90f30e94f5355bbf91829c07ae29829a5b2f842575a93f3c901f9df67cba5c7a",
+    "prompts/knowledge.md": "781c16bd881839c041edeea2cd8ff410eb54e45d9f3a3a862a6ce05ffa292a5b",
+    "prompts/link.md": "0853f48ffeeaf1bea00ef77b6bd6ce5b4051861540f47b6b927c054316944601",
+    "prompts/repair.md": "52b07014e1d08653a9766c20823d0e5683b17e85de90162c1b0db6b09a5653dd",
+    "prompts/shared.md": "c6c9095151713a02b852453bc79fa564c2f361e36081d139b2490c96101e199c",
+    "Cargo.toml": "7e1fcb25d6a1b5591f627e9ea47420f6eac17efceee304e20b1d2726303f1d83",
+    "Cargo.lock": "9165dc2d5d8104e092d0fc88aedc92515e19b6175243f0fdb70c92afa2d9d38b"
+  },
+  "targetedTests": 137,
+  "testSummaries": [
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.77s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.00s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.45s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 57 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 14.31s",
+    "test result: ok. 36 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 22.69s",
+    "test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 70.55s"
+  ],
+  "workspaceAttempt": {
+    "status": "timeout",
+    "seconds": 900,
+    "countedAsPassed": false,
+    "logSha256": "572a5f96244bf66286bff42a47caf6df1c1591aba08a0f792fea58c9022f6cb3"
+  },
+  "finalAgentTests": 21,
+  "finalAgentCliLogSha256": "668df9178099f2e947c3f997655becb8305a009a302a350353a429caa89b4843",
+  "liveBusiness": {
+    "status": "complete",
+    "runId": "agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2",
+    "modelTurns": 18,
+    "toolCalls": 21,
+    "cli": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\b70aa4f9c375fbf0eeeb2031c42044556ee55602ea6764c472589b49df1a9e5a\\project-knowledge.exe",
+    "cliSha256": "b70aa4f9c375fbf0eeeb2031c42044556ee55602ea6764c472589b49df1a9e5a",
+    "oracleSha256": "e4cfd1e8c91339782387d417a1ccb2f17824dff4e6f0761b12a588701fe21fb6",
+    "sourceHash": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+    "sourceHashes": {
+      "crates/agent/src/runner.rs": "4035f347c0223cf2be94c7ee4186cf7c32e8acb63d6f7216c8dc355d4f03ca54",
+      "crates/agent/src/tools.rs": "138c56dbdb7fc94aca5b4e0cf351c7c1da16b1be28ab06c7b6b95f8bf16e408d",
+      "crates/agent/src/prompts.rs": "f6ddde0f1c080d6c27e4e7fdb2cfd15de3b9b76a10e21f67f5104bff30adefc3",
+      "crates/cli/src/commands/agent.rs": "d1a206b3db11ddae58b5639d033f6f702f9cb0fedf5fc4d7d7ad95a602cec7e3",
+      "crates/core/src/knowledge/context.rs": "5727fd8943a535ec4fbbbf0d9bffdb48098c6d87d3e1173fa8de13041d76d87f",
+      "prompts/collector.md": "3086dd4e7b087c9f30726d127d23865bd335a687422580647655bfef70a81b49",
+      "prompts/investigate.md": "90f30e94f5355bbf91829c07ae29829a5b2f842575a93f3c901f9df67cba5c7a",
+      "prompts/knowledge.md": "781c16bd881839c041edeea2cd8ff410eb54e45d9f3a3a862a6ce05ffa292a5b",
+      "prompts/link.md": "0853f48ffeeaf1bea00ef77b6bd6ce5b4051861540f47b6b927c054316944601",
+      "prompts/repair.md": "52b07014e1d08653a9766c20823d0e5683b17e85de90162c1b0db6b09a5653dd",
+      "prompts/shared.md": "c6c9095151713a02b852453bc79fa564c2f361e36081d139b2490c96101e199c"
+    }
+  },
+  "attempts": [
+    {
+      "directory": "business-01",
+      "status": "failed",
+      "runId": "agent_59cacec8-54b6-43ce-a647-639dfb4b4704",
+      "modelTurns": 24,
+      "toolCalls": 35,
+      "cli": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\f314f3044d78f208932362d669211732338a4b7b9486700ecea93f97cb0d3707\\project-knowledge.exe",
+      "cliSha256": "f314f3044d78f208932362d669211732338a4b7b9486700ecea93f97cb0d3707",
+      "oracleSha256": "e4cfd1e8c91339782387d417a1ccb2f17824dff4e6f0761b12a588701fe21fb6",
+      "sourceHash": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+      "sourceHashes": {
+        "crates/agent/src/runner.rs": "3f4b9c4d4004aa802b8af06c2efb08671a0e27104d9d15754a57ddd03798c4b1",
+        "crates/agent/src/tools.rs": "290978bbcf8d41e58f2832822d1b04ddfcf4a49cb51b2492ac36f47640c6a84b",
+        "prompts/collector.md": "3086dd4e7b087c9f30726d127d23865bd335a687422580647655bfef70a81b49",
+        "prompts/investigate.md": "90f30e94f5355bbf91829c07ae29829a5b2f842575a93f3c901f9df67cba5c7a",
+        "prompts/knowledge.md": "781c16bd881839c041edeea2cd8ff410eb54e45d9f3a3a862a6ce05ffa292a5b",
+        "prompts/link.md": "0853f48ffeeaf1bea00ef77b6bd6ce5b4051861540f47b6b927c054316944601",
+        "prompts/repair.md": "52b07014e1d08653a9766c20823d0e5683b17e85de90162c1b0db6b09a5653dd",
+        "prompts/shared.md": "c6c9095151713a02b852453bc79fa564c2f361e36081d139b2490c96101e199c"
+      }
+    },
+    {
+      "directory": "business-02",
+      "status": "failed",
+      "runId": "agent_d90e3a63-f128-40c8-9f92-2e174b830221",
+      "modelTurns": 48,
+      "toolCalls": 51,
+      "cli": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\500d3752dda054869b6efbfc4e633fa896f000995e49509d27907874e102b23b\\project-knowledge.exe",
+      "cliSha256": "500d3752dda054869b6efbfc4e633fa896f000995e49509d27907874e102b23b",
+      "oracleSha256": "e4cfd1e8c91339782387d417a1ccb2f17824dff4e6f0761b12a588701fe21fb6",
+      "sourceHash": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+      "sourceHashes": {
+        "crates/agent/src/runner.rs": "22572727b83240b7a1d7da3c93744dbd36c6aa7b69a3cb81519fbee4c234757e",
+        "crates/agent/src/tools.rs": "290978bbcf8d41e58f2832822d1b04ddfcf4a49cb51b2492ac36f47640c6a84b",
+        "prompts/collector.md": "3086dd4e7b087c9f30726d127d23865bd335a687422580647655bfef70a81b49",
+        "prompts/investigate.md": "90f30e94f5355bbf91829c07ae29829a5b2f842575a93f3c901f9df67cba5c7a",
+        "prompts/knowledge.md": "781c16bd881839c041edeea2cd8ff410eb54e45d9f3a3a862a6ce05ffa292a5b",
+        "prompts/link.md": "0853f48ffeeaf1bea00ef77b6bd6ce5b4051861540f47b6b927c054316944601",
+        "prompts/repair.md": "52b07014e1d08653a9766c20823d0e5683b17e85de90162c1b0db6b09a5653dd",
+        "prompts/shared.md": "c6c9095151713a02b852453bc79fa564c2f361e36081d139b2490c96101e199c"
+      }
+    },
+    {
+      "directory": "business-03",
+      "status": "partial",
+      "runId": "agent_a819ef89-65b7-45ff-9b70-277417cb211f",
+      "modelTurns": 64,
+      "toolCalls": 67,
+      "cli": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\0d29b2de49ba245ce76cf58f00ff365b44acfdec1a87d4809325ba8d2cbed5f0\\project-knowledge.exe",
+      "cliSha256": "0d29b2de49ba245ce76cf58f00ff365b44acfdec1a87d4809325ba8d2cbed5f0",
+      "oracleSha256": "e4cfd1e8c91339782387d417a1ccb2f17824dff4e6f0761b12a588701fe21fb6",
+      "sourceHash": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+      "sourceHashes": {
+        "crates/agent/src/runner.rs": "4035f347c0223cf2be94c7ee4186cf7c32e8acb63d6f7216c8dc355d4f03ca54",
+        "crates/agent/src/tools.rs": "dd7542b7ea941d4f3a2a58c5df0a46eb42dab7d5882503f58322b4c3f475650a",
+        "crates/agent/src/prompts.rs": "f6ddde0f1c080d6c27e4e7fdb2cfd15de3b9b76a10e21f67f5104bff30adefc3",
+        "crates/cli/src/commands/agent.rs": "7f784d11f3813de36293ea17b793fc4fe8565229dc73db2a314352e53b00ef02",
+        "prompts/collector.md": "3086dd4e7b087c9f30726d127d23865bd335a687422580647655bfef70a81b49",
+        "prompts/investigate.md": "90f30e94f5355bbf91829c07ae29829a5b2f842575a93f3c901f9df67cba5c7a",
+        "prompts/knowledge.md": "781c16bd881839c041edeea2cd8ff410eb54e45d9f3a3a862a6ce05ffa292a5b",
+        "prompts/link.md": "0853f48ffeeaf1bea00ef77b6bd6ce5b4051861540f47b6b927c054316944601",
+        "prompts/repair.md": "52b07014e1d08653a9766c20823d0e5683b17e85de90162c1b0db6b09a5653dd",
+        "prompts/shared.md": "c6c9095151713a02b852453bc79fa564c2f361e36081d139b2490c96101e199c"
+      }
+    },
+    {
+      "directory": "business-04",
+      "status": "partial",
+      "runId": "agent_acb9ff3e-c355-474d-a1eb-1b4e059374b0",
+      "modelTurns": 64,
+      "toolCalls": 68,
+      "cli": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\12dc232b24eb183c82cb85d55f18038505f108f56b76ff226ce98cdbe42d7ea6\\project-knowledge.exe",
+      "cliSha256": "12dc232b24eb183c82cb85d55f18038505f108f56b76ff226ce98cdbe42d7ea6",
+      "oracleSha256": "e4cfd1e8c91339782387d417a1ccb2f17824dff4e6f0761b12a588701fe21fb6",
+      "sourceHash": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+      "sourceHashes": {
+        "crates/agent/src/runner.rs": "4035f347c0223cf2be94c7ee4186cf7c32e8acb63d6f7216c8dc355d4f03ca54",
+        "crates/agent/src/tools.rs": "dd7542b7ea941d4f3a2a58c5df0a46eb42dab7d5882503f58322b4c3f475650a",
+        "crates/agent/src/prompts.rs": "f6ddde0f1c080d6c27e4e7fdb2cfd15de3b9b76a10e21f67f5104bff30adefc3",
+        "crates/cli/src/commands/agent.rs": "7f784d11f3813de36293ea17b793fc4fe8565229dc73db2a314352e53b00ef02",
+        "prompts/collector.md": "3086dd4e7b087c9f30726d127d23865bd335a687422580647655bfef70a81b49",
+        "prompts/investigate.md": "90f30e94f5355bbf91829c07ae29829a5b2f842575a93f3c901f9df67cba5c7a",
+        "prompts/knowledge.md": "781c16bd881839c041edeea2cd8ff410eb54e45d9f3a3a862a6ce05ffa292a5b",
+        "prompts/link.md": "0853f48ffeeaf1bea00ef77b6bd6ce5b4051861540f47b6b927c054316944601",
+        "prompts/repair.md": "52b07014e1d08653a9766c20823d0e5683b17e85de90162c1b0db6b09a5653dd",
+        "prompts/shared.md": "c6c9095151713a02b852453bc79fa564c2f361e36081d139b2490c96101e199c"
+      }
+    },
+    {
+      "directory": "business-04",
+      "status": "complete",
+      "runId": "agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2",
+      "modelTurns": 18,
+      "toolCalls": 21,
+      "cli": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\b70aa4f9c375fbf0eeeb2031c42044556ee55602ea6764c472589b49df1a9e5a\\project-knowledge.exe",
+      "cliSha256": "b70aa4f9c375fbf0eeeb2031c42044556ee55602ea6764c472589b49df1a9e5a",
+      "oracleSha256": "e4cfd1e8c91339782387d417a1ccb2f17824dff4e6f0761b12a588701fe21fb6",
+      "sourceHash": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+      "sourceHashes": {
+        "crates/agent/src/runner.rs": "4035f347c0223cf2be94c7ee4186cf7c32e8acb63d6f7216c8dc355d4f03ca54",
+        "crates/agent/src/tools.rs": "138c56dbdb7fc94aca5b4e0cf351c7c1da16b1be28ab06c7b6b95f8bf16e408d",
+        "crates/agent/src/prompts.rs": "f6ddde0f1c080d6c27e4e7fdb2cfd15de3b9b76a10e21f67f5104bff30adefc3",
+        "crates/cli/src/commands/agent.rs": "d1a206b3db11ddae58b5639d033f6f702f9cb0fedf5fc4d7d7ad95a602cec7e3",
+        "crates/core/src/knowledge/context.rs": "5727fd8943a535ec4fbbbf0d9bffdb48098c6d87d3e1173fa8de13041d76d87f",
+        "prompts/collector.md": "3086dd4e7b087c9f30726d127d23865bd335a687422580647655bfef70a81b49",
+        "prompts/investigate.md": "90f30e94f5355bbf91829c07ae29829a5b2f842575a93f3c901f9df67cba5c7a",
+        "prompts/knowledge.md": "781c16bd881839c041edeea2cd8ff410eb54e45d9f3a3a862a6ce05ffa292a5b",
+        "prompts/link.md": "0853f48ffeeaf1bea00ef77b6bd6ce5b4051861540f47b6b927c054316944601",
+        "prompts/repair.md": "52b07014e1d08653a9766c20823d0e5683b17e85de90162c1b0db6b09a5653dd",
+        "prompts/shared.md": "c6c9095151713a02b852453bc79fa564c2f361e36081d139b2490c96101e199c"
+      }
+    },
+    {
+      "directory": "business-04",
+      "status": "complete",
+      "runId": "agent_d7bb589f-5b0e-40af-8dc4-0c518f56688c",
+      "modelTurns": 17,
+      "toolCalls": 17,
+      "cli": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\69c9a1e1c36a4a9d9dfdc8e3fccfa7b9f0a25fcf7155f57a359ac3dc3651b37d\\project-knowledge.exe",
+      "cliSha256": "69c9a1e1c36a4a9d9dfdc8e3fccfa7b9f0a25fcf7155f57a359ac3dc3651b37d",
+      "oracleSha256": "e4cfd1e8c91339782387d417a1ccb2f17824dff4e6f0761b12a588701fe21fb6",
+      "sourceHash": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+      "sourceHashes": {
+        "crates/agent/src/runner.rs": "4035f347c0223cf2be94c7ee4186cf7c32e8acb63d6f7216c8dc355d4f03ca54",
+        "crates/agent/src/tools.rs": "d4d417f1268997ab5085e37819ca33fd98c76310af01fb9af45d646ed25d72a0",
+        "crates/agent/src/prompts.rs": "f6ddde0f1c080d6c27e4e7fdb2cfd15de3b9b76a10e21f67f5104bff30adefc3",
+        "crates/cli/src/commands/agent.rs": "d1a206b3db11ddae58b5639d033f6f702f9cb0fedf5fc4d7d7ad95a602cec7e3",
+        "crates/core/src/knowledge/context.rs": "9294cb923e8c6665d679dddb0f8d21874fa46e870c64546dd9553ae46804d0f5",
+        "prompts/collector.md": "3086dd4e7b087c9f30726d127d23865bd335a687422580647655bfef70a81b49",
+        "prompts/investigate.md": "90f30e94f5355bbf91829c07ae29829a5b2f842575a93f3c901f9df67cba5c7a",
+        "prompts/knowledge.md": "781c16bd881839c041edeea2cd8ff410eb54e45d9f3a3a862a6ce05ffa292a5b",
+        "prompts/link.md": "0853f48ffeeaf1bea00ef77b6bd6ce5b4051861540f47b6b927c054316944601",
+        "prompts/repair.md": "52b07014e1d08653a9766c20823d0e5683b17e85de90162c1b0db6b09a5653dd",
+        "prompts/shared.md": "c6c9095151713a02b852453bc79fa564c2f361e36081d139b2490c96101e199c"
+      }
+    }
+  ],
+  "externalModelRequests": 235,
+  "modelCountBasis": "durable model-turn hook counts, including the interrupted request; not a provider billing count",
+  "independentGuardSupport": [
+    {
+      "topicId": "flow-guard",
+      "version": 2,
+      "claim": {
+        "id": "guard",
+        "text": "The finish guard requires netReceived >= orderedQty and allReceiptsValid.",
+        "basis": "observed",
+        "origin": "static",
+        "evidenceRefs": [
+          "ev_8599bf77bb71ea343d0475d6dde8844c2aca13ad14231f82fcc91948ab71a089"
+        ],
+        "gapIds": []
+      },
+      "originalSupport": [
+        {
+          "reference": {
+            "snapshot": {
+              "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+              "generation": "13",
+              "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+            },
+            "evidenceId": "ev_8599bf77bb71ea343d0475d6dde8844c2aca13ad14231f82fcc91948ab71a089",
+            "sourceId": "src_f4be1ceeaabcebaae684900161fc5eefbf24bd70e7f0d77a61cdd1bee2b64fac",
+            "contentHash": "3b8fa55c4a63cb3695bc33037235b7025b7628b40219af452288d021f1fb7af2",
+            "startByte": 0,
+            "endByte": 947
+          },
+          "snippet": "export function submit(order) {\n  audit(order); // calling audit before save is not a business transition\n  if (!(order.orderedQty > 0 && order.supplierId)) throw Error('invalid order');\n  order.state = 'SUBMITTED';\n  save(order);\n}\nexport function approve(order, actor) {\n  if (actor.role !== 'buyer' || !actor.approvalGranted) throw Error('not approved');\n  order.state = 'APPROVED';\n}\nexport function receive(order, receipts) {\n  if (receipts.filter(r => r.status === 'POSTED' && !r.deleted).reduce((n, r) => n + r.qty, 0) > 0) order.state = 'RECEIVING';\n}\nexport function finish(order) {\n  if (order.netReceived >= order.orderedQty && order.allReceiptsValid) order.state = 'COMPLETED';\n}\nexport function withdraw(order, actor) {\n  if (order.state === 'SUBMITTED' && order.applicant === actor.id) order.state = 'DRAFT';\n}\nexport function cancel(order) {\n  if (order.state === 'APPROVED' && order.netReceived === 0) order.state = 'CANCELLED';\n}\n"
+        }
+      ]
+    },
+    {
+      "topicId": "purchase-workflow",
+      "version": 10,
+      "claim": {
+        "id": "guard",
+        "text": "The finish guard requires netReceived >= orderedQty and allReceiptsValid.",
+        "basis": "observed",
+        "origin": "static",
+        "evidenceRefs": [
+          "ev_8599bf77bb71ea343d0475d6dde8844c2aca13ad14231f82fcc91948ab71a089"
+        ],
+        "gapIds": []
+      },
+      "originalSupport": [
+        {
+          "reference": {
+            "snapshot": {
+              "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+              "generation": "13",
+              "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+            },
+            "evidenceId": "ev_8599bf77bb71ea343d0475d6dde8844c2aca13ad14231f82fcc91948ab71a089",
+            "sourceId": "src_f4be1ceeaabcebaae684900161fc5eefbf24bd70e7f0d77a61cdd1bee2b64fac",
+            "contentHash": "3b8fa55c4a63cb3695bc33037235b7025b7628b40219af452288d021f1fb7af2",
+            "startByte": 0,
+            "endByte": 947
+          },
+          "snippet": "export function submit(order) {\n  audit(order); // calling audit before save is not a business transition\n  if (!(order.orderedQty > 0 && order.supplierId)) throw Error('invalid order');\n  order.state = 'SUBMITTED';\n  save(order);\n}\nexport function approve(order, actor) {\n  if (actor.role !== 'buyer' || !actor.approvalGranted) throw Error('not approved');\n  order.state = 'APPROVED';\n}\nexport function receive(order, receipts) {\n  if (receipts.filter(r => r.status === 'POSTED' && !r.deleted).reduce((n, r) => n + r.qty, 0) > 0) order.state = 'RECEIVING';\n}\nexport function finish(order) {\n  if (order.netReceived >= order.orderedQty && order.allReceiptsValid) order.state = 'COMPLETED';\n}\nexport function withdraw(order, actor) {\n  if (order.state === 'SUBMITTED' && order.applicant === actor.id) order.state = 'DRAFT';\n}\nexport function cancel(order) {\n  if (order.state === 'APPROVED' && order.netReceived === 0) order.state = 'CANCELLED';\n}\n"
+        }
+      ]
+    }
+  ],
+  "retainedArtifactFiles": {
+    "cases/case_documented_workflow.json": "42d2c491fed1d6af442e43ca82d09af64715cec48b7f963e432eeda8d4141109",
+    "fixtures/case_documented_workflow.input.json": "0b848364424cdc11db5a5edcfc4854c49fa432cdaf3e8365d84729d850284f14",
+    "identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "src/collect.mjs": "1751bde6871ff6f771b980edfb5e32e9a29f0619b9a69c3c7c3b5c0ee61d9d97"
+  },
+  "externalCoreOnly": {
+    "cli": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\1551664debd7849c4493c251ad0613a2fc469dab2439c183465d7e2709492254\\project-knowledge.exe",
+    "cliSha256": "1551664debd7849c4493c251ad0613a2fc469dab2439c183465d7e2709492254",
+    "passed": true
+  },
+  "processRecovery": {
+    "cli": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\b70aa4f9c375fbf0eeeb2031c42044556ee55602ea6764c472589b49df1a9e5a\\project-knowledge.exe",
+    "cliSha256": "b70aa4f9c375fbf0eeeb2031c42044556ee55602ea6764c472589b49df1a9e5a",
+    "passed": true
+  },
+  "defaultCli": {
+    "path": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+    "sha256": "0e1f93b8c2e6883e8d5b82e759fa006e721fdbbc4a1c009635005a62000aa4c2",
+    "agentFeatureEnabled": true
+  },
+  "snapshotHashes": {
+    "active-repair-retained-files.json": "52b9f0bc4ee75f99b29fe18deb77e3da7914acd708e7dcb8db86a2506a2bed88",
+    "active-repair-retained.log": "099a73b4fe2e6f4a14fade556c40b56e259f4b20e1bf009932d5fe3eda1be0eb",
+    "agent-cli-final.log": "668df9178099f2e947c3f997655becb8305a009a302a350353a429caa89b4843",
+    "agent-final.log": "4e522ce65147985b26463231ebaa0102e6cdbc80d08f8726ede023de19894753",
+    "agent-tools-final.log": "dfc71da5e601f8525a61dce2341a702066f508a4900892d8f5d7a7396a41dc9a",
+    "agent-tools-inventory.json": "68d54930b544a58c4dfe3c12274206bbaa219b69259492990ab59e359cac729e",
+    "atomic-export.json": "09e006eedcb308887220c06a77f02a535f15166fcdced5fc71f0b13c51b88281",
+    "check-report.json": "742b054cd61e71e917fcced8cc1ff8a86552e107f22d6a1f02b9540ad81ca827",
+    "clippy-final.log": "7f7e160816937d3e4a314280a01961426b45b58e747564b61eac0a0a2693277f",
+    "clippy-gate.log": "216063cd9e65470aa89459e7b3b7c446d23c6708ebc965d0273d8e9a101eb106",
+    "clippy.log": "1616830d1b99fdef80eaec3b08904ffdd57bb68801dbf94a36aa8c538afbcb1b",
+    "collectors.log": "59a20684120782fa781259c8f556f3fa987943a87e5f16ab1b3a1689f1762b2e",
+    "completion-source-race.json": "9ff18fc05f5a361b62cbb98186ae25d452886c10b3a4e8b13bd4630c08a77b76",
+    "context-fact-roots.json": "fa94c525c54f4224fc9a07e087d2d920b258be6269d02170595670f8940cec8d",
+    "context.json": "12f21f83076544a5d41b6e2ae25629375bf6691d2dca91fc873192cba1ce660f",
+    "contracts.log": "b7dca596e0c8dc75a2e5f49c236c978af410a47585ed04deeb7fd15b7b74270a",
+    "conventions.json": "cd1ed0a55dacebc49af1dd6f12054e675aaf91599e0893b6dd56bb8faa00fa66",
+    "core-dependencies.log": "d86cb488322612776fab22096a18b89f5f09cb436176051d29f703cb26c6227d",
+    "default-cli-build.log": "8ee125b83b145e2d6cce3266468a738d9431e0765852d1916db563685fe14ab8",
+    "diff.log": "e3b7c5c014a87e11499a4d691326fd11c2c0ceae443a6190329f9c5499be103f",
+    "external-core-only-final.log": "d7e88ef31b3d2f5ad1b4d1c70960865e304bf5b9fd98f72b12b97e654fd6a293",
+    "external-core-only.log": "d7e88ef31b3d2f5ad1b4d1c70960865e304bf5b9fd98f72b12b97e654fd6a293",
+    "external_candidate.py": "87d4f04081f53b2ca3235f0ee726bcb1e6445600b87e549ce7af58bc198c76fe",
+    "finalization-first-failed.log": "038651d0b3824d2e6c65937dd26b5c021e61897a191859185efccfb2bb1d1e1d",
+    "fmt.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fresh-status.json": "ab66f86cc8d8b4b1741b7fb5692589517ae01845a4db1bed3364c55ebe23fbe9",
+    "freshness-timeline.json": "544a5b0855e8b0a6a9e99fd06abda497f4605a0f05aaa863018ffaa75a207e8d",
+    "identity-import.json": "0f1b829f398f6b4cf5d7348855dbc28e592c28cfa20f46920c7463b70bd7b1da",
+    "independent-guard-support.json": "94d50dc13933791fea0e3af59b86efefcaa6a8934c91e1a76554681cfd9f25bc",
+    "indexing-context-final.log": "8b4da978ce5a2a896e18a67e0282d872a3753c9256004d0d8d145d90479a8365",
+    "indexing.log": "9d714ceba12138dcf855a089dd3284964206ea532c6b8f5dcaa8bb8800571c92",
+    "knowledge-budget.json": "75cfcdd8655da45f5c0fe9913a5490a0cbe54960a8208cad30897fce0905355e",
+    "knowledge-invalid.json": "88d205c10c062dc97a25949ae07c4a561e6917214f8def65b0c06239ebdc8dd1",
+    "knowledge-map-final.log": "813d06e14bdf2df1e2509b063f72a88153a7f4370095b91657a946580b726d14",
+    "knowledge-map-roots.log": "efd4597fbd7e4a7cdb0fabae30aa8797af5d6970dd69063dceabd521655d42bb",
+    "knowledge-roundtrip.json": "7f2cc9b820587869eb602b46c4314fb0e9a440b00e09b21f1b845734b4af3e26",
+    "lifecycle.log": "eb8593dc8e253ed3854c6f7118d1c48e7dc589db9344aecf131558d56df53ddd",
+    "live-business-02.log": "904565299bbbe007fdb64dd1998c8f7ba590671ec3709437071f4e67ef395b3a",
+    "live-business-03.log": "bb9a7d456bba3337388ba7f945524e8c5b8faf50692ecfe51bd86b9dab3d2f21",
+    "live-business-04.log": "d577eb9bd1a48ca188ea188d2b43f883a9e5864f7b4fe153a4d13ed4f05fb04e",
+    "live-business.log": "35826f6cbbfd5baf1946c9611494db9b96d0ea3ea37953cde10d415c694e665e",
+    "live-citation-repair.log": "c651c4c927cb4c828f9cc285010aae03efb1984ef18db41455abed670faa771d",
+    "live-repair-04.log": "5996101861b460792a9511eb0e31521b43e97216d76ca68f2504c154fa4c43b3",
+    "live-resume-03.log": "cc835e9a077c168dfe3dbbf77ff64eb4caa2cb529c338a8278dcb49a24720951",
+    "live_business.py": "7360374cca54f6a97587665ca72890c9ad72c7bd1222940d0be92cd45a4564b8",
+    "manifest.json": "cd2fd8e44088437ba450d5c054561a6f2dbcb73f737baf79c00363e6e2122b84",
+    "plan.log": "71661198a7904771d1f016c66fd0d8d820784b0283cf51d0b9132d6fb48b6f60",
+    "plugin-dependencies.json": "318d7b4610cbe28d036db27abce03641626c6995b7640a02128dae1ee2840c75",
+    "README.md": "20689b6c4121b797b29440687402782488c3d83199455ce7f25d2de57a35ecf8",
+    "rejections.json": "915c30726148fe9c6c34829048e3993c4ed72f75ae36da45d74045534bdc678c",
+    "resume-cli-build.log": "538896f21f4ef26db68c0c227b7b33e0e221984abe43a50005dd7b0ba944a7f7",
+    "resume-committed-activation.json": "a1a96e5606a04e4ed8b606512fb9495cd861952e2a47d61f30e5744023afa8bd",
+    "resume-knowledge-5-false-0.json": "34604aff1bc5d31e1b8e32e7b727fbec3adf94be32e5a423e7f5ed02cc67bd11",
+    "resume-knowledge-5-false-2.json": "f35669b653aa5d01a3b8371d1601ab48a59262400a9acfcd9fa91c0aa9d6cd33",
+    "resume-knowledge-5-false.json": "9dd92e87ff25bfcc65bf54dafc1da85bb648f6cbd0b50a67e646a3d9c6de3502",
+    "resume-knowledge-6-false-2.json": "314c0fa5d76dc236ff22c87914185538cece229dd053a9c518f8bc98e128c2a0",
+    "resume-knowledge-6-false.json": "6890bfdc42567e184d83e35687aaab62f640ed2fd6458856417fd42340f3eeaa",
+    "resume-knowledge-6-true-2.json": "7fd2b8a86aa02bd974e4a84c47910b781e5c996d8ce7e05c97c4419733f95a45",
+    "resume-knowledge-6-true.json": "8ae6057dec10ab0b4feebf582e302018eef3d7bd30ad74c30a891f6c96bb92b6",
+    "retained-artifact-files.json": "10716d955c271b61bf9679d309009d83d7e04bbfa4a2069057e46d74e5d8da4e",
+    "source-audit.log": "f883ba6badd7749e255e39f507249e7904302821f56f7d0c7d3f345cdec8787c",
+    "subprocess-recovery-02.log": "2bea202293543f4f07af2b6e941c321635f639fb3b35e338016c7ab35df3f65a",
+    "subprocess-recovery-03.log": "7d29ef344285cfc69a65a70a0666730a9a79760a3304cf08f8e44432392adad6",
+    "subprocess-recovery-final.log": "7d29ef344285cfc69a65a70a0666730a9a79760a3304cf08f8e44432392adad6",
+    "subprocess-recovery.log": "e94f04de32ed8b29109535af3e3408c44d8ab63ec6136d639fdfa648afa70dc0",
+    "subprocess_recovery.py": "fe0b7ad10c87ea495fe5b6ab41948584fe32e80437e29eb583c7806cbab7657a",
+    "tool-definitions.json": "e738b473a9fb1b332d6025b4a6d1c378d906a6864ec6a1081a42bde80e4d190d",
+    "topic.json": "36e4a07513c16ad9a409546f9aeb058bc858bbe9da86478ae2158270161cc09c",
+    "transition-qualifiers-schema.json": "83b9d6420eb3265e492089b4e32d356e5c7299c8994fe768a8115e24300d02b3",
+    "truth.log": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36",
+    "type-boundaries.log": "ad333cbf26840bfb1904ed96b21df370ec69e86830df247dc15bc2799c31e7d5",
+    "typecheck.log": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00",
+    "types.log": "ffd79024bf74c3f0e1a4a224e1b3a1783273115da81cc2ac0624af9984867368",
+    "verification-targeted-final.log": "5a4478ab77544e0a02070081b77e6f511fd926d9bff52ec8e3cc9011a2834547",
+    "verification-targeted.log": "5a4478ab77544e0a02070081b77e6f511fd926d9bff52ec8e3cc9011a2834547",
+    "verification.log": "572a5f96244bf66286bff42a47caf6df1c1591aba08a0f792fea58c9022f6cb3",
+    "verify.py": "778577a0540e37761201c1d02ac93c01e15c7bbc796835ce483dabe6e82a2906",
+    "workspace-build-inventory.json": "376c51384c58eeb27a085fde21e9198fbd51e31451b88f9d7b0157062423e050",
+    "workspace-timeout.log": "572a5f96244bf66286bff42a47caf6df1c1591aba08a0f792fea58c9022f6cb3",
+    "business-01/build-inventory.json": "1cff7c329b9a5e2e9948e5482bff768d2458797fe40b008929392853df9b4e51",
+    "business-01/build.log": "b8cbe4dc207c32c9de89185e5adc3269ca14eac5cc5362985ee1cefed8892de6",
+    "business-01/commands.json": "b75951e4bde66d6b0d446125071ec699314eaed78ae0c53d574fea1af9780002",
+    "business-01/configure.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-01/configure.stdout.json": "2410b9dc10c56c8a4800df86115089966ed1bc66444b44faa2f78ba65f52047e",
+    "business-01/independent-oracle.json": "e4cfd1e8c91339782387d417a1ccb2f17824dff4e6f0761b12a588701fe21fb6",
+    "business-01/index-base.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-01/index-base.stdout.json": "26c9470a236c2889e2c2bc1528b709c363740f7d807701cd84075570aa86fc24",
+    "business-01/live-summary.json": "6d9ab0cb6087c6d1f02ce4dd6095fa758b87d0b9d2124c1b40d302636e10745e",
+    "business-01/real-build.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-01/real-build.stdout.json": "6deae72161aa632081b521830cf7774b0960075d747195c6c4af181fe2fa2153",
+    "business-01/project/rules.md": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+    "business-02/build-inventory.json": "7d920a1d8fcb01982bb2dc29f677ff0698af8efe217dd01b02045a6de8bea6f7",
+    "business-02/build.log": "a481ede06c8cad1a427344f85dd5a2ec0178a5451a5ac0e457b67e3fd739313e",
+    "business-02/commands.json": "2bb752ad733a5509e9a03b186c9daecfc12ddefde7b387678ad386f09109a4dc",
+    "business-02/configure.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-02/configure.stdout.json": "2410b9dc10c56c8a4800df86115089966ed1bc66444b44faa2f78ba65f52047e",
+    "business-02/driver.py": "1ca67f351c810550ae74cd4d40fe12ff8cc6d123b94ee6ef7361337b469ce44a",
+    "business-02/independent-oracle.json": "e4cfd1e8c91339782387d417a1ccb2f17824dff4e6f0761b12a588701fe21fb6",
+    "business-02/index-base.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-02/index-base.stdout.json": "ea4a248dc7bde2cc2dc37c303aa4379a87cbb4bbcae880650e0651de04820986",
+    "business-02/live-summary.json": "aa571550335abda310e56b190b45eaf109883e4175a37303ad396d1f8db89f73",
+    "business-02/real-build.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-02/real-build.stdout.json": "d4e08a1662a3a8339e2faf57aaebfc7948fafdf6c72a100f59d443fecfd0387a",
+    "business-02/project/rules.md": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+    "business-03/build-inventory.json": "f6bc2a885a87d41de72d1a745d55d88c94d65414379ccb76a8a539651f75d4c3",
+    "business-03/build.log": "99ad041fa07e6d1125595ff0fadada495ae1883187f7c863d511967b08e2ca04",
+    "business-03/commands.json": "e9a4f9b4a74aa28ac5f80f4098fd5cd2f871a716eb219e9c2af055407fc1b48c",
+    "business-03/configure.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-03/configure.stdout.json": "ce13c5e15a82dc72fa79115ec8f64579ce8606ba319aabf5ccc692db3ca1e0ff",
+    "business-03/host-interruption.json": "cf3aa3a9e3d973cee06077424a6303d35bcb69ea2b509b81e91c55d814fd60ef",
+    "business-03/independent-oracle.json": "e4cfd1e8c91339782387d417a1ccb2f17824dff4e6f0761b12a588701fe21fb6",
+    "business-03/index-base.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-03/index-base.stdout.json": "e00820613ddf858988fbf0d34aedbe0b85a5bdb69ff7be45f59fe08590cce73f",
+    "business-03/invalid-run-id-summary.json": "4cf2da0b327b64b23c9b9525140c61bb098fabd9455f5035d5ba5cde2c266a41",
+    "business-03/invalid-run-id.stdout.json": "fb491d53bc1825020b7672c2b3869f44b014809f66c7f252567b87dbffbb0869",
+    "business-03/live-summary.json": "96bf00bf2d35602e3303e80be2820738d169d676c574a9af2cf122cb57102953",
+    "business-03/real-build.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-03/real-build.stdout.json": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-03/resume-build-inventory.json": "d322516456f3157d90644f5478dd2b1f8fdfcbf63d4615020c9e2d526f3ba2b4",
+    "business-03/resume.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-03/resume.stdout.json": "eb8727439f81fdbdd8c5d109b42826edb0efaeca10c73d08e917d5c9bb423673",
+    "business-03/project/rules.md": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+    "business-04/acceptance-report.json": "bde3b541f3992e89601bdbd1801decc203c4768f12cb45cc6bd21490aba5805b",
+    "business-04/actual-business.json": "d767b094556a04fe263e5ddb4b8b6b211f65e62ed26891cdffacd724ec599ea3",
+    "business-04/after-incremental-status.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-04/after-incremental-status.stdout.json": "9b38e3cb4a85afedbc598802966faf858194c9e56d5c089abe550f251b9ada58",
+    "business-04/build-inventory.json": "d322516456f3157d90644f5478dd2b1f8fdfcbf63d4615020c9e2d526f3ba2b4",
+    "business-04/build.log": "813ed62463ac0d11e86331291fd2953c7e3d288e20cf1210dc58657b4d067db3",
+    "business-04/citation-repair.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-04/citation-repair.stdout.json": "b7bd545dd313ca0b0f1063d4360929c7c85b3d5be52f2ed5c102ff945bf62708",
+    "business-04/citation-review-before.json": "c8dcb9d6c25889f8bcc6dca9889aa693c07a8f8f2a508806bea2d38498854e6d",
+    "business-04/commands.json": "06bba8c2689ed34bf06a251ae846569ea6310fda657f3101ed0d391da6804491",
+    "business-04/configure.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-04/configure.stdout.json": "ce13c5e15a82dc72fa79115ec8f64579ce8606ba319aabf5ccc692db3ca1e0ff",
+    "business-04/generation-partial-summary.json": "dcb20fd2dc260742f6fd7970d48a1488fe287a4e1fb4ccf28f1c2fa5f62563aa",
+    "business-04/independent-oracle.json": "e4cfd1e8c91339782387d417a1ccb2f17824dff4e6f0761b12a588701fe21fb6",
+    "business-04/index-base.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-04/index-base.stdout.json": "81af8ac14b1b3c492592db7db995a2ddf1aaf22c4e2fded1e21e56ba29130462",
+    "business-04/live-summary.json": "8e1a88894fd4aae7ac00059868bf0092348c28cbac60e5006e8f6338093bdb5f",
+    "business-04/no-model-change.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-04/no-model-change.stdout.json": "ce5927e332510db4f2e6ee391b349ce32929b5583513604b15f818495c179f50",
+    "business-04/no-model-delete.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-04/no-model-delete.stdout.json": "1f32da49805a93876f7606de560f3daaf82c8568221bd07164e5a4acc89453fc",
+    "business-04/no-model-restore.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-04/no-model-restore.stdout.json": "58b0d2c92696a35121a6481601d6a3fc8af0f34f670c1aa17e608021232701f5",
+    "business-04/real-build.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-04/real-build.stdout.json": "1b90774597c44d64d95d2899e72d768e933d6993e7d2422d7b208851e3fecdc7",
+    "business-04/repair-before-citation-summary.json": "debc3b53f4dc26bc514624aca88ba3274ddb471b67c4915d6487d8209798bb9f",
+    "business-04/repair-build-inventory.json": "06e91b563ff5d133652fe2d9f308ff84f0ddf9ea0d0c4836197c3cb9b5f911f9",
+    "business-04/repair.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-04/repair.stdout.json": "ebd2d19ddebffb9b1fcd69bfc21e18f31856121473254753766c9465a5e559c2",
+    "business-04/workflow-query.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "business-04/workflow-query.stdout.json": "aba95a149c2430f56b6afe811990fd66a248733d533d97ccfe8813388ddea46e",
+    "business-04/project/rules.md": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+    "business-04/verified-skill/COMPLETE.json": "80bbddaf4b05d73b67cee1c85e9a4a4192ee3c307b872aa476ffdce142479d97",
+    "business-04/verified-skill/SKILL.md": "c6b97f10d3573658b6cd746d93eb813894744b795198432d0a4cd81873ebb5ff",
+    "business-04/verified-skill/references/api.md": "7715d6e5a11f331aa6e09ba6992e0de77bc75e59c7b60f1d6da1d19bd38edccd",
+    "business-04/verified-skill/references/code-map.md": "e6e2a1c76d76ee353338027b908cb7f3ba36e615fbe7d0de981e52608df2ad35",
+    "business-04/verified-skill/references/conventions.md": "0a57fb968473c43193f5d4b80fb3514ba618905a8ca9674d7e4dfd4f1aeee446",
+    "business-04/verified-skill/references/database.md": "f69a19a95c05cbba1234bcbfa0a9d15c6ae849e116d51738c7a7a7fb87443c3f",
+    "business-04/verified-skill/references/frontend.md": "5af3ba053117642d9f6a5169fae2f6cd6ba28a6a101183371dbe6268ee684cb8",
+    "business-04/verified-skill/references/index-manifest.json": "1871d6267493bab2c2534b7fa96a28e31e0c3fa791be8c286c8750e468df035c",
+    "business-04/verified-skill/references/routes.md": "99d92e029e7b95019e0c8f53a329120175cb7d0de81c3773bf674389fe4ca664",
+    "business-04/verified-skill/references/source-refs.md": "b039aa77fb7e8667e0308dd7ac383064b4b2a02210872ee67c27fd586732065c",
+    "business-04/verified-skill/references/topics/flow-guard.md": "4350c009d0b5eb7903391bb46729c425d537ed1d789c0ac0aa9e1b14ffb780e6",
+    "business-04/verified-skill/references/topics/purchase-workflow.md": "12715cca6d3d4c579077dd968a065565225abfbd283b17b672194461e875eb38",
+    "business-04/verified-skills/agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2/COMPLETE.json": "439a3a8fd581460aa8b4ff2d832404e54be694893b42f99a6b8dea8eb1fddf21",
+    "business-04/verified-skills/agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2/SKILL.md": "c3846b3c37944c29ec357bd875cd83c35eb84eaeffc578c4b18f1d102b64da44",
+    "business-04/verified-skills/agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2/references/api.md": "a643b784e02f14acf4c2c8add6c15835a5f3f3c92477ecfefaf97b9bae7fb8a9",
+    "business-04/verified-skills/agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2/references/code-map.md": "f5236e1fcb73b7d0274f0715b88ea054ed300c5e9d5c1760b64fc3aa9547a954",
+    "business-04/verified-skills/agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2/references/conventions.md": "741c4675d4b957ee30e78345f257ea7ffdd5af9c5aa33d2b72beb0b9aa34818d",
+    "business-04/verified-skills/agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2/references/database.md": "3332f3066ced78985b577a05109c1d5b3fd33de449d9317058091b7ac8828be1",
+    "business-04/verified-skills/agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2/references/frontend.md": "8899073dcda4b3c9ee8238e4d932379312fd484ee72c0289dc54e99213846e5f",
+    "business-04/verified-skills/agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2/references/index-manifest.json": "088b09837ce9379c150f1348d7cb35699ca8dcceb324fd96a4133e4b680f47ce",
+    "business-04/verified-skills/agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2/references/routes.md": "311b6bbfac2be69f0d73c86e124b52417136c4d5d086507beb8ac0f489f9f347",
+    "business-04/verified-skills/agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2/references/source-refs.md": "70129ee25e97cb79e0527e99a59274bb5df928c42e3d4c0c5d479666d2844add",
+    "business-04/verified-skills/agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2/references/topics/flow-guard.md": "0920d3447941adfcfeaae10ec6ee652b8e4da10ef01391eb0588d3024e4f795c",
+    "business-04/verified-skills/agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2/references/topics/purchase-workflow.md": "09c6bad209b6a5fc17d2c160410e42cf2f4851c091f8b942bf8ddc5e4c25c819",
+    "external-core-only/activate-repeat.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external-core-only/activate-repeat.stdout.json": "f62f5e3d51b3f902d241b4be7322653109046d8b5084ad61223ecc3a0eb5ceb3",
+    "external-core-only/activate.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external-core-only/activate.stdout.json": "f8f548cdf18ce82e0a70c716d5867cc1ca73b6cb20e1742fbe465a9a114c5fba",
+    "external-core-only/agent-disabled.stderr.log": "c18bde851d8c3e12b4653b155020a9319c88bbbb34dd74fba43ade9142546d45",
+    "external-core-only/agent-disabled.stdout.json": "d9d523d5397e2e93340370e8c605d8bbf95b723a05426dd639e376fe0d3d9f29",
+    "external-core-only/build.log": "3349dc267b5dc9b74a8b8c4073bee5edbd4aa0d13b2e76b324261d434cb23c46",
+    "external-core-only/dependency-tree.log": "c67a8053cc01d6e72d494b53b09945b31a9c79f7574ca2b02b87dcca39a78191",
+    "external-core-only/index.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external-core-only/index.stdout.json": "702e3fae2b53eaad753f2e81912fef89b11288e272cb0f8687a53dfcb1c880a4",
+    "external-core-only/prepare.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external-core-only/prepare.stdout.json": "f87bbd060b466d875ff1af3ef9541ddea8b1b2e854ee44d05e289569388dea4f",
+    "external-core-only/report.json": "fb04a8e391c4cbccacd3c69f853162a74c4ff7e381db12d348a2b66fea9fb7a0",
+    "external-core-only/submit.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external-core-only/submit.stdout.json": "65e8c636164f45c526f839653064595afe3bfcdad6fda8aef61862781db10a3a",
+    "external-core-only/validate.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external-core-only/validate.stdout.json": "db9cf2fd9ba4b12d0ac563efdd3f912d08094f5401ae4e09a0b73803516861ca",
+    "external-core-only/artifact/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "external-core-only/artifact/manifest.json": "c425cace60c468f42d69415ff0965f3b611903ec636ba76845ae00965662d5b5",
+    "external-core-only/artifact/cases/case_documented_workflow.json": "42d2c491fed1d6af442e43ca82d09af64715cec48b7f963e432eeda8d4141109",
+    "external-core-only/artifact/fixtures/case_documented_workflow.input.json": "0b848364424cdc11db5a5edcfc4854c49fa432cdaf3e8365d84729d850284f14",
+    "external-core-only/artifact/src/collect.mjs": "1751bde6871ff6f771b980edfb5e32e9a29f0619b9a69c3c7c3b5c0ee61d9d97",
+    "external-core-only/project/rules.md": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+    "external-core-only-final/activate-repeat.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external-core-only-final/activate-repeat.stdout.json": "65ece8f8df4351d7d0b0995598adf1246cd1976f4e99d60cf3f5f46fb894f9be",
+    "external-core-only-final/activate.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external-core-only-final/activate.stdout.json": "5dbb5493276aa5249506c268210a6365256e728f40c249015fb856ffd69ce5b6",
+    "external-core-only-final/agent-disabled.stderr.log": "c18bde851d8c3e12b4653b155020a9319c88bbbb34dd74fba43ade9142546d45",
+    "external-core-only-final/agent-disabled.stdout.json": "d9d523d5397e2e93340370e8c605d8bbf95b723a05426dd639e376fe0d3d9f29",
+    "external-core-only-final/build.log": "9ee316da771432010ef5a397a82d3edc487374436c44b5f8d6301ac4748bdf92",
+    "external-core-only-final/dependency-tree.log": "c67a8053cc01d6e72d494b53b09945b31a9c79f7574ca2b02b87dcca39a78191",
+    "external-core-only-final/index.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external-core-only-final/index.stdout.json": "7f1a121828b6784a803719690fd534cee794f352f84b50fc359f7443db1c370b",
+    "external-core-only-final/prepare.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external-core-only-final/prepare.stdout.json": "2fd064d247af28a1d0c4b0155b9746fb37f32c13596262a34bb60551f6b37908",
+    "external-core-only-final/report.json": "d946f6477614115f3fea3b9011200aba59178818d7cd434404c6c8cb1c5b557d",
+    "external-core-only-final/submit.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external-core-only-final/submit.stdout.json": "204c8460fe53137c415bb4006c81695e45665e581ca4b801c2288369b1e72895",
+    "external-core-only-final/validate.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "external-core-only-final/validate.stdout.json": "41aeb6d88e6969f63501eca01144874c9d5b39e253751f7ea07e1c8230013d15",
+    "external-core-only-final/artifact/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "external-core-only-final/artifact/manifest.json": "414bd642af123a862d4cc238c1ea6cc5d3196bf4d88371baf09d0a07e3ae8feb",
+    "external-core-only-final/artifact/cases/case_documented_workflow.json": "42d2c491fed1d6af442e43ca82d09af64715cec48b7f963e432eeda8d4141109",
+    "external-core-only-final/artifact/fixtures/case_documented_workflow.input.json": "0b848364424cdc11db5a5edcfc4854c49fa432cdaf3e8365d84729d850284f14",
+    "external-core-only-final/artifact/src/collect.mjs": "1751bde6871ff6f771b980edfb5e32e9a29f0619b9a69c3c7c3b5c0ee61d9d97",
+    "external-core-only-final/project/rules.md": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+    "subprocess-recovery/killed.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "subprocess-recovery/killed.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "subprocess-recovery/resumed.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "subprocess-recovery/resumed.stdout.json": "c45091bf5bab94494abdb7612d6c2fa809c67abf2c2cd8aa080e8111913a0ffe",
+    "subprocess-recovery/project/rules.md": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+    "subprocess-recovery-03/killed.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "subprocess-recovery-03/killed.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "subprocess-recovery-03/report.json": "9f235d4488b04ce44fba5cc920ccf901af405f0b89a6b3a1cecd14f4058252d7",
+    "subprocess-recovery-03/resumed.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "subprocess-recovery-03/resumed.stdout.json": "5055638fffa31b51df77608a4d651646ec9995b8606bd34c97cee03ba5d03031",
+    "subprocess-recovery-03/project/rules.md": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+    "subprocess-recovery-final/killed.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "subprocess-recovery-final/killed.stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "subprocess-recovery-final/report.json": "113094ebef74356743399d82642c0829e3fabb2c30fc06ef82cc581bbdf3d05e",
+    "subprocess-recovery-final/resumed.stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "subprocess-recovery-final/resumed.stdout.json": "34b240a2ba992f860d3cf1c59e574b3bb10b633c9d0e6cc9e3e1f61f8b5b8e60",
+    "subprocess-recovery-final/project/rules.md": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc"
+  },
+  "businessDatabaseConnections": 0,
+  "noModelIncrementalRequests": 0,
+  "limitations": [
+    "Real business acceptance covers the frozen T06 audited workflow document sample; all three business scenarios and CLI/SDK/MCP equality remain T22",
+    "No production business accuracy, physical power loss or non-Windows platform claim",
+    "Failed live attempt retained separately; candidate expectations are not used as independent truth"
+  ],
+  "toolVersions": {
+    "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+    "cargo": "cargo 1.97.1 (c980f4866 2026-06-30)",
+    "node": "v24.14.0",
+    "python": "Python 3.10.16"
+  },
+  "sourceAuditSha256": "d7fe8453ec8d4cf4b9723bcfcd22bd4d540eefa69ad15a56e3926a1308cf85f8",
+  "sourceAudit": {
+    "filesScanned": 185,
+    "zeroByteSources": [],
+    "commentOnlySources": [
+      {
+        "path": "bindings/node/src/lib.rs",
+        "bytes": 621,
+        "sha256": "454af4c9eac51e168be7eb8978d5f7eae7f2f6703d962e7d81777a73e5404e1f",
+        "zeroBytes": false,
+        "commentOnly": true,
+        "emptyModule": false,
+        "task": "T20",
+        "markers": [
+          {
+            "line": 9,
+            "text": "// TODO(pk)：在此用 #[napi] / #[napi(ts_args_type = ...)] 暴露 open/status/search/"
+          }
+        ]
+      },
+      {
+        "path": "crates/core/src/syntax/scip.rs",
+        "bytes": 102,
+        "sha256": "6b78e8a31a2a408a418bcc18439db7450e252986d156e9046b8a295c2ed85cb5",
+        "zeroBytes": false,
+        "commentOnly": true,
+        "emptyModule": false,
+        "task": "optional-out-of-scope",
+        "markers": [
+          {
+            "line": 1,
+            "text": "//! TODO(pk)：导入外部 SCIP 精确索引"
+          }
+        ]
+      }
+    ]
+  },
+  "documentationHashes": {
+    "plan/NEW-PROJECT-LONG-TASK.md": "6c754a0c6bc5ed7e8ea4ce276488aba0acc1f5f8b0a9f5d4ff320e09cc5d8853",
+    "docs/execution-log.md": "6500b8ecbd93d24a401a69dcdd7a20d39f32ed8d71df588928ee77894407104f",
+    "docs/agent-usage.md": "9101fdc3386c0f701f41b8847db96b7331c942e3c8f0047011452b98c01887bb",
+    "skills/project-onboarding/SKILL.md": "395cde6e1c93038f8a29d052e857fbd4b534d1d80d219a0c89f7da22b87910e1"
+  }
+}

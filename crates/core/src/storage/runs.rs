@@ -278,6 +278,7 @@ pub fn invalidate_batches(
             })?;
         affected += changed;
     }
+    super::knowledge::invalidate_batches(connection, replacement_keys)?;
     Ok(affected)
 }
 

@@ -1,0 +1,8 @@
+{
+  "error": {
+    "code": "INTERNAL_ERROR",
+    "message": "agent workspace I/O failed",
+    "retryable": false,
+    "issues": []
+  }
+}

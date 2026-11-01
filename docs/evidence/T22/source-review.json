@@ -1,0 +1,144 @@
+{
+  "passed": true,
+  "method": "Direct frozen original bytes and exact line citations, independent of collectors/models",
+  "reviewer": "Codex; no human sign-off claimed",
+  "sourceAvailable": true,
+  "sourceHead": "6f47bdbf901f66e59909f8e24edd2e41a1b4f379",
+  "frozenRevision": "6f47bdbf901f66e59909f8e24edd2e41a1b4f379",
+  "files": [
+    {
+      "path": "frontend/config/routes.ts",
+      "frozenSha256": "9630722661db3b67949c302c8a9c10918a1fdc827d8aec7aab955e81ca974d73",
+      "currentSha256": "9630722661db3b67949c302c8a9c10918a1fdc827d8aec7aab955e81ca974d73",
+      "matchesFrozen": true
+    },
+    {
+      "path": "frontend/src/locales/zh-CN/menu.ts",
+      "frozenSha256": "6ba1498595512c3bd9bbd4e499bf4794f3c6eb516da8d4cc7d6064fbf5a5ce50",
+      "currentSha256": "6ba1498595512c3bd9bbd4e499bf4794f3c6eb516da8d4cc7d6064fbf5a5ce50",
+      "matchesFrozen": true
+    },
+    {
+      "path": "frontend/src/modules/purchase/production-request/pages/ResearchPurchaseLedger/index.tsx",
+      "frozenSha256": "c5b2d93726c01bbc083b44107871fb6ec57ef439dcae61a684d1fdf4618657ae",
+      "currentSha256": "c5b2d93726c01bbc083b44107871fb6ec57ef439dcae61a684d1fdf4618657ae",
+      "matchesFrozen": true
+    },
+    {
+      "path": "frontend/src/modules/purchase/production-request/requests/queries/purchase-request.query.ts",
+      "frozenSha256": "12c5d9090a6cdfb483f14598baa16c8d78fdcb7da80967e29a45b5f78ad63f37",
+      "currentSha256": "12c5d9090a6cdfb483f14598baa16c8d78fdcb7da80967e29a45b5f78ad63f37",
+      "matchesFrozen": true
+    },
+    {
+      "path": "frontend/tests/e2e/specs/routes/other-purchase-ledger.spec.ts",
+      "frozenSha256": "43a837db833c044def219da9d9ecdb8ebf559ea73bc515967069039a2b5f6932",
+      "currentSha256": "43a837db833c044def219da9d9ecdb8ebf559ea73bc515967069039a2b5f6932",
+      "matchesFrozen": true
+    },
+    {
+      "path": "backend/src/modules/purchase-request/interface/graphql/resolvers/purchase-request.resolver.ts",
+      "frozenSha256": "c59c30371dcc5211947b778686a7b0f0aef8104df63ddf61bf4ce3147a7a2ab2",
+      "currentSha256": "c59c30371dcc5211947b778686a7b0f0aef8104df63ddf61bf4ce3147a7a2ab2",
+      "matchesFrozen": true
+    },
+    {
+      "path": "backend/src/modules/purchase-request/domain/value-objects/purchase-request-status.vo.ts",
+      "frozenSha256": "16a1a9c75fee1595ff09bab3faa58d09df1012348c5dd82eb70a82182b601e85",
+      "currentSha256": "16a1a9c75fee1595ff09bab3faa58d09df1012348c5dd82eb70a82182b601e85",
+      "matchesFrozen": true
+    },
+    {
+      "path": "backend/src/modules/purchase-request/domain/value-objects/purchase-request-status.vo.spec.ts",
+      "frozenSha256": "48b8e91c3aa2b000eac12028a8c7f71191bf8e5808526d614c7c609600225931",
+      "currentSha256": "48b8e91c3aa2b000eac12028a8c7f71191bf8e5808526d614c7c609600225931",
+      "matchesFrozen": true
+    },
+    {
+      "path": "backend/src/modules/purchase-request/application/workflows/purchase-request.workflow.ts",
+      "frozenSha256": "d7bace23ff4ede2289e8a2c927f6c87219eca9fc40be6a27ea88b2ce59c52f3d",
+      "currentSha256": "d7bace23ff4ede2289e8a2c927f6c87219eca9fc40be6a27ea88b2ce59c52f3d",
+      "matchesFrozen": true
+    },
+    {
+      "path": "backend/src/modules/purchase-request/infrastructure/entities/purchase-request.orm-entity.ts",
+      "frozenSha256": "2dabc9909f8dfee9a742f1b30739fe79e7d58be51cd6f7762ac74c50e7d1bb02",
+      "currentSha256": "2dabc9909f8dfee9a742f1b30739fe79e7d58be51cd6f7762ac74c50e7d1bb02",
+      "matchesFrozen": true
+    },
+    {
+      "path": "docs/260903-权限审计/03-采购.md",
+      "frozenSha256": "359abe037af2d3663d17ef2aefba31220a70a8dbfdf63587fcef865b2e9d4f22",
+      "currentSha256": "359abe037af2d3663d17ef2aefba31220a70a8dbfdf63587fcef865b2e9d4f22",
+      "matchesFrozen": true
+    }
+  ],
+  "facts": [
+    {
+      "scenario": "scenario1",
+      "id": "real-route",
+      "citations": 1
+    },
+    {
+      "scenario": "scenario1",
+      "id": "real-component",
+      "citations": 2
+    },
+    {
+      "scenario": "scenario1",
+      "id": "real-menu-title",
+      "citations": 1
+    },
+    {
+      "scenario": "scenario1",
+      "id": "real-access",
+      "citations": 1
+    },
+    {
+      "scenario": "scenario1",
+      "id": "real-request-tab",
+      "citations": 1
+    },
+    {
+      "scenario": "scenario1",
+      "id": "real-graphql",
+      "citations": 2
+    },
+    {
+      "scenario": "scenario1",
+      "id": "real-table",
+      "citations": 1
+    },
+    {
+      "scenario": "scenario2",
+      "id": "real-approval-plan",
+      "citations": 1
+    },
+    {
+      "scenario": "scenario2",
+      "id": "real-approval-department",
+      "citations": 1
+    },
+    {
+      "scenario": "scenario2",
+      "id": "real-approval-owner",
+      "citations": 1
+    },
+    {
+      "scenario": "scenario2",
+      "id": "real-withdraw",
+      "citations": 1
+    },
+    {
+      "scenario": "scenario2",
+      "id": "real-close-guard",
+      "citations": 1
+    }
+  ],
+  "currentFilesMatchingFrozen": 11,
+  "limitations": [
+    "Source-declared facts only; no claim of production business correctness",
+    "Frontend/backend are separate source areas within the same supplied repository; no second authorized repository supplied",
+    "A/B layouts and numerical audit remain separate smoke/audit populations"
+  ]
+}

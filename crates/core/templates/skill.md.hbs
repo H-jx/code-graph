@@ -1,27 +1,32 @@
-<!-- Skill 入口模板（骨架，占位符待 knowledge/skill.rs 渲染）
-     数据来自：project.json、index-manifest、活动插件清单、代表性业务入口。
-     渲染要求：先检查新鲜度；过期说明只作为调查线索，不冒充当前事实。 -->
-# {{projectName}} 项目知识与链路查询
+---
+name: {{name}}
+description: Query the evidence-backed project knowledge and verify source freshness before use
+---
 
-适用范围：{{scope}}
+# {{projectId}} project knowledge
 
-## 使用场景
+Scope: the repositories and identities in `{{configPath}}`.
+Rendered generation: {{generation}}. Knowledge freshness: **{{freshness}}**.
 
-{{#each scenarios}}- {{this}}
-{{/each}}
+Use the installed `project-knowledge` CLI. First run:
 
-## 查询方式
+```text
+project-knowledge status --config "{{configPath}}" --check-freshness
+project-knowledge query --config "{{configPath}}" --operation search --text "business term"
+project-knowledge query --config "{{configPath}}" --request request.json
+```
 
-- 状态与新鲜度：`project-knowledge status --config .project-knowledge/project.json --check-freshness`
-- 事实搜索：`search`（业务词、路由、符号、路径）
-- 需求定位：`locate_feature`（需求 + 可选 routeHint）
-- 链路追踪：`trace_links`（原样传回实体引用）
-- 源码精读：`read_source`（使用返回的来源引用，不手工拼 ID）
+`request.json` uses the Core QueryRequest schema. Pass returned entity and source references unchanged. Read original source with `operation: readSource`; do not construct reference IDs. Inspect completeness, coverage, gaps and inferred claims before drawing conclusions. Stale explanations remain investigation clues until a new context is exported and a current topic is imported.
 
-## 阅读顺序
+- [Conventions](references/conventions.md)
+- [Routes](references/routes.md)
+- [Frontend](references/frontend.md)
+- [API](references/api.md)
+- [Database](references/database.md)
+- [Code map](references/code-map.md)
+- [Original references](references/source-refs.md)
+- [Version and file manifest](references/index-manifest.json)
 
-1. 先看 `index_status` 的 freshness 与覆盖缺口。
-2. 再读 references/{{firstReference}}。
-3. 主题说明见 references/topics/，过期主题只作线索。
+## Topics and coverage gaps
 
-<!-- TODO(pk)：内容预算与引用完整性由 knowledge/skill.rs 校验后输出 -->
+{{topics}}

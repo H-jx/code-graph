@@ -1,0 +1,26 @@
+    Checking project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+error: this `if` statement can be collapsed
+  --> crates\core\src\query\runtime.rs:56:9
+   |
+56 | /         if filters.freshness_policy == FreshnessPolicy::Verify {
+57 | |             if let Some(project) = context.project {
+58 | |                 let options = crate::project::scan::ScanOptions {
+59 | |                     respect_git_ignore: project.config.selection.respect_git_ignore,
+...  |
+94 | |         }
+   | |_________^
+   |
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#collapsible_if
+   = note: `-D clippy::collapsible-if` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::collapsible_if)]`
+help: collapse nested if block
+   |
+56 ~         if filters.freshness_policy == FreshnessPolicy::Verify
+57 ~             && let Some(project) = context.project {
+58 |                 let options = crate::project::scan::ScanOptions {
+...
+92 |                 }
+93 ~             }
+   |
+
+error: could not compile `project-knowledge-core` (lib) due to 1 previous error

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "projectId": "smoke",
+  "repositories": [
+    {
+      "id": "r",
+      "root": "repo"
+    }
+  ],
+  "selection": {}
+}

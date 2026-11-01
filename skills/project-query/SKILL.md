@@ -5,8 +5,9 @@ description: 在已建立的项目索引中定位页面、链路与取数口径�
 
 # 项目事实查询
 
-> 骨架文件。与 MCP 只读工具、SDK 方法一一对应；维护操作（导出快照、写候选、验证、激活、
-> 运行采集器、生成文档）不在本 Skill 范围内。
+先使用已安装 CLI：`project-knowledge status --config <project.json> --check-freshness`。
+查询使用 `project-knowledge query --config <project.json> --request <request.json>`，参数来自 Core QueryRequest Schema。
+其他入口以实际 capabilities 为准；维护操作由 project-onboarding 处理。
 
 ## 调用顺序
 
@@ -25,6 +26,9 @@ description: 在已建立的项目索引中定位页面、链路与取数口径�
 - `gaps` 说明缺什么能力、动态值、歧义或范围排除，不要把缺口当结论。
 - `basis=inferred` 的关系需要源码核对后才能引用为事实。
 - 版本过期返回 `expired`：重新查询，不要在旧快照上继续解释。
+- `data.knowledge.topics` 保留主题原始 snapshot/version；`dependenciesRechecked=true` 表示当前依赖复核通过。
+- Skill 输出由 `CURRENT.json` 指向完整版本目录；先核对 `COMPLETE.json` 和 `references/index-manifest.json` 中的文件哈希。
+- 重渲染保留过期主题的 stale 状态；重新 export context/import docs 后才有新的解释版本。
 
 ## 回答格式
 

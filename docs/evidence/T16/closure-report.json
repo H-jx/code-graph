@@ -1,0 +1,12 @@
+{
+  "task": "T16",
+  "allEvidenceHashesVerified": true,
+  "immutableCliVerified": true,
+  "files": {
+    "plan/NEW-PROJECT-LONG-TASK.md": "6ad380e72f693a9e723c8a45e31da1de53557c99c0e00179bdd44c7593248c2d",
+    "docs/execution-log.md": "33f5cfce7ef124acd3f7da6781068f1921dcb0cbd25b124118cf0d73d1399779",
+    "docs/evidence/T16/verification-report.json": "e7abbcff9379657b40b63f1fc1553190f3fd0b7bd1b9225d082cb4e8f8fdd728",
+    "docs/evidence/T16/plan-closed.log": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568",
+    "docs/evidence/T16/diff-closed.log": "152b17bd6ffb0b825ac0212b65f00b86d1333e8bea4da72dc50e1296a6c20e1d"
+  }
+}

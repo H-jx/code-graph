@@ -1,0 +1,29 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 9.44s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-c86b9f40fcb79f80.exe)
+
+running 2 tests
+test backend_database_incomplete_keys_dynamic_instances_and_invalid_sql_never_confirm_mappings ... FAILED
+test backend_database_two_asts_preserve_datasources_ddl_keys_query_joins_and_original_ranges ... ok
+
+failures:
+
+---- backend_database_incomplete_keys_dynamic_instances_and_invalid_sql_never_confirm_mappings stdout ----
+
+thread 'backend_database_incomplete_keys_dynamic_instances_and_invalid_sql_never_confirm_mappings' (22744) panicked at crates\core\tests\business_scenarios.rs:1124:9:
+assertion failed: fixture.count("SELECT COUNT(*) FROM gaps g JOIN current_batches cb ON cb.batch_id=g.batch_id WHERE code='UNSUPPORTED_SQL'")
+    > 0
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    backend_database_incomplete_keys_dynamic_instances_and_invalid_sql_never_confirm_mappings
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 10 filtered out; finished in 40.76s
+
+error: test failed, to rerun pass `-p project-knowledge-core --test business_scenarios`

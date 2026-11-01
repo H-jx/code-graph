@@ -1,0 +1,16 @@
+{
+  "cache": {
+    "digest": "51c61587a43a25473e2a7b84ffb9c66bcbe016f8c7c752a10a414b5b0f0e5afe",
+    "directory": "D:\\WpSystem\\S-1-5-21-2994935133-1947544876-937300672-1001\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\project-knowledge\\dependencies\\51c61587a43a25473e2a7b84ffb9c66bcbe016f8c7c752a10a414b5b0f0e5afe",
+    "env": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONPATH": "\\\\?\\D:\\WpSystem\\S-1-5-21-2994935133-1947544876-937300672-1001\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\project-knowledge\\dependencies\\51c61587a43a25473e2a7b84ffb9c66bcbe016f8c7c752a10a414b5b0f0e5afe\\venv\\Lib\\site-packages",
+      "PYTHONUTF8": "1",
+      "VIRTUAL_ENV": "D:\\WpSystem\\S-1-5-21-2994935133-1947544876-937300672-1001\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\project-knowledge\\dependencies\\51c61587a43a25473e2a7b84ffb9c66bcbe016f8c7c752a10a414b5b0f0e5afe\\venv"
+    },
+    "executable": "\\\\?\\D:\\WpSystem\\S-1-5-21-2994935133-1947544876-937300672-1001\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\project-knowledge\\dependencies\\51c61587a43a25473e2a7b84ffb9c66bcbe016f8c7c752a10a414b5b0f0e5afe\\venv\\Scripts\\python.exe",
+    "integrity": "24c30a11e4a2a5cc49023f6fb978586bd7359092ae3116173e4537630642dae8"
+  },
+  "candidateId": "candidate_880c827e-30fc-4837-8c60-5a01fff2c462",
+  "status": "dependenciesPrepared"
+}

@@ -1,0 +1,8 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.63s
+     Running tests/lifecycle.rs (/root/.cache/project-knowledge-linux-probe/target/debug/deps/lifecycle-d9813bc6340822d3)
+
+running 1 test
+test activation_publish_real_filesystem_full_preserves_old_snapshot_and_retries ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 14 filtered out; finished in 0.44s
+

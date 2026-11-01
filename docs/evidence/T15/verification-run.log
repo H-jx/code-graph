@@ -1,0 +1,27 @@
+Running cargo test -p project-knowledge-core --test indexing --locked -j 1 -- --test-threads=1
+{"command": ["cargo", "test", "-p", "project-knowledge-core", "--test", "indexing", "--locked", "-j", "1", "--", "--test-threads=1"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T15/indexing.log", "logSha256": "19070bd198e77c301731b72050f14a7c82e5651c6a3c21f81ea267fe7cff3f7e"}
+Running cargo test -p project-knowledge-agent -p project-knowledge-cli --locked -j 1 -- --test-threads=1
+{"command": ["cargo", "test", "-p", "project-knowledge-agent", "-p", "project-knowledge-cli", "--locked", "-j", "1", "--", "--test-threads=1"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T15/agent-cli.log", "logSha256": "f7fb59d77313e1f191fde05ea75a3fd0abee64e3a6de36b7e25b35e1ae1f28e1"}
+Running cargo test -p project-knowledge-core --test collectors validation_registered_extensions_stage_commit_search_and_reexport --locked -j 1 -- --test-threads=1
+{"command": ["cargo", "test", "-p", "project-knowledge-core", "--test", "collectors", "validation_registered_extensions_stage_commit_search_and_reexport", "--locked", "-j", "1", "--", "--test-threads=1"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T15/projection.log", "logSha256": "0b5511b8a21257427f466a20e43ab81e448e55a3088654acd1a4c8204c3ea41a"}
+Running cargo clippy --workspace --all-targets --locked -j 1 -- -D warnings
+{"command": ["cargo", "clippy", "--workspace", "--all-targets", "--locked", "-j", "1", "--", "-D", "warnings"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T15/clippy.log", "logSha256": "e72439ffa16aa5da2a1c2f137a50984b92c915b8f3c9a3d046b9abb8dc0e9db0"}
+Running cargo fmt --all -- --check
+{"command": ["cargo", "fmt", "--all", "--", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T15/fmt.log", "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+Running cargo run -p xtask --locked -- export-contracts --check
+{"command": ["cargo", "run", "-p", "xtask", "--locked", "--", "export-contracts", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T15/contracts.log", "logSha256": "177a3ab14d2ce0e1c10b02f1006b9cb365e011470ff38e961ea8333810aee15b"}
+Running node scripts/generate-types.mjs --check
+{"command": ["node", "scripts/generate-types.mjs", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T15/types.log", "logSha256": "ffd79024bf74c3f0e1a4a224e1b3a1783273115da81cc2ac0624af9984867368"}
+Running node scripts/verify-contract-types.mjs
+{"command": ["node", "scripts/verify-contract-types.mjs"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T15/type-boundaries.log", "logSha256": "ad333cbf26840bfb1904ed96b21df370ec69e86830df247dc15bc2799c31e7d5"}
+Running powershell -NoProfile -Command pnpm run typecheck
+{"command": ["powershell", "-NoProfile", "-Command", "pnpm run typecheck"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T15/typecheck.log", "logSha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"}
+Running python scripts/verify-truth.py
+{"command": ["python", "scripts/verify-truth.py"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T15/truth.log", "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"}
+Running node scripts/audit-source.mjs --output E:\Project\my-project\code-graph\docs\evidence\T15\source-audit.json
+{"command": ["node", "scripts/audit-source.mjs", "--output", "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T15\\source-audit.json"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T15/source-audit.log", "logSha256": "7164ae23991a5bd9a79831d22b691068ead39b23ab99e77a52787885417f0884"}
+Running node scripts/verify-plan.mjs --plan ../plan/NEW-PROJECT-LONG-TASK.md
+{"command": ["node", "scripts/verify-plan.mjs", "--plan", "../plan/NEW-PROJECT-LONG-TASK.md"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T15/plan.log", "logSha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"}
+Running git diff --check
+{"command": ["git", "diff", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T15/diff.log", "logSha256": "0b3fc84b7e316f9e83ae5e1040572c2e86fcdf3bac40d45100201ea872530062"}
+T15 final verification complete

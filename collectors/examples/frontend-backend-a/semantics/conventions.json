@@ -1,0 +1,15 @@
+{
+  "workflowId": "purchase",
+  "stateParameter": "order",
+  "stateProperty": "state",
+  "workflowCode": "flow.ts",
+  "workflowDocument": "workflow.md",
+  "reportPolicy": "policy.md",
+  "dataSourceId": "ds.erp",
+  "reportBaseTable": "purchase_detail",
+  "documentTables": {
+    "purchase": "purchase_detail",
+    "receipt": "receipt",
+    "return": "return_line"
+  }
+}

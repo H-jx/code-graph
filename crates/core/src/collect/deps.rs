@@ -1,55 +1,39 @@
-//! 依赖准备（计划 §3.5、D16）。
-//!
-//! 采集阶段只用**已准备好的依赖**，不在 extract/link 期间隐式安装，也不继承业务
-//! 项目的 node_modules。准备过程有独立的 120 秒超时与日志上限；缓存摘要包含
-//! OS/arch、运行时、制品与锁文件；运行前校验缓存完整性。
-//!
-//! - Node：`npm ci --ignore-scripts`（锁文件必须是 package-lock.json）。
-//! - Python：独立 venv + `pip install --require-hashes`，只允许带哈希的 wheel，
-//!   缺少 wheel 直接报错，不回退到源码构建。
-
+//! 显式准备锁定依赖；采集与激活只读缓存并校验完整文件树，不触发安装。
+use super::manifest::ValidatedManifest;
+use super::runner::ResolvedRuntime;
+use crate::contract::collector::DependencyManagerKind;
+use crate::contract::error::{CoreError, codes};
+use crate::contract::identity::content_hash;
+use serde::{Deserialize, Serialize};
 use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
-
+use tokio::io::{AsyncRead, AsyncReadExt};
 use tokio::process::Command;
 
-use crate::contract::collector::DependencyManagerKind;
-use crate::contract::error::{CoreError, Issue, codes};
-use crate::contract::identity::content_hash;
-
-/// 依赖准备的超时。
 pub const PREPARE_TIMEOUT_MS: u64 = 120_000;
-/// 依赖准备的日志上限。
 pub const PREPARE_LOG_LIMIT: u64 = 1_048_576;
 
-/// 依赖准备请求。
 #[derive(Debug, Clone)]
 pub struct DependencyPlan {
     pub kind: DependencyManagerKind,
-    /// 依赖声明文件（package.json / requirements.in）。
     pub manifest_path: PathBuf,
-    /// 锁文件（package-lock.json / requirements.lock）。
     pub lock_path: PathBuf,
-    /// 运行时可执行文件（node / python）。
+    /// Node 或 Python 本身，绝不是任意 shell/npm.cmd。
     pub runtime_executable: PathBuf,
-    /// 依赖缓存根目录（与制品目录分离）。
     pub cache_root: PathBuf,
-    /// 参与缓存摘要的制品哈希。
     pub artifact_hash: String,
+    pub artifact: Option<ValidatedManifest>,
 }
 
-/// 已准备好的依赖。
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct PreparedDependencies {
-    /// 依赖目录（缓存中的 `<digest>` 目录）。
     pub directory: PathBuf,
-    /// 缓存摘要。
     pub digest: String,
-    /// 需要透传给插件的环境变量。
+    pub integrity: String,
     pub env: BTreeMap<String, String>,
+    pub executable: PathBuf,
 }
 
-/// 缓存摘要输入。
 #[derive(Debug, Clone)]
 pub struct CacheInputs {
     pub os: String,
@@ -58,327 +42,509 @@ pub struct CacheInputs {
     pub artifact_hash: String,
     pub lock_digest: String,
 }
-
 impl CacheInputs {
-    /// 计算缓存摘要。
     pub fn digest(&self) -> String {
-        let canonical = format!(
-            "{}\u{1f}{}\u{1f}{}\u{1f}{}\u{1f}{}",
-            self.os, self.arch, self.runtime_version, self.artifact_hash, self.lock_digest
-        );
-        content_hash(canonical.as_bytes())
+        content_hash(
+            serde_json::to_vec(&(
+                &self.os,
+                &self.arch,
+                &self.runtime_version,
+                &self.artifact_hash,
+                &self.lock_digest,
+            ))
+            .expect("cache key")
+            .as_slice(),
+        )
     }
 }
 
-/// 准备依赖。
-pub async fn prepare_dependencies(
+#[derive(Serialize, Deserialize)]
+struct Seal {
+    digest: String,
+    integrity: String,
+}
+struct PreparationLock(std::fs::File);
+impl Drop for PreparationLock {
+    fn drop(&mut self) {
+        let _ = self.0.unlock();
+    }
+}
+fn failed(message: impl Into<String>) -> CoreError {
+    CoreError::new(codes::DEPENDENCY_PREPARE_FAILED, message)
+}
+fn changed(message: impl Into<String>) -> CoreError {
+    CoreError::new(codes::DEPENDENCY_CHANGED, message)
+}
+
+/// 安装缓存位于宿主用户缓存目录，不在业务项目的 node_modules 祖先树内。
+pub fn plugin_plan(
+    manifest: &ValidatedManifest,
+    runtime: &ResolvedRuntime,
+) -> Result<(DependencyPlan, CacheInputs), CoreError> {
+    let spec = manifest
+        .manifest
+        .dependencies
+        .as_ref()
+        .ok_or_else(|| failed("plugin declares no dependencies"))?;
+    let plan = DependencyPlan {
+        kind: spec.kind,
+        manifest_path: manifest.directory.join(&spec.manifest),
+        lock_path: manifest.directory.join(&spec.lock_file),
+        runtime_executable: runtime.executable.clone(),
+        cache_root: dirs::cache_dir()
+            .ok_or_else(|| failed("host cache directory unavailable"))?
+            .join("project-knowledge/dependencies"),
+        artifact_hash: manifest.artifact_hash.clone(),
+        artifact: Some(manifest.clone()),
+    };
+    let inputs = CacheInputs {
+        os: std::env::consts::OS.into(),
+        arch: std::env::consts::ARCH.into(),
+        runtime_version: super::import::digest(&(spec.kind, &runtime.executable, &runtime.version)),
+        artifact_hash: plan.artifact_hash.clone(),
+        lock_digest: content_hash(
+            &std::fs::read(&plan.lock_path).map_err(|e| failed(e.to_string()))?,
+        ),
+    };
+    Ok((plan, inputs))
+}
+
+/// 不联网；缺失或破损都要求显式 prepare。
+pub fn prepared_dependencies(
     plan: &DependencyPlan,
     inputs: &CacheInputs,
 ) -> Result<PreparedDependencies, CoreError> {
     let digest = inputs.digest();
-    let directory = plan.cache_root.join(&digest);
-    let marker = directory.join(".prepared");
-    if marker.exists() {
-        // 缓存完整：直接复用，不联网。
-        return Ok(PreparedDependencies {
-            directory: directory.clone(),
-            digest,
-            env: environment_for(plan, &directory),
-        });
-    }
-
-    std::fs::create_dir_all(&directory).map_err(|error| {
-        CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            format!("cannot create dependency cache: {error}"),
-        )
-    })?;
-
-    match plan.kind {
-        DependencyManagerKind::Npm => prepare_npm(plan, &directory).await?,
-        DependencyManagerKind::Pip => prepare_pip(plan, &directory).await?,
-    }
-
-    std::fs::write(&marker, format!("{digest}\n")).map_err(|error| {
-        CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            format!("cannot mark dependency cache: {error}"),
-        )
-    })?;
-
-    Ok(PreparedDependencies {
-        directory: directory.clone(),
+    let directory = super::staging::portable_path(
+        std::fs::canonicalize(&plan.cache_root)
+            .map_err(|_| failed("dependency cache missing; run plugin prepare explicitly"))?,
+    )
+    .join(&digest);
+    let seal: Seal = serde_json::from_slice(
+        &std::fs::read(directory.join(".prepared"))
+            .map_err(|_| failed("dependency cache missing; run plugin prepare explicitly"))?,
+    )
+    .map_err(|_| changed("dependency cache seal is invalid"))?;
+    let mut env = BTreeMap::from([
+        ("PYTHONUTF8".into(), "1".into()),
+        ("PYTHONDONTWRITEBYTECODE".into(), "1".into()),
+    ]);
+    let executable = match plan.kind {
+        DependencyManagerKind::Npm => plan.runtime_executable.clone(),
+        DependencyManagerKind::Pip => {
+            env.insert(
+                "VIRTUAL_ENV".into(),
+                directory.join("venv").to_string_lossy().to_string(),
+            );
+            #[cfg(windows)]
+            {
+                // Rust/Windows 的 argv0 可能去掉 extended prefix；给导入器一个已验证的长路径。
+                let site = std::fs::canonicalize(directory.join("venv/Lib/site-packages"))
+                    .map_err(|e| changed(e.to_string()))?;
+                env.insert("PYTHONPATH".into(), site.to_string_lossy().to_string());
+            }
+            venv_python(&directory.join("venv"))
+        }
+    };
+    let prepared = PreparedDependencies {
+        directory,
         digest,
-        env: environment_for(plan, &directory),
-    })
+        integrity: seal.integrity,
+        env,
+        executable,
+    };
+    if seal.digest != prepared.digest {
+        return Err(changed("dependency seal has the wrong cache key"));
+    }
+    verify_cache(&prepared)?;
+    Ok(prepared)
 }
 
-/// 校验缓存完整性。
+pub async fn prepare_dependencies(
+    plan: &DependencyPlan,
+    inputs: &CacheInputs,
+) -> Result<PreparedDependencies, CoreError> {
+    if plan.artifact_hash != inputs.artifact_hash {
+        return Err(failed("artifact hash differs from cache inputs"));
+    }
+    let digest = inputs.digest();
+    std::fs::create_dir_all(&plan.cache_root).map_err(|e| failed(e.to_string()))?;
+    // Windows 的 AppData 可能是跨卷 junction；发布前统一到真实父目录。
+    let cache_root = super::staging::portable_path(
+        std::fs::canonicalize(&plan.cache_root).map_err(|e| failed(e.to_string()))?,
+    );
+    // OS 锁跨进程互斥。失败安装只留下无 seal 的目录；绝不复用半成品。
+    let lock = std::fs::OpenOptions::new()
+        .read(true)
+        .write(true)
+        .create(true)
+        .truncate(false)
+        .open(cache_root.join(format!("{digest}.lock")))
+        .map_err(|e| failed(e.to_string()))?;
+    lock.try_lock()
+        .map_err(|_| CoreError::new(codes::BUSY, "dependency preparation already running"))?;
+    let _lock = PreparationLock(lock);
+    let directory = cache_root.join(&digest);
+    if directory.join(".prepared").exists() {
+        return prepared_dependencies(plan, inputs);
+    }
+    // 不删除计算出的目标。独立临时安装成功后才 rename 到最终摘要目录。
+    if directory.exists() {
+        return Err(changed(
+            "unsealed dependency target exists; inspect it before preparing",
+        ));
+    }
+    let temporary = tempfile::Builder::new()
+        .prefix("prepare_")
+        .tempdir_in(&cache_root)
+        .map_err(|e| failed(e.to_string()))?;
+    let work = temporary.path();
+    let install = async {
+        match plan.kind {
+            DependencyManagerKind::Npm => {
+                std::fs::copy(&plan.manifest_path, work.join("package.json"))
+                    .map_err(|e| failed(e.to_string()))?;
+                std::fs::copy(&plan.lock_path, work.join("package-lock.json"))
+                    .map_err(|e| failed(e.to_string()))?;
+                let cli = npm_cli(&plan.runtime_executable)?;
+                run_prepare(
+                    &plan.runtime_executable,
+                    &[
+                        cli.to_string_lossy().into(),
+                        "ci".into(),
+                        "--ignore-scripts".into(),
+                        "--no-audit".into(),
+                        "--no-fund".into(),
+                        "--registry=https://registry.npmjs.org".into(),
+                    ],
+                    work,
+                )
+                .await?;
+                // npm 无依赖时可能不建 node_modules；结构保持一致。
+                std::fs::create_dir_all(work.join("node_modules"))
+                    .map_err(|e| failed(e.to_string()))?;
+            }
+            DependencyManagerKind::Pip => {
+                let lock =
+                    std::fs::read_to_string(&plan.lock_path).map_err(|e| failed(e.to_string()))?;
+                if !lock.contains("--hash=sha256:") {
+                    return Err(failed("Python lock requires pinned SHA-256 hashes"));
+                }
+                std::fs::write(work.join("requirements.lock"), lock)
+                    .map_err(|e| failed(e.to_string()))?;
+                run_prepare(
+                    &plan.runtime_executable,
+                    &[
+                        "-m".into(),
+                        "venv".into(),
+                        work.join("venv").to_string_lossy().into(),
+                    ],
+                    work,
+                )
+                .await?;
+                run_prepare(
+                    &venv_python(&work.join("venv")),
+                    &[
+                        "-m".into(),
+                        "pip".into(),
+                        "install".into(),
+                        "--require-hashes".into(),
+                        "--only-binary=:all:".into(),
+                        "--no-input".into(),
+                        "--disable-pip-version-check".into(),
+                        "--index-url=https://pypi.org/simple".into(),
+                        "-r".into(),
+                        work.join("requirements.lock").to_string_lossy().into(),
+                    ],
+                    work,
+                )
+                .await?;
+            }
+        }
+        if let Some(artifact) = &plan.artifact {
+            copy_artifact(artifact, &work.join("artifact"))?;
+        }
+        Ok::<_, CoreError>(())
+    };
+    tokio::time::timeout(
+        std::time::Duration::from_millis(PREPARE_TIMEOUT_MS),
+        install,
+    )
+    .await
+    .map_err(|_| failed("dependency preparation exceeded 120000 ms"))??;
+    // venv 在 Windows 可重定位；Unix bin/python 为指向宿主的链接，清单允许该唯一运行时链接。
+    let integrity = tree_digest(work)?;
+    let seal = Seal { digest, integrity };
+    std::fs::write(
+        work.join(".prepared"),
+        serde_json::to_vec(&seal).expect("seal"),
+    )
+    .map_err(|e| failed(e.to_string()))?;
+    std::fs::rename(work, &directory).map_err(|e| {
+        failed(format!(
+            "cannot publish dependency cache {} -> {}: {e}",
+            work.display(),
+            directory.display()
+        ))
+    })?;
+    prepared_dependencies(plan, inputs)
+}
+
 pub fn verify_cache(prepared: &PreparedDependencies) -> Result<(), CoreError> {
-    let marker = prepared.directory.join(".prepared");
-    let content = std::fs::read_to_string(&marker).map_err(|error| {
-        CoreError::new(
-            codes::DEPENDENCY_CHANGED,
-            format!("dependency cache is incomplete: {error}"),
-        )
-    })?;
-    if content.trim() != prepared.digest {
-        return Err(CoreError::new(
-            codes::DEPENDENCY_CHANGED,
-            "dependency cache digest does not match the prepared digest",
+    let seal: Seal = serde_json::from_slice(
+        &std::fs::read(prepared.directory.join(".prepared")).map_err(|e| changed(e.to_string()))?,
+    )
+    .map_err(|e| changed(e.to_string()))?;
+    if seal.digest != prepared.digest
+        || seal.integrity != prepared.integrity
+        || tree_digest(&prepared.directory)? != prepared.integrity
+    {
+        return Err(changed(
+            "dependency files were changed, removed or added after preparation",
         ));
     }
     Ok(())
 }
 
-/// Node 依赖准备：`npm ci --ignore-scripts`。
-async fn prepare_npm(plan: &DependencyPlan, directory: &Path) -> Result<(), CoreError> {
-    let manifest_name = plan
-        .manifest_path
-        .file_name()
-        .map(|name| name.to_string_lossy().to_string())
-        .unwrap_or_else(|| "package.json".to_string());
-    let lock_name = plan
-        .lock_path
-        .file_name()
-        .map(|name| name.to_string_lossy().to_string())
-        .unwrap_or_else(|| "package-lock.json".to_string());
-    let manifest_bytes = std::fs::read(&plan.manifest_path).map_err(|error| {
-        CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            format!("cannot read dependency manifest: {error}"),
-        )
-    })?;
-    let lock_bytes = std::fs::read(&plan.lock_path).map_err(|error| {
-        CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            format!("cannot read dependency lock file: {error}"),
-        )
-    })?;
-    std::fs::write(directory.join(&manifest_name), manifest_bytes).map_err(|error| {
-        CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            format!("cannot stage dependency manifest: {error}"),
-        )
-    })?;
-    std::fs::write(directory.join(&lock_name), lock_bytes).map_err(|error| {
-        CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            format!("cannot stage dependency lock file: {error}"),
-        )
-    })?;
-
-    let output = run_prepare(
-        &plan.runtime_executable,
-        &[
-            "ci".to_string(),
-            "--ignore-scripts".to_string(),
-            "--no-audit".to_string(),
-            "--no-fund".to_string(),
-            "--prefix".to_string(),
-            directory.to_string_lossy().to_string(),
-        ],
-        directory,
-    )
-    .await?;
-    if !output.success {
-        return Err(CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            format!(
-                "npm ci failed: {}",
-                crate::collect::runner::excerpt(&output.log, 2_000)
-            ),
-        )
-        .with_issues(vec![
-            Issue::new(codes::DEPENDENCY_PREPARE_FAILED, "/dependencies")
-                .with_actual(crate::collect::runner::excerpt(&output.log, 400))
-                .with_hint("检查锁文件与依赖声明是否一致"),
-        ]));
+pub(crate) fn copy_artifact(
+    manifest: &ValidatedManifest,
+    destination: &Path,
+) -> Result<(), CoreError> {
+    for file in &manifest.files {
+        let bytes = std::fs::read(manifest.directory.join(&file.relative_path))
+            .map_err(|e| failed(e.to_string()))?;
+        if content_hash(&bytes) != file.content_hash {
+            return Err(CoreError::new(
+                codes::ARTIFACT_CHANGED,
+                "artifact changed while staging runtime",
+            ));
+        }
+        let path = destination.join(&file.relative_path);
+        std::fs::create_dir_all(path.parent().expect("artifact parent"))
+            .map_err(|e| failed(e.to_string()))?;
+        std::fs::write(path, bytes).map_err(|e| failed(e.to_string()))?;
     }
     Ok(())
 }
 
-/// Python 依赖准备：独立 venv + 带哈希的 wheel 安装。
-async fn prepare_pip(plan: &DependencyPlan, directory: &Path) -> Result<(), CoreError> {
-    let venv = directory.join("venv");
-    let output = run_prepare(
-        &plan.runtime_executable,
-        &[
-            "-m".to_string(),
-            "venv".to_string(),
-            venv.to_string_lossy().to_string(),
-        ],
-        directory,
-    )
-    .await?;
-    if !output.success {
-        return Err(CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            format!(
-                "python venv creation failed: {}",
-                crate::collect::runner::excerpt(&output.log, 2_000)
-            ),
-        ));
-    }
-    let python = venv_python(&venv);
-    let lock_text = std::fs::read_to_string(&plan.lock_path).map_err(|error| {
-        CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            format!("cannot read dependency lock file: {error}"),
-        )
-    })?;
-    if !lock_text.contains("--hash=") {
-        return Err(CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            "python dependency lock file must pin hashes (`--hash=sha256:...`)",
-        )
-        .with_issues(vec![
-            Issue::new(codes::DEPENDENCY_PREPARE_FAILED, "/dependencies/lockFile").with_hint(
-                "使用 `pip download --no-binary :none: --dest wheels` 生成带哈希的锁定文件",
-            ),
-        ]));
-    }
-    std::fs::write(directory.join("requirements.lock"), &lock_text).map_err(|error| {
-        CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            format!("cannot stage dependency lock file: {error}"),
-        )
-    })?;
-
-    let output = run_prepare(
-        &python,
-        &[
-            "-m".to_string(),
-            "pip".to_string(),
-            "install".to_string(),
-            "--require-hashes".to_string(),
-            "--only-binary=:all:".to_string(),
-            "--no-input".to_string(),
-            "-r".to_string(),
-            directory
-                .join("requirements.lock")
+fn tree_digest(root: &Path) -> Result<String, CoreError> {
+    fn visit(
+        root: &Path,
+        directory: &Path,
+        rows: &mut BTreeMap<String, String>,
+    ) -> Result<(), CoreError> {
+        for entry in std::fs::read_dir(directory).map_err(|e| changed(e.to_string()))? {
+            let entry = entry.map_err(|e| changed(e.to_string()))?;
+            let path = entry.path();
+            let relative = path
+                .strip_prefix(root)
+                .expect("cache child")
                 .to_string_lossy()
-                .to_string(),
-        ],
-        directory,
-    )
-    .await?;
-    if !output.success {
-        return Err(CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            format!(
-                "pip install failed: {}",
-                crate::collect::runner::excerpt(&output.log, 2_000)
-            ),
-        )
-        .with_issues(vec![
-            Issue::new(codes::DEPENDENCY_PREPARE_FAILED, "/dependencies/lockFile")
-                .with_actual(crate::collect::runner::excerpt(&output.log, 400))
-                .with_hint("只允许带哈希的可用 wheel；缺少 wheel 时报错，不回退源码构建"),
-        ]));
+                .replace('\\', "/");
+            if relative == ".prepared" {
+                continue;
+            }
+            let metadata = std::fs::symlink_metadata(&path).map_err(|e| changed(e.to_string()))?;
+            if metadata.file_type().is_symlink() {
+                let target = std::fs::read_link(&path).map_err(|e| changed(e.to_string()))?;
+                let resolved = std::fs::canonicalize(&path).map_err(|e| changed(e.to_string()))?;
+                let base = std::fs::canonicalize(root).map_err(|e| changed(e.to_string()))?;
+                let runtime_link = matches!(
+                    relative.as_str(),
+                    "venv/bin/python" | "venv/bin/python3" | "venv/bin/python3.12"
+                );
+                if !resolved.starts_with(base) && !runtime_link {
+                    return Err(changed("dependency link leaves its cache"));
+                }
+                rows.insert(relative, format!("link:{}", target.to_string_lossy()));
+            } else if metadata.is_dir() {
+                #[cfg(windows)]
+                {
+                    use std::os::windows::fs::MetadataExt;
+                    if metadata.file_attributes() & 0x400 != 0 {
+                        return Err(changed("dependency cache contains a reparse directory"));
+                    }
+                }
+                rows.insert(relative, "directory".into());
+                visit(root, &path, rows)?;
+            } else if metadata.is_file() {
+                rows.insert(
+                    relative,
+                    content_hash(&std::fs::read(&path).map_err(|e| changed(e.to_string()))?),
+                );
+            } else {
+                return Err(changed("unsupported dependency cache file"));
+            }
+        }
+        Ok(())
     }
-    Ok(())
-}
-
-/// venv 内的 Python 可执行文件。
-pub fn venv_python(venv: &Path) -> PathBuf {
+    let metadata = std::fs::symlink_metadata(root).map_err(|e| changed(e.to_string()))?;
+    if metadata.file_type().is_symlink() {
+        return Err(changed("cache root must not be a link"));
+    }
     #[cfg(windows)]
     {
-        venv.join("Scripts").join("python.exe")
+        use std::os::windows::fs::MetadataExt;
+        if metadata.file_attributes() & 0x400 != 0 {
+            return Err(changed("cache root must not be a reparse directory"));
+        }
+    }
+    let mut rows = BTreeMap::new();
+    visit(root, root, &mut rows)?;
+    Ok(super::import::digest(&rows))
+}
+
+pub fn venv_python(venv: &Path) -> PathBuf {
+    let path = venv.join(if cfg!(windows) {
+        "Scripts/python.exe"
+    } else {
+        "bin/python"
+    });
+    // Python 以 executable 推导 sys.prefix；保留 Windows extended prefix 才能导入长路径包。
+    #[cfg(windows)]
+    {
+        std::fs::canonicalize(&path).unwrap_or(path)
     }
     #[cfg(not(windows))]
     {
-        venv.join("bin").join("python3")
+        path
     }
 }
 
-/// 依赖准备返回的结果。
-struct PrepareOutput {
-    success: bool,
-    log: String,
+fn npm_cli(node: &Path) -> Result<PathBuf, CoreError> {
+    let node = if node.is_absolute() {
+        node.to_path_buf()
+    } else {
+        std::env::split_paths(&std::env::var_os("PATH").unwrap_or_default())
+            .map(|p| p.join(if cfg!(windows) { "node.exe" } else { "node" }))
+            .find(|p| p.is_file())
+            .ok_or_else(|| CoreError::new(codes::RUNTIME_MISSING, "Node runtime missing"))?
+    };
+    let parent = node.parent().expect("node parent");
+    let mut candidates = vec![
+        parent.join("node_modules/npm/bin/npm-cli.js"),
+        parent.join("../lib/node_modules/npm/bin/npm-cli.js"),
+        parent.join("../share/nodejs/npm/bin/npm-cli.js"),
+    ];
+    for directory in std::env::split_paths(&std::env::var_os("PATH").unwrap_or_default()) {
+        if let Ok(path) = std::fs::canonicalize(directory.join("npm")) {
+            candidates.push(path);
+        }
+    }
+    candidates
+        .into_iter()
+        .find(|p| p.is_file() && p.file_name().is_some_and(|n| n == "npm-cli.js"))
+        .ok_or_else(|| {
+            CoreError::new(
+                codes::RUNTIME_MISSING,
+                "npm-cli.js for the configured Node runtime is missing",
+            )
+        })
 }
 
-/// 执行一条准备命令（有独立超时与日志上限）。
+/// 实时限制两个输出流；超限/超时/宿主退出通过 owned Job/process group 清理后代。
 async fn run_prepare(
     executable: &Path,
     args: &[String],
-    working_dir: &Path,
-) -> Result<PrepareOutput, CoreError> {
+    directory: &Path,
+) -> Result<(), CoreError> {
+    async fn read(
+        mut stream: impl AsyncRead + Unpin,
+        total: &std::sync::atomic::AtomicU64,
+    ) -> Result<Vec<u8>, CoreError> {
+        let mut bytes = Vec::new();
+        let mut buffer = [0; 8192];
+        loop {
+            let n = stream
+                .read(&mut buffer)
+                .await
+                .map_err(|e| failed(e.to_string()))?;
+            if n == 0 {
+                return Ok(bytes);
+            }
+            if total.fetch_add(n as u64, std::sync::atomic::Ordering::Relaxed) + n as u64
+                > PREPARE_LOG_LIMIT
+            {
+                return Err(failed(
+                    "dependency installation output exceeded 1048576 bytes",
+                ));
+            }
+            bytes.extend_from_slice(&buffer[..n]);
+        }
+    }
     let mut command = Command::new(executable);
     command
         .args(args)
-        .current_dir(working_dir)
+        .current_dir(directory)
         .stdin(std::process::Stdio::null())
         .stdout(std::process::Stdio::piped())
         .stderr(std::process::Stdio::piped())
-        .kill_on_drop(true);
-    let child = command.spawn().map_err(|error| {
-        CoreError::new(
-            codes::RUNTIME_MISSING,
-            format!(
-                "cannot start dependency preparation `{}`: {error}",
-                executable.display()
-            ),
+        .kill_on_drop(true)
+        .env_clear();
+    for key in super::runner::ENV_ALLOWLIST.iter().copied().filter(|k| {
+        !matches!(
+            *k,
+            "NODE_PATH" | "PYTHONPATH" | "PYTHONHOME" | "VIRTUAL_ENV"
         )
-    })?;
-    let output = tokio::time::timeout(
-        std::time::Duration::from_millis(PREPARE_TIMEOUT_MS),
-        child.wait_with_output(),
+    }) {
+        if let Some(value) = std::env::var_os(key) {
+            command.env(key, value);
+        }
+    }
+    command
+        .env("PYTHONUTF8", "1")
+        .env("PYTHONDONTWRITEBYTECODE", "1")
+        .env(
+            "PIP_CONFIG_FILE",
+            if cfg!(windows) { "NUL" } else { "/dev/null" },
+        )
+        .env(
+            "NPM_CONFIG_USERCONFIG",
+            if cfg!(windows) { "NUL" } else { "/dev/null" },
+        );
+    super::process::configure_process_tree(&mut command);
+    let mut child = command
+        .spawn()
+        .map_err(|e| CoreError::new(codes::RUNTIME_MISSING, e.to_string()))?;
+    let mut guard = super::process::ProcessTreeGuard::attach(&mut child);
+    let stdout = child.stdout.take().expect("stdout");
+    let stderr = child.stderr.take().expect("stderr");
+    let total = std::sync::atomic::AtomicU64::new(0);
+    let outcome = tokio::try_join!(
+        async { child.wait().await.map_err(|e| failed(e.to_string())) },
+        read(stdout, &total),
+        read(stderr, &total)
+    );
+    guard.terminate();
+    let (status, stdout, stderr) = outcome?;
+    let log = format!(
+        "{}{}",
+        String::from_utf8_lossy(&stdout),
+        String::from_utf8_lossy(&stderr)
+    );
+    let mut file = std::fs::OpenOptions::new()
+        .create(true)
+        .append(true)
+        .open(directory.join("prepare.log"))
+        .map_err(|e| failed(e.to_string()))?;
+    if file.metadata().map_err(|e| failed(e.to_string()))?.len() + log.len() as u64
+        > PREPARE_LOG_LIMIT
+    {
+        return Err(failed("combined dependency log exceeded 1048576 bytes"));
+    }
+    use std::io::Write;
+    writeln!(
+        file,
+        "executable={} args={} exit={status}\n{log}",
+        executable.display(),
+        serde_json::to_string(args).expect("args")
     )
-    .await
-    .map_err(|_| {
-        CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            format!("dependency preparation exceeded the {PREPARE_TIMEOUT_MS} ms timeout"),
-        )
-    })?
-    .map_err(|error| {
-        CoreError::new(
-            codes::DEPENDENCY_PREPARE_FAILED,
-            format!("dependency preparation failed: {error}"),
-        )
-    })?;
-    let mut log = String::from_utf8_lossy(&output.stdout).to_string();
-    log.push_str(&String::from_utf8_lossy(&output.stderr));
-    if log.len() as u64 > PREPARE_LOG_LIMIT {
-        log = crate::collect::runner::excerpt(&log, PREPARE_LOG_LIMIT as usize);
+    .map_err(|e| failed(e.to_string()))?;
+    if !status.success() {
+        return Err(failed(format!(
+            "locked dependency installation failed: {}",
+            super::runner::excerpt(&log, 2000)
+        )));
     }
-    Ok(PrepareOutput {
-        success: output.status.success(),
-        log,
-    })
-}
-
-/// 依赖环境变量。
-fn environment_for(plan: &DependencyPlan, directory: &Path) -> BTreeMap<String, String> {
-    let mut env = BTreeMap::new();
-    match plan.kind {
-        DependencyManagerKind::Npm => {
-            env.insert(
-                "NODE_PATH".to_string(),
-                directory.join("node_modules").to_string_lossy().to_string(),
-            );
-        }
-        DependencyManagerKind::Pip => {
-            let venv = directory.join("venv");
-            let bin = if cfg!(windows) {
-                venv.join("Scripts")
-            } else {
-                venv.join("bin")
-            };
-            env.insert(
-                "VIRTUAL_ENV".to_string(),
-                venv.to_string_lossy().to_string(),
-            );
-            env.insert(
-                "PATH".to_string(),
-                format!(
-                    "{};{}",
-                    bin.to_string_lossy(),
-                    std::env::var("PATH").unwrap_or_default()
-                ),
-            );
-        }
-    }
-    env
+    Ok(())
 }

@@ -1,0 +1,67 @@
+{
+  "mode": "base",
+  "configPath": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\continuation-2026-10-28\\live-smoke\\.project-knowledge\\project.json",
+  "indexDatabase": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\continuation-2026-10-28\\live-smoke\\.project-knowledge\\index.sqlite",
+  "indexId": "4c179dc1-92c4-4fb4-85bb-684d77697664",
+  "generation": "2",
+  "sourceSnapshotId": "snap_b998f8b29cb422effc9a23792603840c9a0359b374b45750d783d019b616e0c5",
+  "sourceSetHash": "ca03b4205f9e2b3eb19780ba941ad9ed3cc3efbeb9be1dafe1bf75536bd9dba5",
+  "entities": 3,
+  "relations": 2,
+  "searchDocuments": 3,
+  "gaps": 0,
+  "invalidated": [],
+  "executed": [],
+  "completedAt": "2026-10-28T14:55:32Z",
+  "coverage": {
+    "api@repo.smoke": {
+      "capability": "api",
+      "scopeId": "repo.smoke",
+      "sourceSetId": "smoke",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "base@repo.smoke": {
+      "capability": "base",
+      "scopeId": "repo.smoke",
+      "sourceSetId": "smoke",
+      "status": "complete",
+      "gapIds": []
+    },
+    "database@repo.smoke": {
+      "capability": "database",
+      "scopeId": "repo.smoke",
+      "sourceSetId": "smoke",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "frontend@repo.smoke": {
+      "capability": "frontend",
+      "scopeId": "repo.smoke",
+      "sourceSetId": "smoke",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "report@repo.smoke": {
+      "capability": "report",
+      "scopeId": "repo.smoke",
+      "sourceSetId": "smoke",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "routes@repo.smoke": {
+      "capability": "routes",
+      "scopeId": "repo.smoke",
+      "sourceSetId": "smoke",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "workflow@repo.smoke": {
+      "capability": "workflow",
+      "scopeId": "repo.smoke",
+      "sourceSetId": "smoke",
+      "status": "not_configured",
+      "gapIds": []
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "attempts": [
+    {
+      "errorCode": "CANCELLED",
+      "id": "56fcaee9-1df4-47e4-bebe-ea1ecadfe53b",
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpKD0wTD\\main\\.agents\\skills\\ledger",
+      "state": "failed"
+    },
+    {
+      "errorCode": "CANCELLED",
+      "id": "86859bf4-aeeb-4085-bba2-764616b9e9ed",
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpKD0wTD\\main\\.agents\\skills\\ledger",
+      "state": "failed"
+    },
+    {
+      "errorCode": "DEPENDENCY_CHANGED",
+      "id": "87d93235-ab08-41d3-a603-ef3b85ecc9f4",
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpKD0wTD\\main\\.agents\\skills\\ledger",
+      "state": "failed"
+    },
+    {
+      "errorCode": "CANCELLED",
+      "id": "b90e016d-1ae8-4622-b8b7-5012357bc64d",
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpKD0wTD\\main\\.agents\\skills\\ledger",
+      "state": "failed"
+    },
+    {
+      "errorCode": "CANCELLED",
+      "id": "f1a33fd5-7de4-42d3-8796-d5373ca4357e",
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpKD0wTD\\main\\.agents\\skills\\ledger",
+      "state": "failed"
+    },
+    {
+      "errorCode": null,
+      "id": "fb9f8fe8-af77-49a0-be16-9606ee70ac41",
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpKD0wTD\\main\\.agents\\skills\\ledger",
+      "state": "complete"
+    }
+  ],
+  "diskChecked": true,
+  "exports": [
+    {
+      "freshness": "stale",
+      "id": "fb9f8fe8-af77-49a0-be16-9606ee70ac41",
+      "integrity": true,
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpKD0wTD\\main\\.agents\\skills\\ledger\\versions\\fb9f8fe8-af77-49a0-be16-9606ee70ac41"
+    }
+  ],
+  "topics": [
+    {
+      "dependenciesRechecked": false,
+      "freshness": "stale",
+      "gapIds": [
+        "knowledge_material_partial"
+      ],
+      "inputDigest": "e7b89d1537da8b402b634eb13451a1497e451691d03706d74aef98f20dc5f8f1",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "6b814371-7341-4ad3-98e9-65d3ca5d3241",
+        "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+      },
+      "topicId": "ledger",
+      "version": 1
+    }
+  ]
+}

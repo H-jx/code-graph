@@ -1,0 +1,192 @@
+{
+  "task": "T22",
+  "transport": "all",
+  "scenario": "all",
+  "selectedCase": null,
+  "truthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "build",
+        "-p",
+        "project-knowledge-cli",
+        "--locked",
+        "-j",
+        "1"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/T22/scenarios/run-01/cli-build.log",
+      "logSha256": "d0baf01552ec1ce4809588e390876053dbb4efcc18ffba356db74c45f1cc5cba"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "business_scenarios",
+        "scenario_",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/T22/scenarios/run-01/cli-scenarios.log",
+      "logSha256": "cdf28ee52b53478930c1c5ec0b85b7dfdf4585e8a06dea271a415f295ccfd385"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "business_scenarios",
+        "truth_numeric_sql_",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/T22/scenarios/run-01/numeric-sql.log",
+      "logSha256": "659efd95e2d450c13e9792f8640970a7ac9f633c2ec2f05036e25a8a42b80547"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-truth.py"
+      ],
+      "exitCode": 0,
+      "log": "docs/evidence/T22/scenarios/run-01/integer-oracle.log",
+      "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+    }
+  ],
+  "results": [
+    {
+      "layout": "a",
+      "scenario": 1,
+      "file": "docs/evidence/T22/scenarios/run-01/a-page.json",
+      "sha256": "1d95a6b9636d61ef1ad508a515677fa57125f4b732da39fb02616684bb55f33d",
+      "sourceReferencesRead": 28,
+      "entities": 27,
+      "relations": 29,
+      "roots": 1,
+      "status": "partial"
+    },
+    {
+      "layout": "a",
+      "scenario": 2,
+      "file": "docs/evidence/T22/scenarios/run-01/a-workflow.json",
+      "sha256": "c26c21667ea4ff54d73b7be6f818abb344c5cf0b08dba811b7cbd39c814db825",
+      "sourceReferencesRead": 26,
+      "entities": 18,
+      "relations": 24,
+      "roots": 18,
+      "status": "partial"
+    },
+    {
+      "layout": "a",
+      "scenario": 3,
+      "file": "docs/evidence/T22/scenarios/run-01/a-report.json",
+      "sha256": "fa46a9dea49aea7fbe09f743766a127fb39406cd658a9f988188e0a84aca0efa",
+      "sourceReferencesRead": 4,
+      "entities": 19,
+      "relations": 22,
+      "roots": 1,
+      "status": "partial"
+    },
+    {
+      "layout": "b",
+      "scenario": 1,
+      "file": "docs/evidence/T22/scenarios/run-01/b-page.json",
+      "sha256": "b3e5fd7b128a099c2d92490ebf531842d35bbc2e6a47ed0d885814aaa948a94d",
+      "sourceReferencesRead": 26,
+      "entities": 27,
+      "relations": 29,
+      "roots": 1,
+      "status": "partial"
+    },
+    {
+      "layout": "b",
+      "scenario": 2,
+      "file": "docs/evidence/T22/scenarios/run-01/b-workflow.json",
+      "sha256": "c6be22dc66e1e1d44d6964bd33157d303ee455136d4659407d5cdc6e32c3a4e5",
+      "sourceReferencesRead": 20,
+      "entities": 18,
+      "relations": 24,
+      "roots": 18,
+      "status": "partial"
+    },
+    {
+      "layout": "b",
+      "scenario": 3,
+      "file": "docs/evidence/T22/scenarios/run-01/b-report.json",
+      "sha256": "c3393e31cb47a2a22301e2e9fceb118d824ff093740784e66bcbd7af56ac2892",
+      "sourceReferencesRead": 4,
+      "entities": 19,
+      "relations": 22,
+      "roots": 1,
+      "status": "partial"
+    }
+  ],
+  "cliArtifactPath": "target/verified-cli/0b142a8ace5536aa6adc945ec234dd8538c4dbd76450f5b53f69844bcaf9f154/project-knowledge.exe",
+  "cliSha256": "0b142a8ace5536aa6adc945ec234dd8538c4dbd76450f5b53f69844bcaf9f154",
+  "oracle": {
+    "truthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+    "verifiedFiles": 50,
+    "rows": [
+      [
+        "A",
+        "P1",
+        1,
+        "本租户供应商",
+        5,
+        4,
+        6,
+        5000,
+        2000
+      ],
+      [
+        "A",
+        "P1",
+        2,
+        "本租户供应商",
+        1,
+        1,
+        3,
+        8000,
+        0
+      ],
+      [
+        "A",
+        "P2",
+        1,
+        "无收货供应商",
+        0,
+        0,
+        3,
+        2100,
+        0
+      ]
+    ],
+    "totals": [
+      6,
+      5,
+      12,
+      15100,
+      2000
+    ],
+    "arithmetic": "Python keyed integer accumulation; no SQL or collector",
+    "productionAccuracyClaimed": false
+  },
+  "externalModelRequests": 0,
+  "businessDatabaseConnections": 0,
+  "productionAccuracyClaimed": false,
+  "scope": "A/B reviewed fixtures; missing-import negatives plus separately reviewed explicit bindings; numeric SQL runs only in the local test oracle"
+}

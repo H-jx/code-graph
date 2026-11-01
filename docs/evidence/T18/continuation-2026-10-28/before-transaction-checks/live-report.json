@@ -1,0 +1,99 @@
+{
+  "date": "2026-10-28 Asia/Shanghai",
+  "scope": "T18 real configured endpoint query tool smoke; no plugin generation, no business accuracy claim",
+  "provider": "openai-compatible",
+  "model": "qwen3.8-flash",
+  "status": "complete",
+  "runId": "agent_5034b7ca-b766-4314-9013-034666e64093",
+  "modelTurns": 2,
+  "toolCalls": 1,
+  "elapsedMs": 6064,
+  "promptHash": "a4d4c76924abbd50e7e3fda11226ede4370953cd08ca35270248e04f0f51f303",
+  "responseMetadata": [
+    {
+      "modelTurn": 1,
+      "responseId": "chatcmpl-f32e8f36-0a15-46b0-ab08-df08b1c7df1f",
+      "elapsedMs": 816
+    },
+    {
+      "modelTurn": 2,
+      "responseId": "chatcmpl-5f94e2ed-6401-42b4-96dd-7daebf2eeca9",
+      "elapsedMs": 6047
+    }
+  ],
+  "commands": [
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\bd400535ce028cee7ca06ca815c485c57cfb3fdadc5764ed105ae7cb5b0b1d7b\\project-knowledge.exe",
+        "agent",
+        "configure",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\continuation-2026-10-28\\live-smoke\\.project-knowledge\\project.json",
+        "--env-file",
+        "E:\\Project\\my-project\\code-graph\\.env",
+        "--max-turns",
+        "4",
+        "--max-tool-calls",
+        "4",
+        "--timeout-seconds",
+        "60",
+        "--max-input-chars",
+        "80000",
+        "--max-output-tokens",
+        "512"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "stdout": "live-configure.stdout.json",
+      "stderr": "live-configure.stderr.log"
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\bd400535ce028cee7ca06ca815c485c57cfb3fdadc5764ed105ae7cb5b0b1d7b\\project-knowledge.exe",
+        "index",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\continuation-2026-10-28\\live-smoke\\.project-knowledge\\project.json",
+        "--base"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "stdout": "live-index.stdout.json",
+      "stderr": "live-index.stderr.log"
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\bd400535ce028cee7ca06ca815c485c57cfb3fdadc5764ed105ae7cb5b0b1d7b\\project-knowledge.exe",
+        "agent",
+        "configure",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\continuation-2026-10-28\\live-smoke\\.project-knowledge\\project.json",
+        "--env-file",
+        "E:\\Project\\my-project\\code-graph\\.env",
+        "--max-turns",
+        "4",
+        "--max-tool-calls",
+        "4",
+        "--timeout-seconds",
+        "60",
+        "--max-input-chars",
+        "80000",
+        "--max-output-tokens",
+        "512",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "stdout": "real-smoke.stdout.json",
+      "stderr": "real-smoke.stderr.log"
+    }
+  ],
+  "cliArtifactPath": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\bd400535ce028cee7ca06ca815c485c57cfb3fdadc5764ed105ae7cb5b0b1d7b\\project-knowledge.exe",
+  "cliSha256": "bd400535ce028cee7ca06ca815c485c57cfb3fdadc5764ed105ae7cb5b0b1d7b",
+  "sourceHashes": {
+    "crates/agent/src/config.rs": "37980c01b0047521811c120a23d4db83f9f115f6680d0ebdd2a1ed0c0a114685",
+    "crates/agent/src/prompts.rs": "8141dec915dcf1eff325e6f1714a91a2826b494e3537dc39d6eb41674bfc23a1",
+    "crates/agent/src/tools.rs": "8fa35e578ab707af034c1f1aefca58203d60fabb8d55a4c5ef8b66ef2e59c320",
+    "crates/agent/src/runner.rs": "8edcf72b87b1d21b117556ab9341e78fa28369fd0c5eb71c5b65e53aa9926c3a",
+    "crates/cli/src/commands/agent.rs": "baed99de1c767f4e34d94d5847d4230d18a270dcb6aedb8997c8e464675f299d"
+  }
+}

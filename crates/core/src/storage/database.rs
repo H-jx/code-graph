@@ -11,10 +11,12 @@ use rusqlite::{Connection, OpenFlags, OptionalExtension};
 use crate::contract::error::{CoreError, codes};
 
 /// 数据库 schema 版本。
-pub const SCHEMA_VERSION: i64 = 1;
+pub const SCHEMA_VERSION: i64 = 3;
 
 /// migration SQL（编译期内嵌）。
 pub const MIGRATION_0001: &str = include_str!("../../migrations/0001_initial.sql");
+pub const MIGRATION_0002: &str = include_str!("../../migrations/0002_candidates.sql");
+pub const MIGRATION_0003: &str = include_str!("../../migrations/0003_knowledge.sql");
 
 /// 错误码：数据库版本不受支持。
 pub const DB_VERSION_UNSUPPORTED: &str = "DB_VERSION_UNSUPPORTED";
@@ -139,6 +141,27 @@ impl Database {
         &self.conn
     }
 
+    pub(crate) fn query_connection_mut(&mut self) -> &mut Connection {
+        &mut self.conn
+    }
+
+    /// 只观察未展开参数的 SQL 文本，供宿主诊断。
+    pub fn observe_sql(
+        &mut self,
+        mut observer: impl FnMut(&str) + Send + 'static,
+    ) -> Result<(), CoreError> {
+        self.conn
+            .trace_v2(
+                rusqlite::trace::TraceEventCodes::SQLITE_TRACE_STMT,
+                Some(move |event: rusqlite::trace::TraceEvent<'_>| {
+                    if let rusqlite::trace::TraceEvent::Stmt(statement, _) = event {
+                        observer(&statement.sql());
+                    }
+                }),
+            )
+            .map_err(super::database_error)
+    }
+
     /// 数据库路径。
     pub fn path(&self) -> &Path {
         &self.path
@@ -168,21 +191,28 @@ impl Database {
                 ),
             ));
         }
-        if applied < SCHEMA_VERSION {
-            let checksum = crate::contract::identity::content_hash(MIGRATION_0001.as_bytes());
+        for (version, sql) in [
+            (1, MIGRATION_0001),
+            (2, MIGRATION_0002),
+            (3, MIGRATION_0003),
+        ] {
+            if applied >= version {
+                continue;
+            }
+            let checksum = crate::contract::identity::content_hash(sql.as_bytes());
             let transaction = self.conn.transaction().map_err(|error| {
                 CoreError::new(
                     codes::BUSY,
                     format!("cannot begin migration transaction: {error}"),
                 )
             })?;
-            transaction.execute_batch(MIGRATION_0001).map_err(|error| {
+            transaction.execute_batch(sql).map_err(|error| {
                 CoreError::new(codes::INTERNAL_ERROR, format!("migration failed: {error}"))
             })?;
             transaction
                 .execute(
                     "INSERT INTO schema_migrations (version, checksum, applied_at) VALUES (?1, ?2, ?3)",
-                    rusqlite::params![SCHEMA_VERSION, checksum, now],
+                    rusqlite::params![version, checksum, now],
                 )
                 .map_err(|error| {
                     CoreError::new(
@@ -244,10 +274,10 @@ impl Database {
                 DB_VERSION_UNSUPPORTED,
                 "index database has no schema migration record",
             )),
-            Some(version) if version > SCHEMA_VERSION => Err(CoreError::new(
+            Some(version) if version != SCHEMA_VERSION => Err(CoreError::new(
                 DB_VERSION_UNSUPPORTED,
                 format!(
-                    "index database schema version {version} is newer than supported version {SCHEMA_VERSION}"
+                    "index database schema version {version} differs from supported version {SCHEMA_VERSION}; use a maintenance command to migrate"
                 ),
             )),
             Some(_) => Ok(()),

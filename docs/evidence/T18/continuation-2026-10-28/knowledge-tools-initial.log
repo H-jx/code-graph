@@ -1,0 +1,15 @@
+   Compiling project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\agent_lifecycle-c341948b6cfa1c5d.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\agent_lifecycle-c341948b6cfa1c5d.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-agent` (test "agent_lifecycle") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.32s
+     Running tests\agent_lifecycle.rs (target\debug\deps\agent_lifecycle-c341948b6cfa1c5d.exe)
+
+running 2 tests
+test tools_knowledge_invalid_artifact_preserves_pointer_and_never_exports ... ok
+test tools_knowledge_roundtrip_is_bound_to_core_activation_and_global_budget ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 14 filtered out; finished in 2.89s
+

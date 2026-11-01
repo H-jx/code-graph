@@ -1,0 +1,21 @@
+    Checking project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+error[E0599]: no method named `as_bytes` found for enum `Result<T, E>` in the current scope
+    --> crates\core\src\knowledge\context.rs:9:126
+     |
+   9 | ...:to_value(value).unwrap()).as_bytes())
+     |                               ^^^^^^^^ method not found in `Result<std::string::String, IdentityError>`
+     |
+note: the method `as_bytes` exists on the type `std::string::String`
+    --> C:\Users\hubo9\.rustup\toolchains\1.97.1-x86_64-pc-windows-msvc\lib/rustlib/src/rust\library\alloc\src\string.rs:1454:5
+     |
+1454 |     pub const fn as_bytes(&self) -> &[u8] {
+     |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+help: consider using `Result::expect` to unwrap the `std::string::String` value, panicking if the value is a `Result::Err`
+     |
+   9 |     crate::contract::identity::content_hash(crate::contract::identity::canonical_json(&serde_json::to_value(value).unwrap()).expect("REASON").as_bytes())
+     |                                                                                                                             +++++++++++++++++
+
+For more information about this error, try `rustc --explain E0599`.
+error: could not compile `project-knowledge-core` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `project-knowledge-core` (lib test) due to 1 previous error

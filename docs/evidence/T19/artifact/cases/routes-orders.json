@@ -1,0 +1,13 @@
+{
+  "id": "routes-orders",
+  "inputFixture": "input/routes-extract.json",
+  "expected": {
+    "entities": [
+      "ent_d023c5b7b1847d6433677bfab770467189c7f74667609124f1f89523aff31a3f",
+      "ent_4d0b1d9fc91c7c1928ec5ab9ef7875d377b80777fabfb26f4a62b667165be0ec"
+    ],
+    "relations": [],
+    "forbiddenRelations": [],
+    "gapCodes": []
+  }
+}

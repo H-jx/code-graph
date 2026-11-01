@@ -1,0 +1,3149 @@
+{
+  "budgetUsed": {
+    "elapsedMs": 39,
+    "entities": 28,
+    "relations": 31,
+    "responseChars": 92519,
+    "visited": 405
+  },
+  "completeness": {
+    "candidateSetsComplete": true,
+    "checkedAt": "2026-10-28T00:00:00Z",
+    "coverage": "partial",
+    "diskChecked": true,
+    "freshness": "fresh",
+    "reasons": [],
+    "truncated": false
+  },
+  "data": {
+    "backend": [
+      {
+        "entityId": "ent_e95d3192add1afbb65469f8afbb70b1e3f6a1923b1abe2ef45b485d79f5c5121",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_895b0bdff079b374985473324c8009a99631d384228abecf5dec60168ab1fa0e",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_4b0a0b622f4202ceaaf47c6044d08e666e950c3007b3e159ce4ded3843945b02",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      }
+    ],
+    "components": [
+      {
+        "entityId": "ent_7511462f9233512f90a746ec516949cfb4d4628095707d2595a84fb35731bd46",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      }
+    ],
+    "coverage": [
+      {
+        "batchId": "bat_e0b57c0b8a697c5cd25a6be7046b4c21574d74018e0ff9c9c63b4a409db6bfb9",
+        "capability": "routes",
+        "scopeId": "svc.erp",
+        "sourceSetId": "back",
+        "status": "not_configured"
+      },
+      {
+        "batchId": "bat_e738416258648b390faa877ed580917afc27664c1c0e5ca914543a5293f2dd8f",
+        "capability": "routes",
+        "scopeId": "app.web",
+        "sourceSetId": "front",
+        "status": "not_configured"
+      },
+      {
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "capability": "routes",
+        "scopeId": "app.web",
+        "sourceSetId": "frontend",
+        "status": "complete"
+      },
+      {
+        "batchId": "bat_e0b57c0b8a697c5cd25a6be7046b4c21574d74018e0ff9c9c63b4a409db6bfb9",
+        "capability": "frontend",
+        "scopeId": "svc.erp",
+        "sourceSetId": "back",
+        "status": "not_configured"
+      },
+      {
+        "batchId": "bat_e738416258648b390faa877ed580917afc27664c1c0e5ca914543a5293f2dd8f",
+        "capability": "frontend",
+        "scopeId": "app.web",
+        "sourceSetId": "front",
+        "status": "not_configured"
+      },
+      {
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "capability": "frontend",
+        "scopeId": "app.web",
+        "sourceSetId": "frontend",
+        "status": "partial"
+      },
+      {
+        "batchId": "bat_e0b57c0b8a697c5cd25a6be7046b4c21574d74018e0ff9c9c63b4a409db6bfb9",
+        "capability": "api",
+        "scopeId": "svc.erp",
+        "sourceSetId": "back",
+        "status": "not_configured"
+      },
+      {
+        "batchId": "bat_e738416258648b390faa877ed580917afc27664c1c0e5ca914543a5293f2dd8f",
+        "capability": "api",
+        "scopeId": "app.web",
+        "sourceSetId": "front",
+        "status": "not_configured"
+      },
+      {
+        "batchId": "bat_0c9ce4e4a6b9bfc040e40d6e5a60815e71f84dc5901ad875bec3e8c012490600",
+        "capability": "api",
+        "scopeId": "svc.erp",
+        "sourceSetId": "backend",
+        "status": "complete"
+      },
+      {
+        "batchId": "bat_e0b57c0b8a697c5cd25a6be7046b4c21574d74018e0ff9c9c63b4a409db6bfb9",
+        "capability": "database",
+        "scopeId": "svc.erp",
+        "sourceSetId": "back",
+        "status": "not_configured"
+      },
+      {
+        "batchId": "bat_e738416258648b390faa877ed580917afc27664c1c0e5ca914543a5293f2dd8f",
+        "capability": "database",
+        "scopeId": "app.web",
+        "sourceSetId": "front",
+        "status": "not_configured"
+      },
+      {
+        "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+        "capability": "database",
+        "scopeId": "svc.erp",
+        "sourceSetId": "backend",
+        "status": "partial"
+      },
+      {
+        "batchId": "bat_f6a80e65617e6308630ff98969f29bf1239b177eb4313c48400b513ec1a584f7",
+        "capability": "link",
+        "scopeId": "app.web",
+        "sourceSetId": "bindings",
+        "status": "partial"
+      },
+      {
+        "batchId": "bat_f6a80e65617e6308630ff98969f29bf1239b177eb4313c48400b513ec1a584f7",
+        "capability": "link",
+        "scopeId": "svc.erp",
+        "sourceSetId": "bindings",
+        "status": "complete"
+      }
+    ],
+    "entities": [
+      {
+        "assertions": [
+          {
+            "assertionId": "as_211bd8be98e84c293f903caf661128e1b58bfb08b2655740669beff5d73c6ccf",
+            "attributes": {
+              "alias": "/purchase",
+              "declaredPath": "/Other/purchaseLedger",
+              "mode": "hash",
+              "routerId": "main"
+            },
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_cc2d6dc3fa3346b47976cd36a86b272d0d146b7bec8a8ee052e11deeceabadd4"
+            ],
+            "name": "/Other/purchaseLedger",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_6d6dba30306ee4e10a3e0394c8a7d25ff4edd9190278b89b8718c005be5b2295",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "routerId",
+            "value": "main"
+          },
+          {
+            "name": "mode",
+            "value": "hash"
+          },
+          {
+            "name": "declaredPath",
+            "value": "/Other/purchaseLedger"
+          }
+        ],
+        "kind": "route",
+        "name": "/Other/purchaseLedger",
+        "scopeId": "app.web"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_703ce6d83096da5987a9965f31cc69be2eb952b8bcb58fc5e43b25a2515d9e9d",
+            "attributes": {
+              "alias": "/purchase",
+              "declaredPath": "/Other/:name",
+              "mode": "hash",
+              "routerId": "alternate"
+            },
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_afa7fd30a3fc77dfc4b65b0524eafea44ddd86c1752979040e4ec82c02dd4b54"
+            ],
+            "name": "/Other/:name",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_bc3f2c07a9bd00e985648089b61a9a16ede87ab8a6039732278b83f444fcc642",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "routerId",
+            "value": "alternate"
+          },
+          {
+            "name": "mode",
+            "value": "hash"
+          },
+          {
+            "name": "declaredPath",
+            "value": "/Other/:name"
+          }
+        ],
+        "kind": "route",
+        "name": "/Other/:name",
+        "scopeId": "app.web"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_891b2441031a110eaa50ea3c29cc146e82fc3886786e596c3f1c9591de5d23d7",
+            "attributes": {
+              "i18nKey": "purchase.title",
+              "text": "采购台账 🧾"
+            },
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_2c4782f2d5e4a4b48b58cebfd7cd1801346332b9afd94c5ac626cc342c39ba54"
+            ],
+            "name": "采购台账 🧾",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_a7dea77ca7aef506255b172e82d21bfa3365c6b8b301c8ff468a217e28035ad9",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "repositoryId",
+            "value": "front"
+          },
+          {
+            "name": "path",
+            "value": "messages.ts"
+          },
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "lexicalPath",
+            "value": "purchase.title"
+          }
+        ],
+        "kind": "title",
+        "name": "采购台账 🧾",
+        "scopeId": "app.web"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_ed9b01b6f0b5adca0ee3dfd1a34b67d08545e0d69a1e2ee995b7d8ca634f7715",
+            "attributes": {},
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_99cb69bf366f4cfe6defa57dae2729999e3298b01969f73a27f24b4155a93af6"
+            ],
+            "name": "Ledger",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_7511462f9233512f90a746ec516949cfb4d4628095707d2595a84fb35731bd46",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "repositoryId",
+            "value": "front"
+          },
+          {
+            "name": "path",
+            "value": "pages/Ledger.tsx"
+          },
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "lexicalPath",
+            "value": "Ledger"
+          }
+        ],
+        "kind": "component",
+        "name": "Ledger",
+        "scopeId": "app.web"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_417361be444864478454214da21d099cc81281ada8f447e82b71253305e56c87",
+            "attributes": {
+              "text": "采购台账：供应商筛选。"
+            },
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_b46810daebdc1f04226e429ea26a1b239928dd67bbcec4c175289220420fa14b"
+            ],
+            "name": "采购台账：供应商筛选。",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_b8efbda9adc2b416aad387b39b5e3685897605b46f6999105a53d8e3e697204f",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "repositoryId",
+            "value": "front"
+          },
+          {
+            "name": "path",
+            "value": "pages/Ledger.tsx"
+          },
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "lexicalPath",
+            "value": "Ledger.doc"
+          }
+        ],
+        "kind": "comment",
+        "name": "采购台账：供应商筛选。",
+        "scopeId": "app.web"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_336467dffa479ee38918cd4da07ec3c39359cc7551583534b9d8c8cd3c11b60c",
+            "attributes": {},
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_dec1deb860864c500783ce58df903be39233c54b29668eac9a47b752c6c909d9"
+            ],
+            "name": "summary",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_5bc719a54f5674dbc56e792d8b3675bb81d8226e51e35c55693713cf164738df",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "repositoryId",
+            "value": "front"
+          },
+          {
+            "name": "path",
+            "value": "pages/Ledger.tsx"
+          },
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "lexicalPath",
+            "value": "Ledger.summary"
+          },
+          {
+            "name": "normalizedSignature",
+            "value": "()"
+          }
+        ],
+        "kind": "operation",
+        "name": "summary",
+        "scopeId": "app.web"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_189e1662f2d132322e5380add1e69fdcedb6a4345cc555f08d50220202757f91",
+            "attributes": {},
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_0fa47ca8fb7d75c993f4ba7fb60fe31a245656abcd975769437e209bcf37457d"
+            ],
+            "name": "query",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_27a127bbe5fa206cb09e0723e6d52d5219f26819850aafd27dd29e869562fccf",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "repositoryId",
+            "value": "front"
+          },
+          {
+            "name": "path",
+            "value": "pages/Ledger.tsx"
+          },
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "lexicalPath",
+            "value": "Ledger.query"
+          },
+          {
+            "name": "normalizedSignature",
+            "value": "()"
+          }
+        ],
+        "kind": "operation",
+        "name": "query",
+        "scopeId": "app.web"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_2a51fbcc4b3c9b402b72a147e0f20d4e95c271f277b2fb6751b2e57ed04133f0",
+            "attributes": {
+              "event": "onClick"
+            },
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_bb7d0419128fe6e557b8df1a42422bb17bdb245dcaeea2e241861f6e525858d5"
+            ],
+            "name": "onClick",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_3b62e2f3583a506b04c09d7252b376e16933df2e74beb7aa8ed02ac356587af8",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "repositoryId",
+            "value": "front"
+          },
+          {
+            "name": "path",
+            "value": "pages/Ledger.tsx"
+          },
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "lexicalPath",
+            "value": "Ledger.onClick.summary"
+          }
+        ],
+        "kind": "event",
+        "name": "onClick",
+        "scopeId": "app.web"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_f585a251b31e849032cf9798870ec96b75567d20466e094551d590b848f8d131",
+            "attributes": {},
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_4fb50560b0e92093de9d56c367da0d6ff3f2751e4d2d5cf582d73d905b3026c6"
+            ],
+            "name": "fetchSummary",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_c9ef4f6a4b80a63de3e49f1be2f0d9abd7f936bcb18df6b96331bfe990e6ca37",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "repositoryId",
+            "value": "front"
+          },
+          {
+            "name": "path",
+            "value": "requests.ts"
+          },
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "lexicalPath",
+            "value": "fetchSummary"
+          },
+          {
+            "name": "normalizedSignature",
+            "value": "()"
+          }
+        ],
+        "kind": "operation",
+        "name": "fetchSummary",
+        "scopeId": "app.web"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_be1aa4a20be175070ce77030eb483453da13e3ec57ce59ca7d97c76e19c465f6",
+            "attributes": {
+              "event": "onClick"
+            },
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_49c3ba77f3f657367156566622e274753e603203501856e234fd8638fbb99e75"
+            ],
+            "name": "onClick",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_cbe842402d04e796f111e1fc8439e16ea8f77300ce85bbca10c8f77141a89c19",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "repositoryId",
+            "value": "front"
+          },
+          {
+            "name": "path",
+            "value": "pages/Ledger.tsx"
+          },
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "lexicalPath",
+            "value": "Ledger.onClick.query"
+          }
+        ],
+        "kind": "event",
+        "name": "onClick",
+        "scopeId": "app.web"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_7f35ecc6a6fc77061de146298f0041c8f83bb72be087060d31ce454e927cb916",
+            "attributes": {},
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_83ef52d7e63e4c36a4042abe4b65aebd6ee4e1aa78b57dab33c09b6e865561ca"
+            ],
+            "name": "fetchLedger",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_bfd0bea6b263cb28a26dba9f6424192b19b2ab116015d2c566e807cab8025aa8",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "repositoryId",
+            "value": "front"
+          },
+          {
+            "name": "path",
+            "value": "requests.ts"
+          },
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "lexicalPath",
+            "value": "fetchLedger"
+          },
+          {
+            "name": "normalizedSignature",
+            "value": "()"
+          }
+        ],
+        "kind": "operation",
+        "name": "fetchLedger",
+        "scopeId": "app.web"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_4b957d342544de4902b04d3c26a7440a71d603c727d12f1f9d442088d0fd5a2f",
+            "attributes": {
+              "baseURL": "/erp",
+              "bindingComplete": true,
+              "clientName": "http",
+              "expression": "`query PurchaseSummary { purchaseSummary { count } }`",
+              "serviceId": "erp"
+            },
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_f8b201f9c57c80ab980a8904e1e2d300c4e3072584f8bb08b501cab235a51f78"
+            ],
+            "name": "fetchSummary",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_b0cb144ec2e5163ad0f0325063c6dbc481a248af65b8b656aa29f8427e67793a",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "requestKey",
+            "value": "requests.ts#fetchSummary"
+          }
+        ],
+        "kind": "request",
+        "name": "fetchSummary",
+        "scopeId": "app.web"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_fee529c51bd5d951d668d9b620f5e61ea70eb809762cca5cab66d614f1eb3570",
+            "attributes": {
+              "operationName": "PurchaseSummary",
+              "operationType": "query",
+              "variables": []
+            },
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_f8b201f9c57c80ab980a8904e1e2d300c4e3072584f8bb08b501cab235a51f78"
+            ],
+            "name": "PurchaseSummary",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_3d064ec771de2e391b5a5810dbb87b0675012035f9d8070f60a31e9ecb6f2229",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "serviceId",
+            "value": "erp"
+          },
+          {
+            "name": "operationType",
+            "value": "query"
+          },
+          {
+            "name": "operationName",
+            "value": "PurchaseSummary"
+          }
+        ],
+        "kind": "graphqlOperation",
+        "name": "PurchaseSummary",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_b27fe44b155547ec3b77885e2c5de102d0741ce8834932de97725fdce896a27d",
+            "attributes": {
+              "baseURL": "/erp",
+              "bindingComplete": true,
+              "clientName": "http",
+              "expression": "'/purchase/ledger'",
+              "method": "GET",
+              "path": "/purchase/ledger",
+              "serviceId": "erp"
+            },
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_97514106e411ec55dbd389b3d3ae99ee617a71db48286e31fbfdbf9076f10e7e"
+            ],
+            "name": "fetchLedger",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_3cbc6012d5ab57a7ddabbe49db5bc7704bb581e2aab8bee82a8b9be04189c6e8",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "requestKey",
+            "value": "requests.ts#fetchLedger"
+          }
+        ],
+        "kind": "request",
+        "name": "fetchLedger",
+        "scopeId": "app.web"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_92a28dccb6d2ce9b4ccd31d07fc80415f870171d787339adf36fe0d62f090a7b",
+            "attributes": {},
+            "basis": "observed",
+            "batchId": "bat_0c9ce4e4a6b9bfc040e40d6e5a60815e71f84dc5901ad875bec3e8c012490600",
+            "evidenceRefs": [
+              "ev_0a363de8984f1b51610f2889c8ef5589785bf3dfd617db4f74fc743a24c1f1fa"
+            ],
+            "name": "ledger",
+            "origin": "static",
+            "producerKey": "example.a.api@1.0.0:2d74ef4e31b00b766a3fbe1dc4de292108b598db81deaf488e6e74761ab36782:extract"
+          },
+          {
+            "assertionId": "as_a95351e4b360c3bf942d38d9398ffebb0c99632989bbeeda2b135d924e5f9d0b",
+            "attributes": {},
+            "basis": "observed",
+            "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+            "evidenceRefs": [
+              "ev_22e6e2c0bec9f9e48d5031d626d0aacc47f1b48991b6cd3f3215ee00339c9722"
+            ],
+            "name": "ledger",
+            "origin": "static",
+            "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_e95d3192add1afbb65469f8afbb70b1e3f6a1923b1abe2ef45b485d79f5c5121",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "repositoryId",
+            "value": "back"
+          },
+          {
+            "name": "path",
+            "value": "service.ts"
+          },
+          {
+            "name": "scopeId",
+            "value": "svc.erp"
+          },
+          {
+            "name": "lexicalPath",
+            "value": "ledger"
+          },
+          {
+            "name": "normalizedSignature",
+            "value": "()"
+          }
+        ],
+        "kind": "operation",
+        "name": "ledger",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_4ba63b88c7b2deb88811e37f3d2143741441ed4fb44183eac7142307e9f90f0f",
+            "attributes": {
+              "fieldName": "purchaseSummary",
+              "schemaType": "Query"
+            },
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_f8b201f9c57c80ab980a8904e1e2d300c4e3072584f8bb08b501cab235a51f78"
+            ],
+            "name": "purchaseSummary",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          },
+          {
+            "assertionId": "as_a233f646e2faa57c532f0497706043ffe288e0258e9729ccf247cbdc547eb670",
+            "attributes": {
+              "fieldName": "purchaseSummary",
+              "schemaType": "Query"
+            },
+            "basis": "observed",
+            "batchId": "bat_0c9ce4e4a6b9bfc040e40d6e5a60815e71f84dc5901ad875bec3e8c012490600",
+            "evidenceRefs": [
+              "ev_e7b7f5bb9f1c52dbf5d0eb6933296ca3ed318fa5db678ec1fa399501420234c7"
+            ],
+            "name": "purchaseSummary",
+            "origin": "static",
+            "producerKey": "example.a.api@1.0.0:2d74ef4e31b00b766a3fbe1dc4de292108b598db81deaf488e6e74761ab36782:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_895b0bdff079b374985473324c8009a99631d384228abecf5dec60168ab1fa0e",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "serviceId",
+            "value": "erp"
+          },
+          {
+            "name": "schemaType",
+            "value": "Query"
+          },
+          {
+            "name": "fieldName",
+            "value": "purchaseSummary"
+          }
+        ],
+        "kind": "graphqlField",
+        "name": "purchaseSummary",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_0417555d14c457dbd38c56188c03adae900152e48b785f5b8986b4e1f1239d5f",
+            "attributes": {
+              "method": "GET",
+              "registeredPath": "/purchase/ledger",
+              "serviceId": "erp"
+            },
+            "basis": "observed",
+            "batchId": "bat_0c9ce4e4a6b9bfc040e40d6e5a60815e71f84dc5901ad875bec3e8c012490600",
+            "evidenceRefs": [
+              "ev_2537835f3785c663bfd4839009b0a5b888d279b4d0d7864bf54ccd44dce03989"
+            ],
+            "name": "/purchase/ledger",
+            "origin": "static",
+            "producerKey": "example.a.api@1.0.0:2d74ef4e31b00b766a3fbe1dc4de292108b598db81deaf488e6e74761ab36782:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_4b0a0b622f4202ceaaf47c6044d08e666e950c3007b3e159ce4ded3843945b02",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "serviceId",
+            "value": "erp"
+          },
+          {
+            "name": "method",
+            "value": "GET"
+          },
+          {
+            "name": "registeredPath",
+            "value": "/purchase/ledger"
+          }
+        ],
+        "kind": "httpEndpoint",
+        "name": "/purchase/ledger",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_39d8b6f45b015b198576f2cd7cf1e0f623559d6171708b26e432cfd7da94f4c1",
+            "attributes": {
+              "aggregates": {
+                "gapIds": [
+                  "gap_de427c05b25ee0a10518ece8ca5b8c846d69c6bec0258c44502898164e9ff479"
+                ],
+                "status": "unknown"
+              },
+              "dialect": "sqlite",
+              "grainColumnIds": {
+                "gapIds": [
+                  "gap_de427c05b25ee0a10518ece8ca5b8c846d69c6bec0258c44502898164e9ff479"
+                ],
+                "status": "unknown"
+              },
+              "joins": [],
+              "nullHandling": {
+                "gapIds": [
+                  "gap_de427c05b25ee0a10518ece8ca5b8c846d69c6bec0258c44502898164e9ff479"
+                ],
+                "status": "unknown"
+              },
+              "statement": {
+                "endByte": 86,
+                "startByte": 66,
+                "text": "erp.query(ledgerSql)"
+              },
+              "timeFields": {
+                "gapIds": [
+                  "gap_de427c05b25ee0a10518ece8ca5b8c846d69c6bec0258c44502898164e9ff479"
+                ],
+                "status": "unknown"
+              },
+              "units": {
+                "gapIds": [
+                  "gap_de427c05b25ee0a10518ece8ca5b8c846d69c6bec0258c44502898164e9ff479"
+                ],
+                "status": "unknown"
+              },
+              "validStates": {
+                "gapIds": [
+                  "gap_de427c05b25ee0a10518ece8ca5b8c846d69c6bec0258c44502898164e9ff479"
+                ],
+                "status": "unknown"
+              }
+            },
+            "basis": "observed",
+            "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+            "evidenceRefs": [
+              "ev_5fbbf881518284ac90731dc6ec33527a9124b24512dc4e617649a4d91934b531",
+              "ev_7941a71274bdf49d850c34ed9cfe149d2cbb5bbcf119b8ac7cce8d70da78038f",
+              "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c"
+            ],
+            "name": "back:service.ts:ledger:query:0:0",
+            "origin": "static",
+            "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract"
+          },
+          {
+            "assertionId": "as_e3dddd86a6edd674e86f3b968ccba72619511745b6e4d0468bd8e5f5894df83a",
+            "attributes": {
+              "aggregates": [],
+              "dialect": "sqlite",
+              "grainColumnIds": [
+                "ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e",
+                "ent_9d8ef7cd4f8105252bea3e13669b9faf7b50ce56e9c36e430b8d31441412c17a",
+                "ent_0789c355d1e54a7c5263afb225290697e27c6e30ae449e6d14b13addf3df83f5"
+              ],
+              "joins": [],
+              "nullHandling": {
+                "gapIds": [
+                  "gap_56d341fe4176f88ad73b5c36992cc927ec34a801095e487d9257274b7473834a"
+                ],
+                "status": "unknown"
+              },
+              "statement": {
+                "endByte": 86,
+                "startByte": 66,
+                "text": "erp.query(ledgerSql)"
+              },
+              "timeFields": {
+                "gapIds": [
+                  "gap_0fdbe0a171684bd44f275eccbd0a9bcec0d1cdb0af7b84fcf6e1fe96b221faa7"
+                ],
+                "status": "unknown"
+              },
+              "units": [],
+              "validStates": {
+                "gapIds": [
+                  "gap_78613d11a3642dc57a8cda499cf2e6e0420ceee4d8a7cfdfe6a02d253e4aa268"
+                ],
+                "status": "unknown"
+              }
+            },
+            "basis": "declared",
+            "batchId": "bat_d2dd2369661cbc114044a2c92b9bf1230ba3eb6ecedfb6f0c5dee943c9e15dfa",
+            "evidenceRefs": [
+              "ev_07eda127681d37dc246164533a7b87693577ecf1ca475e204bf3a322e53c3710",
+              "ev_5fbbf881518284ac90731dc6ec33527a9124b24512dc4e617649a4d91934b531",
+              "ev_7941a71274bdf49d850c34ed9cfe149d2cbb5bbcf119b8ac7cce8d70da78038f",
+              "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c",
+              "ev_f5e1a4032b4fdbe490a12a29d3924b972dde27ef39d7289d3d3f77ae92736b25"
+            ],
+            "name": "back:service.ts:ledger:query:0:0",
+            "origin": "static",
+            "producerKey": "example.a.semantics@1.0.0:91cb27863830c284a58c5ab9400c83f00dc2289803618bacf99a86774ef0de4d:report"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_d7d81a77217fcc1653417f0b00eb6a0ce94272b320c58a3a794a737e367503ba",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "scopeId",
+            "value": "svc.erp"
+          },
+          {
+            "name": "semanticKey",
+            "value": "back:service.ts:ledger:query:0:0"
+          }
+        ],
+        "kind": "queryImplementation",
+        "name": "back:service.ts:ledger:query:0:0",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_8aa38d3fef589e70a6e42d6bc99e5386761799bf3cde3d29ae8465b23d4d1132",
+            "attributes": {
+              "protocol": "http"
+            },
+            "basis": "observed",
+            "batchId": "bat_0c9ce4e4a6b9bfc040e40d6e5a60815e71f84dc5901ad875bec3e8c012490600",
+            "evidenceRefs": [
+              "ev_2537835f3785c663bfd4839009b0a5b888d279b4d0d7864bf54ccd44dce03989"
+            ],
+            "name": "erp",
+            "origin": "static",
+            "producerKey": "example.a.api@1.0.0:2d74ef4e31b00b766a3fbe1dc4de292108b598db81deaf488e6e74761ab36782:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_9bb5047dd27e05f8a261952efca8f30d629551cc6d5a3697deeca26f506d9f02",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "scopeId",
+            "value": "svc.erp"
+          },
+          {
+            "name": "configuredId",
+            "value": "erp"
+          }
+        ],
+        "kind": "service",
+        "name": "erp",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_52c983b5200826c0e251465efed9e7329502d2a61063c5fa4f08124738fd2f44",
+            "attributes": {
+              "dataType": "INTEGER",
+              "nullable": "unknown"
+            },
+            "basis": "declared",
+            "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+            "evidenceRefs": [
+              "ev_c37b1db9e49cb6e8cef914cbfca6d800c18b46ff6197c56067e6a8175dfd72b8"
+            ],
+            "name": "ordered_qty",
+            "origin": "static",
+            "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_a4ee755962fa8a38a6c32ba06e2a68aab2247dac158ae0128fcb3db42354a875",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "dataSourceId",
+            "value": "ds.erp"
+          },
+          {
+            "name": "catalog"
+          },
+          {
+            "name": "schema"
+          },
+          {
+            "name": "table",
+            "value": "purchase_detail"
+          },
+          {
+            "name": "column",
+            "value": "ordered_qty"
+          }
+        ],
+        "kind": "dataColumn",
+        "name": "ordered_qty",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_353865a06b9dd38a11af30417648799b3d436549f13148c092bd16890cc9b737",
+            "attributes": {
+              "dataType": "INTEGER",
+              "nullable": "unknown"
+            },
+            "basis": "declared",
+            "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+            "evidenceRefs": [
+              "ev_c37b1db9e49cb6e8cef914cbfca6d800c18b46ff6197c56067e6a8175dfd72b8"
+            ],
+            "name": "line_no",
+            "origin": "static",
+            "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_0789c355d1e54a7c5263afb225290697e27c6e30ae449e6d14b13addf3df83f5",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "dataSourceId",
+            "value": "ds.erp"
+          },
+          {
+            "name": "catalog"
+          },
+          {
+            "name": "schema"
+          },
+          {
+            "name": "table",
+            "value": "purchase_detail"
+          },
+          {
+            "name": "column",
+            "value": "line_no"
+          }
+        ],
+        "kind": "dataColumn",
+        "name": "line_no",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_996feda4167e630523d6c68b5084e7992621428d9cdc1438d19edf39de27b937",
+            "attributes": {
+              "dataType": "TEXT",
+              "nullable": "unknown"
+            },
+            "basis": "declared",
+            "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+            "evidenceRefs": [
+              "ev_c37b1db9e49cb6e8cef914cbfca6d800c18b46ff6197c56067e6a8175dfd72b8"
+            ],
+            "name": "purchase_no",
+            "origin": "static",
+            "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_9d8ef7cd4f8105252bea3e13669b9faf7b50ce56e9c36e430b8d31441412c17a",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "dataSourceId",
+            "value": "ds.erp"
+          },
+          {
+            "name": "catalog"
+          },
+          {
+            "name": "schema"
+          },
+          {
+            "name": "table",
+            "value": "purchase_detail"
+          },
+          {
+            "name": "column",
+            "value": "purchase_no"
+          }
+        ],
+        "kind": "dataColumn",
+        "name": "purchase_no",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_45c81b3bf6dfc9896550b574e64e3c5607182238c66e90349204a2d03c674c9e",
+            "attributes": {
+              "dialect": "sqlite"
+            },
+            "basis": "observed",
+            "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+            "evidenceRefs": [
+              "ev_67ffda647a39f1641100e75c308007a50a0995fa7f46c6cd7a77af11a3acff0d",
+              "ev_7af4c791f2e77d77166db17f0f587a17c4d1fe637b2a09336a6d25c0dc158034",
+              "ev_8cc11e2aee346293d87d370a90f80dc54c136179d492b6d0c6201aea9d1c0957",
+              "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c",
+              "ev_c37b1db9e49cb6e8cef914cbfca6d800c18b46ff6197c56067e6a8175dfd72b8"
+            ],
+            "name": "ds.erp",
+            "origin": "static",
+            "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_b69a447d638da44ef473da50e5fd01f4bea1b4e45da3d40edd81177b5afd5f12",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "scopeId",
+            "value": "svc.erp"
+          },
+          {
+            "name": "configuredId",
+            "value": "ds.erp"
+          }
+        ],
+        "kind": "dataSource",
+        "name": "ds.erp",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_4fef692f0dd6fdb8de8d4005ecc50ba789912159e17dae934658a4386e0a415f",
+            "attributes": {
+              "dataType": "TEXT",
+              "nullable": "unknown"
+            },
+            "basis": "declared",
+            "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+            "evidenceRefs": [
+              "ev_c37b1db9e49cb6e8cef914cbfca6d800c18b46ff6197c56067e6a8175dfd72b8"
+            ],
+            "name": "status",
+            "origin": "static",
+            "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_22909ca38dad921d479a355d3ac17b5583069141e13f0610ebb3a1db0ae5e5ea",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "dataSourceId",
+            "value": "ds.erp"
+          },
+          {
+            "name": "catalog"
+          },
+          {
+            "name": "schema"
+          },
+          {
+            "name": "table",
+            "value": "purchase_detail"
+          },
+          {
+            "name": "column",
+            "value": "status"
+          }
+        ],
+        "kind": "dataColumn",
+        "name": "status",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_ea4ce08ae6a7845e63d52a8da88a19e284181e2e9b6804494945a8e49e9838d5",
+            "attributes": {
+              "dataSourceId": "ds.erp"
+            },
+            "basis": "declared",
+            "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+            "evidenceRefs": [
+              "ev_c37b1db9e49cb6e8cef914cbfca6d800c18b46ff6197c56067e6a8175dfd72b8"
+            ],
+            "name": "purchase_detail",
+            "origin": "static",
+            "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_fe9016e9ed562f86eae97ce72e5cf6fefa42e206865eb5666846467d0f87789c",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "dataSourceId",
+            "value": "ds.erp"
+          },
+          {
+            "name": "catalog"
+          },
+          {
+            "name": "schema"
+          },
+          {
+            "name": "table",
+            "value": "purchase_detail"
+          }
+        ],
+        "kind": "dataTable",
+        "name": "purchase_detail",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_ad49a3fbd3be6eb34e68b78c8026950baa9a136afd7f50a02337be06c1152951",
+            "attributes": {
+              "dataType": "INTEGER",
+              "nullable": "unknown"
+            },
+            "basis": "declared",
+            "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+            "evidenceRefs": [
+              "ev_c37b1db9e49cb6e8cef914cbfca6d800c18b46ff6197c56067e6a8175dfd72b8"
+            ],
+            "name": "unit_price_cents",
+            "origin": "static",
+            "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_ee106af9bd993997435215d47df254e1c34c986033db88b52de7d2522c3d88b4",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "dataSourceId",
+            "value": "ds.erp"
+          },
+          {
+            "name": "catalog"
+          },
+          {
+            "name": "schema"
+          },
+          {
+            "name": "table",
+            "value": "purchase_detail"
+          },
+          {
+            "name": "column",
+            "value": "unit_price_cents"
+          }
+        ],
+        "kind": "dataColumn",
+        "name": "unit_price_cents",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_59c5e561ec1e27620a0a1121e6b450bf6c9c33e2e60b60859feaff98f802112b",
+            "attributes": {
+              "dataType": "TEXT",
+              "nullable": "unknown"
+            },
+            "basis": "declared",
+            "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+            "evidenceRefs": [
+              "ev_c37b1db9e49cb6e8cef914cbfca6d800c18b46ff6197c56067e6a8175dfd72b8"
+            ],
+            "name": "tenant_id",
+            "origin": "static",
+            "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "dataSourceId",
+            "value": "ds.erp"
+          },
+          {
+            "name": "catalog"
+          },
+          {
+            "name": "schema"
+          },
+          {
+            "name": "table",
+            "value": "purchase_detail"
+          },
+          {
+            "name": "column",
+            "value": "tenant_id"
+          }
+        ],
+        "kind": "dataColumn",
+        "name": "tenant_id",
+        "scopeId": "svc.erp"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_d38cf2b37d0de0a4d677c64255bcf1bfeb8ca4eec90bee18488f0bf85201e4d3",
+            "attributes": {
+              "dataType": "TEXT",
+              "nullable": "unknown"
+            },
+            "basis": "declared",
+            "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+            "evidenceRefs": [
+              "ev_c37b1db9e49cb6e8cef914cbfca6d800c18b46ff6197c56067e6a8175dfd72b8"
+            ],
+            "name": "supplier_id",
+            "origin": "static",
+            "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_1db2f0b822d4d2fccd885fc354b265946d9b8365abc8c1e7da3a9e76fbfbd83f",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "dataSourceId",
+            "value": "ds.erp"
+          },
+          {
+            "name": "catalog"
+          },
+          {
+            "name": "schema"
+          },
+          {
+            "name": "table",
+            "value": "purchase_detail"
+          },
+          {
+            "name": "column",
+            "value": "supplier_id"
+          }
+        ],
+        "kind": "dataColumn",
+        "name": "supplier_id",
+        "scopeId": "svc.erp"
+      }
+    ],
+    "events": [
+      {
+        "entityId": "ent_3b62e2f3583a506b04c09d7252b376e16933df2e74beb7aa8ed02ac356587af8",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_cbe842402d04e796f111e1fc8439e16ea8f77300ce85bbca10c8f77141a89c19",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      }
+    ],
+    "frontier": [],
+    "hops": [
+      {
+        "assertionId": "as_f5c464cb3accd16fe498c49fd123f68927deac113fb871bc2854db017086a8ce",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 1,
+        "direction": "in",
+        "evidenceRefs": [
+          "ev_2c4782f2d5e4a4b48b58cebfd7cd1801346332b9afd94c5ac626cc342c39ba54",
+          "ev_cc2d6dc3fa3346b47976cd36a86b272d0d146b7bec8a8ee052e11deeceabadd4"
+        ],
+        "fromId": "ent_a7dea77ca7aef506255b172e82d21bfa3365c6b8b301c8ff468a217e28035ad9",
+        "kind": "describes",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_7bcd405299e129968d721626e3a871788dfa8fa8d5070d330b9621754b0f69d6",
+        "relationRef": {
+          "relationId": "rel_7bcd405299e129968d721626e3a871788dfa8fa8d5070d330b9621754b0f69d6",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_6d6dba30306ee4e10a3e0394c8a7d25ff4edd9190278b89b8718c005be5b2295"
+      },
+      {
+        "assertionId": "as_e288c02d0baf29945b0d4479971255c046873d532c458e7db330b89f64b50fe1",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 1,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_99cb69bf366f4cfe6defa57dae2729999e3298b01969f73a27f24b4155a93af6",
+          "ev_cc2d6dc3fa3346b47976cd36a86b272d0d146b7bec8a8ee052e11deeceabadd4"
+        ],
+        "fromId": "ent_6d6dba30306ee4e10a3e0394c8a7d25ff4edd9190278b89b8718c005be5b2295",
+        "kind": "renders",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_b97ce01ae83aba049835ecc768f5365cd982d9a33566fe3b224745ca5323432c",
+        "relationRef": {
+          "relationId": "rel_b97ce01ae83aba049835ecc768f5365cd982d9a33566fe3b224745ca5323432c",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_7511462f9233512f90a746ec516949cfb4d4628095707d2595a84fb35731bd46"
+      },
+      {
+        "assertionId": "as_cca6b70bcf9e9b89f5b6832bb0115d037a5fbf7d17f12c20b15737a09d7d6113",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 1,
+        "direction": "in",
+        "evidenceRefs": [
+          "ev_2c4782f2d5e4a4b48b58cebfd7cd1801346332b9afd94c5ac626cc342c39ba54",
+          "ev_afa7fd30a3fc77dfc4b65b0524eafea44ddd86c1752979040e4ec82c02dd4b54"
+        ],
+        "fromId": "ent_a7dea77ca7aef506255b172e82d21bfa3365c6b8b301c8ff468a217e28035ad9",
+        "kind": "describes",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_c9241056f373cc0304510d052cb8c41af9dbcb8cb65efd1ce163754060662d08",
+        "relationRef": {
+          "relationId": "rel_c9241056f373cc0304510d052cb8c41af9dbcb8cb65efd1ce163754060662d08",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_bc3f2c07a9bd00e985648089b61a9a16ede87ab8a6039732278b83f444fcc642"
+      },
+      {
+        "assertionId": "as_523b6d538ab08f14dcf791c8c9e0b2ed8b94cf683a3177b420b7121c2ea770b2",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 1,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_99cb69bf366f4cfe6defa57dae2729999e3298b01969f73a27f24b4155a93af6",
+          "ev_afa7fd30a3fc77dfc4b65b0524eafea44ddd86c1752979040e4ec82c02dd4b54"
+        ],
+        "fromId": "ent_bc3f2c07a9bd00e985648089b61a9a16ede87ab8a6039732278b83f444fcc642",
+        "kind": "renders",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_d8ff7c7d378e6e8be67db53c58d6f8a28821379ac5091f8d61abd8637ca2eeed",
+        "relationRef": {
+          "relationId": "rel_d8ff7c7d378e6e8be67db53c58d6f8a28821379ac5091f8d61abd8637ca2eeed",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_7511462f9233512f90a746ec516949cfb4d4628095707d2595a84fb35731bd46"
+      },
+      {
+        "assertionId": "as_bcab4dcc90d0a5f3d46e03fb1ac278c182b2b4a47b726a981b8b75ccdec985b5",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 2,
+        "direction": "in",
+        "evidenceRefs": [
+          "ev_b46810daebdc1f04226e429ea26a1b239928dd67bbcec4c175289220420fa14b"
+        ],
+        "fromId": "ent_b8efbda9adc2b416aad387b39b5e3685897605b46f6999105a53d8e3e697204f",
+        "kind": "describes",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_3276530eed6d31d1c6fc55f6697d63533ff5c8a6c271a0c81b5b1fd647629d71",
+        "relationRef": {
+          "relationId": "rel_3276530eed6d31d1c6fc55f6697d63533ff5c8a6c271a0c81b5b1fd647629d71",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_7511462f9233512f90a746ec516949cfb4d4628095707d2595a84fb35731bd46"
+      },
+      {
+        "assertionId": "as_f2a91a5ddb4347fe183831deb91f7413253cb8aad089dc583e28321dc7a38bba",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 2,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_dec1deb860864c500783ce58df903be39233c54b29668eac9a47b752c6c909d9"
+        ],
+        "fromId": "ent_7511462f9233512f90a746ec516949cfb4d4628095707d2595a84fb35731bd46",
+        "kind": "contains",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_68c0d7b33c18d2e3a2ceeb32a07b90003cb6dc4de4c6ab5b325cbb6f5940955a",
+        "relationRef": {
+          "relationId": "rel_68c0d7b33c18d2e3a2ceeb32a07b90003cb6dc4de4c6ab5b325cbb6f5940955a",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_5bc719a54f5674dbc56e792d8b3675bb81d8226e51e35c55693713cf164738df"
+      },
+      {
+        "assertionId": "as_9f5d1cd160ff55eaa9ee9b9636609063c0f9ec7c5b695b7a542d51c1d247d5c2",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 2,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_0fa47ca8fb7d75c993f4ba7fb60fe31a245656abcd975769437e209bcf37457d"
+        ],
+        "fromId": "ent_7511462f9233512f90a746ec516949cfb4d4628095707d2595a84fb35731bd46",
+        "kind": "contains",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_b3c1dd201bc9bc1782b3ac9bcf11567d8ab7517875ab634e7ae193daeabafce6",
+        "relationRef": {
+          "relationId": "rel_b3c1dd201bc9bc1782b3ac9bcf11567d8ab7517875ab634e7ae193daeabafce6",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_27a127bbe5fa206cb09e0723e6d52d5219f26819850aafd27dd29e869562fccf"
+      },
+      {
+        "assertionId": "as_b8042e75ceba62692635eaaeafe44716f63542c68f2bedf85bd7eed94f14dff4",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 3,
+        "direction": "in",
+        "evidenceRefs": [
+          "ev_bb7d0419128fe6e557b8df1a42422bb17bdb245dcaeea2e241861f6e525858d5",
+          "ev_dec1deb860864c500783ce58df903be39233c54b29668eac9a47b752c6c909d9"
+        ],
+        "fromId": "ent_3b62e2f3583a506b04c09d7252b376e16933df2e74beb7aa8ed02ac356587af8",
+        "kind": "triggers",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_803245dce7e1a101a93f7287edd09bd80c981d310c86fd26c2d022577a405c97",
+        "relationRef": {
+          "relationId": "rel_803245dce7e1a101a93f7287edd09bd80c981d310c86fd26c2d022577a405c97",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_5bc719a54f5674dbc56e792d8b3675bb81d8226e51e35c55693713cf164738df"
+      },
+      {
+        "assertionId": "as_276e78a563eccfbcd0b2874e6d4ac89e412fc1151b5ccb9e6da0072d0f52244c",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 3,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_4fb50560b0e92093de9d56c367da0d6ff3f2751e4d2d5cf582d73d905b3026c6",
+          "ev_716daba11bcfd256efde19813dd2690ab6e3f21631bf7fc1d3d54ff07042468e"
+        ],
+        "fromId": "ent_5bc719a54f5674dbc56e792d8b3675bb81d8226e51e35c55693713cf164738df",
+        "kind": "calls",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_8661a791415f6b6ddfcc31414ab61c352f9b6d5c0b14bfefe208eb01fad4d4d5",
+        "relationRef": {
+          "relationId": "rel_8661a791415f6b6ddfcc31414ab61c352f9b6d5c0b14bfefe208eb01fad4d4d5",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_c9ef4f6a4b80a63de3e49f1be2f0d9abd7f936bcb18df6b96331bfe990e6ca37"
+      },
+      {
+        "assertionId": "as_645dcd5ac4b6088c1c46571e9134f125ed98394ca6aef80b210be1f96c85eaf1",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 3,
+        "direction": "in",
+        "evidenceRefs": [
+          "ev_0fa47ca8fb7d75c993f4ba7fb60fe31a245656abcd975769437e209bcf37457d",
+          "ev_49c3ba77f3f657367156566622e274753e603203501856e234fd8638fbb99e75"
+        ],
+        "fromId": "ent_cbe842402d04e796f111e1fc8439e16ea8f77300ce85bbca10c8f77141a89c19",
+        "kind": "triggers",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_37a418a6c2fe00e467f4f0a976c67da921478d3739c23da5a3fd4b91c8790342",
+        "relationRef": {
+          "relationId": "rel_37a418a6c2fe00e467f4f0a976c67da921478d3739c23da5a3fd4b91c8790342",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_27a127bbe5fa206cb09e0723e6d52d5219f26819850aafd27dd29e869562fccf"
+      },
+      {
+        "assertionId": "as_c63f472d1ca893570e20b619fa9bb7ad44468bc208c3edbd788762ee1b262495",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 3,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_83ef52d7e63e4c36a4042abe4b65aebd6ee4e1aa78b57dab33c09b6e865561ca",
+          "ev_c8a312af4ea402b3f0ea8bce190278372ebd8612cb06843530f5e120a9190a9e"
+        ],
+        "fromId": "ent_27a127bbe5fa206cb09e0723e6d52d5219f26819850aafd27dd29e869562fccf",
+        "kind": "calls",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_fb0dc7f67d4613d482447a88cc632a287d84d027391042295b5528b2a3a9c38b",
+        "relationRef": {
+          "relationId": "rel_fb0dc7f67d4613d482447a88cc632a287d84d027391042295b5528b2a3a9c38b",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_bfd0bea6b263cb28a26dba9f6424192b19b2ab116015d2c566e807cab8025aa8"
+      },
+      {
+        "assertionId": "as_be78161c5285e0714bcfcafd5e631a5add194e42ddb5361e901168dbdf1ebc67",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 4,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_3e2a395ec65ba070deccc22b423a788b48b207c32948ab1dfdc8d26f31d8b881",
+          "ev_f8b201f9c57c80ab980a8904e1e2d300c4e3072584f8bb08b501cab235a51f78"
+        ],
+        "fromId": "ent_c9ef4f6a4b80a63de3e49f1be2f0d9abd7f936bcb18df6b96331bfe990e6ca37",
+        "kind": "requests",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_757bca9d5f7b979d3fc4b8a6e25f90e20cc0477968f954697b6378524686fb5a",
+        "relationRef": {
+          "relationId": "rel_757bca9d5f7b979d3fc4b8a6e25f90e20cc0477968f954697b6378524686fb5a",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_b0cb144ec2e5163ad0f0325063c6dbc481a248af65b8b656aa29f8427e67793a"
+      },
+      {
+        "assertionId": "as_055014ff4266f23978e859f7806137636917970c12d193d4686f3a1bbe044704",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 4,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_3e2a395ec65ba070deccc22b423a788b48b207c32948ab1dfdc8d26f31d8b881",
+          "ev_f8b201f9c57c80ab980a8904e1e2d300c4e3072584f8bb08b501cab235a51f78"
+        ],
+        "fromId": "ent_c9ef4f6a4b80a63de3e49f1be2f0d9abd7f936bcb18df6b96331bfe990e6ca37",
+        "kind": "requests",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_7d14ea3d625ee4972c0a8bc3a28d4f893b9a2e41d43bbd25fc6e72dcad4e4c12",
+        "relationRef": {
+          "relationId": "rel_7d14ea3d625ee4972c0a8bc3a28d4f893b9a2e41d43bbd25fc6e72dcad4e4c12",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_3d064ec771de2e391b5a5810dbb87b0675012035f9d8070f60a31e9ecb6f2229"
+      },
+      {
+        "assertionId": "as_c43487bae4c123dee775e0728a83531e43a4a46d751be788152f1dba56df0c52",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 4,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_3e2a395ec65ba070deccc22b423a788b48b207c32948ab1dfdc8d26f31d8b881",
+          "ev_97514106e411ec55dbd389b3d3ae99ee617a71db48286e31fbfdbf9076f10e7e"
+        ],
+        "fromId": "ent_bfd0bea6b263cb28a26dba9f6424192b19b2ab116015d2c566e807cab8025aa8",
+        "kind": "requests",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_6f35d33c1c2be72015b913278aaa8a66d5b75e81298eb921ad16f5254614e9dd",
+        "relationRef": {
+          "relationId": "rel_6f35d33c1c2be72015b913278aaa8a66d5b75e81298eb921ad16f5254614e9dd",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_3cbc6012d5ab57a7ddabbe49db5bc7704bb581e2aab8bee82a8b9be04189c6e8"
+      },
+      {
+        "assertionId": "as_fe36a486256ebc0ccdf082886cccb77e0adfa140c5b9643123893ad119fd274d",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 5,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_3e2a395ec65ba070deccc22b423a788b48b207c32948ab1dfdc8d26f31d8b881",
+          "ev_f8b201f9c57c80ab980a8904e1e2d300c4e3072584f8bb08b501cab235a51f78"
+        ],
+        "fromId": "ent_b0cb144ec2e5163ad0f0325063c6dbc481a248af65b8b656aa29f8427e67793a",
+        "kind": "references",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_3a2a0ba7da4977ef28ff02a1cfc2446bc7d98c3325fb814c518f288e56778981",
+        "relationRef": {
+          "relationId": "rel_3a2a0ba7da4977ef28ff02a1cfc2446bc7d98c3325fb814c518f288e56778981",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_3d064ec771de2e391b5a5810dbb87b0675012035f9d8070f60a31e9ecb6f2229"
+      },
+      {
+        "assertionId": "as_5cb6a8e0e1086605634d613150c675846dbc6eec4338f436a9cb5f63c192e78e",
+        "basis": "observed",
+        "batchId": "bat_f6a80e65617e6308630ff98969f29bf1239b177eb4313c48400b513ec1a584f7",
+        "depth": 5,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_0a363de8984f1b51610f2889c8ef5589785bf3dfd617db4f74fc743a24c1f1fa",
+          "ev_3e2a395ec65ba070deccc22b423a788b48b207c32948ab1dfdc8d26f31d8b881",
+          "ev_e7b7f5bb9f1c52dbf5d0eb6933296ca3ed318fa5db678ec1fa399501420234c7",
+          "ev_f8b201f9c57c80ab980a8904e1e2d300c4e3072584f8bb08b501cab235a51f78"
+        ],
+        "fromId": "ent_3d064ec771de2e391b5a5810dbb87b0675012035f9d8070f60a31e9ecb6f2229",
+        "kind": "calls",
+        "origin": "static",
+        "producerKey": "example.a.link@1.0.0:4653406c73a88c39eba1bc77e1b16bfd6ee8ecca1afb267e4df936e5bca4aa98:link",
+        "qualifiers": {},
+        "relationId": "rel_8396cdbe03273790f107d3c570ee3adbbc242aea2c6c8f995a4653f8cf4b1896",
+        "relationRef": {
+          "relationId": "rel_8396cdbe03273790f107d3c570ee3adbbc242aea2c6c8f995a4653f8cf4b1896",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_e95d3192add1afbb65469f8afbb70b1e3f6a1923b1abe2ef45b485d79f5c5121"
+      },
+      {
+        "assertionId": "as_739db5b1b19fb76ac71a4d337c04bff79632b1d9c276a62ca4cc572c5b1b3640",
+        "basis": "observed",
+        "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+        "depth": 5,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_f8b201f9c57c80ab980a8904e1e2d300c4e3072584f8bb08b501cab235a51f78"
+        ],
+        "fromId": "ent_3d064ec771de2e391b5a5810dbb87b0675012035f9d8070f60a31e9ecb6f2229",
+        "kind": "references",
+        "origin": "static",
+        "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract",
+        "qualifiers": {},
+        "relationId": "rel_e802ad7a646b272cb71ccaceed94ba0f61c5dfe74bafbf68973b0e014187b5a7",
+        "relationRef": {
+          "relationId": "rel_e802ad7a646b272cb71ccaceed94ba0f61c5dfe74bafbf68973b0e014187b5a7",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_895b0bdff079b374985473324c8009a99631d384228abecf5dec60168ab1fa0e"
+      },
+      {
+        "assertionId": "as_148eaacd9ebded12a7c4575f1dfbeff49fc383267c786e962c98edf3b0626607",
+        "basis": "observed",
+        "batchId": "bat_f6a80e65617e6308630ff98969f29bf1239b177eb4313c48400b513ec1a584f7",
+        "depth": 5,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_0a363de8984f1b51610f2889c8ef5589785bf3dfd617db4f74fc743a24c1f1fa",
+          "ev_2537835f3785c663bfd4839009b0a5b888d279b4d0d7864bf54ccd44dce03989",
+          "ev_3e2a395ec65ba070deccc22b423a788b48b207c32948ab1dfdc8d26f31d8b881",
+          "ev_97514106e411ec55dbd389b3d3ae99ee617a71db48286e31fbfdbf9076f10e7e"
+        ],
+        "fromId": "ent_3cbc6012d5ab57a7ddabbe49db5bc7704bb581e2aab8bee82a8b9be04189c6e8",
+        "kind": "references",
+        "origin": "static",
+        "producerKey": "example.a.link@1.0.0:4653406c73a88c39eba1bc77e1b16bfd6ee8ecca1afb267e4df936e5bca4aa98:link",
+        "qualifiers": {},
+        "relationId": "rel_72ef8ac886cd576083d29b23a325ebc6a07fbec679909225ba98f4ade98c5426",
+        "relationRef": {
+          "relationId": "rel_72ef8ac886cd576083d29b23a325ebc6a07fbec679909225ba98f4ade98c5426",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_4b0a0b622f4202ceaaf47c6044d08e666e950c3007b3e159ce4ded3843945b02"
+      },
+      {
+        "assertionId": "as_ce394d86256610831e3ce79094cd4c869690ec4cbe742d9a53c313b0f89067ca",
+        "basis": "observed",
+        "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+        "depth": 6,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_5fbbf881518284ac90731dc6ec33527a9124b24512dc4e617649a4d91934b531",
+          "ev_7941a71274bdf49d850c34ed9cfe149d2cbb5bbcf119b8ac7cce8d70da78038f",
+          "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c"
+        ],
+        "fromId": "ent_e95d3192add1afbb65469f8afbb70b1e3f6a1923b1abe2ef45b485d79f5c5121",
+        "kind": "calls",
+        "origin": "static",
+        "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract",
+        "qualifiers": {},
+        "relationId": "rel_213373703ff40a50da11391fdb3a449848bac1b5196c1ebb3672177db93e148c",
+        "relationRef": {
+          "relationId": "rel_213373703ff40a50da11391fdb3a449848bac1b5196c1ebb3672177db93e148c",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_d7d81a77217fcc1653417f0b00eb6a0ce94272b320c58a3a794a737e367503ba"
+      },
+      {
+        "assertionId": "as_7f471abd45945f736205d04d75ebca96cc266ebea3c778a9a7557c2eb2b3df84",
+        "basis": "observed",
+        "batchId": "bat_0c9ce4e4a6b9bfc040e40d6e5a60815e71f84dc5901ad875bec3e8c012490600",
+        "depth": 6,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_0a363de8984f1b51610f2889c8ef5589785bf3dfd617db4f74fc743a24c1f1fa",
+          "ev_e7b7f5bb9f1c52dbf5d0eb6933296ca3ed318fa5db678ec1fa399501420234c7"
+        ],
+        "fromId": "ent_895b0bdff079b374985473324c8009a99631d384228abecf5dec60168ab1fa0e",
+        "kind": "resolves",
+        "origin": "static",
+        "producerKey": "example.a.api@1.0.0:2d74ef4e31b00b766a3fbe1dc4de292108b598db81deaf488e6e74761ab36782:extract",
+        "qualifiers": {},
+        "relationId": "rel_b84108ed81630a5c2a845d1aeff25d583bcfff6eaa3c1a3794b53270777438dc",
+        "relationRef": {
+          "relationId": "rel_b84108ed81630a5c2a845d1aeff25d583bcfff6eaa3c1a3794b53270777438dc",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_e95d3192add1afbb65469f8afbb70b1e3f6a1923b1abe2ef45b485d79f5c5121"
+      },
+      {
+        "assertionId": "as_144456888001557b7dbddc1b5f56ba749094d00073fe6b81ec513c90b5c42e64",
+        "basis": "observed",
+        "batchId": "bat_0c9ce4e4a6b9bfc040e40d6e5a60815e71f84dc5901ad875bec3e8c012490600",
+        "depth": 6,
+        "direction": "in",
+        "evidenceRefs": [
+          "ev_2537835f3785c663bfd4839009b0a5b888d279b4d0d7864bf54ccd44dce03989"
+        ],
+        "fromId": "ent_9bb5047dd27e05f8a261952efca8f30d629551cc6d5a3697deeca26f506d9f02",
+        "kind": "serves",
+        "origin": "static",
+        "producerKey": "example.a.api@1.0.0:2d74ef4e31b00b766a3fbe1dc4de292108b598db81deaf488e6e74761ab36782:extract",
+        "qualifiers": {},
+        "relationId": "rel_6845559cf747f7e5c2e99258610d40180f19d3812dc51a5aea9ca3a3d039daab",
+        "relationRef": {
+          "relationId": "rel_6845559cf747f7e5c2e99258610d40180f19d3812dc51a5aea9ca3a3d039daab",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_4b0a0b622f4202ceaaf47c6044d08e666e950c3007b3e159ce4ded3843945b02"
+      },
+      {
+        "assertionId": "as_27842d40415f5b7ef9e2ca6cdbff890d74d84a68e9deb75b5a632833bfd6d284",
+        "basis": "observed",
+        "batchId": "bat_0c9ce4e4a6b9bfc040e40d6e5a60815e71f84dc5901ad875bec3e8c012490600",
+        "depth": 6,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_0a363de8984f1b51610f2889c8ef5589785bf3dfd617db4f74fc743a24c1f1fa",
+          "ev_2537835f3785c663bfd4839009b0a5b888d279b4d0d7864bf54ccd44dce03989"
+        ],
+        "fromId": "ent_4b0a0b622f4202ceaaf47c6044d08e666e950c3007b3e159ce4ded3843945b02",
+        "kind": "handles",
+        "origin": "static",
+        "producerKey": "example.a.api@1.0.0:2d74ef4e31b00b766a3fbe1dc4de292108b598db81deaf488e6e74761ab36782:extract",
+        "qualifiers": {},
+        "relationId": "rel_05aa495f19dca9366db89426d3f69115714bc40bf7a2bb57c7cf58297b614f71",
+        "relationRef": {
+          "relationId": "rel_05aa495f19dca9366db89426d3f69115714bc40bf7a2bb57c7cf58297b614f71",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_e95d3192add1afbb65469f8afbb70b1e3f6a1923b1abe2ef45b485d79f5c5121"
+      },
+      {
+        "assertionId": "as_b236e3f63a8e41a1b9aaca01b882d363c6e0d0123ef8707d292f724c258c4561",
+        "basis": "observed",
+        "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+        "depth": 7,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_5fbbf881518284ac90731dc6ec33527a9124b24512dc4e617649a4d91934b531",
+          "ev_7941a71274bdf49d850c34ed9cfe149d2cbb5bbcf119b8ac7cce8d70da78038f",
+          "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c"
+        ],
+        "fromId": "ent_d7d81a77217fcc1653417f0b00eb6a0ce94272b320c58a3a794a737e367503ba",
+        "kind": "reads",
+        "origin": "static",
+        "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract",
+        "qualifiers": {},
+        "relationId": "rel_25dd7d24d9fe1073d39fa867e232c7d6beb2e4df05e42707eb13232bd917868b",
+        "relationRef": {
+          "relationId": "rel_25dd7d24d9fe1073d39fa867e232c7d6beb2e4df05e42707eb13232bd917868b",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_a4ee755962fa8a38a6c32ba06e2a68aab2247dac158ae0128fcb3db42354a875"
+      },
+      {
+        "assertionId": "as_fc9d9870ad80dc0ddf132fda8872911271c5e9b0c7758843d33047d5857bc5c5",
+        "basis": "observed",
+        "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+        "depth": 7,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_5fbbf881518284ac90731dc6ec33527a9124b24512dc4e617649a4d91934b531",
+          "ev_7941a71274bdf49d850c34ed9cfe149d2cbb5bbcf119b8ac7cce8d70da78038f",
+          "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c"
+        ],
+        "fromId": "ent_d7d81a77217fcc1653417f0b00eb6a0ce94272b320c58a3a794a737e367503ba",
+        "kind": "reads",
+        "origin": "static",
+        "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract",
+        "qualifiers": {},
+        "relationId": "rel_5f60945a51b97a7580b1df2d669962530605b3f22a6655e77182e233a36044ff",
+        "relationRef": {
+          "relationId": "rel_5f60945a51b97a7580b1df2d669962530605b3f22a6655e77182e233a36044ff",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_0789c355d1e54a7c5263afb225290697e27c6e30ae449e6d14b13addf3df83f5"
+      },
+      {
+        "assertionId": "as_010b4faa768813458db533ca0919099fd665e2c77c0ae7aaf8db2be43e3935b0",
+        "basis": "observed",
+        "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+        "depth": 7,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_5fbbf881518284ac90731dc6ec33527a9124b24512dc4e617649a4d91934b531",
+          "ev_7941a71274bdf49d850c34ed9cfe149d2cbb5bbcf119b8ac7cce8d70da78038f",
+          "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c"
+        ],
+        "fromId": "ent_d7d81a77217fcc1653417f0b00eb6a0ce94272b320c58a3a794a737e367503ba",
+        "kind": "reads",
+        "origin": "static",
+        "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract",
+        "qualifiers": {},
+        "relationId": "rel_70fb5473f62572f4522fd9a127369de58b4bf60f18acc80f4ef55ce8e28b74ad",
+        "relationRef": {
+          "relationId": "rel_70fb5473f62572f4522fd9a127369de58b4bf60f18acc80f4ef55ce8e28b74ad",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_9d8ef7cd4f8105252bea3e13669b9faf7b50ce56e9c36e430b8d31441412c17a"
+      },
+      {
+        "assertionId": "as_115b3019cf970544ccdf1650d00be27d8d1ab6ebb5cabafa59df741873614acd",
+        "basis": "observed",
+        "batchId": "bat_f6a80e65617e6308630ff98969f29bf1239b177eb4313c48400b513ec1a584f7",
+        "depth": 7,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_5fbbf881518284ac90731dc6ec33527a9124b24512dc4e617649a4d91934b531",
+          "ev_67ffda647a39f1641100e75c308007a50a0995fa7f46c6cd7a77af11a3acff0d",
+          "ev_7941a71274bdf49d850c34ed9cfe149d2cbb5bbcf119b8ac7cce8d70da78038f",
+          "ev_7af4c791f2e77d77166db17f0f587a17c4d1fe637b2a09336a6d25c0dc158034",
+          "ev_8cc11e2aee346293d87d370a90f80dc54c136179d492b6d0c6201aea9d1c0957",
+          "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c",
+          "ev_c37b1db9e49cb6e8cef914cbfca6d800c18b46ff6197c56067e6a8175dfd72b8"
+        ],
+        "fromId": "ent_d7d81a77217fcc1653417f0b00eb6a0ce94272b320c58a3a794a737e367503ba",
+        "kind": "reads",
+        "origin": "static",
+        "producerKey": "example.a.link@1.0.0:4653406c73a88c39eba1bc77e1b16bfd6ee8ecca1afb267e4df936e5bca4aa98:link",
+        "qualifiers": {},
+        "relationId": "rel_917590b205934b3508dfc464980d2203e4639f21bbf90c3e042b23a0e0cf8972",
+        "relationRef": {
+          "relationId": "rel_917590b205934b3508dfc464980d2203e4639f21bbf90c3e042b23a0e0cf8972",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_b69a447d638da44ef473da50e5fd01f4bea1b4e45da3d40edd81177b5afd5f12"
+      },
+      {
+        "assertionId": "as_c8c351f55d08c8d8be530d81fb1f8e217fe85de38352bd89c91d71a7a4fe0bfa",
+        "basis": "observed",
+        "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+        "depth": 7,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_5fbbf881518284ac90731dc6ec33527a9124b24512dc4e617649a4d91934b531",
+          "ev_7941a71274bdf49d850c34ed9cfe149d2cbb5bbcf119b8ac7cce8d70da78038f",
+          "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c"
+        ],
+        "fromId": "ent_d7d81a77217fcc1653417f0b00eb6a0ce94272b320c58a3a794a737e367503ba",
+        "kind": "reads",
+        "origin": "static",
+        "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract",
+        "qualifiers": {},
+        "relationId": "rel_b88fe7f79087de01b0f93775569f8654ce49a93025d4e70458f393428f30dd10",
+        "relationRef": {
+          "relationId": "rel_b88fe7f79087de01b0f93775569f8654ce49a93025d4e70458f393428f30dd10",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_22909ca38dad921d479a355d3ac17b5583069141e13f0610ebb3a1db0ae5e5ea"
+      },
+      {
+        "assertionId": "as_afd2a042df91cfd45a390df0fde457aa2743e4dcb06ce69a8cfecc53bf51384e",
+        "basis": "observed",
+        "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+        "depth": 7,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_5fbbf881518284ac90731dc6ec33527a9124b24512dc4e617649a4d91934b531",
+          "ev_7941a71274bdf49d850c34ed9cfe149d2cbb5bbcf119b8ac7cce8d70da78038f",
+          "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c"
+        ],
+        "fromId": "ent_d7d81a77217fcc1653417f0b00eb6a0ce94272b320c58a3a794a737e367503ba",
+        "kind": "reads",
+        "origin": "static",
+        "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract",
+        "qualifiers": {},
+        "relationId": "rel_c26466aff52e120667457f1901e3794c3157005317901e9c7c95e7657aa094d3",
+        "relationRef": {
+          "relationId": "rel_c26466aff52e120667457f1901e3794c3157005317901e9c7c95e7657aa094d3",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_fe9016e9ed562f86eae97ce72e5cf6fefa42e206865eb5666846467d0f87789c"
+      },
+      {
+        "assertionId": "as_c4804aa90479eb6ffa9d6684be7486bf0a1364e565c6f1864ad44f34851763f9",
+        "basis": "observed",
+        "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+        "depth": 7,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_5fbbf881518284ac90731dc6ec33527a9124b24512dc4e617649a4d91934b531",
+          "ev_7941a71274bdf49d850c34ed9cfe149d2cbb5bbcf119b8ac7cce8d70da78038f",
+          "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c"
+        ],
+        "fromId": "ent_d7d81a77217fcc1653417f0b00eb6a0ce94272b320c58a3a794a737e367503ba",
+        "kind": "reads",
+        "origin": "static",
+        "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract",
+        "qualifiers": {},
+        "relationId": "rel_d3b1609f440e8fd84148c671cdcde1e8811d67e95fa964aa6e38660f3c50cee5",
+        "relationRef": {
+          "relationId": "rel_d3b1609f440e8fd84148c671cdcde1e8811d67e95fa964aa6e38660f3c50cee5",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_ee106af9bd993997435215d47df254e1c34c986033db88b52de7d2522c3d88b4"
+      },
+      {
+        "assertionId": "as_7e343b5358c3fe76e02f81acf0acb5f1baf1ed853e077c4438a9c5b212044f64",
+        "basis": "observed",
+        "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+        "depth": 7,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_5fbbf881518284ac90731dc6ec33527a9124b24512dc4e617649a4d91934b531",
+          "ev_7941a71274bdf49d850c34ed9cfe149d2cbb5bbcf119b8ac7cce8d70da78038f",
+          "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c"
+        ],
+        "fromId": "ent_d7d81a77217fcc1653417f0b00eb6a0ce94272b320c58a3a794a737e367503ba",
+        "kind": "reads",
+        "origin": "static",
+        "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract",
+        "qualifiers": {},
+        "relationId": "rel_d7295d146e28884c375402c119287f0653ca650d5d120d92faa0984c682e1aac",
+        "relationRef": {
+          "relationId": "rel_d7295d146e28884c375402c119287f0653ca650d5d120d92faa0984c682e1aac",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e"
+      },
+      {
+        "assertionId": "as_bbab5a79bdbe8b163ee7679273338645f992fb80a38c11c42958f7a5f9a1156c",
+        "basis": "observed",
+        "batchId": "bat_cbd849704da262dd0a158ac8e3a72128294af7b15d2d08b3e928052f1a696d56",
+        "depth": 7,
+        "direction": "out",
+        "evidenceRefs": [
+          "ev_5fbbf881518284ac90731dc6ec33527a9124b24512dc4e617649a4d91934b531",
+          "ev_7941a71274bdf49d850c34ed9cfe149d2cbb5bbcf119b8ac7cce8d70da78038f",
+          "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c"
+        ],
+        "fromId": "ent_d7d81a77217fcc1653417f0b00eb6a0ce94272b320c58a3a794a737e367503ba",
+        "kind": "reads",
+        "origin": "static",
+        "producerKey": "example.a.database@1.0.0:e11a1731f63559faa670ee27e8f3d855555e3eecae3ba92b880145f3f4871454:extract",
+        "qualifiers": {},
+        "relationId": "rel_f59276ffa9e34cf5a7d82c1e761d9f5ca6df92a3e4ff209f43e4488ab16f26ff",
+        "relationRef": {
+          "relationId": "rel_f59276ffa9e34cf5a7d82c1e761d9f5ca6df92a3e4ff209f43e4488ab16f26ff",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "resolution": "confirmed",
+        "toId": "ent_1db2f0b822d4d2fccd885fc354b265946d9b8365abc8c1e7da3a9e76fbfbd83f"
+      }
+    ],
+    "operations": [
+      {
+        "entityId": "ent_5bc719a54f5674dbc56e792d8b3675bb81d8226e51e35c55693713cf164738df",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_27a127bbe5fa206cb09e0723e6d52d5219f26819850aafd27dd29e869562fccf",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_c9ef4f6a4b80a63de3e49f1be2f0d9abd7f936bcb18df6b96331bfe990e6ca37",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_bfd0bea6b263cb28a26dba9f6424192b19b2ab116015d2c566e807cab8025aa8",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_e95d3192add1afbb65469f8afbb70b1e3f6a1923b1abe2ef45b485d79f5c5121",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      }
+    ],
+    "requests": [
+      {
+        "entityId": "ent_b0cb144ec2e5163ad0f0325063c6dbc481a248af65b8b656aa29f8427e67793a",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_3d064ec771de2e391b5a5810dbb87b0675012035f9d8070f60a31e9ecb6f2229",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_3cbc6012d5ab57a7ddabbe49db5bc7704bb581e2aab8bee82a8b9be04189c6e8",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      }
+    ],
+    "roots": [
+      {
+        "entityId": "ent_6d6dba30306ee4e10a3e0394c8a7d25ff4edd9190278b89b8718c005be5b2295",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_bc3f2c07a9bd00e985648089b61a9a16ede87ab8a6039732278b83f444fcc642",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      }
+    ],
+    "route": "/Other/purchaseLedger",
+    "tableColumns": [
+      {
+        "entityId": "ent_a4ee755962fa8a38a6c32ba06e2a68aab2247dac158ae0128fcb3db42354a875",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_0789c355d1e54a7c5263afb225290697e27c6e30ae449e6d14b13addf3df83f5",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_9d8ef7cd4f8105252bea3e13669b9faf7b50ce56e9c36e430b8d31441412c17a",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_22909ca38dad921d479a355d3ac17b5583069141e13f0610ebb3a1db0ae5e5ea",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_ee106af9bd993997435215d47df254e1c34c986033db88b52de7d2522c3d88b4",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      },
+      {
+        "entityId": "ent_1db2f0b822d4d2fccd885fc354b265946d9b8365abc8c1e7da3a9e76fbfbd83f",
+        "snapshot": {
+          "generation": "9",
+          "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+          "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+        }
+      }
+    ],
+    "title": [
+      {
+        "assertions": [
+          {
+            "assertionId": "as_891b2441031a110eaa50ea3c29cc146e82fc3886786e596c3f1c9591de5d23d7",
+            "attributes": {
+              "i18nKey": "purchase.title",
+              "text": "采购台账 🧾"
+            },
+            "basis": "observed",
+            "batchId": "bat_88f392bea1fcb1c2f03833b597991c213e5ed1ffcf5f4f5fcf3b765227d9b39c",
+            "evidenceRefs": [
+              "ev_2c4782f2d5e4a4b48b58cebfd7cd1801346332b9afd94c5ac626cc342c39ba54"
+            ],
+            "name": "采购台账 🧾",
+            "origin": "static",
+            "producerKey": "example.a.frontend@1.0.0:9933787447b3529f1c14ed5c073ebcdda4d0d296ce7efdc985b513acdb7fb507:extract"
+          }
+        ],
+        "entityRef": {
+          "entityId": "ent_a7dea77ca7aef506255b172e82d21bfa3365c6b8b301c8ff468a217e28035ad9",
+          "snapshot": {
+            "generation": "9",
+            "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+            "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+          }
+        },
+        "identity": [
+          {
+            "name": "repositoryId",
+            "value": "front"
+          },
+          {
+            "name": "path",
+            "value": "messages.ts"
+          },
+          {
+            "name": "scopeId",
+            "value": "app.web"
+          },
+          {
+            "name": "lexicalPath",
+            "value": "purchase.title"
+          }
+        ],
+        "kind": "title",
+        "name": "采购台账 🧾",
+        "scopeId": "app.web"
+      }
+    ]
+  },
+  "gaps": [
+    {
+      "candidateIds": [],
+      "capability": "database",
+      "code": "UNRESOLVED_COLUMN",
+      "id": "gap_071087fa6967ac9ad251d1b5cbd9bb0d244771aa1af8f12db282e116afacc879",
+      "reason": "SQL column lacks an unambiguous declared or direct CTE projection binding.",
+      "requiredEvidence": [
+        "explicit dataSource/instance binding, supported static AST and complete ordered keys"
+      ],
+      "scopeId": "svc.erp",
+      "sourceRefs": [
+        "src_8949fb73041ad3b5b64feca70b438897bd68f6bf8b9f1f2a66df90060082d9d8"
+      ]
+    },
+    {
+      "candidateIds": [],
+      "capability": "database",
+      "code": "QUERY_SEMANTICS_NOT_COLLECTED",
+      "id": "gap_0f469aa810ef0fcde6dcf29dabea0dd26ee0db1140c43c452d2d565a77c579de",
+      "reason": "Business grain, valid states, time fields, NULL policy and units require independent semantic collection (T14).",
+      "requiredEvidence": [
+        "explicit dataSource/instance binding, supported static AST and complete ordered keys"
+      ],
+      "scopeId": "svc.erp",
+      "sourceRefs": [
+        "src_bc89ab8955dd837395df90cebcb5e6dba471e7ea40923053c7bed7425f235bff"
+      ]
+    },
+    {
+      "candidateIds": [
+        "ent_bc3f2c07a9bd00e985648089b61a9a16ede87ab8a6039732278b83f444fcc642"
+      ],
+      "capability": "routes",
+      "code": "AMBIGUOUS_BINDING",
+      "id": "gap_1b828ce58d1f42489972955b583f79b16f1b8c5437e6053e21c2081fb580ad3f",
+      "reason": "dynamic route pattern is a possible match; no framework priority was proven",
+      "requiredEvidence": [
+        "collect the missing original evidence in the requested scope"
+      ],
+      "scopeId": "",
+      "sourceRefs": []
+    },
+    {
+      "candidateIds": [],
+      "capability": "database",
+      "code": "QUERY_SEMANTICS_NOT_COLLECTED",
+      "id": "gap_30b34f1fe509b4e838cf004e84b9886cc77cd202626f9afb63229c81696e1984",
+      "reason": "Business grain, valid states, time fields, NULL policy and units require independent semantic collection (T14).",
+      "requiredEvidence": [
+        "explicit dataSource/instance binding, supported static AST and complete ordered keys"
+      ],
+      "scopeId": "svc.erp",
+      "sourceRefs": [
+        "src_8949fb73041ad3b5b64feca70b438897bd68f6bf8b9f1f2a66df90060082d9d8"
+      ]
+    },
+    {
+      "candidateIds": [
+        "ent_6d6dba30306ee4e10a3e0394c8a7d25ff4edd9190278b89b8718c005be5b2295",
+        "ent_bc3f2c07a9bd00e985648089b61a9a16ede87ab8a6039732278b83f444fcc642"
+      ],
+      "capability": "routes",
+      "code": "AMBIGUOUS_BINDING",
+      "id": "gap_556c3925d83bb8c0c6bd5841f46d19a8a9508cc630d5caed89254776591a1293",
+      "reason": "multiple registered routes match; specify application scope",
+      "requiredEvidence": [
+        "collect the missing original evidence in the requested scope"
+      ],
+      "scopeId": "",
+      "sourceRefs": []
+    },
+    {
+      "candidateIds": [],
+      "capability": "frontend",
+      "code": "DYNAMIC_TARGET",
+      "id": "gap_7ca727d4550aa8743812a5e5fc7b4ea17856fdd47d1844c22c0e43c8e19885b4",
+      "reason": "Request target or client service binding is not statically proven.",
+      "requiredEvidence": [
+        "literal target and explicit client/service binding"
+      ],
+      "scopeId": "app.web",
+      "sourceRefs": [
+        "src_181522f95a09ddf58640c4b9bcf9965c09703aa6a2b4c6936d6a1d62cca9768c"
+      ]
+    },
+    {
+      "candidateIds": [],
+      "capability": "link",
+      "code": "DYNAMIC_TARGET",
+      "id": "gap_8d40d24b148ff15722f6b733300c870aec9658ad1a119f56938b91ceb0677d6e",
+      "reason": "Request has no static HTTP target or collected GraphQL operation.",
+      "requiredEvidence": [
+        "complete candidate set and original call/registration/instance binding; an equal name alone is insufficient"
+      ],
+      "scopeId": "app.web",
+      "sourceRefs": [
+        "src_181522f95a09ddf58640c4b9bcf9965c09703aa6a2b4c6936d6a1d62cca9768c"
+      ]
+    },
+    {
+      "candidateIds": [],
+      "capability": "database",
+      "code": "QUERY_SEMANTICS_NOT_COLLECTED",
+      "id": "gap_cb80765d0ec9ee0559e10c552070d43c21a95faca2f5fb6b3fa4e834d1b8cfb7",
+      "reason": "Business grain, valid states, time fields, NULL policy and units require independent semantic collection (T14).",
+      "requiredEvidence": [
+        "explicit dataSource/instance binding, supported static AST and complete ordered keys"
+      ],
+      "scopeId": "svc.erp",
+      "sourceRefs": [
+        "src_f3ceb02f569a21c73a306dd612264825802516597b3fdfba68831f14e43a8a64"
+      ]
+    },
+    {
+      "candidateIds": [],
+      "capability": "database",
+      "code": "QUERY_SEMANTICS_NOT_COLLECTED",
+      "id": "gap_de427c05b25ee0a10518ece8ca5b8c846d69c6bec0258c44502898164e9ff479",
+      "reason": "Business grain, valid states, time fields, NULL policy and units require independent semantic collection (T14).",
+      "requiredEvidence": [
+        "explicit dataSource/instance binding, supported static AST and complete ordered keys"
+      ],
+      "scopeId": "svc.erp",
+      "sourceRefs": [
+        "src_55538f634dc513a1e7ed271619b130d57b6b9250118bca2932e7602dc4e6c82f"
+      ]
+    }
+  ],
+  "nextQueries": [],
+  "protocolVersion": "1.0",
+  "requestId": "req_85af482d-42c6-4961-90c9-26011426f834",
+  "snapshot": {
+    "generation": "9",
+    "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+    "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+  },
+  "sourceReferences": [
+    {
+      "contentHash": "e322f84f883405bfc419663cd0edb29996d442e99a30dd593ca9977295675b19",
+      "endByte": 875,
+      "evidenceId": "ev_07eda127681d37dc246164533a7b87693577ecf1ca475e204bf3a322e53c3710",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_8cb37cd8f9a6372faaaa4f347c53b1b55acb17367be9183ac39ac1855c1feb2e",
+      "startByte": 0
+    },
+    {
+      "contentHash": "7f1df1b2156d98709a33a7fc64b01443e6da26348ad288090858962dfb6cfd4f",
+      "endByte": 89,
+      "evidenceId": "ev_0a363de8984f1b51610f2889c8ef5589785bf3dfd617db4f74fc743a24c1f1fa",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_55538f634dc513a1e7ed271619b130d57b6b9250118bca2932e7602dc4e6c82f",
+      "startByte": 32
+    },
+    {
+      "contentHash": "9d8913bf48bc1a324cb35f45c2a176a67dcfa9251e10f28329c44274763be272",
+      "endByte": 191,
+      "evidenceId": "ev_0fa47ca8fb7d75c993f4ba7fb60fe31a245656abcd975769437e209bcf37457d",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_ab4723ede98a37fb4fd489fbd1187cab1471478d21b0adb414a30d7c547d173c",
+      "startByte": 143
+    },
+    {
+      "contentHash": "7f1df1b2156d98709a33a7fc64b01443e6da26348ad288090858962dfb6cfd4f",
+      "endByte": 89,
+      "evidenceId": "ev_22e6e2c0bec9f9e48d5031d626d0aacc47f1b48991b6cd3f3215ee00339c9722",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_55538f634dc513a1e7ed271619b130d57b6b9250118bca2932e7602dc4e6c82f",
+      "startByte": 39
+    },
+    {
+      "contentHash": "a805ae98b52dba22fb94e6540370854efe2616db885326a25ee972c0dfb82457",
+      "endByte": 72,
+      "evidenceId": "ev_2537835f3785c663bfd4839009b0a5b888d279b4d0d7864bf54ccd44dce03989",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_052cd96d0a615f5ed1fb6922cb8c5a6a3727c2d959bcf844114b241f58246412",
+      "startByte": 36
+    },
+    {
+      "contentHash": "ac7d78379b516265affd8fc3f180067c1d6d08a59c7e42b6784906102471ab62",
+      "endByte": 63,
+      "evidenceId": "ev_2c4782f2d5e4a4b48b58cebfd7cd1801346332b9afd94c5ac626cc342c39ba54",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_ae0dd2dd9b2bcf5373d314bce0637302485e27fd08f124a5023e4085911b4148",
+      "startByte": 44
+    },
+    {
+      "contentHash": "8f73aef409c888c7d4fbd80fc0e73b5e00944014cb38d2f7e48d8df0f11c2db4",
+      "endByte": 71,
+      "evidenceId": "ev_3e2a395ec65ba070deccc22b423a788b48b207c32948ab1dfdc8d26f31d8b881",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_4976fdcc8779668e793e4bf9552014fb86e508ce9dde5ff11399f83afb943d75",
+      "startByte": 20
+    },
+    {
+      "contentHash": "9d8913bf48bc1a324cb35f45c2a176a67dcfa9251e10f28329c44274763be272",
+      "endByte": 287,
+      "evidenceId": "ev_49c3ba77f3f657367156566622e274753e603203501856e234fd8638fbb99e75",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_ab4723ede98a37fb4fd489fbd1187cab1471478d21b0adb414a30d7c547d173c",
+      "startByte": 272
+    },
+    {
+      "contentHash": "62274a3356d2ebf558b5132bf6d8b9ae1e5c3d98aa80f86e7b50ce05fe38fa5b",
+      "endByte": 217,
+      "evidenceId": "ev_4fb50560b0e92093de9d56c367da0d6ff3f2751e4d2d5cf582d73d905b3026c6",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_181522f95a09ddf58640c4b9bcf9965c09703aa6a2b4c6936d6a1d62cca9768c",
+      "startByte": 107
+    },
+    {
+      "contentHash": "7f1df1b2156d98709a33a7fc64b01443e6da26348ad288090858962dfb6cfd4f",
+      "endByte": 86,
+      "evidenceId": "ev_5fbbf881518284ac90731dc6ec33527a9124b24512dc4e617649a4d91934b531",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_55538f634dc513a1e7ed271619b130d57b6b9250118bca2932e7602dc4e6c82f",
+      "startByte": 66
+    },
+    {
+      "contentHash": "70d18548c33e29355647ca6486482e5729e803cf8b93fd9129137a9b32875c15",
+      "endByte": 1257,
+      "evidenceId": "ev_67ffda647a39f1641100e75c308007a50a0995fa7f46c6cd7a77af11a3acff0d",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_8949fb73041ad3b5b64feca70b438897bd68f6bf8b9f1f2a66df90060082d9d8",
+      "startByte": 0
+    },
+    {
+      "contentHash": "9d8913bf48bc1a324cb35f45c2a176a67dcfa9251e10f28329c44274763be272",
+      "endByte": 242,
+      "evidenceId": "ev_716daba11bcfd256efde19813dd2690ab6e3f21631bf7fc1d3d54ff07042468e",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_ab4723ede98a37fb4fd489fbd1187cab1471478d21b0adb414a30d7c547d173c",
+      "startByte": 228
+    },
+    {
+      "contentHash": "7f1df1b2156d98709a33a7fc64b01443e6da26348ad288090858962dfb6cfd4f",
+      "endByte": 172,
+      "evidenceId": "ev_7941a71274bdf49d850c34ed9cfe149d2cbb5bbcf119b8ac7cce8d70da78038f",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_55538f634dc513a1e7ed271619b130d57b6b9250118bca2932e7602dc4e6c82f",
+      "startByte": 103
+    },
+    {
+      "contentHash": "47644489804828d35411850ee6a0542844d0bdec6c4c7f09c22c9be21f4a4b2b",
+      "endByte": 290,
+      "evidenceId": "ev_7af4c791f2e77d77166db17f0f587a17c4d1fe637b2a09336a6d25c0dc158034",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_bc89ab8955dd837395df90cebcb5e6dba471e7ea40923053c7bed7425f235bff",
+      "startByte": 0
+    },
+    {
+      "contentHash": "62274a3356d2ebf558b5132bf6d8b9ae1e5c3d98aa80f86e7b50ce05fe38fa5b",
+      "endByte": 106,
+      "evidenceId": "ev_83ef52d7e63e4c36a4042abe4b65aebd6ee4e1aa78b57dab33c09b6e865561ca",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_181522f95a09ddf58640c4b9bcf9965c09703aa6a2b4c6936d6a1d62cca9768c",
+      "startByte": 36
+    },
+    {
+      "contentHash": "927fd2c90c361f8cd3d747e510d1202baf182d23bb7f0a2e124508d24a0a1f18",
+      "endByte": 451,
+      "evidenceId": "ev_8cc11e2aee346293d87d370a90f80dc54c136179d492b6d0c6201aea9d1c0957",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_f3ceb02f569a21c73a306dd612264825802516597b3fdfba68831f14e43a8a64",
+      "startByte": 0
+    },
+    {
+      "contentHash": "efa1244ca2a57619224f25a3db4cde555c988890605164426f609c19865f84a3",
+      "endByte": 40,
+      "evidenceId": "ev_94a91e0a90f9106c3c1514bffa67b1a53505ea8ba557e0ee5ea18419895e2f3c",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_5bc0570c79e06ded56625446cb894cbf05225691151764f7c600e89211024818",
+      "startByte": 13
+    },
+    {
+      "contentHash": "62274a3356d2ebf558b5132bf6d8b9ae1e5c3d98aa80f86e7b50ce05fe38fa5b",
+      "endByte": 103,
+      "evidenceId": "ev_97514106e411ec55dbd389b3d3ae99ee617a71db48286e31fbfdbf9076f10e7e",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_181522f95a09ddf58640c4b9bcf9965c09703aa6a2b4c6936d6a1d62cca9768c",
+      "startByte": 75
+    },
+    {
+      "contentHash": "9d8913bf48bc1a324cb35f45c2a176a67dcfa9251e10f28329c44274763be272",
+      "endByte": 411,
+      "evidenceId": "ev_99cb69bf366f4cfe6defa57dae2729999e3298b01969f73a27f24b4155a93af6",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_ab4723ede98a37fb4fd489fbd1187cab1471478d21b0adb414a30d7c547d173c",
+      "startByte": 114
+    },
+    {
+      "contentHash": "c33cfe64cc0823c3e4e46a4dc1294ee7354786626f91a102e4e43023c3add825",
+      "endByte": 208,
+      "evidenceId": "ev_afa7fd30a3fc77dfc4b65b0524eafea44ddd86c1752979040e4ec82c02dd4b54",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_43ea5d3599290b9d0387e9c91a8aaedcbeb73e88e682f53b77ee73c1eea544c2",
+      "startByte": 117
+    },
+    {
+      "contentHash": "9d8913bf48bc1a324cb35f45c2a176a67dcfa9251e10f28329c44274763be272",
+      "endByte": 113,
+      "evidenceId": "ev_b46810daebdc1f04226e429ea26a1b239928dd67bbcec4c175289220420fa14b",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_ab4723ede98a37fb4fd489fbd1187cab1471478d21b0adb414a30d7c547d173c",
+      "startByte": 73
+    },
+    {
+      "contentHash": "9d8913bf48bc1a324cb35f45c2a176a67dcfa9251e10f28329c44274763be272",
+      "endByte": 328,
+      "evidenceId": "ev_bb7d0419128fe6e557b8df1a42422bb17bdb245dcaeea2e241861f6e525858d5",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_ab4723ede98a37fb4fd489fbd1187cab1471478d21b0adb414a30d7c547d173c",
+      "startByte": 311
+    },
+    {
+      "contentHash": "b11f24040c65a21fa62732f219ff17866bb447861568c918cb08b3e9268dc0ff",
+      "endByte": 1051,
+      "evidenceId": "ev_c37b1db9e49cb6e8cef914cbfca6d800c18b46ff6197c56067e6a8175dfd72b8",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_bfb0bfe58580d7eba20fbe4894204f17e48f660c1ff8e09f8bb36d9f7d9d0a7a",
+      "startByte": 0
+    },
+    {
+      "contentHash": "9d8913bf48bc1a324cb35f45c2a176a67dcfa9251e10f28329c44274763be272",
+      "endByte": 188,
+      "evidenceId": "ev_c8a312af4ea402b3f0ea8bce190278372ebd8612cb06843530f5e120a9190a9e",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_ab4723ede98a37fb4fd489fbd1187cab1471478d21b0adb414a30d7c547d173c",
+      "startByte": 175
+    },
+    {
+      "contentHash": "2af7c16c198eb43c5116c1df26c1fd077c57e5087541b4c1c27b93433886b613",
+      "endByte": 212,
+      "evidenceId": "ev_cc2d6dc3fa3346b47976cd36a86b272d0d146b7bec8a8ee052e11deeceabadd4",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_85d5d8cb0b4ac042c790d4bc83555d0b6558b44a4fa06ab9b228e4ba4a24a360",
+      "startByte": 112
+    },
+    {
+      "contentHash": "9d8913bf48bc1a324cb35f45c2a176a67dcfa9251e10f28329c44274763be272",
+      "endByte": 245,
+      "evidenceId": "ev_dec1deb860864c500783ce58df903be39233c54b29668eac9a47b752c6c909d9",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_ab4723ede98a37fb4fd489fbd1187cab1471478d21b0adb414a30d7c547d173c",
+      "startByte": 194
+    },
+    {
+      "contentHash": "a805ae98b52dba22fb94e6540370854efe2616db885326a25ee972c0dfb82457",
+      "endByte": 126,
+      "evidenceId": "ev_e7b7f5bb9f1c52dbf5d0eb6933296ca3ed318fa5db678ec1fa399501420234c7",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_052cd96d0a615f5ed1fb6922cb8c5a6a3727c2d959bcf844114b241f58246412",
+      "startByte": 74
+    },
+    {
+      "contentHash": "7f1df1b2156d98709a33a7fc64b01443e6da26348ad288090858962dfb6cfd4f",
+      "endByte": 86,
+      "evidenceId": "ev_f5e1a4032b4fdbe490a12a29d3924b972dde27ef39d7289d3d3f77ae92736b25",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_55538f634dc513a1e7ed271619b130d57b6b9250118bca2932e7602dc4e6c82f",
+      "startByte": 66
+    },
+    {
+      "contentHash": "62274a3356d2ebf558b5132bf6d8b9ae1e5c3d98aa80f86e7b50ce05fe38fa5b",
+      "endByte": 214,
+      "evidenceId": "ev_f8b201f9c57c80ab980a8904e1e2d300c4e3072584f8bb08b501cab235a51f78",
+      "snapshot": {
+        "generation": "9",
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sourceId": "src_181522f95a09ddf58640c4b9bcf9965c09703aa6a2b4c6936d6a1d62cca9768c",
+      "startByte": 147
+    }
+  ],
+  "status": "partial"
+}

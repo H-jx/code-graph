@@ -14,8 +14,8 @@
 | Node.js | 24.14.0 | 满足 SDK/MCP/native 的 `engines: >=24` |
 | pnpm | 10.34.8（`packageManager` 固定，corepack 解析） | `pnpm install` 实测通过，`pnpm-lock.yaml` lockfileVersion 9.0 |
 | C 工具链 | VS 2022 BuildTools（MSVC） | `rusqlite` bundled、Tree-sitter grammar、`aws-lc-sys` 均实测编译通过 |
-| Git | 2.33.0 | 本会话已 `git init`（无提交），`Cargo.lock` / `pnpm-lock.yaml` 待首次提交 |
-| Python | 仅插件示例需要 3.12.x（本机现有 3.10.16） | 不影响 Core 构建，列入 T07 前置 |
+| Git | 2.33.0 | 当前 HEAD `2d1da7c`，实施成果尚有工作区改动；无远程仓库配置 |
+| Python | 本机 uv 3.12.13；CI 3.12.10 | T00/T07 已真实执行；通过配置的绝对路径选择运行时 |
 
 crates.io 在本机需经代理访问：临时用 `HTTPS_PROXY`，或写入用户级 `~/.cargo/config.toml`；
 仓库 `.cargo/config.toml` 只放 alias，不含机器相关配置。npmmirror 直连可用。
@@ -166,3 +166,23 @@ pnpm install --frozen-lockfile    # CI 与干净构建
 
 `Cargo.lock` 与 `pnpm-lock.yaml` 都提交入库；改 `rust-toolchain.toml` 或 rig 精确版本时，
 必须同步本文件与相关任务记录。
+
+## 8. 2026-10-26 实测更新
+
+此前探针与 Python 不可用结论已更新：uv 中 Python 3.12.13 可执行；T00 的 napi v3 实际加载、MCP 2.4.0 两协议 stdio、Rig 0.45.0 工具循环/错误/取消/max_turns 均通过。详见 docs/evidence/T00/probe-report.json，真实模型调用 0。TypeScript Compiler API 探针固定 6.0.3，根构建工具 5.9.3 保留；新增独立 npm 锁文件执行真实 npm ci。
+
+T01 已修正独立 CI，所有本地门禁通过；远程 Actions 未触发。CI Python 固定官方三平台可下载的 3.12.10；本地 3.12.13。T02 使用 schemars 1.2.3 → JSON Schema 2020-12 → json-schema-to-typescript 16.0.0，并以编译负例验证完整 DTO 导出、optional/null/union/额外字段；运行时仍由 Core 校验正则与整数等 TS 不能表达的条件。
+
+## 9. T11 示例 AST 依赖（2026-10-28）
+
+示例插件继续使用 T00 实测的 TypeScript 6.0.3，另固定 `graphql=16.11.0`（MIT；只解析文档 AST，不执行查询）。官方 [GraphQL language API](https://www.graphql-js.org/api-v16/language/) 与 npm registry 该精确版本元数据已核对；完整性 `sha512-mS1lbMsxgQj6hge1XZ6p7GPhbrtFwUFYi3wRzXAC/FmYnyXMTvvI3td3rjmQ2u8ewXueaSvRPWaEcgVVOT9Jnw==` 写入两份 npm lock。GraphQL 嵌入文本有转义时只引用可证明的完整源码调用范围。
+
+依赖仅在独立制品 deps/package.json/lock 中，由既有 Core prepare 机制准备到制品哈希缓存；不加到 SDK/Core 的业务依赖。安装与采集分离、忽略生命周期脚本和采集无网络安装规则不变。
+
+## 10. T12 数据库示例 AST 依赖（2026-10-28）
+
+独立 Python 插件固定 SQLGlot 30.24.0（MIT）、tree-sitter 0.25.2（MIT）、tree-sitter-typescript 0.23.2（MIT）。精确版本、官方 PyPI wheel URL/SHA-256 与 requiresDist 保存于 `docs/evidence/T12/database/dependency-metadata.json`，两制品生成完整 hash-lock；只安装 binary wheels，无额外 extras 或浮动版本。SQLGlot 使用 `ErrorLevel.RAISE`，不以字符串代替枚举；本轮反例已检出字符串参数未正确触发严格错误的情况。
+
+核对来源：[SQLGlot 30.24.0 官方元数据](https://pypi.org/pypi/sqlglot/30.24.0/json)、[SQLGlot DDL AST](https://sqlglot.com/sqlglot/expressions/ddl.html)、[Python Tree-sitter 官方仓库](https://github.com/tree-sitter/py-tree-sitter)、[binding 精确版本](https://pypi.org/pypi/tree-sitter/0.25.2/json)、[TypeScript grammar 精确版本](https://pypi.org/pypi/tree-sitter-typescript/0.23.2/json)。实际调用已在 Windows Python 3.12.13 验证；未从 wheel 列表外推其他平台已经验收。
+
+TS/Python 源码 AST 只承担已调查的 connect/model/query/findAll 词法结构；SQLGlot 只解析静态 SQL，不使用 optimizer/scope 或执行目标 SQL，不导入或执行业务源码。Core/SDK/native 不新增项目专属 ORM 逻辑。SQLite 方言支持由插件约定显式登记，未知/未验方言保持 gap。

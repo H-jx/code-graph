@@ -1,0 +1,93 @@
+[
+  {
+    "name": "jsonschema",
+    "version": "0.60.1",
+    "license": "MIT",
+    "rustVersion": "1.85.0",
+    "source": "https://docs.rs/crate/jsonschema/0.60.1/source/"
+  },
+  {
+    "name": "napi",
+    "version": "3.15.0",
+    "license": "MIT",
+    "rustVersion": "1.88",
+    "source": "https://docs.rs/crate/napi/3.15.0/source/"
+  },
+  {
+    "name": "napi-build",
+    "version": "2.6.0",
+    "license": "MIT",
+    "rustVersion": "1.88",
+    "source": "https://docs.rs/crate/napi-build/2.6.0/source/"
+  },
+  {
+    "name": "napi-derive",
+    "version": "3.6.13",
+    "license": "MIT",
+    "rustVersion": "1.88",
+    "source": "https://docs.rs/crate/napi-derive/3.6.13/source/"
+  },
+  {
+    "name": "rig",
+    "version": "0.45.0",
+    "license": "MIT",
+    "rustVersion": "1.97.1",
+    "source": "https://docs.rs/crate/rig/0.45.0/source/"
+  },
+  {
+    "name": "rig-agent",
+    "version": "0.45.0",
+    "license": "MIT",
+    "rustVersion": "1.97.1",
+    "source": "https://docs.rs/crate/rig-agent/0.45.0/source/"
+  },
+  {
+    "name": "rig-core",
+    "version": "0.45.0",
+    "license": "MIT",
+    "rustVersion": "1.97.1",
+    "source": "https://docs.rs/crate/rig-core/0.45.0/source/"
+  },
+  {
+    "name": "rusqlite",
+    "version": "0.41.0",
+    "license": "MIT",
+    "rustVersion": "1.89.0",
+    "source": "https://docs.rs/crate/rusqlite/0.41.0/source/"
+  },
+  {
+    "name": "schemars",
+    "version": "1.2.3",
+    "license": "MIT",
+    "rustVersion": "1.74",
+    "source": "https://docs.rs/crate/schemars/1.2.3/source/"
+  },
+  {
+    "name": "tree-sitter",
+    "version": "0.27.1",
+    "license": "MIT",
+    "rustVersion": "1.90",
+    "source": "https://docs.rs/crate/tree-sitter/0.27.1/source/"
+  },
+  {
+    "name": "tree-sitter-javascript",
+    "version": "0.25.0",
+    "license": "MIT",
+    "rustVersion": "",
+    "source": "https://docs.rs/crate/tree-sitter-javascript/0.25.0/source/"
+  },
+  {
+    "name": "tree-sitter-python",
+    "version": "0.25.0",
+    "license": "MIT",
+    "rustVersion": "",
+    "source": "https://docs.rs/crate/tree-sitter-python/0.25.0/source/"
+  },
+  {
+    "name": "tree-sitter-typescript",
+    "version": "0.23.2",
+    "license": "MIT",
+    "rustVersion": "",
+    "source": "https://docs.rs/crate/tree-sitter-typescript/0.23.2/source/"
+  }
+]

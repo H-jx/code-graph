@@ -1,0 +1,7 @@
+{"status": "failed", "runId": "agent_59cacec8-54b6-43ce-a647-639dfb4b4704", "modelTurns": 24, "toolCalls": 35, "issues": ["MODEL_TOOL_INVALID", "INVALID_REQUEST", "SCHEMA_INVALID", "INVALID_REQUEST", "PLUGIN_EXIT", "DEPENDENCY_CHANGED", "DEPENDENCY_CHANGED", "BUDGET_EXHAUSTED", "BUDGET_EXHAUSTED"]}
+Traceback (most recent call last):
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\live_business.py", line 190, in <module>
+    print("T19 real business, knowledge and no-model incremental acceptance passed", flush=True)
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\live_business.py", line 114, in main
+    oracleSha256=sha(oracle_path), sourceHash=sha(project / "rules.md"),
+AssertionError: Inspect retained structured issues; do not alter independent truth

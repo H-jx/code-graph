@@ -1,0 +1,173 @@
+{
+  "runId": "agent_9a4aa6a7-4d03-4a5b-b916-113d43cdc766",
+  "status": "complete",
+  "phase": "activated",
+  "goal": "Collect source-driven routes",
+  "focus": "routes",
+  "withSkill": false,
+  "configHash": "db33498bdea50c946704b911bc4116d1011942bbc8076e472e2bd9d8b5b5326e",
+  "sourceSnapshotId": "snap_f68989e72e5a885dae30e975f015dc29dc68dd73a72c8f496c9decc2162f2b14",
+  "activeVersions": [
+    [
+      "agent.fixture",
+      "2.0.0"
+    ]
+  ],
+  "modelTurns": 7,
+  "toolCalls": 6,
+  "repairs": 0,
+  "needsRepair": false,
+  "elapsedMs": 1182,
+  "deadlineMs": 1793234292329,
+  "repairPlugin": "agent.fixture",
+  "smoke": false,
+  "revision": 1,
+  "candidateId": "candidate_412b4727-5817-4d71-8bf7-7304a003a27d",
+  "candidateHash": "2f8be25e301b34f08c2ee50bfa54c9a78b9061a34116185c11f144b5e2684450",
+  "validationId": "validation_0ed8e923-589d-44b7-8fb3-02683a09f7af",
+  "activation": {
+    "candidateId": "candidate_412b4727-5817-4d71-8bf7-7304a003a27d",
+    "activationId": "activation_validation_0ed8e923-589d-44b7-8fb3-02683a09f7af",
+    "status": "active",
+    "generation": "3"
+  },
+  "investigation": {
+    "status": "imported",
+    "notes": "current original fixture",
+    "evidenceRefs": [
+      {
+        "snapshot": {
+          "indexId": "f1029643-1e9a-49dd-9e79-332e604a6ef7",
+          "generation": "2",
+          "sourceSnapshotId": "snap_f68989e72e5a885dae30e975f015dc29dc68dd73a72c8f496c9decc2162f2b14"
+        },
+        "evidenceId": "ev_a6035ac688ff4927825dc803bc9b583d58cb6277f88061cca62871385e4583b2",
+        "sourceId": "src_dd9aadedc51afac86b4a28f1d4fa887b1fbbd8b06135db15716b75e1114c18c0",
+        "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+        "startByte": 0,
+        "endByte": 24
+      }
+    ],
+    "identityChangesApplied": false,
+    "convention": {
+      "conventionId": "cf28eaa2466cee5f08fec06e1f121d2f3c785d3839ab10e73c8b008ea9a3769d",
+      "sourceClass": "derivedConvention",
+      "originalReferences": [
+        {
+          "snapshot": {
+            "indexId": "f1029643-1e9a-49dd-9e79-332e604a6ef7",
+            "generation": "2",
+            "sourceSnapshotId": "snap_f68989e72e5a885dae30e975f015dc29dc68dd73a72c8f496c9decc2162f2b14"
+          },
+          "evidenceId": "ev_a6035ac688ff4927825dc803bc9b583d58cb6277f88061cca62871385e4583b2",
+          "sourceId": "src_dd9aadedc51afac86b4a28f1d4fa887b1fbbd8b06135db15716b75e1114c18c0",
+          "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+          "startByte": 0,
+          "endByte": 24
+        }
+      ],
+      "configHash": "db33498bdea50c946704b911bc4116d1011942bbc8076e472e2bd9d8b5b5326e",
+      "snapshot": {
+        "indexId": "f1029643-1e9a-49dd-9e79-332e604a6ef7",
+        "generation": "2",
+        "sourceSnapshotId": "snap_f68989e72e5a885dae30e975f015dc29dc68dd73a72c8f496c9decc2162f2b14"
+      },
+      "indexInvalidated": false
+    }
+  },
+  "topicContexts": [],
+  "topics": [],
+  "skill": null,
+  "readSource": true,
+  "readMap": true,
+  "issues": [],
+  "events": [
+    {
+      "modelTurn": 1,
+      "responseId": "mock-response",
+      "elapsedMs": 32
+    },
+    {
+      "tool": "code-map",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "modelTurn": 2,
+      "responseId": "mock-response",
+      "elapsedMs": 64
+    },
+    {
+      "tool": "export-snapshot",
+      "ok": true,
+      "turn": 2,
+      "revision": 0
+    },
+    {
+      "modelTurn": 3,
+      "responseId": "mock-response",
+      "elapsedMs": 85
+    },
+    {
+      "tool": "read-source",
+      "ok": true,
+      "turn": 3,
+      "revision": 0
+    },
+    {
+      "modelTurn": 4,
+      "responseId": "mock-response",
+      "elapsedMs": 111
+    },
+    {
+      "tool": "import-conventions",
+      "ok": true,
+      "turn": 4,
+      "revision": 0
+    },
+    {
+      "modelTurn": 5,
+      "responseId": "mock-response",
+      "elapsedMs": 153
+    },
+    {
+      "tool": "write-candidate",
+      "ok": true,
+      "turn": 5,
+      "revision": 1
+    },
+    {
+      "modelTurn": 6,
+      "responseId": "mock-response",
+      "elapsedMs": 210
+    },
+    {
+      "tool": "validate-plugin",
+      "ok": true,
+      "turn": 6,
+      "revision": 1
+    },
+    {
+      "modelTurn": 7,
+      "responseId": "mock-response",
+      "elapsedMs": 1165
+    }
+  ],
+  "provider": "openai-compatible",
+  "model": "test-model",
+  "promptHash": "411535e0949c78595c9fc3afc225a1ee3aec8bcf38d1dc4dfd6b76dd47230f34",
+  "budget": {
+    "enabled": true,
+    "provider": "openai-compatible",
+    "model": "test-model",
+    "baseUrl": "http://127.0.0.1:55558/v1",
+    "apiKeyEnv": "AGENT_TEST_SECRET",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 60,
+    "maxInputChars": 180000,
+    "maxOutputTokens": 8192
+  }
+}

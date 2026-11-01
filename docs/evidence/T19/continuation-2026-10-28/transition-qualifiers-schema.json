@@ -1,0 +1,95 @@
+{
+  "protocolVersion": "1.0",
+  "tools": [
+    "get-capabilities",
+    "status",
+    "search",
+    "code-map",
+    "read-source",
+    "export-snapshot",
+    "update-base",
+    "import-conventions",
+    "write-candidate",
+    "prepare-plugin",
+    "validate-plugin",
+    "run-plugin-cases",
+    "activate-plugin"
+  ],
+  "schemaHash": "0ad00ef2814ddcba0f0a0e988f7ae01fee4928770f5c21c2015c43b6300f71cf",
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "operationId": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "trigger": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "guard": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "documentTypeId": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "keyPairs": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/KeyPair"
+        },
+        "default": []
+      }
+    },
+    "description": "`transitions_to` 关系的业务限定。",
+    "title": "TransitionQualifiers",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$defs": {
+      "KeyPair": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "leftColumnId": {
+            "type": "string"
+          },
+          "rightColumnId": {
+            "type": "string"
+          },
+          "operator": {
+            "$ref": "#/$defs/JoinOperator"
+          }
+        },
+        "required": [
+          "leftColumnId",
+          "rightColumnId",
+          "operator"
+        ],
+        "description": "关联键对。`keyPairs` 按来源键顺序保存，顺序参与语义。"
+      },
+      "JoinOperator": {
+        "type": "string",
+        "enum": [
+          "equals"
+        ],
+        "description": "连接算子（初版仅支持等值）。"
+      }
+    }
+  },
+  "knowledgeAvailable": true,
+  "identityImportAvailable": true,
+  "configHash": "a6e000d23c479aefbc6a3b73668f8f5260a5424de598e91ccfcd8f24bcd6c787",
+  "scopeIds": [
+    "repo.r"
+  ]
+}

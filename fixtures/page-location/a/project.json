@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "projectId": "acceptance.a",
+  "repositories": [
+    {
+      "id": "front",
+      "root": "web"
+    },
+    {
+      "id": "back",
+      "root": "api"
+    }
+  ],
+  "selection": {},
+  "scopes": [
+    {
+      "id": "app.web",
+      "repositoryIds": [
+        "front"
+      ],
+      "kind": "application"
+    },
+    {
+      "id": "svc.erp",
+      "repositoryIds": [
+        "back"
+      ],
+      "kind": "service"
+    }
+  ],
+  "services": [
+    {
+      "id": "erp",
+      "scopeId": "svc.erp",
+      "protocol": "http",
+      "baseUrls": [
+        "/erp"
+      ]
+    }
+  ],
+  "dataSources": [
+    {
+      "id": "ds.erp",
+      "scopeId": "svc.erp",
+      "dialect": "sqlite"
+    },
+    {
+      "id": "ds.analytics",
+      "scopeId": "svc.erp",
+      "dialect": "sqlite"
+    }
+  ],
+  "bindings": [
+    {
+      "id": "erp-client",
+      "kind": "clientToService",
+      "scopeId": "app.web",
+      "from": "http",
+      "to": "erp"
+    }
+  ]
+}

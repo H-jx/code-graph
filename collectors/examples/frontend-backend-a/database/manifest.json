@@ -1,0 +1,55 @@
+{
+  "protocolVersion": "1.0",
+  "pluginId": "example.a.database",
+  "version": "1.0.0",
+  "capabilities": [
+    "database"
+  ],
+  "runtime": {
+    "kind": "python",
+    "versionRange": ">=3.12 <3.13"
+  },
+  "dependencies": {
+    "kind": "pip",
+    "manifest": "deps/requirements.in",
+    "lockFile": "deps/requirements.lock"
+  },
+  "artifacts": [
+    "manifest.json",
+    "conventions.json",
+    "collect.py",
+    "database_ast.py",
+    "source_ast.py",
+    "identity.py",
+    "identity-spec.json",
+    "deps/requirements.in",
+    "deps/requirements.lock",
+    "cases/input.json",
+    "cases/database.json",
+    "cases/truth.json"
+  ],
+  "stages": [
+    {
+      "id": "extract",
+      "phase": "extract",
+      "entry": "collect.py",
+      "replacement": "project",
+      "sourceSelectors": [
+        {
+          "id": "backend",
+          "repositoryIds": [
+            "back"
+          ],
+          "include": [
+            "**/*.ts",
+            "**/*.py",
+            "**/*.sql"
+          ]
+        }
+      ]
+    }
+  ],
+  "acceptanceCases": [
+    "cases/database.json"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "t00-protocol-probes",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "typescript": "6.0.3"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "modelRequests": 0,
+  "activation": {
+    "activationId": "activation_validation_98e3ad3a-295d-4a45-84b0-688ca722166c",
+    "candidateId": "candidate_93b8003f-9651-4f2d-b868-3ae0f9274289",
+    "generation": "2",
+    "status": "active"
+  },
+  "cancellation": [
+    {
+      "stop": "abort",
+      "pids": {
+        "parent": 4372,
+        "descendant": 26588
+      },
+      "elapsedMs": 47.94939999999997,
+      "treeStopped": true
+    },
+    {
+      "stop": "close",
+      "pids": {
+        "parent": 16076,
+        "descendant": 41632
+      },
+      "elapsedMs": 48.128299999999854,
+      "treeStopped": true
+    }
+  ]
+}

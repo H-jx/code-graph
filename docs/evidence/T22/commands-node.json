@@ -1,0 +1,32 @@
+[
+  {
+    "name": "sdk",
+    "group": "node",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'test:sdk'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 10.609,
+    "log": "sdk-02.log",
+    "sha256": "5ca5ddcfc848d59374af1be895b5e766464ce44130e93560c3e25691fe8a41d7"
+  },
+  {
+    "name": "mcp-tests",
+    "group": "node",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'test:mcp'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 6.484,
+    "log": "mcp-tests-02.log",
+    "sha256": "c965a1433114a804ed663762a09fc1f5fa3e91ed86b62b97fa3f81bc3bd38cf3"
+  }
+]

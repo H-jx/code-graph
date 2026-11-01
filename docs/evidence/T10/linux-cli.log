@@ -1,0 +1,12 @@
+   Compiling project-knowledge-core v0.1.0 (/mnt/e/Project/my-project/code-graph/crates/core)
+   Compiling project-knowledge-cli v0.1.0 (/mnt/e/Project/my-project/code-graph/crates/cli)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 14.28s
+     Running tests/collect.rs (/root/.cache/project-knowledge-linux-probe/target/debug/deps/collect-b9cc3e062f6e249d)
+
+running 3 tests
+test collect_cli_validates_commits_and_returns_failure_for_invalid_output ... ok
+test incremental_cli_and_failed_collect_preserve_invalidation_and_stage_boundaries ... ok
+test plugin_cli_submit_validate_activate_and_rollback ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.91s
+

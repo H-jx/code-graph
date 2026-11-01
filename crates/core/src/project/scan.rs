@@ -147,6 +147,17 @@ pub fn scan_repository(
     root: &Path,
     options: &ScanOptions,
 ) -> Result<ScanResult, String> {
+    scan_repository_bounded(repository_id, root, options, &mut || true)?
+        .ok_or_else(|| "unbounded scan unexpectedly stopped".to_string())
+}
+
+/// 查询复用维护扫描规则；停止时不把不完整集合当作新鲜度证明。
+pub fn scan_repository_bounded(
+    repository_id: &str,
+    root: &Path,
+    options: &ScanOptions,
+    keep_going: &mut impl FnMut() -> bool,
+) -> Result<Option<ScanResult>, String> {
     let rules = GlobRules::compile(&options.include, &options.exclude)?;
     let mut result = ScanResult {
         repository_id: repository_id.to_string(),
@@ -172,16 +183,22 @@ pub fn scan_repository(
         .ignore(true)
         .follow_links(false)
         .sort_by_file_path(|left, right| left.cmp(right));
-
-    let entries = walker
-        .build()
-        .collect::<Result<Vec<_>, _>>()
-        .map_err(|error| format!("cannot walk repository `{repository_id}`: {error}"))?;
+    let control_root = root.to_path_buf();
+    walker.filter_entry(move |entry| {
+        entry.depth() == 0
+            || relative_path(&control_root, entry.path())
+                .is_ok_and(|path| !is_control_output(&path))
+    });
 
     // 路径大小写冲突检测：同一仓库内仅大小写不同的路径视为冲突。
     let mut case_index: BTreeMap<String, String> = BTreeMap::new();
 
-    for entry in entries {
+    for entry in walker.build() {
+        if !keep_going() {
+            return Ok(None);
+        }
+        let entry =
+            entry.map_err(|error| format!("cannot walk repository `{repository_id}`: {error}"))?;
         let path = entry.path();
         let file_type = match entry.file_type() {
             Some(file_type) => file_type,
@@ -319,6 +336,18 @@ pub fn scan_repository(
         });
     }
 
+    // 跳过项也必须进入集合，否则新增不可读/二进制文件不会改变输入摘要。
+    for gap in &result.gaps {
+        if !result.sources.iter().any(|s| s.path == gap.path) {
+            result.sources.push(ScannedSource {
+                repository_id: repository_id.to_string(),
+                path: gap.path.clone(),
+                content_hash: String::new(),
+                byte_length: 0,
+                selection_status: SelectionStatus::Skipped,
+            });
+        }
+    }
     result.sources.sort_by(|left, right| {
         left.path
             .cmp(&right.path)
@@ -327,7 +356,7 @@ pub fn scan_repository(
     result
         .gaps
         .sort_by(|left, right| left.path.cmp(&right.path).then(left.code.cmp(&right.code)));
-    Ok(result)
+    Ok(Some(result))
 }
 
 /// 仓库根相对路径，统一 `/` 分隔。
@@ -351,6 +380,11 @@ pub fn relative_path(root: &Path, path: &Path) -> Result<String, String> {
 
 /// 是否命中硬排除。
 pub fn is_hard_excluded(relative_path: &str) -> bool {
+    let name = relative_path.rsplit('/').next().unwrap_or(relative_path);
+    // Credentials are local configuration, never model context or collector input.
+    if name == ".env" || (name.starts_with(".env.") && name != ".env.example") {
+        return true;
+    }
     if HARD_EXCLUDED_FILES
         .iter()
         .any(|name| relative_path == *name || relative_path.ends_with(&format!("/{name}")))
@@ -360,6 +394,17 @@ pub fn is_hard_excluded(relative_path: &str) -> bool {
     HARD_EXCLUDED_PREFIXES
         .iter()
         .any(|prefix| relative_path.starts_with(prefix))
+}
+
+/// Product control output must not change source snapshot membership as it grows.
+/// User selection/ignore exclusions still remain tracked below this boundary.
+pub fn is_control_output(path: &str) -> bool {
+    [".project-knowledge", ".agents/skills"]
+        .iter()
+        .any(|prefix| path == *prefix || path.starts_with(&format!("{prefix}/")))
+        || HARD_EXCLUDED_FILES
+            .iter()
+            .any(|name| path == *name || path.ends_with(&format!("/{name}")))
 }
 
 /// 二进制内容判定：前 8 KiB 内出现 NUL 字节。

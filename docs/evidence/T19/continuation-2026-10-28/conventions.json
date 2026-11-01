@@ -1,0 +1,37 @@
+{
+  "configHash": "05a3174a458d2901b5feadccb007d5ea617de447eca0d0139de91c092250242c",
+  "conventionId": "46a4f3abac0079519e00bafc2531120022def10970ea2938627a8490a8cb64f3",
+  "indexInvalidated": true,
+  "originalReferences": [
+    {
+      "contentHash": "b9c2001c8690f69a51b6a35ed1e910667d76cee244b53e06871bde555a8d823d",
+      "endByte": 1,
+      "evidenceId": "ev_018db450b58b4234e39726d97e69384fb882b4a1d9a423ec5ca807d0bfed124d",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "6c2ef674-f141-4714-96ba-cf7fd6c90df3",
+        "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+      },
+      "sourceId": "src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607",
+      "startByte": 0
+    },
+    {
+      "contentHash": "b9c2001c8690f69a51b6a35ed1e910667d76cee244b53e06871bde555a8d823d",
+      "endByte": 82,
+      "evidenceId": "ev_2790544bf02ff9392f85ac80fe05e628a43213f10a25cd5bd6de4ea0f78a57ae",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "6c2ef674-f141-4714-96ba-cf7fd6c90df3",
+        "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+      },
+      "sourceId": "src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607",
+      "startByte": 0
+    }
+  ],
+  "snapshot": {
+    "generation": "2",
+    "indexId": "6c2ef674-f141-4714-96ba-cf7fd6c90df3",
+    "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+  },
+  "sourceClass": "derivedConvention"
+}

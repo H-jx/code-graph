@@ -1,0 +1,27 @@
+{
+  "candidateId": "candidate_bc0fc442-f1f4-4e48-8fce-3cf95ac65ad2",
+  "validationId": "validation_2bc891e5-aa70-4198-acf0-9a0a5989cfe3",
+  "report": {
+    "status": "validated",
+    "runId": "run_d1f2d59a-842b-4727-8d12-5c87f2715865",
+    "expectedGeneration": "2",
+    "stagedResultHash": "ce59e9096ae01b6cf0eb8f7df5399ae8db7fb4ce37ed2d245721b03b0eb0ba0f",
+    "cases": [],
+    "stages": [
+      {
+        "replacementKey": "(smoke.plugin,extract,smoke)",
+        "batchId": "bat_01c0cc65ae6479ec9cefdf314729bb2e6516a91a8014de3436a4902eea3980eb",
+        "entities": 1,
+        "relations": 0,
+        "dependencies": 7
+      },
+      {
+        "replacementKey": "(smoke.plugin,link,smoke)",
+        "batchId": "bat_0d40e6e758928f64219194879c0a408d580c79c83c0ec3e5bfcb502c76b68c38",
+        "entities": 0,
+        "relations": 1,
+        "dependencies": 8
+      }
+    ]
+  }
+}

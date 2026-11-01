@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-28 Asia/Shanghai",
+  "task": "T06",
+  "truthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "scripts/verify-truth.py"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T06/arithmetic-oracle.json",
+      "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "business_scenarios",
+        "truth_",
+        "--locked",
+        "-j",
+        "1"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T06/truth-tests.log",
+      "logSha256": "d2fc4c8cd7d13ec8924cde0010911f6d109f790cfa5a56e889c036689d2c7f98"
+    }
+  ],
+  "sourceHashes": {
+    "crates/core/tests/business_scenarios.rs": "1ddbc293fc8b6b07e0dc75d9164bb7842ab42d63f7e0c4f0bd434400fca40908",
+    "scripts/verify-truth.py": "158b6752587b9534c6405e6b4a2dc2f988041ce568525796eaa6bb7390c8db46",
+    "crates/core/src/collect/candidate.rs": "1511837cb846682107e167005a70d20a55d49a0801e838b3f9f0c976a82c1c45"
+  },
+  "productionAccuracyClaimed": false
+}

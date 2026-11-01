@@ -12,6 +12,38 @@ use crate::contract::error::{CoreError, codes};
 use crate::contract::identity::{compute_source_id, content_hash};
 use crate::project::scan::{ScanResult, SelectionStatus};
 
+/// Read-only project capture, shared by indexing and maintenance preflight.
+pub fn scan_project(
+    project: &crate::project::config::LoadedProject,
+) -> Result<Vec<ScanResult>, CoreError> {
+    scan_project_with_cancellation(project, &tokio_util::sync::CancellationToken::new())
+}
+
+pub fn scan_project_with_cancellation(
+    project: &crate::project::config::LoadedProject,
+    cancel: &tokio_util::sync::CancellationToken,
+) -> Result<Vec<ScanResult>, CoreError> {
+    let options = crate::project::scan::ScanOptions {
+        respect_git_ignore: project.config.selection.respect_git_ignore,
+        max_file_bytes: project.config.selection.max_file_bytes,
+        include: project.config.selection.include.clone(),
+        exclude: project.config.selection.exclude.clone(),
+    };
+    project
+        .repositories
+        .iter()
+        .map(|(id, root)| {
+            crate::project::scan::scan_repository_bounded(id, root, &options, &mut || {
+                !cancel.is_cancelled()
+            })
+            .map_err(|e| CoreError::new(codes::CONFIG_INVALID, e))
+            .and_then(|result| {
+                result.ok_or_else(|| CoreError::new(codes::CANCELLED, "scan cancelled"))
+            })
+        })
+        .collect()
+}
+
 /// 快照成员。
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -132,7 +164,11 @@ pub fn read_stable(path: &Path) -> Result<StableContent, CoreError> {
                 ));
             }
         };
-        if before.len() == after.len() && before.len() == bytes.len() as u64 {
+        if before.len() == after.len()
+            && before.len() == bytes.len() as u64
+            && before.modified().ok() == after.modified().ok()
+            && std::fs::read(path).is_ok_and(|check| check == bytes)
+        {
             return Ok(StableContent {
                 content_hash: content_hash(&bytes),
                 bytes,

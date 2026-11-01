@@ -1,0 +1,65 @@
+{
+  "truthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "sourceHash": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+  "states": [
+    "DRAFT",
+    "SUBMITTED",
+    "APPROVED",
+    "RECEIVING",
+    "COMPLETED",
+    "CANCELLED"
+  ],
+  "keys": [
+    "tenant_id",
+    "purchase_no",
+    "line_no"
+  ],
+  "transitions": [
+    [
+      "DRAFT",
+      "SUBMITTED",
+      "submit",
+      "orderedQty > 0 AND supplierId present."
+    ],
+    [
+      "SUBMITTED",
+      "APPROVED",
+      "approve",
+      "role == buyer AND approvalGranted."
+    ],
+    [
+      "SUBMITTED",
+      "DRAFT",
+      "reject or withdraw",
+      "applicant == actor for withdraw."
+    ],
+    [
+      "APPROVED",
+      "RECEIVING",
+      "receive",
+      "sum(POSTED, not-deleted receipt qty) > 0."
+    ],
+    [
+      "RECEIVING",
+      "COMPLETED",
+      "finish",
+      "netReceived >= orderedQty AND all receipts valid."
+    ],
+    [
+      "APPROVED",
+      "CANCELLED",
+      "cancel",
+      "netReceived == 0."
+    ]
+  ],
+  "documents": [
+    [
+      "purchase",
+      "receipt"
+    ],
+    [
+      "receipt",
+      "return"
+    ]
+  ]
+}

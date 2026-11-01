@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "queries": 40,
+  "ticks": 168,
+  "largestGapMs": 19.902100000000246,
+  "elapsedMs": 2216.3243,
+  "fileLockReleased": true
+}

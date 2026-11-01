@@ -1,0 +1,256 @@
+{
+  "protocolVersion": "1.0",
+  "requestId": "req_b3406561-e05b-48c6-bf5a-1f6a065c0e11",
+  "snapshot": {
+    "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+    "generation": "22",
+    "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+  },
+  "status": "partial",
+  "data": {
+    "base": {
+      "state": "fresh",
+      "coverage": {
+        "api@repo.business": {
+          "capability": "api",
+          "scopeId": "repo.business",
+          "sourceSetId": "business",
+          "status": "not_configured"
+        },
+        "base@repo.business": {
+          "capability": "base",
+          "scopeId": "repo.business",
+          "sourceSetId": "business",
+          "status": "complete"
+        },
+        "database@repo.business": {
+          "capability": "database",
+          "scopeId": "repo.business",
+          "sourceSetId": "business",
+          "status": "not_configured"
+        },
+        "frontend@repo.business": {
+          "capability": "frontend",
+          "scopeId": "repo.business",
+          "sourceSetId": "business",
+          "status": "not_configured"
+        },
+        "report@repo.business": {
+          "capability": "report",
+          "scopeId": "repo.business",
+          "sourceSetId": "business",
+          "status": "not_configured"
+        },
+        "routes@repo.business": {
+          "capability": "routes",
+          "scopeId": "repo.business",
+          "sourceSetId": "business",
+          "status": "not_configured"
+        },
+        "workflow@repo.business": {
+          "capability": "workflow",
+          "scopeId": "repo.business",
+          "sourceSetId": "business",
+          "status": "not_configured"
+        }
+      }
+    },
+    "collectors": [
+      {
+        "replacementKey": "(t19-audited.workflow,extract,T19-audited-purchase)",
+        "batchId": "bat_3fe8eec92e03fafd97702d3bfe93ccfa063ba7b118bb1f0e538964ff2590b3fa",
+        "state": "fresh",
+        "invalidatedGeneration": null
+      }
+    ],
+    "knowledge": {
+      "topics": [
+        {
+          "topicId": "flow-guard",
+          "version": 2,
+          "freshness": "stale",
+          "snapshot": {
+            "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+            "generation": "13",
+            "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+          },
+          "inputDigest": "272d23757e8fa5e48870c5e867c49e5eee75654278b085317276ccc6b246915c",
+          "dependenciesRechecked": false,
+          "gapIds": []
+        },
+        {
+          "topicId": "purchase-workflow",
+          "version": 10,
+          "freshness": "stale",
+          "snapshot": {
+            "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+            "generation": "13",
+            "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+          },
+          "inputDigest": "60f737ef17daaf5741324510229b89862cc6ad18baac8f89759a0f1fc3089164",
+          "dependenciesRechecked": false,
+          "gapIds": []
+        }
+      ],
+      "exports": [
+        {
+          "id": "55c9042a-0701-4bfc-b4cc-80d7f4946b7d",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow\\versions\\55c9042a-0701-4bfc-b4cc-80d7f4946b7d",
+          "integrity": true,
+          "freshness": "stale"
+        },
+        {
+          "id": "52da7f07-db0d-4adb-af61-282c276db4e4",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow\\versions\\52da7f07-db0d-4adb-af61-282c276db4e4",
+          "integrity": true,
+          "freshness": "stale"
+        },
+        {
+          "id": "64b3cd3f-0523-4a5f-bb78-f5e430b76c14",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow\\versions\\64b3cd3f-0523-4a5f-bb78-f5e430b76c14",
+          "integrity": true,
+          "freshness": "stale"
+        },
+        {
+          "id": "05f1cb1d-832f-4397-92f7-301270024145",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow\\versions\\05f1cb1d-832f-4397-92f7-301270024145",
+          "integrity": true,
+          "freshness": "stale"
+        },
+        {
+          "id": "db5f9930-6280-4560-8c8b-a18ca7f5807f",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow\\versions\\db5f9930-6280-4560-8c8b-a18ca7f5807f",
+          "integrity": true,
+          "freshness": "stale"
+        },
+        {
+          "id": "b5eae0c2-6746-4ee5-9f80-d082394ad7dd",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow\\versions\\b5eae0c2-6746-4ee5-9f80-d082394ad7dd",
+          "integrity": true,
+          "freshness": "stale"
+        },
+        {
+          "id": "9b38f99f-10f3-4c56-b3f4-0da8e551c4fc",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow\\versions\\9b38f99f-10f3-4c56-b3f4-0da8e551c4fc",
+          "integrity": true,
+          "freshness": "stale"
+        },
+        {
+          "id": "aa91b048-100a-44b2-8ceb-df5d55e3ec26",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow\\versions\\aa91b048-100a-44b2-8ceb-df5d55e3ec26",
+          "integrity": true,
+          "freshness": "stale"
+        },
+        {
+          "id": "1332e8f6-e2e2-477e-a79d-2094a34fc027",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow\\versions\\1332e8f6-e2e2-477e-a79d-2094a34fc027",
+          "integrity": true,
+          "freshness": "stale"
+        },
+        {
+          "id": "c5b23132-2a36-422e-b6e9-591547818978",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow\\versions\\c5b23132-2a36-422e-b6e9-591547818978",
+          "integrity": true,
+          "freshness": "stale"
+        },
+        {
+          "id": "0a13388b-ea0b-4a63-9b69-0a9aabd96d58",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow\\versions\\0a13388b-ea0b-4a63-9b69-0a9aabd96d58",
+          "integrity": true,
+          "freshness": "stale"
+        }
+      ],
+      "attempts": [
+        {
+          "id": "55c9042a-0701-4bfc-b4cc-80d7f4946b7d",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow",
+          "state": "complete",
+          "errorCode": null
+        },
+        {
+          "id": "52da7f07-db0d-4adb-af61-282c276db4e4",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow",
+          "state": "complete",
+          "errorCode": null
+        },
+        {
+          "id": "64b3cd3f-0523-4a5f-bb78-f5e430b76c14",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow",
+          "state": "complete",
+          "errorCode": null
+        },
+        {
+          "id": "05f1cb1d-832f-4397-92f7-301270024145",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow",
+          "state": "complete",
+          "errorCode": null
+        },
+        {
+          "id": "db5f9930-6280-4560-8c8b-a18ca7f5807f",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow",
+          "state": "complete",
+          "errorCode": null
+        },
+        {
+          "id": "b5eae0c2-6746-4ee5-9f80-d082394ad7dd",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow",
+          "state": "complete",
+          "errorCode": null
+        },
+        {
+          "id": "9b38f99f-10f3-4c56-b3f4-0da8e551c4fc",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow",
+          "state": "complete",
+          "errorCode": null
+        },
+        {
+          "id": "aa91b048-100a-44b2-8ceb-df5d55e3ec26",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow",
+          "state": "complete",
+          "errorCode": null
+        },
+        {
+          "id": "1332e8f6-e2e2-477e-a79d-2094a34fc027",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow",
+          "state": "complete",
+          "errorCode": null
+        },
+        {
+          "id": "c5b23132-2a36-422e-b6e9-591547818978",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow",
+          "state": "complete",
+          "errorCode": null
+        },
+        {
+          "id": "0a13388b-ea0b-4a63-9b69-0a9aabd96d58",
+          "path": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\.project-knowledge\\skills\\purchase-workflow",
+          "state": "complete",
+          "errorCode": null
+        }
+      ],
+      "diskChecked": true
+    },
+    "activeVersions": {
+      "t19-audited.workflow": "3.0.0"
+    }
+  },
+  "sourceReferences": [],
+  "gaps": [],
+  "completeness": {
+    "freshness": "fresh",
+    "diskChecked": true,
+    "checkedAt": "2026-10-29T00:38:49Z",
+    "coverage": "partial",
+    "candidateSetsComplete": true,
+    "truncated": false,
+    "reasons": []
+  },
+  "budgetUsed": {
+    "entities": 0,
+    "relations": 0,
+    "visited": 119,
+    "elapsedMs": 48,
+    "responseChars": 8840
+  },
+  "nextQueries": []
+}

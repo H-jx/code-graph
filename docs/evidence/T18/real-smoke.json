@@ -1,0 +1,51 @@
+{
+  "runId": "agent_9c7e013d-c440-4811-968d-8aa03b3dc636",
+  "status": "complete",
+  "phase": "preflight",
+  "goal": "Verify a Core status tool round trip",
+  "focus": null,
+  "withSkill": false,
+  "configHash": "194f235d7928608a19cce79aca1ee38ef9b9e4d5d697b48c083bc9f678d9c3a5",
+  "sourceSnapshotId": "snap_3f6b705bfddf8b9d2fbcd96f0605608c1f3436721cee208c93cec7e3fa413eb6",
+  "activeVersions": [],
+  "modelTurns": 2,
+  "toolCalls": 1,
+  "repairs": 0,
+  "elapsedMs": 12770,
+  "deadlineMs": 1793111110212,
+  "repairPlugin": null,
+  "smoke": true,
+  "revision": 0,
+  "candidateId": null,
+  "candidateHash": null,
+  "validationId": null,
+  "activation": null,
+  "investigation": null,
+  "readSource": false,
+  "readMap": false,
+  "issues": [],
+  "events": [
+    {
+      "tool": "status",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    }
+  ],
+  "provider": "anthropic",
+  "model": "qwen3.8-max",
+  "promptHash": "a4d4c76924abbd50e7e3fda11226ede4370953cd08ca35270248e04f0f51f303",
+  "budget": {
+    "enabled": true,
+    "provider": "anthropic",
+    "model": "qwen3.8-max",
+    "baseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic",
+    "apiKeyEnv": "PROJECT_KNOWLEDGE_LLM_KEY",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 600,
+    "maxInputChars": 80000,
+    "maxOutputTokens": 8192
+  }
+}

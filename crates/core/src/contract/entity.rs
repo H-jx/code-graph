@@ -10,7 +10,7 @@ use serde_json::{Map, Value};
 use crate::contract::identity::IdentitySlot;
 
 /// 内置实体类型。扩展类型形如 `x.<pluginId>.<localName>`，另行注册。
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "camelCase")]
 pub enum EntityKind {
     File,
@@ -36,10 +36,12 @@ pub enum EntityKind {
     Comment,
     DataSource,
     Service,
+    #[serde(untagged)]
+    Extension(crate::contract::extensions::ExtensionName),
 }
 
 impl EntityKind {
-    pub fn as_str(&self) -> &'static str {
+    pub fn as_str(&self) -> &str {
         match self {
             EntityKind::File => "file",
             EntityKind::Symbol => "symbol",
@@ -64,14 +66,20 @@ impl EntityKind {
             EntityKind::Comment => "comment",
             EntityKind::DataSource => "dataSource",
             EntityKind::Service => "service",
+            EntityKind::Extension(name) => name.as_str(),
         }
     }
 
     pub fn parse(value: &str) -> Option<Self> {
         ALL_ENTITY_KINDS
             .iter()
-            .copied()
             .find(|kind| kind.as_str() == value)
+            .cloned()
+            .or_else(|| {
+                crate::contract::extensions::ExtensionName::new(value)
+                    .ok()
+                    .map(Self::Extension)
+            })
     }
 }
 

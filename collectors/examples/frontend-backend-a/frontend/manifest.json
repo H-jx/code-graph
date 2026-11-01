@@ -1,0 +1,58 @@
+{
+  "protocolVersion": "1.0",
+  "pluginId": "example.a.frontend",
+  "version": "1.0.0",
+  "capabilities": [
+    "routes",
+    "frontend",
+    "comments",
+    "modules",
+    "entrypoints"
+  ],
+  "runtime": {
+    "kind": "node",
+    "versionRange": ">=24 <25"
+  },
+  "dependencies": {
+    "kind": "npm",
+    "manifest": "deps/package.json",
+    "lockFile": "deps/package-lock.json"
+  },
+  "artifacts": [
+    "manifest.json",
+    "collect.mjs",
+    "frontend-ast.mjs",
+    "identity.mjs",
+    "conventions.json",
+    "deps/package.json",
+    "deps/package-lock.json",
+    "cases/frontend.json",
+    "cases/input.json",
+    "cases/truth.json"
+  ],
+  "stages": [
+    {
+      "id": "extract",
+      "phase": "extract",
+      "entry": "collect.mjs",
+      "replacement": "project",
+      "sourceSelectors": [
+        {
+          "id": "frontend",
+          "repositoryIds": [
+            "front"
+          ],
+          "include": [
+            "**/*.ts",
+            "**/*.tsx",
+            "**/*.js",
+            "**/*.jsx"
+          ]
+        }
+      ]
+    }
+  ],
+  "acceptanceCases": [
+    "cases/frontend.json"
+  ]
+}

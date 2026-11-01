@@ -1,0 +1,15 @@
+
+running 1 test
+test agent_cli_configuration_is_reachable_in_both_argument_orders ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.16s
+
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+   Compiling project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-cli` (bin "project-knowledge") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.32s
+     Running tests\agent.rs (target\debug\deps\agent-c37b1987da545b82.exe)

@@ -1,0 +1,5 @@
+
+> project-knowledge@0.1.0 verify:probes E:\Project\my-project\code-graph
+> node scripts/verify-integration-probes.mjs
+
+{"ok":true,"rustTests":4,"nodeTests":5,"pythonVectors":18,"report":"E:\\Project\\my-project\\code-graph\\docs\\evidence\\T00\\probe-report.json"}

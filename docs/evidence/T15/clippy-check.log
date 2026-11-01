@@ -1,0 +1,11 @@
+    Checking project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+error: unused import: `execute`
+  --> crates\agent\src\tools.rs:20:27
+   |
+20 |     query::{QueryContext, execute},
+   |                           ^^^^^^^
+   |
+   = note: `-D unused-imports` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(unused_imports)]`
+
+error: could not compile `project-knowledge-agent` (lib) due to 1 previous error

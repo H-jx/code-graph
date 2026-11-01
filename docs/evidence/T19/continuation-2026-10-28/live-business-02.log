@@ -1,0 +1,7 @@
+{"status": "failed", "runId": "agent_d90e3a63-f128-40c8-9f92-2e174b830221", "modelTurns": 48, "toolCalls": 51, "issues": ["SCHEMA_INVALID", "INVALID_REQUEST", "SCHEMA_INVALID", "SCHEMA_INVALID", "EVIDENCE_INVALID", "EVIDENCE_INVALID", "PLUGIN_EXIT", "EVIDENCE_INVALID", "BUDGET_EXHAUSTED"]}
+Traceback (most recent call last):
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\live_business.py", line 200, in <module>
+    main()
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\live_business.py", line 124, in main
+    assert result.get("status") == "complete", "Inspect retained structured issues; do not alter independent truth"
+AssertionError: Inspect retained structured issues; do not alter independent truth

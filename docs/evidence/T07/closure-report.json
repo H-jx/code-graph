@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-27",
+  "rustTests": 95,
+  "collectorTests": 36,
+  "dependencyCliCommands": 27,
+  "preparedCaches": 2,
+  "providerCalls": 0,
+  "independentBusinessTruth": false,
+  "hashes": {
+    "crates/core/src/collect/deps.rs": "ca136955b8f3e30349561acd59dff955282cd859a29c5a5c3e1748ae1b5b96f3",
+    "crates/core/src/collect/runner.rs": "a152e2130d35e2c8125b3957f4c7901a1fe6aa85484033072df200039bbd7b72",
+    "crates/core/src/collect/staging.rs": "e5974aac7b024b200c9472bf1db0f8a2b443ab345c0efc3106f1d9f32667bfc0",
+    "scripts/verify-dependencies.mjs": "c78d6781a19c75cb663d3821039faaee49dc5b100c97bb86efde958b5ad8dc4a",
+    "fixtures/plugins/dependencies/node/deps/package-lock.json": "389d16b28b3787f9855f45d03c42a7cef306cece741b893ff71aeb0cad992556",
+    "fixtures/plugins/dependencies/python/deps/requirements.lock": "09b392cbd550a1f1ec894a0b5fd283ce18b7212a81ae367b2d65fc7ef7ee820f",
+    "docs/evidence/T07/dependencies/report.json": "21a2c7d3824047df1ed580b1c461271b5f08f3337d18b941b5177c9a18aff4a3"
+  }
+}

@@ -26,4 +26,8 @@ fixtures/
 - 源码变化后的失效与增量重跑；
 - 知识过期标记与重新生成。
 
-> 骨架阶段仅建立目录与约定，测试数据待补。
+当前可用：`page-location/a`（TS/TSX 前后端分仓）、`page-location/b`（JS/TSX + Python）、`purchase-workflow/{rules.md,flow.ts}`、`purchase-ledger/{schema,data,correct,fanout,where-child}.sql` 与 policy.md。
+
+冻结依据位于 `truth/manifest.json`，逐条原始引用、expected/forbidden 身份与审阅边界位于 `truth/*.json`、`truth/review.md`；`original/synes` 保存用户提供原始项目的逐字节材料和逐文件 Git 作者/修订。真实来源声明事实、A/B 合成 smoke、独立算术审计各自分类，不混算生产业务准确率。
+
+运行 `python scripts/verify-truth.py` 核对 50 文件与独立整数 oracle；`cargo test -p project-knowledge-core --test business_scenarios truth_` 核对出处/身份/候选写范围与内存 SQL 数值。业务插件必须通过 Core 驱动的 `frontend_` 等测试；expected 不从插件输出生成。布局与约定可以在临时副本中修改，冻结来源与真值不得就地改写。

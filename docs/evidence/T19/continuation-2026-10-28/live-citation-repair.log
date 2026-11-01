@@ -1,0 +1,2 @@
+{"status": "complete", "runId": "agent_924184f7-f2b1-46c3-8f6c-7a271f5ed6c2", "modelTurns": 18, "toolCalls": 21, "issues": ["INVALID_REQUEST"]}
+T19 real business, knowledge and no-model incremental acceptance passed

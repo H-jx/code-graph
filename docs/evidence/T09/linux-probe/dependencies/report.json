@@ -1,0 +1,604 @@
+{
+  "date": "2026-10-26T16:56:27.174Z",
+  "work": "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss",
+  "commands": [
+    {
+      "label": "base",
+      "args": [
+        "index",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "--base"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "2b6d25128421f6ebb15fb3f3234e9ada8ad181bc7bd9ebf17ac1f5f7034504f6"
+    },
+    {
+      "label": "node-submit",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "submit",
+        "--path",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/node"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "02850ea859a9ed71ec2765bb8a0c0ae0565b5e439bc46b7c9104553596294fd3"
+    },
+    {
+      "label": "node-missing-cache",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "validate",
+        "--candidate",
+        "candidate_8430db38-cf07-4bcc-a308-1d989b46d045"
+      ],
+      "exitCode": 1,
+      "stdoutHash": "c200ba499da86b96d4dad91ff0e5a17e18f668d88c94fbd13c34d95d55975ce5"
+    },
+    {
+      "label": "node-prepare",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "prepare",
+        "--candidate",
+        "candidate_8430db38-cf07-4bcc-a308-1d989b46d045"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "9ddfa5bd636f55612ef27fb7e42a0ada275696b0866b23a5b0a7708faee92af8"
+    },
+    {
+      "label": "node-validate",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "validate",
+        "--candidate",
+        "candidate_8430db38-cf07-4bcc-a308-1d989b46d045"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "dc8db20a33f93d58abf49db939ac96be1f49018bcc281bcda3ade6ab69282ac9"
+    },
+    {
+      "label": "node-activate",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "activate",
+        "--candidate",
+        "candidate_8430db38-cf07-4bcc-a308-1d989b46d045"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "d11b4bc715b03d4dee26bb6eaa7112a3c29a94ebccd9033eefcec0054b9e37fa"
+    },
+    {
+      "label": "node-collect",
+      "args": [
+        "collect",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "--plugin",
+        "deps.node"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "b6e5617e4689c2678881b98dfc020491e8e555ca9602fb79f29e44fd56e357e2"
+    },
+    {
+      "label": "node-reuse-prepare",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "prepare",
+        "--candidate",
+        "candidate_8430db38-cf07-4bcc-a308-1d989b46d045"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "9ddfa5bd636f55612ef27fb7e42a0ada275696b0866b23a5b0a7708faee92af8"
+    },
+    {
+      "label": "node-resubmit",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "submit",
+        "--path",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/node"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "1c0bfff5bf4eea3d4332ecbfa936eacc1fda9ec6fc0f7bea3c363e845923421e"
+    },
+    {
+      "label": "node-revalidate",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "validate",
+        "--candidate",
+        "candidate_e16378ba-d691-4d6b-bad4-74c9517e1602"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "6fb18c8c4c459288d46a7f83ced04617ba4495d0a6745b159bb4e16b84f16cde"
+    },
+    {
+      "label": "node-tampered-activate",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "activate",
+        "--candidate",
+        "candidate_e16378ba-d691-4d6b-bad4-74c9517e1602"
+      ],
+      "exitCode": 1,
+      "stdoutHash": "ebfa24304d935ef6c6a4d7b8c2b4c0b3acb8b5c07941bdbd422671adeb598aec"
+    },
+    {
+      "label": "node-tampered-collect",
+      "args": [
+        "collect",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "--manifest",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/node/manifest.json",
+        "--validate-only"
+      ],
+      "exitCode": 1,
+      "stdoutHash": "ebfa24304d935ef6c6a4d7b8c2b4c0b3acb8b5c07941bdbd422671adeb598aec"
+    },
+    {
+      "label": "node-bad-submit",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "submit",
+        "--path",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/bad-node"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "8bd5be55145a981dc1b69eca42edf5a64777b188b0d30438fd5dcf13a6a31648"
+    },
+    {
+      "label": "node-bad-lock",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "prepare",
+        "--candidate",
+        "candidate_3c411c20-8649-4685-939c-e36162f7f783"
+      ],
+      "exitCode": 1,
+      "stdoutHash": "8185913424286a4db0bee645e6566301672b080f7c8936dd58742cb5f23bf77f"
+    },
+    {
+      "label": "python-submit",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "submit",
+        "--path",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/python"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "3e13f45b178fcf6a6a04c43ac2753d9d1022740ed3c95e3271e500bac8c2cd8a"
+    },
+    {
+      "label": "python-missing-cache",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "validate",
+        "--candidate",
+        "candidate_cf75ff48-d8e2-41c5-8a2f-e6f1701afe59"
+      ],
+      "exitCode": 1,
+      "stdoutHash": "c200ba499da86b96d4dad91ff0e5a17e18f668d88c94fbd13c34d95d55975ce5"
+    },
+    {
+      "label": "python-prepare",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "prepare",
+        "--candidate",
+        "candidate_cf75ff48-d8e2-41c5-8a2f-e6f1701afe59"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "a0d8ba8f5b73200bd5fb05151b1f548a8c0331594f1564a866ff30680b6cf270"
+    },
+    {
+      "label": "python-validate",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "validate",
+        "--candidate",
+        "candidate_cf75ff48-d8e2-41c5-8a2f-e6f1701afe59"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "25f1cd5edac842447421c1ec7865606d8d143221cd4895dd02eb6e9cb3b6ef53"
+    },
+    {
+      "label": "python-activate",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "activate",
+        "--candidate",
+        "candidate_cf75ff48-d8e2-41c5-8a2f-e6f1701afe59"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "b4271e77a0ac7c235f55c8a17f73fb733d9e1820fc6edcddb1e00563364f3db7"
+    },
+    {
+      "label": "python-collect",
+      "args": [
+        "collect",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "--plugin",
+        "deps.python"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "9caa26289b40c9a34f794312a612b397adcc57cd38af46aa1ce36dc922b2e244"
+    },
+    {
+      "label": "python-reuse-prepare",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "prepare",
+        "--candidate",
+        "candidate_cf75ff48-d8e2-41c5-8a2f-e6f1701afe59"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "a0d8ba8f5b73200bd5fb05151b1f548a8c0331594f1564a866ff30680b6cf270"
+    },
+    {
+      "label": "python-resubmit",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "submit",
+        "--path",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/python"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "a81abf377888c2c5ad7b0feab00a793a4927ae998adfcfbc91f4a56209aa9aa4"
+    },
+    {
+      "label": "python-revalidate",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "validate",
+        "--candidate",
+        "candidate_63126ec3-125c-4d03-9365-e7e157693edc"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "140238f9d4b55563f5894f057ca861c1e7c6831c0ab726fcc133279f26bd6cc1"
+    },
+    {
+      "label": "python-tampered-activate",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "activate",
+        "--candidate",
+        "candidate_63126ec3-125c-4d03-9365-e7e157693edc"
+      ],
+      "exitCode": 1,
+      "stdoutHash": "ebfa24304d935ef6c6a4d7b8c2b4c0b3acb8b5c07941bdbd422671adeb598aec"
+    },
+    {
+      "label": "python-tampered-collect",
+      "args": [
+        "collect",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "--manifest",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/python/manifest.json",
+        "--validate-only"
+      ],
+      "exitCode": 1,
+      "stdoutHash": "ebfa24304d935ef6c6a4d7b8c2b4c0b3acb8b5c07941bdbd422671adeb598aec"
+    },
+    {
+      "label": "python-bad-submit",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "submit",
+        "--path",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/bad-python"
+      ],
+      "exitCode": 0,
+      "stdoutHash": "26041f1adc7eab26f19ec14632fbae0fd7da909f6d48dd70c22ced5497d6a99d"
+    },
+    {
+      "label": "python-bad-lock",
+      "args": [
+        "plugin",
+        "--config",
+        "/mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/dependencies/运行 空格-wJJiss/project.json",
+        "prepare",
+        "--candidate",
+        "candidate_85dcb117-02e5-4867-a585-65cbcc54e9bc"
+      ],
+      "exitCode": 1,
+      "stdoutHash": "3e486f3ccd83b6dcb0a76e52664d9dd13f20da1bcd3084893a44e7df06c43835"
+    }
+  ],
+  "caches": [
+    {
+      "kind": "node",
+      "directory": "/root/.cache/project-knowledge/dependencies/a14cfb78c39ac9bff626f239737bd58c0d3a0434ea738cccd0501cec86498d5d",
+      "digest": "a14cfb78c39ac9bff626f239737bd58c0d3a0434ea738cccd0501cec86498d5d",
+      "integrity": "f9e4e8fd75d98f370b4fbc25e14306d5b1f31fd2558595c22466ca4231d8833f",
+      "installLogHash": "38b58b3d8d8af4c7baefd32caef853904f2b970365bd3eaac3eb3e2a194a29ed",
+      "reusedWithoutInstaller": true
+    },
+    {
+      "kind": "python",
+      "directory": "/root/.cache/project-knowledge/dependencies/9be86281e9bdf8578b2ce5e410ea07aecd43710466bd7b3dc10f6f39509a0ce7",
+      "digest": "9be86281e9bdf8578b2ce5e410ea07aecd43710466bd7b3dc10f6f39509a0ce7",
+      "integrity": "fc31dffeb157509a5d97e8447cb85700ce3b1082d6682e8c5b352057ede7ef10",
+      "installLogHash": "1033d5075b96d3db6829c11ff3519ac963df2a68ab55a5f225c20136a51d3727",
+      "reusedWithoutInstaller": true
+    }
+  ],
+  "outputs": [
+    {
+      "file": "base.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "base.stdout.json",
+      "hash": "2b6d25128421f6ebb15fb3f3234e9ada8ad181bc7bd9ebf17ac1f5f7034504f6"
+    },
+    {
+      "file": "node-activate.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "node-activate.stdout.json",
+      "hash": "d11b4bc715b03d4dee26bb6eaa7112a3c29a94ebccd9033eefcec0054b9e37fa"
+    },
+    {
+      "file": "node-bad-lock.stderr.log",
+      "hash": "e3b155b23f28ccda2e082b6d8496a28d89ac72f8967ef4685f133e3e1fb0c9b9"
+    },
+    {
+      "file": "node-bad-lock.stdout.json",
+      "hash": "8185913424286a4db0bee645e6566301672b080f7c8936dd58742cb5f23bf77f"
+    },
+    {
+      "file": "node-bad-submit.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "node-bad-submit.stdout.json",
+      "hash": "8bd5be55145a981dc1b69eca42edf5a64777b188b0d30438fd5dcf13a6a31648"
+    },
+    {
+      "file": "node-collect.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "node-collect.stdout.json",
+      "hash": "b6e5617e4689c2678881b98dfc020491e8e555ca9602fb79f29e44fd56e357e2"
+    },
+    {
+      "file": "node-install.log",
+      "hash": "38b58b3d8d8af4c7baefd32caef853904f2b970365bd3eaac3eb3e2a194a29ed"
+    },
+    {
+      "file": "node-missing-cache.stderr.log",
+      "hash": "d3ed0e826533b4bc6eaba724c662666e72c1a9888127aaae33355461dfeaefa5"
+    },
+    {
+      "file": "node-missing-cache.stdout.json",
+      "hash": "c200ba499da86b96d4dad91ff0e5a17e18f668d88c94fbd13c34d95d55975ce5"
+    },
+    {
+      "file": "node-prepare.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "node-prepare.stdout.json",
+      "hash": "9ddfa5bd636f55612ef27fb7e42a0ada275696b0866b23a5b0a7708faee92af8"
+    },
+    {
+      "file": "node-resubmit.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "node-resubmit.stdout.json",
+      "hash": "1c0bfff5bf4eea3d4332ecbfa936eacc1fda9ec6fc0f7bea3c363e845923421e"
+    },
+    {
+      "file": "node-reuse-prepare.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "node-reuse-prepare.stdout.json",
+      "hash": "9ddfa5bd636f55612ef27fb7e42a0ada275696b0866b23a5b0a7708faee92af8"
+    },
+    {
+      "file": "node-revalidate.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "node-revalidate.stdout.json",
+      "hash": "6fb18c8c4c459288d46a7f83ced04617ba4495d0a6745b159bb4e16b84f16cde"
+    },
+    {
+      "file": "node-submit.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "node-submit.stdout.json",
+      "hash": "02850ea859a9ed71ec2765bb8a0c0ae0565b5e439bc46b7c9104553596294fd3"
+    },
+    {
+      "file": "node-tampered-activate.stderr.log",
+      "hash": "f56dc940f391fec1a32e35a29096e27437ef7843b0268b0e4561477a33ae6788"
+    },
+    {
+      "file": "node-tampered-activate.stdout.json",
+      "hash": "ebfa24304d935ef6c6a4d7b8c2b4c0b3acb8b5c07941bdbd422671adeb598aec"
+    },
+    {
+      "file": "node-tampered-collect.stderr.log",
+      "hash": "f56dc940f391fec1a32e35a29096e27437ef7843b0268b0e4561477a33ae6788"
+    },
+    {
+      "file": "node-tampered-collect.stdout.json",
+      "hash": "ebfa24304d935ef6c6a4d7b8c2b4c0b3acb8b5c07941bdbd422671adeb598aec"
+    },
+    {
+      "file": "node-validate.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "node-validate.stdout.json",
+      "hash": "dc8db20a33f93d58abf49db939ac96be1f49018bcc281bcda3ade6ab69282ac9"
+    },
+    {
+      "file": "project.json",
+      "hash": "e7601fde9779c4fd2a0700a80d52b373fca224bdea5ff55a7901262bafdcce82"
+    },
+    {
+      "file": "python-activate.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "python-activate.stdout.json",
+      "hash": "b4271e77a0ac7c235f55c8a17f73fb733d9e1820fc6edcddb1e00563364f3db7"
+    },
+    {
+      "file": "python-bad-lock.stderr.log",
+      "hash": "b36416d9dc87a17c352d01958a77da0fbb30bc7aff61fa58548bc2ec7af303fb"
+    },
+    {
+      "file": "python-bad-lock.stdout.json",
+      "hash": "3e486f3ccd83b6dcb0a76e52664d9dd13f20da1bcd3084893a44e7df06c43835"
+    },
+    {
+      "file": "python-bad-submit.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "python-bad-submit.stdout.json",
+      "hash": "26041f1adc7eab26f19ec14632fbae0fd7da909f6d48dd70c22ced5497d6a99d"
+    },
+    {
+      "file": "python-collect.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "python-collect.stdout.json",
+      "hash": "9caa26289b40c9a34f794312a612b397adcc57cd38af46aa1ce36dc922b2e244"
+    },
+    {
+      "file": "python-install.log",
+      "hash": "1033d5075b96d3db6829c11ff3519ac963df2a68ab55a5f225c20136a51d3727"
+    },
+    {
+      "file": "python-missing-cache.stderr.log",
+      "hash": "d3ed0e826533b4bc6eaba724c662666e72c1a9888127aaae33355461dfeaefa5"
+    },
+    {
+      "file": "python-missing-cache.stdout.json",
+      "hash": "c200ba499da86b96d4dad91ff0e5a17e18f668d88c94fbd13c34d95d55975ce5"
+    },
+    {
+      "file": "python-prepare.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "python-prepare.stdout.json",
+      "hash": "a0d8ba8f5b73200bd5fb05151b1f548a8c0331594f1564a866ff30680b6cf270"
+    },
+    {
+      "file": "python-resubmit.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "python-resubmit.stdout.json",
+      "hash": "a81abf377888c2c5ad7b0feab00a793a4927ae998adfcfbc91f4a56209aa9aa4"
+    },
+    {
+      "file": "python-reuse-prepare.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "python-reuse-prepare.stdout.json",
+      "hash": "a0d8ba8f5b73200bd5fb05151b1f548a8c0331594f1564a866ff30680b6cf270"
+    },
+    {
+      "file": "python-revalidate.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "python-revalidate.stdout.json",
+      "hash": "140238f9d4b55563f5894f057ca861c1e7c6831c0ab726fcc133279f26bd6cc1"
+    },
+    {
+      "file": "python-submit.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "python-submit.stdout.json",
+      "hash": "3e13f45b178fcf6a6a04c43ac2753d9d1022740ed3c95e3271e500bac8c2cd8a"
+    },
+    {
+      "file": "python-tampered-activate.stderr.log",
+      "hash": "f56dc940f391fec1a32e35a29096e27437ef7843b0268b0e4561477a33ae6788"
+    },
+    {
+      "file": "python-tampered-activate.stdout.json",
+      "hash": "ebfa24304d935ef6c6a4d7b8c2b4c0b3acb8b5c07941bdbd422671adeb598aec"
+    },
+    {
+      "file": "python-tampered-collect.stderr.log",
+      "hash": "f56dc940f391fec1a32e35a29096e27437ef7843b0268b0e4561477a33ae6788"
+    },
+    {
+      "file": "python-tampered-collect.stdout.json",
+      "hash": "ebfa24304d935ef6c6a4d7b8c2b4c0b3acb8b5c07941bdbd422671adeb598aec"
+    },
+    {
+      "file": "python-validate.stderr.log",
+      "hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "python-validate.stdout.json",
+      "hash": "25f1cd5edac842447421c1ec7865606d8d143221cd4895dd02eb6e9cb3b6ef53"
+    }
+  ],
+  "providerCalls": 0,
+  "independentBusinessTruth": false,
+  "networkBoundary": "Only explicit prepare installs. Later commands leave install logs and mtimes unchanged; no OS network namespace was used."
+}

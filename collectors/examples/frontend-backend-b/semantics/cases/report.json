@@ -1,0 +1,23 @@
+{
+  "id": "report.b",
+  "inputFixture": "cases/report-input.json",
+  "truthRef": "cases/truth.json",
+  "truthHash": "4dea260f6c096557bf40f0bacf10ee762f21b02cfedd6d6a5d7024ca7aea698f",
+  "expected": {
+    "entities": [
+      "ent_397d7e1d893ee82fb6d2954ff461688197f59be413a25c31e6ee99e0945cfa01",
+      "ent_1ffebcac0961e7e17c3a143d2208c9203a82845bfd38538cfc778d1a78e7408b",
+      "ent_29120ef15a278ac88c7049e42f8ce82161f2fca8ca362a48fcce946ab0aa4867",
+      "ent_afeb04f4bfcef345f7c3aac7cece24ceb84032156c66fbe9dfaaa5b2e3a05a8e",
+      "ent_b8a4e0b77800ec60872de8b0fa41429314ebb50adfb937cd2e5184a38a564f76",
+      "ent_da0cb98a30a453ea6c40372063137e7ad580cc55eb5e16a7151ef5bc5bcc7819",
+      "ent_fc5d54514175f41c9062e4ebc9462583bea075be83eff158ef0870432e153862",
+      "ent_b17c9a3d5af5f1699f2ca6cee61ffe05fa4e00eb335470e2a835662eb89936d2",
+      "ent_e1cc8e8ab2586cc4ae2e561d60d50fe1abbbd883067ccf4e67eafc605eefffd0"
+    ],
+    "gapCodes": [
+      "REPORT_TIME_FIELD_UNKNOWN",
+      "REPORT_CARDINALITY_UNKNOWN"
+    ]
+  }
+}

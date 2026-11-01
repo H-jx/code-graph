@@ -1,0 +1,66 @@
+{
+  "completedAt": "2026-10-26T00:34:17Z",
+  "configPath": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\project.json",
+  "coverage": {
+    "api@repo.r": {
+      "capability": "api",
+      "gapIds": [],
+      "scopeId": "repo.r",
+      "sourceSetId": "r",
+      "status": "not_configured"
+    },
+    "base@repo.r": {
+      "capability": "base",
+      "gapIds": [],
+      "scopeId": "repo.r",
+      "sourceSetId": "r",
+      "status": "complete"
+    },
+    "database@repo.r": {
+      "capability": "database",
+      "gapIds": [],
+      "scopeId": "repo.r",
+      "sourceSetId": "r",
+      "status": "not_configured"
+    },
+    "frontend@repo.r": {
+      "capability": "frontend",
+      "gapIds": [],
+      "scopeId": "repo.r",
+      "sourceSetId": "r",
+      "status": "not_configured"
+    },
+    "report@repo.r": {
+      "capability": "report",
+      "gapIds": [],
+      "scopeId": "repo.r",
+      "sourceSetId": "r",
+      "status": "not_configured"
+    },
+    "routes@repo.r": {
+      "capability": "routes",
+      "gapIds": [],
+      "scopeId": "repo.r",
+      "sourceSetId": "r",
+      "status": "not_configured"
+    },
+    "workflow@repo.r": {
+      "capability": "workflow",
+      "gapIds": [],
+      "scopeId": "repo.r",
+      "sourceSetId": "r",
+      "status": "not_configured"
+    }
+  },
+  "entities": 3,
+  "gaps": 0,
+  "generation": "2",
+  "indexDatabase": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-krFQq2\\index.sqlite",
+  "indexId": "374e69aa-6da6-4730-93a3-0a7a346e450e",
+  "invalidated": [],
+  "mode": "base",
+  "relations": 2,
+  "searchDocuments": 3,
+  "sourceSetHash": "98f001d6a342f5d5974f07bd0b4b999b6a82442ed49da8c791d4979567397528",
+  "sourceSnapshotId": "snap_08f7e54fe1f704bb19c34c9de2a17cb06a55b2dfa19c3e20ce601f82e6932d26"
+}

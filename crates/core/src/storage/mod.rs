@@ -5,11 +5,19 @@
 
 pub mod database;
 pub mod entities;
+pub mod knowledge;
 pub mod plugins;
 pub mod relations;
 pub mod runs;
 pub mod search;
 pub mod sources;
+
+pub(crate) fn database_error(error: rusqlite::Error) -> crate::contract::error::CoreError {
+    crate::contract::error::CoreError::new(
+        crate::contract::error::codes::INTERNAL_ERROR,
+        format!("collector storage: {error}"),
+    )
+}
 
 pub use database::{Database, SCHEMA_VERSION, SqliteCapabilities, backup_to};
 pub use entities::{

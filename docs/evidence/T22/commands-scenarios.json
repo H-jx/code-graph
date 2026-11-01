@@ -1,0 +1,17 @@
+[
+  {
+    "name": "scenarios",
+    "group": "scenarios",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'verify:scenarios' -- '--scenario' 'all' '--transport' 'all' '--evidence' 'docs/evidence/T22/scenarios/run-01'"
+    ],
+    "evidenceDirectory": "docs/evidence/T22/scenarios/run-01",
+    "exitCode": 0,
+    "elapsedSeconds": 208.328,
+    "log": "scenarios-01.log",
+    "sha256": "7821e28d3525d897dee140a669c61f1a96306a20eeb4e1b77b1b6809b59eda75"
+  }
+]

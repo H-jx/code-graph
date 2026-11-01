@@ -1,0 +1,14 @@
+Linux 输出洪泛用例初次失败的有界摘录（非完整日志）：
+Command: cargo test -p project-knowledge-core --tests --locked -j 1 -- --test-threads=1
+Exit: 101
+
+---- runner_enforces_output_limit stdout ----
+thread 'runner_enforces_output_limit' (448) panicked at crates/core/tests/collectors.rs:238:5:
+assertion `left == right` failed
+  left: "SCHEMA_INVALID"
+ right: "OUTPUT_LIMIT"
+
+test result: FAILED. 35 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 13.32s
+
+原因：output-flood.mjs 调用 process.exit(0)，有机会在管道排空前退出。
+修正：按 stdout.write 返回值等待 drain，移除强制退出。最终全 Core 日志见 linux-core.log。

@@ -1,0 +1,14 @@
+{
+  "cache": {
+    "digest": "a14cfb78c39ac9bff626f239737bd58c0d3a0434ea738cccd0501cec86498d5d",
+    "directory": "/root/.cache/project-knowledge/dependencies/a14cfb78c39ac9bff626f239737bd58c0d3a0434ea738cccd0501cec86498d5d",
+    "env": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONUTF8": "1"
+    },
+    "executable": "/root/.cache/project-knowledge-linux-probe/node-v24.14.0-linux-x64/bin/node",
+    "integrity": "f9e4e8fd75d98f370b4fbc25e14306d5b1f31fd2558595c22466ca4231d8833f"
+  },
+  "candidateId": "candidate_8430db38-cf07-4bcc-a308-1d989b46d045",
+  "status": "dependenciesPrepared"
+}

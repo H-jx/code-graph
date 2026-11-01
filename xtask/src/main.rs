@@ -13,7 +13,7 @@ use std::collections::BTreeMap;
 use std::path::{Path, PathBuf};
 use std::process;
 
-use anyhow::{Context, anyhow, bail};
+use anyhow::{Context, bail};
 use clap::{Parser, Subcommand};
 use project_knowledge_core::contract::entity::{ALL_ENTITY_KINDS, EntityKind};
 use project_knowledge_core::contract::error::{codes, gap_codes};
@@ -21,11 +21,6 @@ use project_knowledge_core::contract::identity::entity_components;
 use project_knowledge_core::contract::relation::{
     ALL_RELATION_KINDS, RelationKind, endpoint_kinds,
 };
-use project_knowledge_core::contract::{
-    CollectorInput, CollectorOutput, Entity, ErrorEnvelope, Evidence, Gap, PluginManifest,
-    QueryRequest, QueryResponse, Relation, Source,
-};
-use schemars::SchemaGenerator;
 use serde_json::{Map, Value, json};
 
 #[derive(Parser)]
@@ -46,7 +41,7 @@ enum Command {
         #[arg(long)]
         out: Option<PathBuf>,
     },
-    /// 组装发布候选（T23 尚未实现，明确失败）。
+    /// 构建当前主机的可安装发布候选，不执行公开发布。
     Package {
         /// 目标三元组，例如 `x86_64-pc-windows-msvc`。
         #[arg(long)]
@@ -134,56 +129,14 @@ fn build_contract_files() -> anyhow::Result<BTreeMap<String, String>> {
 
 /// 契约 JSON Schema（2020-12）。
 fn contract_schema() -> anyhow::Result<Value> {
-    let mut generator = SchemaGenerator::default();
-    // 先登记所有公共类型，使 `$defs` 覆盖完整契约面。
-    for schema in [
-        generator.subschema_for::<Entity>(),
-        generator.subschema_for::<Relation>(),
-        generator.subschema_for::<Evidence>(),
-        generator.subschema_for::<Source>(),
-        generator.subschema_for::<PluginManifest>(),
-        generator.subschema_for::<CollectorInput>(),
-        generator.subschema_for::<CollectorOutput>(),
-        generator.subschema_for::<QueryRequest>(),
-        generator.subschema_for::<QueryResponse<Value>>(),
-        generator.subschema_for::<ErrorEnvelope>(),
-        generator.subschema_for::<Gap>(),
-    ] {
-        let _ = schema;
-    }
-    let root = generator.into_root_schema_for::<QueryRequest>();
-    let mut document = serde_json::to_value(root)?;
-    if let Some(object) = document.as_object_mut() {
-        object.insert(
-            "$schema".to_string(),
-            json!("https://json-schema.org/draft/2020-12/schema"),
-        );
-        object.insert(
-            "$id".to_string(),
-            json!("https://project-knowledge.invalid/schema/contract.json"),
-        );
-        object.insert("title".to_string(), json!("Project Knowledge Contract"));
-        object.insert(
-            "description".to_string(),
-            json!("Core、CLI、SDK、MCP 与插件共同遵守的协议；类型由 Rust 契约导出。"),
-        );
-        object.insert(
-            "x-protocolVersion".to_string(),
-            json!(project_knowledge_core::contract::PROTOCOL_VERSION),
-        );
-        object.insert(
-            "x-schemaVersion".to_string(),
-            json!(project_knowledge_core::contract::CONFIG_SCHEMA_VERSION),
-        );
-    }
-    Ok(document)
+    Ok(project_knowledge_core::contract::schema::document())
 }
 
 /// 实体类型注册表：类型名 + 身份槽位。
 fn entity_registry() -> Value {
     let mut kinds = Vec::new();
     for kind in ALL_ENTITY_KINDS {
-        let components: Vec<Value> = entity_components(*kind)
+        let components: Vec<Value> = entity_components(kind.clone())
             .iter()
             .map(|spec| {
                 json!({
@@ -204,7 +157,7 @@ fn entity_registry() -> Value {
 fn relation_registry() -> Value {
     let mut kinds = Vec::new();
     for kind in ALL_RELATION_KINDS {
-        let (from, to) = endpoint_kinds(*kind);
+        let (from, to) = endpoint_kinds(kind.clone());
         kinds.push(json!({
             "kind": kind.as_str(),
             "allowedFrom": from,
@@ -279,6 +232,9 @@ fn protocol_registry() -> Value {
         "relationKinds": ALL_RELATION_KINDS.iter().map(|kind| kind.as_str()).collect::<Vec<_>>(),
         "unknownFields": "reject",
         "extensionsNamespace": "x.<pluginId>.<localName>",
+        "extensionNamePattern": project_knowledge_core::contract::extensions::NAME_PATTERN,
+        "extensionEntityIdentity": "[projectId,kind,[[slotName,[]|[value]],...]]",
+        "extensionDeclarations": "PluginManifest.extensions.entities/relations; own namespace; local bundled $defs only",
     })
 }
 
@@ -290,9 +246,16 @@ fn pretty(value: &Value) -> anyhow::Result<String> {
 
 /// 组装发布候选（T23）。
 fn package(target: &str) -> anyhow::Result<()> {
-    Err(anyhow!(
-        "package --target {target} 尚未实现（见 plan/NEW-PROJECT-LONG-TASK.md T23）"
-    ))
+    let status = process::Command::new("node")
+        .arg(repository_root().join("scripts/package.mjs"))
+        .args(["--target", target])
+        .current_dir(repository_root())
+        .status()
+        .context("start release candidate builder (Node 24 required for source builds)")?;
+    if !status.success() {
+        bail!("release candidate builder failed: {status}");
+    }
+    Ok(())
 }
 
 /// 允许 `Map` 与 `Value` 的互转（保持工具函数编译通过）。
@@ -306,12 +269,12 @@ fn into_map(value: Value) -> Map<String, Value> {
 
 /// 允许引用关系类型枚举（保持注册表编译通过）。
 #[allow(dead_code)]
-fn relation_kind_name(kind: RelationKind) -> &'static str {
-    kind.as_str()
+fn relation_kind_name(kind: RelationKind) -> String {
+    kind.as_str().to_string()
 }
 
 /// 允许引用实体类型枚举（保持注册表编译通过）。
 #[allow(dead_code)]
-fn entity_kind_name(kind: EntityKind) -> &'static str {
-    kind.as_str()
+fn entity_kind_name(kind: EntityKind) -> String {
+    kind.as_str().to_string()
 }

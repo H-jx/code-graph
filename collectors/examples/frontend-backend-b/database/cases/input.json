@@ -1,0 +1,185 @@
+{
+  "protocolVersion": "1.0",
+  "runId": "frozen-database-case",
+  "pluginId": "example.b.database",
+  "version": "1.0.0",
+  "stageId": "extract",
+  "snapshot": {
+    "indexId": "database-case",
+    "generation": "0"
+  },
+  "inputSnapshotId": "database.b",
+  "configSubset": {
+    "schemaVersion": 1,
+    "projectId": "acceptance.b",
+    "repositories": [
+      {
+        "id": "front",
+        "root": "client/ui"
+      },
+      {
+        "id": "back",
+        "root": "server/domain"
+      }
+    ],
+    "selection": {},
+    "scopes": [
+      {
+        "id": "app.web",
+        "repositoryIds": [
+          "front"
+        ],
+        "kind": "application"
+      },
+      {
+        "id": "svc.erp",
+        "repositoryIds": [
+          "back"
+        ],
+        "kind": "service"
+      }
+    ],
+    "services": [
+      {
+        "id": "erp",
+        "scopeId": "svc.erp",
+        "protocol": "http",
+        "baseUrls": [
+          "/erp"
+        ]
+      }
+    ],
+    "dataSources": [
+      {
+        "id": "ds.erp",
+        "scopeId": "svc.erp",
+        "dialect": "sqlite"
+      },
+      {
+        "id": "ds.analytics",
+        "scopeId": "svc.erp",
+        "dialect": "sqlite"
+      }
+    ],
+    "bindings": [
+      {
+        "id": "erp-client",
+        "kind": "clientToService",
+        "scopeId": "app.web",
+        "from": "http",
+        "to": "erp"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "src_398528ee0c733bc414825f8f8932d167b5f15ab1c5458962149a5fc871e26325",
+      "repositoryId": "back",
+      "path": "expose.py",
+      "sourceClass": "code",
+      "contentHash": "1f2869704b11d35d9fbe5f6704594ff63e349bab326958019002c7abf42f784b",
+      "byteLength": 117,
+      "content": "from .queries import ledger\napp.get('/purchase/ledger')(ledger)\ngraphql.register('Query', 'purchaseSummary', ledger)\n"
+    },
+    {
+      "id": "src_1a3931ff411e01ec8573b8ad56f946afcc6cca3fac2bf0d25446d69d6de4c5d7",
+      "repositoryId": "back",
+      "path": "models.py",
+      "sourceClass": "code",
+      "contentHash": "04f336a2a1bbee6c4cb34e3967ba5f015c2dba2ca714d8b4eefa2d330874deab",
+      "byteLength": 241,
+      "content": "erp = orm.connect('ds.erp')\nanalytics = orm.connect('ds.analytics')\nPurchase = erp.model('purchase_detail', ['tenant_id', 'purchase_no', 'line_no'])\nOtherPurchase = analytics.model('purchase_detail', ['tenant_id', 'purchase_no', 'line_no'])\n"
+    },
+    {
+      "id": "src_dca73d98eb14a2756388187e40066b71adf012323106ce91dbfc00fa7da6e125",
+      "repositoryId": "back",
+      "path": "queries.py",
+      "sourceClass": "code",
+      "contentHash": "74a8425871350024e7f23f8705c36312588056ac2438f2e48cb0f8f83a5b2f05",
+      "byteLength": 168,
+      "content": "def ledger():\n    return erp.query(\"SELECT * FROM purchase_detail WHERE tenant_id = :tenant\")\n\ndef dynamic_query(table):\n    return erp.query(\"SELECT * FROM \" + table)\n"
+    },
+    {
+      "id": "src_16323d9194fce640175fa26864ca0ab81f5cb9187568a4d4979b0191294eb45b",
+      "repositoryId": "back",
+      "path": "schema.sql",
+      "sourceClass": "code",
+      "contentHash": "b11f24040c65a21fa62732f219ff17866bb447861568c918cb08b3e9268dc0ff",
+      "byteLength": 1051,
+      "content": "CREATE TABLE purchase_detail (\n tenant_id TEXT, purchase_no TEXT, line_no INTEGER, supplier_id TEXT,\n ordered_qty INTEGER, unit_price_cents INTEGER, status TEXT,\n PRIMARY KEY(tenant_id, purchase_no, line_no));\nCREATE TABLE supplier (tenant_id TEXT, supplier_id TEXT, name TEXT, PRIMARY KEY(tenant_id,supplier_id));\nCREATE TABLE receipt (id TEXT PRIMARY KEY, tenant_id TEXT, purchase_no TEXT, line_no INTEGER, qty INTEGER, status TEXT, deleted INTEGER,\n FOREIGN KEY(tenant_id,purchase_no,line_no) REFERENCES purchase_detail(tenant_id,purchase_no,line_no));\nCREATE TABLE return_line (id TEXT PRIMARY KEY, tenant_id TEXT, purchase_no TEXT, line_no INTEGER, qty INTEGER, status TEXT, deleted INTEGER,\n FOREIGN KEY(tenant_id,purchase_no,line_no) REFERENCES purchase_detail(tenant_id,purchase_no,line_no));\nCREATE TABLE invoice (id TEXT PRIMARY KEY, tenant_id TEXT, purchase_no TEXT, line_no INTEGER, amount_cents INTEGER, status TEXT, deleted INTEGER,\n FOREIGN KEY(tenant_id,purchase_no,line_no) REFERENCES purchase_detail(tenant_id,purchase_no,line_no));\n"
+    },
+    {
+      "id": "src_2d4664598ac0967db78c777dcdc9fd4dd21c0eca5eaaf580aa1edb6f4bfb808d",
+      "repositoryId": "back",
+      "path": "analytics.sql",
+      "sourceClass": "code",
+      "contentHash": "b11f24040c65a21fa62732f219ff17866bb447861568c918cb08b3e9268dc0ff",
+      "byteLength": 1051,
+      "content": "CREATE TABLE purchase_detail (\n tenant_id TEXT, purchase_no TEXT, line_no INTEGER, supplier_id TEXT,\n ordered_qty INTEGER, unit_price_cents INTEGER, status TEXT,\n PRIMARY KEY(tenant_id, purchase_no, line_no));\nCREATE TABLE supplier (tenant_id TEXT, supplier_id TEXT, name TEXT, PRIMARY KEY(tenant_id,supplier_id));\nCREATE TABLE receipt (id TEXT PRIMARY KEY, tenant_id TEXT, purchase_no TEXT, line_no INTEGER, qty INTEGER, status TEXT, deleted INTEGER,\n FOREIGN KEY(tenant_id,purchase_no,line_no) REFERENCES purchase_detail(tenant_id,purchase_no,line_no));\nCREATE TABLE return_line (id TEXT PRIMARY KEY, tenant_id TEXT, purchase_no TEXT, line_no INTEGER, qty INTEGER, status TEXT, deleted INTEGER,\n FOREIGN KEY(tenant_id,purchase_no,line_no) REFERENCES purchase_detail(tenant_id,purchase_no,line_no));\nCREATE TABLE invoice (id TEXT PRIMARY KEY, tenant_id TEXT, purchase_no TEXT, line_no INTEGER, amount_cents INTEGER, status TEXT, deleted INTEGER,\n FOREIGN KEY(tenant_id,purchase_no,line_no) REFERENCES purchase_detail(tenant_id,purchase_no,line_no));\n"
+    },
+    {
+      "id": "src_6cd94c06865b4e80d7735c4a754b05e0600384837540ecf32aca7e8c84d9a0a7",
+      "repositoryId": "back",
+      "path": "correct.sql",
+      "sourceClass": "code",
+      "contentHash": "70d18548c33e29355647ca6486482e5729e803cf8b93fd9129137a9b32875c15",
+      "byteLength": 1257,
+      "content": "WITH r AS (\n SELECT tenant_id,purchase_no,line_no,SUM(qty) AS qty FROM receipt\n WHERE status='POSTED' AND deleted=0 GROUP BY tenant_id,purchase_no,line_no\n), t AS (\n SELECT tenant_id,purchase_no,line_no,SUM(qty) AS qty FROM return_line\n WHERE status='POSTED' AND deleted=0 GROUP BY tenant_id,purchase_no,line_no\n), i AS (\n SELECT tenant_id,purchase_no,line_no,SUM(amount_cents) AS amount FROM invoice\n WHERE status='POSTED' AND deleted=0 GROUP BY tenant_id,purchase_no,line_no\n)\nSELECT p.tenant_id,p.purchase_no,p.line_no,s.name,\n COALESCE(r.qty,0) AS grossReceived,COALESCE(r.qty,0)-COALESCE(t.qty,0) AS netReceived,\n p.ordered_qty-COALESCE(r.qty,0)+COALESCE(t.qty,0) AS outstanding,\n p.ordered_qty*p.unit_price_cents AS purchaseAmountCents,COALESCE(i.amount,0) AS invoiceAmountCents\nFROM purchase_detail p\nLEFT JOIN supplier s ON s.tenant_id=p.tenant_id AND s.supplier_id=p.supplier_id\nLEFT JOIN r ON r.tenant_id=p.tenant_id AND r.purchase_no=p.purchase_no AND r.line_no=p.line_no\nLEFT JOIN t ON t.tenant_id=p.tenant_id AND t.purchase_no=p.purchase_no AND t.line_no=p.line_no\nLEFT JOIN i ON i.tenant_id=p.tenant_id AND i.purchase_no=p.purchase_no AND i.line_no=p.line_no\nWHERE p.tenant_id=:tenant AND p.status='APPROVED' ORDER BY p.purchase_no,p.line_no;\n"
+    },
+    {
+      "id": "src_f5c09641d01c17a5a673605b29bfe9836f36769f6e4f9d5845a0633b31091777",
+      "repositoryId": "back",
+      "path": "fanout.sql",
+      "sourceClass": "code",
+      "contentHash": "927fd2c90c361f8cd3d747e510d1202baf182d23bb7f0a2e124508d24a0a1f18",
+      "byteLength": 451,
+      "content": "SELECT p.purchase_no,p.line_no,SUM(r.qty),SUM(i.amount_cents)\nFROM purchase_detail p\nLEFT JOIN receipt r ON r.tenant_id=p.tenant_id AND r.purchase_no=p.purchase_no AND r.line_no=p.line_no AND r.status='POSTED' AND r.deleted=0\nLEFT JOIN invoice i ON i.tenant_id=p.tenant_id AND i.purchase_no=p.purchase_no AND i.line_no=p.line_no AND i.status='POSTED' AND i.deleted=0\nWHERE p.tenant_id=:tenant AND p.status='APPROVED' GROUP BY p.purchase_no,p.line_no;\n"
+    },
+    {
+      "id": "src_e4fd628ce209c73e11b9a72e61ba46398e70fd0c6def698a6290643d58463473",
+      "repositoryId": "back",
+      "path": "where-child.sql",
+      "sourceClass": "code",
+      "contentHash": "47644489804828d35411850ee6a0542844d0bdec6c4c7f09c22c9be21f4a4b2b",
+      "byteLength": 290,
+      "content": "SELECT p.purchase_no,p.line_no,SUM(r.qty)\nFROM purchase_detail p LEFT JOIN receipt r\nON r.tenant_id=p.tenant_id AND r.purchase_no=p.purchase_no AND r.line_no=p.line_no\nWHERE p.tenant_id=:tenant AND p.status='APPROVED' AND r.status='POSTED' AND r.deleted=0\nGROUP BY p.purchase_no,p.line_no;\n"
+    },
+    {
+      "id": "src_05c5473f38f8c8f34453af5757a0749bafa9c752b931c676f2cc6840e454ab59",
+      "repositoryId": "back",
+      "path": "database.py",
+      "sourceClass": "code",
+      "contentHash": "b7e20b959b8a949761830ca1fd3b37f877f7f9d3a25e7879e6590a1654965268",
+      "byteLength": 693,
+      "content": "from .models import erp, analytics, Purchase\n# 中文 🧾 不改变 Python AST 的 UTF-8 字节定位。\ndef boundLedger():\n    return erp.query(\"SELECT tenant_id, purchase_no, line_no FROM purchase_detail WHERE status = 'APPROVED'\\n\")\n\ndef wrongInstance():\n    return analytics.query('SELECT tenant_id FROM purchase_detail')\n\ndef modelRows():\n    return Purchase.findAll()\n\ndef dynamicQuery(table):\n    return erp.query('SELECT * FROM ' + table)\n\ndef shadowed(erp):\n    return erp.query('SELECT * FROM purchase_detail')\n\ndef shadowedLocal():\n    erp = runtimeDb\n    return erp.query('SELECT * FROM purchase_detail')\n\ndef unsupportedOrm():\n    return erp.raw('SELECT * FROM purchase_detail')\n"
+    }
+  ],
+  "sourceSets": [
+    {
+      "selectorId": "backend",
+      "digest": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+      "sourceIds": [
+        "src_398528ee0c733bc414825f8f8932d167b5f15ab1c5458962149a5fc871e26325",
+        "src_1a3931ff411e01ec8573b8ad56f946afcc6cca3fac2bf0d25446d69d6de4c5d7",
+        "src_dca73d98eb14a2756388187e40066b71adf012323106ce91dbfc00fa7da6e125",
+        "src_16323d9194fce640175fa26864ca0ab81f5cb9187568a4d4979b0191294eb45b",
+        "src_2d4664598ac0967db78c777dcdc9fd4dd21c0eca5eaaf580aa1edb6f4bfb808d",
+        "src_6cd94c06865b4e80d7735c4a754b05e0600384837540ecf32aca7e8c84d9a0a7",
+        "src_f5c09641d01c17a5a673605b29bfe9836f36769f6e4f9d5845a0633b31091777",
+        "src_e4fd628ce209c73e11b9a72e61ba46398e70fd0c6def698a6290643d58463473",
+        "src_05c5473f38f8c8f34453af5757a0749bafa9c752b931c676f2cc6840e454ab59"
+      ],
+      "complete": true
+    }
+  ],
+  "entities": [],
+  "relations": [],
+  "candidateSets": [],
+  "allowedExtensions": [],
+  "limits": {
+    "timeoutMs": 60000,
+    "maxInputBytes": 33554432,
+    "maxOutputBytes": 33554432,
+    "maxStderrBytes": 1048576
+  }
+}

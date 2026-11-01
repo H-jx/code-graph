@@ -1,0 +1,30 @@
+{
+  "truthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "classification": "synthetic-source-reviewed-smoke",
+  "expectedEntities": 13,
+  "expectedRelations": 10,
+  "forbiddenHits": 0,
+  "report": {
+    "status": "validated",
+    "runId": "run_6493e472-f3cf-48d6-9659-cc53a68786f0",
+    "expectedGeneration": "1",
+    "stagedResultHash": "628472cc2c50b331f784a8ab97a0b214e6f9f9e1feda2d5489fd1325850dc015",
+    "cases": [
+      {
+        "id": "frontend.b",
+        "passed": true,
+        "truthHash": "f2f67faea50a075e32916c2d5e2482f3daa4cb144489c2686de92eb06ca5e3d4",
+        "origin": "candidate"
+      }
+    ],
+    "stages": [
+      {
+        "replacementKey": "(example.b.frontend,extract,acceptance.b)",
+        "batchId": "bat_629c40a273bf903a42d2ccf5fe04914495a8be296b40a07053e58c0d088cc585",
+        "entities": 26,
+        "relations": 22,
+        "dependencies": 13
+      }
+    ]
+  }
+}

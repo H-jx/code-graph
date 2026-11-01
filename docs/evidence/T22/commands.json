@@ -1,0 +1,466 @@
+[
+  {
+    "name": "cli",
+    "group": "build",
+    "command": [
+      "cargo",
+      "build",
+      "-p",
+      "project-knowledge-cli",
+      "--locked",
+      "-j",
+      "1"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 1.032,
+    "log": "cli-01.log",
+    "sha256": "a999bb64dcdf7578f1ae0997ebd5cf5bcf5958067ce49c241488483759ec12d1"
+  },
+  {
+    "name": "clippy",
+    "group": "static",
+    "command": [
+      "cargo",
+      "clippy",
+      "--workspace",
+      "--all-targets",
+      "--locked",
+      "-j",
+      "1",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 2.265,
+    "log": "clippy-02.log",
+    "sha256": "337b4e407dccb2ea4725293d6a3dcc2fac3541af1ba1c64c5ab324306e71b698"
+  },
+  {
+    "name": "clippy",
+    "group": "static",
+    "command": [
+      "cargo",
+      "clippy",
+      "--workspace",
+      "--all-targets",
+      "--locked",
+      "-j",
+      "1",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 1.156,
+    "log": "clippy-03.log",
+    "sha256": "955661041420f8dd23d3e1a0f59065d687071dec5a26758c0ae7607becdb0c4d"
+  },
+  {
+    "name": "contracts",
+    "group": "static",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'check:contracts'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 7.656,
+    "log": "contracts-01.log",
+    "sha256": "b207926a83a8bf455da0758510c8951b56a66df6f7797bf5c880ecd8c937c0d6"
+  },
+  {
+    "name": "contracts",
+    "group": "static",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'check:contracts'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 2.172,
+    "log": "contracts-02.log",
+    "sha256": "bcbe423737a94df08ed37d95affc3a553e6d897b5627a6244da961d9617c79fb"
+  },
+  {
+    "name": "core-deps",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/verify-core-dependencies.mjs"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.469,
+    "log": "core-deps-01.log",
+    "sha256": "d86cb488322612776fab22096a18b89f5f09cb436176051d29f703cb26c6227d"
+  },
+  {
+    "name": "core-deps",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/verify-core-dependencies.mjs"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.485,
+    "log": "core-deps-02.log",
+    "sha256": "d86cb488322612776fab22096a18b89f5f09cb436176051d29f703cb26c6227d"
+  },
+  {
+    "name": "diff",
+    "group": "static",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.094,
+    "log": "diff-01.log",
+    "sha256": "f4692729ecd228effe056edf5080c59b932f55ce41ac05859ba985b633211885"
+  },
+  {
+    "name": "diff",
+    "group": "static",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.11,
+    "log": "diff-02.log",
+    "sha256": "f4692729ecd228effe056edf5080c59b932f55ce41ac05859ba985b633211885"
+  },
+  {
+    "name": "fmt",
+    "group": "static",
+    "command": [
+      "cargo",
+      "fmt",
+      "--all",
+      "--",
+      "--check"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.625,
+    "log": "fmt-02.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "fmt",
+    "group": "static",
+    "command": [
+      "cargo",
+      "fmt",
+      "--all",
+      "--",
+      "--check"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.594,
+    "log": "fmt-03.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "mcp",
+    "group": "build",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'build:mcp'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 2.735,
+    "log": "mcp-02.log",
+    "sha256": "a8836950a07a7b004a6ab3f031612942ff3b249a1d49711e64b307dcfe274a1f"
+  },
+  {
+    "name": "mcp-tests",
+    "group": "tests",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run test:mcp"
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 6.813,
+    "log": "mcp-tests-01.log",
+    "sha256": "b058e3c6686fed10cf2e95f2fb1d4bfa53c1a12524656539b353c6acf59f88ff"
+  },
+  {
+    "name": "mcp-tests",
+    "group": "node",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'test:mcp'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 6.484,
+    "log": "mcp-tests-02.log",
+    "sha256": "c965a1433114a804ed663762a09fc1f5fa3e91ed86b62b97fa3f81bc3bd38cf3"
+  },
+  {
+    "name": "native",
+    "group": "build",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'build:native'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 14.469,
+    "log": "native-01.log",
+    "sha256": "be360eff9510ebeed38c6502c37020bf7fd8d194d945b2dbf87ca7434a617e92"
+  },
+  {
+    "name": "plan",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/verify-plan.mjs"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.062,
+    "log": "plan-01.log",
+    "sha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+  },
+  {
+    "name": "plan",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/verify-plan.mjs"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.079,
+    "log": "plan-02.log",
+    "sha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+  },
+  {
+    "name": "plugins",
+    "group": "tests",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run test:plugins -- --capabilities routes,frontend,comments,modules,entrypoints,api,database,link,workflow,report"
+    ],
+    "exitCode": 1,
+    "elapsedSeconds": 0.781,
+    "log": "plugins-01.log",
+    "sha256": "3e8b624fca1a4a9b6d39e363e2b44a863cd4296603f780e754bee3d64e54780c"
+  },
+  {
+    "name": "plugins",
+    "group": "plugins",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'test:plugins' -- '--capabilities' 'routes,frontend,comments,modules,entrypoints,api,database,link,workflow,report'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 337.891,
+    "log": "plugins-02.log",
+    "sha256": "e3581a9e4a34e8bee34d6f7abe5fbcd75d8eeb1730b9d9b87a4428ab6742871a"
+  },
+  {
+    "name": "scenarios",
+    "group": "scenarios",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'verify:scenarios' -- '--scenario' 'all' '--transport' 'all' '--evidence' 'docs/evidence/T22/scenarios/run-01'"
+    ],
+    "evidenceDirectory": "docs/evidence/T22/scenarios/run-01",
+    "exitCode": 0,
+    "elapsedSeconds": 208.328,
+    "log": "scenarios-01.log",
+    "sha256": "7821e28d3525d897dee140a669c61f1a96306a20eeb4e1b77b1b6809b59eda75"
+  },
+  {
+    "name": "sdk",
+    "group": "tests",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run test:sdk"
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 5.125,
+    "log": "sdk-01.log",
+    "sha256": "707a02e53eb7765c9358f66835e100c34990b300afc4ffc8e5ce3930d4b34c1e"
+  },
+  {
+    "name": "sdk",
+    "group": "node",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'test:sdk'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 10.609,
+    "log": "sdk-02.log",
+    "sha256": "5ca5ddcfc848d59374af1be895b5e766464ce44130e93560c3e25691fe8a41d7"
+  },
+  {
+    "name": "source-audit",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/audit-source.mjs",
+      "--output",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T22\\source-audit.json"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.125,
+    "log": "source-audit-01.log",
+    "sha256": "fc66d55815f720ce161cba40ba9f5225c3a488572434b0a89ed67806e51dd09a"
+  },
+  {
+    "name": "source-audit",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/audit-source.mjs",
+      "--output",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T22\\source-audit.json"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.171,
+    "log": "source-audit-02.log",
+    "sha256": "fc66d55815f720ce161cba40ba9f5225c3a488572434b0a89ed67806e51dd09a"
+  },
+  {
+    "name": "source-review",
+    "group": "static",
+    "command": [
+      "D:\\AppData\\Local\\miniconda3\\python.exe",
+      "scripts/verify-source-review.py"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.14,
+    "log": "source-review-01.log",
+    "sha256": "5be3078be2fa0b2ef470b3eaf23df9a64664df25742bf5e91ebe9e50e4151056"
+  },
+  {
+    "name": "source-review",
+    "group": "static",
+    "command": [
+      "D:\\AppData\\Local\\miniconda3\\python.exe",
+      "scripts/verify-source-review.py"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.14,
+    "log": "source-review-02.log",
+    "sha256": "5be3078be2fa0b2ef470b3eaf23df9a64664df25742bf5e91ebe9e50e4151056"
+  },
+  {
+    "name": "truth",
+    "group": "static",
+    "command": [
+      "D:\\AppData\\Local\\miniconda3\\python.exe",
+      "scripts/verify-truth.py"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.11,
+    "log": "truth-01.log",
+    "sha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+  },
+  {
+    "name": "truth",
+    "group": "static",
+    "command": [
+      "D:\\AppData\\Local\\miniconda3\\python.exe",
+      "scripts/verify-truth.py"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.109,
+    "log": "truth-02.log",
+    "sha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+  },
+  {
+    "name": "typecheck",
+    "group": "static",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'typecheck'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 3.172,
+    "log": "typecheck-01.log",
+    "sha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"
+  },
+  {
+    "name": "typecheck",
+    "group": "static",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'typecheck'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 3.218,
+    "log": "typecheck-02.log",
+    "sha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"
+  },
+  {
+    "name": "workspace",
+    "group": "tests",
+    "command": [
+      "cargo",
+      "test",
+      "--workspace",
+      "--locked",
+      "-j",
+      "1",
+      "--",
+      "--test-threads=1"
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 1142.61,
+    "log": "workspace-01.log",
+    "sha256": "93f8cf5c421f33a29d555fc4d3641c99308796e5358cbe024a7a00bc10004245"
+  }
+]

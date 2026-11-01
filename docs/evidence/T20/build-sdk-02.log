@@ -1,0 +1,8 @@
+
+> project-knowledge@0.1.0 build:sdk E:\Project\my-project\code-graph
+> pnpm --filter @project-knowledge/sdk run build
+
+
+> @project-knowledge/sdk@0.1.0 build E:\Project\my-project\code-graph\packages\sdk
+> tsc -p tsconfig.json
+

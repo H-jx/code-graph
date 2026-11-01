@@ -1,0 +1,15 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-6f89a518d2d90297.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-6f89a518d2d90297.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.69s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-6f89a518d2d90297.exe)
+
+running 2 tests
+test scenarios::scenario_queries_two_layouts_match_original_facts_and_cli ... ok
+test scenarios::scenario_route_normalization_keeps_case_and_encoded_separators ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 16 filtered out; finished in 31.06s
+

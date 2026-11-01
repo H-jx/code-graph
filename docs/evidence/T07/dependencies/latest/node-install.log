@@ -1,0 +1,4 @@
+executable=C:\Users\hubo9\AppData\Local\nvm\v24.14.0\node.exe args=["C:\\Users\\hubo9\\AppData\\Local\\nvm\\v24.14.0\\node_modules/npm/bin/npm-cli.js","ci","--ignore-scripts","--no-audit","--no-fund","--registry=https://registry.npmjs.org"] exit=exit code: 0
+
+added 1 package in 1s
+

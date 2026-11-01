@@ -1,0 +1,36 @@
+{
+  "attempts": [
+    {
+      "errorCode": null,
+      "id": "4c4612c2-68c4-4f95-af05-070510df4d42",
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmp2HlioZ\\main\\.agents\\skills\\ledger",
+      "state": "complete"
+    }
+  ],
+  "diskChecked": true,
+  "exports": [
+    {
+      "freshness": "fresh",
+      "id": "4c4612c2-68c4-4f95-af05-070510df4d42",
+      "integrity": true,
+      "path": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmp2HlioZ\\main\\.agents\\skills\\ledger\\versions\\4c4612c2-68c4-4f95-af05-070510df4d42"
+    }
+  ],
+  "topics": [
+    {
+      "dependenciesRechecked": true,
+      "freshness": "fresh",
+      "gapIds": [
+        "knowledge_material_partial"
+      ],
+      "inputDigest": "c500f5cc211048b22f78a71a5320cb5d7e510270c613bc0e250049e1bb2aba01",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "eed0bd65-99a9-4743-9699-c28f2a56f50c",
+        "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+      },
+      "topicId": "ledger",
+      "version": 1
+    }
+  ]
+}

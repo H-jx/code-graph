@@ -1,0 +1,48 @@
+{
+  "truthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "verifiedFiles": 50,
+  "rows": [
+    [
+      "A",
+      "P1",
+      1,
+      "本租户供应商",
+      5,
+      4,
+      6,
+      5000,
+      2000
+    ],
+    [
+      "A",
+      "P1",
+      2,
+      "本租户供应商",
+      1,
+      1,
+      3,
+      8000,
+      0
+    ],
+    [
+      "A",
+      "P2",
+      1,
+      "无收货供应商",
+      0,
+      0,
+      3,
+      2100,
+      0
+    ]
+  ],
+  "totals": [
+    6,
+    5,
+    12,
+    15100,
+    2000
+  ],
+  "arithmetic": "Python keyed integer accumulation; no SQL or collector",
+  "productionAccuracyClaimed": false
+}

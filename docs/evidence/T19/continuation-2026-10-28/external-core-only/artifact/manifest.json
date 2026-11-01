@@ -1,0 +1,30 @@
+{
+  "protocolVersion": "1.0",
+  "pluginId": "t19-audited.workflow",
+  "version": "2.0.0",
+  "capabilities": ["workflow"],
+  "runtime": { "kind": "node", "versionRange": ">=24 <25" },
+  "artifacts": ["manifest.json", "src/collect.mjs", "identity.mjs", "cases/case_documented_workflow.json", "fixtures/case_documented_workflow.input.json"],
+  "stages": [
+    {
+      "id": "extract",
+      "phase": "extract",
+      "entry": "src/collect.mjs",
+      "args": ["--stage", "extract"],
+      "sourceSelectors": [
+        {
+          "id": "rules",
+          "repositoryIds": ["business"],
+          "include": ["rules.md"],
+          "exclude": []
+        }
+      ],
+      "entitySelectors": [],
+      "dependsOn": [],
+      "replacement": "project"
+    }
+  ],
+  "limits": { "timeoutMs": 60000, "maxInputBytes": 33554432, "maxOutputBytes": 33554432, "maxStderrBytes": 1048576 },
+  "acceptanceCases": ["cases/case_documented_workflow.json"],
+  "extensions": {}
+}

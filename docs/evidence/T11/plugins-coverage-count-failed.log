@@ -1,0 +1,34 @@
+Verified 18 example artifact files; truthHash aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed
+
+running 5 tests
+test frontend_literal_title_alias_array_and_proxy_are_preserved_with_dynamic_gaps ... FAILED
+test frontend_moves_renames_and_ambiguous_dynamic_registrations_remain_conservative ... ok
+test frontend_shadowed_imports_nested_registrations_and_parse_errors_do_not_confirm_targets ... ok
+test frontend_two_layouts_match_frozen_identities_attributes_relations_and_evidence ... ok
+test truth_frontend_expected_and_forbidden_identities_are_complete ... ok
+
+failures:
+
+---- frontend_literal_title_alias_array_and_proxy_are_preserved_with_dynamic_gaps stdout ----
+
+thread 'frontend_literal_title_alias_array_and_proxy_are_preserved_with_dynamic_gaps' (26688) panicked at crates\core\tests\business_scenarios.rs:599:5:
+assertion `left == right` failed
+  left: 5
+ right: 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    frontend_literal_title_alias_array_and_proxy_are_preserved_with_dynamic_gaps
+
+test result: FAILED. 4 passed; 1 failed; 0 ignored; 0 measured; 3 filtered out; finished in 25.55s
+
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.55s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-c86b9f40fcb79f80.exe)
+error: test failed, to rerun pass `-p project-knowledge-core --test business_scenarios`

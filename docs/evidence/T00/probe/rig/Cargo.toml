@@ -1,0 +1,12 @@
+[package]
+name = "t00-rig-probe"
+version = "0.0.0"
+edition = "2024"
+publish = false
+rust-version = "1.97.1"
+
+[dependencies]
+rig = { version = "=0.45.0", features = ["agent", "derive", "reqwest", "rustls", "test-utils"] }
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true

@@ -1,0 +1,313 @@
+{
+  "date": "2026-10-28 Asia/Shanghai",
+  "task": "T14",
+  "commands": [
+    {
+      "command": [
+        "node",
+        "scripts/package-example-collectors.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/package-frontend.log",
+      "logSha256": "22fc22e9133da901200b1c1476b4f2f194f03a9d8047c79a92422591af2779e3"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/package-api-examples.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/package-api.log",
+      "logSha256": "9cfd9460fbca0bbc9aa1dd1ee393cb5cff1af5408be5aa9b4500aac0a89749b7"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/package-database-examples.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/package-database.log",
+      "logSha256": "0311d80deb1f894622252871a0cd344a30e14b8811cb03211226076b9229d3ed"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/package-link-examples.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/package-link.log",
+      "logSha256": "6f0b3496e6b0a7707cb0d3815a91256843ae102d3c17aaa072b8d4ac36efa241"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/package-semantic-examples.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/package-semantics.log",
+      "logSha256": "6813db820b0c4010fec22bee10c7f514520691ecf8c3601012be8c10548772a8"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-plugins.mjs",
+        "--capabilities",
+        "workflow,report"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/plugins.log",
+      "logSha256": "77e6c945a5f9650d2e5e56c0e534531080ab8c24f3810ba233223319fded1c55"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "business_scenarios",
+        "frontend_",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/frontend-regression.log",
+      "logSha256": "7103a1dba6b6ea663021351855aa3ad8b27d3621e3b2df133179061b9dbd6bb0"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/clippy.log",
+      "logSha256": "23e8c3802204657892fc6e8df2ab267f5597c6987004cac0784fc8c7a6d54c78"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/fmt.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "-p",
+        "xtask",
+        "--locked",
+        "--",
+        "export-contracts",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/contracts.log",
+      "logSha256": "870774784c16bc82303063f9a62c60371e14013c929b8f5798ec501b8d67500f"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/generate-types.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/types.log",
+      "logSha256": "ffd79024bf74c3f0e1a4a224e1b3a1783273115da81cc2ac0624af9984867368"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-truth.py"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/truth.log",
+      "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-plan.mjs",
+        "--plan",
+        "../plan/NEW-PROJECT-LONG-TASK.md"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/plan.log",
+      "logSha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/audit-source.mjs",
+        "--output",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T14\\source-audit.json"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T14/source-audit.log",
+      "logSha256": "02a3fc75341a8d6882986c98f6837a761beb0e7e061cf63ba97bf6b6476544d1"
+    }
+  ],
+  "baselineTruthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "reviewHash": "4dea260f6c096557bf40f0bacf10ee762f21b02cfedd6d6a5d7024ca7aea698f",
+  "fileHashes": {
+    "collectors/examples/frontend-backend-a/api/api-ast.mjs": "8262259f25a502804e1706ac594185040f3a5ea6a590a76da463fceef259231f",
+    "collectors/examples/frontend-backend-a/api/cases/api.json": "69cf411d05f5871c6eddb2c3746605fa17882dfcb181e080fdaea2d7c9423fb2",
+    "collectors/examples/frontend-backend-a/api/cases/input.json": "b6a6e01ad2f17476aeb328f5a93b91b07ad462cbcfaf5779a148219037e161b7",
+    "collectors/examples/frontend-backend-a/api/cases/truth.json": "0656a541167d8195b7a7286c1dc660fcb730fd826778e50f69051f129f5374cf",
+    "collectors/examples/frontend-backend-a/api/collect.mjs": "402ef469d897e2cba4d486f8391ab1061dd56a964c3415ec5ccecda4a2500e80",
+    "collectors/examples/frontend-backend-a/api/conventions.json": "b4af62c5484a29bbed934bfa634c887225dfd293381a5aa18db0ebdbe455fa92",
+    "collectors/examples/frontend-backend-a/api/deps/package-lock.json": "4985349b5af6bfa1f45fa42f365697131386fb77d399b9b468b9fc9ab087297d",
+    "collectors/examples/frontend-backend-a/api/deps/package.json": "704d58792b4ee4599c74133f5c913fbc2eae5b10798ca1c6ed6a1c3d42541023",
+    "collectors/examples/frontend-backend-a/api/frontend-ast.mjs": "ca382cb96cf9207e620848743faca185fc98a6c224a66b7a287536a71f94ba49",
+    "collectors/examples/frontend-backend-a/api/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-a/api/manifest.json": "53c7dc5a222e187f6e11dbe21964a0f2bafd2dc233860adf14d1f6bd9e5cb156",
+    "collectors/examples/frontend-backend-a/api/README.md": "fda8ef7c66308a27a8f653a62b334080be708ef7d700308a0414cd935053999d",
+    "collectors/examples/frontend-backend-a/database/cases/database.json": "c867e2b229572cf967b414251693ca1b48e0caa5daef75e015b455f7bbe2e773",
+    "collectors/examples/frontend-backend-a/database/cases/input.json": "ff3d332f1230edcca0ad1bc755a2f0ed9a5c691933ddb31bd2a3faa1fedeceb9",
+    "collectors/examples/frontend-backend-a/database/cases/truth.json": "c59bfa400fe1e49f2713e80374d1d97e9c5aa85e1744484c238578564d4ef6c6",
+    "collectors/examples/frontend-backend-a/database/collect.py": "79b00687537a8eca07f4d15f632961d859fee8a57834bdbb53788bb8336e7c9b",
+    "collectors/examples/frontend-backend-a/database/conventions.json": "126490e751b9b282cd090b35d68c8bf2fbcae607c16b5b85b2d9e999e8dae1f7",
+    "collectors/examples/frontend-backend-a/database/database_ast.py": "4485ab8c75337fd4f0fb3835fb1d8da74c7f7a4bb2fa12b79958475d4f420abe",
+    "collectors/examples/frontend-backend-a/database/deps/requirements.in": "b84fc5591778663e176dd23833693f777ae8c06d044412cddb01dddb7c79683c",
+    "collectors/examples/frontend-backend-a/database/deps/requirements.lock": "6a16754fceda86f7c3d53f8deb805c611d62bbd942617384429c8432428dd6b2",
+    "collectors/examples/frontend-backend-a/database/identity-spec.json": "81c166af9f562d29ed5fed8c0f8cee2f99f92e9d55f002a6b301f97ce3cdb92d",
+    "collectors/examples/frontend-backend-a/database/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-a/database/manifest.json": "c822d0b99a6f17861808f89eca7dac80bdb4a23a09cf41096b273eb4351754dc",
+    "collectors/examples/frontend-backend-a/database/source_ast.py": "323c09317d3910f6afcfc219d9ef7fd1401d126ff22317574a59eaf76524e1f9",
+    "collectors/examples/frontend-backend-a/frontend/cases/frontend.json": "4d0af0f20f9bd2f70ec04a9750ad5b2638e4db7c09f76ddab3807e45b3004850",
+    "collectors/examples/frontend-backend-a/frontend/cases/input.json": "60d89a11fcfef168e18ee99ff67bc3eafa7c393e12a98c0c9dbae1741163ed38",
+    "collectors/examples/frontend-backend-a/frontend/cases/truth.json": "f2f67faea50a075e32916c2d5e2482f3daa4cb144489c2686de92eb06ca5e3d4",
+    "collectors/examples/frontend-backend-a/frontend/collect.mjs": "febfb345b10d8a417bd0c13f4c5330b911f5d6a7b058d13296b2ebe3841acbac",
+    "collectors/examples/frontend-backend-a/frontend/conventions.json": "f82bf677ac07214d7848892283ff7e454fe046f99b2771cde6c3d1dea8434fbb",
+    "collectors/examples/frontend-backend-a/frontend/deps/package-lock.json": "4985349b5af6bfa1f45fa42f365697131386fb77d399b9b468b9fc9ab087297d",
+    "collectors/examples/frontend-backend-a/frontend/deps/package.json": "704d58792b4ee4599c74133f5c913fbc2eae5b10798ca1c6ed6a1c3d42541023",
+    "collectors/examples/frontend-backend-a/frontend/frontend-ast.mjs": "ca382cb96cf9207e620848743faca185fc98a6c224a66b7a287536a71f94ba49",
+    "collectors/examples/frontend-backend-a/frontend/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-a/frontend/manifest.json": "95e8142b402e744a8c84869eb7f0c2cca63459682eabe46ed95627321fbd693b",
+    "collectors/examples/frontend-backend-a/semantics/cases/report-input.json": "6a9cfeafc5e410f487e18e111d8486197fb989fa2f8c992a7ed08a8439570f30",
+    "collectors/examples/frontend-backend-a/semantics/cases/report.json": "7883afae1e6913969ff1e9bb10f3129642c83181cbbf4d4302b9108bbf8ff50a",
+    "collectors/examples/frontend-backend-a/semantics/cases/truth.json": "4dea260f6c096557bf40f0bacf10ee762f21b02cfedd6d6a5d7024ca7aea698f",
+    "collectors/examples/frontend-backend-a/semantics/cases/workflow-input.json": "739d04e650b57b4a82e9ccb6dc4c229b28f054b4aabab5a67761e378c705e026",
+    "collectors/examples/frontend-backend-a/semantics/cases/workflow.json": "96d323dd6f2301c158de251b748989bf47183f5d076be6d390cc106b291d9aff",
+    "collectors/examples/frontend-backend-a/semantics/collect.py": "6d28cb0f10df3008fa9ef8ceb6f927804ae93c6b08318f2641d294485bec5ebe",
+    "collectors/examples/frontend-backend-a/semantics/conventions.json": "1874b5887e1814dc9091bde0ac3759146772858840e57477968f5c78e928ff04",
+    "collectors/examples/frontend-backend-a/semantics/deps/requirements.in": "b84fc5591778663e176dd23833693f777ae8c06d044412cddb01dddb7c79683c",
+    "collectors/examples/frontend-backend-a/semantics/deps/requirements.lock": "6a16754fceda86f7c3d53f8deb805c611d62bbd942617384429c8432428dd6b2",
+    "collectors/examples/frontend-backend-a/semantics/identity-spec.json": "81c166af9f562d29ed5fed8c0f8cee2f99f92e9d55f002a6b301f97ce3cdb92d",
+    "collectors/examples/frontend-backend-a/semantics/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-a/semantics/manifest.json": "025dc603b54b28079dec8c8dffdaa88f7e6efd400a382ce654142d135676aff1",
+    "collectors/examples/frontend-backend-a/semantics/report_ast.py": "bdaefc33f4b4aaa0a430602bfe3a1b69bee8d62d171b6604c713aa0ac1189d31",
+    "collectors/examples/frontend-backend-a/semantics/semantic_facts.py": "44bbb50e16b9a8e6a335b3c4ab2c2008155e70d2bf3bc4009a6e3dd28e3cff7a",
+    "collectors/examples/frontend-backend-a/semantics/source_ast.py": "323c09317d3910f6afcfc219d9ef7fd1401d126ff22317574a59eaf76524e1f9",
+    "collectors/examples/frontend-backend-a/semantics/workflow_ast.py": "82d83eb819e9e0a1259fdf8800604f4cad874164c8a9d45b2afb5564436e3d36",
+    "collectors/examples/frontend-backend-b/api/api_ast.py": "75f989a6fa3cfc36167933c195d85f83e9a66b0d262152f79b6c93c68fc5c5ae",
+    "collectors/examples/frontend-backend-b/api/cases/api.json": "f3ea420343833633f0e1d25873ab5989cf7dc7d58c9b1ae753c533fb73e7c1e8",
+    "collectors/examples/frontend-backend-b/api/cases/input.json": "d6dade18d5cac2f592f97bd4e57b1acd599966679623e0d86b7f9ec8c231c2f6",
+    "collectors/examples/frontend-backend-b/api/cases/truth.json": "0656a541167d8195b7a7286c1dc660fcb730fd826778e50f69051f129f5374cf",
+    "collectors/examples/frontend-backend-b/api/collect.py": "7cea22aedcee7979da63b96ccca1e3b638eff79918fa2773b9ee4f50c53e7ca9",
+    "collectors/examples/frontend-backend-b/api/conventions.json": "610c900b7a95285810c815d71a63e33d6541eff4038667cc79555ff9ab17730d",
+    "collectors/examples/frontend-backend-b/api/identity-spec.json": "81c166af9f562d29ed5fed8c0f8cee2f99f92e9d55f002a6b301f97ce3cdb92d",
+    "collectors/examples/frontend-backend-b/api/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-b/api/manifest.json": "b8d8dc5f7fca00757e12016758374d141623a283c21086615c3c2b5210411f48",
+    "collectors/examples/frontend-backend-b/api/README.md": "edbc20a758ad3a495263ef9f3c800dd97b23f42400b4dbe4749b8c90a3e783b7",
+    "collectors/examples/frontend-backend-b/database/cases/database.json": "5d7659527d081aa00bf80985c4b868692c1cfc87701d16716ec8f107787d236e",
+    "collectors/examples/frontend-backend-b/database/cases/input.json": "a8302ef031599e2f510525b67b5c1a55681f306be18b7cacd6fdace444ee68bb",
+    "collectors/examples/frontend-backend-b/database/cases/truth.json": "c59bfa400fe1e49f2713e80374d1d97e9c5aa85e1744484c238578564d4ef6c6",
+    "collectors/examples/frontend-backend-b/database/collect.py": "79b00687537a8eca07f4d15f632961d859fee8a57834bdbb53788bb8336e7c9b",
+    "collectors/examples/frontend-backend-b/database/conventions.json": "126490e751b9b282cd090b35d68c8bf2fbcae607c16b5b85b2d9e999e8dae1f7",
+    "collectors/examples/frontend-backend-b/database/database_ast.py": "4485ab8c75337fd4f0fb3835fb1d8da74c7f7a4bb2fa12b79958475d4f420abe",
+    "collectors/examples/frontend-backend-b/database/deps/requirements.in": "b84fc5591778663e176dd23833693f777ae8c06d044412cddb01dddb7c79683c",
+    "collectors/examples/frontend-backend-b/database/deps/requirements.lock": "6a16754fceda86f7c3d53f8deb805c611d62bbd942617384429c8432428dd6b2",
+    "collectors/examples/frontend-backend-b/database/identity-spec.json": "81c166af9f562d29ed5fed8c0f8cee2f99f92e9d55f002a6b301f97ce3cdb92d",
+    "collectors/examples/frontend-backend-b/database/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-b/database/manifest.json": "051bb52d9b57fd9e46dc2adf85f5925a96d6b8015be6742475aef2a472721799",
+    "collectors/examples/frontend-backend-b/database/source_ast.py": "323c09317d3910f6afcfc219d9ef7fd1401d126ff22317574a59eaf76524e1f9",
+    "collectors/examples/frontend-backend-b/frontend/cases/frontend.json": "8bd54d328d0eddaf0ba9caa2f28f25fe3fae06b87975e6777e8bfd44201d9e47",
+    "collectors/examples/frontend-backend-b/frontend/cases/input.json": "93311b724bbacc3246af73854c7864f43a89f2036eea4a1948f9c8645862ecfc",
+    "collectors/examples/frontend-backend-b/frontend/cases/truth.json": "f2f67faea50a075e32916c2d5e2482f3daa4cb144489c2686de92eb06ca5e3d4",
+    "collectors/examples/frontend-backend-b/frontend/collect.mjs": "febfb345b10d8a417bd0c13f4c5330b911f5d6a7b058d13296b2ebe3841acbac",
+    "collectors/examples/frontend-backend-b/frontend/conventions.json": "81d8c877a94e7bb63d0e5d8136053eeef4c7d780c990ddecf2e46bb9dc4065d0",
+    "collectors/examples/frontend-backend-b/frontend/deps/package-lock.json": "4985349b5af6bfa1f45fa42f365697131386fb77d399b9b468b9fc9ab087297d",
+    "collectors/examples/frontend-backend-b/frontend/deps/package.json": "704d58792b4ee4599c74133f5c913fbc2eae5b10798ca1c6ed6a1c3d42541023",
+    "collectors/examples/frontend-backend-b/frontend/frontend-ast.mjs": "ca382cb96cf9207e620848743faca185fc98a6c224a66b7a287536a71f94ba49",
+    "collectors/examples/frontend-backend-b/frontend/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-b/frontend/manifest.json": "f3baca547a4f24f543c392ef80c5a25ade89c659738225f1a857bb9a55d7555b",
+    "collectors/examples/frontend-backend-b/semantics/cases/report-input.json": "00266815cea178d41b2bcec192ea970a311ffa7877ee9cd8c2756414d4d59140",
+    "collectors/examples/frontend-backend-b/semantics/cases/report.json": "d646e774da93e106b72d30ccdd2095e355154ad7ddfb2a0df485492532b45135",
+    "collectors/examples/frontend-backend-b/semantics/cases/truth.json": "4dea260f6c096557bf40f0bacf10ee762f21b02cfedd6d6a5d7024ca7aea698f",
+    "collectors/examples/frontend-backend-b/semantics/cases/workflow-input.json": "bbe8b3e2e027f01f48e4500b7e821f9809326fb5f35821626de3c331a8132fe0",
+    "collectors/examples/frontend-backend-b/semantics/cases/workflow.json": "bee09baf56183bcb5ca66053238c585037bc5e5d8df298f0ab72ae28629920c4",
+    "collectors/examples/frontend-backend-b/semantics/collect.py": "6d28cb0f10df3008fa9ef8ceb6f927804ae93c6b08318f2641d294485bec5ebe",
+    "collectors/examples/frontend-backend-b/semantics/conventions.json": "1874b5887e1814dc9091bde0ac3759146772858840e57477968f5c78e928ff04",
+    "collectors/examples/frontend-backend-b/semantics/deps/requirements.in": "b84fc5591778663e176dd23833693f777ae8c06d044412cddb01dddb7c79683c",
+    "collectors/examples/frontend-backend-b/semantics/deps/requirements.lock": "6a16754fceda86f7c3d53f8deb805c611d62bbd942617384429c8432428dd6b2",
+    "collectors/examples/frontend-backend-b/semantics/identity-spec.json": "81c166af9f562d29ed5fed8c0f8cee2f99f92e9d55f002a6b301f97ce3cdb92d",
+    "collectors/examples/frontend-backend-b/semantics/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-b/semantics/manifest.json": "b6962a433504e55126f2a3b5332da6c09c5b92399be2a2880eb945b9438d2181",
+    "collectors/examples/frontend-backend-b/semantics/report_ast.py": "bdaefc33f4b4aaa0a430602bfe3a1b69bee8d62d171b6604c713aa0ac1189d31",
+    "collectors/examples/frontend-backend-b/semantics/semantic_facts.py": "44bbb50e16b9a8e6a335b3c4ab2c2008155e70d2bf3bc4009a6e3dd28e3cff7a",
+    "collectors/examples/frontend-backend-b/semantics/source_ast.py": "323c09317d3910f6afcfc219d9ef7fd1401d126ff22317574a59eaf76524e1f9",
+    "collectors/examples/frontend-backend-b/semantics/workflow_ast.py": "82d83eb819e9e0a1259fdf8800604f4cad874164c8a9d45b2afb5564436e3d36",
+    "collectors/templates/node/lib/frontend-ast.mjs": "ca382cb96cf9207e620848743faca185fc98a6c224a66b7a287536a71f94ba49",
+    "collectors/templates/python/lib/report_ast.py": "bdaefc33f4b4aaa0a430602bfe3a1b69bee8d62d171b6604c713aa0ac1189d31",
+    "collectors/templates/python/lib/semantic_facts.py": "44bbb50e16b9a8e6a335b3c4ab2c2008155e70d2bf3bc4009a6e3dd28e3cff7a",
+    "collectors/templates/python/lib/source_ast.py": "323c09317d3910f6afcfc219d9ef7fd1401d126ff22317574a59eaf76524e1f9",
+    "collectors/templates/python/lib/workflow_ast.py": "82d83eb819e9e0a1259fdf8800604f4cad874164c8a9d45b2afb5564436e3d36",
+    "crates/core/tests/business_scenarios.rs": "dba629365c8868a99464711de7e3d3766af398d6716e74f249dbd7d1e12bd333",
+    "crates/core/tests/support/linking.rs": "867322b351ab60e6dd9f6229b0d9690a0d044d55e20c8507e0ba03989df6a750",
+    "crates/core/tests/support/semantics.rs": "0b708788018d1366653ce5fb826c57b49b94d81dbacc0740474a03403fafbe49",
+    "fixtures/truth-supplements/T14-semantics.json": "4dea260f6c096557bf40f0bacf10ee762f21b02cfedd6d6a5d7024ca7aea698f",
+    "scripts/package-semantic-examples.mjs": "290dc52f7d747f6be6c8deead7c95cb781d0a6188265e08d441c7095b1583591",
+    "scripts/verify-plugins.mjs": "d133fd972fd26e05bd0aa94e2b778953de07904a68ed0ed9761977f3a0c602a1"
+  },
+  "testSummaries": [
+    "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 14 filtered out; finished in 363.41s"
+  ],
+  "independentExpectedFieldsPerLayout": 9,
+  "declaredAndCodeTransitionsPerLayout": 14,
+  "expectedStatesPerLayout": 6,
+  "forbiddenConfirmed": 0,
+  "productModelRequests": 0,
+  "businessDatabaseConnections": 0,
+  "productionAccuracyClaimed": false,
+  "limitations": [
+    "Supported documented grammar and static SQLite SELECT/CTE patterns only",
+    "Missing time fields/physical quantity units/cardinality stay gaps",
+    "Windows x64 execution only in this run"
+  ]
+}

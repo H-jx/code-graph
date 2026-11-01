@@ -1,0 +1,19 @@
+{
+  "cases": [],
+  "committed": true,
+  "expectedGeneration": "6",
+  "generation": "7",
+  "runId": "run_832a20c5-d1ea-4c30-a36e-c16e088201cc",
+  "stagedResultHash": "bc6878937615d048cc3f04277c4d403579cd4c1713c8ffeb0e0e570510a268f6",
+  "stages": [
+    {
+      "batchId": "bat_94d79b246c71cb771570ade071fad48c60d9d66afc289c9a34c90a7d7628b6dc",
+      "dependencies": 4,
+      "entities": 0,
+      "relations": 0,
+      "replacementKey": "(deps.python,extract,dependency-smoke)"
+    }
+  ],
+  "status": "committed",
+  "validateOnly": false
+}

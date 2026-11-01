@@ -1,0 +1,399 @@
+{
+  "codeMap": {
+    "budgetUsed": {
+      "elapsedMs": 17,
+      "entities": 0,
+      "relations": 0,
+      "responseChars": 1318,
+      "visited": 14
+    },
+    "completeness": {
+      "candidateSetsComplete": true,
+      "checkedAt": "now",
+      "coverage": "partial",
+      "diskChecked": true,
+      "freshness": "fresh",
+      "reasons": [
+        "some selected files have no syntax outline"
+      ],
+      "truncated": false
+    },
+    "data": {
+      "files": [
+        {
+          "path": "src/ledger.sql",
+          "repositoryId": "main",
+          "sourceId": "src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607"
+        }
+      ],
+      "symbols": [],
+      "uncoveredLanguages": [
+        {
+          "language": "sql",
+          "reason": "text/evidence available; no built-in syntax outline"
+        }
+      ]
+    },
+    "gaps": [],
+    "nextQueries": [],
+    "protocolVersion": "1.0",
+    "requestId": "req_8a78d368-eb4a-4987-9b4b-761d45cd19ed",
+    "snapshot": {
+      "generation": "1",
+      "indexId": "eed0bd65-99a9-4743-9699-c28f2a56f50c",
+      "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+    },
+    "sourceReferences": [
+      {
+        "contentHash": "b9c2001c8690f69a51b6a35ed1e910667d76cee244b53e06871bde555a8d823d",
+        "endByte": 1,
+        "evidenceId": "ev_018db450b58b4234e39726d97e69384fb882b4a1d9a423ec5ca807d0bfed124d",
+        "snapshot": {
+          "generation": "1",
+          "indexId": "eed0bd65-99a9-4743-9699-c28f2a56f50c",
+          "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+        },
+        "sourceId": "src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607",
+        "startByte": 0
+      }
+    ],
+    "status": "partial"
+  },
+  "conventions": [],
+  "coverage": [
+    {
+      "capability": "api",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "base",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "complete"
+    },
+    {
+      "capability": "database",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "frontend",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "report",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "routes",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "workflow",
+      "replacementKey": "(core.base,main)",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "capability": "api",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "base",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "complete"
+    },
+    {
+      "capability": "database",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "frontend",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "report",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "routes",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    },
+    {
+      "capability": "workflow",
+      "replacementKey": "(core.base,other)",
+      "scopeId": "repo.other",
+      "sourceSetId": "other",
+      "status": "not_configured"
+    }
+  ],
+  "dependencies": [
+    {
+      "digest": "387ead30d5fbe09b11c845b1420621e12fd3e7b3549fd2d0a410931fe81cb95e",
+      "key": "project",
+      "kind": "config"
+    },
+    {
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "key": "all",
+      "kind": "conventions"
+    },
+    {
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "key": "[\"main\"]",
+      "kind": "facts"
+    },
+    {
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "key": "[\"main\"]",
+      "kind": "plugins"
+    },
+    {
+      "digest": "c918ecd7f60af4f710c1f744d0e069cf63eb3f42b27b8280a5caa3f5a0de91c2",
+      "key": "knowledge",
+      "kind": "prompt"
+    },
+    {
+      "digest": "848b44b374a387b6d37aaaa453c7d50c3b8caf6ec13aff278a605e1b51a93d5f",
+      "key": "main",
+      "kind": "sourceSet"
+    },
+    {
+      "digest": "2812eb889355f58643d197f61873c80f2c562f7a549e370e5d493f3676337007",
+      "key": "skill",
+      "kind": "template"
+    }
+  ],
+  "facts": {
+    "budgetUsed": {
+      "elapsedMs": 6,
+      "entities": 1,
+      "relations": 0,
+      "responseChars": 2073,
+      "visited": 6
+    },
+    "completeness": {
+      "candidateSetsComplete": true,
+      "checkedAt": "now",
+      "coverage": "complete",
+      "diskChecked": true,
+      "freshness": "fresh",
+      "reasons": [],
+      "truncated": false
+    },
+    "data": {
+      "candidateSetComplete": true,
+      "fields": null,
+      "results": [
+        {
+          "assertions": [
+            {
+              "assertionId": "as_6696f5b08045e1ce54d387311dc37b385c7b465768210b6632fc29b2f68315db",
+              "attributes": {
+                "byteLength": 82,
+                "language": "unknown",
+                "path": "src/ledger.sql",
+                "repositoryId": "main"
+              },
+              "basis": "observed",
+              "batchId": "bat_d1f43ce17158a7517f25dab9f36ac30e7cd3da34d03885f476351770cc94c39d",
+              "evidenceRefs": [
+                "ev_018db450b58b4234e39726d97e69384fb882b4a1d9a423ec5ca807d0bfed124d"
+              ],
+              "name": "src/ledger.sql",
+              "origin": "static",
+              "producerKey": "core.base"
+            }
+          ],
+          "bm25": -0.808391325981669,
+          "entityRef": {
+            "entityId": "ent_28da8eda218a27569e2b35e0fc4c8c623c776a3c029be0499c70dd11ab0e6d91",
+            "snapshot": {
+              "generation": "1",
+              "indexId": "eed0bd65-99a9-4743-9699-c28f2a56f50c",
+              "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+            }
+          },
+          "exactRank": 3,
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "main"
+            },
+            {
+              "name": "path",
+              "value": "src/ledger.sql"
+            },
+            {
+              "name": "scopeId",
+              "value": "repo.main"
+            }
+          ],
+          "kind": "file",
+          "matchReason": "identifier",
+          "name": "src/ledger.sql",
+          "projection": "source",
+          "scopeId": "repo.main"
+        }
+      ]
+    },
+    "gaps": [],
+    "nextQueries": [],
+    "protocolVersion": "1.0",
+    "requestId": "req_8ede3671-2cce-4653-8ebb-e9c0132de3ce",
+    "snapshot": {
+      "generation": "1",
+      "indexId": "eed0bd65-99a9-4743-9699-c28f2a56f50c",
+      "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+    },
+    "sourceReferences": [
+      {
+        "contentHash": "b9c2001c8690f69a51b6a35ed1e910667d76cee244b53e06871bde555a8d823d",
+        "endByte": 1,
+        "evidenceId": "ev_018db450b58b4234e39726d97e69384fb882b4a1d9a423ec5ca807d0bfed124d",
+        "snapshot": {
+          "generation": "1",
+          "indexId": "eed0bd65-99a9-4743-9699-c28f2a56f50c",
+          "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+        },
+        "sourceId": "src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607",
+        "startByte": 0
+      }
+    ],
+    "status": "complete"
+  },
+  "gaps": [
+    {
+      "candidateIds": [],
+      "capability": "knowledge",
+      "code": "KNOWLEDGE_MATERIAL_PARTIAL",
+      "id": "knowledge_material_partial",
+      "reason": "Some selected facts, outlines or source reads are partial; explanation completeness is limited by that material",
+      "requiredEvidence": [
+        "inspect completeness reasons and obtain the missing original material"
+      ],
+      "scopeId": "",
+      "sourceRefs": []
+    }
+  ],
+  "inputDigest": "c500f5cc211048b22f78a71a5320cb5d7e510270c613bc0e250049e1bb2aba01",
+  "materialDigest": "caa7a83b840200cff7ecc0bebe95526315f796732c468781ee87d00cd1d4e50d",
+  "promptHash": "c918ecd7f60af4f710c1f744d0e069cf63eb3f42b27b8280a5caa3f5a0de91c2",
+  "protocolVersion": "1.0",
+  "request": {
+    "maxChars": 80000,
+    "query": {
+      "filters": {
+        "repositoryIds": [
+          "main"
+        ]
+      },
+      "operation": "search",
+      "pageSize": 8,
+      "query": "ledger"
+    },
+    "topicId": "ledger"
+  },
+  "snapshot": {
+    "generation": "1",
+    "indexId": "eed0bd65-99a9-4743-9699-c28f2a56f50c",
+    "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+  },
+  "sourceReads": {
+    "reads": [
+      {
+        "checkedAt": "now",
+        "evidenceId": "ev_018db450b58b4234e39726d97e69384fb882b4a1d9a423ec5ca807d0bfed124d",
+        "lineMap": {
+          "endLine": 1,
+          "startLine": 1
+        },
+        "path": "src/ledger.sql",
+        "returnedEndByte": 1,
+        "snippet": "-",
+        "snippetTruncated": false,
+        "sourceId": "src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607",
+        "startByte": 0,
+        "status": "current",
+        "storedVersion": null
+      },
+      {
+        "checkedAt": "now",
+        "evidenceId": "ev_2790544bf02ff9392f85ac80fe05e628a43213f10a25cd5bd6de4ea0f78a57ae",
+        "lineMap": {
+          "endLine": 2,
+          "startLine": 1
+        },
+        "path": "src/ledger.sql",
+        "returnedEndByte": 82,
+        "snippet": "-- ledger quantity from original local SQL\nSELECT ordered_qty FROM purchase_line;\n",
+        "snippetTruncated": false,
+        "sourceId": "src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607",
+        "startByte": 0,
+        "status": "current",
+        "storedVersion": null
+      }
+    ]
+  },
+  "sourceReferences": [
+    {
+      "contentHash": "b9c2001c8690f69a51b6a35ed1e910667d76cee244b53e06871bde555a8d823d",
+      "endByte": 1,
+      "evidenceId": "ev_018db450b58b4234e39726d97e69384fb882b4a1d9a423ec5ca807d0bfed124d",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "eed0bd65-99a9-4743-9699-c28f2a56f50c",
+        "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+      },
+      "sourceId": "src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607",
+      "startByte": 0
+    },
+    {
+      "contentHash": "b9c2001c8690f69a51b6a35ed1e910667d76cee244b53e06871bde555a8d823d",
+      "endByte": 82,
+      "evidenceId": "ev_2790544bf02ff9392f85ac80fe05e628a43213f10a25cd5bd6de4ea0f78a57ae",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "eed0bd65-99a9-4743-9699-c28f2a56f50c",
+        "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+      },
+      "sourceId": "src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607",
+      "startByte": 0
+    }
+  ],
+  "templateHash": "2812eb889355f58643d197f61873c80f2c562f7a549e370e5d493f3676337007",
+  "topicId": "ledger"
+}

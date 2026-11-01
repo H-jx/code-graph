@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-26",
+  "workspace": "E:/Project/my-project/code-graph",
+  "versions": {
+    "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+    "cargo": "cargo 1.97.1 (c980f4866 2026-06-30)",
+    "node": "v24.14.0",
+    "pnpm": "10.34.8"
+  },
+  "testsPassed": 87,
+  "testsFailed": 0,
+  "testsIgnored": 0,
+  "nodeIdentityVectors": 18,
+  "independentBusinessTruth": false,
+  "modelCalls": 0,
+  "sourceHashCount": 99,
+  "commands": [
+    {
+      "log": "workspace-tests.log",
+      "exitCode": 0,
+      "command": "cargo test --workspace --locked"
+    },
+    {
+      "log": "clippy.log",
+      "exitCode": 0,
+      "command": "cargo clippy --workspace --all-targets --locked -- -D warnings"
+    },
+    {
+      "log": "fmt.log",
+      "exitCode": 0,
+      "command": "cargo fmt --all -- --check"
+    },
+    {
+      "log": "core-only.log",
+      "exitCode": 0,
+      "command": "cargo build -p project-knowledge-cli --no-default-features --locked"
+    },
+    {
+      "log": "contracts.log",
+      "exitCode": 0,
+      "command": "cargo run -p xtask --locked -- export-contracts --check"
+    },
+    {
+      "log": "types.log",
+      "exitCode": 0,
+      "command": "node scripts/generate-types.mjs --check"
+    },
+    {
+      "log": "typecheck.log",
+      "exitCode": 0,
+      "command": "pnpm run typecheck"
+    },
+    {
+      "log": "vectors.json",
+      "exitCode": 0,
+      "command": "node scripts/verify-vectors.mjs"
+    },
+    {
+      "log": "plan.log",
+      "exitCode": 0,
+      "command": "node scripts/verify-plan.mjs --plan ../plan/NEW-PROJECT-LONG-TASK.md"
+    },
+    {
+      "log": "../../T09/latest-cli.json",
+      "exitCode": 0,
+      "command": "node scripts/verify-collection.mjs"
+    }
+  ]
+}

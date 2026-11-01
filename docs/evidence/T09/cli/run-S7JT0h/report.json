@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-26T00:26:58.218Z",
+  "origin": "synthetic-smoke",
+  "independentBusinessTruth": false,
+  "node": "v24.14.0",
+  "platform": "win32",
+  "arch": "x64",
+  "commands": [
+    {
+      "label": "01-base",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "index",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\project.json",
+        "--base"
+      ],
+      "exitCode": 0,
+      "outputHash": "47358ac29dd3af646ef2fc2330f7b0996dd4ce3ee51b4e56c522d8c4ad44b454"
+    },
+    {
+      "label": "02-validate-only",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "collect",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\project.json",
+        "--manifest",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\plugin\\manifest.json",
+        "--validate-only"
+      ],
+      "exitCode": 0,
+      "outputHash": "5e850e007f85d846b6c62bd1ab36ec9086ae0ac4ba15d5e8a9f161d90a0b6738"
+    },
+    {
+      "label": "03-submit",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\project.json",
+        "submit",
+        "--path",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\plugin"
+      ],
+      "exitCode": 0,
+      "outputHash": "15aee69b666c92d402956f0635e3347c89506a622dd40a3f8c97bc6b3928b118"
+    },
+    {
+      "label": "04-validate",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\project.json",
+        "validate",
+        "--candidate",
+        "candidate_71b372f7-c4c2-4e77-a603-1279ac11a4c6"
+      ],
+      "exitCode": 0,
+      "outputHash": "35572ec89a42de2afd3190772520ee55ca2b6d5a2e6ca8abae316079efb0a63a"
+    },
+    {
+      "label": "05-activate",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\project.json",
+        "activate",
+        "--candidate",
+        "candidate_71b372f7-c4c2-4e77-a603-1279ac11a4c6"
+      ],
+      "exitCode": 0,
+      "outputHash": "cb5b0a2ca0730d4cce8653201c0a372f49956ca5cb6358ec7dde1c87ae74d182"
+    },
+    {
+      "label": "06-collect",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "collect",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\project.json"
+      ],
+      "exitCode": 0,
+      "outputHash": "8edfc43c78e89fba50402bc122eb9fb3a254da26c459b366c9baa6dbac66d268"
+    },
+    {
+      "label": "07-bad-link",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "collect",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\project.json",
+        "--manifest",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\plugin\\manifest.json",
+        "--validate-only"
+      ],
+      "exitCode": 1,
+      "outputHash": "1d2c830c44df5142467b721f2c4fce029522e26728957ca1993cb4f19e296199"
+    },
+    {
+      "label": "08-rollback",
+      "executable": "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe",
+      "args": [
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\project.json",
+        "rollback",
+        "--plugin",
+        "smoke.plugin",
+        "--version",
+        "1.0.0"
+      ],
+      "exitCode": 0,
+      "outputHash": "de53a5d67e9f26ece3710df780bd9f3e0686b9d0f39a49fb4dedad023e1c76f2"
+    }
+  ],
+  "hashes": {
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\project.json": "66a0faa5c68f2c13fc42b04848dc3636fad50f68c9234180d6c42127c1e4e61a",
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\plugin\\manifest.json": "5ed0d303d69478be746336a83dc0dab66317fe29ce5fc0f240b9025b478aca03",
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\plugin\\collect.mjs": "e062bb7a89d810c73be1a92fea208eb4541b5ef766776b22188b90d729c9206e",
+    "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T09\\cli\\run-S7JT0h\\repo\\a.ts": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+    "E:\\Project\\my-project\\code-graph\\target\\debug\\project-knowledge.exe": "255c9971230f61afa78ef23c45e5d945271911a211ca796e829381375a5ff3e2"
+  },
+  "assertions": {
+    "validateOnlyDoesNotCommit": true,
+    "activationSwitchesOnce": true,
+    "collectCommits": true,
+    "badLinkFails": true,
+    "rollbackCreatesNewGeneration": true
+  }
+}

@@ -1,0 +1,27 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+error[E0609]: no field `kind` on type `&Neighbor`
+   --> crates\core\src\query\page.rs:300:30
+    |
+300 |                     neighbor.kind,
+    |                              ^^^^ unknown field
+    |
+    = note: available fields are: `key`, `other`, `value`
+
+error[E0609]: no field `kind` on type `&Neighbor`
+   --> crates\core\src\query\page.rs:305:26
+    |
+305 |                 neighbor.kind,
+    |                          ^^^^ unknown field
+    |
+    = note: available fields are: `key`, `other`, `value`
+
+error[E0609]: no field `kind` on type `&Neighbor`
+   --> crates\core\src\query\page.rs:310:24
+    |
+310 |             !(neighbor.kind == RelationKind::Contains
+    |                        ^^^^ unknown field
+    |
+    = note: available fields are: `key`, `other`, `value`
+
+For more information about this error, try `rustc --explain E0609`.
+error: could not compile `project-knowledge-core` (lib) due to 3 previous errors

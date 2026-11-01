@@ -1,0 +1,11 @@
+{
+  "crates/agent/src/runner.rs": "22572727b83240b7a1d7da3c93744dbd36c6aa7b69a3cb81519fbee4c234757e",
+  "crates/agent/src/tools.rs": "dd7542b7ea941d4f3a2a58c5df0a46eb42dab7d5882503f58322b4c3f475650a",
+  "prompts/collector.md": "3086dd4e7b087c9f30726d127d23865bd335a687422580647655bfef70a81b49",
+  "prompts/investigate.md": "90f30e94f5355bbf91829c07ae29829a5b2f842575a93f3c901f9df67cba5c7a",
+  "prompts/knowledge.md": "781c16bd881839c041edeea2cd8ff410eb54e45d9f3a3a862a6ce05ffa292a5b",
+  "prompts/link.md": "0853f48ffeeaf1bea00ef77b6bd6ce5b4051861540f47b6b927c054316944601",
+  "prompts/repair.md": "52b07014e1d08653a9766c20823d0e5683b17e85de90162c1b0db6b09a5653dd",
+  "prompts/shared.md": "c6c9095151713a02b852453bc79fa564c2f361e36081d139b2490c96101e199c",
+  "crates/agent/src/prompts.rs": "f6ddde0f1c080d6c27e4e7fdb2cfd15de3b9b76a10e21f67f5104bff30adefc3"
+}

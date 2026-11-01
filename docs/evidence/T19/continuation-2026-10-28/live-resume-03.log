@@ -1,0 +1,7 @@
+{"status": "partial", "runId": "agent_a819ef89-65b7-45ff-9b70-277417cb211f", "modelTurns": 64, "toolCalls": 67, "issues": ["CONFIG_INVALID", "INVALID_REQUEST", "IDENTITY_CONFLICT", "SCHEMA_INVALID", "INVALID_REQUEST", "SCHEMA_INVALID", "SCHEMA_INVALID", "SCHEMA_INVALID", "SCHEMA_INVALID", "INVALID_REQUEST", "INVALID_REQUEST", "INVALID_REQUEST", "INVALID_REQUEST", "SCHEMA_INVALID", "MODEL_TOOL_INVALID", "BUDGET_EXHAUSTED", "KNOWLEDGE_INCOMPLETE"]}
+Traceback (most recent call last):
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\live_business.py", line 209, in <module>
+    main()
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\live_business.py", line 133, in main
+    assert result.get("status") == "complete", "Inspect retained structured issues; do not alter independent truth"
+AssertionError: Inspect retained structured issues; do not alter independent truth

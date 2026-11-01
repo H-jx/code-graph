@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-27",
+  "task": "T06",
+  "sourceRoot": "E:/Project/tbm/synes",
+  "sourceHead": "6f47bdbf901f66e59909f8e24edd2e41a1b4f379",
+  "sourceAuthor": "hu-bo",
+  "sourceCommitTime": "2026-10-20T21:58:42+08:00",
+  "workingTreeClean": true,
+  "access": "read-only",
+  "purpose": [
+    "AI project investigation and project-specific plugin generation input",
+    "Independent source evidence for acceptance"
+  ],
+  "productBoundary": "Project rules belong to generated plugin artifacts and cited investigation materials; SDK/native/Core stay generic.",
+  "truthFrozen": false,
+  "runtimeGenerationImplemented": false,
+  "generationTasks": [
+    "T18",
+    "T19"
+  ],
+  "verification": {
+    "planExitCode": 0,
+    "diffCheckExitCode": 0
+  },
+  "confirmationScope": "User provided source location and clarified plugin-based adaptation; no truth-package review or sign-off claimed."
+}

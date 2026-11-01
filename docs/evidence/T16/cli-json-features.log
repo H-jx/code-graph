@@ -1,0 +1,206 @@
+serde_json v1.0.154
+├── serde_json feature "alloc"
+│   └── schemars v1.2.3
+│       ├── schemars feature "default"
+│       │   ├── project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+│       │   │   └── project-knowledge-agent feature "default"
+│       │   │       └── project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli)
+│       │   │           ├── project-knowledge-cli feature "agent"
+│       │   │           │   └── project-knowledge-cli feature "default" (command-line)
+│       │   │           ├── project-knowledge-cli feature "default" (command-line)
+│       │   │           └── project-knowledge-cli feature "syntax"
+│       │   │               └── project-knowledge-cli feature "default" (command-line)
+│       │   ├── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+│       │   │   ├── project-knowledge-core feature "default"
+│       │   │   │   ├── project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent) (*)
+│       │   │   │   └── project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli) (*)
+│       │   │   └── project-knowledge-core feature "syntax"
+│       │   │       ├── project-knowledge-cli feature "syntax" (*)
+│       │   │       └── project-knowledge-core feature "default" (*)
+│       │   ├── rig-agent v0.45.0
+│       │   │   └── rig v0.45.0
+│       │   │       ├── rig feature "agent"
+│       │   │       │   └── project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent) (*)
+│       │   │       │   └── rig feature "default"
+│       │   │       │       └── project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent) (*)
+│       │   │       ├── rig feature "default" (*)
+│       │   │       ├── rig feature "derive"
+│       │   │       │   └── project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent) (*)
+│       │   │       │   └── rig feature "default" (*)
+│       │   │       ├── rig feature "reqwest"
+│       │   │       │   └── project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent) (*)
+│       │   │       │   └── rig feature "default" (*)
+│       │   │       └── rig feature "rustls"
+│       │   │           └── project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent) (*)
+│       │   │           └── rig feature "default" (*)
+│       │   │   └── rig-agent feature "derive"
+│       │   │       └── rig feature "derive" (*)
+│       │   └── rig-core v0.45.0
+│       │       ├── rig v0.45.0 (*)
+│       │       ├── rig-agent v0.45.0 (*)
+│       │       └── rig-memory v0.45.0
+│       │           └── rig-memory feature "default"
+│       │               └── rig-agent v0.45.0 (*)
+│       │       ├── rig-core feature "default"
+│       │       │   └── rig feature "default" (*)
+│       │       ├── rig-core feature "derive"
+│       │       │   ├── rig feature "derive" (*)
+│       │       │   ├── rig-agent feature "derive" (*)
+│       │       │   └── rig-core feature "default" (*)
+│       │       ├── rig-core feature "reqwest"
+│       │       │   └── rig feature "reqwest" (*)
+│       │       └── rig-core feature "rustls"
+│       │           ├── rig feature "rustls" (*)
+│       │           └── rig-core feature "default" (*)
+│       ├── schemars feature "derive"
+│       │   └── schemars feature "default" (*)
+│       ├── schemars feature "schemars_derive"
+│       │   └── schemars feature "derive" (*)
+│       └── schemars feature "std"
+│           └── schemars feature "default" (*)
+│   └── serde_json feature "preserve_order"
+│       └── rig-core v0.45.0 (*)
+├── serde_json feature "default"
+│   ├── handlebars v6.4.4
+│   │   └── handlebars feature "default"
+│   │       ├── project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent) (*)
+│   │       └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   ├── jsonschema v0.60.1
+│   │   └── jsonschema feature "resolve-file"
+│   │       └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   ├── jsonschema-value v0.60.1
+│   │   ├── jsonschema-value feature "default"
+│   │   │   └── jsonschema v0.60.1 (*)
+│   │   └── jsonschema-value feature "serde_json"
+│   │       └── jsonschema-value feature "default" (*)
+│   ├── project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent) (*)
+│   ├── project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli) (*)
+│   ├── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   ├── referencing v0.60.1
+│   │   └── referencing feature "default"
+│   │       └── jsonschema v0.60.1 (*)
+│   ├── reqwest v0.13.5
+│   │   ├── reqwest feature "__rustls"
+│   │   │   └── reqwest feature "rustls"
+│   │   │       └── rig-reqwest feature "rustls"
+│   │   │           ├── rig feature "rustls" (*)
+│   │   │           └── rig-core feature "rustls" (*)
+│   │   ├── reqwest feature "__rustls-aws-lc-rs"
+│   │   │   └── reqwest feature "rustls" (*)
+│   │   ├── reqwest feature "__tls"
+│   │   │   └── reqwest feature "__rustls" (*)
+│   │   ├── reqwest feature "charset"
+│   │   │   └── rig-reqwest feature "rustls" (*)
+│   │   ├── reqwest feature "http2"
+│   │   │   └── rig-reqwest feature "rustls" (*)
+│   │   ├── reqwest feature "json"
+│   │   │   └── rig-reqwest v0.45.0
+│   │   │       ├── rig v0.45.0 (*)
+│   │   │       └── rig-core v0.45.0 (*)
+│   │   │       └── rig-reqwest feature "rustls" (*)
+│   │   ├── reqwest feature "multipart"
+│   │   │   └── rig-reqwest v0.45.0 (*)
+│   │   ├── reqwest feature "rustls" (*)
+│   │   ├── reqwest feature "stream"
+│   │   │   └── rig-reqwest v0.45.0 (*)
+│   │   └── reqwest feature "system-proxy"
+│   │       └── rig-reqwest feature "rustls" (*)
+│   ├── rig-agent v0.45.0 (*)
+│   ├── rig-core v0.45.0 (*)
+│   ├── rig-memory v0.45.0 (*)
+│   ├── rusqlite v0.41.0
+│   │   ├── rusqlite feature "backup"
+│   │   │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   │   ├── rusqlite feature "bundled"
+│   │   │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   │   ├── rusqlite feature "cache"
+│   │   │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   │   ├── rusqlite feature "chrono"
+│   │   │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   │   ├── rusqlite feature "hashlink"
+│   │   │   └── rusqlite feature "cache" (*)
+│   │   ├── rusqlite feature "hooks"
+│   │   │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   │   ├── rusqlite feature "limits"
+│   │   │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   │   ├── rusqlite feature "modern_sqlite"
+│   │   │   └── rusqlite feature "bundled" (*)
+│   │   ├── rusqlite feature "serde_json"
+│   │   │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   │   ├── rusqlite feature "trace"
+│   │   │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   │   └── rusqlite feature "wal"
+│   │       └── rusqlite feature "hooks" (*)
+│   └── tracing-subscriber v0.3.23
+│       ├── tracing-subscriber feature "alloc"
+│       │   └── tracing-subscriber feature "std"
+│       │       ├── tracing-subscriber feature "default"
+│       │       │   └── project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli) (*)
+│       │       ├── tracing-subscriber feature "env-filter"
+│       │       │   └── project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli) (*)
+│       │       ├── tracing-subscriber feature "fmt"
+│       │       │   ├── tracing-subscriber feature "ansi"
+│       │       │   │   └── tracing-subscriber feature "default" (*)
+│       │       │   └── tracing-subscriber feature "default" (*)
+│       │       └── tracing-subscriber feature "registry"
+│       │           └── tracing-subscriber feature "fmt" (*)
+│       ├── tracing-subscriber feature "ansi" (*)
+│       ├── tracing-subscriber feature "default" (*)
+│       ├── tracing-subscriber feature "env-filter" (*)
+│       ├── tracing-subscriber feature "fmt" (*)
+│       ├── tracing-subscriber feature "json"
+│       │   └── project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli) (*)
+│       ├── tracing-subscriber feature "matchers"
+│       │   └── tracing-subscriber feature "env-filter" (*)
+│       ├── tracing-subscriber feature "nu-ansi-term"
+│       │   └── tracing-subscriber feature "ansi" (*)
+│       ├── tracing-subscriber feature "once_cell"
+│       │   └── tracing-subscriber feature "env-filter" (*)
+│       ├── tracing-subscriber feature "registry" (*)
+│       ├── tracing-subscriber feature "serde"
+│       │   └── tracing-subscriber feature "json" (*)
+│       ├── tracing-subscriber feature "serde_json"
+│       │   └── tracing-subscriber feature "json" (*)
+│       ├── tracing-subscriber feature "sharded-slab"
+│       │   └── tracing-subscriber feature "registry" (*)
+│       ├── tracing-subscriber feature "smallvec"
+│       │   └── tracing-subscriber feature "default" (*)
+│       ├── tracing-subscriber feature "std" (*)
+│       ├── tracing-subscriber feature "thread_local"
+│       │   ├── tracing-subscriber feature "env-filter" (*)
+│       │   └── tracing-subscriber feature "registry" (*)
+│       ├── tracing-subscriber feature "tracing"
+│       │   └── tracing-subscriber feature "env-filter" (*)
+│       ├── tracing-subscriber feature "tracing-log"
+│       │   └── tracing-subscriber feature "default" (*)
+│       └── tracing-subscriber feature "tracing-serde"
+│           └── tracing-subscriber feature "json" (*)
+├── serde_json feature "float_roundtrip"
+│   ├── jsonschema v0.60.1 (*)
+│   ├── jsonschema-value v0.60.1 (*)
+│   └── rig-core v0.45.0 (*)
+├── serde_json feature "indexmap"
+│   └── serde_json feature "preserve_order" (*)
+├── serde_json feature "preserve_order" (*)
+├── serde_json feature "raw_value"
+│   └── rig-core v0.45.0 (*)
+└── serde_json feature "std"
+    └── serde_json feature "default" (*)
+
+serde_json v1.0.154
+├── serde_json feature "alloc"
+│   └── serde_json feature "preserve_order"
+│       [build-dependencies]
+│       └── tree-sitter v0.27.1
+│           ├── tree-sitter feature "default"
+│           │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│           └── tree-sitter feature "std"
+│               └── tree-sitter feature "default" (*)
+├── serde_json feature "default"
+│   [build-dependencies]
+│   └── tree-sitter v0.27.1 (*)
+├── serde_json feature "indexmap"
+│   └── serde_json feature "preserve_order" (*)
+├── serde_json feature "preserve_order" (*)
+└── serde_json feature "std"
+    └── serde_json feature "default" (*)

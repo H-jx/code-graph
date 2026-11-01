@@ -1,0 +1,15 @@
+
+> project-knowledge@0.1.0 build:native E:\Project\my-project\code-graph
+> pnpm --filter @project-knowledge/native run build
+
+
+> @project-knowledge/native@0.1.0 build E:\Project\my-project\code-graph\bindings\node
+> node build.mjs
+
+   Compiling project-knowledge-native v0.1.0 (E:\Project\my-project\code-graph\bindings\node)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\x86_64-pc-windows-msvc\debug\deps\project_knowledge_native.dll.lib 和对象 E:\Project\my-project\code-graph\target\x86_64-pc-windows-msvc\debug\deps\project_knowledge_native.dll.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-native` (lib) generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.93s

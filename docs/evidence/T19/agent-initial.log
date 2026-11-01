@@ -1,0 +1,32 @@
+   Compiling project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\agent_lifecycle-c341948b6cfa1c5d.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\agent_lifecycle-c341948b6cfa1c5d.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-agent` (test "agent_lifecycle") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.75s
+     Running tests\agent_lifecycle.rs (target\debug\deps\agent_lifecycle-c341948b6cfa1c5d.exe)
+
+running 19 tests
+test tools_candidate_paths_reject_traversal_absolute_and_duplicate_files ... ok
+test config_dotenv_validation_precedence_and_secret_boundaries ... ok
+test tools_invalid_large_bundle_keeps_bounded_error_pointers ... ok
+test tools_unknown_calls_return_feedback_without_execution_and_count_budget ... ok
+test lifecycle_resume_rechecks_sources_and_retains_spent_budget ... ok
+test config_missing_key_invalid_response_and_input_budget_fail_closed ... ok
+test tools_roundtrip_and_no_tool_model_is_not_success ... ok
+test tools_errors_keep_json_pointers_and_budget_is_global ... ok
+test tools_conventions_identity_cas_registers_original_provenance ... ok
+test tools_knowledge_invalid_artifact_preserves_pointer_and_never_exports ... ok
+test lifecycle_fills_missing_initial_case_and_resume_validates_without_model ... ok
+test lifecycle_stops_after_two_failed_repairs ... ok
+test config_provider_errors_cancellation_timeout_and_turn_budget ... ok
+test lifecycle_pending_activation_and_skill_partial ... ok
+test lifecycle_repairs_validates_activates_and_runs_without_model ... ok
+test lifecycle_complete_report_rechecks_skill_files_and_source_after_model_stops ... ok
+test tools_knowledge_roundtrip_is_bound_to_core_activation_and_global_budget ... ok
+test lifecycle_resume_recovers_committed_activation_and_rejects_unrelated_versions ... ok
+test lifecycle_resume_finishes_knowledge_after_candidate_activation_or_cancellation ... ok
+
+test result: ok. 19 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.30s
+

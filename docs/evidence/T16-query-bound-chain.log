@@ -1,0 +1,30 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-6f89a518d2d90297.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-6f89a518d2d90297.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.95s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-6f89a518d2d90297.exe)
+
+running 2 tests
+test scenarios::scenario_queries_two_layouts_match_original_facts_and_cli ... FAILED
+test scenarios::scenario_route_normalization_keeps_case_and_encoded_separators ... ok
+
+failures:
+
+---- scenarios::scenario_queries_two_layouts_match_original_facts_and_cli stdout ----
+
+thread 'scenarios::scenario_queries_two_layouts_match_original_facts_and_cli' (37732) panicked at crates\core\tests\support\scenarios.rs:167:9:
+assertion `left == right` failed: a: page must read the bound query's columns only
+  left: {"ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e"}
+ right: {"ent_0789c355d1e54a7c5263afb225290697e27c6e30ae449e6d14b13addf3df83f5", "ent_1db2f0b822d4d2fccd885fc354b265946d9b8365abc8c1e7da3a9e76fbfbd83f", "ent_22909ca38dad921d479a355d3ac17b5583069141e13f0610ebb3a1db0ae5e5ea", "ent_9d8ef7cd4f8105252bea3e13669b9faf7b50ce56e9c36e430b8d31441412c17a", "ent_a4ee755962fa8a38a6c32ba06e2a68aab2247dac158ae0128fcb3db42354a875", "ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e", "ent_ee106af9bd993997435215d47df254e1c34c986033db88b52de7d2522c3d88b4"}
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    scenarios::scenario_queries_two_layouts_match_original_facts_and_cli
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 16 filtered out; finished in 37.13s
+
+error: test failed, to rerun pass `-p project-knowledge-core --test business_scenarios`

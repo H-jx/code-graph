@@ -1,0 +1,16 @@
+✔ TypeScript 6.0 Compiler API exposes UTF-16 locations convertible to UTF-8 (4.3423ms)
+✔ napi v3 loads and returns Core Schema and exact validation issues (16.9671ms)
+{"sdk":"2.4.0","protocol":"2025-11-25","era":"legacy","list":1,"calls":2}
+✔ MCP 2.4.0 stdio "legacy" lists Rust Schema and calls Core (320.311ms)
+{"sdk":"2.4.0","protocol":"2026-07-28","era":"modern","list":1,"calls":2}
+✔ MCP 2.4.0 stdio {"pin":"2026-07-28"} lists Rust Schema and calls Core (390.2876ms)
+{"python": "3.12.13", "startByte": 9, "endByte": 15}
+✔ Python 3.12 parses UTF-8 AST byte positions and runs the protocol template (210.9531ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 968.098

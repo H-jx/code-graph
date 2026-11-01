@@ -1,0 +1,26 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\lifecycle-2ea662d02cbad676.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\lifecycle-2ea662d02cbad676.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "lifecycle") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 01s
+     Running tests\lifecycle.rs (target\debug\deps\lifecycle-2ea662d02cbad676.exe)
+
+running 13 tests
+test activation_auto_activate_false_keeps_validated_candidate ... ok
+test activation_concurrent_candidates_and_readers_never_mix_versions ... ok
+test activation_current_sources_artifacts_and_project_lock_are_rechecked ... ok
+test activation_discovery_deduplicates_and_auto_load_false_skips_directories ... ok
+test activation_failure_points_recover_to_complete_old_or_new_state ... ok
+test activation_includes_affected_active_link_from_other_plugin ... ok
+test activation_new_candidate_group_validates_and_switches_together ... ok
+test activation_publish_io_failure_preserves_active_state_and_published_versions_are_immutable ... ok
+test activation_real_host_kill_inside_c_preserves_old_snapshot_and_retries ... ok
+test activation_rollback_runs_new_batches_and_tampering_persists_stale ... ok
+test activation_source_change_is_persistently_stale_even_when_content_is_restored ... ok
+test activation_sqlite_full_rolls_back_c_and_can_retry_after_capacity_returns ... ok
+test activation_submit_validate_publish_and_atomic_version_switch ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 18.42s
+

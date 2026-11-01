@@ -1,0 +1,8 @@
+{
+  "error": {
+    "code": "DEPENDENCY_PREPARE_FAILED",
+    "issues": [],
+    "message": "dependency cache missing; run plugin prepare explicitly",
+    "retryable": false
+  }
+}

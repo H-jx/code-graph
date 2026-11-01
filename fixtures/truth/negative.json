@@ -1,0 +1,95 @@
+{
+  "id": "negative",
+  "cases": [
+    {
+      "id": "X01",
+      "rule": "same name in decoy file must not bind to registered page",
+      "evidence": [
+        {
+          "path": "fixtures/page-location/a/web/decoy/Ledger.tsx",
+          "startLine": 1,
+          "endLine": 1,
+          "text": "function Ledger"
+        }
+      ]
+    },
+    {
+      "id": "X04",
+      "rule": "dynamic request target has DYNAMIC_TARGET and no confirmed endpoint",
+      "evidence": [
+        {
+          "path": "fixtures/page-location/a/web/requests.ts",
+          "startLine": 4,
+          "endLine": 4,
+          "text": "'/purchase/' + globalThis.target"
+        }
+      ]
+    },
+    {
+      "id": "S2-05",
+      "rule": "audit before save is calls, not precedes",
+      "evidence": [
+        {
+          "path": "fixtures/purchase-workflow/flow.ts",
+          "startLine": 2,
+          "endLine": 2,
+          "text": "audit(order);"
+        }
+      ]
+    },
+    {
+      "id": "S2-06",
+      "rule": "conflicting gross/net guard retains both bases and CONFLICTING_EVIDENCE",
+      "evidence": [
+        {
+          "path": "fixtures/purchase-workflow/rules.md",
+          "startLine": 16,
+          "endLine": 16,
+          "text": "Conflict variant:"
+        }
+      ]
+    },
+    {
+      "id": "S3-fanout",
+      "rule": "join children before aggregation duplicates amounts",
+      "evidence": [
+        {
+          "path": "fixtures/purchase-ledger/fanout.sql",
+          "startLine": 4,
+          "endLine": 4,
+          "text": "LEFT JOIN invoice"
+        }
+      ]
+    },
+    {
+      "id": "S3-left",
+      "rule": "WHERE child status drops no-receipt row",
+      "evidence": [
+        {
+          "path": "fixtures/purchase-ledger/where-child.sql",
+          "startLine": 4,
+          "endLine": 4,
+          "text": "AND r.status='POSTED'"
+        }
+      ]
+    },
+    {
+      "id": "real-stale-test-access",
+      "rule": "historical e2e comment and current route differ; preserve conflict, not override",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/frontend/tests/e2e/specs/routes/other-purchase-ledger.spec.ts",
+          "startLine": 6,
+          "endLine": 6,
+          "text": "权限 access：canCreateRootProcureRequisition"
+        },
+        {
+          "path": "fixtures/original/synes/frontend/config/routes.ts",
+          "startLine": 639,
+          "endLine": 639,
+          "text": "access: 'canAccessResearchPurchaseRequestLedger'"
+        }
+      ]
+    }
+  ]
+}

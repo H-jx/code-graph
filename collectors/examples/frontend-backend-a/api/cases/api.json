@@ -1,0 +1,22 @@
+{
+  "id": "api.a",
+  "inputFixture": "cases/input.json",
+  "truthRef": "cases/truth.json",
+  "truthHash": "0656a541167d8195b7a7286c1dc660fcb730fd826778e50f69051f129f5374cf",
+  "expected": {
+    "entities": [
+      "ent_9bb5047dd27e05f8a261952efca8f30d629551cc6d5a3697deeca26f506d9f02",
+      "ent_4b0a0b622f4202ceaaf47c6044d08e666e950c3007b3e159ce4ded3843945b02",
+      "ent_895b0bdff079b374985473324c8009a99631d384228abecf5dec60168ab1fa0e",
+      "ent_e95d3192add1afbb65469f8afbb70b1e3f6a1923b1abe2ef45b485d79f5c5121"
+    ],
+    "relations": [
+      "rel_6845559cf747f7e5c2e99258610d40180f19d3812dc51a5aea9ca3a3d039daab",
+      "rel_05aa495f19dca9366db89426d3f69115714bc40bf7a2bb57c7cf58297b614f71",
+      "rel_b84108ed81630a5c2a845d1aeff25d583bcfff6eaa3c1a3794b53270777438dc"
+    ],
+    "forbiddenRelations": [
+      "rel_8df347c732a47ea232384f75dfae020b61d9649314d8722cf40095f311a3c881"
+    ]
+  }
+}

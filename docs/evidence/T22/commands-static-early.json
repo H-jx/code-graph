@@ -1,0 +1,62 @@
+[
+  {
+    "name": "workspace",
+    "group": "tests",
+    "command": [
+      "cargo",
+      "test",
+      "--workspace",
+      "--locked",
+      "-j",
+      "1",
+      "--",
+      "--test-threads=1"
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 1142.61,
+    "log": "workspace-01.log",
+    "sha256": "93f8cf5c421f33a29d555fc4d3641c99308796e5358cbe024a7a00bc10004245"
+  },
+  {
+    "name": "sdk",
+    "group": "tests",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run test:sdk"
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 5.125,
+    "log": "sdk-01.log",
+    "sha256": "707a02e53eb7765c9358f66835e100c34990b300afc4ffc8e5ce3930d4b34c1e"
+  },
+  {
+    "name": "mcp-tests",
+    "group": "tests",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run test:mcp"
+    ],
+    "exitCode": 0,
+    "elapsedSeconds": 6.813,
+    "log": "mcp-tests-01.log",
+    "sha256": "b058e3c6686fed10cf2e95f2fb1d4bfa53c1a12524656539b353c6acf59f88ff"
+  },
+  {
+    "name": "plugins",
+    "group": "tests",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run test:plugins -- --capabilities routes,frontend,comments,modules,entrypoints,api,database,link,workflow,report"
+    ],
+    "exitCode": 1,
+    "elapsedSeconds": 0.781,
+    "log": "plugins-01.log",
+    "sha256": "3e8b624fca1a4a9b6d39e363e2b44a863cd4296603f780e754bee3d64e54780c"
+  }
+]

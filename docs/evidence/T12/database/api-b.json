@@ -1,0 +1,29 @@
+{
+  "report": {
+    "status": "validated",
+    "runId": "run_b3d35939-317c-4b95-8c9f-4c2d4a0d58e3",
+    "expectedGeneration": "2",
+    "stagedResultHash": "d5c3c03cefb5b3f2216f942162e83ba377763602f99717814dbf56cc608e2462",
+    "cases": [
+      {
+        "id": "api.b",
+        "passed": true,
+        "truthHash": "0656a541167d8195b7a7286c1dc660fcb730fd826778e50f69051f129f5374cf",
+        "origin": "candidate"
+      }
+    ],
+    "stages": [
+      {
+        "replacementKey": "(example.b.api,extract,acceptance.b)",
+        "batchId": "bat_4878b0b49cfd7b1667b85addfc2f346fd89ec7048ea7b171d9dad13bde510da3",
+        "entities": 7,
+        "relations": 3,
+        "dependencies": 8
+      }
+    ]
+  },
+  "expectedEntities": 4,
+  "expectedRelations": 3,
+  "forbiddenHits": 0,
+  "classification": "source-reviewed synthetic smoke"
+}

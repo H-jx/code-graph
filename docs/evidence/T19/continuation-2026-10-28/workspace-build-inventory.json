@@ -1,0 +1,14 @@
+{
+  "crates/agent/src/config.rs": "37980c01b0047521811c120a23d4db83f9f115f6680d0ebdd2a1ed0c0a114685",
+  "crates/agent/src/prompts.rs": "8141dec915dcf1eff325e6f1714a91a2826b494e3537dc39d6eb41674bfc23a1",
+  "crates/agent/src/runner.rs": "22572727b83240b7a1d7da3c93744dbd36c6aa7b69a3cb81519fbee4c234757e",
+  "crates/agent/tests/agent_lifecycle.rs": "c6aaeb5ecdd76c86089e33e4a49753f9da735d9f1982264bbd88a0bf6e43360a",
+  "crates/cli/src/commands/agent.rs": "baed99de1c767f4e34d94d5847d4230d18a270dcb6aedb8997c8e464675f299d",
+  "prompts/collector.md": "3086dd4e7b087c9f30726d127d23865bd335a687422580647655bfef70a81b49",
+  "prompts/investigate.md": "90f30e94f5355bbf91829c07ae29829a5b2f842575a93f3c901f9df67cba5c7a",
+  "prompts/knowledge.md": "781c16bd881839c041edeea2cd8ff410eb54e45d9f3a3a862a6ce05ffa292a5b",
+  "prompts/link.md": "0853f48ffeeaf1bea00ef77b6bd6ce5b4051861540f47b6b927c054316944601",
+  "prompts/repair.md": "52b07014e1d08653a9766c20823d0e5683b17e85de90162c1b0db6b09a5653dd",
+  "prompts/shared.md": "c6c9095151713a02b852453bc79fa564c2f361e36081d139b2490c96101e199c",
+  "crates/agent/src/tools.rs": "290978bbcf8d41e58f2832822d1b04ddfcf4a49cb51b2492ac36f47640c6a84b"
+}

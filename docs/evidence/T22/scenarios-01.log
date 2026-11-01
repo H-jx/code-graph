@@ -1,0 +1,9 @@
+
+> project-knowledge@0.1.0 verify:scenarios E:\Project\my-project\code-graph
+> node scripts/verify-scenarios.mjs "--scenario" "all" "--transport" "all" "--evidence" "docs/evidence/T22/scenarios/run-01"
+
+{"command":["cargo","build","-p","project-knowledge-cli","--locked","-j","1"],"exitCode":0,"log":"docs/evidence/T22/scenarios/run-01/cli-build.log","logSha256":"d0baf01552ec1ce4809588e390876053dbb4efcc18ffba356db74c45f1cc5cba"}
+{"command":["cargo","test","-p","project-knowledge-core","--test","business_scenarios","scenario_","--locked","-j","1","--","--test-threads=1"],"exitCode":0,"log":"docs/evidence/T22/scenarios/run-01/cli-scenarios.log","logSha256":"cdf28ee52b53478930c1c5ec0b85b7dfdf4585e8a06dea271a415f295ccfd385"}
+{"command":["cargo","test","-p","project-knowledge-core","--test","business_scenarios","truth_numeric_sql_","--locked","-j","1","--","--test-threads=1"],"exitCode":0,"log":"docs/evidence/T22/scenarios/run-01/numeric-sql.log","logSha256":"659efd95e2d450c13e9792f8640970a7ac9f633c2ec2f05036e25a8a42b80547"}
+{"command":["python","scripts/verify-truth.py"],"exitCode":0,"log":"docs/evidence/T22/scenarios/run-01/integer-oracle.log","logSha256":"64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"}
+{"ok":true,"scenario":"all","transport":"all","layouts":2,"cliResponses":6,"truthHash":"aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed"}

@@ -15,6 +15,7 @@ use tokio::process::{Child, Command};
 pub fn configure_process_tree(command: &mut Command) {
     #[cfg(unix)]
     {
+        #[allow(unused_imports)]
         use std::os::unix::process::CommandExt;
         // 新建进程组，便于整体终止后代进程。
         command.process_group(0);
@@ -67,13 +68,15 @@ impl ProcessTreeGuard {
     pub fn terminate(&mut self) {
         #[cfg(windows)]
         {
-            if let Some(job) = self.job.as_mut() {
+            if let Some(mut job) = self.job.take() {
                 job.terminate();
             }
         }
         #[cfg(unix)]
         {
-            if let Some(group) = self.process_group {
+            if let Some(group) = self.process_group.take() {
+                // group 只来自本次配置 process_group(0) 后创建的 owned 子进程。
+                #[allow(unsafe_code)]
                 unsafe {
                     libc::killpg(group, libc::SIGKILL);
                 }
@@ -85,6 +88,7 @@ impl ProcessTreeGuard {
 
 impl Drop for ProcessTreeGuard {
     fn drop(&mut self) {
+        self.terminate();
         // 句柄关闭时 Job Object 会终止剩余后代进程。
         #[cfg(windows)]
         {

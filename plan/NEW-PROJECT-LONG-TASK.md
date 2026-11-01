@@ -2,6 +2,8 @@
 
 编制日期：2026-10-25。本文只定义待实施工作，不表示代码、命令或测试已经存在。
 
+收尾范围确认（2026-10-29，用户明确选择）：首版按 **Windows x64 可安装候选** 完成，Linux x64 glibc / macOS x64 / macOS arm64 转为后续范围（D31）。本轮不公开发布；不把 CI 配置存在当作其他平台已实测。编制时现场描述保留为历史，实际源码根目录为本仓库根 `E:/Project/my-project/code-graph/`。
+
 ## 1. 目标、交付物和明确范围
 
 ### 1.1 事实基线
@@ -60,6 +62,18 @@
 | D17 | 发布包名、平台支持和安装要求不明确 | 内部 Rust 包固定 `project-knowledge-core/agent/cli`；npm 暂用 `@project-knowledge/native/sdk/mcp`，公开命名权限在发布前核验；平台见第 6 节 | T01、T23 |
 | D18 | 语法分析与真正的语言解析混淆 | 内置 TS/TSX/JS/Python Tree-sitter 基础声明与保守引用；缺少类型/实例证据的跨文件调用保持 candidate；其他文本仍可搜索 | T05 |
 | D19 | 台账 SQL 与 ORM 支持易扩大为通用引擎 | 插件复用现成 AST 库，识别已调查的 ORM 模式；Core 保存统一语义。执行数值真值只针对本地 fixture，不执行用户 SQL | T12、T14、T16 |
+| D20 | 示例或真实项目的适配规则被固化进 SDK/Core | 真实项目由 AI 调查后生成独立插件制品，Core 统一验证/激活/运行，SDK 只提供通用调用；框架注册、目录、ORM 和业务规则留在项目插件与调查材料。接入新项目不修改/重发 SDK/Core；示例只用于协议与独立验收 | T06、T11—T14、T18—T20、T22 |
+| D21 | 用户要求优先读取已配置 .env 并实现内置 agent，T18 原依赖 T17 阻挡独立模型接入 | T18 的模型/Prompt/预算工具接入改依赖已完成的 T00、T09；不绕过 Core 验证。T19 可先完成插件调查/生成/修复/激活/恢复，知识阶段与全部业务验收仍须 T17/T06，未完成保持 doing。dotenv 只在 Agent 入口局部读取，不修改全局环境；源码硬排除凭据文件 | T18、T19、T17、T06 |
+| D22 | 实测生成参数错误回显过大、控制输出增长导致恢复误判、候选 case 缺文件无法修复 | Schema 错误保留 Pointer/类型/关键字，不回显原值；模型工具 Schema 从 Rust 同源展开本地引用。`.project-knowledge`、Skill 控制目录和 SQLite 控制文件不进入扫描成员；普通用户排除项仍跟踪。修复冻结已存在的有效 case/输入，允许补齐首次缺失制品；独立真值仍只由 Core 验证且不可改写 | T03、T08、T10、T18、T19 |
+| D23 | link 输入只有 evidence ID，且候选摘要未绑定关系断言 | CollectorInput 增加可省略的 evidence 数组，仅导出所选当前来源版本的原始证据；link 可复用实际调用/注册范围。候选摘要同时绑定所选实体及其导出关系断言，关联变化不沿用旧唯一性。Rust 同源生成 Schema/TS | T02、T08、T10、T13 |
+| D24 | 直接邻接要求分页，但 trace 是不可恢复的多层 BFS | QueryRequest 增加 neighbors：单根 root、direction、relationKinds/filters/pageSize/continuation/budget；稳定邻接 keyset 与 trace 的 frontier 分开。Rust 同源生成 Schema/TS，查询统一只读事务与取消令牌 | T02、T15、T20、T21 |
+| D25 | Rig 的 preserve_order 改变 JSON Map 的并列裁剪顺序和请求 hash，时钟/片段大小也影响信封 | 裁剪并列按字段名稳定排序，请求 hash 复用 Core canonical_json；预留固定元数据宽度（checkedAt 64 字符、时间/字符计数各 20 位），responseChars 仍记录实际紧凑 JSON 字符。readSource 预留片段外信封，显式返回 snippetTruncated/returnedEndByte，不把片段预算不足误作来源失效 | T15、T16、T18、T20—T22 |
+| D26 | 主题输入未留 Core 收据、派生约定未展开、Windows 无法原子替换非空输出目录 | T17 用 Schema v3 的 Core context 收据绑定 topic/inputDigest；引用展开为当前原始 evidence，正文用 `[[claim:id]]`、Mermaid 元素用 `%% [[claim:id]]` 映射。输出为 `<output>/versions/<exportId>/` 完整 Skill，通过原子替换 `CURRENT.json` 选择；返回 directory 可直接安装。保留原 topic generation，只复核依赖；仓库内输出限既定硬排除目录。类型仍从 Rust 生成，无外部依赖/API 版本更改 | T17、T18—T22 |
+| D27 | Agent 草稿/知识占位未接入已完成的 T17，知识同步步骤未共享剩余预算，关闭 Agent feature 后引用已删除辅助函数 | import-conventions 委托 Core、身份增量必传 expectedConfigHash；with-skill 才注册上下文/主题/Skill 工具，激活后继续同一 run 的预算与取消。Core KnowledgeControl 传递截止时间/令牌并在提交前检查；输入收据绑定片段、coverage/partial/gaps 且排除检查时钟。更新实际工具名/Prompt 组合与配置哈希导航，修复无 Agent feature 分支；无外部依赖版本或协议 wire 字段变更 | T18、T19、T20—T22 |
+| D28 | 恢复在候选激活后提前返回、提交与 run.json 之间中断无法识别，知识地图误用主题名称作选择器，模型缺少关系限定 Schema/关系 ID 工具 | 恢复同一 run 的知识步骤并保留预算；只接纳匹配候选/hash/validation/已提交 activation 和完整活动版本的提交。完成前与重复恢复均由 Core 复核产物；代码地图使用事实结果的实体引用，保留真实 partial。关系 ID/限定 Schema 委托 Core；主题可按实体种类聚焦。resume 可补充 goal，repair 可 with-skill；不放宽 case/来源/事务与预算检查，不改公共协议或外部依赖版本 | T19、T17、T20—T22 |
+| D29 | native/SDK 尚为空，维护 DTO 未导出，transport 请求 ID 与 Core 响应 ID 分离 | Core 统一导出 MaintenanceRequest/Capabilities/完整 Schema，native 只传 JSON；每客户端有独立连接 owner 线程、64 个排队位，Promise 异步等待不占 libuv；请求 ID 同步登记并进入 Core 的预算信封。显式维护复用既有入口，基础扫描/提交及激活/collect 复核和提交传播取消；close 立即关闭接单并等待清理，10 秒异常上限返回 BUSY 且继续清理。配置路径固定，不受后续 chdir 影响。无外部依赖版本或插件协议变化 | T02、T20—T23 |
+| D30 | MCP 工具需公告 Core Schema，同时将非法参数与执行错误区分 | 同源 Schema 投影去掉 operation，Standard Schema 校验经 SDK/native 调 Core 且不打开项目；使用 MCP 2.4 公共 tools/call handler 保留 InvalidParams（其高层默认会转为工具错误）。合法请求执行错误保留 Core envelope，partial 仍成功。会话模式只取启动参数，SDK 请求 ID 用含 JSON-RPC ID 类型的 SHA-256 绑定，signal/断开传播取消与关闭 | T20—T23 |
+| D31 | 用户希望首版收尾，并明确选择 Windows x64 可安装候选 | 本轮首版平台仅 Windows x64；Linux/macOS 三目标转后续，不删历史验证记录、不虚构支持。T23 按 Windows 默认/无 Agent CLI、native/SDK/MCP tarball、隔离 consumer 与离线重装验收；公开渠道命名权限与实际发布另行授权处理。真实 synes 前后端 11 文件/12 声明事实独立回查，未取得第二真实仓库不声称多仓生产准确率 | T22、T23、第 6 节 |
 
 ### 2.2 外部依赖与 API 核对
 
@@ -163,6 +177,8 @@
 内置 entity kind：上述各类型及 `event`、`request`、`title`、`comment`、`dataSource`、`service`。内置 relation kind：`contains`、`defines`、`imports`、`references`、`calls`、`renders`、`handles`、`triggers`、`wraps`、`requests`、`serves`、`resolves`、`reads`、`writes`、`maps_to`、`joins`、`transitions_to`、`precedes`、`relates_document`、`describes`。端点 kind 的合法组合在 T02 的类型注册表逐项声明，不允许任意连线。
 
 扩展类型必须 `x.<pluginId>.<localName>`，在 manifest 注册 entity/relation 和 attributes/qualifiers JSON Schema、允许端点 kind；公共顶层结构、basis、位置和引用规则不可扩展。扩展 Schema 只可引用 bundled schema；不加载远程代码或远程 `$ref`。未知扩展可被通用搜索/图查询展示，但场景查询不凭名称赋予业务语义。
+
+T02 实施细化（2026-10-26）：`manifest.extensions={entities,relations}`，登记有序 identityComponents（required scopeId 首位）。扩展实体规范身份为 `[projectId,kind,[[slotName,[]|[value]],...]]`，全部槽位带名称和存在包装；required 只影响校验，恢复身份无需插件执行或 manifest。结构 Schema 接受合法命名空间，Core 再拒绝未登记类型。登记从候选组与未替换的活动 manifest 构建；本地 `$defs` 可包含 bundled Core 类型，不得覆盖；禁止 `$id`、远程/文件/动态引用。内置身份编码不变。详见 `docs/protocol.md`。
 
 所有实体/关系断言至少一个原始 evidence；关系不能只拿两端实体的位置作为关联证据，必须覆盖实际绑定/调用/条件。来自原始文档的 declared 关系可以 confirmed，但只能表示“文档这样声明”，不可改称代码已实现。candidate 不因置信分数高而 confirmed。生成约定需 `derivedFrom` 原始证据链；AI 推断作为单独断言，不进入默认确定性 confirmed 路径。
 
@@ -268,6 +284,7 @@ CollectorInput = {
   sourceSets:[{selectorId,digest,sourceIds,complete}],
   entities:[{entityId,kind,scopeId,identity,assertions}],
   relations:[{relationId,kind,fromId,toId,qualifiers,assertions}],
+  evidence:[Evidence], // 可省略；只含所选来源版本中被导出断言引用的证据
   candidateSets:[{selectorId,digest,entityIds,complete}],
   allowedExtensions, limits
 }
@@ -302,7 +319,7 @@ CollectorOutput = {
 
 ### 3.7 查询、SDK、MCP 与 CLI
 
-Core 暴露 `QueryRequest` tagged union，`operation` 为 `status|search|locateFeature|trace|codeMap|readSource|page|workflow|report`；`getCapabilities` 无索引也可调用。Node SDK 提供对应方法；MCP snake_case 工具名只做映射，JSON 参数字段不改名。维护调用使用独立 `MaintenanceRequest`，不得从 QueryRequest 派生隐式执行。
+Core 暴露 `QueryRequest` tagged union，`operation` 为 `status|search|locateFeature|trace|neighbors|codeMap|readSource|page|workflow|report`；`getCapabilities` 无索引也可调用。Node SDK 提供对应方法；MCP snake_case 工具名只做映射，JSON 参数字段不改名。维护调用使用独立 `MaintenanceRequest`，不得从 QueryRequest 派生隐式执行。
 
 共同过滤：`scopeIds/repositoryIds/kinds`；根选择 `rootFilter` 与图遍历 `traversalFilter` 分开，筛根为 route 不得限制后续 endpoint/table 类型。`basisFilter` 默认 observed/declared，`includeCandidates=false`，`freshnessPolicy=verify|indexed|allowStale`，默认 verify。verify 在预算内核对相关文件和选择器集合，确认不了返回 unknown/partial；indexed 只说明库内状态，未核验磁盘时标记 `diskChecked=false` 且不能自称当前 fresh；allowStale 明确返回历史断言和警示，不能混成当前结论。
 
@@ -313,6 +330,7 @@ Core 暴露 `QueryRequest` tagged union，`operation` 为 `status|search|locateF
 | getCapabilities / getCapabilities / schema 资源 | 无；协议/Schema hash、支持的类型/关系、操作和 limits、实际 provider/language/runtime，不宣称未构建 feature |
 | status / status / index_status | `{checkFreshness:true}` 默认；base/collectors/knowledge 分项 freshness、coverage、activeVersions、gaps、扫描是否完整；false 等价 indexed |
 | search / search / search | `{query,fields?,filters?,pageSize?,continuation?}`；fields 支持 businessTerm/route/title/comment/module/symbol/path/source；返回匹配断言、证据与排序原因 |
+| neighbors / neighbors / neighbors | `{root,direction,relationKinds?,filters?,pageSize?,continuation?,budget?}`；直接邻接 keyset 分页，保留每个关系断言的方向/限定条件/证据；不续传 BFS 队列 |
 | locateFeature / locateFeature / locate_feature | `{query,routeHint?,rootFilter?,traversal?,view?}`；roots、paths、relatedCode、data、sourceReferences、gaps；不生成自然语言新事实 |
 | trace / trace / trace_links | `{roots:[entityRef],direction:in\|out\|both,relationKinds?,maxDepth?}`；逐跳关系、方向、条件、断点、候选；不把 root kind 当遍历过滤 |
 | codeMap / getCodeMap / get_code_map | `{query?,roots?,maxFiles?,maxSymbols?}`；确定性相关文件与符号轮廓、关联理由与未覆盖语言 |
@@ -364,7 +382,7 @@ CLI 目标约定：JSON 输出统一 stdout，日志 stderr；成功完整 exit 
 
 ### 3.8 Agent 与 Prompt 契约
 
-`agent={enabled,provider,model,baseUrl?,apiKeyEnv,maxTurns:24,maxToolCalls:80,maxRepairAttempts:2,timeoutSeconds:600,maxInputChars:80000,maxOutputTokens:8192,autoActivate?}`。初版 provider allowlist 为 `openai|anthropic|openai-compatible`，每个只有 T18 实际验证后才进入 capabilities；兼容端点必须做工具调用/错误/取消 smoke，不因 HTTP 通就宣称支持。`apiKeyEnv` 默认 `PROJECT_KNOWLEDGE_LLM_KEY`，只在进程内读取并传客户端，不修改全局环境，不放进提示词、插件 env、日志或数据库。没有凭据只阻塞 Agent，不阻塞 Core。模型 ID 必须用户配置，不虚构默认可用模型。
+`agent={enabled,provider,model,baseUrl?,apiKeyEnv,maxTurns:24,maxToolCalls:80,maxRepairAttempts:2,timeoutSeconds:600,maxInputChars:80000,maxOutputTokens:8192,autoActivate?,thinking?}`。初版 provider allowlist 为 `openai|anthropic|openai-compatible`，每个只有 T18 实际验证后才进入 capabilities；兼容端点必须做工具调用/错误/取消 smoke，不因 HTTP 通就宣称支持。`apiKeyEnv` 默认 `PROJECT_KNOWLEDGE_LLM_KEY`，只在进程内从环境变量或局部解析的 `.env` 读取并传客户端，不修改全局环境，不放进提示词、插件 env、日志或数据库。没有凭据只阻塞 Agent，不阻塞 Core。模型 ID 必须用户配置，不虚构默认可用模型。`thinking` 可选布尔值；省略沿用端点默认，false 经 Rig 关闭思考，true 映射 medium；不支持时明确失败，不放宽预算或暗换模型。
 
 Prompt 组合顺序：产品 shared → 调查/collector/link/repair/knowledge 模板 → 生成的当前协议/Schema/tool 列表 → 有引用的项目约定 → goal/focus/范围 → 有界上下文。项目 `.project-knowledge/prompts/` 只追加业务约定，不能覆盖协议、预算、真值和写入范围。源码、注释、业务文档作为带边界的数据，不作为工具执行指令。
 
@@ -409,7 +427,7 @@ Skill 输出包含 `SKILL.md`、`references/{conventions,routes,frontend,api,dat
 | C | T11—T16 | 两种项目布局的采集 → 跨仓关联 → 页面/流程/台账事实查询与数值核验 |
 | D | T17—T19 | 导出上下文 → Rig 调查/生成/有限修复 → 激活 → 导入主题和生成 Skill |
 | E | T20—T22 | 同一索引由 CLI/SDK/MCP 查询维护 → 三端结果一致 → 端到端回归 |
-| F | T23 | 四平台制品 → 干净环境安装 → 离线/模型/插件依赖分层验证 → 发布候选 |
+| F | T23 | Windows x64 制品 → 隔离安装与离线重装 → 分层依赖验证 → 未公开发布的可安装候选；其他平台后续（D31） |
 
 T01 创建以下 script，脚本为跨平台 Node `.mjs`，避免依赖 Bash：
 
@@ -429,8 +447,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T00 — 来源复核、依赖锁定前的最小集成验证
 
-- 状态：`doing`；前置依赖：无。
-- 本轮结论（2026-10-26）：已确认 Rust 1.97.1 / Node 24.14.0 / pnpm 10.34.8 可用；`rig = "=0.45.0"`、`rusqlite 0.41.0`、`tree-sitter 0.27.1`、`napi 3.15.0`、`schemars 1.2.3`、`jsonschema 0.60.1` 已锁定并可编译；SQLite 的 FTS5 / JSON1 / 外键 / WAL / backup 与四类 Tree-sitter grammar 已实测通过。**未完成**：napi v3 实际加载、MCP 2.4.0 stdio 握手、Rig 工具循环最小例；本机没有可用的 Python 3.12，Python 侧向量无法执行。证据：`docs/evidence/T00/`。
+- 状态：`done`；前置依赖：无。
+- 本轮结论（2026-10-26 续）：此前 SQLite/grammar 有效证据沿用；本轮独立锁定探针通过 Rust 4 项、Node 5 项与 Python 18 条身份向量。napi v3 实际加载并调用 Core Schema；MCP 2.4.0 stdio 旧 initialize 协商 2025-11-25，显式 pin 新版协商 2026-07-28，两者 tools/list/call 和错误回传均通过；Rig 0.45.0 实测工具循环、结构化错误、max_turns、Hook 取消及自定义 key/baseUrl 构造（无真实 provider 请求）。uv 已有可执行 Python 3.12.13，Python/TS 6.0.3 非 ASCII 位置已验证。历史审查资料仍 missing，不阻塞。证据：`docs/evidence/T00/probe-report.json`，入口 `node scripts/verify-integration-probes.mjs`。
 - 完成能力：确定可构建的依赖组合、开发工具链与外部 API 用法，并保留资料缺失的事实。
 - 模块/文件：`docs/decisions/dependencies.md`、`docs/evidence/T00/`；最小例先放该证据目录，不改旧项目文件。
 - 步骤与约束：
@@ -445,8 +463,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T01 — 新工作区、CLI 骨架和统一验证入口
 
-- 状态：`doing`；前置依赖：T00。
-- 本轮结论（2026-10-26）：Rust workspace、锁文件、`project-knowledge --help/--version`、stdout/stderr 与退出码边界已就绪；`pnpm run build:contracts` / `check:contracts` / `verify:docs` 为真实入口且可执行；`cargo fmt --all -- --check`、`cargo clippy --workspace --all-targets` 均无告警。**未完成**：新项目独立 CI workflow、`--no-default-features` Core-only 构建的独立验证记录。证据：`docs/evidence/T01/`。
+- 状态：`done`；前置依赖：T00。
+- 本轮结论（2026-10-26 续）：复用并修正现有独立 Project Knowledge CI，固定 Node 24.14.0、Rust 1.97.1 与已核对的 action commit；Rust job 显式提供 Node，Node job 补 Rust/Python、锁定安装、契约与真实探针。替换可能吞掉 cargo 失败的 grep 管道；缺 Cargo 的负例正确失败。fmt/clippy/check、87 项 workspace 测试、Core-only、依赖方向、TS 构建/类型、契约、文档、9 项探针和 Python 18 向量均通过。远程 Actions 未触发，不宣称跨平台已运行。证据：`docs/evidence/T01/`。
 - 完成能力：独立新项目可构建，CLI 帮助可运行，后续命令和检查有一致入口。
 - 模块/文件：`Cargo.toml`、`Cargo.lock`、`rust-toolchain.toml`、`package.json`、`pnpm-workspace.yaml`、`pnpm-lock.yaml`、`crates/{core,agent,cli}/`、`bindings/node/`、`xtask/`、`scripts/`、`.gitignore`。
 - 步骤与约束：
@@ -460,8 +478,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T02 — 统一类型、稳定身份、Schema 和协议测试向量
 
-- 状态：`doing`；前置依赖：T01。
-- 本轮结论（2026-10-26）：统一 DTO、稳定身份纯函数、2020-12 Schema 导出、类型注册表与共享身份向量已实现；Rust 与 Node 两种独立实现对 `fixtures/protocol/identity-vectors.json` 的 18 条向量结果一致；`build:contracts` / `check:contracts` 可重复生成且一致。**未完成**：Python 侧向量执行（本机无 Python 3.12）、以 `jsonschema` 对非法 fixture 做精确 code/JSON Pointer 校验、扩展类型注册表的拒绝用例。证据：`docs/evidence/T02/`。
+- 状态：`done`；前置依赖：T01。
+- 本轮结论（2026-10-26 再续）：扩展登记 → extract → 再导出 → link → case → 激活 → 搜索/重新导出及活动类型消费均通过；未知类型、命名空间冒用、重复登记、公共覆盖、远程/文件/动态引用、非法载荷/端点和缺证据拒绝。IdentitySlot 显式 null 拒绝而省略保留；共享身份向量增至 21 条，Rust/Node/Python 一致。完整公共 `$defs` 与 TS 类型导出（含 RelationRef/业务载荷），编译正例 7、负例 8；全量 Rust 92 passed，Clippy 和同源检查通过。证据：`docs/evidence/T02/`。
 - 完成能力：Core/插件/CLI/SDK/MCP 使用同一套结构、身份和错误格式，脚本可独立实现兼容输出。
 - 模块/文件：`crates/core/src/contract/{entity,relation,evidence,collector,query,error}.rs`、`docs/protocol.md`、`docs/schema/`、`fixtures/protocol/`、`xtask/src/`、`scripts/generate-types.mjs`。
 - 步骤与约束：
@@ -523,7 +541,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T06 — 冻结独立真值、两种布局和数值样本
 
-- 状态：`todo`；前置依赖：T05。
+- 状态：`done`；前置依赖：T05。
+- 完成核对（2026-10-28）：只读冻结 synes HEAD `6f47bdbf901f66e59909f8e24edd2e41a1b4f379` 的 11 份逐字节原始来源，保存逐文件 Git 作者/修订与 hash；独立于待测插件输出审阅路由、菜单、GraphQL、状态/流程、ORM 与权限材料。A/B 布局保持合成 smoke 分类，数值样本以 Python 整数逐记录累计和 Rust 内存 SQLite 独立核验；不宣称生产业务准确率或维护者签认。冻结 50 文件，truthHash=`aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed`；4 个 truth_ 测试及独立算术 audit 通过。来源/引用/expected/forbidden 身份、候选写入边界与数值反例见 `fixtures/truth`、`docs/evidence/T06/verification-report.json`。
 - 完成能力：插件与场景有独立于其生成结果的验收依据，能识别同名误连和统计口径错误。
 - 模块/文件：`fixtures/{page-location,purchase-workflow,purchase-ledger}/`、`fixtures/truth/{manifest,scenario1,scenario2,scenario3,negative}.json`、`docs/validation/truth-review.md`。
 - 步骤与约束：
@@ -538,8 +557,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T07 — manifest、运行时、锁定依赖与有界子进程
 
-- 状态：`doing`；前置依赖：T05。
-- 本轮结论（2026-10-26）：manifest 校验（协议版本、ID/版本非空、`executable` 运行时必须引用项目已配置 runtime、入口与制品路径不得越界/绝对/符号链接）、阶段 DAG 校验（唯一 ID、`pluginId:stageId` 依赖格式、自依赖与环、extract 不得依赖 link）、制品哈希（排序路径 + 逐文件内容哈希 + 依赖锁摘要）已实现；子进程宿主实现了 stdin 单对象 / stdout 单对象、输出与 stderr 有界、并发 2、超时、取消、env 白名单、任务 cwd，以及 Windows Job Object / Unix 进程组的进程树终止；Node 与 Python 模板及超时/坏 JSON/非零退出/输出洪泛故障脚本已就位；`cargo test -p project-knowledge-core --test collectors` 14 条用例全部通过；CLI `collect --phase extract` 已能发现候选、运行阶段并校验输出（证据 `docs/evidence/T07/e2e/`）。**未完成**：Python 运行时在本机不可用，Python 模板只能静态校验；`npm ci` 与 `pip install --require-hashes` 的真实依赖准备未联网执行（准备代码已实现，但本轮没有可用的锁文件样本）；Windows Job Object 的后代进程清理尚无独立断言（超时用例只验证了返回时限与错误码）。
+- 状态：`done`；前置依赖：T05。
+- 本轮结论（2026-10-27）：Node/Python 真实锁文件联网安装、ESM/venv 实际导入、validate/activate/collect 缓存复用均通过；plugin prepare 是显式安装入口，缺缓存/坏锁/文件改写/增删均拒绝，执行前后与提交前检查完整树。隔离 cwd 和模块查找，不继承业务 node_modules 或宿主语言路径；模型 key 不透传。安装 120 秒总限时与合并输出上限，进程组/Job Drop 也清理后代。修复 Windows AppData 跨卷映射发布与 Python 长路径导入，输入写入/双流读取/退出纳入完整超时，显式关闭 stdin 发送 EOF。全量 Rust 95 passed；真实 CLI 27 步，缓存 2 份；Clippy/格式/同源检查通过。证据：`docs/evidence/T07/{workspace-closed.log,dependencies/report.json}`。非 OS 沙箱；未使用网络命名空间或远程 CI，后续无安装以日志/hash/mtime 不变核验。
 - 完成能力：Core 能可复现运行 Node/Python 插件，正常、失败、超时、取消和输出溢出行为明确。
 - 模块/文件：`crates/core/src/collect/{manifest,runner}.rs`、`collectors/templates/{node,python}/`、`crates/core/tests/collectors.rs`、`crates/cli/src/commands/collect.rs`。
 - 步骤与约束：
@@ -554,8 +573,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T08 — 事实校验、临时 extract/link 和范围替换
 
-- 状态：`doing`；前置依赖：T07、T04。
-- 本轮结论（2026-10-26）：采集输出校验已实现（协议版本、runId/stageId/inputSnapshotId 回显、实体 ID 重算、AI 判断必须是 inferred、每条断言至少一条原始证据、证据必须指向输入来源且内容哈希一致、字节区间非空且不越界、行号与字节区间一致、生成知识不得作为原始证据、关系端点必须来自本批或已导出快照且端点类型组合合法、依赖与缺口声明自洽、覆盖能力必须在 manifest 的 capabilities 内）；结果事务 B 已实现（按替换范围全量替换断言、证据引用、依赖、coverage、搜索投影与 `current_batches`，旧批次单向失效并记录失效 generation，成功空输出同样替换，其他生产者的断言不受影响，失败整组回滚）；阶段输入导出已实现（来源 + 内容 + 选择集合摘要 + 已导出实体断言）。**未完成**：staging 临时库中的 extract → 重新导出候选 → link → 验收用例的完整链路尚未实现；CLI `collect` 目前只运行并校验，不提交事实（提交路径尚未接线）；Core 自动依赖（config/artifact/runtime/sourceSet/upstream/candidateSet）尚未在导入时自动补齐；验收用例（acceptance case）比较尚未实现。
+- 状态：`done`；前置依赖：T07、T04。
+- 本轮结论（2026-10-27）：保留已验收 backup staging → extract → 再导出 → link → case → 事务 B 与自动依赖补齐；T02 补完扩展正向/拒绝矩阵，T07 补完 Python 与缓存接线（含依赖 integrity 的运行时依赖/验证绑定），所有前置现已 done。坏 link/case/伪造依赖、截断候选、生成知识、缓存变化仍阻止提交；关系单独使用生成知识的非法例也从 evidence 根因拒绝。全量 95 项通过，真实 Node/Python 安装后采集均通过。旧证据不重做；增补：`docs/evidence/T08/closure-2026-10-27.md`。
 - 完成能力：外部插件输出必须经过结构、来源、语义约束和批次验证，link 可安全引用其他阶段实体。
 - 模块/文件：`crates/core/src/collect/{validate,import}.rs`、`crates/core/src/index/dependencies.rs`、`crates/core/tests/{collectors,indexing}.rs`。
 - 步骤与约束：
@@ -570,7 +589,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T09 — 候选登记、不可变发布、原子激活和中断恢复
 
-- 状态：`todo`；前置依赖：T08。
+- 状态：`done`；前置依赖：T08。
+- 本轮结论（2026-10-27）：保留既有候选/发布/CAS/回退实现并复核后续未登记成果；Windows activation 13/13，Linux 14/14（隔离满文件系统用例另行 1/1）。事务 C 两个写入屏障真实终止 owned 宿主，旧整组/完整性/锁释放/重试通过；SQLite FULL 与独立 4 MiB tmpfs 的真实 ENOSPC 均保留旧活动版本并可恢复。T07 已贯通 npm/pip 缓存；Linux 27 步依赖闭环已有证据。物理断电和 macOS/ARM64 未实测，不作相应声明；四平台发布仍受 U03/T23 门禁约束。证据：`docs/evidence/T09/README.md`、`recheck-report.json`。
 - 完成能力：验证后的候选可自动成为活动插件，切换失败不会暴露混合版本，外部 Agent 使用同一入口。
 - 模块/文件：`crates/core/src/collect/registry.rs`、`crates/core/src/storage/{plugins,runs}.rs`、`crates/cli/src/commands/plugin.rs`、`crates/core/tests/lifecycle.rs`。
 - 步骤与约束：
@@ -585,7 +605,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T10 — 依赖闭包、增量、持久失效与失败回滚
 
-- 状态：`todo`；前置依赖：T09。
+- 状态：`done`；前置依赖：T09。
+- 本轮结论（2026-10-27）：替换全业务失效/不执行插件的占位增量；Core 比较来源/集合/配置/运行时/缓存与完整候选断言，先持久失效当前依赖闭包，按稳定 DAG 在暂存库运行受影响阶段并一次提交业务组。未变化仓库与阶段复用 batchId；零变化不推进正式 generation；显式 collect 失败前也登记输入变化。Windows workspace 103 passed、Clippy/fmt/Core-only/同源契约通过；Linux Core 99 + CLI 3 passed，最终增量 4 项在最终源码上复核。五组实体/关系/来源/证据/搜索/覆盖与干净重建一致；改名/移动/属性、ignore、失败/取消/回退和 Windows CLI 真实宿主终止覆盖单向 stale。无模型客户端，调用数 0。Linux 独立 Clippy 组件损坏，空程序退出 0 已明确作废，不作为通过证据；有效 lint 为 Windows 全工作区实测。证据：`docs/evidence/T10/README.md`、`verification-report.json`。
 - 完成能力：无 LLM 日常更新可处理修改/删除/新增、候选集合变化和失败；过期事实不会复活。
 - 模块/文件：`crates/core/src/index/{build,dependencies,incremental}.rs`、`crates/core/src/project/snapshot.rs`、`crates/cli/src/commands/{index,collect,status}.rs`、`crates/core/tests/lifecycle.rs`。
 - 步骤与约束：
@@ -600,7 +621,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T11 — 路由、前端、注释、模块和自定义入口插件
 
-- 状态：`todo`；前置依赖：T10、T06。
+- 状态：`done`；前置依赖：T10、T06。
+- 完成核对（2026-10-28）：A/B 两独立 manifest/注册约定/锁/case，锁定 TypeScript 6.0.3 与 GraphQL 16.11.0。Core 实际 prepare→extract→case→校验→提交；26 expected entity、20 expected relation 全命中，forbidden 0；动态/歧义/语法/遮蔽、移动改名、静态标题/alias 数组/proxy 与 UTF-8 引用综合验证通过。125 个全工作区 Rust 测试、Clippy -D warnings、fmt 与契约/TS 同源检查通过。SDK/Core 无项目专属解析；原始项目未改动，A/B 结果仅为合成 smoke。证据：`docs/evidence/T11/verification-report.json` 及同目录快照、日志。
 - 完成能力：前端项目专属脚本能提取真实页面入口、标题、操作、事件、请求和业务词，并能在不同布局复用协议。
 - 模块/文件：`collectors/examples/frontend-backend-a/`、`collectors/examples/frontend-backend-b/`、`collectors/templates/node/`、`fixtures/page-location/`、`crates/core/tests/business_scenarios.rs`。
 - 步骤与约束：
@@ -608,6 +630,7 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
   2. 提取组件/方法、事件→handler、handler→wrapper→HTTP/GraphQL request；保留 baseURL、proxy、操作名/变量与动态目标缺口，禁止用函数名猜后端服务。TypeScript AST 的 UTF-16 offset 必须按原始文本映射到 UTF-8 字节，不能复用行列值作为字节位置。
   3. 注释/docstring 绑定实际符号，业务别名和模块有原始 evidence；自定义定时任务/消息/命令入口按当前样例真实注册解析，不把所有同名方法当入口。
   4. 至少两种目录/命名布局独立 manifest；项目约定可变化，但输出 kind/字段不变化。生成器不内置 NestJS/React/Vue/ORM 默认路径。
+     真实项目的脚本由 AI 基于调查材料生成到项目候选目录；此处 examples 仅验证插件能力，不将样例适配规则注册为 SDK/Core 内置后端。
   5. 为支持模式写 manifest、锁依赖、positive/negative/candidate/gap case；不支持模板/框架构造明确 coverage partial。
 - 输入/输出/失败：来源快照、基础符号和调查材料 → routes/frontend/comments/modules/entrypoints extract；语法未知保留 gap，不用正则硬连完整业务链。
 - 验证与通过：`pnpm run test:plugins -- --capabilities routes,frontend,comments,modules,entrypoints`；`cargo test -p project-knowledge-core --test business_scenarios frontend_`；独立真值 expected 全命中、forbidden 零命中、动态目标有 gap；移动目录与业务改名后仍能按新身份检出。
@@ -615,7 +638,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T12 — 后端 HTTP/GraphQL、业务方法和数据库采集插件
 
-- 状态：`todo`；前置依赖：T11。
+- 状态：`done`；前置依赖：T11。
+- 完成核对（2026-10-28 续）：保留已有 TS/Python HTTP/GraphQL 注册闭环；补齐两布局独立 database 制品、SQLGlot 30.24.0 显式 SQLite 方言 DDL/SELECT/CTE、TS/Python AST 的 connect/model/query/findAll 与实际相对 import 绑定。每布局 90 个独立审阅 DDL expected 实体、4 个正确查询有序 joins 全命中；同名不同数据源隔离，错误实例、缺 import、动态/遮蔽、复合模型/连接键缺列、坏 SQL 与旧断言替换反例通过。业务基数/粒度/状态/单位等未知项保持 gap，不提前完成 T14。修正三项关系 Serde 名称与既定 snake_case 契约不一致，从 Rust 重生 Schema/TS；全部关系 wire/as_str 往返断言通过。`api,database` 联合入口、全工作区 129 tests、Clippy -D warnings、fmt、契约/TS 边界与 typecheck、50 文件冻结真值均通过；未改 T06 truthHash、不连接业务数据库、普通采集无模型。证据：`docs/evidence/T12/database/verification-report.json` 及 `README.md`；此前 API 证据保留。T13 前置现已满足。
 - 完成能力：项目 API/数据库结构和已有 SQL/ORM 查询可采集，数据源、实例和复合键不混淆。
 - 模块/文件：`collectors/examples/*/{api,database}/`、`fixtures/{page-location,purchase-ledger}/`、`crates/core/tests/business_scenarios.rs`。
 - 步骤与约束：
@@ -630,7 +654,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T13 — 跨插件、跨仓库与候选集合关联
 
-- 状态：`todo`；前置依赖：T12。
+- 状态：`done`；前置依赖：T12。
+- 完成核对（2026-10-28）：A/B 的 frontend/api/database/link 四制品由 Core 登记→整组验证→原子激活；HTTP、GraphQL 与查询数据源沿真实绑定关联，不新建相似实体。缺绑定即使一个名字也保持 candidate，人工依据保留 declared/human，缺失/重复/截断/少报 selector 均拒绝。四组 resolver 1→2→1、代理与数据源变化的增量/干净重建实体、关系和覆盖逐项相等。全工作区 131 passed，Clippy -D warnings、fmt、Schema/TS 同源及类型边界、typecheck、50 冻结文件与独立 oracle 均通过。D23 的输入证据与关系摘要已从 Rust 同源落实。证据：docs/evidence/T13/verification-report.json 与规范化比较；不外推生产准确率。
 - 完成能力：前后端、数据库和业务对象按真实绑定关联，歧义保持候选且可增量重算。
 - 模块/文件：`collectors/examples/*/link/`、`crates/core/src/collect/validate.rs`、`crates/core/src/index/dependencies.rs`、`fixtures/truth/negative.json`。
 - 步骤与约束：
@@ -645,7 +670,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T14 — 业务流程与台账口径的结构化采集
 
-- 状态：`todo`；前置依赖：T13。
+- 状态：`done`；前置依赖：T13。
+- 完成核对（2026-10-28）：A/B semantics 两阶段由 Core prepare→case→整组激活；每布局 6 状态、14 个独立文档/代码转换断言、9 个字段完整原始列 lineage 均匹配独立审阅。冲突、缺流程文档、错误状态对象、调用顺序反例、错误粒度/tenant 键/有效状态/删除条件/NULL 回填均有缺口，未猜测单位或基数。最终 14 条验证命令 exit 0，2 个 semantics 综合测试及 6 个 frontend 回归通过；Clippy/fmt、契约、冻结真值/oracle 通过，109 份源码/制品及全部日志 hash 复核一致。证据 docs/evidence/T14/verification-report.json；场景查询为 T16，不外推生产准确率。
 - 完成能力：采集业务操作/状态/前后单据与取数语义，不以代码调用或路径距离替代业务依据。
 - 模块/文件：`collectors/examples/*/{workflow,report}/`、`crates/core/src/contract/{entity,relation}.rs`、`fixtures/{purchase-workflow,purchase-ledger}/`。
 - 步骤与约束：
@@ -660,7 +686,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T15 — 通用查询、双向有界遍历、预算和分页
 
-- 状态：`todo`；前置依赖：T13。
+- 状态：`done`；前置依赖：T13。
+- 完成核对（2026-10-28）：四个 graph/codemap 注释占位已接入实际查询；30 符号/58 双向关系普通分页与 7,000 字符分页逐项一致，BFS 回环/高出度/预算/frontier、跨库/跨代/改请求游标、伪造/历史来源、inflight SQLite 取消通过。索引全回归 49、Agent/CLI 19、扩展投影回归 1 均通过；Clippy/fmt、契约/类型/真值/计划通过。SQL trace 与完整持久表摘要/主文件证明无业务写入，实际查询 EXPLAIN 验证正反向及路由索引。源码扫描 180 个文件、零字节 0；注释/空导出由 14 减为 10，剩余按 T17/T20/T21 和范围外 SCIP 继续。证据 docs/evidence/T15/verification-report.json；D24 已同源落实，场景组合仍为 T16。
 - 完成能力：所有客户端可用同一 DTO 查询断言、上下游和链路，明确完整性、分页和过期语义。
 - 模块/文件：`crates/core/src/{query/mod.rs,search,graph,codemap,evidence}`、`crates/core/src/contract/query.rs`、`crates/cli/src/commands/query.rs`。
 - 步骤与约束：
@@ -675,7 +702,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T16 — 页面、流程、台账三个场景的 Core/CLI 闭环
 
-- 状态：`todo`；前置依赖：T14、T15。
+- 状态：`done`；前置依赖：T14、T15。
+- 完成核对（2026-10-28）：四场景 execute 与 CLI 验收脚本已替换骨架；A/B 共 6 主响应 Core/CLI 相等，跨入口游标可复用，108 个来源引用回读 current。明确保留原文缺 import 反例，再用独立审阅补充 import 确认 HTTP/GraphQL/业务方法到 ds.erp 的 7 列；6 状态/14 流转、9 字段完整 lineage 与原始真值相等，动态路由/无流程文档/错误 SQL 保留歧义和缺口。SQL fixture 与独立整数 oracle 逐行/合计一致。全部业务 18、索引 49、Agent/CLI 19 回归与 Clippy/fmt/Schema/类型/5 组制品/真值通过；D25 修复跨 Cargo feature 的裁剪/哈希差异。证据 docs/evidence/T16/verification-report.json；仅 Windows x64，无生产准确率外推。下一依赖满足项 T17。
 - 完成能力：三类业务输入可返回有证据的跨层事实和缺口，CLI 已具备全部业务查询能力。
 - 模块/文件：`crates/core/src/query/{feature,page,workflow,report}.rs`、`crates/core/tests/business_scenarios.rs`、`scripts/verify-scenarios.mjs`。
 - 步骤与约束：
@@ -690,7 +718,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T17 — 主题、版本绑定、知识失效和 Skill 输出
 
-- 状态：`todo`；前置依赖：T16。
+- 状态：`done`；前置依赖：T16。
+- 完成核对（2026-10-28）：knowledge 三个注释占位、generate CLI 和三个模板已替换；Core 输入收据/逐 claim 原始引用/派生约定 CAS、版本依赖/单向 stale、strict Skill 完整目录及 CURRENT 原子选择均落地。工作区 145 passed/0 failed/0 ignored；最后补强 partial 缺口传播后重跑完整 indexing 55（含 6 knowledge、14 组拒绝反例）、12 条实际 CLI 与全部静态/契约/类型/冻结真值门禁。复用的广泛回归只允许两份最终变更，inventory 与日志 hash 绑定；13 项最终记录、源码/快照/日志与不可变 CLI hash 均复核相同。185 源码零字节 0，生成输出扫描回流 0，50 冻结文件不改。证据 docs/evidence/T17/{README.md,verification-report.json,unfinished-review.json}；仅 Windows x64，无真实模型或业务 DB，T18/T19 及 SDK/MCP 未提前关闭。
 - 完成能力：可无模型导出主题上下文、导入外部产物并生成可核验的业务 Skill，旧文档能被判过期。
 - 模块/文件：`crates/core/src/knowledge/`、`crates/core/templates/`、`crates/cli/src/commands/generate.rs`、`skills/{project-onboarding,project-query}/`。
 - 步骤与约束：
@@ -705,7 +734,9 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T18 — Rig 模型配置、Prompt 组合和预算工具包装
 
-- 状态：`todo`；前置依赖：T17、T00。
+- 状态：`done`；前置依赖：T00、T09。
+- 执行调整：2026-10-27 用户明确要求先实现 `.env` 与 agent；按 D21 先完成不依赖知识产物的模型/工具层。2026-10-28 T17 已 done 后，继续接入原始约定/CAS 和知识工具；旧草稿限制仅是历史状态。
+- 完成核对（2026-10-28）：原始约定/CAS 与三个知识工具已接入 Core，同一 run 的模型/工具/修复/时间预算继续累计；Core 查询与写事务前后支持取消/剩余截止时间，收据绑定 coverage/partial/gaps/片段且排除检查时钟。16 条最终门禁命令 exit 0：Agent 16（config 3、tools 8）、indexing 56（knowledge 7）、CLI 6，加关闭 Agent feature 的 1 个变体；Clippy/fmt、契约/类型、Core 依赖隔离、冻结真值/计划/扫描通过。事务补强后的真实 qwen3.8-flash 查询 smoke 2 轮/1 工具成功，本轮两次 smoke 共 4 次请求分别留存；默认 CLI 已恢复并检查 Agent 可用。证据 docs/evidence/T18/continuation-2026-10-28/{README.md,verification-report.json,live-report.json}；185 源码零字节 0，T19 业务与恢复验收不由 smoke 代替。
 - 完成能力：Rust Agent 可调用 Core 受控工具，接收结构化错误，模型/凭据/时间/轮数配置可验证。
 - 模块/文件：`crates/agent/src/{config,prompts,tools}.rs`、`prompts/{shared,investigate,collector,link,repair,knowledge}.md`、`crates/cli/src/commands/agent.rs`、`crates/agent/tests/agent_lifecycle.rs`。
 - 步骤与约束：
@@ -720,7 +751,9 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T19 — 调查、生成、有限修复、激活和知识的 Agent 闭环
 
-- 状态：`todo`；前置依赖：T18、T09。
+- 状态：`done`；前置依赖：T18、T09。
+- 完成核对（2026-10-29）：真实模型在冻结 T06 采购流程文档/源码上生成并验证插件，经有限修复、激活、主题与 Skill 完成闭环；最终修复 run 18 轮/21 工具，原脚本/case/input 由宿主继承并保持字节一致。独立核对 6 状态、6 条原文流转/守卫、2 条单据关系及有序 3 键；两个主题的 guard 引用覆盖实际完整原文，先前仅引用函数名的失败审查保留。去 key/关闭 Agent 后守卫变更、空输出删除及还原增量无模型请求，旧知识保持 stale。Core-only 外部提交/验证/激活与重复激活、真实终止 owned CLI 后恢复知识/同一预算和截止时间/单次激活通过。最终定向 Agent 21、CLI 6、indexing 57（knowledge 8）、collectors 36、lifecycle 17，共 137 passed；Clippy/fmt、契约/类型、冻结真值、计划/源码检查通过。900 秒全工作区尝试超时未计通过。185 源码无零字节；仅 Windows x64，三场景跨端及发布平台仍为后续任务。证据 docs/evidence/T19/continuation-2026-10-28/。
+- 交接核对（2026-10-28）：T18 已关闭，现有调查/候选/验证/激活实现与当前知识工具已有 Core/模拟 provider 回归；先核对当前源码和历史真实构建/失败记录，再完成本阶段独立业务真值的真实完整流与知识恢复、冲突/中断验收。历史小型 fixture 和真实查询 smoke 仅是机制证据，不提前标记本任务 done。
 - 完成能力：一个 Rig Agent 能完成增强索引与 Skill，失败能有限停止；外部 Agent 制品可走同样 Core 路线。
 - 模块/文件：`crates/agent/src/{runner,lib}.rs`、`crates/agent/tests/agent_lifecycle.rs`、`skills/project-onboarding/`、`docs/agent-usage.md`。
 - 步骤与约束：
@@ -729,13 +762,15 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
   3. 默认验证通过自动发布/登记/激活；autoActivate=false 返回 pending_activation；with-skill 只使用活动索引做主题生成/导入/Skill，失败整体 partial。
   4. 保存进度与累计预算，实现 resume 的来源复核和 activation 幂等；模型自行称完成、只生成文件、只过 schema 或未完成业务 case 均不能报 done。
   5. 用外部手写/外部 Agent 候选调用 submit→validate→activate，证明插件协议完全不含 Rig 类型；日常 index 运行不加载 Agent crate/model 客户端。
+  6. 真实项目接入必须从该项目源码调查生成插件，不能复制示例事实作为输出；换一个项目或改变注册方式时，重新生成/验证插件，SDK/native/Core 无需项目专属修改或重新发布。
 - 输入/输出/失败：goal/focus + 项目 → conventions、可运行插件、validation/activation、主题/Skill 和最终报告；两修复仍失败或预算耗尽保存 candidate/issues 并停止，旧批次 freshness 真实保留。
 - 验证与通过：`cargo test -p project-knowledge-agent --test agent_lifecycle`；故意错误插件在预算内被修复或准确停止；一次真实模型在独立 fixture 完成全流程（按 T06 真值评估）；随后去掉 key 重跑增量成功、模型调用 0；autoActivate=false、冲突、中断、知识失败均有正确状态。
 - 保存证据：每阶段产物/hash、issues→修订→新验证链、总预算、激活快照、真实业务验收与外部候选兼容性、无模型增量计数。
 
 ### T20 — Node binding、TypeScript SDK 与取消/关闭
 
-- 状态：`todo`；前置依赖：T15、T17、T02。
+- 状态：`done`；前置依赖：T15、T17、T02。
+- 完成核对（2026-10-29）：native/SDK 占位已替换，十类查询和显式维护共用 Core JSON/Schema；每客户端连接 owner 线程、64 排队位、异步 Promise 等待、同步请求 ID/取消登记、配置路径固定与幂等 close 落地。十类同库 CLI/SDK 规范化结果一致；只读 SQL/数据库字节不变、分页/过期/非法输入、128 字节 ID 下 Unicode 字符预算、负载时 event loop 和排队时异步 fs 响应、pre-abort/SQLite VM 内取消、事务中回滚、真实插件父/后代进程取消/关闭、句柄释放与 native 缺失错误通过。Core 131、native 1、SDK 7 共 139 passed；Clippy -D warnings、fmt、Rust/TS 契约/类型边界、typecheck、依赖隔离、冻结真值和源码/计划门禁通过。192 份源码零字节 0；T21/MCP、T23/四平台与范围外 SCIP 仍保留未完成状态。本轮仅 Windows x64，无模型或业务 DB；证据 docs/evidence/T20/，D29 登记新增同源维护/能力 DTO 与取消边界。
 - 完成能力：SDK 对同一个 SQLite/配置提供类型化查询及显式维护，不重复实现查询与存储。
 - 模块/文件：`bindings/node/{Cargo.toml,build.rs,src/lib.rs,package.json}`、`packages/sdk/src/{index,client}.ts`、`packages/sdk/src/generated/`、`packages/sdk/test/`。
 - 步骤与约束：
@@ -744,19 +779,21 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
   3. SDK 提供第 3.7 节全部方法、统一 error 类与 snapshot/ref 透传；维护客户端只能调用 Core 已有入口，不需要或打包 Rig Agent。
   4. 请求 ID 绑定 Core 取消令牌；AbortSignal 已触发需立即拒绝，运行中取消中断查询或停止插件树；close 幂等、拒绝新任务并取消/等待已有任务，在超时内释放资源。
   5. capabilities/只读状态不做 migration/发现/采集；native 找不到匹配平台包时明确安装错误，不下载源码编译作为默认 fallback。
+  6. SDK 不包含真实项目或示例工程专属的路由、目录、框架/ORM 解析规则、业务状态或表映射；这些规则来自经验证的项目插件。SDK 只传递通用配置、查询、维护请求与同源结果。
 - 输入/输出/失败：ProjectKnowledge.open({configPath}) + 生成类型请求 → Promise<QueryResponse>；错误保留 code/issues，native panic 转 INTERNAL_ERROR 不崩溃宿主；关闭后调用明确 CLOSED。
 - 验证与通过：`pnpm run build:native`、`build:sdk`、`typecheck`、`test:sdk`、`check:contracts`；同请求 normalized CLI/SDK 完全一致；大量查询时 event loop 仍可响应；pre-abort/运行中取消/重复 close/查询后文件锁释放通过，读操作无写 SQL。
 - 保存证据：生成类型差异、跨端 golden、event loop 测量、取消/close/句柄测试、依赖树无 JS SQLite/Rig。
 
 ### T21 — stdio MCP 查询资源与显式维护模式
 
-- 状态：`todo`；前置依赖：T20、T09。
+- 状态：`done`；前置依赖：T20、T09。
+- 完成核对（2026-10-29）：MCP 2.4.0 的官方 client 已实际通过 legacy/2026-07-28 stdio 协商、十类只读工具/14 维护工具、Core 同源 Schema 与无库校验、三静态/两模板资源、完整响应/分页/partial、InvalidParams 与结构化 Core 错误、只读模式隔离和数据库字节不变。显式提交至激活/回退/增量、主题导出导入/Skill、真实插件父与后代 PID 的取消/断开清理均通过，3 个综合测试 0 failed/ignored；类型构建通过。D30 登记同源校验与协议 handler，D31 按用户确认限首版 Windows x64。证据 docs/evidence/T21/；完整工作区和三端场景继续由 T22 汇总。
 - 完成能力：LLM 通过 MCP 直接查询与维护 Core，无需生成临时 TS 脚本，普通查询连接不具备生成/激活能力。
 - 模块/文件：`packages/mcp/src/{index,tools,resources,schema-adapter}.ts`、`packages/mcp/test/`、`packages/mcp/package.json`。
 - 步骤与约束：
   1. 使用锁定 MCP 2.4.0 `McpServer`、`StdioServerTransport`；bin `project-knowledge-mcp`；stdout 仅协议消息，进程日志 stderr。
   2. 实现 Standard Schema wrapper：`~standard.jsonSchema.input/output` 返回 bundled Core schema，`~standard.validate` 调 native/Core validator；支持的 draft 转换在 T00/T02 已验证，不手写平行 Zod 模型。
-  3. query 模式注册 index_status/search/locate_feature/trace_links/get_code_map/read_source/locate_page/explain_workflow/explain_report，资源含 schema、索引说明、事实/证据和 Skill manifest；引用携带 indexId/generation，资源读取同样核 freshness。
+  3. query 模式注册 index_status/search/locate_feature/trace_links/neighbors/get_code_map/read_source/locate_page/explain_workflow/explain_report，资源含 schema、索引说明、事实/证据和 Skill manifest；引用携带 indexId/generation，资源读取同样核 freshness。
   4. maintenance 模式显式加 export_snapshot/write_candidate/import_conventions/prepare_plugin/validate_plugin/run_plugin_cases/activate_plugin/update_index/export_topic/import_topic/generate_skill 等维护工具；不会给未启动的 Rust Agent 增设伪 agent 工具。
   5. 每个工具回传 structuredContent 的统一 envelope；Core 错误返回 `isError=true` 与 error，非法工具参数用协议参数错误；正常 partial 仍非工具执行错误，annotations 明确只读/破坏性特征。
   6. MCP 取消映射 SDK requestId/token，客户端断开关闭 native；只有 mode=maintenance 可写，prompt 注入和工具参数不能切 mode。
@@ -766,7 +803,8 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T22 — 独立业务验收、跨端一致和故障回归
 
-- 状态：`todo`；前置依赖：T19、T21、T16。
+- 状态：`done`；前置依赖：T19、T21、T16。
+- 完成核对（2026-10-29，Windows x64 / D31）：本轮 cargo test --workspace --locked 实际 159 passed，SDK 7、MCP 3，共 169 个独立测试；完整插件能力入口、Clippy -D warnings、fmt、Rust/TS 契约/类型、Core 依赖隔离、真值/计划/源码/diff 门禁全 exit 0。37 个 S/X 条目映射到本轮通过测试；14 组同库 CLI/SDK/MCP 完整响应归一化一致。A/B 26 entity / 20 relation expected 全命中、2 个 forbidden confirmed=0；只在这组独立审阅候选人口内给指标。50 冻结来源/整数 oracle hash 不变；真实 synes 11 文件与当前来源 11/11 一致、12 条声明事实逐行回查，未取得第二真实仓库不宣称多仓生产准确率。本轮 201 源码零字节 0，空导出 0，范围外 SCIP 保留。旧 900 秒超时不改，本轮 workspace 1142.611 秒 exit 0；命令参数/UTF-8 与 unused import 早期失败均保留。证据 docs/evidence/T22/{verification-report,acceptance-report,source-review}.json。
 - 完成能力：所有需求有可执行验收，能评估准确性而非仅输出格式；失败和增量跨端行为一致。
 - 模块/文件：`scripts/{verify-scenarios,verify-plan}.mjs`、`crates/core/tests/{business_scenarios,lifecycle}.rs`、`packages/{sdk,mcp}/test/`、`docs/validation/acceptance.md`。
 - 步骤与约束：
@@ -779,16 +817,17 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 - 验证与通过：`cargo test --workspace --locked`；`pnpm run check:contracts`、`pnpm run test:plugins`、`pnpm run test:sdk`、`pnpm run test:mcp`、`pnpm run verify:scenarios -- --scenario all --transport all`、`pnpm run verify:docs -- --plan ../plan/NEW-PROJECT-LONG-TASK.md`；全部需实际执行并记录，真实审阅与合成 smoke 分开统计。
 - 保存证据：完整命令/退出码、各项分母与失败明细、数值 oracle/对照、跨端 normalized diff、需求映射检查和独立审阅记录。
 
-### T23 — 分层安装、多平台制品和发布候选
+### T23 — Windows x64 分层安装和发布候选（其余平台后续）
 
-- 状态：`todo`；前置依赖：T22。
+- 状态：`doing`；前置依赖：T22。
+- 当前处置（2026-10-30）：用户明确要求先忽略安装，本项暂缓推进，状态不改为 done。Windows release 双 CLI、native 与四个 npm tarball 已构建；隔离 npm 安装与离线重装通过，但综合 consumer 以 0xC0000409 异常退出，尚未定位原因，不能认定只是安装故障，也不能宣称候选已通过运行验收。基础 native capabilities/open/status/close 的单独检查正常；完整异常继续保留为已知待查项，本轮不再重现或修复。除交付项外，T00—T22 功能源码与已通过回归快照一致；收尾核对见 docs/validation/closure-review-2026-10-30.md。
 - 完成能力：CLI/Agent/native/SDK/MCP 可在声明支持的平台安装运行，发布候选不依赖本机缓存或仓库源码路径。
 - 模块/文件：`xtask/`、`bindings/node/npm/`、`scripts/{package,verify-packages}.mjs`、`.github/workflows/{ci,release}.yml`、`docs/{installation,releasing}.md`、各 Cargo/package manifest。
 - 步骤与约束：
-  1. 构建第 6 节四平台 CLI（默认含 Agent）、Core-only CLI 和 native 包；Prompt/模板/Schema 通过编译嵌入或随包资源定位，禁止依赖构建机绝对路径。
+  1. 按 D31 构建 Windows x64 CLI（默认含 Agent）、Core-only CLI 和 native 包；其他三平台后续。Prompt/模板/Schema 通过编译嵌入或随包资源定位，禁止依赖构建机绝对路径。
   2. native root loader+按平台 optional package，SDK→native、MCP→SDK 的版本及 npm os/cpu/libc 条件一致；绑定包打入 required build.rs/schema 资源，Rust CLI 不要求 Node。
   3. CI 从干净 checkout/lock 构建，收集 artifacts 后组装并核 hash/版本/目标平台；不复制当前旧 workflow 的 package 名和 scripts。Node 24 运行期与 Rust/C/C++/Python 构建期分别测试。
-  4. 每个平台在干净 consumer 安装 tarball 和 CLI，移除 Rust/Node/Python 等非该能力所需工具后测试，四类插件运行时依赖由各自 manifest 检查；无匹配 native 包给明确 unsupported 错误。
+  4. 本轮在 Windows x64 隔离 consumer 安装 tarball 和 CLI，运行 PATH 排除 Rust/编译器/Python，CLI 另排除 Node；npm ci --offline 从独立锁文件重装，不能仅靠仓库链接。插件运行时依赖由各自 manifest 检查；无匹配 native 包给明确安装错误。
   5. 写 release manifest（CLI/core/schema/native/sdk/mcp/protocol/SQLite/runtime 版本和 SHA-256）、license/SBOM、安装/卸载/升级步骤；核验 npm scope、crate/bin 冲突和发布权限，产生 dry-run/pack 制品。
   6. 本计划默认交付可审查发布候选；实际公开发布需要后续明确授权及可用渠道凭据，缺少时标记“候选已完成/公开发布未执行”，不伪称已发布。
 - 输入/输出/失败：通过验收的版本+平台矩阵 → release artifacts、可安装包和验证报告；任一声明平台失败则阻塞该平台出包或经明确决策缩小支持矩阵，不静默降级。
@@ -924,7 +963,9 @@ fixture 同时包含：正确的按明细预聚合收货/退货/发票再关联�
 
 依赖图：CLI(Core-only)→Core；CLI(default)→Core+Agent→Rig；native→Core；SDK→native；MCP→SDK；外部插件为 Core 子进程，不成为 SDK 算法依赖。npm 包名均为待核验命名权限的目标名称；变更公开名称时一次更新 loader、optionalDependencies、docs 和验收 consumer，不触碰协议。
 
-### 6.2 首版平台矩阵
+### 6.2 首版平台与后续矩阵（D31）
+
+用户于 2026-10-29 明确确认本轮只交付 Windows x64。下表其余三行是后续目标，不是首版支持声明，也不作为本轮 T23 完成的必需平台。
 
 | OS/架构 | Rust target / native 后缀 | CLI/Core/Agent | SDK/MCP | 插件/进程验证 |
 | --- | --- | --- | --- | --- |
@@ -937,9 +978,9 @@ fixture 同时包含：正确的按明细预聚合收货/退货/发票再关联�
 
 ### 6.3 发布候选清单与顺序
 
-1. 固定产品版本、protocolVersion、schemaHash、Cargo/package/lock hash；四平台通过 T22/T23。打包资源路径在安装后可定位；无 workspace 相对路径泄漏。
+1. 固定产品版本、protocolVersion、schemaHash、Cargo/package/lock hash；Windows x64 通过 T22/T23（D31）。打包资源路径在安装后可定位；无 workspace 相对路径泄漏。其他平台分别完成其构建、安装后才能加入支持清单。
 2. 产生各平台 CLI 压缩包、SHA-256、license；默认含 Agent，另提供 Core-only 构建说明或制品，命令 capabilities 明确区别。
-3. 汇总四平台 `.node`，生成 optional platform packages，核验 loader/os/cpu/libc/版本；然后 pack native root、SDK、MCP。无正确平台包时立即报告，不在用户安装时编译或下载未核验二进制。
+3. 本轮生成 Windows x64 `.node` 和 optional platform package，核验 loader/os/cpu/版本；然后 pack native root、SDK、MCP。后续三平台分别实测后再汇总。无正确平台包时立即报告，不在用户安装时编译或下载未核验二进制。
 4. 每平台 fresh consumer 装包并执行安装矩阵；打包文件检查 Prompt/Schema/模板和必要资源齐全，密钥、候选 work、fixture 数据库和本地缓存不进入发布包。
 5. 如后续明确授权公开发布：先平台包→native root→SDK→MCP，再 CLI release；每步只发布已核验 hash，任一步失败保存状态并停止依赖包发布，禁止重发不同内容的同版本。公开渠道凭据只在 CI secret 使用。
 6. 数据库 schema 升级只在显式维护命令进行，先保存可恢复备份和版本；不做旧项目数据库迁移，也不允许旧 SDK 静默降级新库。安装/升级文档说明当前可支持版本及重建索引方式。
@@ -951,7 +992,7 @@ fixture 同时包含：正确的按明细预聚合收货/退货/发票再关联�
 - 无 LLM 基础索引、手写外部插件提交、Rig 生成激活、无 LLM 日常增量、三端业务查询、主题/Skill 生成与过期重建分别有真实执行记录。
 - 第 5 节 supported 真值指标、数值和 forbidden 门禁全通过；独立来源审阅与真实项目抽样不能用 Agent 自生 case 替代。真实项目缺资料时明确限制已验收范围，不声称未知业务已覆盖。
 - 正常、失败、取消、中断、并发、文件新增/删除、候选集合变化、过期、回退、制品篡改均通过；旧失效批次不会错误恢复 fresh；只读调用零维护/模型/插件执行。
-- 四个平台按声明边界通过构建和安装，基础 CLI/Agent/SDK/MCP/插件运行时各自依赖明确；不存在“在开发机 node_modules/target 缓存可运行”作为唯一交付证据。
+- Windows x64 按 D31 声明边界通过构建和隔离安装，基础 CLI/Agent/SDK/MCP/插件运行时各自依赖明确；其他三平台后续。不存在“在开发机 node_modules/target 缓存可运行”作为唯一交付证据。
 - 未完成或未验证内容以精确任务/失败证据标出，不能通过改状态、删验收或宣称框架自动具备能力完成本计划。
 
 ## 7. 执行记录模板

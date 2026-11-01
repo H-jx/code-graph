@@ -1,0 +1,624 @@
+{
+  "cliFirst": {
+    "budgetUsed": {
+      "elapsedMs": 18,
+      "entities": 1,
+      "relations": 0,
+      "responseChars": 4480,
+      "visited": 120
+    },
+    "completeness": {
+      "candidateSetsComplete": true,
+      "checkedAt": "2026-10-28T09:23:01Z",
+      "coverage": "complete",
+      "diskChecked": true,
+      "freshness": "fresh",
+      "reasons": [
+        "query budget or page boundary reached"
+      ],
+      "truncated": true
+    },
+    "continuation": "7b2276657273696f6e223a312c22736e617073686f74223a7b22696e6465784964223a2233356636643938372d356135382d346636372d386132392d313565653662306435656231222c2267656e65726174696f6e223a2236222c22736f75726365536e617073686f744964223a22736e61705f32343436376133363533306535383061373134373062346161373339303633383738383461366633396632663138333935363837663764376365386336633864227d2c227265717565737448617368223a2230363962623633633432316466366135613634376538616132303739306663346433346639383931353261616133663866393162336165656662393834326666222c226c617374223a5b322c2d302e343330353033383332393130343135382c22656e745f36623934393165353539303336356630643533653735396363343132376238303065323839326133323736323864653363333235383938353263643131366238222c2261735f36376336303435643232616134316664383738346634633435316464356637353532616238363539646363613439643835306366653234633833393663333436225d7d",
+    "data": {
+      "candidateSetComplete": true,
+      "fields": null,
+      "results": [
+        {
+          "assertions": [
+            {
+              "assertionId": "as_67c6045d22aa41fd8784f4c451dd5f7552ab8659dcca49d850cfe24c8396c346",
+              "attributes": {
+                "aggregates": {
+                  "gapIds": [
+                    "gap_63039b61dce28b8804df57b3844e6ef1c3a9c33637d402994cab3c7c2d0bbfe6"
+                  ],
+                  "status": "unknown"
+                },
+                "dialect": "sqlite",
+                "grainColumnIds": {
+                  "gapIds": [
+                    "gap_63039b61dce28b8804df57b3844e6ef1c3a9c33637d402994cab3c7c2d0bbfe6"
+                  ],
+                  "status": "unknown"
+                },
+                "joins": [],
+                "nullHandling": {
+                  "gapIds": [
+                    "gap_63039b61dce28b8804df57b3844e6ef1c3a9c33637d402994cab3c7c2d0bbfe6"
+                  ],
+                  "status": "unknown"
+                },
+                "statement": {
+                  "endByte": 236,
+                  "startByte": 136,
+                  "text": "erp.query(\"SELECT tenant_id, purchase_no, line_no FROM purchase_detail WHERE status = 'APPROVED'\\n\")"
+                },
+                "timeFields": {
+                  "gapIds": [
+                    "gap_63039b61dce28b8804df57b3844e6ef1c3a9c33637d402994cab3c7c2d0bbfe6"
+                  ],
+                  "status": "unknown"
+                },
+                "units": {
+                  "gapIds": [
+                    "gap_63039b61dce28b8804df57b3844e6ef1c3a9c33637d402994cab3c7c2d0bbfe6"
+                  ],
+                  "status": "unknown"
+                },
+                "validStates": {
+                  "gapIds": [
+                    "gap_63039b61dce28b8804df57b3844e6ef1c3a9c33637d402994cab3c7c2d0bbfe6"
+                  ],
+                  "status": "unknown"
+                }
+              },
+              "basis": "observed",
+              "batchId": "bat_c7cc620483080b59c79fa6be8e12556da575036e851fcdc7f5c6c32b12a5d1b3",
+              "evidenceRefs": [
+                "ev_830baea97e430e24451e1d11af7460661214e00ca24de930a70e9e85e20d9356",
+                "ev_d152d8d4f1608d79f639d58cccb92c6b9c14ef43935e6ae301d706d8c98651d9"
+              ],
+              "name": "back:database.py:boundLedger:query:0:0",
+              "origin": "static",
+              "producerKey": "example.b.database@1.0.0:c7880c3cd20f6ba9b1be292c5773e7c9aef32d09a72e4448840da7fced672cc7:extract"
+            }
+          ],
+          "bm25": -0.4305038329104158,
+          "entityRef": {
+            "entityId": "ent_6b9491e5590365f0d53e759cc4127b800e2892a327628de3c32589852cd116b8",
+            "snapshot": {
+              "generation": "6",
+              "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+              "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+            }
+          },
+          "exactRank": 2,
+          "identity": [
+            {
+              "name": "scopeId",
+              "value": "svc.erp"
+            },
+            {
+              "name": "semanticKey",
+              "value": "back:database.py:boundLedger:query:0:0"
+            }
+          ],
+          "kind": "queryImplementation",
+          "matchReason": "substring",
+          "name": "back:database.py:boundLedger:query:0:0",
+          "projection": "entity",
+          "scopeId": "svc.erp"
+        }
+      ]
+    },
+    "gaps": [],
+    "nextQueries": [],
+    "protocolVersion": "1.0",
+    "requestId": "req_c7eeff8d-000d-4502-a8c5-08a04e92b9f1",
+    "snapshot": {
+      "generation": "6",
+      "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+      "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+    },
+    "sourceReferences": [
+      {
+        "contentHash": "b7e20b959b8a949761830ca1fd3b37f877f7f9d3a25e7879e6590a1654965268",
+        "endByte": 236,
+        "evidenceId": "ev_830baea97e430e24451e1d11af7460661214e00ca24de930a70e9e85e20d9356",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+          "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+        },
+        "sourceId": "src_05c5473f38f8c8f34453af5757a0749bafa9c752b931c676f2cc6840e454ab59",
+        "startByte": 136
+      },
+      {
+        "contentHash": "04f336a2a1bbee6c4cb34e3967ba5f015c2dba2ca714d8b4eefa2d330874deab",
+        "endByte": 27,
+        "evidenceId": "ev_d152d8d4f1608d79f639d58cccb92c6b9c14ef43935e6ae301d706d8c98651d9",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+          "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+        },
+        "sourceId": "src_1a3931ff411e01ec8573b8ad56f946afcc6cca3fac2bf0d25446d69d6de4c5d7",
+        "startByte": 0
+      }
+    ],
+    "status": "partial"
+  },
+  "cliSecond": {
+    "budgetUsed": {
+      "elapsedMs": 29,
+      "entities": 1,
+      "relations": 0,
+      "responseChars": 4899,
+      "visited": 120
+    },
+    "completeness": {
+      "candidateSetsComplete": true,
+      "checkedAt": "2026-10-28T09:23:01Z",
+      "coverage": "complete",
+      "diskChecked": true,
+      "freshness": "fresh",
+      "reasons": [
+        "query budget or page boundary reached"
+      ],
+      "truncated": true
+    },
+    "continuation": "7b2276657273696f6e223a312c22736e617073686f74223a7b22696e6465784964223a2233356636643938372d356135382d346636372d386132392d313565653662306435656231222c2267656e65726174696f6e223a2236222c22736f75726365536e617073686f744964223a22736e61705f32343436376133363533306535383061373134373062346161373339303633383738383461366633396632663138333935363837663764376365386336633864227d2c227265717565737448617368223a2230363962623633633432316466366135613634376538616132303739306663346433346639383931353261616133663866393162336165656662393834326666222c226c617374223a5b322c2d302e33383336333135303731363332373039342c22656e745f33376433623164373137363736623165363162336637393163366664376263356663313861646539303737386635623534643264623832323062373563383466222c2261735f32636638393563346362323335643331323530353062316237623239356634356538636138353435336566343430393735363630646231626538663762396666225d7d",
+    "data": {
+      "candidateSetComplete": true,
+      "fields": null,
+      "results": [
+        {
+          "assertions": [
+            {
+              "assertionId": "as_2cf895c4cb235d3125050b1b7b295f45e8ca85453ef440975660db1be8f7b9ff",
+              "attributes": {
+                "aggregates": {
+                  "gapIds": [
+                    "gap_86f18c607fd95153d54895525a48ef7e8140dad939f6a10c8b5e816bd6f8538b"
+                  ],
+                  "status": "unknown"
+                },
+                "dialect": "sqlite",
+                "grainColumnIds": {
+                  "gapIds": [
+                    "gap_86f18c607fd95153d54895525a48ef7e8140dad939f6a10c8b5e816bd6f8538b"
+                  ],
+                  "status": "unknown"
+                },
+                "joins": [],
+                "nullHandling": {
+                  "gapIds": [
+                    "gap_86f18c607fd95153d54895525a48ef7e8140dad939f6a10c8b5e816bd6f8538b"
+                  ],
+                  "status": "unknown"
+                },
+                "statement": {
+                  "endByte": 374,
+                  "startByte": 356,
+                  "text": "Purchase.findAll()"
+                },
+                "timeFields": {
+                  "gapIds": [
+                    "gap_86f18c607fd95153d54895525a48ef7e8140dad939f6a10c8b5e816bd6f8538b"
+                  ],
+                  "status": "unknown"
+                },
+                "units": {
+                  "gapIds": [
+                    "gap_86f18c607fd95153d54895525a48ef7e8140dad939f6a10c8b5e816bd6f8538b"
+                  ],
+                  "status": "unknown"
+                },
+                "validStates": {
+                  "gapIds": [
+                    "gap_86f18c607fd95153d54895525a48ef7e8140dad939f6a10c8b5e816bd6f8538b"
+                  ],
+                  "status": "unknown"
+                }
+              },
+              "basis": "observed",
+              "batchId": "bat_c7cc620483080b59c79fa6be8e12556da575036e851fcdc7f5c6c32b12a5d1b3",
+              "evidenceRefs": [
+                "ev_8cb309d290763aa55d595460f886dc1ea1b9ceb5ef35cffefc140c75c9c2faa8",
+                "ev_d9099e7d543ce0633a4c4f076ee8dd3c542b1301947d95284b07461297b2da3f",
+                "ev_f5547daaccbe96ae3cf087e3ab866cb9de1ea22a1e6853245b43489d912caa09"
+              ],
+              "name": "back:database.py:modelRows:orm:0",
+              "origin": "static",
+              "producerKey": "example.b.database@1.0.0:c7880c3cd20f6ba9b1be292c5773e7c9aef32d09a72e4448840da7fced672cc7:extract"
+            }
+          ],
+          "bm25": -0.38363150716327094,
+          "entityRef": {
+            "entityId": "ent_37d3b1d717676b1e61b3f791c6fd7bc5fc18ade90778f5b54d2db8220b75c84f",
+            "snapshot": {
+              "generation": "6",
+              "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+              "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+            }
+          },
+          "exactRank": 2,
+          "identity": [
+            {
+              "name": "scopeId",
+              "value": "svc.erp"
+            },
+            {
+              "name": "semanticKey",
+              "value": "back:database.py:modelRows:orm:0"
+            }
+          ],
+          "kind": "queryImplementation",
+          "matchReason": "substring",
+          "name": "back:database.py:modelRows:orm:0",
+          "projection": "entity",
+          "scopeId": "svc.erp"
+        }
+      ]
+    },
+    "gaps": [],
+    "nextQueries": [],
+    "protocolVersion": "1.0",
+    "requestId": "req_bb1cc3eb-cef7-4579-9a46-c07e7cb5557f",
+    "snapshot": {
+      "generation": "6",
+      "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+      "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+    },
+    "sourceReferences": [
+      {
+        "contentHash": "b7e20b959b8a949761830ca1fd3b37f877f7f9d3a25e7879e6590a1654965268",
+        "endByte": 374,
+        "evidenceId": "ev_8cb309d290763aa55d595460f886dc1ea1b9ceb5ef35cffefc140c75c9c2faa8",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+          "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+        },
+        "sourceId": "src_05c5473f38f8c8f34453af5757a0749bafa9c752b931c676f2cc6840e454ab59",
+        "startByte": 356
+      },
+      {
+        "contentHash": "b11f24040c65a21fa62732f219ff17866bb447861568c918cb08b3e9268dc0ff",
+        "endByte": 1051,
+        "evidenceId": "ev_d9099e7d543ce0633a4c4f076ee8dd3c542b1301947d95284b07461297b2da3f",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+          "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+        },
+        "sourceId": "src_16323d9194fce640175fa26864ca0ab81f5cb9187568a4d4979b0191294eb45b",
+        "startByte": 0
+      },
+      {
+        "contentHash": "04f336a2a1bbee6c4cb34e3967ba5f015c2dba2ca714d8b4eefa2d330874deab",
+        "endByte": 148,
+        "evidenceId": "ev_f5547daaccbe96ae3cf087e3ab866cb9de1ea22a1e6853245b43489d912caa09",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+          "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+        },
+        "sourceId": "src_1a3931ff411e01ec8573b8ad56f946afcc6cca3fac2bf0d25446d69d6de4c5d7",
+        "startByte": 68
+      }
+    ],
+    "status": "partial"
+  },
+  "coreFirst": {
+    "budgetUsed": {
+      "elapsedMs": 13,
+      "entities": 1,
+      "relations": 0,
+      "responseChars": 4480,
+      "visited": 120
+    },
+    "completeness": {
+      "candidateSetsComplete": true,
+      "checkedAt": "2026-10-28T00:00:00Z",
+      "coverage": "complete",
+      "diskChecked": true,
+      "freshness": "fresh",
+      "reasons": [
+        "query budget or page boundary reached"
+      ],
+      "truncated": true
+    },
+    "continuation": "7b2276657273696f6e223a312c22736e617073686f74223a7b22696e6465784964223a2233356636643938372d356135382d346636372d386132392d313565653662306435656231222c2267656e65726174696f6e223a2236222c22736f75726365536e617073686f744964223a22736e61705f32343436376133363533306535383061373134373062346161373339303633383738383461366633396632663138333935363837663764376365386336633864227d2c227265717565737448617368223a2230363962623633633432316466366135613634376538616132303739306663346433346639383931353261616133663866393162336165656662393834326666222c226c617374223a5b322c2d302e343330353033383332393130343135382c22656e745f36623934393165353539303336356630643533653735396363343132376238303065323839326133323736323864653363333235383938353263643131366238222c2261735f36376336303435643232616134316664383738346634633435316464356637353532616238363539646363613439643835306366653234633833393663333436225d7d",
+    "data": {
+      "candidateSetComplete": true,
+      "fields": null,
+      "results": [
+        {
+          "assertions": [
+            {
+              "assertionId": "as_67c6045d22aa41fd8784f4c451dd5f7552ab8659dcca49d850cfe24c8396c346",
+              "attributes": {
+                "aggregates": {
+                  "gapIds": [
+                    "gap_63039b61dce28b8804df57b3844e6ef1c3a9c33637d402994cab3c7c2d0bbfe6"
+                  ],
+                  "status": "unknown"
+                },
+                "dialect": "sqlite",
+                "grainColumnIds": {
+                  "gapIds": [
+                    "gap_63039b61dce28b8804df57b3844e6ef1c3a9c33637d402994cab3c7c2d0bbfe6"
+                  ],
+                  "status": "unknown"
+                },
+                "joins": [],
+                "nullHandling": {
+                  "gapIds": [
+                    "gap_63039b61dce28b8804df57b3844e6ef1c3a9c33637d402994cab3c7c2d0bbfe6"
+                  ],
+                  "status": "unknown"
+                },
+                "statement": {
+                  "endByte": 236,
+                  "startByte": 136,
+                  "text": "erp.query(\"SELECT tenant_id, purchase_no, line_no FROM purchase_detail WHERE status = 'APPROVED'\\n\")"
+                },
+                "timeFields": {
+                  "gapIds": [
+                    "gap_63039b61dce28b8804df57b3844e6ef1c3a9c33637d402994cab3c7c2d0bbfe6"
+                  ],
+                  "status": "unknown"
+                },
+                "units": {
+                  "gapIds": [
+                    "gap_63039b61dce28b8804df57b3844e6ef1c3a9c33637d402994cab3c7c2d0bbfe6"
+                  ],
+                  "status": "unknown"
+                },
+                "validStates": {
+                  "gapIds": [
+                    "gap_63039b61dce28b8804df57b3844e6ef1c3a9c33637d402994cab3c7c2d0bbfe6"
+                  ],
+                  "status": "unknown"
+                }
+              },
+              "basis": "observed",
+              "batchId": "bat_c7cc620483080b59c79fa6be8e12556da575036e851fcdc7f5c6c32b12a5d1b3",
+              "evidenceRefs": [
+                "ev_830baea97e430e24451e1d11af7460661214e00ca24de930a70e9e85e20d9356",
+                "ev_d152d8d4f1608d79f639d58cccb92c6b9c14ef43935e6ae301d706d8c98651d9"
+              ],
+              "name": "back:database.py:boundLedger:query:0:0",
+              "origin": "static",
+              "producerKey": "example.b.database@1.0.0:c7880c3cd20f6ba9b1be292c5773e7c9aef32d09a72e4448840da7fced672cc7:extract"
+            }
+          ],
+          "bm25": -0.4305038329104158,
+          "entityRef": {
+            "entityId": "ent_6b9491e5590365f0d53e759cc4127b800e2892a327628de3c32589852cd116b8",
+            "snapshot": {
+              "generation": "6",
+              "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+              "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+            }
+          },
+          "exactRank": 2,
+          "identity": [
+            {
+              "name": "scopeId",
+              "value": "svc.erp"
+            },
+            {
+              "name": "semanticKey",
+              "value": "back:database.py:boundLedger:query:0:0"
+            }
+          ],
+          "kind": "queryImplementation",
+          "matchReason": "substring",
+          "name": "back:database.py:boundLedger:query:0:0",
+          "projection": "entity",
+          "scopeId": "svc.erp"
+        }
+      ]
+    },
+    "gaps": [],
+    "nextQueries": [],
+    "protocolVersion": "1.0",
+    "requestId": "req_ee48d563-3e23-4f40-b58d-adee6a5a2dd4",
+    "snapshot": {
+      "generation": "6",
+      "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+      "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+    },
+    "sourceReferences": [
+      {
+        "contentHash": "b7e20b959b8a949761830ca1fd3b37f877f7f9d3a25e7879e6590a1654965268",
+        "endByte": 236,
+        "evidenceId": "ev_830baea97e430e24451e1d11af7460661214e00ca24de930a70e9e85e20d9356",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+          "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+        },
+        "sourceId": "src_05c5473f38f8c8f34453af5757a0749bafa9c752b931c676f2cc6840e454ab59",
+        "startByte": 136
+      },
+      {
+        "contentHash": "04f336a2a1bbee6c4cb34e3967ba5f015c2dba2ca714d8b4eefa2d330874deab",
+        "endByte": 27,
+        "evidenceId": "ev_d152d8d4f1608d79f639d58cccb92c6b9c14ef43935e6ae301d706d8c98651d9",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+          "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+        },
+        "sourceId": "src_1a3931ff411e01ec8573b8ad56f946afcc6cca3fac2bf0d25446d69d6de4c5d7",
+        "startByte": 0
+      }
+    ],
+    "status": "partial"
+  },
+  "coreSecond": {
+    "budgetUsed": {
+      "elapsedMs": 16,
+      "entities": 1,
+      "relations": 0,
+      "responseChars": 4899,
+      "visited": 120
+    },
+    "completeness": {
+      "candidateSetsComplete": true,
+      "checkedAt": "2026-10-28T00:00:00Z",
+      "coverage": "complete",
+      "diskChecked": true,
+      "freshness": "fresh",
+      "reasons": [
+        "query budget or page boundary reached"
+      ],
+      "truncated": true
+    },
+    "continuation": "7b2276657273696f6e223a312c22736e617073686f74223a7b22696e6465784964223a2233356636643938372d356135382d346636372d386132392d313565653662306435656231222c2267656e65726174696f6e223a2236222c22736f75726365536e617073686f744964223a22736e61705f32343436376133363533306535383061373134373062346161373339303633383738383461366633396632663138333935363837663764376365386336633864227d2c227265717565737448617368223a2230363962623633633432316466366135613634376538616132303739306663346433346639383931353261616133663866393162336165656662393834326666222c226c617374223a5b322c2d302e33383336333135303731363332373039342c22656e745f33376433623164373137363736623165363162336637393163366664376263356663313861646539303737386635623534643264623832323062373563383466222c2261735f32636638393563346362323335643331323530353062316237623239356634356538636138353435336566343430393735363630646231626538663762396666225d7d",
+    "data": {
+      "candidateSetComplete": true,
+      "fields": null,
+      "results": [
+        {
+          "assertions": [
+            {
+              "assertionId": "as_2cf895c4cb235d3125050b1b7b295f45e8ca85453ef440975660db1be8f7b9ff",
+              "attributes": {
+                "aggregates": {
+                  "gapIds": [
+                    "gap_86f18c607fd95153d54895525a48ef7e8140dad939f6a10c8b5e816bd6f8538b"
+                  ],
+                  "status": "unknown"
+                },
+                "dialect": "sqlite",
+                "grainColumnIds": {
+                  "gapIds": [
+                    "gap_86f18c607fd95153d54895525a48ef7e8140dad939f6a10c8b5e816bd6f8538b"
+                  ],
+                  "status": "unknown"
+                },
+                "joins": [],
+                "nullHandling": {
+                  "gapIds": [
+                    "gap_86f18c607fd95153d54895525a48ef7e8140dad939f6a10c8b5e816bd6f8538b"
+                  ],
+                  "status": "unknown"
+                },
+                "statement": {
+                  "endByte": 374,
+                  "startByte": 356,
+                  "text": "Purchase.findAll()"
+                },
+                "timeFields": {
+                  "gapIds": [
+                    "gap_86f18c607fd95153d54895525a48ef7e8140dad939f6a10c8b5e816bd6f8538b"
+                  ],
+                  "status": "unknown"
+                },
+                "units": {
+                  "gapIds": [
+                    "gap_86f18c607fd95153d54895525a48ef7e8140dad939f6a10c8b5e816bd6f8538b"
+                  ],
+                  "status": "unknown"
+                },
+                "validStates": {
+                  "gapIds": [
+                    "gap_86f18c607fd95153d54895525a48ef7e8140dad939f6a10c8b5e816bd6f8538b"
+                  ],
+                  "status": "unknown"
+                }
+              },
+              "basis": "observed",
+              "batchId": "bat_c7cc620483080b59c79fa6be8e12556da575036e851fcdc7f5c6c32b12a5d1b3",
+              "evidenceRefs": [
+                "ev_8cb309d290763aa55d595460f886dc1ea1b9ceb5ef35cffefc140c75c9c2faa8",
+                "ev_d9099e7d543ce0633a4c4f076ee8dd3c542b1301947d95284b07461297b2da3f",
+                "ev_f5547daaccbe96ae3cf087e3ab866cb9de1ea22a1e6853245b43489d912caa09"
+              ],
+              "name": "back:database.py:modelRows:orm:0",
+              "origin": "static",
+              "producerKey": "example.b.database@1.0.0:c7880c3cd20f6ba9b1be292c5773e7c9aef32d09a72e4448840da7fced672cc7:extract"
+            }
+          ],
+          "bm25": -0.38363150716327094,
+          "entityRef": {
+            "entityId": "ent_37d3b1d717676b1e61b3f791c6fd7bc5fc18ade90778f5b54d2db8220b75c84f",
+            "snapshot": {
+              "generation": "6",
+              "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+              "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+            }
+          },
+          "exactRank": 2,
+          "identity": [
+            {
+              "name": "scopeId",
+              "value": "svc.erp"
+            },
+            {
+              "name": "semanticKey",
+              "value": "back:database.py:modelRows:orm:0"
+            }
+          ],
+          "kind": "queryImplementation",
+          "matchReason": "substring",
+          "name": "back:database.py:modelRows:orm:0",
+          "projection": "entity",
+          "scopeId": "svc.erp"
+        }
+      ]
+    },
+    "gaps": [],
+    "nextQueries": [],
+    "protocolVersion": "1.0",
+    "requestId": "req_207dc42a-5ec5-433c-93e3-d2dcbe6c8027",
+    "snapshot": {
+      "generation": "6",
+      "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+      "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+    },
+    "sourceReferences": [
+      {
+        "contentHash": "b7e20b959b8a949761830ca1fd3b37f877f7f9d3a25e7879e6590a1654965268",
+        "endByte": 374,
+        "evidenceId": "ev_8cb309d290763aa55d595460f886dc1ea1b9ceb5ef35cffefc140c75c9c2faa8",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+          "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+        },
+        "sourceId": "src_05c5473f38f8c8f34453af5757a0749bafa9c752b931c676f2cc6840e454ab59",
+        "startByte": 356
+      },
+      {
+        "contentHash": "b11f24040c65a21fa62732f219ff17866bb447861568c918cb08b3e9268dc0ff",
+        "endByte": 1051,
+        "evidenceId": "ev_d9099e7d543ce0633a4c4f076ee8dd3c542b1301947d95284b07461297b2da3f",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+          "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+        },
+        "sourceId": "src_16323d9194fce640175fa26864ca0ab81f5cb9187568a4d4979b0191294eb45b",
+        "startByte": 0
+      },
+      {
+        "contentHash": "04f336a2a1bbee6c4cb34e3967ba5f015c2dba2ca714d8b4eefa2d330874deab",
+        "endByte": 148,
+        "evidenceId": "ev_f5547daaccbe96ae3cf087e3ab866cb9de1ea22a1e6853245b43489d912caa09",
+        "snapshot": {
+          "generation": "6",
+          "indexId": "35f6d987-5a58-4f67-8a29-15ee6b0d5eb1",
+          "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+        },
+        "sourceId": "src_1a3931ff411e01ec8573b8ad56f946afcc6cca3fac2bf0d25446d69d6de4c5d7",
+        "startByte": 68
+      }
+    ],
+    "status": "partial"
+  }
+}

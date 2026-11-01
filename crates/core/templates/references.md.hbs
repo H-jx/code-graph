@@ -1,24 +1,5 @@
-<!-- 四类事实与代码地图参考模板（骨架）
-     输出文件：references/routes.md、frontend.md、api.md、database.md、code-map.md
-     数据来自：Core 事实查询结果 + 来源引用；每行都要能回到 source_id + 行范围。 -->
-# {{categoryTitle}}（{{pluginId}} @ {{pluginVersion}}）
+# {{title}}
 
-快照：generation {{generation}} ｜ freshness {{freshness}} ｜ 采集运行 {{runId}}
+Knowledge freshness: **{{freshness}}**. Each entry retains its own topic version and snapshot. Use the original references and Core status to check current facts.
 
-## 条目
-
-{{#each items}}
-### {{name}}
-
-- 标识：`{{id}}`
-- 位置：{{sourcePath}}:{{startLine}}-{{endLine}}（内容哈希 {{contentHash}}）
-- 依据：{{basis}}{{#if inferred}}（推断，待源码核对）{{/if}}
-- 关联：{{#each links}}{{this}}{{#unless @last}}；{{/unless}}{{/each}}
-{{/each}}
-
-## 覆盖与缺口
-
-- 已覆盖来源：{{coveredSources}}
-- 缺口：{{#each gaps}}{{reason}}（{{scope}}）{{#unless @last}}；{{/unless}}{{/each}}
-
-<!-- 说明：本文档是导航与已整理知识，当前事实与原文仍通过 SDK/MCP 按需获取。 -->
+{{body}}

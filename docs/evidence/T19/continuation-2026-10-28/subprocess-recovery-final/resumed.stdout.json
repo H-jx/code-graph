@@ -1,0 +1,229 @@
+{
+  "runId": "agent_88c70607-7f8f-4368-b83f-685c8bf1cc88",
+  "status": "complete",
+  "phase": "knowledge",
+  "goal": "Recover current source-cited purchase knowledge",
+  "focus": null,
+  "withSkill": true,
+  "configHash": "75bcf2662350a8ab9ebc547dc299b1fac8cd0e662d81e22c9b7e57366dbe3fd9",
+  "sourceSnapshotId": "snap_69dcf287a5bdadc8868c38aaa42e6bda6f67466ad585b4f8ef661fcdd6048036",
+  "activeVersions": [
+    [
+      "t19-audited.workflow",
+      "3.0.0"
+    ]
+  ],
+  "modelTurns": 11,
+  "toolCalls": 9,
+  "repairs": 0,
+  "needsRepair": false,
+  "elapsedMs": 795,
+  "deadlineMs": 1793234571422,
+  "repairPlugin": null,
+  "smoke": false,
+  "revision": 1,
+  "candidateId": "candidate_15cec3a7-1034-47eb-aeaf-2049754d591d",
+  "candidateHash": "fd24dd3d586ba2b3671ee1c66397f167a32cb20f455e9d908577a483fb71328f",
+  "validationId": "validation_39a63687-8091-4149-8d99-d5b7d8143b8f",
+  "activation": {
+    "candidateId": "candidate_15cec3a7-1034-47eb-aeaf-2049754d591d",
+    "activationId": "activation_validation_39a63687-8091-4149-8d99-d5b7d8143b8f",
+    "status": "active",
+    "generation": "2"
+  },
+  "investigation": {
+    "status": "imported",
+    "notes": "Original audited workflow document; local provider tests recovery only.",
+    "evidenceRefs": [
+      {
+        "snapshot": {
+          "indexId": "71ab4f62-4486-4955-b0a2-1dbef5d1dbbb",
+          "generation": "1",
+          "sourceSnapshotId": "snap_69dcf287a5bdadc8868c38aaa42e6bda6f67466ad585b4f8ef661fcdd6048036"
+        },
+        "evidenceId": "ev_e9c5f034613e18fa0025b6a3659d70078d7ec47258e717980285034f0faa8e82",
+        "sourceId": "src_0f7166c8fe49c44014a8401875c46def903637df30ebdc47805ee50182d687fa",
+        "contentHash": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+        "startByte": 0,
+        "endByte": 1057
+      }
+    ],
+    "identityChangesApplied": false,
+    "convention": {
+      "conventionId": "858d211ae725192572e90c334746f1aab3d9410a97bb01af9f06fb32be351cc8",
+      "sourceClass": "derivedConvention",
+      "originalReferences": [
+        {
+          "snapshot": {
+            "indexId": "71ab4f62-4486-4955-b0a2-1dbef5d1dbbb",
+            "generation": "1",
+            "sourceSnapshotId": "snap_69dcf287a5bdadc8868c38aaa42e6bda6f67466ad585b4f8ef661fcdd6048036"
+          },
+          "evidenceId": "ev_e9c5f034613e18fa0025b6a3659d70078d7ec47258e717980285034f0faa8e82",
+          "sourceId": "src_0f7166c8fe49c44014a8401875c46def903637df30ebdc47805ee50182d687fa",
+          "contentHash": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+          "startByte": 0,
+          "endByte": 1057
+        }
+      ],
+      "configHash": "75bcf2662350a8ab9ebc547dc299b1fac8cd0e662d81e22c9b7e57366dbe3fd9",
+      "snapshot": {
+        "indexId": "71ab4f62-4486-4955-b0a2-1dbef5d1dbbb",
+        "generation": "1",
+        "sourceSnapshotId": "snap_69dcf287a5bdadc8868c38aaa42e6bda6f67466ad585b4f8ef661fcdd6048036"
+      },
+      "indexInvalidated": false
+    }
+  },
+  "topicContexts": [
+    "11847bcf8c3bc9b4a0388d66b2d97aea01d83935b21de05d51011296ad173539"
+  ],
+  "topics": [
+    {
+      "topicId": "recovered-purchase",
+      "version": 1,
+      "snapshot": {
+        "indexId": "71ab4f62-4486-4955-b0a2-1dbef5d1dbbb",
+        "generation": "2",
+        "sourceSnapshotId": "snap_69dcf287a5bdadc8868c38aaa42e6bda6f67466ad585b4f8ef661fcdd6048036"
+      },
+      "freshness": "fresh",
+      "status": "complete",
+      "artifactHash": "abfe9737f136b68df10de4adc3de2ee6995bbf296f4f3bee2c981ebd735fe9e3"
+    }
+  ],
+  "skill": {
+    "exportId": "04d0dc54-b651-4b8e-9abc-95bf3038e0c1",
+    "directory": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\subprocess-recovery-final\\project\\.project-knowledge\\.project-knowledge\\skills\\recovered-purchase\\versions\\04d0dc54-b651-4b8e-9abc-95bf3038e0c1",
+    "pointer": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\subprocess-recovery-final\\project\\.project-knowledge\\.project-knowledge\\skills\\recovered-purchase\\CURRENT.json",
+    "freshness": "fresh",
+    "status": "complete",
+    "manifestSha256": "43f19f716549a6f56fbb718fe9db40fc9a055cce3ba60509d18d8055a7a71b9a",
+    "files": 11
+  },
+  "readSource": true,
+  "readMap": true,
+  "issues": [],
+  "events": [
+    {
+      "modelTurn": 1,
+      "responseId": "local-0",
+      "elapsedMs": 27
+    },
+    {
+      "tool": "code-map",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "modelTurn": 2,
+      "responseId": "local-1",
+      "elapsedMs": 50
+    },
+    {
+      "tool": "export-snapshot",
+      "ok": true,
+      "turn": 2,
+      "revision": 0
+    },
+    {
+      "modelTurn": 3,
+      "responseId": "local-2",
+      "elapsedMs": 70
+    },
+    {
+      "tool": "read-source",
+      "ok": true,
+      "turn": 3,
+      "revision": 0
+    },
+    {
+      "modelTurn": 4,
+      "responseId": "local-3",
+      "elapsedMs": 84
+    },
+    {
+      "tool": "import-conventions",
+      "ok": true,
+      "turn": 4,
+      "revision": 0
+    },
+    {
+      "modelTurn": 5,
+      "responseId": "local-4",
+      "elapsedMs": 105
+    },
+    {
+      "tool": "write-candidate",
+      "ok": true,
+      "turn": 5,
+      "revision": 1
+    },
+    {
+      "modelTurn": 6,
+      "responseId": "local-5",
+      "elapsedMs": 146
+    },
+    {
+      "tool": "validate-plugin",
+      "ok": true,
+      "turn": 6,
+      "revision": 1
+    },
+    {
+      "modelTurn": 8,
+      "responseId": "local-7",
+      "elapsedMs": 611
+    },
+    {
+      "tool": "export-topic-context",
+      "ok": true,
+      "turn": 8,
+      "revision": 1
+    },
+    {
+      "modelTurn": 9,
+      "responseId": "local-8",
+      "elapsedMs": 662
+    },
+    {
+      "tool": "import-topic",
+      "ok": true,
+      "turn": 9,
+      "revision": 1
+    },
+    {
+      "modelTurn": 10,
+      "responseId": "local-9",
+      "elapsedMs": 700
+    },
+    {
+      "tool": "export-skill",
+      "ok": true,
+      "turn": 10,
+      "revision": 1
+    },
+    {
+      "modelTurn": 11,
+      "responseId": "local-10",
+      "elapsedMs": 771
+    }
+  ],
+  "provider": "openai-compatible",
+  "model": "local-recovery",
+  "promptHash": "4cda962695632587f731c703e3f668d443926eb69ae1792a330cfeb57a012bd3",
+  "budget": {
+    "enabled": true,
+    "provider": "openai-compatible",
+    "model": "local-recovery",
+    "baseUrl": "http://127.0.0.1:55862/v1",
+    "apiKeyEnv": "T19_LOCAL_KEY",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 180,
+    "maxInputChars": 500000,
+    "maxOutputTokens": 1000
+  }
+}

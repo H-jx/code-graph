@@ -20,6 +20,7 @@ pub enum QueryRequest {
     Search(SearchRequest),
     LocateFeature(LocateFeatureRequest),
     Trace(TraceRequest),
+    Neighbors(NeighborsRequest),
     CodeMap(CodeMapRequest),
     ReadSource(ReadSourceRequest),
     Page(PageRequest),
@@ -193,6 +194,24 @@ pub struct TraceRequest {
     pub max_depth: Option<u32>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub filters: Option<CommonFilters>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub budget: Option<Budget>,
+}
+
+/// 单根直接邻接分页；与不可恢复的多层 BFS 分开。
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize, JsonSchema)]
+#[serde(deny_unknown_fields, rename_all = "camelCase")]
+pub struct NeighborsRequest {
+    pub root: EntityRef,
+    pub direction: Direction,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub relation_kinds: Option<Vec<RelationKind>>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub filters: Option<CommonFilters>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub page_size: Option<u32>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub continuation: Option<String>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub budget: Option<Budget>,
 }

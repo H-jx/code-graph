@@ -34,7 +34,7 @@ pub struct PluginManifest {
     #[serde(default)]
     pub acceptance_cases: Vec<String>,
     #[serde(default)]
-    pub extensions: Map<String, Value>,
+    pub extensions: crate::contract::extensions::ManifestExtensions,
 }
 
 /// 运行时声明。
@@ -200,6 +200,10 @@ pub struct CollectorInput {
     pub entities: Vec<EntityInput>,
     #[serde(default)]
     pub relations: Vec<RelationInput>,
+    /// Original evidence for exported assertions whose source versions are selected.
+    /// Link stages reuse ranges instead of inventing offsets or reparsing producer logic.
+    #[serde(default)]
+    pub evidence: Vec<Evidence>,
     #[serde(default)]
     pub candidate_sets: Vec<CandidateSet>,
     #[serde(default)]
@@ -293,17 +297,11 @@ pub struct CollectorOutput {
     pub run_id: String,
     pub stage_id: String,
     pub input_snapshot_id: String,
-    #[serde(default)]
     pub entities: Vec<EntityOutput>,
-    #[serde(default)]
     pub relations: Vec<RelationOutput>,
-    #[serde(default)]
     pub evidence: Vec<Evidence>,
-    #[serde(default)]
     pub dependencies: Vec<Dependency>,
-    #[serde(default)]
     pub coverage: Vec<Coverage>,
-    #[serde(default)]
     pub gaps: Vec<Gap>,
 }
 

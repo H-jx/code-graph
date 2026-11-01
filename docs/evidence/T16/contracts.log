@@ -1,0 +1,10 @@
+契约文件与生成结果一致（5 个文件）
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+   Compiling xtask v0.1.0 (E:\Project\my-project\code-graph\xtask)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\xtask.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\xtask.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `xtask` (bin "xtask") generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 13.34s
+     Running `target\debug\xtask.exe export-contracts --check`

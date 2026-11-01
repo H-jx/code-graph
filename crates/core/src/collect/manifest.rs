@@ -14,7 +14,7 @@ use crate::contract::identity::content_hash;
 use crate::project::config::RuntimeConfig;
 
 /// 制品中的一个文件。
-#[derive(Debug, Clone, PartialEq, Eq)]
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub struct ManifestFile {
     pub relative_path: String,
     pub content_hash: String,
@@ -22,7 +22,7 @@ pub struct ManifestFile {
 }
 
 /// 校验后的 manifest。
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct ValidatedManifest {
     pub manifest: PluginManifest,
     /// manifest 所在目录（候选或已发布制品目录）。
@@ -112,6 +112,9 @@ pub fn validate_manifest(
 
     // 制品与入口路径边界。
     let mut files: BTreeMap<String, ManifestFile> = BTreeMap::new();
+    if let Err(reason) = collect_file(directory, "manifest.json", &mut files) {
+        issues.push(Issue::new(codes::CONFIG_INVALID, "/artifacts").with_hint(reason));
+    }
     for artifact in &manifest.artifacts {
         match validate_artifact_path(artifact) {
             Ok(relative) => {
@@ -203,9 +206,29 @@ pub fn validate_manifest(
         dependency_digest = content_hash(lock_rows.join("\n").as_bytes());
     }
 
-    // 验收用例文件。
+    // 验收用例及其输入也属于不可变制品；修改 expected 不能沿用旧验证。
     for case in &manifest.acceptance_cases {
-        if let Err(reason) = validate_artifact_path(case) {
+        let result = (|| {
+            let relative = validate_artifact_path(case)?;
+            collect_file(directory, &relative, &mut files)?;
+            let bytes = std::fs::read(directory.join(&relative)).map_err(|e| e.to_string())?;
+            let case: crate::contract::collector::AcceptanceCase =
+                serde_json::from_slice(&bytes).map_err(|e| e.to_string())?;
+            let fixture = validate_artifact_path(&case.input_fixture)?;
+            collect_file(directory, &fixture, &mut files)?;
+            if let Some(truth) = &case.truth_ref {
+                let truth = validate_artifact_path(truth)?;
+                collect_file(directory, &truth, &mut files)?;
+                if case.truth_hash.as_deref() != files.get(&truth).map(|f| f.content_hash.as_str())
+                {
+                    return Err("truthHash does not match truthRef content".to_string());
+                }
+            } else if case.truth_hash.is_some() {
+                return Err("truthHash requires truthRef".to_string());
+            }
+            Ok::<_, String>(())
+        })();
+        if let Err(reason) = result {
             issues.push(
                 Issue::new(codes::CONFIG_INVALID, "/acceptanceCases")
                     .with_actual(case.clone())
@@ -213,6 +236,9 @@ pub fn validate_manifest(
             );
         }
     }
+
+    // 扩展声明在执行插件前编译；只允许自有命名空间和 bundled schema。
+    crate::contract::extensions::ExtensionRegistry::from_manifests([manifest])?;
 
     // 阶段 DAG。
     if let Err(error) = validate_stage_dag(std::slice::from_ref(manifest)) {
@@ -283,6 +309,23 @@ fn collect_file(
     files: &mut BTreeMap<String, ManifestFile>,
 ) -> Result<(), String> {
     let absolute = directory.join(relative);
+    // 检查每一级目录，不能仅检查最终文件而放过目录链接。
+    let mut cursor = directory.to_path_buf();
+    for component in Path::new(relative).components() {
+        cursor.push(component);
+        let metadata = std::fs::symlink_metadata(&cursor)
+            .map_err(|e| format!("cannot stat artifact `{relative}`: {e}"))?;
+        if metadata.file_type().is_symlink() {
+            return Err(format!("`{relative}` contains a symbolic link"));
+        }
+        #[cfg(windows)]
+        {
+            use std::os::windows::fs::MetadataExt;
+            if metadata.file_attributes() & 0x400 != 0 {
+                return Err(format!("`{relative}` contains a reparse point"));
+            }
+        }
+    }
     let metadata = std::fs::symlink_metadata(&absolute)
         .map_err(|error| format!("cannot stat `{relative}`: {error}"))?;
     if metadata.file_type().is_symlink() {

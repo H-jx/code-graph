@@ -1,0 +1,25 @@
+{
+  "filesScanned": 192,
+  "zeroByteSources": 0,
+  "commentOnlySources": [
+    {
+      "path": "crates/core/src/syntax/scip.rs",
+      "task": "optional-out-of-scope"
+    }
+  ],
+  "emptyModuleSources": [
+    {
+      "path": "packages/mcp/src/index.ts",
+      "task": "T21"
+    },
+    {
+      "path": "packages/mcp/src/resources.ts",
+      "task": "T21"
+    },
+    {
+      "path": "packages/mcp/src/tools.ts",
+      "task": "T21"
+    }
+  ],
+  "explicitPlaceholderFiles": 7
+}

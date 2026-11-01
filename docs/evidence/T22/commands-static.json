@@ -1,0 +1,298 @@
+[
+  {
+    "name": "fmt",
+    "group": "static",
+    "command": [
+      "cargo",
+      "fmt",
+      "--all",
+      "--",
+      "--check"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.625,
+    "log": "fmt-02.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "clippy",
+    "group": "static",
+    "command": [
+      "cargo",
+      "clippy",
+      "--workspace",
+      "--all-targets",
+      "--locked",
+      "-j",
+      "1",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 2.265,
+    "log": "clippy-02.log",
+    "sha256": "337b4e407dccb2ea4725293d6a3dcc2fac3541af1ba1c64c5ab324306e71b698"
+  },
+  {
+    "name": "contracts",
+    "group": "static",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'check:contracts'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 7.656,
+    "log": "contracts-01.log",
+    "sha256": "b207926a83a8bf455da0758510c8951b56a66df6f7797bf5c880ecd8c937c0d6"
+  },
+  {
+    "name": "typecheck",
+    "group": "static",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'typecheck'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 3.172,
+    "log": "typecheck-01.log",
+    "sha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"
+  },
+  {
+    "name": "core-deps",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/verify-core-dependencies.mjs"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.469,
+    "log": "core-deps-01.log",
+    "sha256": "d86cb488322612776fab22096a18b89f5f09cb436176051d29f703cb26c6227d"
+  },
+  {
+    "name": "truth",
+    "group": "static",
+    "command": [
+      "D:\\AppData\\Local\\miniconda3\\python.exe",
+      "scripts/verify-truth.py"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.11,
+    "log": "truth-01.log",
+    "sha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+  },
+  {
+    "name": "source-review",
+    "group": "static",
+    "command": [
+      "D:\\AppData\\Local\\miniconda3\\python.exe",
+      "scripts/verify-source-review.py"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.14,
+    "log": "source-review-01.log",
+    "sha256": "5be3078be2fa0b2ef470b3eaf23df9a64664df25742bf5e91ebe9e50e4151056"
+  },
+  {
+    "name": "plan",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/verify-plan.mjs"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.062,
+    "log": "plan-01.log",
+    "sha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+  },
+  {
+    "name": "source-audit",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/audit-source.mjs",
+      "--output",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T22\\source-audit.json"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.125,
+    "log": "source-audit-01.log",
+    "sha256": "fc66d55815f720ce161cba40ba9f5225c3a488572434b0a89ed67806e51dd09a"
+  },
+  {
+    "name": "diff",
+    "group": "static",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.094,
+    "log": "diff-01.log",
+    "sha256": "f4692729ecd228effe056edf5080c59b932f55ce41ac05859ba985b633211885"
+  },
+  {
+    "name": "fmt",
+    "group": "static",
+    "command": [
+      "cargo",
+      "fmt",
+      "--all",
+      "--",
+      "--check"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.594,
+    "log": "fmt-03.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "clippy",
+    "group": "static",
+    "command": [
+      "cargo",
+      "clippy",
+      "--workspace",
+      "--all-targets",
+      "--locked",
+      "-j",
+      "1",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 1.156,
+    "log": "clippy-03.log",
+    "sha256": "955661041420f8dd23d3e1a0f59065d687071dec5a26758c0ae7607becdb0c4d"
+  },
+  {
+    "name": "contracts",
+    "group": "static",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'check:contracts'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 2.172,
+    "log": "contracts-02.log",
+    "sha256": "bcbe423737a94df08ed37d95affc3a553e6d897b5627a6244da961d9617c79fb"
+  },
+  {
+    "name": "typecheck",
+    "group": "static",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'typecheck'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 3.218,
+    "log": "typecheck-02.log",
+    "sha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"
+  },
+  {
+    "name": "core-deps",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/verify-core-dependencies.mjs"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.485,
+    "log": "core-deps-02.log",
+    "sha256": "d86cb488322612776fab22096a18b89f5f09cb436176051d29f703cb26c6227d"
+  },
+  {
+    "name": "truth",
+    "group": "static",
+    "command": [
+      "D:\\AppData\\Local\\miniconda3\\python.exe",
+      "scripts/verify-truth.py"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.109,
+    "log": "truth-02.log",
+    "sha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+  },
+  {
+    "name": "source-review",
+    "group": "static",
+    "command": [
+      "D:\\AppData\\Local\\miniconda3\\python.exe",
+      "scripts/verify-source-review.py"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.14,
+    "log": "source-review-02.log",
+    "sha256": "5be3078be2fa0b2ef470b3eaf23df9a64664df25742bf5e91ebe9e50e4151056"
+  },
+  {
+    "name": "plan",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/verify-plan.mjs"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.079,
+    "log": "plan-02.log",
+    "sha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+  },
+  {
+    "name": "source-audit",
+    "group": "static",
+    "command": [
+      "node",
+      "scripts/audit-source.mjs",
+      "--output",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T22\\source-audit.json"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.171,
+    "log": "source-audit-02.log",
+    "sha256": "fc66d55815f720ce161cba40ba9f5225c3a488572434b0a89ed67806e51dd09a"
+  },
+  {
+    "name": "diff",
+    "group": "static",
+    "command": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 0.11,
+    "log": "diff-02.log",
+    "sha256": "f4692729ecd228effe056edf5080c59b932f55ce41ac05859ba985b633211885"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "filesScanned": 201,
+  "zeroByteSources": 0,
+  "commentOnlySources": [
+    {
+      "path": "crates/core/src/syntax/scip.rs",
+      "task": "optional-out-of-scope"
+    }
+  ],
+  "emptyModuleSources": [],
+  "explicitPlaceholderFiles": 2
+}

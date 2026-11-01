@@ -1,0 +1,64 @@
+[
+  {
+    "topicId": "flow-guard",
+    "version": 2,
+    "claim": {
+      "id": "guard",
+      "text": "The finish guard requires netReceived >= orderedQty and allReceiptsValid.",
+      "basis": "observed",
+      "origin": "static",
+      "evidenceRefs": [
+        "ev_8599bf77bb71ea343d0475d6dde8844c2aca13ad14231f82fcc91948ab71a089"
+      ],
+      "gapIds": []
+    },
+    "originalSupport": [
+      {
+        "reference": {
+          "snapshot": {
+            "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+            "generation": "13",
+            "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+          },
+          "evidenceId": "ev_8599bf77bb71ea343d0475d6dde8844c2aca13ad14231f82fcc91948ab71a089",
+          "sourceId": "src_f4be1ceeaabcebaae684900161fc5eefbf24bd70e7f0d77a61cdd1bee2b64fac",
+          "contentHash": "3b8fa55c4a63cb3695bc33037235b7025b7628b40219af452288d021f1fb7af2",
+          "startByte": 0,
+          "endByte": 947
+        },
+        "snippet": "export function submit(order) {\n  audit(order); // calling audit before save is not a business transition\n  if (!(order.orderedQty > 0 && order.supplierId)) throw Error('invalid order');\n  order.state = 'SUBMITTED';\n  save(order);\n}\nexport function approve(order, actor) {\n  if (actor.role !== 'buyer' || !actor.approvalGranted) throw Error('not approved');\n  order.state = 'APPROVED';\n}\nexport function receive(order, receipts) {\n  if (receipts.filter(r => r.status === 'POSTED' && !r.deleted).reduce((n, r) => n + r.qty, 0) > 0) order.state = 'RECEIVING';\n}\nexport function finish(order) {\n  if (order.netReceived >= order.orderedQty && order.allReceiptsValid) order.state = 'COMPLETED';\n}\nexport function withdraw(order, actor) {\n  if (order.state === 'SUBMITTED' && order.applicant === actor.id) order.state = 'DRAFT';\n}\nexport function cancel(order) {\n  if (order.state === 'APPROVED' && order.netReceived === 0) order.state = 'CANCELLED';\n}\n"
+      }
+    ]
+  },
+  {
+    "topicId": "purchase-workflow",
+    "version": 10,
+    "claim": {
+      "id": "guard",
+      "text": "The finish guard requires netReceived >= orderedQty and allReceiptsValid.",
+      "basis": "observed",
+      "origin": "static",
+      "evidenceRefs": [
+        "ev_8599bf77bb71ea343d0475d6dde8844c2aca13ad14231f82fcc91948ab71a089"
+      ],
+      "gapIds": []
+    },
+    "originalSupport": [
+      {
+        "reference": {
+          "snapshot": {
+            "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+            "generation": "13",
+            "sourceSnapshotId": "snap_294b38b32be40c8bda6c123958815e207ab97cefc4a548d3c3c4e088d3b3384f"
+          },
+          "evidenceId": "ev_8599bf77bb71ea343d0475d6dde8844c2aca13ad14231f82fcc91948ab71a089",
+          "sourceId": "src_f4be1ceeaabcebaae684900161fc5eefbf24bd70e7f0d77a61cdd1bee2b64fac",
+          "contentHash": "3b8fa55c4a63cb3695bc33037235b7025b7628b40219af452288d021f1fb7af2",
+          "startByte": 0,
+          "endByte": 947
+        },
+        "snippet": "export function submit(order) {\n  audit(order); // calling audit before save is not a business transition\n  if (!(order.orderedQty > 0 && order.supplierId)) throw Error('invalid order');\n  order.state = 'SUBMITTED';\n  save(order);\n}\nexport function approve(order, actor) {\n  if (actor.role !== 'buyer' || !actor.approvalGranted) throw Error('not approved');\n  order.state = 'APPROVED';\n}\nexport function receive(order, receipts) {\n  if (receipts.filter(r => r.status === 'POSTED' && !r.deleted).reduce((n, r) => n + r.qty, 0) > 0) order.state = 'RECEIVING';\n}\nexport function finish(order) {\n  if (order.netReceived >= order.orderedQty && order.allReceiptsValid) order.state = 'COMPLETED';\n}\nexport function withdraw(order, actor) {\n  if (order.state === 'SUBMITTED' && order.applicant === actor.id) order.state = 'DRAFT';\n}\nexport function cancel(order) {\n  if (order.state === 'APPROVED' && order.netReceived === 0) order.state = 'CANCELLED';\n}\n"
+      }
+    ]
+  }
+]

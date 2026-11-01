@@ -1,0 +1,8 @@
+{
+  "error": {
+    "code": "DEPENDENCY_PREPARE_FAILED",
+    "issues": [],
+    "message": "locked dependency installation failed: Collecting packaging==25.0 (from -r D:\\WpSystem\\S-1-5-21-2994935133-1947544876-937300672-1001\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\project-knowledge\\dependencies\\prepare_YX9c1d\\requirements.lock (line 1))\r\n  Using cached packaging-25.0-py3-none-any.whl (66 kB)\r\nERROR: THESE PACKAGES DO NOT MATCH THE HASHES FROM THE REQUIREMENTS FILE. If you have updated the package versions, please update the hashes. Otherwise, examine the package contents carefully; someone may have tampered with them.\r\n    packaging==25.0 from https://files.pythonhosted.org/packages/20/12/38679034af332785aac8774540895e234f4d07f7545804097de4b666afd8/packaging-25.0-py3-none-any.whl (from -r D:\\WpSystem\\S-1-5-21-2994935133-1947544876-937300672-1001\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\project-knowledge\\dependencies\\prepare_YX9c1d\\requirements.lock (line 1)):\r\n        Expected sha256 0000000000000000000000000000000000000000000000000000000000000000\r\n             Got        29572ef2b1f17581046b3a2227d5c611fb25ec70ca1ba8554b24b0e69331a484\r\n\r\n",
+    "retryable": false
+  }
+}

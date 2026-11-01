@@ -1,0 +1,553 @@
+{
+  "date": "2026-10-28 Asia/Shanghai",
+  "task": "T17",
+  "commands": [
+    {
+      "command": [
+        "D:\\AppData\\Local\\miniconda3\\python.exe",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T17\\cli_verify.py"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T17/cli-acceptance.log",
+      "logSha256": "3db31e70983b276b3917269726a0e194464613423c025b1d046d33e17ba82f31"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--workspace",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T17/workspace-tests.log",
+      "logSha256": "ddafa2a19cac348e72b57290d480abd448b15f55f9d46cf53dd325f9852b8268",
+      "reused": true,
+      "baselineInventory": "docs/evidence/T17/source-audit-preliminary.json",
+      "finalChangedSources": [
+        "crates/core/src/knowledge/context.rs",
+        "crates/core/tests/support/knowledge.rs"
+      ],
+      "finalCoverage": "indexing-final.log and cli-acceptance.log; all other product source hashes unchanged"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "indexing",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T17/indexing-final.log",
+      "logSha256": "c9d19aa6ede32b0f0e83594fb4101b888c189ccb5f3570c25e27e4a73b4b0d50"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T17/clippy.log",
+      "logSha256": "50030225e5ae0694fd524bd6ffaf6739a71feab2d9e42ecddfc4945633e875e4"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T17/fmt.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "-p",
+        "xtask",
+        "--locked",
+        "--",
+        "export-contracts",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T17/contracts.log",
+      "logSha256": "d1db3076e3542d27d940eddd169efc88e85ee01f0e084c319c9b2d7b6c4274c3"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/generate-types.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T17/types.log",
+      "logSha256": "ffd79024bf74c3f0e1a4a224e1b3a1783273115da81cc2ac0624af9984867368"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-contract-types.mjs"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T17/type-boundaries.log",
+      "logSha256": "ad333cbf26840bfb1904ed96b21df370ec69e86830df247dc15bc2799c31e7d5"
+    },
+    {
+      "command": [
+        "powershell",
+        "-NoProfile",
+        "-Command",
+        "pnpm run typecheck"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T17/typecheck.log",
+      "logSha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"
+    },
+    {
+      "command": [
+        "D:\\AppData\\Local\\miniconda3\\python.exe",
+        "scripts/verify-truth.py"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T17/truth.log",
+      "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/audit-source.mjs",
+        "--output",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T17\\source-audit.json"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T17/source-audit.log",
+      "logSha256": "f883ba6badd7749e255e39f507249e7904302821f56f7d0c7d3f345cdec8787c"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-plan.mjs",
+        "--plan",
+        "../plan/NEW-PROJECT-LONG-TASK.md"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T17/plan.log",
+      "logSha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T17/diff.log",
+      "logSha256": "d2a1330bce05217f6b66dc843ece1ad9923beff004ffcd56439fcbf0a25fdd1b"
+    }
+  ],
+  "testSummaries": [
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.20s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.41s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.37s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 710.22s",
+    "test result: ok. 36 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 19.85s",
+    "test result: ok. 55 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 11.45s",
+    "test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 55.84s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+  ],
+  "testsPassed": 145,
+  "knowledgeTests": 6,
+  "cli": {
+    "commands": [
+      {
+        "command": [
+          "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+          "index",
+          "--config",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+          "--base"
+        ],
+        "cwd": "E:\\Project\\my-project\\code-graph",
+        "exitCode": 0,
+        "expectedExitCodes": [
+          0,
+          2
+        ],
+        "stdout": "cli-index.stdout.json",
+        "stderr": "cli-index.stderr.log"
+      },
+      {
+        "command": [
+          "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+          "generate",
+          "--config",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+          "context",
+          "--topic",
+          "ledger",
+          "--request",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\query.json",
+          "--output",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\context.json"
+        ],
+        "cwd": "E:\\Project\\my-project\\code-graph",
+        "exitCode": 2,
+        "expectedExitCodes": [
+          0,
+          2
+        ],
+        "stdout": "cli-context.stdout.json",
+        "stderr": "cli-context.stderr.log"
+      },
+      {
+        "command": [
+          "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+          "query",
+          "--config",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+          "--request",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\read.json"
+        ],
+        "cwd": "E:\\Project\\my-project\\code-graph",
+        "exitCode": 0,
+        "expectedExitCodes": [
+          0,
+          2
+        ],
+        "stdout": "cli-read-source.stdout.json",
+        "stderr": "cli-read-source.stderr.log"
+      },
+      {
+        "command": [
+          "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+          "generate",
+          "--config",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+          "docs",
+          "--input",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\topic.json"
+        ],
+        "cwd": "E:\\Project\\my-project\\code-graph",
+        "exitCode": 2,
+        "expectedExitCodes": [
+          0,
+          2
+        ],
+        "stdout": "cli-import.stdout.json",
+        "stderr": "cli-import.stderr.log"
+      },
+      {
+        "command": [
+          "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+          "generate",
+          "--config",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+          "skill",
+          "--name",
+          "ledger",
+          "--output",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.agents\\skills\\ledger"
+        ],
+        "cwd": "E:\\Project\\my-project\\code-graph",
+        "exitCode": 2,
+        "expectedExitCodes": [
+          0,
+          2
+        ],
+        "stdout": "cli-skill.stdout.json",
+        "stderr": "cli-skill.stderr.log"
+      },
+      {
+        "command": [
+          "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+          "status",
+          "--config",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+          "--check-freshness"
+        ],
+        "cwd": "E:\\Project\\my-project\\code-graph",
+        "exitCode": 0,
+        "expectedExitCodes": [
+          0,
+          2
+        ],
+        "stdout": "cli-status.stdout.json",
+        "stderr": "cli-status.stderr.log"
+      },
+      {
+        "command": [
+          "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+          "status",
+          "--config",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+          "--check-freshness"
+        ],
+        "cwd": "E:\\Project\\my-project\\code-graph",
+        "exitCode": 2,
+        "expectedExitCodes": [
+          0,
+          2
+        ],
+        "stdout": "cli-stale.stdout.json",
+        "stderr": "cli-stale.stderr.log"
+      },
+      {
+        "command": [
+          "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+          "generate",
+          "--config",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+          "skill",
+          "--name",
+          "ledger",
+          "--output",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.agents\\skills\\ledger"
+        ],
+        "cwd": "E:\\Project\\my-project\\code-graph",
+        "exitCode": 2,
+        "expectedExitCodes": [
+          2
+        ],
+        "stdout": "cli-stale-render.stdout.json",
+        "stderr": "cli-stale-render.stderr.log"
+      },
+      {
+        "command": [
+          "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+          "index",
+          "--config",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+          "--base"
+        ],
+        "cwd": "E:\\Project\\my-project\\code-graph",
+        "exitCode": 0,
+        "expectedExitCodes": [
+          0,
+          2
+        ],
+        "stdout": "cli-reindex.stdout.json",
+        "stderr": "cli-reindex.stderr.log"
+      },
+      {
+        "command": [
+          "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+          "generate",
+          "--config",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+          "context",
+          "--topic",
+          "ledger",
+          "--request",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\query.json"
+        ],
+        "cwd": "E:\\Project\\my-project\\code-graph",
+        "exitCode": 2,
+        "expectedExitCodes": [
+          0,
+          2
+        ],
+        "stdout": "cli-current-context.stdout.json",
+        "stderr": "cli-current-context.stderr.log"
+      },
+      {
+        "command": [
+          "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+          "generate",
+          "--config",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+          "docs",
+          "--input",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\topic.json"
+        ],
+        "cwd": "E:\\Project\\my-project\\code-graph",
+        "exitCode": 2,
+        "expectedExitCodes": [
+          0,
+          2
+        ],
+        "stdout": "cli-reimport.stdout.json",
+        "stderr": "cli-reimport.stderr.log"
+      },
+      {
+        "command": [
+          "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+          "generate",
+          "--config",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+          "skill",
+          "--name",
+          "ledger",
+          "--output",
+          "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.agents\\skills\\ledger"
+        ],
+        "cwd": "E:\\Project\\my-project\\code-graph",
+        "exitCode": 2,
+        "expectedExitCodes": [
+          0,
+          2
+        ],
+        "stdout": "cli-current-skill.stdout.json",
+        "stderr": "cli-current-skill.stderr.log"
+      }
+    ],
+    "cliArtifactPath": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2\\project-knowledge.exe",
+    "cliSha256": "4fa487597afe0ef9477ad449ec724d1978dd069df9342d6e8ceca720a39a9eb2",
+    "topicVersions": [
+      1,
+      2
+    ],
+    "initialSourceSha256": "21d47bb15f3578eaaccd401a70b147333032f5c7355f2fb8a2d52fbb8a4a2c3f",
+    "freshnessSequence": [
+      "fresh",
+      "stale",
+      "stale",
+      "fresh"
+    ],
+    "modelsCalled": 0,
+    "businessDatabaseConnections": 0
+  },
+  "sourceHashes": {
+    "Cargo.lock": "9165dc2d5d8104e092d0fc88aedc92515e19b6175243f0fdb70c92afa2d9d38b",
+    "crates/cli/Cargo.toml": "c63336cc6571e171f1cf0a2ea54f9323bf80433cc87e1c3822f114516d98ce4c",
+    "crates/cli/src/commands/generate.rs": "31a0c29add7ce072df44dd4a4e5957e31e60f9f5a598e69fd791fd6e4000de56",
+    "crates/core/migrations/0003_knowledge.sql": "385c09118b9bc59ec33ef9fd959d58c8f3a7d034ffa6683ec6379b2c42f5a008",
+    "crates/core/src/collect/commit.rs": "4a5c93860f263a8374ca2351c0c07ba09af64324dad3e4919d8296f09d55ca76",
+    "crates/core/src/collect/registry.rs": "6b9fe403a24d8ae1c462f46e213256cd9e3583c9111ae88e33bd01cb90ffaab6",
+    "crates/core/src/contract/knowledge.rs": "dc3142849dacd2708e6f6402e77c7f7b3fe64937c07e2b46b2b738d3cefec4a1",
+    "crates/core/src/index/build.rs": "11bc82381bf09d1019bffe696511f53a788d555427e8dc5a2f6f2dd4f5f8b063",
+    "crates/core/src/index/incremental.rs": "4d265fa96d4b3c3e82622249bc386213fe40744513eccee76e2c39f564838505",
+    "crates/core/src/knowledge/context.rs": "2b4768bbed595ea152231d45d035ee6cdde7a21989a52fcc56ad13619c5e5cb7",
+    "crates/core/src/knowledge/documents.rs": "645bbccae52be34aa17b07267d1f0948e68813eafebda8f1ef1c730da1f5743d",
+    "crates/core/src/knowledge/mod.rs": "fa1672ec420b8619e3f5e18335ce443d7ecc18d8eec60ec3f1083fc09609232e",
+    "crates/core/src/knowledge/skill.rs": "cfab06753eec839e399ea8bfe45b4ee7d4922be3812d22f78a92a84276e7fcca",
+    "crates/core/src/query/mod.rs": "7750f302e23daf6560a6b9342bd435fe48fa429442cd404a68ea07b826feeb72",
+    "crates/core/src/storage/database.rs": "5685432d860e4e1894168ed9ae3f00f42d8e4dd52a2cc12ae9e77bd270fbb7a1",
+    "crates/core/src/storage/knowledge.rs": "c0b0fb8e958423b053dec386c45764e5107e01fe951955230050ff31cce07558",
+    "crates/core/src/storage/runs.rs": "032027a5e7633a06584a7ea7ea73b9eb22e129b6a2f78895e1f2781a9b0b0695",
+    "crates/core/templates/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "crates/core/templates/references.md.hbs": "03baf6c1d7ac7dcb8e1c21683e7e4c984d646fecf0d679b30ef32e99da4962f2",
+    "crates/core/templates/skill.md.hbs": "d227447f3e05fb75fdb024540a7077166e98450106fe572103ff331b061b1d8c",
+    "crates/core/templates/topic.md.hbs": "a49859a6f12847a3b63224f07c18655a3b51729e445683f3cd0cdf1f53abe539",
+    "crates/core/tests/indexing.rs": "75f38bc52ec6f902c3f9f76a99d55dde2c6ab8c18f78d5eca6433d3c18a4b2d5",
+    "crates/core/tests/support/knowledge.rs": "eee12e79a13a58251478ceb4ab8db3f59b8dcdc078cff4fd30393f4980cc8448",
+    "docs/evidence/T17/cli_verify.py": "a0bc39f5e5a26f819b106d090db3df72de7ae262de2fdebce0f84eb6f869eff8",
+    "docs/evidence/T17/verify.py": "b8bb939f2a5e154b993c10400f58f9ca1e6005047acf92f46e2c9b8bc80d3bb2",
+    "docs/schema/contract.schema.json": "291058c0db4d5a22202c4d7cb142d0faee1e4da4041422c04c6c1f8ff87c7fd3",
+    "packages/sdk/src/generated/contract.ts": "f1422a72144d4abf09a3323196e1d05dac30d45e709c3585d63c17c88f9d185d",
+    "prompts/knowledge.md": "781c16bd881839c041edeea2cd8ff410eb54e45d9f3a3a862a6ce05ffa292a5b",
+    "skills/project-onboarding/references/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "skills/project-onboarding/references/business-docs.md": "8a104839a2ff8700faa37d44173e0bcb24c3755a986b540d6fe0f127db4178cb",
+    "skills/project-onboarding/references/extractors.md": "154736f5d3b153e7c23397a8e910a04e72ae93d9ceaa6954ec83c14b267e10ae",
+    "skills/project-onboarding/SKILL.md": "350e67e227539c796252744a4fc89766f1945f80a72a9a4204f12f2e3448643b",
+    "skills/project-query/.gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "skills/project-query/SKILL.md": "792853b8e39425981a0a6057fc5b0674dd0ff14f08c837994062d034af489fd6",
+    "xtask/src/main.rs": "69676b74d2a4b097d86a73d6228f505dafdabe1434e30b5bf157ebc12ee754b5"
+  },
+  "snapshotHashes": {
+    "atomic-export.json": "07bc8ad0aef44a6c46adcc2baf88a3bf9c92f9264b635211ee2a1278ff6eca80",
+    "cli-context.stdout.json": "b21ced50a05661cc46b5f3aa81f40ce9db804d32072479a350e011f21032c421",
+    "cli-current-context.stdout.json": "9ed0f2e4d43404a4b70289c820c6ac576c07f04aec012df6f3db5140af98fc1c",
+    "cli-current-skill.stdout.json": "6a789eb5c181965ad7f1ad6f126b8023c70a04524765d3e76c54100527189a24",
+    "cli-import.stdout.json": "74d15630707d4e184f9939c7348709288a57ecc99c5b26d94b12213eddd90ca6",
+    "cli-index.stdout.json": "11cac07fd7a01b20adfb582517a46016262604cccaedb1541999747175935acd",
+    "cli-read-source.stdout.json": "9998e36877e431ff9d413f0e4a6ea370f6eee725709b2e2b2be018f3db962a73",
+    "cli-reimport.stdout.json": "d0f99ffc6e910bb5b4def612b1a062b01126bc1e42eeefcccb5ff52553e201f1",
+    "cli-reindex.stdout.json": "59b6a6ddf45967a1ddd4604167fd6e67e560a603e17a75df8e7f888bc36ae97b",
+    "cli-report.json": "09833b00f43259f0234a82c99837dfd1ccb2646a68874fb84c9a1272209485b7",
+    "cli-skill.stdout.json": "230d4f400bb9b4341a8cb8a461b32ef78b3c2ef359b1d8e738ae05429bc08f96",
+    "cli-stale-render.stdout.json": "7c0adc70f4f51a321bf5bcb6e801b75d1ae2224f1eeda9e6507e83fe775fa43d",
+    "cli-stale.stdout.json": "cd48b0cb97f1439ab61ead5178d49c1d9eaeead37c9444dc019fcc4a23369318",
+    "cli-status.stdout.json": "e0d75946368cd88fb1e081c237b595e75b137c52b188b696b0e61999939d1217",
+    "context.json": "78d59701dc4c363ed7b275a32d036cc0e617b1afac35353a3c003c99b76e8173",
+    "conventions.json": "b811d138d320fc1c5cab7a309c4629ebc0d5e6b1f50a8cb3ebc2ace5771fb5e3",
+    "fresh-status.json": "f924d6b447aeaf05a5f18a803d736846c2b8a586d567020108ac36a0b1c99635",
+    "freshness-timeline.json": "5a0dc0b3dbf7906de7cfc685cb8884af991497fd206453bdfd012b91d92eb52d",
+    "manifest.json": "bc9f21426657b1d2dac6a68349df125625651e9abb3caaf5df9d440f6cb91b3b",
+    "plugin-dependencies.json": "8701111286e17aec63c7494700ed54d52fc75299573fc6359a61e03fe5d7f655",
+    "rejections.json": "915c30726148fe9c6c34829048e3993c4ed72f75ae36da45d74045534bdc678c",
+    "source-audit-preliminary.json": "d351bd9d5cd9bdc0f8129929d9ad16f807dcd5523c77bad47c4930d7501a6a2c",
+    "source-audit.json": "99760de28a378aab3d8176c2e0d93629c2706a22f8cc90d9b0a4c17aa85ac57b",
+    "topic.json": "5b3f4b55667647a1a0c9573668860b4ff583c2190de1d43c82de51c918b3ac21",
+    "unfinished-review.json": "95b2e16c9366d1c5f7bace14762b6a383df39cf5b7294b542fdfb7cfe63cf5e1",
+    "cli-skill/COMPLETE.json": "655d0b151db5aeffb40fbd4164aa616178a96a149463e8e3c93612f9d71e9c87",
+    "cli-skill/SKILL.md": "0c42ad9f5f836193b9efa9a7e2aed85b7be620cc418365aca8b4cce35bc2a310",
+    "cli-skill/references/api.md": "e34e80f5db05c0fa2df2497853008747178146f5ce8632fd3713f51d9f67f554",
+    "cli-skill/references/code-map.md": "dbd3469a5d697050fd09d6ec0556a10fbc547255e77f8ffc6f4d3ec8034b704a",
+    "cli-skill/references/conventions.md": "3f05f61bda8b2472f7dad58259cd180e0bbea76cc8640edc48282ad2b0b24804",
+    "cli-skill/references/database.md": "baa3ae8f32ce22c7c3367ac634a96f20349f94fd0d3fc57afed1b6ec7ba660d5",
+    "cli-skill/references/frontend.md": "ba2ab66b84f036dc9d5aeb85b7df5dc07c4d33046466b6b35276d637ae19fec0",
+    "cli-skill/references/index-manifest.json": "aead048bb1ca078986c3fa5131cb2783994e0873b8d89ea5d750641b8bde1551",
+    "cli-skill/references/routes.md": "840a25dca3c1a7d5d02d878bae43e159ff30dbd21785a2d2af65c8d47f5321dc",
+    "cli-skill/references/source-refs.md": "1dbc444239d1673cc1f62376568872ed5fd5e30668ec5241e012c3cb1dad12c3",
+    "cli-skill/references/topics/ledger.md": "8af6ce582f3a8f5d0c73150dc07378074b9af97ad57d9742b988ef3ead0b1d22"
+  },
+  "modelsCalled": 0,
+  "businessDatabaseConnections": 0,
+  "platform": "Windows x64",
+  "productionAccuracyClaimed": false,
+  "limitations": [
+    "Dependency selection conservatively binds the selected repositories, not individual semantic statements",
+    "Only mapped Mermaid and cited explanation lines are accepted in external topics",
+    "CURRENT.json selects an immutable complete Skill directory; no in-place overwrite of a loaded Skill",
+    "Agent knowledge workflow and SDK/MCP remain subsequent tasks"
+  ],
+  "finalIndexingTestSummaries": [
+    "test result: ok. 55 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.73s"
+  ],
+  "workspaceReused": true,
+  "completionEvidence": {
+    "taskState": "done",
+    "nextDependencySatisfiedTask": "T18",
+    "files": {
+      "plan/NEW-PROJECT-LONG-TASK.md": "20a4bdb49b052ae83cf50457ed7f1602cb7f443c5b2b8fe623c988ce9852c280",
+      "docs/execution-log.md": "5b34bc144dc2856af5b63a2100c625d3a18c868c80c5612bf3c2e4546da6061f",
+      "docs/protocol.md": "69ea1fc5663afe5d78a19e1e81489bab171f0a2af1e347db24b4a276b82132cf",
+      "docs/evidence/T17/README.md": "0b0d5a58d64f839967d7372e1a867ca0fae008e4879fbdfc0c9c47217c846263",
+      "docs/evidence/T17/plan-closed.log": "71661198a7904771d1f016c66fd0d8d820784b0283cf51d0b9132d6fb48b6f60",
+      "docs/evidence/T17/diff-closed.log": "e3b7c5c014a87e11499a4d691326fd11c2c0ceae443a6190329f9c5499be103f"
+    }
+  },
+  "modelScope": "T17 product/CLI execution uses no model; the workspace regression includes existing local mocked Agent/provider tests"
+}

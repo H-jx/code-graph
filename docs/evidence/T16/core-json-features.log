@@ -1,0 +1,76 @@
+serde_json v1.0.154
+├── serde_json feature "alloc"
+│   └── schemars v1.2.3
+│       ├── schemars feature "default"
+│       │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+│       │       ├── project-knowledge-core feature "default" (command-line)
+│       │       └── project-knowledge-core feature "syntax"
+│       │           └── project-knowledge-core feature "default" (command-line)
+│       ├── schemars feature "derive"
+│       │   └── schemars feature "default" (*)
+│       ├── schemars feature "schemars_derive"
+│       │   └── schemars feature "derive" (*)
+│       └── schemars feature "std"
+│           └── schemars feature "default" (*)
+├── serde_json feature "default"
+│   ├── handlebars v6.4.4
+│   │   └── handlebars feature "default"
+│   │       └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   ├── jsonschema v0.60.1
+│   │   └── jsonschema feature "resolve-file"
+│   │       └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   ├── jsonschema-value v0.60.1
+│   │   ├── jsonschema-value feature "default"
+│   │   │   └── jsonschema v0.60.1 (*)
+│   │   └── jsonschema-value feature "serde_json"
+│   │       └── jsonschema-value feature "default" (*)
+│   ├── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│   ├── referencing v0.60.1
+│   │   └── referencing feature "default"
+│   │       └── jsonschema v0.60.1 (*)
+│   └── rusqlite v0.41.0
+│       ├── rusqlite feature "backup"
+│       │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│       ├── rusqlite feature "bundled"
+│       │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│       ├── rusqlite feature "cache"
+│       │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│       ├── rusqlite feature "chrono"
+│       │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│       ├── rusqlite feature "hashlink"
+│       │   └── rusqlite feature "cache" (*)
+│       ├── rusqlite feature "hooks"
+│       │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│       ├── rusqlite feature "limits"
+│       │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│       ├── rusqlite feature "modern_sqlite"
+│       │   └── rusqlite feature "bundled" (*)
+│       ├── rusqlite feature "serde_json"
+│       │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│       ├── rusqlite feature "trace"
+│       │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│       └── rusqlite feature "wal"
+│           └── rusqlite feature "hooks" (*)
+├── serde_json feature "float_roundtrip"
+│   ├── jsonschema v0.60.1 (*)
+│   └── jsonschema-value v0.60.1 (*)
+└── serde_json feature "std"
+    └── serde_json feature "default" (*)
+
+serde_json v1.0.154
+├── serde_json feature "alloc"
+│   └── serde_json feature "preserve_order"
+│       [build-dependencies]
+│       └── tree-sitter v0.27.1
+│           ├── tree-sitter feature "default"
+│           │   └── project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core) (*)
+│           └── tree-sitter feature "std"
+│               └── tree-sitter feature "default" (*)
+├── serde_json feature "default"
+│   [build-dependencies]
+│   └── tree-sitter v0.27.1 (*)
+├── serde_json feature "indexmap"
+│   └── serde_json feature "preserve_order" (*)
+├── serde_json feature "preserve_order" (*)
+└── serde_json feature "std"
+    └── serde_json feature "default" (*)

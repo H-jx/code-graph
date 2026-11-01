@@ -1,0 +1,176 @@
+{
+  "protocolVersion": "1.0",
+  "runId": "frozen-case",
+  "pluginId": "example.a.frontend",
+  "version": "1.0.0",
+  "stageId": "extract",
+  "snapshot": {
+    "indexId": "frozen-case",
+    "generation": "0",
+    "sourceSnapshotId": "fixture.a"
+  },
+  "inputSnapshotId": "fixture.a",
+  "configSubset": {
+    "schemaVersion": 1,
+    "projectId": "acceptance.a",
+    "repositories": [
+      {
+        "id": "front",
+        "root": "web"
+      },
+      {
+        "id": "back",
+        "root": "api"
+      }
+    ],
+    "selection": {},
+    "scopes": [
+      {
+        "id": "app.web",
+        "repositoryIds": [
+          "front"
+        ],
+        "kind": "application"
+      },
+      {
+        "id": "svc.erp",
+        "repositoryIds": [
+          "back"
+        ],
+        "kind": "service"
+      }
+    ],
+    "services": [
+      {
+        "id": "erp",
+        "scopeId": "svc.erp",
+        "protocol": "http",
+        "baseUrls": [
+          "/erp"
+        ]
+      }
+    ],
+    "dataSources": [
+      {
+        "id": "ds.erp",
+        "scopeId": "svc.erp",
+        "dialect": "sqlite"
+      },
+      {
+        "id": "ds.analytics",
+        "scopeId": "svc.erp",
+        "dialect": "sqlite"
+      }
+    ],
+    "bindings": [
+      {
+        "id": "erp-client",
+        "kind": "clientToService",
+        "scopeId": "app.web",
+        "from": "http",
+        "to": "erp"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "src_b2b7e1752879363ea4d78f417053da689e80cc3fb433c74b7f1c85820ea819ba",
+      "repositoryId": "front",
+      "path": "decoy/Ledger.tsx",
+      "sourceClass": "code",
+      "contentHash": "b839a87d42b1ab7b55d93ddd6dac0c930ca0173b08ef3da1033fe1767a696406",
+      "byteLength": 114,
+      "content": "export function Ledger() { function query() { return 'decoy'; } return <button onClick={query}>查询</button>; }\n"
+    },
+    {
+      "id": "src_ae0dd2dd9b2bcf5373d314bce0637302485e27fd08f124a5023e4085911b4148",
+      "repositoryId": "front",
+      "path": "messages.ts",
+      "sourceClass": "code",
+      "contentHash": "ac7d78379b516265affd8fc3f180067c1d6d08a59c7e42b6784906102471ab62",
+      "byteLength": 67,
+      "content": "export const messages = { 'purchase.title': '采购台账 🧾' };\n"
+    },
+    {
+      "id": "src_ab4723ede98a37fb4fd489fbd1187cab1471478d21b0adb414a30d7c547d173c",
+      "repositoryId": "front",
+      "path": "pages/Ledger.tsx",
+      "sourceClass": "code",
+      "contentHash": "9d8913bf48bc1a324cb35f45c2a176a67dcfa9251e10f28329c44274763be272",
+      "byteLength": 435,
+      "content": "import { fetchLedger, fetchSummary, dynamicRequest } from '../requests';\n/** 采购台账：供应商筛选。 */\nexport function Ledger() {\n  async function query() { return fetchLedger(); }\n  async function summary() { return fetchSummary(); }\n  return <section><button onClick={query}>查询</button><button onClick={summary}>汇总</button><button onClick={dynamicRequest}>动态查询</button></section>;\n}\nexport default Ledger;\n"
+    },
+    {
+      "id": "src_ed9f40cbd09606d84a6a1aa0a47cc11494c5b51cbe735ceed440c34855410d51",
+      "repositoryId": "front",
+      "path": "registrations.ts",
+      "sourceClass": "code",
+      "contentHash": "dab60edb4fea6bb4b0013fe1ae1495d113c5f1fdde646e3f17dbb3a576a6b792",
+      "byteLength": 240,
+      "content": "import { query } from './workers';\nexport const moduleInfo = { key: 'purchase', name: '采购模块' };\nscheduler.register('nightly-ledger', query);\nmessages.subscribe('purchase.refresh', query);\ncommands.register('refresh-ledger', query);\n"
+    },
+    {
+      "id": "src_181522f95a09ddf58640c4b9bcf9965c09703aa6a2b4c6936d6a1d62cca9768c",
+      "repositoryId": "front",
+      "path": "requests.ts",
+      "sourceClass": "code",
+      "contentHash": "62274a3356d2ebf558b5132bf6d8b9ae1e5c3d98aa80f86e7b50ce05fe38fa5b",
+      "byteLength": 306,
+      "content": "import { http } from './transport';\nexport function fetchLedger() { return http.get('/purchase/ledger'); }\nexport function fetchSummary() { return http.graphql(`query PurchaseSummary { purchaseSummary { count } }`); }\nexport function dynamicRequest() { return http.get('/purchase/' + globalThis.target); }\n"
+    },
+    {
+      "id": "src_85d5d8cb0b4ac042c790d4bc83555d0b6558b44a4fa06ab9b228e4ba4a24a360",
+      "repositoryId": "front",
+      "path": "routes.ts",
+      "sourceClass": "code",
+      "contentHash": "2af7c16c198eb43c5116c1df26c1fd077c57e5087541b4c1c27b93433886b613",
+      "byteLength": 215,
+      "content": "import Ledger from './pages/Ledger';\nexport const router = { id: 'main', mode: 'hash' };\nexport const routes = [{ path: '/Other/purchaseLedger', alias: '/purchase', titleKey: 'purchase.title', component: Ledger }];\n"
+    },
+    {
+      "id": "src_4976fdcc8779668e793e4bf9552014fb86e508ce9dde5ff11399f83afb943d75",
+      "repositoryId": "front",
+      "path": "transport.ts",
+      "sourceClass": "code",
+      "contentHash": "8f73aef409c888c7d4fbd80fc0e73b5e00944014cb38d2f7e48d8df0f11c2db4",
+      "byteLength": 73,
+      "content": "export const http = createClient({ baseURL: '/erp', serviceId: 'erp' });\n"
+    },
+    {
+      "id": "src_0776dea7f871d45e8d45b26d456668c8e29172cebcc3f770b19f5425847b2d08",
+      "repositoryId": "front",
+      "path": "workers.ts",
+      "sourceClass": "code",
+      "contentHash": "6db31b413a2e234cf68e7b3d452d73b4877b6f5faef3ed9e4c83f5f023f2feb3",
+      "byteLength": 81,
+      "content": "/** 采购台账缓存更新。 */\nexport function query() { return 'refresh'; }\n"
+    }
+  ],
+  "sourceSets": [
+    {
+      "selectorId": "frontend",
+      "digest": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+      "sourceIds": [
+        "src_b2b7e1752879363ea4d78f417053da689e80cc3fb433c74b7f1c85820ea819ba",
+        "src_ae0dd2dd9b2bcf5373d314bce0637302485e27fd08f124a5023e4085911b4148",
+        "src_ab4723ede98a37fb4fd489fbd1187cab1471478d21b0adb414a30d7c547d173c",
+        "src_ed9f40cbd09606d84a6a1aa0a47cc11494c5b51cbe735ceed440c34855410d51",
+        "src_181522f95a09ddf58640c4b9bcf9965c09703aa6a2b4c6936d6a1d62cca9768c",
+        "src_85d5d8cb0b4ac042c790d4bc83555d0b6558b44a4fa06ab9b228e4ba4a24a360",
+        "src_4976fdcc8779668e793e4bf9552014fb86e508ce9dde5ff11399f83afb943d75",
+        "src_0776dea7f871d45e8d45b26d456668c8e29172cebcc3f770b19f5425847b2d08"
+      ],
+      "complete": true
+    }
+  ],
+  "entities": [],
+  "relations": [],
+  "candidateSets": [],
+  "allowedExtensions": [],
+  "limits": {
+    "timeoutMs": 60000,
+    "maxInputBytes": 33554432,
+    "maxOutputBytes": 33554432,
+    "maxStderrBytes": 1048576
+  }
+}

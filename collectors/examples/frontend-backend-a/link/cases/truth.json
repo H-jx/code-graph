@@ -1,0 +1,94 @@
+{
+  "id": "T13-source-reviewed-link-bindings",
+  "baselineTruthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "classification": "synthetic source review, independent of collector output; no production accuracy or human signoff claim",
+  "serviceId": "erp",
+  "http": {
+    "method": "GET",
+    "registeredPath": "/purchase/ledger"
+  },
+  "graphql": {
+    "operationType": "query",
+    "operationName": "PurchaseSummary",
+    "schemaType": "Query",
+    "fieldName": "purchaseSummary"
+  },
+  "layouts": [
+    {
+      "layout": "a",
+      "requestFile": "requests.ts",
+      "requestHandler": "fetchLedger",
+      "graphqlHandler": "fetchSummary",
+      "clientFile": "transport.ts",
+      "registrationFile": "register.ts",
+      "handlerFile": "service.ts",
+      "handler": "ledger",
+      "evidence": [
+        {
+          "path": "fixtures/page-location/a/web/requests.ts",
+          "startLine": 2,
+          "endLine": 3,
+          "reason": "Literal HTTP call and named GraphQL operation field selection."
+        },
+        {
+          "path": "fixtures/page-location/a/web/transport.ts",
+          "startLine": 1,
+          "endLine": 1,
+          "reason": "Explicit client instance with baseURL and service id."
+        },
+        {
+          "path": "fixtures/page-location/a/api/register.ts",
+          "startLine": 1,
+          "endLine": 3,
+          "reason": "Imported handler, HTTP registration and exact GraphQL schema field."
+        },
+        {
+          "path": "fixtures/page-location/a/project.json",
+          "reason": "Explicit app.web clientToService binding and svc.erp service ownership; no name-only repository merge."
+        }
+      ]
+    },
+    {
+      "layout": "b",
+      "requestFile": "network.js",
+      "requestHandler": "loadRows",
+      "graphqlHandler": "loadStats",
+      "clientFile": "client.js",
+      "registrationFile": "expose.py",
+      "handlerFile": "queries.py",
+      "handler": "ledger",
+      "evidence": [
+        {
+          "path": "fixtures/page-location/b/client/ui/network.js",
+          "startLine": 2,
+          "endLine": 3,
+          "reason": "Literal HTTP call and named GraphQL operation field selection."
+        },
+        {
+          "path": "fixtures/page-location/b/client/ui/client.js",
+          "startLine": 1,
+          "endLine": 1,
+          "reason": "Explicit client instance with baseURL and service id."
+        },
+        {
+          "path": "fixtures/page-location/b/server/domain/expose.py",
+          "startLine": 1,
+          "endLine": 3,
+          "reason": "Imported handler, HTTP registration and exact GraphQL schema field."
+        },
+        {
+          "path": "fixtures/page-location/b/project.json",
+          "reason": "Explicit app.web clientToService binding and svc.erp service ownership; no name-only repository merge."
+        }
+      ]
+    }
+  ],
+  "rules": [
+    "clientToService scope app.web/from http/to erp plus literal createClient baseURL /erp must agree with service registry",
+    "HTTP method and registered path must match within the explicit service scope; equal names in another service never confirm",
+    "GraphQL operation selects Query.purchaseSummary, whose registered resolver is the explicit imported ledger function",
+    "query dataSource association follows observed reads of dataSource-qualified tables/columns rather than table names",
+    "missing binding or multiple resolver registrations remains candidate, even for one equal name",
+    "source and full candidate assertion/relationship sets participate in invalidation"
+  ]
+}

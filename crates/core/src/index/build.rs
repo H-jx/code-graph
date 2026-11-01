@@ -8,6 +8,7 @@
 use std::collections::{BTreeMap, BTreeSet};
 use std::path::Path;
 
+use rusqlite::OptionalExtension;
 use serde_json::{Map, Value};
 
 use crate::contract::collector::{Coverage, CoverageStatus, Gap};
@@ -20,7 +21,7 @@ use crate::contract::identity::{
 };
 use crate::contract::relation::{Relation, RelationKind, Resolution};
 use crate::project::config::{LoadedProject, ScopeKind};
-use crate::project::scan::{ScanOptions, ScanResult, SelectionStatus, scan_repository};
+use crate::project::scan::SelectionStatus;
 use crate::project::snapshot::{LineMap, SourceSnapshot, build_snapshot};
 use crate::search::documents::{entity_projection, source_projection};
 use crate::storage;
@@ -151,24 +152,28 @@ pub fn build_base_index(
     database: &mut Database,
     now: &str,
 ) -> Result<BaseIndexResult, CoreError> {
+    build_base_index_with_cancellation(
+        project,
+        database,
+        now,
+        &tokio_util::sync::CancellationToken::new(),
+    )
+}
+
+pub fn build_base_index_with_cancellation(
+    project: &LoadedProject,
+    database: &mut Database,
+    now: &str,
+    cancel: &tokio_util::sync::CancellationToken,
+) -> Result<BaseIndexResult, CoreError> {
+    crate::client::check_cancel(cancel)?;
+    crate::knowledge::documents::refresh(database, project)?;
     let project_id = project.config.project_id.clone();
     let config_hash = project.config_hash()?;
     let scopes = effective_scopes(project);
 
     // 1. 扫描全部仓库。
-    let options = ScanOptions {
-        respect_git_ignore: project.config.selection.respect_git_ignore,
-        max_file_bytes: project.config.selection.max_file_bytes,
-        include: project.config.selection.include.clone(),
-        exclude: project.config.selection.exclude.clone(),
-    };
-    let mut scan_results: Vec<ScanResult> = Vec::new();
-    for (repository_id, root) in &project.repositories {
-        scan_results.push(
-            scan_repository(repository_id, root, &options)
-                .map_err(|error| CoreError::new(codes::CONFIG_INVALID, error))?,
-        );
-    }
+    let scan_results = crate::project::snapshot::scan_project_with_cancellation(project, cancel)?;
 
     // 2. 来源快照。
     let snapshot = build_snapshot(&project_id, &config_hash, &scan_results, now);
@@ -319,11 +324,77 @@ pub fn build_base_index(
     let mut all_coverage: Vec<Coverage> = Vec::new();
 
     for result in &scan_results {
+        crate::client::check_cancel(cancel)?;
         let replacement_key = storage::base_replacement_key(&result.repository_id);
         let batch_id = storage::batch_id(&run_id, &replacement_key);
-        let input_digest = crate::contract::identity::content_hash(
-            format!("{}\u{1f}{}", snapshot.source_set_hash, result.repository_id).as_bytes(),
-        );
+        // 每仓库独立比较；无关仓库变化不能更换本仓库断言/候选身份。
+        let input_digest = crate::collect::import::digest(&(
+            &config_hash,
+            crate::project::scan::source_set_digest(std::slice::from_ref(result)),
+        ));
+        if let Some(previous) = storage::current_batch(connection, &replacement_key)? {
+            let previous_digest: String = connection
+                .query_row(
+                    "SELECT input_digest FROM batches WHERE id=?1 AND state='fresh'",
+                    [&previous],
+                    |row| row.get(0),
+                )
+                .optional()
+                .map_err(crate::storage::database_error)?
+                .unwrap_or_default();
+            if previous_digest == input_digest {
+                for (table, count) in [
+                    ("entity_assertions", &mut entity_count),
+                    ("relation_assertions", &mut relation_count),
+                    ("search_documents", &mut document_count),
+                ] {
+                    let sql = if table == "search_documents" {
+                        "SELECT count(*) FROM search_documents d JOIN assertions a ON a.id=d.assertion_id WHERE a.batch_id=?1".to_string()
+                    } else {
+                        format!("SELECT count(*) FROM {table} WHERE batch_id=?1")
+                    };
+                    *count += connection
+                        .query_row(&sql, [&previous], |row| row.get::<_, i64>(0))
+                        .map_err(crate::storage::database_error)?
+                        as usize;
+                }
+                for (_, _, gap) in storage::load_gaps(connection, &previous)? {
+                    all_gaps.push(serde_json::from_value(gap).map_err(|error| {
+                        CoreError::new(codes::INTERNAL_ERROR, error.to_string())
+                    })?);
+                }
+                let mut statement = connection.prepare(
+                    "SELECT capability,scope_id,source_set_id,status,counts_json,gap_ids_json FROM coverage WHERE batch_id=?1 ORDER BY capability,scope_id"
+                ).map_err(crate::storage::database_error)?;
+                let rows = statement
+                    .query_map([&previous], |row| {
+                        Ok((
+                            row.get::<_, String>(0)?,
+                            row.get::<_, String>(1)?,
+                            row.get::<_, String>(2)?,
+                            row.get::<_, String>(3)?,
+                            row.get::<_, String>(4)?,
+                            row.get::<_, String>(5)?,
+                        ))
+                    })
+                    .map_err(crate::storage::database_error)?;
+                for row in rows {
+                    let (capability, scope_id, source_set_id, status, counts, gap_ids) =
+                        row.map_err(crate::storage::database_error)?;
+                    all_coverage.push(serde_json::from_value(serde_json::json!({
+                        "capability":capability,"scopeId":scope_id,"sourceSetId":source_set_id,"status":if status=="not_configured" {"notConfigured"}else{&status},
+                        "counts":serde_json::from_str::<Value>(&counts).map_err(|e| CoreError::new(codes::INTERNAL_ERROR,e.to_string()))?,
+                        "gapIds":serde_json::from_str::<Value>(&gap_ids).map_err(|e| CoreError::new(codes::INTERNAL_ERROR,e.to_string()))?
+                    })).map_err(|e| CoreError::new(codes::INTERNAL_ERROR,e.to_string()))?);
+                }
+                continue;
+            }
+            storage::invalidate_batches(
+                connection,
+                std::slice::from_ref(&replacement_key),
+                database_generation(connection)? + 1,
+            )?;
+        }
         storage::create_batch(
             connection,
             &batch_id,
@@ -347,6 +418,7 @@ pub fn build_base_index(
         };
 
         for source in &result.sources {
+            crate::client::check_cancel(cancel)?;
             let root = project
                 .repositories
                 .get(&result.repository_id)
@@ -416,7 +488,7 @@ pub fn build_base_index(
             &batch_id,
             "sourceSet",
             &result.repository_id,
-            &snapshot.source_set_hash,
+            &crate::project::scan::source_set_digest(std::slice::from_ref(result)),
         )?;
         storage::insert_dependency(connection, &batch_id, "config", &project_id, &config_hash)?;
 
@@ -495,6 +567,26 @@ pub fn build_base_index(
     }
 
     // 3.4 来源快照与索引元数据。
+    for (key, _) in storage::current_batches(connection)? {
+        if key.starts_with("(core.base,")
+            && !project
+                .repositories
+                .keys()
+                .any(|id| storage::base_replacement_key(id) == key)
+        {
+            storage::invalidate_batches(
+                connection,
+                std::slice::from_ref(&key),
+                database_generation(connection)? + 1,
+            )?;
+            connection
+                .execute(
+                    "DELETE FROM current_batches WHERE replacement_key=?1",
+                    [&key],
+                )
+                .map_err(crate::storage::database_error)?;
+        }
+    }
     storage::register_snapshot(connection, &snapshot)?;
     let current_generation: i64 = connection
         .query_row(
@@ -528,6 +620,7 @@ pub fn build_base_index(
         None,
         now,
     )?;
+    crate::client::check_cancel(cancel)?;
     transaction.commit().map_err(|error| {
         CoreError::new(
             codes::BUSY,
@@ -545,6 +638,14 @@ pub fn build_base_index(
         gaps: all_gaps,
         coverage: all_coverage,
     })
+}
+
+fn database_generation(connection: &rusqlite::Connection) -> Result<u64, CoreError> {
+    connection
+        .query_row("SELECT generation FROM index_meta WHERE id=1", [], |row| {
+            row.get::<_, i64>(0).map(|n| n as u64)
+        })
+        .map_err(crate::storage::database_error)
 }
 
 fn scopes_for_repository(scopes: &[ScopeInfo], repository_id: &str) -> Vec<String> {
@@ -948,7 +1049,7 @@ impl<'a> RepositoryBuilder<'a> {
             connection,
             &storage::entities::EntityRow {
                 id: &entity.id,
-                kind: entity.kind,
+                kind: entity.kind.clone(),
                 scope_id: &entity.scope_id,
                 identity_json,
             },
@@ -995,11 +1096,11 @@ impl<'a> RepositoryBuilder<'a> {
         route_exact: Option<&str>,
     ) -> Result<(), CoreError> {
         let relation_id =
-            compute_relation_id(self.project_id, kind, from_id, to_id, &qualifiers)
+            compute_relation_id(self.project_id, kind.clone(), from_id, to_id, &qualifiers)
                 .map_err(|error| CoreError::new(codes::IDENTITY_CONFLICT, error.to_string()))?;
         let relation = Relation {
             id: relation_id.clone(),
-            kind,
+            kind: kind.clone(),
             from_id: from_id.to_string(),
             to_id: to_id.to_string(),
             qualifiers: qualifiers.clone(),

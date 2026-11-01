@@ -1,20 +1,22 @@
 # 通用协议（所有任务共享，运行时动态注入）
 
-> 骨架文件。实际内容由 `crates/agent/src/prompts.rs` 与 Core 契约拼装：协议版本、JSON Schema、
+实际内容由 `crates/agent/src/prompts.rs` 与 Core 契约拼装：协议版本、JSON Schema、
 > 关系谓词清单、工具清单和运行预算都从 Core 动态读取，本文件只维护不随版本变化的任务指令。
 
 ## 你必须先读
 
-1. `getCapabilities()` / `project-knowledge://schema`：当前实体类型、关系谓词、资源上限。
-2. `status`（开启 `checkFreshness`）：源码新鲜度、采集覆盖、知识版本。
-3. 基础代码地图与已登记的 `conventions.md`。
+1. `get-capabilities`：当前 Schema、schemaHash、工具 allowlist、configHash 和 scopeIds。
+2. `status`（空对象）：源码新鲜度、采集覆盖、知识版本。
+3. `code-map` 与有原始引用的调查约定。
 
 ## 输出纪律
 
 - 每个判断附实际源码依据：文件路径 + 行范围 + 内容哈希 + `basis`（declared / inferred）。
 - 动态值、重名候选、绑定不明一律保留为候选或缺口，不编造链路，不写“不存在”。
 - 不预设框架：NestJS / React / Vue / 目录名 / ORM 只能来自调查结论。
-- 不修改目标业务源码；只写候选目录与约定草稿。
+- 项目专属的框架解析、路径约定和业务规则只写入项目候选插件及带引用的调查材料；不得要求修改 SDK、native binding 或 Core 来适配该项目。
+- 切换项目时重新调查并生成插件。公共契约、通用语法能力和宿主执行机制保持通用，不按项目名称或样例路径分支。
+- 不修改目标业务源码；通过 Core 工具保存候选、原始引用绑定的派生约定及知识输出。
 - 不通过删除验收样例、扩大忽略范围或改动公共协议来让验证通过。
 
 ## 完成条件

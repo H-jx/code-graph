@@ -1,0 +1,181 @@
+{
+  "id": "T12-database-source-review",
+  "baselineTruthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "classification": "independently source-reviewed synthetic fixtures; no human signoff or production accuracy claim",
+  "fileHashes": {
+    "fixtures/page-location/a/api/models.ts": "efa1244ca2a57619224f25a3db4cde555c988890605164426f609c19865f84a3",
+    "fixtures/page-location/b/server/domain/models.py": "04f336a2a1bbee6c4cb34e3967ba5f015c2dba2ca714d8b4eefa2d330874deab",
+    "fixtures/purchase-ledger/schema.sql": "b11f24040c65a21fa62732f219ff17866bb447861568c918cb08b3e9268dc0ff",
+    "fixtures/purchase-ledger/correct.sql": "70d18548c33e29355647ca6486482e5729e803cf8b93fd9129137a9b32875c15",
+    "fixtures/purchase-ledger/fanout.sql": "927fd2c90c361f8cd3d747e510d1202baf182d23bb7f0a2e124508d24a0a1f18",
+    "fixtures/purchase-ledger/where-child.sql": "47644489804828d35411850ee6a0542844d0bdec6c4c7f09c22c9be21f4a4b2b",
+    "fixtures/truth-supplements/T12-database/database.ts": "88f2a25b595683ea9015456a8d342b9439c9468838be7d343e2cfa00090bb735",
+    "fixtures/truth-supplements/T12-database/database.py": "b7e20b959b8a949761830ca1fd3b37f877f7f9d3a25e7879e6590a1654965268"
+  },
+  "scopeId": "svc.erp",
+  "dataSourceIds": [
+    "ds.erp",
+    "ds.analytics"
+  ],
+  "tables": {
+    "purchase_detail": [
+      "tenant_id",
+      "purchase_no",
+      "line_no",
+      "supplier_id",
+      "ordered_qty",
+      "unit_price_cents",
+      "status"
+    ],
+    "supplier": [
+      "tenant_id",
+      "supplier_id",
+      "name"
+    ],
+    "receipt": [
+      "id",
+      "tenant_id",
+      "purchase_no",
+      "line_no",
+      "qty",
+      "status",
+      "deleted"
+    ],
+    "return_line": [
+      "id",
+      "tenant_id",
+      "purchase_no",
+      "line_no",
+      "qty",
+      "status",
+      "deleted"
+    ],
+    "invoice": [
+      "id",
+      "tenant_id",
+      "purchase_no",
+      "line_no",
+      "amount_cents",
+      "status",
+      "deleted"
+    ]
+  },
+  "primaryKeys": {
+    "purchase_detail": [
+      "tenant_id",
+      "purchase_no",
+      "line_no"
+    ],
+    "supplier": [
+      "tenant_id",
+      "supplier_id"
+    ],
+    "receipt": [
+      "id"
+    ],
+    "return_line": [
+      "id"
+    ],
+    "invoice": [
+      "id"
+    ]
+  },
+  "foreignKeys": {
+    "receipt": [
+      "tenant_id",
+      "purchase_no",
+      "line_no"
+    ],
+    "return_line": [
+      "tenant_id",
+      "purchase_no",
+      "line_no"
+    ],
+    "invoice": [
+      "tenant_id",
+      "purchase_no",
+      "line_no"
+    ]
+  },
+  "correctQueryJoins": [
+    {
+      "leftTable": "supplier",
+      "rightTable": "purchase_detail",
+      "columns": [
+        "tenant_id",
+        "supplier_id"
+      ]
+    },
+    {
+      "leftTable": "receipt",
+      "rightTable": "purchase_detail",
+      "columns": [
+        "tenant_id",
+        "purchase_no",
+        "line_no"
+      ]
+    },
+    {
+      "leftTable": "return_line",
+      "rightTable": "purchase_detail",
+      "columns": [
+        "tenant_id",
+        "purchase_no",
+        "line_no"
+      ]
+    },
+    {
+      "leftTable": "invoice",
+      "rightTable": "purchase_detail",
+      "columns": [
+        "tenant_id",
+        "purchase_no",
+        "line_no"
+      ]
+    }
+  ],
+  "requiredGaps": [
+    "DYNAMIC_SQL",
+    "UNBOUND_INSTANCE",
+    "UNSUPPORTED_ORM",
+    "QUERY_SEMANTICS_NOT_COLLECTED"
+  ],
+  "evidence": [
+    {
+      "path": "fixtures/page-location/a/api/models.ts",
+      "startLine": 1,
+      "endLine": 4,
+      "reason": "Two explicit dataSource connections and ordered model keys; same table name isolated by dataSource."
+    },
+    {
+      "path": "fixtures/page-location/b/server/domain/models.py",
+      "startLine": 1,
+      "endLine": 4,
+      "reason": "Python syntax with explicit instances; source never imported."
+    },
+    {
+      "path": "fixtures/purchase-ledger/schema.sql",
+      "startLine": 1,
+      "endLine": 11,
+      "reason": "DDL alone establishes ordered primary/foreign keys; nullable only confirmed for explicit NOT NULL."
+    },
+    {
+      "path": "fixtures/purchase-ledger/correct.sql",
+      "startLine": 1,
+      "endLine": 22,
+      "reason": "Four LEFT JOIN conditions retain written pair order; CTE grouping does not imply relationship cardinality."
+    },
+    {
+      "path": "fixtures/truth-supplements/T12-database/database.ts",
+      "startLine": 1,
+      "endLine": 12,
+      "reason": "Explicit imports, escaped SQL, alternate instance, model query, dynamic SQL, parameter/local shadows, unsupported method."
+    },
+    {
+      "path": "fixtures/truth-supplements/T12-database/database.py",
+      "startLine": 1,
+      "endLine": 25,
+      "reason": "Python counterpart; original incomplete global erp uses remain gaps."
+    }
+  ]
+}

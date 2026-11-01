@@ -1,0 +1,3558 @@
+{
+  "protocolVersion": "1.0",
+  "runId": "frozen-semantic-case",
+  "pluginId": "example.a.semantics",
+  "version": "1.0.0",
+  "stageId": "workflow",
+  "snapshot": {
+    "indexId": "database-case",
+    "generation": "0"
+  },
+  "inputSnapshotId": "database.a",
+  "configSubset": {
+    "schemaVersion": 1,
+    "projectId": "acceptance.a",
+    "repositories": [
+      {
+        "id": "front",
+        "root": "web"
+      },
+      {
+        "id": "back",
+        "root": "api"
+      }
+    ],
+    "selection": {},
+    "scopes": [
+      {
+        "id": "app.web",
+        "repositoryIds": [
+          "front"
+        ],
+        "kind": "application"
+      },
+      {
+        "id": "svc.erp",
+        "repositoryIds": [
+          "back"
+        ],
+        "kind": "service"
+      }
+    ],
+    "services": [
+      {
+        "id": "erp",
+        "scopeId": "svc.erp",
+        "protocol": "http",
+        "baseUrls": [
+          "/erp"
+        ]
+      }
+    ],
+    "dataSources": [
+      {
+        "id": "ds.erp",
+        "scopeId": "svc.erp",
+        "dialect": "sqlite"
+      },
+      {
+        "id": "ds.analytics",
+        "scopeId": "svc.erp",
+        "dialect": "sqlite"
+      }
+    ],
+    "bindings": [
+      {
+        "id": "erp-client",
+        "kind": "clientToService",
+        "scopeId": "app.web",
+        "from": "http",
+        "to": "erp"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "id": "src_5bc0570c79e06ded56625446cb894cbf05225691151764f7c600e89211024818",
+      "repositoryId": "back",
+      "path": "models.ts",
+      "sourceClass": "code",
+      "contentHash": "efa1244ca2a57619224f25a3db4cde555c988890605164426f609c19865f84a3",
+      "byteLength": 297,
+      "content": "export const erp = orm.connect('ds.erp');\nexport const analytics = orm.connect('ds.analytics');\nexport const Purchase = erp.model('purchase_detail', ['tenant_id', 'purchase_no', 'line_no']);\nexport const OtherPurchase = analytics.model('purchase_detail', ['tenant_id', 'purchase_no', 'line_no']);\n"
+    },
+    {
+      "id": "src_052cd96d0a615f5ed1fb6922cb8c5a6a3727c2d959bcf844114b241f58246412",
+      "repositoryId": "back",
+      "path": "register.ts",
+      "sourceClass": "code",
+      "contentHash": "a805ae98b52dba22fb94e6540370854efe2616db885326a25ee972c0dfb82457",
+      "byteLength": 128,
+      "content": "import { ledger } from './service';\nhttp.get('/purchase/ledger', ledger);\ngraphql.register('Query', 'purchaseSummary', ledger);\n"
+    },
+    {
+      "id": "src_55538f634dc513a1e7ed271619b130d57b6b9250118bca2932e7602dc4e6c82f",
+      "repositoryId": "back",
+      "path": "service.ts",
+      "sourceClass": "code",
+      "contentHash": "8a074249eb61987452bad91134f988ed2550de7213b56a106c04984bb7ad5706",
+      "byteLength": 201,
+      "content": "export function ledger() { return erp.query(ledgerSql); }\nexport const ledgerSql = `SELECT * FROM purchase_detail WHERE tenant_id = :tenant`;\nexport const dynamicSql = 'SELECT * FROM ' + runtimeTable;\n"
+    },
+    {
+      "id": "src_bfb0bfe58580d7eba20fbe4894204f17e48f660c1ff8e09f8bb36d9f7d9d0a7a",
+      "repositoryId": "back",
+      "path": "schema.sql",
+      "sourceClass": "code",
+      "contentHash": "b11f24040c65a21fa62732f219ff17866bb447861568c918cb08b3e9268dc0ff",
+      "byteLength": 1051,
+      "content": "CREATE TABLE purchase_detail (\n tenant_id TEXT, purchase_no TEXT, line_no INTEGER, supplier_id TEXT,\n ordered_qty INTEGER, unit_price_cents INTEGER, status TEXT,\n PRIMARY KEY(tenant_id, purchase_no, line_no));\nCREATE TABLE supplier (tenant_id TEXT, supplier_id TEXT, name TEXT, PRIMARY KEY(tenant_id,supplier_id));\nCREATE TABLE receipt (id TEXT PRIMARY KEY, tenant_id TEXT, purchase_no TEXT, line_no INTEGER, qty INTEGER, status TEXT, deleted INTEGER,\n FOREIGN KEY(tenant_id,purchase_no,line_no) REFERENCES purchase_detail(tenant_id,purchase_no,line_no));\nCREATE TABLE return_line (id TEXT PRIMARY KEY, tenant_id TEXT, purchase_no TEXT, line_no INTEGER, qty INTEGER, status TEXT, deleted INTEGER,\n FOREIGN KEY(tenant_id,purchase_no,line_no) REFERENCES purchase_detail(tenant_id,purchase_no,line_no));\nCREATE TABLE invoice (id TEXT PRIMARY KEY, tenant_id TEXT, purchase_no TEXT, line_no INTEGER, amount_cents INTEGER, status TEXT, deleted INTEGER,\n FOREIGN KEY(tenant_id,purchase_no,line_no) REFERENCES purchase_detail(tenant_id,purchase_no,line_no));\n"
+    },
+    {
+      "id": "src_4f11ff1dbaa1ff7ce78268500b952e25582fff080cd6fc2ac271a88d3b69b79c",
+      "repositoryId": "back",
+      "path": "analytics.sql",
+      "sourceClass": "code",
+      "contentHash": "b11f24040c65a21fa62732f219ff17866bb447861568c918cb08b3e9268dc0ff",
+      "byteLength": 1051,
+      "content": "CREATE TABLE purchase_detail (\n tenant_id TEXT, purchase_no TEXT, line_no INTEGER, supplier_id TEXT,\n ordered_qty INTEGER, unit_price_cents INTEGER, status TEXT,\n PRIMARY KEY(tenant_id, purchase_no, line_no));\nCREATE TABLE supplier (tenant_id TEXT, supplier_id TEXT, name TEXT, PRIMARY KEY(tenant_id,supplier_id));\nCREATE TABLE receipt (id TEXT PRIMARY KEY, tenant_id TEXT, purchase_no TEXT, line_no INTEGER, qty INTEGER, status TEXT, deleted INTEGER,\n FOREIGN KEY(tenant_id,purchase_no,line_no) REFERENCES purchase_detail(tenant_id,purchase_no,line_no));\nCREATE TABLE return_line (id TEXT PRIMARY KEY, tenant_id TEXT, purchase_no TEXT, line_no INTEGER, qty INTEGER, status TEXT, deleted INTEGER,\n FOREIGN KEY(tenant_id,purchase_no,line_no) REFERENCES purchase_detail(tenant_id,purchase_no,line_no));\nCREATE TABLE invoice (id TEXT PRIMARY KEY, tenant_id TEXT, purchase_no TEXT, line_no INTEGER, amount_cents INTEGER, status TEXT, deleted INTEGER,\n FOREIGN KEY(tenant_id,purchase_no,line_no) REFERENCES purchase_detail(tenant_id,purchase_no,line_no));\n"
+    },
+    {
+      "id": "src_8949fb73041ad3b5b64feca70b438897bd68f6bf8b9f1f2a66df90060082d9d8",
+      "repositoryId": "back",
+      "path": "correct.sql",
+      "sourceClass": "code",
+      "contentHash": "70d18548c33e29355647ca6486482e5729e803cf8b93fd9129137a9b32875c15",
+      "byteLength": 1257,
+      "content": "WITH r AS (\n SELECT tenant_id,purchase_no,line_no,SUM(qty) AS qty FROM receipt\n WHERE status='POSTED' AND deleted=0 GROUP BY tenant_id,purchase_no,line_no\n), t AS (\n SELECT tenant_id,purchase_no,line_no,SUM(qty) AS qty FROM return_line\n WHERE status='POSTED' AND deleted=0 GROUP BY tenant_id,purchase_no,line_no\n), i AS (\n SELECT tenant_id,purchase_no,line_no,SUM(amount_cents) AS amount FROM invoice\n WHERE status='POSTED' AND deleted=0 GROUP BY tenant_id,purchase_no,line_no\n)\nSELECT p.tenant_id,p.purchase_no,p.line_no,s.name,\n COALESCE(r.qty,0) AS grossReceived,COALESCE(r.qty,0)-COALESCE(t.qty,0) AS netReceived,\n p.ordered_qty-COALESCE(r.qty,0)+COALESCE(t.qty,0) AS outstanding,\n p.ordered_qty*p.unit_price_cents AS purchaseAmountCents,COALESCE(i.amount,0) AS invoiceAmountCents\nFROM purchase_detail p\nLEFT JOIN supplier s ON s.tenant_id=p.tenant_id AND s.supplier_id=p.supplier_id\nLEFT JOIN r ON r.tenant_id=p.tenant_id AND r.purchase_no=p.purchase_no AND r.line_no=p.line_no\nLEFT JOIN t ON t.tenant_id=p.tenant_id AND t.purchase_no=p.purchase_no AND t.line_no=p.line_no\nLEFT JOIN i ON i.tenant_id=p.tenant_id AND i.purchase_no=p.purchase_no AND i.line_no=p.line_no\nWHERE p.tenant_id=:tenant AND p.status='APPROVED' ORDER BY p.purchase_no,p.line_no;\n"
+    },
+    {
+      "id": "src_f3ceb02f569a21c73a306dd612264825802516597b3fdfba68831f14e43a8a64",
+      "repositoryId": "back",
+      "path": "fanout.sql",
+      "sourceClass": "code",
+      "contentHash": "927fd2c90c361f8cd3d747e510d1202baf182d23bb7f0a2e124508d24a0a1f18",
+      "byteLength": 451,
+      "content": "SELECT p.purchase_no,p.line_no,SUM(r.qty),SUM(i.amount_cents)\nFROM purchase_detail p\nLEFT JOIN receipt r ON r.tenant_id=p.tenant_id AND r.purchase_no=p.purchase_no AND r.line_no=p.line_no AND r.status='POSTED' AND r.deleted=0\nLEFT JOIN invoice i ON i.tenant_id=p.tenant_id AND i.purchase_no=p.purchase_no AND i.line_no=p.line_no AND i.status='POSTED' AND i.deleted=0\nWHERE p.tenant_id=:tenant AND p.status='APPROVED' GROUP BY p.purchase_no,p.line_no;\n"
+    },
+    {
+      "id": "src_bc89ab8955dd837395df90cebcb5e6dba471e7ea40923053c7bed7425f235bff",
+      "repositoryId": "back",
+      "path": "where-child.sql",
+      "sourceClass": "code",
+      "contentHash": "47644489804828d35411850ee6a0542844d0bdec6c4c7f09c22c9be21f4a4b2b",
+      "byteLength": 290,
+      "content": "SELECT p.purchase_no,p.line_no,SUM(r.qty)\nFROM purchase_detail p LEFT JOIN receipt r\nON r.tenant_id=p.tenant_id AND r.purchase_no=p.purchase_no AND r.line_no=p.line_no\nWHERE p.tenant_id=:tenant AND p.status='APPROVED' AND r.status='POSTED' AND r.deleted=0\nGROUP BY p.purchase_no,p.line_no;\n"
+    },
+    {
+      "id": "src_fbdd4a592aa41b91b2a81c6cdf1058f0df27eb0f4afa23bc692f2a68d539a0c1",
+      "repositoryId": "back",
+      "path": "database.ts",
+      "sourceClass": "code",
+      "contentHash": "88f2a25b595683ea9015456a8d342b9439c9468838be7d343e2cfa00090bb735",
+      "byteLength": 816,
+      "content": "import { erp, analytics, Purchase } from './models';\n// 原文包含中文与转义；证据引用完整字符串，不假造 SQL token 偏移。\nexport function boundLedger() {\n  return erp.query(\"SELECT tenant_id, purchase_no, line_no FROM purchase_detail WHERE status = 'APPROVED'\\n\");\n}\nexport function wrongInstance() { return analytics.query('SELECT tenant_id FROM purchase_detail'); }\nexport function modelRows() { return Purchase.findAll(); }\nexport function dynamicQuery(table) { return erp.query('SELECT * FROM ' + table); }\nexport function shadowed(erp) { return erp.query('SELECT * FROM purchase_detail'); }\nexport function shadowedLocal() { const erp = runtimeDb; return erp.query('SELECT * FROM purchase_detail'); }\nexport function unsupportedOrm() { return erp.raw('SELECT * FROM purchase_detail'); }\n"
+    },
+    {
+      "id": "src_f343c418953bf59d69e6698c098b66241e2a7386f22421463a6813935ba2d083",
+      "repositoryId": "back",
+      "path": "flow.ts",
+      "sourceClass": "code",
+      "contentHash": "3b8fa55c4a63cb3695bc33037235b7025b7628b40219af452288d021f1fb7af2",
+      "byteLength": 947,
+      "content": "export function submit(order) {\n  audit(order); // calling audit before save is not a business transition\n  if (!(order.orderedQty > 0 && order.supplierId)) throw Error('invalid order');\n  order.state = 'SUBMITTED';\n  save(order);\n}\nexport function approve(order, actor) {\n  if (actor.role !== 'buyer' || !actor.approvalGranted) throw Error('not approved');\n  order.state = 'APPROVED';\n}\nexport function receive(order, receipts) {\n  if (receipts.filter(r => r.status === 'POSTED' && !r.deleted).reduce((n, r) => n + r.qty, 0) > 0) order.state = 'RECEIVING';\n}\nexport function finish(order) {\n  if (order.netReceived >= order.orderedQty && order.allReceiptsValid) order.state = 'COMPLETED';\n}\nexport function withdraw(order, actor) {\n  if (order.state === 'SUBMITTED' && order.applicant === actor.id) order.state = 'DRAFT';\n}\nexport function cancel(order) {\n  if (order.state === 'APPROVED' && order.netReceived === 0) order.state = 'CANCELLED';\n}\n"
+    },
+    {
+      "id": "src_163bd7cc2e938d62379cab1c78e8400b060c31dbceff8ce1391c12d7fc0323bc",
+      "repositoryId": "back",
+      "path": "workflow.md",
+      "sourceClass": "documentation",
+      "contentHash": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+      "byteLength": 1057,
+      "content": "# Audited acceptance model, not the synes business model\n\nSource: NEW-PROJECT-LONG-TASK.md section 5; frozen before plugin development.\nThe state vocabulary below is synthetic. The original synes vocabulary is kept separately.\n\nDRAFT -> SUBMITTED: submit, orderedQty > 0 AND supplierId present.\nSUBMITTED -> APPROVED: approve, role == buyer AND approvalGranted.\nSUBMITTED -> DRAFT: reject or withdraw, applicant == actor for withdraw.\nAPPROVED -> RECEIVING: receive, sum(POSTED, not-deleted receipt qty) > 0.\nRECEIVING -> COMPLETED: finish, netReceived >= orderedQty AND all receipts valid.\nAPPROVED -> CANCELLED: cancel, netReceived == 0.\nDocuments purchase -> receipt -> return use ordered keys tenant_id, purchase_no, line_no.\nUI pages: /purchase/approve precedes /Other/purchaseLedger, which precedes /purchase/receive.\nThe navigation /help is not a business successor.\nLogging before saving is only a call order, with WORKFLOW_EVIDENCE_MISSING.\nConflict variant: a document allows finish at grossReceived >= orderedQty while code requires netReceived.\n"
+    },
+    {
+      "id": "src_8cb37cd8f9a6372faaaa4f347c53b1b55acb17367be9183ac39ac1855c1feb2e",
+      "repositoryId": "back",
+      "path": "policy.md",
+      "sourceClass": "documentation",
+      "contentHash": "e322f84f883405bfc419663cd0edb29996d442e99a30dd593ca9977295675b19",
+      "byteLength": 875,
+      "content": "# Independent arithmetic audit of the plan's proposed sample\n\nThis is a local audited acceptance model; it is not a claim about synes production accounting.\nGrain: tenant_id + purchase_no + line_no, restricted to the requested tenant and APPROVED purchases.\nValid receipts/returns/invoices: status POSTED and deleted = 0. Aggregate each child table\nat the grain BEFORE LEFT JOIN. No match is zero, not a reason to remove the detail.\ngrossReceived = receipt quantity sum; netReceived = grossReceived - return quantity sum;\noutstanding = orderedQty - netReceived; purchaseAmountCents = orderedQty * unitPriceCents;\ninvoiceAmountCents = invoice amount sum. Supplier joins require tenant_id + supplier_id.\nTwo databases ds.erp and ds.analytics contain the same table names; only ds.erp is bound.\nSQL runs only in the in-memory acceptance test. No business database is connected.\n"
+    }
+  ],
+  "sourceSets": [
+    {
+      "selectorId": "semantics",
+      "digest": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+      "sourceIds": [
+        "src_5bc0570c79e06ded56625446cb894cbf05225691151764f7c600e89211024818",
+        "src_052cd96d0a615f5ed1fb6922cb8c5a6a3727c2d959bcf844114b241f58246412",
+        "src_55538f634dc513a1e7ed271619b130d57b6b9250118bca2932e7602dc4e6c82f",
+        "src_bfb0bfe58580d7eba20fbe4894204f17e48f660c1ff8e09f8bb36d9f7d9d0a7a",
+        "src_4f11ff1dbaa1ff7ce78268500b952e25582fff080cd6fc2ac271a88d3b69b79c",
+        "src_8949fb73041ad3b5b64feca70b438897bd68f6bf8b9f1f2a66df90060082d9d8",
+        "src_f3ceb02f569a21c73a306dd612264825802516597b3fdfba68831f14e43a8a64",
+        "src_bc89ab8955dd837395df90cebcb5e6dba471e7ea40923053c7bed7425f235bff",
+        "src_fbdd4a592aa41b91b2a81c6cdf1058f0df27eb0f4afa23bc692f2a68d539a0c1",
+        "src_f343c418953bf59d69e6698c098b66241e2a7386f22421463a6813935ba2d083",
+        "src_163bd7cc2e938d62379cab1c78e8400b060c31dbceff8ce1391c12d7fc0323bc",
+        "src_8cb37cd8f9a6372faaaa4f347c53b1b55acb17367be9183ac39ac1855c1feb2e"
+      ],
+      "complete": true
+    }
+  ],
+  "entities": [
+    {
+      "entityId": "ent_b69a447d638da44ef473da50e5fd01f4bea1b4e45da3d40edd81177b5afd5f12",
+      "kind": "dataSource",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "scopeId",
+          "value": "svc.erp"
+        },
+        {
+          "name": "configuredId",
+          "value": "ds.erp"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_b69a447d638da44ef473da50e5fd01f4bea1b4e45da3d40edd81177b5afd5f12",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {
+            "dialect": "sqlite"
+          },
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_fe9016e9ed562f86eae97ce72e5cf6fefa42e206865eb5666846467d0f87789c",
+      "kind": "dataTable",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_fe9016e9ed562f86eae97ce72e5cf6fefa42e206865eb5666846467d0f87789c",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "tenant_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_9d8ef7cd4f8105252bea3e13669b9faf7b50ce56e9c36e430b8d31441412c17a",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "purchase_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_9d8ef7cd4f8105252bea3e13669b9faf7b50ce56e9c36e430b8d31441412c17a",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_0789c355d1e54a7c5263afb225290697e27c6e30ae449e6d14b13addf3df83f5",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "line_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_0789c355d1e54a7c5263afb225290697e27c6e30ae449e6d14b13addf3df83f5",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_1db2f0b822d4d2fccd885fc354b265946d9b8365abc8c1e7da3a9e76fbfbd83f",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "supplier_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_1db2f0b822d4d2fccd885fc354b265946d9b8365abc8c1e7da3a9e76fbfbd83f",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_a4ee755962fa8a38a6c32ba06e2a68aab2247dac158ae0128fcb3db42354a875",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "ordered_qty"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_a4ee755962fa8a38a6c32ba06e2a68aab2247dac158ae0128fcb3db42354a875",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ee106af9bd993997435215d47df254e1c34c986033db88b52de7d2522c3d88b4",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "unit_price_cents"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_ee106af9bd993997435215d47df254e1c34c986033db88b52de7d2522c3d88b4",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_22909ca38dad921d479a355d3ac17b5583069141e13f0610ebb3a1db0ae5e5ea",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "status"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_22909ca38dad921d479a355d3ac17b5583069141e13f0610ebb3a1db0ae5e5ea",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_918a1b808a7cfd8edba4ccfc570d43925034e9e24603728aa295abd7fcf66800",
+      "kind": "dataKey",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "keyColumns",
+          "value": [
+            "tenant_id",
+            "purchase_no",
+            "line_no"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_918a1b808a7cfd8edba4ccfc570d43925034e9e24603728aa295abd7fcf66800",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {
+            "keyType": "primary",
+            "columnIds": [
+              "ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e",
+              "ent_9d8ef7cd4f8105252bea3e13669b9faf7b50ce56e9c36e430b8d31441412c17a",
+              "ent_0789c355d1e54a7c5263afb225290697e27c6e30ae449e6d14b13addf3df83f5"
+            ]
+          },
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_24ca9cf8bac6dc8d09451b03658f0453b41b02c52fcb3e10bee0290bd23a68b5",
+      "kind": "dataTable",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "supplier"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_24ca9cf8bac6dc8d09451b03658f0453b41b02c52fcb3e10bee0290bd23a68b5",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_c484f02517fcaa7c9028f467202e5314240bdcc2f2fdac352855e5ce84b7d575",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "supplier"
+        },
+        {
+          "name": "column",
+          "value": "tenant_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_c484f02517fcaa7c9028f467202e5314240bdcc2f2fdac352855e5ce84b7d575",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_8bd886ab8ee184614d95d292a3394f5d0440f3943eacee85a9c8e49092ce50f3",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "supplier"
+        },
+        {
+          "name": "column",
+          "value": "supplier_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_8bd886ab8ee184614d95d292a3394f5d0440f3943eacee85a9c8e49092ce50f3",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_bb56db3261fce94c3a768d0505b75a0b7b82a83adfff2b0cf5bec2ca8917cd0a",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "supplier"
+        },
+        {
+          "name": "column",
+          "value": "name"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_bb56db3261fce94c3a768d0505b75a0b7b82a83adfff2b0cf5bec2ca8917cd0a",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_00b58486aaed2102862b8b8fff4c3ee00d24d3795d02c0da9c9d308a3f03bc37",
+      "kind": "dataKey",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "supplier"
+        },
+        {
+          "name": "keyColumns",
+          "value": [
+            "tenant_id",
+            "supplier_id"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_00b58486aaed2102862b8b8fff4c3ee00d24d3795d02c0da9c9d308a3f03bc37",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {
+            "keyType": "primary",
+            "columnIds": [
+              "ent_c484f02517fcaa7c9028f467202e5314240bdcc2f2fdac352855e5ce84b7d575",
+              "ent_8bd886ab8ee184614d95d292a3394f5d0440f3943eacee85a9c8e49092ce50f3"
+            ]
+          },
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_358ca7535012f16bcfa0af9db8a3f65e725cacee52a2789056f56be063e68ed3",
+      "kind": "dataTable",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_358ca7535012f16bcfa0af9db8a3f65e725cacee52a2789056f56be063e68ed3",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_381ed4e98aa62c2596eb178c8e777a66d2b46c78741e383ae1fda13f39bcbd09",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_381ed4e98aa62c2596eb178c8e777a66d2b46c78741e383ae1fda13f39bcbd09",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_42f47b5018c195cb290492b5f8bfdc04424518fe32befd564a2b08e0a88194af",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "tenant_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_42f47b5018c195cb290492b5f8bfdc04424518fe32befd564a2b08e0a88194af",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_c30c246b41c217a9275cd5540bd2b18d1105d3c3122c6d0562905f319e7c6042",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "purchase_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_c30c246b41c217a9275cd5540bd2b18d1105d3c3122c6d0562905f319e7c6042",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_2a0c87e913725cb45fd1184a8d91e4c464754486e8c009ada4258b99ce00d2db",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "line_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_2a0c87e913725cb45fd1184a8d91e4c464754486e8c009ada4258b99ce00d2db",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_f77f25eb6e3c0aa6164e7fb6ca1dfb7d6a73af042b604fd43368527137228092",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "qty"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_f77f25eb6e3c0aa6164e7fb6ca1dfb7d6a73af042b604fd43368527137228092",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_15eb78310ed140d75e87c172babca3dd300825ba1c3c353aa3779c345458b45a",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "status"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_15eb78310ed140d75e87c172babca3dd300825ba1c3c353aa3779c345458b45a",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_103dda429f1127d17f5fad850f3a4cf05c1a60984e02f1c073aa02bf5c507d5a",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "deleted"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_103dda429f1127d17f5fad850f3a4cf05c1a60984e02f1c073aa02bf5c507d5a",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_5b114e7509c97869b4de595dc61452f154e56c190bf76a94a9e817911bc60512",
+      "kind": "dataKey",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "keyColumns",
+          "value": [
+            "id"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_5b114e7509c97869b4de595dc61452f154e56c190bf76a94a9e817911bc60512",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {
+            "keyType": "primary",
+            "columnIds": [
+              "ent_381ed4e98aa62c2596eb178c8e777a66d2b46c78741e383ae1fda13f39bcbd09"
+            ]
+          },
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_804313f3aee2e7c896ceaa57d94f633890998c7bd9f26ddb882e3dfa659c74b3",
+      "kind": "dataTable",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_804313f3aee2e7c896ceaa57d94f633890998c7bd9f26ddb882e3dfa659c74b3",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_06a5940ffd41f80779b9e3ca21313ee145c64ce605d4079752c6a12d0f72c64a",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_06a5940ffd41f80779b9e3ca21313ee145c64ce605d4079752c6a12d0f72c64a",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_7781c53cea80bc7699832383b745231350a3ac70e93dffa47a37ee433fe50b77",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "tenant_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_7781c53cea80bc7699832383b745231350a3ac70e93dffa47a37ee433fe50b77",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_7d72d87973edea39e2be8b1338510952206bc862dd87e757668ae9eb8b877d4b",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "purchase_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_7d72d87973edea39e2be8b1338510952206bc862dd87e757668ae9eb8b877d4b",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_3a3d0918db29b3a5633b2b038487dd2a28888960f1625b8a7e7c1fd1dd1aecf6",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "line_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_3a3d0918db29b3a5633b2b038487dd2a28888960f1625b8a7e7c1fd1dd1aecf6",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_0e9d82170de5908a7ff935c163189bbaa29c80f2b91c76eb4add9c244f1b0d55",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "qty"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_0e9d82170de5908a7ff935c163189bbaa29c80f2b91c76eb4add9c244f1b0d55",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_5a33b85d434b3a4aa42701fddd09ac6e56a81921428d7f295b02a28fac3d022e",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "status"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_5a33b85d434b3a4aa42701fddd09ac6e56a81921428d7f295b02a28fac3d022e",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_258d3d612a85253ebee466e4e5eb8dcfbcdec738bed8ff4dd67deef15fa9d117",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "deleted"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_258d3d612a85253ebee466e4e5eb8dcfbcdec738bed8ff4dd67deef15fa9d117",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_da6aa9d706d494553e048989e01e60f6c2a53db9eebcda6f6b789936b906ef86",
+      "kind": "dataKey",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "keyColumns",
+          "value": [
+            "id"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_da6aa9d706d494553e048989e01e60f6c2a53db9eebcda6f6b789936b906ef86",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {
+            "keyType": "primary",
+            "columnIds": [
+              "ent_06a5940ffd41f80779b9e3ca21313ee145c64ce605d4079752c6a12d0f72c64a"
+            ]
+          },
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_dd6f7e8e7fcc5dc92832cfdd43efa860c55fe902175ef128c16b573d60d8fbca",
+      "kind": "dataTable",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_dd6f7e8e7fcc5dc92832cfdd43efa860c55fe902175ef128c16b573d60d8fbca",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_3d3f4699fa04fcb314d97dc617bea807fedb91bea1501675bec4d832dd6ed677",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_3d3f4699fa04fcb314d97dc617bea807fedb91bea1501675bec4d832dd6ed677",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_e83c7f90462613a51bad29f7d56b54c545da884fe5a4382b1de8828fa26c1e92",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "tenant_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_e83c7f90462613a51bad29f7d56b54c545da884fe5a4382b1de8828fa26c1e92",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_b3be8f71dd507521380769b40df474378be19f476bad536fae39300e628d26c7",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "purchase_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_b3be8f71dd507521380769b40df474378be19f476bad536fae39300e628d26c7",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_03409fbb5a99136cd122bd0895238a5204a5ca6d6e4092f9785d573b0405ee38",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "line_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_03409fbb5a99136cd122bd0895238a5204a5ca6d6e4092f9785d573b0405ee38",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_a2da17144b9c8a91eda87fdc474d86dd12fc4c617070206243c9fa45744ea69e",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "amount_cents"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_a2da17144b9c8a91eda87fdc474d86dd12fc4c617070206243c9fa45744ea69e",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_d1b206d42a655eb165a2e9a0736d8228083a19f476d69949d60551b25e200126",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "status"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_d1b206d42a655eb165a2e9a0736d8228083a19f476d69949d60551b25e200126",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_52c941a4bf7168a333cab2033c0934861e5c8feca33f07a60b351a838f027134",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "deleted"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_52c941a4bf7168a333cab2033c0934861e5c8feca33f07a60b351a838f027134",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_91ad7daee6c7eeb118935fc2ee8f66f2c87545b1eeb8d18487bd93e7214bad1e",
+      "kind": "dataKey",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.erp"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "keyColumns",
+          "value": [
+            "id"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_91ad7daee6c7eeb118935fc2ee8f66f2c87545b1eeb8d18487bd93e7214bad1e",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {
+            "keyType": "primary",
+            "columnIds": [
+              "ent_3d3f4699fa04fcb314d97dc617bea807fedb91bea1501675bec4d832dd6ed677"
+            ]
+          },
+          "evidenceRefs": [
+            "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_8e96f046f661ceff8d8f183ca01e7b3f45dc9afebba25230219c7caa02bc3ebd",
+      "kind": "dataSource",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "scopeId",
+          "value": "svc.erp"
+        },
+        {
+          "name": "configuredId",
+          "value": "ds.analytics"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_8e96f046f661ceff8d8f183ca01e7b3f45dc9afebba25230219c7caa02bc3ebd",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {
+            "dialect": "sqlite"
+          },
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_80dde0531268b94d49e3844bb84d301834a29d1d6f243c72313c0a29014dbb16",
+      "kind": "dataTable",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_80dde0531268b94d49e3844bb84d301834a29d1d6f243c72313c0a29014dbb16",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_a6001bb5ea8dbc9cba4fe544e90e8abf0280ca6a916f3eca0b2640f6c8f69cc1",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "tenant_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_a6001bb5ea8dbc9cba4fe544e90e8abf0280ca6a916f3eca0b2640f6c8f69cc1",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_7c1407723aff5f988d0886e8a27c91a91cb4625e9bb49d506585483efa5a9ad3",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "purchase_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_7c1407723aff5f988d0886e8a27c91a91cb4625e9bb49d506585483efa5a9ad3",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_599bc087235f42faa0a33627a3282a64b88fbbba7f735410993f0985ab93de29",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "line_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_599bc087235f42faa0a33627a3282a64b88fbbba7f735410993f0985ab93de29",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_e22356d636c50d4561c6fddf97ec6cd205b5b477cb1675ceb3891e7e0bd973a0",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "supplier_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_e22356d636c50d4561c6fddf97ec6cd205b5b477cb1675ceb3891e7e0bd973a0",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_97b882f609cd6a33637283b28138fddb0feb7e57835fcad96240e035c9663747",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "ordered_qty"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_97b882f609cd6a33637283b28138fddb0feb7e57835fcad96240e035c9663747",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_3b332777f2790b939b1026fe8ea367e007227f11939f4e867b697a96c9a14165",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "unit_price_cents"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_3b332777f2790b939b1026fe8ea367e007227f11939f4e867b697a96c9a14165",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_e0022e0649567c018bf80a9d7f2d99bcdb66384facb82525544c314aa2c0a81e",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "column",
+          "value": "status"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_e0022e0649567c018bf80a9d7f2d99bcdb66384facb82525544c314aa2c0a81e",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_8d3ad3137f5227c3fbfbc0fa1b54f9da2899801ea9ab8cd6b7c3303e6779a260",
+      "kind": "dataKey",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "purchase_detail"
+        },
+        {
+          "name": "keyColumns",
+          "value": [
+            "tenant_id",
+            "purchase_no",
+            "line_no"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_8d3ad3137f5227c3fbfbc0fa1b54f9da2899801ea9ab8cd6b7c3303e6779a260",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {
+            "keyType": "primary",
+            "columnIds": [
+              "ent_a6001bb5ea8dbc9cba4fe544e90e8abf0280ca6a916f3eca0b2640f6c8f69cc1",
+              "ent_7c1407723aff5f988d0886e8a27c91a91cb4625e9bb49d506585483efa5a9ad3",
+              "ent_599bc087235f42faa0a33627a3282a64b88fbbba7f735410993f0985ab93de29"
+            ]
+          },
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_8f088c6f5c905cfa4bc939b111abf0a73eb320082b39500cf4f9b804091ceb72",
+      "kind": "dataTable",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "supplier"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_8f088c6f5c905cfa4bc939b111abf0a73eb320082b39500cf4f9b804091ceb72",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_afed2aec771b470808a5997e5518e276b2d655e14fc82cbc24a6971d88392f63",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "supplier"
+        },
+        {
+          "name": "column",
+          "value": "tenant_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_afed2aec771b470808a5997e5518e276b2d655e14fc82cbc24a6971d88392f63",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_f8910b2adf07ab5c27f9b29d1d6046fba53bc51df53c812a9584f73c655cda3b",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "supplier"
+        },
+        {
+          "name": "column",
+          "value": "supplier_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_f8910b2adf07ab5c27f9b29d1d6046fba53bc51df53c812a9584f73c655cda3b",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_108b47bd05b5f0e6713d5e52f3b32b8a7e2f5b0c93c26669a13e0f09ddcc8ed3",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "supplier"
+        },
+        {
+          "name": "column",
+          "value": "name"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_108b47bd05b5f0e6713d5e52f3b32b8a7e2f5b0c93c26669a13e0f09ddcc8ed3",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_876aab88c09c76636e36be33a2477ff844368bdd571b06670dbbb9834e2f6424",
+      "kind": "dataKey",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "supplier"
+        },
+        {
+          "name": "keyColumns",
+          "value": [
+            "tenant_id",
+            "supplier_id"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_876aab88c09c76636e36be33a2477ff844368bdd571b06670dbbb9834e2f6424",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {
+            "keyType": "primary",
+            "columnIds": [
+              "ent_afed2aec771b470808a5997e5518e276b2d655e14fc82cbc24a6971d88392f63",
+              "ent_f8910b2adf07ab5c27f9b29d1d6046fba53bc51df53c812a9584f73c655cda3b"
+            ]
+          },
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_b0587c10f6aea582be9acb9932b7d44f5e7f9a05b834887177d8c8a4e3dc29e4",
+      "kind": "dataTable",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_b0587c10f6aea582be9acb9932b7d44f5e7f9a05b834887177d8c8a4e3dc29e4",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_2e4f2b79d0d13ed97bd514e7f4b36a9ebfd4fe07ccf3ff0cd4a9fbc1f632e56f",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_2e4f2b79d0d13ed97bd514e7f4b36a9ebfd4fe07ccf3ff0cd4a9fbc1f632e56f",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_e1552a4e74b3c5c7c525aa37115952232cca6666feb6f819beb34f55e7bbaa7d",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "tenant_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_e1552a4e74b3c5c7c525aa37115952232cca6666feb6f819beb34f55e7bbaa7d",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_9fa312b1af1e4cf45dec21288190d65f85751a91c44b61da76ab2edbf28458da",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "purchase_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_9fa312b1af1e4cf45dec21288190d65f85751a91c44b61da76ab2edbf28458da",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_7ff63618ffa28c212b46844f4b44b7457777f62b838e52cbc86d5c5cf1ea8e73",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "line_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_7ff63618ffa28c212b46844f4b44b7457777f62b838e52cbc86d5c5cf1ea8e73",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_5d1028a9b2a84703505da94c253f145bc9979953dfb76eea9cb88073d9f07a6c",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "qty"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_5d1028a9b2a84703505da94c253f145bc9979953dfb76eea9cb88073d9f07a6c",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_803cde88ad9bbc1b278f113c7402c725e5c60b7e4f3076150d7997a875e67310",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "status"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_803cde88ad9bbc1b278f113c7402c725e5c60b7e4f3076150d7997a875e67310",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_440d76fe7a7a5297293df27ced997099074ad1517cbb9ee76a7de30af7f5a68a",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "column",
+          "value": "deleted"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_440d76fe7a7a5297293df27ced997099074ad1517cbb9ee76a7de30af7f5a68a",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_5c17dfd19fadfd6c32661357abd312bb68d45d44620d5a8be31e2299c1aa1859",
+      "kind": "dataKey",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "receipt"
+        },
+        {
+          "name": "keyColumns",
+          "value": [
+            "id"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_5c17dfd19fadfd6c32661357abd312bb68d45d44620d5a8be31e2299c1aa1859",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {
+            "keyType": "primary",
+            "columnIds": [
+              "ent_2e4f2b79d0d13ed97bd514e7f4b36a9ebfd4fe07ccf3ff0cd4a9fbc1f632e56f"
+            ]
+          },
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_1820882e20a9eaef1ff09a17799a7c45e42ffac3cdafc91adfe14f956a844055",
+      "kind": "dataTable",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_1820882e20a9eaef1ff09a17799a7c45e42ffac3cdafc91adfe14f956a844055",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_af98c9e5ede800540f32e986a99be597b43d9b43b9e9fefc04e0ce0c4241b46f",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_af98c9e5ede800540f32e986a99be597b43d9b43b9e9fefc04e0ce0c4241b46f",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_4404b30abca211026268a0b8c59bea39df24b71b626164a502288c4b64df58ad",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "tenant_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_4404b30abca211026268a0b8c59bea39df24b71b626164a502288c4b64df58ad",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_58d4c6e9f1ab4c9717945e7a804a58804e397145a8186644a9b5e88aeba1ed86",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "purchase_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_58d4c6e9f1ab4c9717945e7a804a58804e397145a8186644a9b5e88aeba1ed86",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_fa38d8d9643e1d1a0b8a2dbaa50b190ad404816d573855b02f84d27ca6466c63",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "line_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_fa38d8d9643e1d1a0b8a2dbaa50b190ad404816d573855b02f84d27ca6466c63",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_1b33baee9f7601a52b904d9bbda321a8793bd62aeae78518838ba7749f1829d9",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "qty"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_1b33baee9f7601a52b904d9bbda321a8793bd62aeae78518838ba7749f1829d9",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_1058bbd15a0bc247f103f41699f27b68e559bab52157c00e80044523beee5e31",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "status"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_1058bbd15a0bc247f103f41699f27b68e559bab52157c00e80044523beee5e31",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_5cba984c7aef497e70431f2c0aacaea93f36537cd9b6dc58597444ff816a59cf",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "column",
+          "value": "deleted"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_5cba984c7aef497e70431f2c0aacaea93f36537cd9b6dc58597444ff816a59cf",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_682c7dfa2af79be45cb30bb98345f15c8e69fffa6f846e749a65f38add31c4cf",
+      "kind": "dataKey",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "return_line"
+        },
+        {
+          "name": "keyColumns",
+          "value": [
+            "id"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_682c7dfa2af79be45cb30bb98345f15c8e69fffa6f846e749a65f38add31c4cf",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {
+            "keyType": "primary",
+            "columnIds": [
+              "ent_af98c9e5ede800540f32e986a99be597b43d9b43b9e9fefc04e0ce0c4241b46f"
+            ]
+          },
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_a55f92a3e549f441e06214ace219a17c63224428694d5d98c056e6c14eb0ba9d",
+      "kind": "dataTable",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_a55f92a3e549f441e06214ace219a17c63224428694d5d98c056e6c14eb0ba9d",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_8abc5cafb158a154b282270c4dd509fb0bfe5846c204012e17fb7d0b7eee87e4",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_8abc5cafb158a154b282270c4dd509fb0bfe5846c204012e17fb7d0b7eee87e4",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_61eeec59b45137c611ddafa8934415b638838cbbad86e7c34c8aaf1b833b2065",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "tenant_id"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_61eeec59b45137c611ddafa8934415b638838cbbad86e7c34c8aaf1b833b2065",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_2d9fb821efcc8bfb38bcab98f3c1ebd949b506ef6877283c7d6a322fc9cc7561",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "purchase_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_2d9fb821efcc8bfb38bcab98f3c1ebd949b506ef6877283c7d6a322fc9cc7561",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_06d555f69a07a791f32531eff25fcddfa74a0ecc1f0cd2fccdabcec0e34c3c78",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "line_no"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_06d555f69a07a791f32531eff25fcddfa74a0ecc1f0cd2fccdabcec0e34c3c78",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_b4573419c038f99307e6fef6eb2d0455bd1ef268b43de0dc9cd103e94970b554",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "amount_cents"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_b4573419c038f99307e6fef6eb2d0455bd1ef268b43de0dc9cd103e94970b554",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_10c82eb019300d40c8283a0c2d70608ae486346691585ee930ec79d3c2cc5c92",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "status"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_10c82eb019300d40c8283a0c2d70608ae486346691585ee930ec79d3c2cc5c92",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_6bcff8282c1a44ac3d4e9058c8247fb25c20f5fc70029490f3eaa5a24009957a",
+      "kind": "dataColumn",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "column",
+          "value": "deleted"
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_6bcff8282c1a44ac3d4e9058c8247fb25c20f5fc70029490f3eaa5a24009957a",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {},
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    },
+    {
+      "entityId": "ent_ee9c815638cf60077e50bddcacdceb4063eb79c6626fbb1cbf9e989edb19431a",
+      "kind": "dataKey",
+      "scopeId": "svc.erp",
+      "identity": [
+        {
+          "name": "dataSourceId",
+          "value": "ds.analytics"
+        },
+        {
+          "name": "catalog"
+        },
+        {
+          "name": "schema"
+        },
+        {
+          "name": "table",
+          "value": "invoice"
+        },
+        {
+          "name": "keyColumns",
+          "value": [
+            "id"
+          ]
+        }
+      ],
+      "assertions": [
+        {
+          "assertionId": "case:ent_ee9c815638cf60077e50bddcacdceb4063eb79c6626fbb1cbf9e989edb19431a",
+          "producerKey": "independent.source-review",
+          "batchId": "case",
+          "basis": "declared",
+          "origin": "static",
+          "attributes": {
+            "keyType": "primary",
+            "columnIds": [
+              "ent_8abc5cafb158a154b282270c4dd509fb0bfe5846c204012e17fb7d0b7eee87e4"
+            ]
+          },
+          "evidenceRefs": [
+            "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2"
+          ]
+        }
+      ]
+    }
+  ],
+  "relations": [],
+  "candidateSets": [
+    {
+      "selectorId": "targets",
+      "digest": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+      "entityIds": [
+        "ent_b69a447d638da44ef473da50e5fd01f4bea1b4e45da3d40edd81177b5afd5f12",
+        "ent_fe9016e9ed562f86eae97ce72e5cf6fefa42e206865eb5666846467d0f87789c",
+        "ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e",
+        "ent_9d8ef7cd4f8105252bea3e13669b9faf7b50ce56e9c36e430b8d31441412c17a",
+        "ent_0789c355d1e54a7c5263afb225290697e27c6e30ae449e6d14b13addf3df83f5",
+        "ent_1db2f0b822d4d2fccd885fc354b265946d9b8365abc8c1e7da3a9e76fbfbd83f",
+        "ent_a4ee755962fa8a38a6c32ba06e2a68aab2247dac158ae0128fcb3db42354a875",
+        "ent_ee106af9bd993997435215d47df254e1c34c986033db88b52de7d2522c3d88b4",
+        "ent_22909ca38dad921d479a355d3ac17b5583069141e13f0610ebb3a1db0ae5e5ea",
+        "ent_918a1b808a7cfd8edba4ccfc570d43925034e9e24603728aa295abd7fcf66800",
+        "ent_24ca9cf8bac6dc8d09451b03658f0453b41b02c52fcb3e10bee0290bd23a68b5",
+        "ent_c484f02517fcaa7c9028f467202e5314240bdcc2f2fdac352855e5ce84b7d575",
+        "ent_8bd886ab8ee184614d95d292a3394f5d0440f3943eacee85a9c8e49092ce50f3",
+        "ent_bb56db3261fce94c3a768d0505b75a0b7b82a83adfff2b0cf5bec2ca8917cd0a",
+        "ent_00b58486aaed2102862b8b8fff4c3ee00d24d3795d02c0da9c9d308a3f03bc37",
+        "ent_358ca7535012f16bcfa0af9db8a3f65e725cacee52a2789056f56be063e68ed3",
+        "ent_381ed4e98aa62c2596eb178c8e777a66d2b46c78741e383ae1fda13f39bcbd09",
+        "ent_42f47b5018c195cb290492b5f8bfdc04424518fe32befd564a2b08e0a88194af",
+        "ent_c30c246b41c217a9275cd5540bd2b18d1105d3c3122c6d0562905f319e7c6042",
+        "ent_2a0c87e913725cb45fd1184a8d91e4c464754486e8c009ada4258b99ce00d2db",
+        "ent_f77f25eb6e3c0aa6164e7fb6ca1dfb7d6a73af042b604fd43368527137228092",
+        "ent_15eb78310ed140d75e87c172babca3dd300825ba1c3c353aa3779c345458b45a",
+        "ent_103dda429f1127d17f5fad850f3a4cf05c1a60984e02f1c073aa02bf5c507d5a",
+        "ent_5b114e7509c97869b4de595dc61452f154e56c190bf76a94a9e817911bc60512",
+        "ent_804313f3aee2e7c896ceaa57d94f633890998c7bd9f26ddb882e3dfa659c74b3",
+        "ent_06a5940ffd41f80779b9e3ca21313ee145c64ce605d4079752c6a12d0f72c64a",
+        "ent_7781c53cea80bc7699832383b745231350a3ac70e93dffa47a37ee433fe50b77",
+        "ent_7d72d87973edea39e2be8b1338510952206bc862dd87e757668ae9eb8b877d4b",
+        "ent_3a3d0918db29b3a5633b2b038487dd2a28888960f1625b8a7e7c1fd1dd1aecf6",
+        "ent_0e9d82170de5908a7ff935c163189bbaa29c80f2b91c76eb4add9c244f1b0d55",
+        "ent_5a33b85d434b3a4aa42701fddd09ac6e56a81921428d7f295b02a28fac3d022e",
+        "ent_258d3d612a85253ebee466e4e5eb8dcfbcdec738bed8ff4dd67deef15fa9d117",
+        "ent_da6aa9d706d494553e048989e01e60f6c2a53db9eebcda6f6b789936b906ef86",
+        "ent_dd6f7e8e7fcc5dc92832cfdd43efa860c55fe902175ef128c16b573d60d8fbca",
+        "ent_3d3f4699fa04fcb314d97dc617bea807fedb91bea1501675bec4d832dd6ed677",
+        "ent_e83c7f90462613a51bad29f7d56b54c545da884fe5a4382b1de8828fa26c1e92",
+        "ent_b3be8f71dd507521380769b40df474378be19f476bad536fae39300e628d26c7",
+        "ent_03409fbb5a99136cd122bd0895238a5204a5ca6d6e4092f9785d573b0405ee38",
+        "ent_a2da17144b9c8a91eda87fdc474d86dd12fc4c617070206243c9fa45744ea69e",
+        "ent_d1b206d42a655eb165a2e9a0736d8228083a19f476d69949d60551b25e200126",
+        "ent_52c941a4bf7168a333cab2033c0934861e5c8feca33f07a60b351a838f027134",
+        "ent_91ad7daee6c7eeb118935fc2ee8f66f2c87545b1eeb8d18487bd93e7214bad1e",
+        "ent_8e96f046f661ceff8d8f183ca01e7b3f45dc9afebba25230219c7caa02bc3ebd",
+        "ent_80dde0531268b94d49e3844bb84d301834a29d1d6f243c72313c0a29014dbb16",
+        "ent_a6001bb5ea8dbc9cba4fe544e90e8abf0280ca6a916f3eca0b2640f6c8f69cc1",
+        "ent_7c1407723aff5f988d0886e8a27c91a91cb4625e9bb49d506585483efa5a9ad3",
+        "ent_599bc087235f42faa0a33627a3282a64b88fbbba7f735410993f0985ab93de29",
+        "ent_e22356d636c50d4561c6fddf97ec6cd205b5b477cb1675ceb3891e7e0bd973a0",
+        "ent_97b882f609cd6a33637283b28138fddb0feb7e57835fcad96240e035c9663747",
+        "ent_3b332777f2790b939b1026fe8ea367e007227f11939f4e867b697a96c9a14165",
+        "ent_e0022e0649567c018bf80a9d7f2d99bcdb66384facb82525544c314aa2c0a81e",
+        "ent_8d3ad3137f5227c3fbfbc0fa1b54f9da2899801ea9ab8cd6b7c3303e6779a260",
+        "ent_8f088c6f5c905cfa4bc939b111abf0a73eb320082b39500cf4f9b804091ceb72",
+        "ent_afed2aec771b470808a5997e5518e276b2d655e14fc82cbc24a6971d88392f63",
+        "ent_f8910b2adf07ab5c27f9b29d1d6046fba53bc51df53c812a9584f73c655cda3b",
+        "ent_108b47bd05b5f0e6713d5e52f3b32b8a7e2f5b0c93c26669a13e0f09ddcc8ed3",
+        "ent_876aab88c09c76636e36be33a2477ff844368bdd571b06670dbbb9834e2f6424",
+        "ent_b0587c10f6aea582be9acb9932b7d44f5e7f9a05b834887177d8c8a4e3dc29e4",
+        "ent_2e4f2b79d0d13ed97bd514e7f4b36a9ebfd4fe07ccf3ff0cd4a9fbc1f632e56f",
+        "ent_e1552a4e74b3c5c7c525aa37115952232cca6666feb6f819beb34f55e7bbaa7d",
+        "ent_9fa312b1af1e4cf45dec21288190d65f85751a91c44b61da76ab2edbf28458da",
+        "ent_7ff63618ffa28c212b46844f4b44b7457777f62b838e52cbc86d5c5cf1ea8e73",
+        "ent_5d1028a9b2a84703505da94c253f145bc9979953dfb76eea9cb88073d9f07a6c",
+        "ent_803cde88ad9bbc1b278f113c7402c725e5c60b7e4f3076150d7997a875e67310",
+        "ent_440d76fe7a7a5297293df27ced997099074ad1517cbb9ee76a7de30af7f5a68a",
+        "ent_5c17dfd19fadfd6c32661357abd312bb68d45d44620d5a8be31e2299c1aa1859",
+        "ent_1820882e20a9eaef1ff09a17799a7c45e42ffac3cdafc91adfe14f956a844055",
+        "ent_af98c9e5ede800540f32e986a99be597b43d9b43b9e9fefc04e0ce0c4241b46f",
+        "ent_4404b30abca211026268a0b8c59bea39df24b71b626164a502288c4b64df58ad",
+        "ent_58d4c6e9f1ab4c9717945e7a804a58804e397145a8186644a9b5e88aeba1ed86",
+        "ent_fa38d8d9643e1d1a0b8a2dbaa50b190ad404816d573855b02f84d27ca6466c63",
+        "ent_1b33baee9f7601a52b904d9bbda321a8793bd62aeae78518838ba7749f1829d9",
+        "ent_1058bbd15a0bc247f103f41699f27b68e559bab52157c00e80044523beee5e31",
+        "ent_5cba984c7aef497e70431f2c0aacaea93f36537cd9b6dc58597444ff816a59cf",
+        "ent_682c7dfa2af79be45cb30bb98345f15c8e69fffa6f846e749a65f38add31c4cf",
+        "ent_a55f92a3e549f441e06214ace219a17c63224428694d5d98c056e6c14eb0ba9d",
+        "ent_8abc5cafb158a154b282270c4dd509fb0bfe5846c204012e17fb7d0b7eee87e4",
+        "ent_61eeec59b45137c611ddafa8934415b638838cbbad86e7c34c8aaf1b833b2065",
+        "ent_2d9fb821efcc8bfb38bcab98f3c1ebd949b506ef6877283c7d6a322fc9cc7561",
+        "ent_06d555f69a07a791f32531eff25fcddfa74a0ecc1f0cd2fccdabcec0e34c3c78",
+        "ent_b4573419c038f99307e6fef6eb2d0455bd1ef268b43de0dc9cd103e94970b554",
+        "ent_10c82eb019300d40c8283a0c2d70608ae486346691585ee930ec79d3c2cc5c92",
+        "ent_6bcff8282c1a44ac3d4e9058c8247fb25c20f5fc70029490f3eaa5a24009957a",
+        "ent_ee9c815638cf60077e50bddcacdceb4063eb79c6626fbb1cbf9e989edb19431a"
+      ],
+      "complete": true
+    }
+  ],
+  "allowedExtensions": [],
+  "limits": {
+    "timeoutMs": 60000,
+    "maxInputBytes": 33554432,
+    "maxOutputBytes": 33554432,
+    "maxStderrBytes": 1048576
+  },
+  "evidence": [
+    {
+      "id": "ev_d4fa83b4a51d38cef27d355749002e8aed0a04d52e3115a3f1072327050787f6",
+      "sourceId": "src_bfb0bfe58580d7eba20fbe4894204f17e48f660c1ff8e09f8bb36d9f7d9d0a7a",
+      "contentHash": "b11f24040c65a21fa62732f219ff17866bb447861568c918cb08b3e9268dc0ff",
+      "startByte": 0,
+      "endByte": 1051,
+      "startLine": 1,
+      "endLine": 11,
+      "role": "semantic-case"
+    },
+    {
+      "id": "ev_739ec8f9de38af8d69b11cca2ec02720c329a3fe1c28c702fdd3bbc8cf1d4df2",
+      "sourceId": "src_4f11ff1dbaa1ff7ce78268500b952e25582fff080cd6fc2ac271a88d3b69b79c",
+      "contentHash": "b11f24040c65a21fa62732f219ff17866bb447861568c918cb08b3e9268dc0ff",
+      "startByte": 0,
+      "endByte": 1051,
+      "startLine": 1,
+      "endLine": 11,
+      "role": "semantic-case"
+    },
+    {
+      "id": "ev_93d0002d23f1c2647b4498a867917dd8f10971c3718228677d79f694c8c0858a",
+      "sourceId": "src_8949fb73041ad3b5b64feca70b438897bd68f6bf8b9f1f2a66df90060082d9d8",
+      "contentHash": "70d18548c33e29355647ca6486482e5729e803cf8b93fd9129137a9b32875c15",
+      "startByte": 0,
+      "endByte": 1257,
+      "startLine": 1,
+      "endLine": 20,
+      "role": "semantic-case"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+    Checking project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+error: called `unwrap` on `fragment` after checking its variant with `is_some`
+  --> crates\core\src\query\page.rs:75:24
+   |
+74 |     let (path, query) = if mode == RouteMode::Hash && fragment.is_some() {
+   |                                                       ------------------ the check is happening here
+75 |         let fragment = fragment.unwrap();
+   |                        ^^^^^^^^^^^^^^^^^
+   |
+   = help: try using `if let` or `match`
+   = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#unnecessary_unwrap
+   = note: `-D clippy::unnecessary-unwrap` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(clippy::unnecessary_unwrap)]`
+
+error: could not compile `project-knowledge-core` (lib) due to 1 previous error

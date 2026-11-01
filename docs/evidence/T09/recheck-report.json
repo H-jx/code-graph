@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-27",
+  "commands": [
+    {
+      "passed": 13,
+      "exitCode": 0,
+      "platform": "windows-x64",
+      "command": "cargo test -p project-knowledge-core --test lifecycle --locked -- --test-threads=1"
+    },
+    {
+      "passed": 15,
+      "notes": "14 regular + 1 explicit isolated full filesystem",
+      "exitCode": 0,
+      "platform": "linux-x64-wsl2",
+      "command": "wsl.exe -d Ubuntu-legacy -- sh /mnt/e/Project/my-project/code-graph/docs/evidence/T09/linux-probe/recheck.sh"
+    }
+  ],
+  "hashes": {
+    "crates/core/tests/lifecycle.rs": "f8aef7be587397a79dc4cef25ab41e0f93f187e769a00960a23f1f48366ed682",
+    "docs/evidence/T09/linux-probe/full-filesystem-capacity.log": "41ac34b3861a241bc19af8dbf2dbbd0730a58aafe45062772c21fcc7a9c6d83e",
+    "crates/core/src/storage/plugins.rs": "4df11ac3ab7a1459b2d3e1b6fc3fc0c0dad5a934fdcaced1253291481a3fa48b",
+    "docs/evidence/T09/rechecked-lifecycle.log": "644bbb083876e86f26172f96b7f237e9815d855f74ac46e9eee02a9f0a76cb3d",
+    "docs/evidence/T09/linux-probe/rechecked-lifecycle.log": "42d874af35c2bb15eb599ceebfad2dccbe512317810e27d88b30967087ea4ee2",
+    "crates/core/src/collect/registry.rs": "73542c63db5890fefd22a4bed9c88a8066408a28036badbb25d96e045ab092e9",
+    "docs/evidence/T09/linux-probe/full-filesystem.log": "140b2d223102f0d3a69993e5991edc7168b90a69aea3f35a5a047efad25dbd85",
+    "docs/evidence/T09/linux-probe/dependencies/report.json": "a1972a6ab4f95e6c313ff0f11305862ffbb95ab49db9d870ea831c7ac63adf32"
+  },
+  "physicalPowerLossVerified": false,
+  "realModelRequests": 0
+}

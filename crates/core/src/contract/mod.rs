@@ -8,13 +8,17 @@
 //! - `protocolVersion = "1.0"`；`schemaVersion = 1` 只用于项目配置，二者不得混用。
 //! - 主版本不匹配直接拒绝；v1 只接受已支持 minor；未知公共字段拒绝。
 
+pub mod client;
 pub mod collector;
 pub mod entity;
 pub mod error;
 pub mod evidence;
+pub mod extensions;
 pub mod identity;
+pub mod knowledge;
 pub mod query;
 pub mod relation;
+pub mod schema;
 
 /// 采集协议版本。
 pub const PROTOCOL_VERSION: &str = "1.0";

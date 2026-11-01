@@ -11,7 +11,8 @@ use crate::contract::collector::{CollectorInput, CollectorOutput, PluginManifest
 use crate::contract::entity::{EntityKind, Origin};
 use crate::contract::error::{CoreError, Issue, codes};
 use crate::contract::evidence::SourceClass;
-use crate::contract::identity::compute_entity_id;
+use crate::contract::extensions::ExtensionRegistry;
+use crate::contract::identity::{compute_entity_id, compute_evidence_id, compute_relation_id};
 use crate::contract::relation::endpoint_allowed;
 
 /// 校验上下文。
@@ -20,6 +21,7 @@ pub struct ValidationContext<'a> {
     pub input: &'a CollectorInput,
     pub manifest: &'a PluginManifest,
     pub stage: &'a StageSpec,
+    pub registry: Option<&'a ExtensionRegistry>,
 }
 
 /// 校验结果。
@@ -38,6 +40,58 @@ pub fn validate_output(
     output: &CollectorOutput,
 ) -> Result<Vec<Issue>, CoreError> {
     let mut issues: Vec<Issue> = Vec::new();
+    let local_registry;
+    let registry = if let Some(registry) = context.registry {
+        registry
+    } else {
+        local_registry = ExtensionRegistry::from_manifests([context.manifest])?;
+        &local_registry
+    };
+
+    for (index, set) in context.input.candidate_sets.iter().enumerate() {
+        if !set.complete {
+            issues.push(
+                Issue::new(
+                    codes::CANDIDATE_SET_INCOMPLETE,
+                    &format!("/input/candidateSets/{index}"),
+                )
+                .with_hint("重新导出完整候选集合，不能对截断结果判定唯一匹配"),
+            );
+        }
+    }
+    for selector in &context.stage.entity_selectors {
+        let sets: Vec<_> = context
+            .input
+            .candidate_sets
+            .iter()
+            .filter(|set| set.selector_id == selector.id)
+            .collect();
+        let expected: std::collections::BTreeSet<_> = context
+            .input
+            .entities
+            .iter()
+            .filter(|entity| {
+                (selector.kinds.is_empty() || selector.kinds.contains(&entity.kind))
+                    && (selector.scope_ids.is_empty()
+                        || selector.scope_ids.contains(&entity.scope_id))
+            })
+            .map(|entity| &entity.entity_id)
+            .collect();
+        if sets.len() != 1
+            || sets.first().is_some_and(|set| {
+                set.entity_ids
+                    .iter()
+                    .collect::<std::collections::BTreeSet<_>>()
+                    != expected
+                    || set.entity_ids.len() != expected.len()
+            })
+        {
+            issues.push(
+                Issue::new(codes::CANDIDATE_SET_INCOMPLETE, "/input/candidateSets")
+                    .with_hint("每个声明的 selector 必须有唯一、完整且与导出实体一致的候选集合"),
+            );
+        }
+    }
 
     if output.protocol_version != crate::contract::PROTOCOL_VERSION {
         return Err(CoreError::new(
@@ -123,6 +177,27 @@ pub fn validate_output(
             );
             continue;
         }
+        if !source
+            .content
+            .is_char_boundary(evidence.start_byte as usize)
+            || !source.content.is_char_boundary(evidence.end_byte as usize)
+            || !source.source.source_class.is_original()
+            || evidence.id
+                != compute_evidence_id(
+                    &evidence.source_id,
+                    &evidence.content_hash,
+                    evidence.start_byte,
+                    evidence.end_byte,
+                    &evidence.role,
+                )
+            || evidence_index.contains_key(&evidence.id)
+        {
+            issues.push(
+                Issue::new(codes::EVIDENCE_INVALID, &path)
+                    .with_hint("使用原始来源、UTF-8 字符边界与重算的唯一证据 ID"),
+            );
+            continue;
+        }
         evidence_index.insert(
             evidence.id.clone(),
             EvidenceRecord {
@@ -137,16 +212,49 @@ pub fn validate_output(
     let mut batch_entity_ids: BTreeMap<String, EntityKind> = BTreeMap::new();
     for (index, entity) in output.entities.iter().enumerate() {
         let path = format!("/entities/{index}");
-        let recomputed = compute_entity_id(context.project_id, entity.kind, &entity.identity)
-            .map_err(|error| {
-                CoreError::new(
-                    codes::IDENTITY_CONFLICT,
-                    format!("entity identity is invalid: {error}"),
+        if let Some(scope) = entity.identity.iter().find(|slot| slot.name == "scopeId")
+            && scope.value.as_ref().and_then(|v| v.as_text()) != Some(entity.scope_id.as_str())
+        {
+            issues.push(
+                Issue::new(codes::IDENTITY_CONFLICT, &format!("{path}/scopeId"))
+                    .with_hint("scopeId 必须与 identity 中的作用域一致"),
+            );
+        }
+        let attributes = serde_json::Value::Object(entity.assertion.attributes.clone());
+        let payload = match entity.kind {
+            EntityKind::QueryImplementation => {
+                crate::contract::schema::validate::<crate::contract::QueryImplementationAttributes>(
+                    &attributes,
+                    &format!("{path}/assertion/attributes"),
                 )
-                .with_issues(vec![
-                    Issue::new(codes::IDENTITY_CONFLICT, &path).with_actual(error.to_string()),
-                ])
-            })?;
+            }
+            EntityKind::ReportField => crate::contract::schema::validate::<
+                crate::contract::ReportFieldAttributes,
+            >(
+                &attributes, &format!("{path}/assertion/attributes")
+            ),
+            EntityKind::Extension(ref name) => registry.validate_entity(
+                name.as_str(),
+                &entity.identity,
+                &entity.assertion.attributes,
+                &path,
+            ),
+            _ => Ok(()),
+        };
+        if let Err(error) = payload {
+            issues.extend(error.issues);
+        }
+        let recomputed =
+            match compute_entity_id(context.project_id, entity.kind.clone(), &entity.identity) {
+                Ok(id) => id,
+                Err(error) => {
+                    // 保留此前 kind/来源的根因；非法身份不能丢弃已收集的精确 issue。
+                    issues.push(
+                        Issue::new(codes::IDENTITY_CONFLICT, &path).with_actual(error.to_string()),
+                    );
+                    continue;
+                }
+            };
         if recomputed != entity.entity_id {
             issues.push(
                 Issue::new(codes::IDENTITY_CONFLICT, &path)
@@ -188,19 +296,50 @@ pub fn validate_output(
                 }
             }
         }
-        batch_entity_ids.insert(entity.entity_id.clone(), entity.kind);
+        if batch_entity_ids
+            .insert(entity.entity_id.clone(), entity.kind.clone())
+            .is_some()
+        {
+            issues.push(
+                Issue::new(codes::IDENTITY_CONFLICT, &path).with_hint("单批实体 ID 不可重复"),
+            );
+        }
     }
 
     // 关系：端点与证据。
+    let mut seen_relations = std::collections::BTreeSet::new();
     for (index, relation) in output.relations.iter().enumerate() {
         let path = format!("/relations/{index}");
+        if !seen_relations.insert(&relation.relation_id) {
+            issues.push(
+                Issue::new(codes::IDENTITY_CONFLICT, &path).with_hint("单批关系 ID 不可重复"),
+            );
+        }
+        let qualifiers = serde_json::Value::Object(relation.qualifiers.clone());
+        let payload = match relation.kind {
+            crate::contract::RelationKind::Joins => crate::contract::schema::validate::<
+                crate::contract::JoinQualifiers,
+            >(
+                &qualifiers, &format!("{path}/qualifiers")
+            ),
+            crate::contract::RelationKind::TransitionsTo => {
+                crate::contract::schema::validate::<crate::contract::TransitionQualifiers>(
+                    &qualifiers,
+                    &format!("{path}/qualifiers"),
+                )
+            }
+            _ => Ok(()),
+        };
+        if let Err(error) = payload {
+            issues.extend(error.issues);
+        }
         let from_kind = batch_entity_ids
             .get(&relation.from_id)
-            .copied()
+            .cloned()
             .or_else(|| exported_kind(context, &relation.from_id));
         let to_kind = batch_entity_ids
             .get(&relation.to_id)
-            .copied()
+            .cloned()
             .or_else(|| exported_kind(context, &relation.to_id));
         let (Some(from_kind), Some(to_kind)) = (from_kind, to_kind) else {
             issues.push(
@@ -210,7 +349,39 @@ pub fn validate_output(
             );
             continue;
         };
-        if !endpoint_allowed(relation.kind, from_kind.as_str(), to_kind.as_str()) {
+        let expected_id = compute_relation_id(
+            context.project_id,
+            relation.kind.clone(),
+            &relation.from_id,
+            &relation.to_id,
+            &relation.qualifiers,
+        )
+        .map_err(|e| CoreError::new(codes::IDENTITY_CONFLICT, e.to_string()))?;
+        if relation.relation_id != expected_id {
+            issues.push(
+                Issue::new(codes::IDENTITY_CONFLICT, &path)
+                    .with_expected(expected_id)
+                    .with_hint("按关系类型、端点和 qualifiers 重算关系 ID"),
+            );
+        }
+        if relation.assertion.origin == Origin::Ai
+            && relation.assertion.basis != crate::contract::entity::Basis::Inferred
+        {
+            issues.push(
+                Issue::new(codes::SCHEMA_INVALID, &path).with_hint("AI 关系必须使用 inferred"),
+            );
+        }
+        if let crate::contract::RelationKind::Extension(name) = &relation.kind {
+            if let Err(error) = registry.validate_relation(
+                name.as_str(),
+                &from_kind,
+                &to_kind,
+                &relation.qualifiers,
+                &path,
+            ) {
+                issues.extend(error.issues);
+            }
+        } else if !endpoint_allowed(relation.kind.clone(), from_kind.as_str(), to_kind.as_str()) {
             issues.push(
                 Issue::new(codes::SCHEMA_INVALID, &path)
                     .with_actual(format!(
@@ -261,6 +432,26 @@ pub fn validate_output(
 
     // 覆盖：声明的能力必须在本插件的 capabilities 内。
     for (index, coverage) in output.coverage.iter().enumerate() {
+        if coverage.status == crate::contract::collector::CoverageStatus::Complete
+            && (context.input.source_sets.iter().any(|s| !s.complete)
+                || !coverage.gap_ids.is_empty()
+                || output.gaps.iter().any(|g| {
+                    g.capability == coverage.capability && g.scope_id == coverage.scope_id
+                }))
+        {
+            issues.push(
+                Issue::new(codes::SCHEMA_INVALID, &format!("/coverage/{index}/status"))
+                    .with_hint("存在跳过来源或对应缺口时只能声明 partial"),
+            );
+        }
+        for gap in &coverage.gap_ids {
+            if !output.gaps.iter().any(|g| &g.id == gap) {
+                issues.push(Issue::new(
+                    codes::REFERENCE_MISSING,
+                    &format!("/coverage/{index}/gapIds"),
+                ));
+            }
+        }
         if !context.manifest.capabilities.is_empty()
             && !context
                 .manifest
@@ -308,5 +499,5 @@ fn exported_kind(context: &ValidationContext<'_>, entity_id: &str) -> Option<Ent
         .entities
         .iter()
         .find(|entity| entity.entity_id == entity_id)
-        .map(|entity| entity.kind)
+        .map(|entity| entity.kind.clone())
 }

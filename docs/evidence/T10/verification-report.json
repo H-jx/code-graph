@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-27",
+  "task": "T10",
+  "status": "done",
+  "node": "v24.14.0",
+  "commands": [
+    {
+      "command": "cargo test --workspace --locked -j 1 -- --test-threads=1",
+      "log": "docs/evidence/T10/workspace-verified.log",
+      "exitCode": 0,
+      "passed": 103,
+      "platform": "windows-x64"
+    },
+    {
+      "command": "cargo clippy --workspace --all-targets --locked -j 1 -- -D warnings",
+      "log": "docs/evidence/T10/clippy-serial.log",
+      "exitCode": 0,
+      "passed": null,
+      "platform": "windows-x64"
+    },
+    {
+      "command": "cargo fmt --all -- --check",
+      "log": "docs/evidence/T10/fmt.log",
+      "exitCode": 0,
+      "passed": null,
+      "platform": "windows-x64"
+    },
+    {
+      "command": "cargo build -p project-knowledge-cli --no-default-features --locked -j 1",
+      "log": "docs/evidence/T10/core-only.log",
+      "exitCode": 0,
+      "passed": null,
+      "platform": "windows-x64"
+    },
+    {
+      "command": "cargo run -p xtask --locked -j 1 -- export-contracts --check",
+      "log": "docs/evidence/T10/contracts.log",
+      "exitCode": 0,
+      "passed": null,
+      "platform": "windows-x64"
+    },
+    {
+      "command": "node scripts/generate-types.mjs --check",
+      "log": "docs/evidence/T10/types.log",
+      "exitCode": 0,
+      "passed": null,
+      "platform": "windows-x64"
+    },
+    {
+      "command": "node scripts/verify-core-dependencies.mjs",
+      "log": "docs/evidence/T10/core-dependencies.log",
+      "exitCode": 0,
+      "passed": null,
+      "platform": "windows-x64"
+    },
+    {
+      "command": "node scripts/verify-plan.mjs --plan ../plan/NEW-PROJECT-LONG-TASK.md",
+      "log": "docs/evidence/T10/plan.log",
+      "exitCode": 0,
+      "passed": null,
+      "platform": "windows-x64"
+    },
+    {
+      "command": "cargo test -p project-knowledge-core --tests --locked -j 1 -- --test-threads=1",
+      "log": "docs/evidence/T10/linux-core.log",
+      "exitCode": 0,
+      "passed": 99,
+      "platform": "linux-x64-wsl2"
+    },
+    {
+      "command": "cargo test -p project-knowledge-cli --no-default-features --test collect --locked -j 1 -- --test-threads=1",
+      "log": "docs/evidence/T10/linux-cli.log",
+      "exitCode": 0,
+      "passed": 3,
+      "platform": "linux-x64-wsl2"
+    },
+    {
+      "command": "cargo test -p project-knowledge-core --test lifecycle --locked -j 1 -- incremental_ --test-threads=1",
+      "log": "docs/evidence/T10/linux-incremental-final.log",
+      "exitCode": 0,
+      "passed": 4,
+      "platform": "linux-x64-wsl2"
+    }
+  ],
+  "sourceHashes": {
+    "Cargo.lock": "79e3e04d45ef7433a570a32d266fb44412a36261758d1d4e88a47c0ae92fc584",
+    "Cargo.toml": "1f4e134a4d66c36cd50b74be7c30f8f16d5fca54d6543122f3d7b67d4511ea47",
+    "crates/core/src/index/build.rs": "6404ea7b5782986983f0fafaa4ee25e8059b26480200ebc5ebd6469953160711",
+    "crates/core/src/index/dependencies.rs": "99c41b2db3cecd6cae9c03a782898432191ebe727a767e607aa6782f16797ad2",
+    "crates/core/src/index/incremental.rs": "f16d2b7294413bdedd6eb09232e7762635143e02d4e4199904958a0f20b2966f",
+    "crates/core/src/collect/staging.rs": "536cc4061a30e30e990b6f6a924cbdd17dff7ef39ae32546da695488d5e69f79",
+    "crates/core/src/collect/mod.rs": "895af61e48d48fa871921bba172e180c5791becd5d340fd2437bf03c09c2648c",
+    "crates/core/tests/lifecycle.rs": "150b7e708977d3738c1e6de03bf1d1044e143201e979b0db77d82d1fe71b70d2",
+    "crates/cli/src/commands/index.rs": "352004f85d92feb27ecdefb186ac19d52069ac4cded43631759d6b4438d5acc6",
+    "crates/cli/src/commands/collect.rs": "1b06e77f9acc36ae6124dcf57edad7bbf049a00d11f8e859a5f106f047233374",
+    "crates/cli/tests/collect.rs": "a78a2514ff21c354686f94632e36e45f55de48d6c9c56475230a27ba29b76d68",
+    "fixtures/plugins/incremental/collect.mjs": "3d691ce64c94e5d54baefbc2689a19920b8101e69272a034837c15bf060e96bb",
+    "collectors/templates/node/faults/output-flood.mjs": "282cafa7b9084c8bf0839be3871b580b934852e549dfb9d340b66fce5f952da4",
+    "docs/NEW-PROJECT-DESIGN.md": "79423864c43d0f9967e2a494bfe41f6a903d014d04b96985e3582ac3edf3483b",
+    "docs/NEW-PROJECT-STRUCTURE.md": "41fce9e90b7d52d421b381b4f7585e9a98f93bd4ad2501edf99064309d504fd4"
+  },
+  "evidenceHashes": {
+    "docs/evidence/T10/workspace-verified.log": "b49d87cededde3acf59ddfeff6d2d18874484adf9098ddc29db83823d906a68a",
+    "docs/evidence/T10/clippy-serial.log": "2df934021ea6782a3d57cee89b6bf2a341c8ca902669d0218b25401482c34b92",
+    "docs/evidence/T10/fmt.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "docs/evidence/T10/core-only.log": "1444734ca23acdcf5cf2a8a2afdb59f06353e338b8117beda74538b22c3b2e8e",
+    "docs/evidence/T10/contracts.log": "c94840acf72167747f51f7fdde9e53ad485cf7fa4a38a79de47b54710385be0c",
+    "docs/evidence/T10/types.log": "cf77b471c49d46d6a738e16f54bbdcb09e74058f5ecb3ccad9b644a3222bfed5",
+    "docs/evidence/T10/core-dependencies.log": "26a1181a3315dde5e203c0312c54810d05204328c50ddcd0b8848277f8167e3e",
+    "docs/evidence/T10/plan.log": "71661198a7904771d1f016c66fd0d8d820784b0283cf51d0b9132d6fb48b6f60",
+    "docs/evidence/T10/linux-core.log": "48bc6fe6bfbc9068c4cd96d288f81609109281d2d29300bded153d4f85d39fee",
+    "docs/evidence/T10/linux-cli.log": "79bbd690368f7153afc72193c3217ad4ed8ef9359731059c70803bf9493a7333",
+    "docs/evidence/T10/linux-incremental-final.log": "0b37f8ae2c4657d2acdfd89cd89d5c53ccae5e339952845185c94987017a036e",
+    "docs/evidence/T10/comparisons/comparison-10.json": "7bffacdf0e34eb58eeb8380576b83c11308dd9b1de948060583f7bb8c72237b7",
+    "docs/evidence/T10/comparisons/comparison-2.json": "256599fc27ba75677383cae46a8b403c8056816840374b913c7a335aadbb45bb",
+    "docs/evidence/T10/comparisons/comparison-4.json": "7dbdd7eaba20b3990f4013a90fb0ecdeb161a63b2f1910df36894cc4f04885ce",
+    "docs/evidence/T10/comparisons/comparison-6.json": "bad2318360151074a1342df909e6f6e3ccb0d52ea7fb9ed093e88b47fa8ec033",
+    "docs/evidence/T10/comparisons/comparison-8.json": "e278f5964d085d80a1f5f1675ca2ecce6667e91ff29298e8c12e095253dfa04e",
+    "docs/evidence/T10/linux-gates-result.json": "c605fabae01beb591da874adf235a5c294a16aa433f40478b41309a35aeb9d28",
+    "docs/evidence/T10/tool-versions.json": "49a7367bb0aa6d72b0f7bfe9bc654b4fc69558e17233a1ee8abbacb0a41c394b",
+    "docs/evidence/T10/README.md": "2837ff3718de762914db6980418cee7e41ebc408797a19c967bf8ef75437ec73",
+    "plan/NEW-PROJECT-LONG-TASK.md": "be5f1d6e8d61e2d4e018e2b13206c0a20e8bf2cd05afd1886caf87e7ef798246",
+    "docs/execution-log.md": "bcb45f942b1e5886f59ad01ad23f137a7331e34cdcb94750536e7c8d75daa79a",
+    "docs/collectors.md": "08c3171f668d8520d5c6388347f535add67e7b5bf958cedb3622f5e3f85c072c",
+    "docs/validation/truth-review.md": "366f682cc3d6c3ee84771945d1329a8f4a5061f583d4ae587a99c69cf787e9d8"
+  },
+  "normalizedComparisons": [
+    {
+      "path": "docs/evidence/T10/comparisons/comparison-10.json",
+      "equal": true
+    },
+    {
+      "path": "docs/evidence/T10/comparisons/comparison-2.json",
+      "equal": true
+    },
+    {
+      "path": "docs/evidence/T10/comparisons/comparison-4.json",
+      "equal": true
+    },
+    {
+      "path": "docs/evidence/T10/comparisons/comparison-6.json",
+      "equal": true
+    },
+    {
+      "path": "docs/evidence/T10/comparisons/comparison-8.json",
+      "equal": true
+    }
+  ],
+  "modelRequests": 0,
+  "modelCountBasis": "Core constructs no model client; actual dependency-tree check excludes Agent/Rig (406 nodes). No real model or provider invoked.",
+  "independentTruthHash": null,
+  "excludedEvidence": {
+    "linuxClippy": "Installed executables were zero bytes; exit 0 rejected. Repair failed on residual component file conflicts. Valid lint gate is real Windows workspace Clippy.",
+    "windowsParallelRuns": "OS 1455 commit-memory failures retained in workspace-final.log and clippy.log; superseded by serial successful commands."
+  },
+  "next": {
+    "eligibleTodo": [],
+    "blockedTask": "T06",
+    "blockedReason": "truth and business scenario directories contain only .gitkeep, no independent source or reviewed truth package; T11 requires T06."
+  },
+  "toolVersions": {
+    "rustc": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+    "cargo": "cargo 1.97.1 (c980f4866 2026-06-30)",
+    "node": "v24.14.0",
+    "platform": "windows-x64",
+    "clientDate": "2026-10-27"
+  }
+}

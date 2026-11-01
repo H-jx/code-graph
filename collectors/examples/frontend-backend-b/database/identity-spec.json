@@ -1,0 +1,423 @@
+{
+  "entityKinds": [
+    {
+      "identityComponents": [
+        {
+          "name": "repositoryId",
+          "required": true
+        },
+        {
+          "name": "path",
+          "required": true
+        },
+        {
+          "name": "scopeId",
+          "required": true
+        }
+      ],
+      "kind": "file"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "repositoryId",
+          "required": true
+        },
+        {
+          "name": "path",
+          "required": true
+        },
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "lexicalPath",
+          "required": true
+        },
+        {
+          "name": "symbolKind",
+          "required": true
+        },
+        {
+          "name": "normalizedSignature",
+          "required": true
+        }
+      ],
+      "kind": "symbol"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "repositoryId",
+          "required": true
+        },
+        {
+          "name": "path",
+          "required": true
+        },
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "lexicalPath",
+          "required": true
+        }
+      ],
+      "kind": "component"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "repositoryId",
+          "required": true
+        },
+        {
+          "name": "path",
+          "required": true
+        },
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "lexicalPath",
+          "required": true
+        },
+        {
+          "name": "normalizedSignature",
+          "required": true
+        }
+      ],
+      "kind": "operation"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "routerId",
+          "required": true
+        },
+        {
+          "name": "mode",
+          "required": true
+        },
+        {
+          "name": "declaredPath",
+          "required": true
+        }
+      ],
+      "kind": "route"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "serviceId",
+          "required": true
+        },
+        {
+          "name": "method",
+          "required": true
+        },
+        {
+          "name": "registeredPath",
+          "required": true
+        }
+      ],
+      "kind": "httpEndpoint"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "serviceId",
+          "required": true
+        },
+        {
+          "name": "operationType",
+          "required": true
+        },
+        {
+          "name": "operationName",
+          "required": true
+        }
+      ],
+      "kind": "graphqlOperation"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "serviceId",
+          "required": true
+        },
+        {
+          "name": "schemaType",
+          "required": true
+        },
+        {
+          "name": "fieldName",
+          "required": true
+        }
+      ],
+      "kind": "graphqlField"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "dataSourceId",
+          "required": true
+        },
+        {
+          "name": "catalog",
+          "required": false
+        },
+        {
+          "name": "schema",
+          "required": false
+        },
+        {
+          "name": "table",
+          "required": true
+        }
+      ],
+      "kind": "dataTable"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "dataSourceId",
+          "required": true
+        },
+        {
+          "name": "catalog",
+          "required": false
+        },
+        {
+          "name": "schema",
+          "required": false
+        },
+        {
+          "name": "table",
+          "required": true
+        },
+        {
+          "name": "column",
+          "required": true
+        }
+      ],
+      "kind": "dataColumn"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "dataSourceId",
+          "required": true
+        },
+        {
+          "name": "catalog",
+          "required": false
+        },
+        {
+          "name": "schema",
+          "required": false
+        },
+        {
+          "name": "table",
+          "required": true
+        },
+        {
+          "name": "keyColumns",
+          "required": true
+        }
+      ],
+      "kind": "dataKey"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "semanticKey",
+          "required": true
+        }
+      ],
+      "kind": "module"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "semanticKey",
+          "required": true
+        }
+      ],
+      "kind": "entrypoint"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "workflowId",
+          "required": true
+        },
+        {
+          "name": "semanticKey",
+          "required": true
+        }
+      ],
+      "kind": "workflowState"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "semanticKey",
+          "required": true
+        }
+      ],
+      "kind": "documentType"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "semanticKey",
+          "required": true
+        }
+      ],
+      "kind": "queryImplementation"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "semanticKey",
+          "required": true
+        }
+      ],
+      "kind": "reportField"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "repositoryId",
+          "required": true
+        },
+        {
+          "name": "path",
+          "required": true
+        },
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "lexicalPath",
+          "required": true
+        }
+      ],
+      "kind": "event"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "requestKey",
+          "required": true
+        }
+      ],
+      "kind": "request"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "repositoryId",
+          "required": true
+        },
+        {
+          "name": "path",
+          "required": true
+        },
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "lexicalPath",
+          "required": true
+        }
+      ],
+      "kind": "title"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "repositoryId",
+          "required": true
+        },
+        {
+          "name": "path",
+          "required": true
+        },
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "lexicalPath",
+          "required": true
+        }
+      ],
+      "kind": "comment"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "configuredId",
+          "required": true
+        }
+      ],
+      "kind": "dataSource"
+    },
+    {
+      "identityComponents": [
+        {
+          "name": "scopeId",
+          "required": true
+        },
+        {
+          "name": "configuredId",
+          "required": true
+        }
+      ],
+      "kind": "service"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "name": "project-knowledge-frontend-example",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "typescript": "6.0.3",
+    "graphql": "16.11.0"
+  }
+}

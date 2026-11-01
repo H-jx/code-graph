@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\subprocess_recovery.py", line 153, in <module>
+    main()
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\subprocess_recovery.py", line 26, in main
+    assert live["activation"]["status"] == "active"
+KeyError: 'activation'

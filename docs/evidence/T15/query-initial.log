@@ -1,0 +1,25 @@
+   Compiling rusqlite v0.41.0
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+error: implementation of `FnMut` is not general enough
+   --> crates\core\src\storage\database.rs:149:9
+    |
+149 | /         self.conn.trace_v2(rusqlite::trace::TraceEventCodes::SQLITE_TRACE_STMT,Some(move |event| {
+150 | |             if let rusqlite::trace::TraceEvent::Stmt(statement,_) = event { observer(&statement.sql()); }
+151 | |         })).map_err(super::database_error)
+    | |___________^ implementation of `FnMut` is not general enough
+    |
+    = note: closure with signature `fn(TraceEvent<'2>)` must implement `FnMut<(TraceEvent<'1>,)>`, for any lifetime `'1`...
+    = note: ...but it actually implements `FnMut<(TraceEvent<'2>,)>`, for some specific lifetime `'2`
+
+error: implementation of `FnOnce` is not general enough
+   --> crates\core\src\storage\database.rs:149:9
+    |
+149 | /         self.conn.trace_v2(rusqlite::trace::TraceEventCodes::SQLITE_TRACE_STMT,Some(move |event| {
+150 | |             if let rusqlite::trace::TraceEvent::Stmt(statement,_) = event { observer(&statement.sql()); }
+151 | |         })).map_err(super::database_error)
+    | |___________^ implementation of `FnOnce` is not general enough
+    |
+    = note: closure with signature `fn(TraceEvent<'2>)` must implement `FnOnce<(TraceEvent<'1>,)>`, for any lifetime `'1`...
+    = note: ...but it actually implements `FnOnce<(TraceEvent<'2>,)>`, for some specific lifetime `'2`
+
+error: could not compile `project-knowledge-core` (lib) due to 2 previous errors

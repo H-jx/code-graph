@@ -1,0 +1,67 @@
+{
+  "completedAt": "2026-10-29T00:27:33Z",
+  "configPath": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\external-core-only\\project\\.project-knowledge\\project.json",
+  "coverage": {
+    "api@repo.business": {
+      "capability": "api",
+      "gapIds": [],
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured"
+    },
+    "base@repo.business": {
+      "capability": "base",
+      "gapIds": [],
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "complete"
+    },
+    "database@repo.business": {
+      "capability": "database",
+      "gapIds": [],
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured"
+    },
+    "frontend@repo.business": {
+      "capability": "frontend",
+      "gapIds": [],
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured"
+    },
+    "report@repo.business": {
+      "capability": "report",
+      "gapIds": [],
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured"
+    },
+    "routes@repo.business": {
+      "capability": "routes",
+      "gapIds": [],
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured"
+    },
+    "workflow@repo.business": {
+      "capability": "workflow",
+      "gapIds": [],
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured"
+    }
+  },
+  "entities": 10,
+  "executed": [],
+  "gaps": 0,
+  "generation": "1",
+  "indexDatabase": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\external-core-only\\project\\.project-knowledge\\index.sqlite",
+  "indexId": "6aa6b537-ec1c-4042-95af-ebf04571e129",
+  "invalidated": [],
+  "mode": "base",
+  "relations": 8,
+  "searchDocuments": 10,
+  "sourceSetHash": "55e3a6546053be3e3bd7d467c6ce427da7df2ec4d19f4936af94d22f01f1852d",
+  "sourceSnapshotId": "snap_07a286326378caf028a430880fc43eaf6aaafabc6c5427508784809672ed3a79"
+}

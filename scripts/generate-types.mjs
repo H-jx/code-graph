@@ -13,39 +13,32 @@
  * 避免“生成后再声称一致”。
  */
 
-import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-import { compile } from "json-schema-to-typescript";
+import { compile } from 'json-schema-to-typescript';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const repositoryRoot = resolve(here, "..");
-const schemaPath = resolve(repositoryRoot, "docs", "schema", "contract.schema.json");
-const outputPath = resolve(
-  repositoryRoot,
-  "packages",
-  "sdk",
-  "src",
-  "generated",
-  "contract.ts",
-);
+const repositoryRoot = resolve(here, '..');
+const schemaPath = resolve(repositoryRoot, 'docs', 'schema', 'contract.schema.json');
+const outputPath = resolve(repositoryRoot, 'packages', 'sdk', 'src', 'generated', 'contract.ts');
 
 const args = process.argv.slice(2);
-const unknown = args.filter((arg) => arg !== "--check");
+const unknown = args.filter((arg) => arg !== '--check');
 if (unknown.length > 0) {
-  console.error(`未知参数：${unknown.join(", ")}`);
-  console.error("用法：node scripts/generate-types.mjs [--check]");
+  console.error(`未知参数：${unknown.join(', ')}`);
+  console.error('用法：node scripts/generate-types.mjs [--check]');
   process.exit(2);
 }
-const check = args.includes("--check");
+const check = args.includes('--check');
 
 let schema;
 try {
-  schema = JSON.parse(readFileSync(schemaPath, "utf8"));
+  schema = JSON.parse(readFileSync(schemaPath, 'utf8'));
 } catch (error) {
   console.error(`无法读取 Schema ${schemaPath}：${error.message}`);
-  console.error("请先运行 `cargo run -p xtask -- export-contracts`。");
+  console.error('请先运行 `cargo run -p xtask -- export-contracts`。');
   process.exit(2);
 }
 
@@ -53,9 +46,20 @@ const banner = `// 由 scripts/generate-types.mjs 从 docs/schema/contract.schem
 // 请勿手工编辑：改动 Rust 契约后重新运行 \`pnpm run build:contracts\`。
 `;
 
-const generated = await compile(schema, "Contract", {
-  bannerComment: "",
+// 16.0.0 只在 object 根节点处理 unreachableDefinitions，union 根会漏掉
+// 插件 DTO。使用无字段的生成锚点枚举所有同源定义，保留原查询入口别名。
+const { $defs, ...queryRoot } = schema;
+const generationSchema = {
+  title: 'ContractDeclarations',
+  description: '仅供完整导出类型的生成锚点；运行时协议仍为 Core 的 contract.schema.json。',
+  type: 'object',
   additionalProperties: false,
+  $defs: { ...$defs, ProjectKnowledgeContract: queryRoot },
+};
+const generated = await compile(generationSchema, 'ContractDeclarations', {
+  bannerComment: '',
+  additionalProperties: false,
+  unreachableDefinitions: true,
   style: {
     singleQuote: false,
     semi: true,
@@ -66,11 +70,11 @@ const generated = await compile(schema, "Contract", {
 const content = `${banner}${generated.trim()}\n`;
 
 if (check) {
-  let existing = "";
+  let existing = '';
   try {
-    existing = readFileSync(outputPath, "utf8");
+    existing = readFileSync(outputPath, 'utf8');
   } catch {
-    existing = "";
+    existing = '';
   }
   if (existing !== content) {
     console.error(`生成的类型与 ${outputPath} 不一致；请运行 \`pnpm run build:contracts\`。`);
@@ -79,6 +83,6 @@ if (check) {
   console.log(`生成的类型与 ${outputPath} 一致。`);
 } else {
   mkdirSync(dirname(outputPath), { recursive: true });
-  writeFileSync(outputPath, content, "utf8");
+  writeFileSync(outputPath, content, 'utf8');
   console.log(`wrote ${outputPath}`);
 }

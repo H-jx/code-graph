@@ -1,0 +1,96 @@
+{
+  "id": "scenario2",
+  "origin": "original-source-review",
+  "facts": [
+    {
+      "id": "real-approval-plan",
+      "value": "purchase-request.production-plan.approve",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/backend/src/modules/purchase-request/application/workflows/purchase-request.workflow.ts",
+          "startLine": 39,
+          "endLine": 39,
+          "text": "ProductionPlanApprove = 'purchase-request.production-plan.approve'"
+        }
+      ]
+    },
+    {
+      "id": "real-approval-department",
+      "value": "purchase-request.production-department.approve",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/backend/src/modules/purchase-request/application/workflows/purchase-request.workflow.ts",
+          "startLine": 42,
+          "endLine": 42,
+          "text": "ProductionDepartmentApprove = 'purchase-request.production-department.approve'"
+        }
+      ]
+    },
+    {
+      "id": "real-approval-owner",
+      "value": "purchase-request.project-owner.approve",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/backend/src/modules/purchase-request/application/workflows/purchase-request.workflow.ts",
+          "startLine": 45,
+          "endLine": 45,
+          "text": "ProjectOwnerApprove = 'purchase-request.project-owner.approve'"
+        }
+      ]
+    },
+    {
+      "id": "real-withdraw",
+      "value": "撤销后回到待提交",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/docs/260903-权限审计/03-采购.md",
+          "startLine": 53,
+          "endLine": 53,
+          "text": "撤销后，回到申请人的待提交阶段"
+        }
+      ]
+    },
+    {
+      "id": "real-close-guard",
+      "value": "其他原因需采购确认",
+      "evidence": [
+        {
+          "path": "fixtures/original/synes/docs/260903-权限审计/03-采购.md",
+          "startLine": 63,
+          "endLine": 63,
+          "text": "当关闭原因是“其他”时，采购买办人员确认后，才能关闭"
+        }
+      ]
+    }
+  ],
+  "auditedModel": {
+    "source": "fixtures/purchase-workflow/rules.md",
+    "states": [
+      "DRAFT",
+      "SUBMITTED",
+      "APPROVED",
+      "RECEIVING",
+      "COMPLETED",
+      "CANCELLED"
+    ],
+    "compositeKeys": [
+      "tenant_id",
+      "purchase_no",
+      "line_no"
+    ],
+    "guardEvidence": [
+      {
+        "path": "fixtures/purchase-workflow/flow.ts",
+        "startLine": 3,
+        "endLine": 3,
+        "text": "order.orderedQty > 0 && order.supplierId"
+      },
+      {
+        "path": "fixtures/purchase-workflow/flow.ts",
+        "startLine": 15,
+        "endLine": 15,
+        "text": "order.netReceived >= order.orderedQty && order.allReceiptsValid"
+      }
+    ]
+  }
+}

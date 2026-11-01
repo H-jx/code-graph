@@ -1,0 +1,50 @@
+[
+  {
+    "name": "native",
+    "group": "build",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'build:native'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 14.469,
+    "log": "native-01.log",
+    "sha256": "be360eff9510ebeed38c6502c37020bf7fd8d194d945b2dbf87ca7434a617e92"
+  },
+  {
+    "name": "mcp",
+    "group": "build",
+    "command": [
+      "powershell",
+      "-NoProfile",
+      "-Command",
+      "pnpm run 'build:mcp'"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 2.735,
+    "log": "mcp-02.log",
+    "sha256": "a8836950a07a7b004a6ab3f031612942ff3b249a1d49711e64b307dcfe274a1f"
+  },
+  {
+    "name": "cli",
+    "group": "build",
+    "command": [
+      "cargo",
+      "build",
+      "-p",
+      "project-knowledge-cli",
+      "--locked",
+      "-j",
+      "1"
+    ],
+    "evidenceDirectory": null,
+    "exitCode": 0,
+    "elapsedSeconds": 1.032,
+    "log": "cli-01.log",
+    "sha256": "a999bb64dcdf7578f1ae0997ebd5cf5bcf5958067ce49c241488483759ec12d1"
+  }
+]

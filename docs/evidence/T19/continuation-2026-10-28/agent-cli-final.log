@@ -1,0 +1,92 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+   Compiling project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+   Compiling project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge-eee50ebe02e8e367.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge-eee50ebe02e8e367.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-cli` (bin "project-knowledge" test) generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\collect-238a420075fc99d8.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\collect-238a420075fc99d8.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-cli` (test "collect") generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge_agent-5503d93c0355fbfb.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge_agent-5503d93c0355fbfb.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-agent` (lib test) generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\agent_lifecycle-06b8d5e0ed370d9e.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\agent_lifecycle-06b8d5e0ed370d9e.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-agent` (test "agent_lifecycle") generated 1 warning
+warning: `project-knowledge-cli` (bin "project-knowledge") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.02s
+     Running unittests src\lib.rs (target\debug\deps\project_knowledge_agent-5503d93c0355fbfb.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\agent_lifecycle.rs (target\debug\deps\agent_lifecycle-06b8d5e0ed370d9e.exe)
+
+running 21 tests
+test tools_candidate_paths_reject_traversal_absolute_and_duplicate_files ... ok
+test config_dotenv_validation_precedence_and_secret_boundaries ... ok
+test tools_invalid_large_bundle_keeps_bounded_error_pointers ... ok
+test lifecycle_resume_rechecks_sources_and_retains_spent_budget ... ok
+test tools_unknown_calls_return_feedback_without_execution_and_count_budget ... ok
+test config_missing_key_invalid_response_and_input_budget_fail_closed ... ok
+test tools_entity_and_relation_identity_and_qualifiers_use_core_contract ... ok
+test tools_roundtrip_and_no_tool_model_is_not_success ... ok
+test tools_errors_keep_json_pointers_and_budget_is_global ... ok
+test tools_conventions_identity_cas_registers_original_provenance ... ok
+test tools_knowledge_invalid_artifact_preserves_pointer_and_never_exports ... ok
+test lifecycle_fills_missing_initial_case_and_resume_validates_without_model ... ok
+test lifecycle_stops_after_two_failed_repairs ... ok
+test lifecycle_pending_activation_and_skill_partial ... ok
+test config_provider_errors_cancellation_timeout_and_turn_budget ... ok
+test lifecycle_repairs_validates_activates_and_runs_without_model ... ok
+test lifecycle_active_repair_retains_verified_files_without_model_echo ... ok
+test lifecycle_complete_report_rechecks_skill_files_and_source_after_model_stops ... ok
+test tools_knowledge_roundtrip_is_bound_to_core_activation_and_global_budget ... ok
+test lifecycle_resume_recovers_committed_activation_and_rejects_unrelated_versions ... ok
+test lifecycle_resume_finishes_knowledge_after_candidate_activation_or_cancellation ... ok
+
+test result: ok. 21 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.77s
+
+     Running unittests src\main.rs (target\debug\deps\project_knowledge-eee50ebe02e8e367.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\agent.rs (target\debug\deps\agent-61a2d11b164138f6.exe)
+
+running 1 test
+test agent_cli_configuration_is_reachable_in_both_argument_orders ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.00s
+
+     Running tests\collect.rs (target\debug\deps\collect-238a420075fc99d8.exe)
+
+running 5 tests
+test collector_host_termination_cleans_descendants_and_releases_maintenance_lock ... ok
+test plugin_cli_submit_validate_activate_and_rollback ... ok
+test incremental_cli_host_termination_keeps_invalidation_and_cleans_owned_descendants ... ok
+test collect_cli_validates_commits_and_returns_failure_for_invalid_output ... ok
+test incremental_cli_and_failed_collect_preserve_invalidation_and_stage_boundaries ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.45s
+
+   Doc-tests project_knowledge_agent
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

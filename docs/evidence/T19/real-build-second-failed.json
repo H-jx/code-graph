@@ -1,0 +1,112 @@
+{
+  "runId": "agent_ca83e17e-3270-4996-ac92-4e09c923edf1",
+  "status": "failed",
+  "phase": "investigate",
+  "goal": "Inspect routes.json and generate a dependency-free Node plugin that parses the JSON routes from each current input snapshot. Use code-map with {} then export-snapshot include [\"**/*.json\"], read-source using returned sourceId, import-conventions with notes and sourceIds. Use repo default scope. Write a plugin plus meaningful cases and CollectorInput fixtures from the export with your extract stageId. You may set includeIdentityHelper=true in write-candidate and list identity.mjs in manifest.artifacts to reuse the tested identity helpers. Include IDs from actual current sources and real JSON byte positions, never fixed output facts. validate-plugin automatically activates if all checks pass. Stop after activation.",
+  "focus": "routes",
+  "withSkill": false,
+  "configHash": "9f95bcd26314255960fa79b47c85e87ec6b6c96fbf687a7dc06096f97ef57b04",
+  "sourceSnapshotId": "snap_f2859fb029cac8e997805aaa26a1271b7064d152cdd39d3d08599f6bb9cd881a",
+  "activeVersions": [],
+  "modelTurns": 4,
+  "toolCalls": 8,
+  "repairs": 0,
+  "elapsedMs": 320911,
+  "deadlineMs": 1793112521939,
+  "repairPlugin": null,
+  "smoke": false,
+  "revision": 0,
+  "candidateId": null,
+  "candidateHash": null,
+  "validationId": null,
+  "activation": null,
+  "investigation": null,
+  "readSource": false,
+  "readMap": true,
+  "issues": [
+    {
+      "error": {
+        "code": "INVALID_REQUEST",
+        "message": "search query does not contain any searchable token",
+        "retryable": false,
+        "issues": []
+      }
+    },
+    {
+      "error": {
+        "code": "MODEL_RESPONSE_INVALID",
+        "message": "model request failed (HTTP unavailable, response); provider body withheld",
+        "retryable": false,
+        "runId": "agent_ca83e17e-3270-4996-ac92-4e09c923edf1",
+        "phase": "investigate",
+        "issues": []
+      }
+    }
+  ],
+  "events": [
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "tool": "status",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "tool": "code-map",
+      "ok": false,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "tool": "code-map",
+      "ok": true,
+      "turn": 2,
+      "revision": 0
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 2,
+      "revision": 0
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 2,
+      "revision": 0
+    },
+    {
+      "tool": "export-snapshot",
+      "ok": true,
+      "turn": 3,
+      "revision": 0
+    }
+  ],
+  "provider": "anthropic",
+  "model": "qwen3.8-flash",
+  "promptHash": "c8f928ab762936aba6e2b340ecd04c52bc2669d19ff904d71ecbd940fdfaf8a5",
+  "budget": {
+    "enabled": true,
+    "provider": "anthropic",
+    "model": "qwen3.8-flash",
+    "baseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic",
+    "apiKeyEnv": "PROJECT_KNOWLEDGE_LLM_KEY",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 600,
+    "maxInputChars": 180000,
+    "maxOutputTokens": 16384
+  }
+}

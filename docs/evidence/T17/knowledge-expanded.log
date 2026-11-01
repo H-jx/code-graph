@@ -1,0 +1,42 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\indexing-3727bf85cd66c432.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\indexing-3727bf85cd66c432.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "indexing") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.39s
+     Running tests\indexing.rs (target\debug\deps\indexing-3727bf85cd66c432.exe)
+
+running 5 tests
+
+thread 'knowledge::knowledge_atomic_export_interruption_retains_last_complete_generation' (42548) panicked at crates\core\tests\support\knowledge.rs:331:88:
+called `Result::unwrap()` on an `Err` value: CoreError { code: "INTERNAL_ERROR", message: "knowledge output I/O: 拒绝访问。 (os error 5)", retryable: false, run_id: None, phase: None, issues: [] }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test knowledge::knowledge_atomic_export_interruption_retains_last_complete_generation ... FAILED
+
+thread 'knowledge::knowledge_external_context_topic_skill_and_original_references' (1368) panicked at crates\core\tests\support\knowledge.rs:168:89:
+called `Result::unwrap()` on an `Err` value: CoreError { code: "INTERNAL_ERROR", message: "knowledge output I/O: 拒绝访问。 (os error 5)", retryable: false, run_id: None, phase: None, issues: [] }
+
+thread 'knowledge::knowledge_conventions_expand_original_evidence_and_identity_cas' (12824) panicked at crates\core\tests\support\knowledge.rs:416:5:
+assertion `left == right` failed
+  left: Array [Object {"contentHash": String("b9c2001c8690f69a51b6a35ed1e910667d76cee244b53e06871bde555a8d823d"), "endByte": Number(1), "evidenceId": String("ev_018db450b58b4234e39726d97e69384fb882b4a1d9a423ec5ca807d0bfed124d"), "snapshot": Object {"generation": String("3"), "indexId": String("d03fbbe2-b980-44f4-8656-4bd7330a5b13"), "sourceSnapshotId": String("snap_5c8835c8d1f090707e19c8a2e77bab5242a4a5b4b29a37225f6e37b99a64cf1e")}, "sourceId": String("src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607"), "startByte": Number(0)}]
+ right: Array [Object {"contentHash": String("b9c2001c8690f69a51b6a35ed1e910667d76cee244b53e06871bde555a8d823d"), "endByte": Number(1), "evidenceId": String("ev_018db450b58b4234e39726d97e69384fb882b4a1d9a423ec5ca807d0bfed124d"), "snapshot": Object {"generation": String("1"), "indexId": String("d03fbbe2-b980-44f4-8656-4bd7330a5b13"), "sourceSnapshotId": String("snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06")}, "sourceId": String("src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607"), "startByte": Number(0)}]
+test knowledge::knowledge_external_context_topic_skill_and_original_references ... FAILED
+test knowledge::knowledge_conventions_expand_original_evidence_and_identity_cas ... FAILED
+test knowledge::knowledge_rejects_forged_cyclic_and_unmarked_explanations ... ok
+
+thread 'knowledge::knowledge_relevant_sql_stales_rerender_does_not_refresh_and_unrelated_generation_survives' (29212) panicked at crates\core\tests\support\knowledge.rs:300:90:
+called `Result::unwrap()` on an `Err` value: CoreError { code: "INTERNAL_ERROR", message: "knowledge output I/O: 拒绝访问。 (os error 5)", retryable: false, run_id: None, phase: None, issues: [] }
+test knowledge::knowledge_relevant_sql_stales_rerender_does_not_refresh_and_unrelated_generation_survives ... FAILED
+
+failures:
+
+failures:
+    knowledge::knowledge_atomic_export_interruption_retains_last_complete_generation
+    knowledge::knowledge_conventions_expand_original_evidence_and_identity_cas
+    knowledge::knowledge_external_context_topic_skill_and_original_references
+    knowledge::knowledge_relevant_sql_stales_rerender_does_not_refresh_and_unrelated_generation_survives
+
+test result: FAILED. 1 passed; 4 failed; 0 ignored; 0 measured; 49 filtered out; finished in 0.31s
+
+error: test failed, to rerun pass `-p project-knowledge-core --test indexing`

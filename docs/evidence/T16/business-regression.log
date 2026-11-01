@@ -1,0 +1,30 @@
+
+running 18 tests
+test backend_api_and_frontend_share_service_scoped_graphql_fields_without_scope_overwrite ... ok
+test backend_api_two_languages_bind_registrations_and_reject_decoys_and_dynamic_targets ... ok
+test backend_database_incomplete_keys_dynamic_instances_and_invalid_sql_never_confirm_mappings ... ok
+test backend_database_two_asts_preserve_datasources_ddl_keys_query_joins_and_original_ranges ... ok
+test frontend_literal_title_alias_array_and_proxy_are_preserved_with_dynamic_gaps ... ok
+test frontend_moves_renames_and_ambiguous_dynamic_registrations_remain_conservative ... ok
+test frontend_shadowed_imports_nested_registrations_and_parse_errors_do_not_confirm_targets ... ok
+test frontend_two_layouts_match_frozen_identities_attributes_relations_and_evidence ... ok
+test linking::linking_new_resolver_proxy_and_datasource_changes_match_clean_rebuild ... ok
+test linking::linking_two_layouts_use_original_bindings_and_reject_missing_or_incomplete_proof ... ok
+test scenarios::scenario_queries_two_layouts_match_original_facts_and_cli ... ok
+test scenarios::scenario_route_normalization_keeps_case_and_encoded_separators ... ok
+test semantics::semantics_code_calls_without_flow_and_missing_or_unsafe_report_policy_remain_gaps ... ok
+test semantics::semantics_workflow_report_preserve_original_conflicts_and_all_field_lineage ... ok
+test truth_candidate_writer_cannot_modify_the_baseline ... ok
+test truth_frontend_expected_and_forbidden_identities_are_complete ... ok
+test truth_frozen_sources_citations_and_provenance ... ok
+test truth_numeric_sql_matches_frozen_rows_and_rejects_both_mutants ... ok
+
+test result: ok. 18 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 402.20s
+
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-6f89a518d2d90297.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-6f89a518d2d90297.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.53s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-6f89a518d2d90297.exe)

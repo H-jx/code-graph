@@ -1,0 +1,62 @@
+{
+  "protocolVersion": "1.0",
+  "requestId": "req_da373595-343e-41db-831f-9afb5f1f6ae1",
+  "snapshot": {
+    "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+    "generation": "1",
+    "sourceSnapshotId": "snap_f4d908ac87c8fe748f929b77847b14f6522dd1edf7457b762160993e5fd03714"
+  },
+  "status": "complete",
+  "data": {
+    "reads": [
+      {
+        "status": "current",
+        "sourceId": "src_49d6a31145eb044e0d5b607c380749db15073d1ae195758bacabfa5319fef318",
+        "path": "src/ledger.sql",
+        "evidenceId": "ev_9d4e3ddd53f08d7904c7dd42b1c5a8b7b8e0023957225f2835e64f837103b8ae",
+        "startByte": 0,
+        "returnedEndByte": 60,
+        "snippetTruncated": false,
+        "snippet": "-- ledger quantity\r\nSELECT ordered_qty FROM purchase_line;\r\n",
+        "lineMap": {
+          "startLine": 1,
+          "endLine": 2
+        },
+        "storedVersion": null,
+        "checkedAt": "2026-10-28T14:16:32Z"
+      }
+    ]
+  },
+  "sourceReferences": [
+    {
+      "snapshot": {
+        "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+        "generation": "1",
+        "sourceSnapshotId": "snap_f4d908ac87c8fe748f929b77847b14f6522dd1edf7457b762160993e5fd03714"
+      },
+      "evidenceId": "ev_9d4e3ddd53f08d7904c7dd42b1c5a8b7b8e0023957225f2835e64f837103b8ae",
+      "sourceId": "src_49d6a31145eb044e0d5b607c380749db15073d1ae195758bacabfa5319fef318",
+      "contentHash": "de0a031f1a5996fcd73f1f20841422c695f0359af85934746ec7ae2fed53a84f",
+      "startByte": 0,
+      "endByte": 60
+    }
+  ],
+  "gaps": [],
+  "completeness": {
+    "freshness": "fresh",
+    "diskChecked": true,
+    "checkedAt": "2026-10-28T14:16:32Z",
+    "coverage": "complete",
+    "candidateSetsComplete": true,
+    "truncated": false,
+    "reasons": []
+  },
+  "budgetUsed": {
+    "entities": 0,
+    "relations": 0,
+    "visited": 1,
+    "elapsedMs": 1,
+    "responseChars": 1485
+  },
+  "nextQueries": []
+}

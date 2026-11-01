@@ -1,0 +1,336 @@
+{
+  "runId": "agent_033bc705-e3fb-4dc0-a769-d5c4feba8535",
+  "status": "failed",
+  "phase": "generate",
+  "goal": "Inspect routes.json in this project. Generate a dependency-free Node plugin that parses the actual JSON routes on every input, with original evidence and stable route IDs. Handle future additions and deletions from current snapshots, never output a fixed list. Use repo default scope. Include non-empty acceptance cases and fixtures exported from Core (stageId must match the manifest). Verify and activate it. Only support the confirmed JSON format and report gaps for anything else.",
+  "focus": "routes",
+  "withSkill": false,
+  "configHash": "52981f8ae92fcc75c149fa71f549d57fa59d4dce9a6b27b5ff20fea94d69ee13",
+  "sourceSnapshotId": "snap_278502c04150b9d358e2bb9bafe9dee0848a62ab7f2cf2a80f4dfa69f703ce1e",
+  "activeVersions": [],
+  "modelTurns": 14,
+  "toolCalls": 21,
+  "repairs": 0,
+  "elapsedMs": 414997,
+  "deadlineMs": 1793111902366,
+  "repairPlugin": null,
+  "smoke": false,
+  "revision": 0,
+  "candidateId": null,
+  "candidateHash": null,
+  "validationId": null,
+  "activation": null,
+  "investigation": {
+    "status": "draft",
+    "notes": "Route registry convention (confirmed by reading the Core-exported source, not by directory naming).\n\n1) Registry file: `routes.json` at repository root; repositoryId `repo.main`; indexed file entity `ent_647366ea7d0bc26ecc2db20f483b799d1647a10a6ffb351d7c488a5b5a4bd3d8`; scopeId `repo.repo.main`; sourceClass `config`; 124 bytes; CRLF terminator; contentHash `ed7c08383e568fcdcbbe6daae45d60f4cc8c9534d04ba85e3524bcb292a3f102`; sourceId `src_b2dd364bf4438e6e3826e795629e5d8693507bb127b52cde0afbbdf8ca98ffce`; read-source status `current`, lineMap lineStarts [0,124].\n   Observed text: `{\"routerId\":\"app\",\"mode\":\"history\",\"routes\":[{\"path\":\"/orders\",\"name\":\"Orders\"},{\"path\":\"/inventory\",\"name\":\"Inventory\"}]}`\n\n2) Confirmed shape (basis: observed): top-level object with `routerId` (string, `app`), `mode` (string, `history`), `routes` (array). Every element is an object with `path` (string beginning with `/`) and `name` (string label). No component/import/target/children/metadata observed.\n\n3) Route identity (basis: declared in the Core template identity spec, ENTITY_COMPONENTS.route): canonical slot order `scopeId`, `routerId`, `mode`, `declaredPath`. Therefore the stable route ID depends only on scope + routerId + mode + declaredPath; `name` is a title/attribute only, so renaming a route must not change its identity.\n\n4) Default scope (basis: inferred from a single repository): repo default scope `repo.repo.main`, from Core status coverage key `routes@repo.repo.main` / sourceSetId `repo.main`; observed pattern is `repo.` + repositoryId, so the plugin computes it from each source's repositoryId at run time instead of hard-coding it.\n\n5) Evidence anchoring (basis: observed): `routes` array spans bytes 44..122; the `/orders` object spans 45..79; the `/inventory` object spans 80..120; registry object spans 0..122. These are reproducible by byte-level scanning of the registry text (string- and escape-aware), so every run emits original evidence for the current snapshot rather than copied positions.\n\n6) Coverage limits — must be reported as gaps, never guessed: only the `routes.json` JSON registry format above is supported. Route definitions in JS/TS/JSX/Vue/React-Router code, menu tables, YAML/TOML, or any other JSON shape are unsupported. The registry binds no view/component/operation/data-table target, so cross-layer relations are not derivable and must be surfaced as an unresolved-binding gap. No i18n/title source is referenced; `name` is used only as the assertion name.",
+    "evidenceRefs": [
+      {
+        "snapshot": {
+          "indexId": "866e331c-0354-4794-b187-546fa50b974d",
+          "generation": "2",
+          "sourceSnapshotId": "snap_278502c04150b9d358e2bb9bafe9dee0848a62ab7f2cf2a80f4dfa69f703ce1e"
+        },
+        "evidenceId": "ev_06003cea0a9a8286886917099cfde9684377e6ba9ee921107bf3511ac26717e6",
+        "sourceId": "src_b2dd364bf4438e6e3826e795629e5d8693507bb127b52cde0afbbdf8ca98ffce",
+        "contentHash": "ed7c08383e568fcdcbbe6daae45d60f4cc8c9534d04ba85e3524bcb292a3f102",
+        "startByte": 0,
+        "endByte": 124
+      }
+    ],
+    "identityChangesApplied": false
+  },
+  "readSource": true,
+  "readMap": true,
+  "issues": [
+    {
+      "error": {
+        "code": "SCHEMA_INVALID",
+        "message": "JSON does not match the Core schema",
+        "retryable": false,
+        "issues": [
+          {
+            "code": "SCHEMA_INVALID",
+            "instancePath": "/fields",
+            "expected": "\"[\\\"path\\\", \\\"source\\\", \\\"title\\\"]\" is not of types \"null\", \"array\"",
+            "repairHint": "按 Core 导出的 JSON Schema 修复该字段"
+          },
+          {
+            "code": "SCHEMA_INVALID",
+            "instancePath": "/pageSize",
+            "expected": "\"20\" is not of types \"null\", \"integer\"",
+            "repairHint": "按 Core 导出的 JSON Schema 修复该字段"
+          }
+        ]
+      }
+    },
+    {
+      "error": {
+        "code": "SCHEMA_INVALID",
+        "message": "JSON does not match the Core schema",
+        "retryable": false,
+        "issues": [
+          {
+            "code": "SCHEMA_INVALID",
+            "instancePath": "/maxFiles",
+            "expected": "\"40\" is not of types \"null\", \"integer\"",
+            "repairHint": "按 Core 导出的 JSON Schema 修复该字段"
+          },
+          {
+            "code": "SCHEMA_INVALID",
+            "instancePath": "/maxSymbols",
+            "expected": "\"40\" is not of types \"null\", \"integer\"",
+            "repairHint": "按 Core 导出的 JSON Schema 修复该字段"
+          }
+        ]
+      }
+    },
+    {
+      "error": {
+        "code": "SCHEMA_INVALID",
+        "message": "JSON does not match the Core schema",
+        "retryable": false,
+        "issues": [
+          {
+            "code": "SCHEMA_INVALID",
+            "instancePath": "/fields",
+            "expected": "\"[\\\"path\\\", \\\"source\\\", \\\"title\\\"]\" is not of types \"null\", \"array\"",
+            "repairHint": "按 Core 导出的 JSON Schema 修复该字段"
+          },
+          {
+            "code": "SCHEMA_INVALID",
+            "instancePath": "/pageSize",
+            "expected": "\"20\" is not of types \"null\", \"integer\"",
+            "repairHint": "按 Core 导出的 JSON Schema 修复该字段"
+          }
+        ]
+      }
+    },
+    {
+      "error": {
+        "code": "SCHEMA_INVALID",
+        "message": "JSON does not match the Core schema",
+        "retryable": false,
+        "issues": [
+          {
+            "code": "SCHEMA_INVALID",
+            "instancePath": "/roots",
+            "expected": "\"[]\" is not of types \"null\", \"array\"",
+            "repairHint": "按 Core 导出的 JSON Schema 修复该字段"
+          },
+          {
+            "code": "SCHEMA_INVALID",
+            "instancePath": "/maxFiles",
+            "expected": "\"40\" is not of types \"null\", \"integer\"",
+            "repairHint": "按 Core 导出的 JSON Schema 修复该字段"
+          },
+          {
+            "code": "SCHEMA_INVALID",
+            "instancePath": "/maxSymbols",
+            "expected": "\"40\" is not of types \"null\", \"integer\"",
+            "repairHint": "按 Core 导出的 JSON Schema 修复该字段"
+          }
+        ]
+      }
+    },
+    {
+      "error": {
+        "code": "INVALID_REQUEST",
+        "message": "not a repair run",
+        "retryable": false,
+        "issues": []
+      }
+    },
+    {
+      "error": {
+        "code": "EVIDENCE_INVALID",
+        "message": "inspect code-map and current source, then supply bounded notes and evidenceRefs",
+        "retryable": false,
+        "issues": []
+      }
+    },
+    {
+      "error": {
+        "code": "SCHEMA_INVALID",
+        "message": "JSON does not match the Core schema",
+        "retryable": false,
+        "issues": [
+          {
+            "code": "SCHEMA_INVALID",
+            "instancePath": "/maxResponseChars",
+            "expected": "\"4000\" is not of types \"null\", \"integer\"",
+            "repairHint": "按 Core 导出的 JSON Schema 修复该字段"
+          }
+        ]
+      }
+    },
+    {
+      "error": {
+        "code": "SCHEMA_INVALID",
+        "message": "JSON does not match the Core schema",
+        "retryable": false,
+        "issues": [
+          {
+            "code": "SCHEMA_INVALID",
+            "instancePath": "/references/0",
+            "expected": "Additional properties are not allowed ('filters' was unexpected)",
+            "repairHint": "按 Core 导出的 JSON Schema 修复该字段"
+          }
+        ]
+      }
+    },
+    {
+      "error": {
+        "code": "MODEL_REQUEST_FAILED",
+        "message": "model request failed (HTTP unavailable, response); provider body withheld",
+        "retryable": false,
+        "runId": "agent_033bc705-e3fb-4dc0-a769-d5c4feba8535",
+        "phase": "generate",
+        "issues": []
+      }
+    }
+  ],
+  "events": [
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "tool": "status",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "tool": "search",
+      "ok": false,
+      "turn": 2,
+      "revision": 0
+    },
+    {
+      "tool": "code-map",
+      "ok": false,
+      "turn": 2,
+      "revision": 0
+    },
+    {
+      "tool": "search",
+      "ok": false,
+      "turn": 3,
+      "revision": 0
+    },
+    {
+      "tool": "code-map",
+      "ok": false,
+      "turn": 3,
+      "revision": 0
+    },
+    {
+      "tool": "search",
+      "ok": true,
+      "turn": 4,
+      "revision": 0
+    },
+    {
+      "tool": "code-map",
+      "ok": true,
+      "turn": 4,
+      "revision": 0
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 5,
+      "revision": 0
+    },
+    {
+      "tool": "export-snapshot",
+      "ok": true,
+      "turn": 5,
+      "revision": 0
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 6,
+      "revision": 0
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 6,
+      "revision": 0
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": true,
+      "turn": 7,
+      "revision": 0
+    },
+    {
+      "tool": "get-capabilities",
+      "ok": false,
+      "turn": 7,
+      "revision": 0
+    },
+    {
+      "tool": "search",
+      "ok": true,
+      "turn": 8,
+      "revision": 0
+    },
+    {
+      "tool": "code-map",
+      "ok": true,
+      "turn": 8,
+      "revision": 0
+    },
+    {
+      "tool": "import-conventions",
+      "ok": false,
+      "turn": 9,
+      "revision": 0
+    },
+    {
+      "tool": "read-source",
+      "ok": false,
+      "turn": 10,
+      "revision": 0
+    },
+    {
+      "tool": "read-source",
+      "ok": false,
+      "turn": 11,
+      "revision": 0
+    },
+    {
+      "tool": "read-source",
+      "ok": true,
+      "turn": 12,
+      "revision": 0
+    },
+    {
+      "tool": "import-conventions",
+      "ok": true,
+      "turn": 13,
+      "revision": 0
+    }
+  ],
+  "provider": "anthropic",
+  "model": "qwen3.8-flash",
+  "promptHash": "c8f928ab762936aba6e2b340ecd04c52bc2669d19ff904d71ecbd940fdfaf8a5",
+  "budget": {
+    "enabled": true,
+    "provider": "anthropic",
+    "model": "qwen3.8-flash",
+    "baseUrl": "https://token-plan.cn-beijing.maas.aliyuncs.com/apps/anthropic",
+    "apiKeyEnv": "PROJECT_KNOWLEDGE_LLM_KEY",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 600,
+    "maxInputChars": 180000,
+    "maxOutputTokens": 8192
+  }
+}

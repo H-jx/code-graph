@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-26",
+  "rustTests": 92,
+  "nodeVectors": 21,
+  "pythonVectors": 21,
+  "tsPositiveCases": 7,
+  "tsNegativeCases": 8,
+  "probeRustTests": 4,
+  "probeNodeTests": 5,
+  "providerCalls": 0,
+  "independentBusinessTruth": false,
+  "hashes": {
+    "docs/schema/contract.schema.json": "47b21c59153c268afcf1121a99d9eb637bf2f3f01cce5507303b80ad47e595fc",
+    "docs/schema/protocol.json": "b1248d0dc75cc5cc184bef9a0c424e75251c8e431b22562ef4e0f2aeeb2e8b5e",
+    "packages/sdk/src/generated/contract.ts": "095f31ea856d46ede4ccc4f32fd021f32edf2e412f04dc09ac9c76c89f8a654e",
+    "fixtures/protocol/identity-vectors.json": "235a28845a896e7933865f0b77caa58db13f931672dae8360939afa4cb221123",
+    "fixtures/protocol/invalid-output-vectors.json": "324252ffa420dade13aceb48fbb7be90c965bac186cae82d13fd82a715ec5199",
+    "fixtures/plugins/extensions/manifest.json": "8aa5fe7140960b219966853be1f0754346381c1ee2641309603407ece826aa9f",
+    "fixtures/plugins/extensions/collect.mjs": "905f7315236cc9c09f898d953882a17d0a7b1c96b9f7f7d2882912170640b12c"
+  }
+}

@@ -7,26 +7,29 @@
  * 退出码：0 = 全部通过；1 = 存在问题。
  */
 
-import { readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { readFileSync, existsSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { acceptanceCases } from './acceptance-cases.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const repositoryRoot = resolve(here, "..");
+const repositoryRoot = resolve(here, '..');
 
 const args = process.argv.slice(2);
-const planIndex = args.indexOf("--plan");
-const planPath = resolve(
-  here,
-  planIndex >= 0 && args[planIndex + 1] ? args[planIndex + 1] : "../plan/NEW-PROJECT-LONG-TASK.md",
-);
+const planIndex = args.indexOf('--plan');
+const requestedPlan = planIndex >= 0 ? args[planIndex + 1] : undefined;
+const planPath = requestedPlan
+  ? existsSync(resolve(process.cwd(), requestedPlan))
+    ? resolve(process.cwd(), requestedPlan)
+    : resolve(here, requestedPlan)
+  : resolve(repositoryRoot, 'plan/NEW-PROJECT-LONG-TASK.md');
 
 const problems = [];
 const notes = [];
 
 let plan;
 try {
-  plan = readFileSync(planPath, "utf8");
+  plan = readFileSync(planPath, 'utf8');
 } catch (error) {
   console.error(`无法读取任务文档 ${planPath}：${error.message}`);
   process.exit(1);
@@ -42,7 +45,7 @@ while ((match = taskPattern.exec(plan)) !== null) {
 }
 
 if (tasks.length === 0) {
-  problems.push("任务文档中没有找到 `### Tnn — 标题` 形式的任务标题");
+  problems.push('任务文档中没有找到 `### Tnn — 标题` 形式的任务标题');
 }
 
 const statusPattern = /-\s*状态：`(\w+)`；前置依赖：([^\n。]*)。/;
@@ -61,11 +64,11 @@ for (let index = 0; index < tasks.length; index += 1) {
   const raw = statusMatch[2].trim();
   dependencies.set(
     tasks[index].id,
-    raw === "" || raw === "无" ? [] : [...raw.matchAll(/T\d{2}/g)].map((entry) => entry[0]),
+    raw === '' || raw === '无' ? [] : [...raw.matchAll(/T\d{2}/g)].map((entry) => entry[0]),
   );
 }
 
-const allowedStatuses = new Set(["todo", "doing", "blocked", "done"]);
+const allowedStatuses = new Set(['todo', 'doing', 'blocked', 'done']);
 for (const [taskId, status] of statuses) {
   if (!allowedStatuses.has(status)) {
     problems.push(`任务 ${taskId} 的状态 \`${status}\` 不合法（允许 todo/doing/blocked/done）`);
@@ -89,7 +92,7 @@ const visiting = new Set();
 const visited = new Set();
 function detectCycle(taskId, stack) {
   if (visiting.has(taskId)) {
-    problems.push(`依赖存在环：${[...stack, taskId].join(" → ")}`);
+    problems.push(`依赖存在环：${[...stack, taskId].join(' → ')}`);
     return;
   }
   if (visited.has(taskId)) {
@@ -126,23 +129,23 @@ for (const [taskId, deps] of dependencies) {
 // ---------------------------------------------------------------- 目标命令登记
 
 const requiredScripts = [
-  "build:contracts",
-  "check:contracts",
-  "build:native",
-  "build:sdk",
-  "build:mcp",
-  "typecheck",
-  "test:sdk",
-  "test:mcp",
-  "test:plugins",
-  "verify:scenarios",
-  "verify:docs",
-  "verify:packages",
+  'build:contracts',
+  'check:contracts',
+  'build:native',
+  'build:sdk',
+  'build:mcp',
+  'typecheck',
+  'test:sdk',
+  'test:mcp',
+  'test:plugins',
+  'verify:scenarios',
+  'verify:docs',
+  'verify:packages',
 ];
 
 let packageJson;
 try {
-  packageJson = JSON.parse(readFileSync(resolve(repositoryRoot, "package.json"), "utf8"));
+  packageJson = JSON.parse(readFileSync(resolve(repositoryRoot, 'package.json'), 'utf8'));
 } catch (error) {
   problems.push(`无法读取 package.json：${error.message}`);
 }
@@ -164,13 +167,13 @@ for (const match2 of plan.matchAll(/pnpm run ([a-z:]+)/g)) {
 // ---------------------------------------------------------------- 需求映射
 
 const requirementRows = plan
-  .split("\n")
+  .split('\n')
   .filter((line) => /^\|\s*[^\s|]+\s*\|/.test(line) && /\|\s*T\d{2}/.test(line));
 if (requirementRows.length === 0) {
-  problems.push("任务文档中没有找到需求追踪表（§5.6）");
+  problems.push('任务文档中没有找到需求追踪表（§5.6）');
 }
 for (const row of requirementRows) {
-  const cells = row.split("|").map((cell) => cell.trim());
+  const cells = row.split('|').map((cell) => cell.trim());
   const referenced = [...row.matchAll(/T\d{2}/g)].map((entry) => entry[0]);
   if (referenced.length === 0) {
     problems.push(`需求追踪行没有引用任何任务：${row.trim().slice(0, 60)}`);
@@ -198,6 +201,25 @@ if (negativeIds.length < 10) {
 
 // ---------------------------------------------------------------- 输出
 
+for (const id of [...scenarioIds, ...negativeIds]) {
+  const checks = acceptanceCases[id];
+  if (!checks?.length) {
+    problems.push(`${id} 缺少可执行验收映射`);
+    continue;
+  }
+  for (const check of checks) {
+    try {
+      const source = readFileSync(resolve(repositoryRoot, check.file), 'utf8');
+      if (!source.includes(`fn ${check.name}(`))
+        problems.push(`${id}: 找不到 ${check.file} 的 ${check.name}`);
+    } catch {
+      problems.push(`${id}: 无法读取 ${check.file}`);
+    }
+  }
+}
+for (const id of Object.keys(acceptanceCases))
+  if (![...scenarioIds, ...negativeIds].includes(id)) problems.push(`验收映射引用不存在的 ${id}`);
+
 notes.push(`任务数量：${tasks.length}`);
 notes.push(`带状态的任务：${statuses.size}`);
 notes.push(`场景条目：${scenarioIds.length}，负例条目：${negativeIds.length}`);
@@ -213,4 +235,4 @@ if (problems.length > 0) {
   }
   process.exit(1);
 }
-console.log("verify:docs 通过：任务 ID、依赖 DAG、需求映射与目标命令登记均一致。");
+console.log('verify:docs 通过：任务 ID、依赖 DAG、需求映射与目标命令登记均一致。');

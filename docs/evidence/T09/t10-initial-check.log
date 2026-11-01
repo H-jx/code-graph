@@ -1,0 +1,66 @@
+    Checking project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+error[E0603]: module `workspace` is private
+  --> crates\core\src\index\incremental.rs:14:21
+   |
+14 | use crate::collect::workspace::StagingWorkspace;
+   |                     ^^^^^^^^^  ---------------- struct `StagingWorkspace` is not publicly re-exported
+   |                     |
+   |                     private module
+   |
+note: the module `workspace` is defined here
+  --> crates\core\src\collect\mod.rs:15:1
+   |
+15 | mod workspace;
+   | ^^^^^^^^^^^^^^
+
+error[E0277]: the trait bound `usize: FromSql` is not satisfied
+   --> crates\core\src\index\build.rs:349:74
+    |
+349 |                         .query_row(&sql, [&previous], |row| row.get::<_, usize>(0))
+    |                                                                 ---      ^^^^^ the trait `FromSql` is not implemented for `usize`
+    |                                                                 |
+    |                                                                 required by a bound introduced by this call
+    |
+    = help: the following other types implement trait `FromSql`:
+              f32
+              f64
+              i16
+              i32
+              i64
+              i8
+              isize
+              u16
+            and 2 others
+note: required by a bound in `Row::<'_>::get`
+   --> C:\Users\hubo9\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rusqlite-0.41.0\src\row.rs:285:32
+    |
+285 |     pub fn get<I: RowIndex, T: FromSql>(&self, idx: I) -> Result<T> {
+    |                                ^^^^^^^ required by this bound in `Row::<'_>::get`
+
+error[E0277]: the trait bound `u64: FromSql` is not satisfied
+   --> crates\core\src\index\build.rs:635:17
+    |
+635 |             row.get(0)
+    |                 ^^^ the trait `FromSql` is not implemented for `u64`
+    |
+    = help: the following other types implement trait `FromSql`:
+              f32
+              f64
+              i16
+              i32
+              i64
+              i8
+              isize
+              u16
+            and 2 others
+note: required by a bound in `Row::<'_>::get`
+   --> C:\Users\hubo9\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\rusqlite-0.41.0\src\row.rs:285:32
+    |
+285 |     pub fn get<I: RowIndex, T: FromSql>(&self, idx: I) -> Result<T> {
+    |                                ^^^^^^^ required by this bound in `Row::<'_>::get`
+
+Some errors have detailed explanations: E0277, E0603.
+For more information about an error, try `rustc --explain E0277`.
+error: could not compile `project-knowledge-core` (lib test) due to 3 previous errors
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `project-knowledge-core` (lib) due to 3 previous errors

@@ -1,0 +1,368 @@
+{
+  "executed": [
+    "smoke.plugin:extract",
+    "smoke.plugin:link"
+  ],
+  "invalidated": [
+    "(core.base,r)",
+    "(smoke.plugin,extract,smoke)",
+    "(smoke.plugin,link,smoke)"
+  ],
+  "incremental": {
+    "entities": [
+      [
+        "ent_5470118ad4dbbe2baf926186cff9a60062dddfbab704a6f73a38ab6d5fa01d2f",
+        "route",
+        "repo.r",
+        "// ROUTE:/one",
+        "{\"text\":\"// ROUTE:/one\"}"
+      ],
+      [
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "file",
+        "repo.r",
+        "b.ts",
+        "{\"path\":\"b.ts\",\"repositoryId\":\"r\",\"byteLength\":14,\"language\":\"typescript\"}"
+      ],
+      [
+        "ent_a329f555da96a336103f18c798a394b1932b9a015c673aba2bab07d2a5808239",
+        "file",
+        "repo.r",
+        "a.ts",
+        "{\"path\":\"a.ts\",\"repositoryId\":\"r\",\"byteLength\":14,\"language\":\"typescript\"}"
+      ],
+      [
+        "ent_c1b0a9ae4b4de720665d6d2f6b0b10751b36dd1fdced9f7d4a72c619500d2311",
+        "route",
+        "repo.r",
+        "// ROUTE:/two",
+        "{\"text\":\"// ROUTE:/two\"}"
+      ]
+    ],
+    "relations": [],
+    "search": [
+      [
+        "ent_5470118ad4dbbe2baf926186cff9a60062dddfbab704a6f73a38ab6d5fa01d2f",
+        "repo.r",
+        "/one",
+        "// ROUTE:/one\nroute\ntext=// ROUTE:/one",
+        "ROUTE one route text",
+        "entity"
+      ],
+      [
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "repo.r",
+        null,
+        "b.ts\n// ROUTE:/two\n",
+        "ROUTE b route ts two",
+        "source"
+      ],
+      [
+        "ent_a329f555da96a336103f18c798a394b1932b9a015c673aba2bab07d2a5808239",
+        "repo.r",
+        null,
+        "a.ts\n// ROUTE:/one\n",
+        "ROUTE a one route ts",
+        "source"
+      ],
+      [
+        "ent_c1b0a9ae4b4de720665d6d2f6b0b10751b36dd1fdced9f7d4a72c619500d2311",
+        "repo.r",
+        "/two",
+        "// ROUTE:/two\nroute\ntext=// ROUTE:/two",
+        "ROUTE route text two",
+        "entity"
+      ]
+    ],
+    "evidence": [
+      [
+        "src_9d699ee1774e69ab803d6ba9632e64fb36c7a83a3b9a0ef2788c021fe83d8bd5",
+        "c8cea0f517fcffdedc8d180ffec071834ce17852539ae0115346a75c67915df3",
+        0,
+        1,
+        1,
+        1,
+        "binding"
+      ],
+      [
+        "src_9d699ee1774e69ab803d6ba9632e64fb36c7a83a3b9a0ef2788c021fe83d8bd5",
+        "c8cea0f517fcffdedc8d180ffec071834ce17852539ae0115346a75c67915df3",
+        0,
+        1,
+        1,
+        1,
+        "file"
+      ],
+      [
+        "src_d032b82da0a3f3cccb73b022d043b7f85f48cabb72dbaa6f5cd131875a7ce6af",
+        "0b801e5b6f4c64578e37fe4125f3c57179a9b43e572aef1d39cab8146e179251",
+        0,
+        1,
+        1,
+        1,
+        "binding"
+      ],
+      [
+        "src_d032b82da0a3f3cccb73b022d043b7f85f48cabb72dbaa6f5cd131875a7ce6af",
+        "0b801e5b6f4c64578e37fe4125f3c57179a9b43e572aef1d39cab8146e179251",
+        0,
+        1,
+        1,
+        1,
+        "file"
+      ]
+    ],
+    "sources": [
+      [
+        "r",
+        "a.ts",
+        "c8cea0f517fcffdedc8d180ffec071834ce17852539ae0115346a75c67915df3",
+        "selected"
+      ],
+      [
+        "r",
+        "b.ts",
+        "0b801e5b6f4c64578e37fe4125f3c57179a9b43e572aef1d39cab8146e179251",
+        "selected"
+      ]
+    ],
+    "coverage": [
+      [
+        "api",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "base",
+        "repo.r",
+        "r",
+        "complete",
+        "{\"entities\":2,\"relations\":0,\"files\":2}",
+        "[]"
+      ],
+      [
+        "database",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "frontend",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "report",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "routes",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "workflow",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ]
+    ]
+  },
+  "clean": {
+    "entities": [
+      [
+        "ent_5470118ad4dbbe2baf926186cff9a60062dddfbab704a6f73a38ab6d5fa01d2f",
+        "route",
+        "repo.r",
+        "// ROUTE:/one",
+        "{\"text\":\"// ROUTE:/one\"}"
+      ],
+      [
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "file",
+        "repo.r",
+        "b.ts",
+        "{\"path\":\"b.ts\",\"repositoryId\":\"r\",\"byteLength\":14,\"language\":\"typescript\"}"
+      ],
+      [
+        "ent_a329f555da96a336103f18c798a394b1932b9a015c673aba2bab07d2a5808239",
+        "file",
+        "repo.r",
+        "a.ts",
+        "{\"path\":\"a.ts\",\"repositoryId\":\"r\",\"byteLength\":14,\"language\":\"typescript\"}"
+      ],
+      [
+        "ent_c1b0a9ae4b4de720665d6d2f6b0b10751b36dd1fdced9f7d4a72c619500d2311",
+        "route",
+        "repo.r",
+        "// ROUTE:/two",
+        "{\"text\":\"// ROUTE:/two\"}"
+      ]
+    ],
+    "relations": [],
+    "search": [
+      [
+        "ent_5470118ad4dbbe2baf926186cff9a60062dddfbab704a6f73a38ab6d5fa01d2f",
+        "repo.r",
+        "/one",
+        "// ROUTE:/one\nroute\ntext=// ROUTE:/one",
+        "ROUTE one route text",
+        "entity"
+      ],
+      [
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "repo.r",
+        null,
+        "b.ts\n// ROUTE:/two\n",
+        "ROUTE b route ts two",
+        "source"
+      ],
+      [
+        "ent_a329f555da96a336103f18c798a394b1932b9a015c673aba2bab07d2a5808239",
+        "repo.r",
+        null,
+        "a.ts\n// ROUTE:/one\n",
+        "ROUTE a one route ts",
+        "source"
+      ],
+      [
+        "ent_c1b0a9ae4b4de720665d6d2f6b0b10751b36dd1fdced9f7d4a72c619500d2311",
+        "repo.r",
+        "/two",
+        "// ROUTE:/two\nroute\ntext=// ROUTE:/two",
+        "ROUTE route text two",
+        "entity"
+      ]
+    ],
+    "evidence": [
+      [
+        "src_9d699ee1774e69ab803d6ba9632e64fb36c7a83a3b9a0ef2788c021fe83d8bd5",
+        "c8cea0f517fcffdedc8d180ffec071834ce17852539ae0115346a75c67915df3",
+        0,
+        1,
+        1,
+        1,
+        "binding"
+      ],
+      [
+        "src_9d699ee1774e69ab803d6ba9632e64fb36c7a83a3b9a0ef2788c021fe83d8bd5",
+        "c8cea0f517fcffdedc8d180ffec071834ce17852539ae0115346a75c67915df3",
+        0,
+        1,
+        1,
+        1,
+        "file"
+      ],
+      [
+        "src_d032b82da0a3f3cccb73b022d043b7f85f48cabb72dbaa6f5cd131875a7ce6af",
+        "0b801e5b6f4c64578e37fe4125f3c57179a9b43e572aef1d39cab8146e179251",
+        0,
+        1,
+        1,
+        1,
+        "binding"
+      ],
+      [
+        "src_d032b82da0a3f3cccb73b022d043b7f85f48cabb72dbaa6f5cd131875a7ce6af",
+        "0b801e5b6f4c64578e37fe4125f3c57179a9b43e572aef1d39cab8146e179251",
+        0,
+        1,
+        1,
+        1,
+        "file"
+      ]
+    ],
+    "sources": [
+      [
+        "r",
+        "a.ts",
+        "c8cea0f517fcffdedc8d180ffec071834ce17852539ae0115346a75c67915df3",
+        "selected"
+      ],
+      [
+        "r",
+        "b.ts",
+        "0b801e5b6f4c64578e37fe4125f3c57179a9b43e572aef1d39cab8146e179251",
+        "selected"
+      ]
+    ],
+    "coverage": [
+      [
+        "api",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "base",
+        "repo.r",
+        "r",
+        "complete",
+        "{\"entities\":2,\"relations\":0,\"files\":2}",
+        "[]"
+      ],
+      [
+        "database",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "frontend",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "report",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "routes",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "workflow",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ]
+    ]
+  },
+  "equal": true,
+  "modelRequests": 0,
+  "modelCounterBasis": "Core has no Agent/Rig dependency and constructs no model client"
+}

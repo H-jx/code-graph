@@ -1,0 +1,26 @@
+{
+  "id": "workflow.b",
+  "inputFixture": "cases/workflow-input.json",
+  "truthRef": "cases/truth.json",
+  "truthHash": "4dea260f6c096557bf40f0bacf10ee762f21b02cfedd6d6a5d7024ca7aea698f",
+  "expected": {
+    "entities": [
+      "ent_327c2cc38d9bfa984f64eba25fd9ee4084ed926527347e511432daf0c20ebbcb",
+      "ent_c4c63cacee570af075514ae7f2685cc2f16a796810e675dccca04dca7e07678e",
+      "ent_d8a4b8d3daef634d44a8efa47ee41e0c55f755613c87cfb76f0ad80daf04fee2",
+      "ent_eed68694e66f0f04cdfd6c9e5df7f116cc5778f98d0bbf6996d6aa241f296732",
+      "ent_b09be58acfec5727f49f1abe8697f0bc4ce9da94889cae768e7e91efbb31f008",
+      "ent_93de84543ec4171b8235309690be7c03fdbe704d84861f5e18ac8eaf55c06042",
+      "ent_40adcf47ebee9b5a3a0296feb2a8fd539dcac88dbf3aaee385db8d31e1317231",
+      "ent_c0a10a4917deda4f22fb0624f2867b6860cfe4309d87aa61bf9d5b9f52638f6e",
+      "ent_1184f577111658bc82e60394ee5bed4f160e9a4bf3e183a5d27b471ef1612a69",
+      "ent_f64a20f1a36d460d966ee75df3969e39d6753095c29ff646675c5608ed1888ca",
+      "ent_67d3f9666b9f3705d7e92f0220511141a83f91a8fada21e20bcdda37f6477fe0",
+      "ent_0283fb6fee236fbc24344adea823b9b69b6332117d57b30f545788d628c1e1c3"
+    ],
+    "gapCodes": [
+      "CONFLICTING_EVIDENCE",
+      "WORKFLOW_EVIDENCE_MISSING"
+    ]
+  }
+}

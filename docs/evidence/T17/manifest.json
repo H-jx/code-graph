@@ -1,0 +1,103 @@
+{
+  "activePlugins": [],
+  "exportId": "4c4612c2-68c4-4f95-af05-070510df4d42",
+  "files": {
+    "SKILL.md": "05dc9bf650fc70ebb207c3ff0fbd528f9655b39c3fc22ff748091ce86558c9e1",
+    "references/api.md": "d2aa24b9ab90c7458a863cffa565d0e170419dcd31e981e65aa38325dcc01859",
+    "references/code-map.md": "59263e5471817d4b4808a3647708585a77066938c7f6fed65678a2deea3ff8fb",
+    "references/conventions.md": "3f05f61bda8b2472f7dad58259cd180e0bbea76cc8640edc48282ad2b0b24804",
+    "references/database.md": "841aaf5c483078186bb3314b41b154bcb635c422db02f567633a1c8422553ab4",
+    "references/frontend.md": "fac519f8b05899a555a4d398109273bac78f11afdbee3cdc92642962ff8ed47e",
+    "references/routes.md": "519ab3b16d87cf3ed63c2d8de2e9c17dca4dea5cac2e290b1e60a576d0a53ae6",
+    "references/source-refs.md": "c474756e5158ff0e93506122227ab17ac2fd3ade4a38d98ae8012e4286ee51f7",
+    "references/topics/ledger.md": "4c690164e0c488cfca4d622304f0ef024195ed7d3f5fbf73ded39bd336ff74de"
+  },
+  "freshness": "fresh",
+  "promptHash": "c918ecd7f60af4f710c1f744d0e069cf63eb3f42b27b8280a5caa3f5a0de91c2",
+  "protocolVersion": "1.0",
+  "snapshot": {
+    "generation": "1",
+    "indexId": "eed0bd65-99a9-4743-9699-c28f2a56f50c",
+    "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+  },
+  "sourceReferences": [
+    {
+      "contentHash": "b9c2001c8690f69a51b6a35ed1e910667d76cee244b53e06871bde555a8d823d",
+      "endByte": 1,
+      "evidenceId": "ev_018db450b58b4234e39726d97e69384fb882b4a1d9a423ec5ca807d0bfed124d",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "eed0bd65-99a9-4743-9699-c28f2a56f50c",
+        "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+      },
+      "sourceId": "src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607",
+      "startByte": 0
+    },
+    {
+      "contentHash": "b9c2001c8690f69a51b6a35ed1e910667d76cee244b53e06871bde555a8d823d",
+      "endByte": 82,
+      "evidenceId": "ev_2790544bf02ff9392f85ac80fe05e628a43213f10a25cd5bd6de4ea0f78a57ae",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "eed0bd65-99a9-4743-9699-c28f2a56f50c",
+        "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+      },
+      "sourceId": "src_238b00f5df88e7eb63546ca75941901f05785bc60b71713e5f25cc856cc34607",
+      "startByte": 0
+    }
+  ],
+  "status": "partial",
+  "templateHash": "2812eb889355f58643d197f61873c80f2c562f7a549e370e5d493f3676337007",
+  "topics": [
+    {
+      "artifactHash": "42650a4dae73ded386e59488f292d3b7c509391f8d7a81f8739ec400ae211580",
+      "dependencies": [
+        {
+          "digest": "387ead30d5fbe09b11c845b1420621e12fd3e7b3549fd2d0a410931fe81cb95e",
+          "key": "project",
+          "kind": "config"
+        },
+        {
+          "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "key": "all",
+          "kind": "conventions"
+        },
+        {
+          "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "key": "[\"main\"]",
+          "kind": "facts"
+        },
+        {
+          "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "key": "[\"main\"]",
+          "kind": "plugins"
+        },
+        {
+          "digest": "c918ecd7f60af4f710c1f744d0e069cf63eb3f42b27b8280a5caa3f5a0de91c2",
+          "key": "knowledge",
+          "kind": "prompt"
+        },
+        {
+          "digest": "848b44b374a387b6d37aaaa453c7d50c3b8caf6ec13aff278a605e1b51a93d5f",
+          "key": "main",
+          "kind": "sourceSet"
+        },
+        {
+          "digest": "2812eb889355f58643d197f61873c80f2c562f7a549e370e5d493f3676337007",
+          "key": "skill",
+          "kind": "template"
+        }
+      ],
+      "inputDigest": "c500f5cc211048b22f78a71a5320cb5d7e510270c613bc0e250049e1bb2aba01",
+      "promptHash": "c918ecd7f60af4f710c1f744d0e069cf63eb3f42b27b8280a5caa3f5a0de91c2",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "eed0bd65-99a9-4743-9699-c28f2a56f50c",
+        "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+      },
+      "templateHash": "2812eb889355f58643d197f61873c80f2c562f7a549e370e5d493f3676337007",
+      "topicId": "ledger",
+      "version": 1
+    }
+  ]
+}

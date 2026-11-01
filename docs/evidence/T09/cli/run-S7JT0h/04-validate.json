@@ -1,0 +1,30 @@
+{
+  "candidateId": "candidate_71b372f7-c4c2-4e77-a603-1279ac11a4c6",
+  "candidateIds": [
+    "candidate_71b372f7-c4c2-4e77-a603-1279ac11a4c6"
+  ],
+  "report": {
+    "cases": [],
+    "expectedGeneration": "2",
+    "runId": "run_6321d22e-47b5-456e-a20a-7daf8691d4d8",
+    "stagedResultHash": "6449e69d1549092b99db9f3b7f75dfa5ce92523a488557c105a7cebd39de72fb",
+    "stages": [
+      {
+        "batchId": "bat_6fcc6925f72b63f4a26bbc29ce05ca159ac130ee23f85b5e2bc89fffb95ca42d",
+        "dependencies": 7,
+        "entities": 1,
+        "relations": 0,
+        "replacementKey": "(smoke.plugin,extract,smoke)"
+      },
+      {
+        "batchId": "bat_79b2516ca36aa8ae5c749c3f9ed879190145987861955bdcce012c57f72493ba",
+        "dependencies": 8,
+        "entities": 0,
+        "relations": 1,
+        "replacementKey": "(smoke.plugin,link,smoke)"
+      }
+    ],
+    "status": "validated"
+  },
+  "validationId": "validation_982d515c-8257-4ccf-a6b4-170500df2d9c"
+}

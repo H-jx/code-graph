@@ -1,0 +1,87 @@
+{
+  "date": "2026-10-26",
+  "node": "v24.14.0",
+  "python": "Python 3.12.13",
+  "pythonExecutable": "C:\\Users\\hubo9\\AppData\\Roaming\\uv\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe",
+  "rustTests": 4,
+  "nodeTests": 5,
+  "pythonVectors": 21,
+  "commands": [
+    {
+      "command": "cargo",
+      "args": [
+        "+1.97.1",
+        "build",
+        "--manifest-path",
+        "docs/evidence/T00/probe/Cargo.toml",
+        "--locked",
+        "--target-dir",
+        "target",
+        "-p",
+        "t00-native-probe"
+      ],
+      "exitCode": 0,
+      "log": "native-build.log"
+    },
+    {
+      "command": "cargo",
+      "args": [
+        "+1.97.1",
+        "test",
+        "--manifest-path",
+        "docs/evidence/T00/probe/Cargo.toml",
+        "--locked",
+        "--target-dir",
+        "target",
+        "-p",
+        "t00-rig-probe"
+      ],
+      "exitCode": 0,
+      "log": "rig-tests.log"
+    },
+    {
+      "command": "C:\\nvm4w\\nodejs\\node.exe",
+      "args": [
+        "--test",
+        "docs/evidence/T00/probe/node/integration.test.mjs",
+        "docs/evidence/T00/probe/node/python.test.mjs"
+      ],
+      "exitCode": 0,
+      "log": "node-tests.log"
+    },
+    {
+      "command": "C:\\Users\\hubo9\\AppData\\Roaming\\uv\\python\\cpython-3.12.13-windows-x86_64-none\\python.exe",
+      "args": [
+        "-X",
+        "utf8",
+        "scripts/verify-vectors.py"
+      ],
+      "exitCode": 0,
+      "log": "python-vectors.json"
+    }
+  ],
+  "hashes": {
+    "Cargo.lock": "79e3e04d45ef7433a570a32d266fb44412a36261758d1d4e88a47c0ae92fc584",
+    "pnpm-lock.yaml": "b2c890ecd0d1d95b2a3a01537e097373d07aad4783d018690b5351c5ab716d9e",
+    "docs/evidence/T00/probe/Cargo.toml": "7ed6a39560396d0e6bf0f4a359f8f1e32f326d0bf7ccbe214c77603ae7c56f5a",
+    "docs/evidence/T00/probe/Cargo.lock": "cc2674f19681b2e83ef8a40914caaf1defb04587f0f02af1bd525cf5841d959b",
+    "docs/evidence/T00/probe/node/package-lock.json": "a8153b4f97e9084cbe3102c19f9eacd64ba8d5616e3f5d1dd230f0b68324a6e5",
+    "docs/evidence/T00/probe/native/Cargo.toml": "3f338074931cfa629ac52b79320e81284e2947d07b36e1a4252d06dffeaa3fd7",
+    "docs/evidence/T00/probe/native/src/lib.rs": "d6c476aa56f92ee6ba0b6d737e917c6f00b3a99553f32cf3ae9b57ea8d5f0006",
+    "docs/evidence/T00/probe/rig/Cargo.toml": "b55617bb94d619ca2b5278948a1249f85efe6a94f960b2d0d8a52d199c3ffc93",
+    "docs/evidence/T00/probe/rig/tests/integration.rs": "5e379dfee05c79b981a881fa39f8d3747052c2ea67c48761d7f96b75e8a5a3d0",
+    "docs/evidence/T00/probe/node/shared.mjs": "0f7fc709319011f26a6aaccf2a3355c9799c5e3a529d6bbbb57b8b87fcedc00a",
+    "docs/evidence/T00/probe/node/server.mjs": "a9f21da9476295ec9d6079a844e29c4831822209c02473d12fa75a83572d2b2f",
+    "docs/evidence/T00/probe/node/integration.test.mjs": "7dff374b73a250596929ee09b9102b40a2f0763bfcfbe3dbbee3572d430ee755",
+    "docs/evidence/T00/probe/node/python.test.mjs": "ccfcda8b676e07e075d135d6dd11b592d5330bb066e5910b4990e51097f1970e",
+    "scripts/verify-vectors.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "docs/NEW-PROJECT-DESIGN.md": "79423864c43d0f9967e2a494bfe41f6a903d014d04b96985e3582ac3edf3483b",
+    "docs/NEW-PROJECT-STRUCTURE.md": "41fce9e90b7d52d421b381b4f7585e9a98f93bd4ad2501edf99064309d504fd4"
+  },
+  "protocols": [
+    "2025-11-25",
+    "2026-07-28"
+  ],
+  "providerNetworkCalls": 0,
+  "independentBusinessTruth": false
+}

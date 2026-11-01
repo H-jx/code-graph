@@ -50,7 +50,21 @@ pub fn run(args: IndexArgs) -> Result<Exit, CoreError> {
         (run_base_only(&project, &mut database, &now)?, "base")
     } else {
         (
-            run_incremental(&project, &mut database, &now)?,
+            tokio::runtime::Builder::new_multi_thread()
+                .enable_all()
+                .build()
+                .map_err(|e| {
+                    CoreError::new(
+                        project_knowledge_core::contract::error::codes::INTERNAL_ERROR,
+                        e.to_string(),
+                    )
+                })?
+                .block_on(run_incremental(
+                    &project,
+                    &mut database,
+                    &tokio_util::sync::CancellationToken::new(),
+                    &now,
+                ))?,
             "incremental",
         )
     };
@@ -60,7 +74,7 @@ pub fn run(args: IndexArgs) -> Result<Exit, CoreError> {
         "configPath": args.config.to_string_lossy(),
         "indexDatabase": database_path.to_string_lossy(),
         "indexId": base.index_id,
-        "generation": base.generation.to_string(),
+        "generation": result.generation.to_string(),
         "sourceSnapshotId": base.snapshot.id,
         "sourceSetHash": base.snapshot.source_set_hash,
         "entities": base.entities,
@@ -68,6 +82,7 @@ pub fn run(args: IndexArgs) -> Result<Exit, CoreError> {
         "searchDocuments": base.documents,
         "gaps": base.gaps.len(),
         "invalidated": result.invalidated,
+        "executed": result.executed,
         "completedAt": now,
     });
     merge_coverage(&mut payload, &base.coverage);

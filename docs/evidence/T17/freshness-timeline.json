@@ -1,0 +1,76 @@
+{
+  "newExport": {
+    "directory": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpLngsBo\\main\\.agents\\skills\\ledger\\versions\\8ad8ee70-5c44-4c82-9a76-160d96a9a421",
+    "exportId": "8ad8ee70-5c44-4c82-9a76-160d96a9a421",
+    "files": 11,
+    "freshness": "fresh",
+    "manifestSha256": "e338ef47ee329f0a46a584ca73bdfdb478e5786e32baecf57740c6b2c803c0da",
+    "pointer": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpLngsBo\\main\\.agents\\skills\\ledger\\CURRENT.json",
+    "status": "partial"
+  },
+  "reimport": {
+    "artifactHash": "3d07e38c637091343e035c076f69b2c91ec883adca6fcc4ef43501813df62407",
+    "freshness": "fresh",
+    "snapshot": {
+      "generation": "3",
+      "indexId": "15d61a96-1d7d-4a18-b9ac-2a8b5115ff29",
+      "sourceSnapshotId": "snap_3805e3a60caa0f086285b012540aa83956dfb5f8c38c93087bb756d6f9e2c320"
+    },
+    "status": "partial",
+    "topicId": "ledger",
+    "version": 2
+  },
+  "relatedReadOnly": {
+    "attempts": [],
+    "diskChecked": true,
+    "exports": [],
+    "topics": [
+      {
+        "dependenciesRechecked": false,
+        "freshness": "stale",
+        "gapIds": [
+          "knowledge_material_partial"
+        ],
+        "inputDigest": "3f81e78d80fde54a8f27b0dde8db4a288b60721ea7adf5b48d4a4f0fd4066c5b",
+        "snapshot": {
+          "generation": "1",
+          "indexId": "15d61a96-1d7d-4a18-b9ac-2a8b5115ff29",
+          "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+        },
+        "topicId": "ledger",
+        "version": 1
+      }
+    ]
+  },
+  "rerender": {
+    "directory": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpLngsBo\\main\\.agents\\skills\\ledger\\versions\\c06f9591-df31-4e62-bd7a-9640b5571cde",
+    "exportId": "c06f9591-df31-4e62-bd7a-9640b5571cde",
+    "files": 11,
+    "freshness": "stale",
+    "manifestSha256": "15ddbe202a59445cc4f25433f078ea41f3ecaddee8dbb0af559db89ede4347c2",
+    "pointer": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpLngsBo\\main\\.agents\\skills\\ledger\\CURRENT.json",
+    "status": "partial"
+  },
+  "unrelated": {
+    "attempts": [],
+    "diskChecked": true,
+    "exports": [],
+    "topics": [
+      {
+        "dependenciesRechecked": true,
+        "freshness": "fresh",
+        "gapIds": [
+          "knowledge_material_partial"
+        ],
+        "inputDigest": "3f81e78d80fde54a8f27b0dde8db4a288b60721ea7adf5b48d4a4f0fd4066c5b",
+        "snapshot": {
+          "generation": "1",
+          "indexId": "15d61a96-1d7d-4a18-b9ac-2a8b5115ff29",
+          "sourceSnapshotId": "snap_5c904663e78add6afb0af992850350023aebb10c8bb7f186082323e808a3be06"
+        },
+        "topicId": "ledger",
+        "version": 1
+      }
+    ]
+  }
+}

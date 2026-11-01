@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\live_business.py", line 206, in <module>
+    
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\live_business.py", line 123, in main
+    argv += ["--run", args.resume] if args.resume else ["--focus", "workflow", "--with-skill", "--goal", goal]
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\live_business.py", line 46, in command
+    save(out / "commands.json", records)
+AssertionError: ('real-build', 4294967295)

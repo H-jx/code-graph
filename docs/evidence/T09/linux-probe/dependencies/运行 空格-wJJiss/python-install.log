@@ -1,0 +1,8 @@
+executable=/usr/bin/python3.12 args=["-m","venv","/root/.cache/project-knowledge/dependencies/prepare_cgnoeP/venv"] exit=exit status: 0
+
+executable=/root/.cache/project-knowledge/dependencies/prepare_cgnoeP/venv/bin/python args=["-m","pip","install","--require-hashes","--only-binary=:all:","--no-input","--disable-pip-version-check","--index-url=https://pypi.org/simple","-r","/root/.cache/project-knowledge/dependencies/prepare_cgnoeP/requirements.lock"] exit=exit status: 0
+Collecting packaging==25.0 (from -r /root/.cache/project-knowledge/dependencies/prepare_cgnoeP/requirements.lock (line 1))
+  Using cached packaging-25.0-py3-none-any.whl (66 kB)
+Installing collected packages: packaging
+Successfully installed packaging-25.0
+

@@ -87,6 +87,8 @@ rusqlite = { version = "0.41.0", default-features = false, features = [
   "chrono",
   "serde_json",
   "limits",
+  "hooks",
+  "trace",
 ] }
 
 # ---------------------------------------------------------------- 校验与证据

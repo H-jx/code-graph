@@ -1,0 +1,3201 @@
+{
+  "plans": [
+    "SEARCH relations USING INDEX idx_relations_from (from_id=?)",
+    "SEARCH relations USING INDEX idx_relations_to (to_id=?)",
+    "SEARCH search_documents USING COVERING INDEX idx_search_documents_lookup (scope_id=? AND route_exact=?)"
+  ],
+  "stale": {
+    "protocolVersion": "1.0",
+    "requestId": "req_27f8d062-84c6-493d-90f0-7e3a5e7ab9a8",
+    "snapshot": {
+      "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+      "generation": "1",
+      "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+    },
+    "status": "partial",
+    "data": {
+      "results": [],
+      "fields": null,
+      "candidateSetComplete": null
+    },
+    "sourceReferences": [],
+    "gaps": [],
+    "completeness": {
+      "freshness": "stale",
+      "diskChecked": true,
+      "checkedAt": "now",
+      "coverage": "complete",
+      "candidateSetsComplete": true,
+      "truncated": true,
+      "reasons": [
+        "source freshness is Stale; no index refresh was performed",
+        "query budget or page boundary reached"
+      ]
+    },
+    "budgetUsed": {
+      "entities": 0,
+      "relations": 0,
+      "visited": 49,
+      "elapsedMs": 14,
+      "responseChars": 726
+    },
+    "nextQueries": []
+  },
+  "indexed": {
+    "protocolVersion": "1.0",
+    "requestId": "req_54270a61-e2f7-4d4f-b801-a4da0b674c53",
+    "snapshot": {
+      "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+      "generation": "1",
+      "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+    },
+    "status": "partial",
+    "data": {
+      "results": [
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_0404145b78e3baa3eb825cfc24b0642ca7797e4ade09107520f5bb218de0139b"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase0"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase0(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase0",
+          "assertions": [
+            {
+              "assertionId": "as_535613932ca1ba753899d86b0b7ac90d1770e7e7969b283656e30cccf8f7773e",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase0",
+              "attributes": {
+                "name": "budgetPurchase0",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase0",
+                "normalizedSignature": "functionbudgetPurchase0(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_427b1b73de2f6b63f9cd060b6049f8474c95c2a5b5329239da51b041d56576bb"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_0aa83f8ae42f5e7db35924422a368e1fc0916410647fc5328379ef6cab7ec732"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase6"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase6(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase6",
+          "assertions": [
+            {
+              "assertionId": "as_9cd8386e0cb2327ef3cf07b579c70e5935d8fb12c3f57f67ef9c5f722e5a90cb",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase6",
+              "attributes": {
+                "name": "budgetPurchase6",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase6",
+                "normalizedSignature": "functionbudgetPurchase6(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_29a7c8db9cad80ba70781b265e0f364504f4911579cdb1dfa1276c61ff2a6bd7"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_0eba7acb80cc21ee0327a7287166e30fa42820a162666115c0cdf39151351608"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase11"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase11(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase11",
+          "assertions": [
+            {
+              "assertionId": "as_263efd7af92187d0c62c0dbb3d5617c6efae9033fbb7062d5be49dea70160735",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase11",
+              "attributes": {
+                "name": "budgetPurchase11",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase11",
+                "normalizedSignature": "functionbudgetPurchase11(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_6474ad8591e7e294c8928ed234a49840c5738aecf792a9401d8d9654c403abd2"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_23390ee19e3a8308963fbdc7984b95d7a7150ef62d5d435411cda5767a727c88"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase21"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase21(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase21",
+          "assertions": [
+            {
+              "assertionId": "as_4a9717d45bc484cf9a779e6841fd63f1c40e2051514363b4b6bdaf7d0f2e331c",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase21",
+              "attributes": {
+                "name": "budgetPurchase21",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase21",
+                "normalizedSignature": "functionbudgetPurchase21(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_908d6ae4b728bcc5914e391431bc213ec41997f12d927944774b2f288506ad56"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_2dc71017836bd096e17d61821a3dbbae695edc458dc6155bc83a40a699079370"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase8"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase8(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase8",
+          "assertions": [
+            {
+              "assertionId": "as_8878c1fb35c1ff11d4c31d06db1fb6604bf6f90cabc0d87f42c774ff75002a80",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase8",
+              "attributes": {
+                "name": "budgetPurchase8",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase8",
+                "normalizedSignature": "functionbudgetPurchase8(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_9d61a26a27fc858da1e9e2811afa807c47ad12d5441c299103db0d6fc5f55727"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_2e959cb36c8662164f28dee3521d36f1361f80ef33d1d598bac939a87b49e9b4"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase18"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase18(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase18",
+          "assertions": [
+            {
+              "assertionId": "as_4ce55a82d039804b0c1fe7c1fa5b328e6bf6fa3c18bbce6a2c5b945dd1170b01",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase18",
+              "attributes": {
+                "name": "budgetPurchase18",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase18",
+                "normalizedSignature": "functionbudgetPurchase18(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_adadef4178765a6ae01273ad6901c70f05de7dd7a9e4d8956b24d3b553aa67f6"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_318aff3041b3630aa49f8b267e05012922bf36211784016dd8e231cc4a5dc761"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase1"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase1(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase1",
+          "assertions": [
+            {
+              "assertionId": "as_45b0204297730e7245086b11731199c9a68a1746e3d930a43459434441978e4b",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase1",
+              "attributes": {
+                "name": "budgetPurchase1",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase1",
+                "normalizedSignature": "functionbudgetPurchase1(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_a9d05cab8a6c5d0f3464903f45ac7bf9516c95a8e7c1919f4f77b82bfc65dde0"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_31acd288ffd00d747304745f7f93dfaec5d209b488e18f5b155217e48289dffe"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase26"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase26(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase26",
+          "assertions": [
+            {
+              "assertionId": "as_ddca91674ff30698eeaac6bd0124b3c91985975c8098fb99a6ffb14dc31338f3",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase26",
+              "attributes": {
+                "name": "budgetPurchase26",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase26",
+                "normalizedSignature": "functionbudgetPurchase26(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_bf5b19d4166ff1c4edb9cec727b024fbb969e913dfbd8d2a6da453dc36a41448"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_3658e358d74704c9b4554092772d6084e939a6d56ce2d3313ce94fbdd4262789"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase9"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase9(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase9",
+          "assertions": [
+            {
+              "assertionId": "as_1a10e5413ddfb03945271c00e6c716b0335752736290223e40278a51323cbb6e",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase9",
+              "attributes": {
+                "name": "budgetPurchase9",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase9",
+                "normalizedSignature": "functionbudgetPurchase9(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_10f0dbd57d6a0f9b0625e8de49ae82f9232a25065695f43ccf4e7f3075ad224d"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_3cc3e3df6085f278dc9799abefc3a806f543fc2548e8f1630f453c321e884454"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase3"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase3(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase3",
+          "assertions": [
+            {
+              "assertionId": "as_75cbc5e1e2acdad9bfdbec7acd9e63e100c08ac790f977a19b5bea91a037a4ad",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase3",
+              "attributes": {
+                "name": "budgetPurchase3",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase3",
+                "normalizedSignature": "functionbudgetPurchase3(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_ed56bd8cff353dcbe21d6c3034c1ae8fbca9cd9bee3fea60fbfdcec39355cbe5"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_52667d6a22e75c1f6b1016de17332cf1efe836d1b6fd2b22b9c5045b31b981e9"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase4"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase4(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase4",
+          "assertions": [
+            {
+              "assertionId": "as_24652078ffab052f4c5b59629b5ae3fee97d906190523278519d15fb451deaec",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase4",
+              "attributes": {
+                "name": "budgetPurchase4",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase4",
+                "normalizedSignature": "functionbudgetPurchase4(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_92dd9f71014471f0552bba347a094a9bff26cf5ce1177844b7ed06805d928ec8"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_5c08a032f8aeaa4e9cdc546a315f1be3a876c5c16c278f3876ca158a861884d7"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase19"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase19(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase19",
+          "assertions": [
+            {
+              "assertionId": "as_f8630de97f721f75562e5aca2ff571c44189d61f4966f4ea7ec4b6a07e4753f5",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase19",
+              "attributes": {
+                "name": "budgetPurchase19",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase19",
+                "normalizedSignature": "functionbudgetPurchase19(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_b88064750d109ced95e1383f1281032ac5a0adce40e635ed8c8bd1961d34ebe4"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_5cca7f5fc249a4325305ab6cdf6d3ff367338041fd7225216bcd6e866dc51ff5"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase17"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase17(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase17",
+          "assertions": [
+            {
+              "assertionId": "as_f9958c41988825a7e986192c0d73ad7d0a8525ef4467a7ce33cbc02eee5d2165",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase17",
+              "attributes": {
+                "name": "budgetPurchase17",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase17",
+                "normalizedSignature": "functionbudgetPurchase17(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_4208ba2310ed0d4e4736cba9dadde056f65ae140e96f46cfcf22517e0b35c6e0"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_5decae1661316af8d823932ab936b8696c6b4e06c526817bf2b2951cd7af5e3f"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase25"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase25(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase25",
+          "assertions": [
+            {
+              "assertionId": "as_bb64939da2e17efe3e28c920f5eda7a3fae05230070b9378fcb85d1e1a4b2785",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase25",
+              "attributes": {
+                "name": "budgetPurchase25",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase25",
+                "normalizedSignature": "functionbudgetPurchase25(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_92090a1dbce381daad18a217753d37218e9e12ab65d72ecad0cde473ea106b7d"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_65c9f02ee61eb53c64c8e720cb507ccb5e3643fce2f25e99a67ae9121b7c0e62"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase14"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase14(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase14",
+          "assertions": [
+            {
+              "assertionId": "as_382b48a986ab79b05d17a01344a3de10497f87d92cc8d8b45809743b91e11e82",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase14",
+              "attributes": {
+                "name": "budgetPurchase14",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase14",
+                "normalizedSignature": "functionbudgetPurchase14(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_e22c762153dabba3825f889d19c5b14a5abdfd3648f4704df31edf887cc13d7b"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_6baf6de08cf49eb2f4781528e92a358c7220e94634843d0a419f58a6301ee26e"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase29"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase29(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase29",
+          "assertions": [
+            {
+              "assertionId": "as_621f9859579e0a143292327f0449b677f35456251b580e14696ea8e83bdb2b26",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase29",
+              "attributes": {
+                "name": "budgetPurchase29",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase29",
+                "normalizedSignature": "functionbudgetPurchase29(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_f812e4409467da171643d9ee3e0d908908f73bf9cb22956c51e15a311b5bb598"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_746b71371636d18c09ccacf8e6b69c3d1a02b34c11e686b13ef9c420e0398337"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase15"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase15(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase15",
+          "assertions": [
+            {
+              "assertionId": "as_f5100069732b02b5cf56664710b0319702a6e246c5647acceb1b8714d508ddc3",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase15",
+              "attributes": {
+                "name": "budgetPurchase15",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase15",
+                "normalizedSignature": "functionbudgetPurchase15(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_b722e2638aa5366b9944e3d4d3b82809c2b12f6bcd9ecd88d9080041f385a71e"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_885a7c47c4d8b45ff314a1d626c2bc1ecb44612642dd83c3213ca7f226545833"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase7"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase7(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase7",
+          "assertions": [
+            {
+              "assertionId": "as_9a6c12c1026968357d471e8cd97195e3d68b4795fa118e2a23262149449de4bd",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase7",
+              "attributes": {
+                "name": "budgetPurchase7",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase7",
+                "normalizedSignature": "functionbudgetPurchase7(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_cbcc44456c71a6d356a2fdd5260345deb82781392e82a961bec5c716d7571927"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_918fa07be1942fed3f2fc5f8ab9c875c892fd4bb2dad1836766b9b0e6ed46901"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase12"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase12(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase12",
+          "assertions": [
+            {
+              "assertionId": "as_989b05ea7bf55efdab90ada87709806bbbcece8f9c5edbf1932e8b4e2074e10d",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase12",
+              "attributes": {
+                "name": "budgetPurchase12",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase12",
+                "normalizedSignature": "functionbudgetPurchase12(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_bd4d4bfe3b795c7f14c7b357a36d389b1977ab48c8266e1cddd2484f037d32d9"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_9fa93614d2d25c06d03257f02468dacb98d3dfbdf7bde7e195d5f6e5c6cdcfa4"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase23"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase23(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase23",
+          "assertions": [
+            {
+              "assertionId": "as_31877be85d8d011863a34b6174f0ea321beb069e6fc76bada65ad283ea9e8e25",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase23",
+              "attributes": {
+                "name": "budgetPurchase23",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase23",
+                "normalizedSignature": "functionbudgetPurchase23(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_139a39e7dcadf859472c92765d581626f6a3e4841d6fbd9d9cc5e9179317a6d4"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        }
+      ],
+      "fields": null,
+      "candidateSetComplete": true
+    },
+    "sourceReferences": [
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_10f0dbd57d6a0f9b0625e8de49ae82f9232a25065695f43ccf4e7f3075ad224d",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 601,
+        "endByte": 616
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_139a39e7dcadf859472c92765d581626f6a3e4841d6fbd9d9cc5e9179317a6d4",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1524,
+        "endByte": 1540
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_29a7c8db9cad80ba70781b265e0f364504f4911579cdb1dfa1276c61ff2a6bd7",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 406,
+        "endByte": 421
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_4208ba2310ed0d4e4736cba9dadde056f65ae140e96f46cfcf22517e0b35c6e0",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1128,
+        "endByte": 1144
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_427b1b73de2f6b63f9cd060b6049f8474c95c2a5b5329239da51b041d56576bb",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 16,
+        "endByte": 31
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_6474ad8591e7e294c8928ed234a49840c5738aecf792a9401d8d9654c403abd2",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 732,
+        "endByte": 748
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_908d6ae4b728bcc5914e391431bc213ec41997f12d927944774b2f288506ad56",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1392,
+        "endByte": 1408
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_92090a1dbce381daad18a217753d37218e9e12ab65d72ecad0cde473ea106b7d",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1656,
+        "endByte": 1672
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_92dd9f71014471f0552bba347a094a9bff26cf5ce1177844b7ed06805d928ec8",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 276,
+        "endByte": 291
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_9d61a26a27fc858da1e9e2811afa807c47ad12d5441c299103db0d6fc5f55727",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 536,
+        "endByte": 551
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_a9d05cab8a6c5d0f3464903f45ac7bf9516c95a8e7c1919f4f77b82bfc65dde0",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 81,
+        "endByte": 96
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_adadef4178765a6ae01273ad6901c70f05de7dd7a9e4d8956b24d3b553aa67f6",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1194,
+        "endByte": 1210
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_b722e2638aa5366b9944e3d4d3b82809c2b12f6bcd9ecd88d9080041f385a71e",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 996,
+        "endByte": 1012
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_b88064750d109ced95e1383f1281032ac5a0adce40e635ed8c8bd1961d34ebe4",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1260,
+        "endByte": 1276
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_bd4d4bfe3b795c7f14c7b357a36d389b1977ab48c8266e1cddd2484f037d32d9",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 798,
+        "endByte": 814
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_bf5b19d4166ff1c4edb9cec727b024fbb969e913dfbd8d2a6da453dc36a41448",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1722,
+        "endByte": 1738
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_cbcc44456c71a6d356a2fdd5260345deb82781392e82a961bec5c716d7571927",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 471,
+        "endByte": 486
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_e22c762153dabba3825f889d19c5b14a5abdfd3648f4704df31edf887cc13d7b",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 930,
+        "endByte": 946
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_ed56bd8cff353dcbe21d6c3034c1ae8fbca9cd9bee3fea60fbfdcec39355cbe5",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 211,
+        "endByte": 226
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_f812e4409467da171643d9ee3e0d908908f73bf9cb22956c51e15a311b5bb598",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1920,
+        "endByte": 1936
+      }
+    ],
+    "gaps": [],
+    "completeness": {
+      "freshness": "unknown",
+      "diskChecked": false,
+      "checkedAt": "now",
+      "coverage": "complete",
+      "candidateSetsComplete": true,
+      "truncated": true,
+      "reasons": [
+        "source freshness is Unknown; no index refresh was performed",
+        "query budget or page boundary reached"
+      ]
+    },
+    "budgetUsed": {
+      "entities": 20,
+      "relations": 0,
+      "visited": 38,
+      "elapsedMs": 7,
+      "responseChars": 36322
+    },
+    "continuation": "7b2276657273696f6e223a312c22736e617073686f74223a7b22696e6465784964223a2266636165636630612d646633362d343733622d383332622d313262653566376232343664222c2267656e65726174696f6e223a2231222c22736f75726365536e617073686f744964223a22736e61705f33663764373362356361323637656339633430323038613365636166356231626239316338633562643832613165313763386362353061373730383433633435227d2c227265717565737448617368223a2265643532393832373830323265383930373337343932346535343665656139303230383163316562303131633862326662333134636463636165393234623162222c226c617374223a5b322c2d332e373839363539313935303932333739652d362c22656e745f39666139333631346432643235633036643033323537663032343638646163623938643364666264663762646537653139356435663665356336636463666134222c2261735f33313837376265383564386430313138363361333462363137346630656133323162656230363965366663373662616461363561643238336561396538653235225d7d",
+    "nextQueries": []
+  },
+  "allowStale": {
+    "protocolVersion": "1.0",
+    "requestId": "req_10f61ce8-541e-451b-adf1-1350b4e16fb0",
+    "snapshot": {
+      "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+      "generation": "1",
+      "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+    },
+    "status": "partial",
+    "data": {
+      "results": [
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_0404145b78e3baa3eb825cfc24b0642ca7797e4ade09107520f5bb218de0139b"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase0"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase0(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase0",
+          "assertions": [
+            {
+              "assertionId": "as_535613932ca1ba753899d86b0b7ac90d1770e7e7969b283656e30cccf8f7773e",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase0",
+              "attributes": {
+                "name": "budgetPurchase0",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase0",
+                "normalizedSignature": "functionbudgetPurchase0(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_427b1b73de2f6b63f9cd060b6049f8474c95c2a5b5329239da51b041d56576bb"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_0aa83f8ae42f5e7db35924422a368e1fc0916410647fc5328379ef6cab7ec732"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase6"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase6(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase6",
+          "assertions": [
+            {
+              "assertionId": "as_9cd8386e0cb2327ef3cf07b579c70e5935d8fb12c3f57f67ef9c5f722e5a90cb",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase6",
+              "attributes": {
+                "name": "budgetPurchase6",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase6",
+                "normalizedSignature": "functionbudgetPurchase6(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_29a7c8db9cad80ba70781b265e0f364504f4911579cdb1dfa1276c61ff2a6bd7"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_0eba7acb80cc21ee0327a7287166e30fa42820a162666115c0cdf39151351608"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase11"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase11(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase11",
+          "assertions": [
+            {
+              "assertionId": "as_263efd7af92187d0c62c0dbb3d5617c6efae9033fbb7062d5be49dea70160735",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase11",
+              "attributes": {
+                "name": "budgetPurchase11",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase11",
+                "normalizedSignature": "functionbudgetPurchase11(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_6474ad8591e7e294c8928ed234a49840c5738aecf792a9401d8d9654c403abd2"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_23390ee19e3a8308963fbdc7984b95d7a7150ef62d5d435411cda5767a727c88"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase21"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase21(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase21",
+          "assertions": [
+            {
+              "assertionId": "as_4a9717d45bc484cf9a779e6841fd63f1c40e2051514363b4b6bdaf7d0f2e331c",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase21",
+              "attributes": {
+                "name": "budgetPurchase21",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase21",
+                "normalizedSignature": "functionbudgetPurchase21(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_908d6ae4b728bcc5914e391431bc213ec41997f12d927944774b2f288506ad56"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_2dc71017836bd096e17d61821a3dbbae695edc458dc6155bc83a40a699079370"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase8"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase8(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase8",
+          "assertions": [
+            {
+              "assertionId": "as_8878c1fb35c1ff11d4c31d06db1fb6604bf6f90cabc0d87f42c774ff75002a80",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase8",
+              "attributes": {
+                "name": "budgetPurchase8",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase8",
+                "normalizedSignature": "functionbudgetPurchase8(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_9d61a26a27fc858da1e9e2811afa807c47ad12d5441c299103db0d6fc5f55727"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_2e959cb36c8662164f28dee3521d36f1361f80ef33d1d598bac939a87b49e9b4"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase18"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase18(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase18",
+          "assertions": [
+            {
+              "assertionId": "as_4ce55a82d039804b0c1fe7c1fa5b328e6bf6fa3c18bbce6a2c5b945dd1170b01",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase18",
+              "attributes": {
+                "name": "budgetPurchase18",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase18",
+                "normalizedSignature": "functionbudgetPurchase18(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_adadef4178765a6ae01273ad6901c70f05de7dd7a9e4d8956b24d3b553aa67f6"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_318aff3041b3630aa49f8b267e05012922bf36211784016dd8e231cc4a5dc761"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase1"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase1(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase1",
+          "assertions": [
+            {
+              "assertionId": "as_45b0204297730e7245086b11731199c9a68a1746e3d930a43459434441978e4b",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase1",
+              "attributes": {
+                "name": "budgetPurchase1",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase1",
+                "normalizedSignature": "functionbudgetPurchase1(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_a9d05cab8a6c5d0f3464903f45ac7bf9516c95a8e7c1919f4f77b82bfc65dde0"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_31acd288ffd00d747304745f7f93dfaec5d209b488e18f5b155217e48289dffe"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase26"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase26(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase26",
+          "assertions": [
+            {
+              "assertionId": "as_ddca91674ff30698eeaac6bd0124b3c91985975c8098fb99a6ffb14dc31338f3",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase26",
+              "attributes": {
+                "name": "budgetPurchase26",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase26",
+                "normalizedSignature": "functionbudgetPurchase26(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_bf5b19d4166ff1c4edb9cec727b024fbb969e913dfbd8d2a6da453dc36a41448"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_3658e358d74704c9b4554092772d6084e939a6d56ce2d3313ce94fbdd4262789"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase9"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase9(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase9",
+          "assertions": [
+            {
+              "assertionId": "as_1a10e5413ddfb03945271c00e6c716b0335752736290223e40278a51323cbb6e",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase9",
+              "attributes": {
+                "name": "budgetPurchase9",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase9",
+                "normalizedSignature": "functionbudgetPurchase9(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_10f0dbd57d6a0f9b0625e8de49ae82f9232a25065695f43ccf4e7f3075ad224d"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_3cc3e3df6085f278dc9799abefc3a806f543fc2548e8f1630f453c321e884454"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase3"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase3(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase3",
+          "assertions": [
+            {
+              "assertionId": "as_75cbc5e1e2acdad9bfdbec7acd9e63e100c08ac790f977a19b5bea91a037a4ad",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase3",
+              "attributes": {
+                "name": "budgetPurchase3",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase3",
+                "normalizedSignature": "functionbudgetPurchase3(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_ed56bd8cff353dcbe21d6c3034c1ae8fbca9cd9bee3fea60fbfdcec39355cbe5"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_52667d6a22e75c1f6b1016de17332cf1efe836d1b6fd2b22b9c5045b31b981e9"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase4"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase4(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase4",
+          "assertions": [
+            {
+              "assertionId": "as_24652078ffab052f4c5b59629b5ae3fee97d906190523278519d15fb451deaec",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase4",
+              "attributes": {
+                "name": "budgetPurchase4",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase4",
+                "normalizedSignature": "functionbudgetPurchase4(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_92dd9f71014471f0552bba347a094a9bff26cf5ce1177844b7ed06805d928ec8"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_5c08a032f8aeaa4e9cdc546a315f1be3a876c5c16c278f3876ca158a861884d7"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase19"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase19(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase19",
+          "assertions": [
+            {
+              "assertionId": "as_f8630de97f721f75562e5aca2ff571c44189d61f4966f4ea7ec4b6a07e4753f5",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase19",
+              "attributes": {
+                "name": "budgetPurchase19",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase19",
+                "normalizedSignature": "functionbudgetPurchase19(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_b88064750d109ced95e1383f1281032ac5a0adce40e635ed8c8bd1961d34ebe4"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_5cca7f5fc249a4325305ab6cdf6d3ff367338041fd7225216bcd6e866dc51ff5"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase17"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase17(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase17",
+          "assertions": [
+            {
+              "assertionId": "as_f9958c41988825a7e986192c0d73ad7d0a8525ef4467a7ce33cbc02eee5d2165",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase17",
+              "attributes": {
+                "name": "budgetPurchase17",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase17",
+                "normalizedSignature": "functionbudgetPurchase17(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_4208ba2310ed0d4e4736cba9dadde056f65ae140e96f46cfcf22517e0b35c6e0"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_5decae1661316af8d823932ab936b8696c6b4e06c526817bf2b2951cd7af5e3f"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase25"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase25(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase25",
+          "assertions": [
+            {
+              "assertionId": "as_bb64939da2e17efe3e28c920f5eda7a3fae05230070b9378fcb85d1e1a4b2785",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase25",
+              "attributes": {
+                "name": "budgetPurchase25",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase25",
+                "normalizedSignature": "functionbudgetPurchase25(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_92090a1dbce381daad18a217753d37218e9e12ab65d72ecad0cde473ea106b7d"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_65c9f02ee61eb53c64c8e720cb507ccb5e3643fce2f25e99a67ae9121b7c0e62"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase14"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase14(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase14",
+          "assertions": [
+            {
+              "assertionId": "as_382b48a986ab79b05d17a01344a3de10497f87d92cc8d8b45809743b91e11e82",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase14",
+              "attributes": {
+                "name": "budgetPurchase14",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase14",
+                "normalizedSignature": "functionbudgetPurchase14(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_e22c762153dabba3825f889d19c5b14a5abdfd3648f4704df31edf887cc13d7b"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_6baf6de08cf49eb2f4781528e92a358c7220e94634843d0a419f58a6301ee26e"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase29"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase29(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase29",
+          "assertions": [
+            {
+              "assertionId": "as_621f9859579e0a143292327f0449b677f35456251b580e14696ea8e83bdb2b26",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase29",
+              "attributes": {
+                "name": "budgetPurchase29",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase29",
+                "normalizedSignature": "functionbudgetPurchase29(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_f812e4409467da171643d9ee3e0d908908f73bf9cb22956c51e15a311b5bb598"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_746b71371636d18c09ccacf8e6b69c3d1a02b34c11e686b13ef9c420e0398337"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase15"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase15(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase15",
+          "assertions": [
+            {
+              "assertionId": "as_f5100069732b02b5cf56664710b0319702a6e246c5647acceb1b8714d508ddc3",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase15",
+              "attributes": {
+                "name": "budgetPurchase15",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase15",
+                "normalizedSignature": "functionbudgetPurchase15(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_b722e2638aa5366b9944e3d4d3b82809c2b12f6bcd9ecd88d9080041f385a71e"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_885a7c47c4d8b45ff314a1d626c2bc1ecb44612642dd83c3213ca7f226545833"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase7"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase7(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase7",
+          "assertions": [
+            {
+              "assertionId": "as_9a6c12c1026968357d471e8cd97195e3d68b4795fa118e2a23262149449de4bd",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase7",
+              "attributes": {
+                "name": "budgetPurchase7",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase7",
+                "normalizedSignature": "functionbudgetPurchase7(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_cbcc44456c71a6d356a2fdd5260345deb82781392e82a961bec5c716d7571927"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_918fa07be1942fed3f2fc5f8ab9c875c892fd4bb2dad1836766b9b0e6ed46901"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase12"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase12(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase12",
+          "assertions": [
+            {
+              "assertionId": "as_989b05ea7bf55efdab90ada87709806bbbcece8f9c5edbf1932e8b4e2074e10d",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase12",
+              "attributes": {
+                "name": "budgetPurchase12",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase12",
+                "normalizedSignature": "functionbudgetPurchase12(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_bd4d4bfe3b795c7f14c7b357a36d389b1977ab48c8266e1cddd2484f037d32d9"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        },
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+              "generation": "1",
+              "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+            },
+            "entityId": "ent_9fa93614d2d25c06d03257f02468dacb98d3dfbdf7bde7e195d5f6e5c6cdcfa4"
+          },
+          "kind": "symbol",
+          "scopeId": "app.web",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "repo.web"
+            },
+            {
+              "name": "path",
+              "value": "src/采购😀.ts"
+            },
+            {
+              "name": "scopeId",
+              "value": "app.web"
+            },
+            {
+              "name": "lexicalPath",
+              "value": "budgetPurchase23"
+            },
+            {
+              "name": "symbolKind",
+              "value": "function"
+            },
+            {
+              "name": "normalizedSignature",
+              "value": "functionbudgetPurchase23(value:string){returnvalue;}"
+            }
+          ],
+          "name": "budgetPurchase23",
+          "assertions": [
+            {
+              "assertionId": "as_31877be85d8d011863a34b6174f0ea321beb069e6fc76bada65ad283ea9e8e25",
+              "producerKey": "core.base",
+              "batchId": "bat_eeee312c6c05f93fa08fbfebfbb37766ddc8d1f67b958942cbeeba0b709b0cc3",
+              "basis": "observed",
+              "origin": "static",
+              "name": "budgetPurchase23",
+              "attributes": {
+                "name": "budgetPurchase23",
+                "symbolKind": "function",
+                "lexicalPath": "budgetPurchase23",
+                "normalizedSignature": "functionbudgetPurchase23(value:string){returnvalue;}",
+                "path": "src/采购😀.ts"
+              },
+              "evidenceRefs": [
+                "ev_139a39e7dcadf859472c92765d581626f6a3e4841d6fbd9d9cc5e9179317a6d4"
+              ]
+            }
+          ],
+          "matchReason": "substring",
+          "exactRank": 2,
+          "bm25": -3.789659195092379e-6,
+          "projection": "entity"
+        }
+      ],
+      "fields": null,
+      "candidateSetComplete": true
+    },
+    "sourceReferences": [
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_10f0dbd57d6a0f9b0625e8de49ae82f9232a25065695f43ccf4e7f3075ad224d",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 601,
+        "endByte": 616
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_139a39e7dcadf859472c92765d581626f6a3e4841d6fbd9d9cc5e9179317a6d4",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1524,
+        "endByte": 1540
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_29a7c8db9cad80ba70781b265e0f364504f4911579cdb1dfa1276c61ff2a6bd7",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 406,
+        "endByte": 421
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_4208ba2310ed0d4e4736cba9dadde056f65ae140e96f46cfcf22517e0b35c6e0",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1128,
+        "endByte": 1144
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_427b1b73de2f6b63f9cd060b6049f8474c95c2a5b5329239da51b041d56576bb",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 16,
+        "endByte": 31
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_6474ad8591e7e294c8928ed234a49840c5738aecf792a9401d8d9654c403abd2",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 732,
+        "endByte": 748
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_908d6ae4b728bcc5914e391431bc213ec41997f12d927944774b2f288506ad56",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1392,
+        "endByte": 1408
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_92090a1dbce381daad18a217753d37218e9e12ab65d72ecad0cde473ea106b7d",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1656,
+        "endByte": 1672
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_92dd9f71014471f0552bba347a094a9bff26cf5ce1177844b7ed06805d928ec8",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 276,
+        "endByte": 291
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_9d61a26a27fc858da1e9e2811afa807c47ad12d5441c299103db0d6fc5f55727",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 536,
+        "endByte": 551
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_a9d05cab8a6c5d0f3464903f45ac7bf9516c95a8e7c1919f4f77b82bfc65dde0",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 81,
+        "endByte": 96
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_adadef4178765a6ae01273ad6901c70f05de7dd7a9e4d8956b24d3b553aa67f6",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1194,
+        "endByte": 1210
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_b722e2638aa5366b9944e3d4d3b82809c2b12f6bcd9ecd88d9080041f385a71e",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 996,
+        "endByte": 1012
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_b88064750d109ced95e1383f1281032ac5a0adce40e635ed8c8bd1961d34ebe4",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1260,
+        "endByte": 1276
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_bd4d4bfe3b795c7f14c7b357a36d389b1977ab48c8266e1cddd2484f037d32d9",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 798,
+        "endByte": 814
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_bf5b19d4166ff1c4edb9cec727b024fbb969e913dfbd8d2a6da453dc36a41448",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1722,
+        "endByte": 1738
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_cbcc44456c71a6d356a2fdd5260345deb82781392e82a961bec5c716d7571927",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 471,
+        "endByte": 486
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_e22c762153dabba3825f889d19c5b14a5abdfd3648f4704df31edf887cc13d7b",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 930,
+        "endByte": 946
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_ed56bd8cff353dcbe21d6c3034c1ae8fbca9cd9bee3fea60fbfdcec39355cbe5",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 211,
+        "endByte": 226
+      },
+      {
+        "snapshot": {
+          "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+          "generation": "1",
+          "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+        },
+        "evidenceId": "ev_f812e4409467da171643d9ee3e0d908908f73bf9cb22956c51e15a311b5bb598",
+        "sourceId": "src_9ffc32fac3794321f0df289aef5f2e81bbaba7722a78860113aba9d0eeb926c6",
+        "contentHash": "1e407ab8dad65a65cf80bd3e45b01c060716abd8a16b8c15d7e4ff44023b9147",
+        "startByte": 1920,
+        "endByte": 1936
+      }
+    ],
+    "gaps": [],
+    "completeness": {
+      "freshness": "unknown",
+      "diskChecked": false,
+      "checkedAt": "now",
+      "coverage": "complete",
+      "candidateSetsComplete": true,
+      "truncated": true,
+      "reasons": [
+        "source freshness is Unknown; no index refresh was performed",
+        "historical assertions explicitly requested",
+        "query budget or page boundary reached"
+      ]
+    },
+    "budgetUsed": {
+      "entities": 20,
+      "relations": 0,
+      "visited": 38,
+      "elapsedMs": 8,
+      "responseChars": 36367
+    },
+    "continuation": "7b2276657273696f6e223a312c22736e617073686f74223a7b22696e6465784964223a2266636165636630612d646633362d343733622d383332622d313262653566376232343664222c2267656e65726174696f6e223a2231222c22736f75726365536e617073686f744964223a22736e61705f33663764373362356361323637656339633430323038613365636166356231626239316338633562643832613165313763386362353061373730383433633435227d2c227265717565737448617368223a2265623531336336393263363539626664376264316265373065353039366363636239326635383865656531303632356631353037383634383030393765626661222c226c617374223a5b322c2d332e373839363539313935303932333739652d362c22656e745f39666139333631346432643235633036643033323537663032343638646163623938643364666264663762646537653139356435663665356336636463666134222c2261735f33313837376265383564386430313138363361333462363137346630656133323162656230363965366663373662616461363561643238336561396538653235225d7d",
+    "nextQueries": []
+  },
+  "zero": {
+    "protocolVersion": "1.0",
+    "requestId": "req_4e4befde-f6fe-4081-afc3-8102e4ae656f",
+    "snapshot": {
+      "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+      "generation": "1",
+      "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+    },
+    "status": "partial",
+    "data": {
+      "roots": [
+        {
+          "snapshot": {
+            "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+            "generation": "1",
+            "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+          },
+          "entityId": "ent_318aff3041b3630aa49f8b267e05012922bf36211784016dd8e231cc4a5dc761"
+        }
+      ],
+      "hops": [],
+      "entities": [],
+      "frontier": [
+        {
+          "snapshot": {
+            "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+            "generation": "1",
+            "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+          },
+          "entityId": "ent_318aff3041b3630aa49f8b267e05012922bf36211784016dd8e231cc4a5dc761"
+        }
+      ]
+    },
+    "sourceReferences": [],
+    "gaps": [],
+    "completeness": {
+      "freshness": "unknown",
+      "diskChecked": false,
+      "checkedAt": "now",
+      "coverage": "complete",
+      "candidateSetsComplete": true,
+      "truncated": true,
+      "reasons": [
+        "source freshness is Unknown; no index refresh was performed",
+        "query budget or page boundary reached"
+      ]
+    },
+    "budgetUsed": {
+      "entities": 0,
+      "relations": 0,
+      "visited": 0,
+      "elapsedMs": 3,
+      "responseChars": 1632
+    },
+    "nextQueries": [
+      {
+        "operation": "trace",
+        "arguments": {
+          "roots": [
+            {
+              "snapshot": {
+                "indexId": "fcaecf0a-df36-473b-832b-12be5f7b246d",
+                "generation": "1",
+                "sourceSnapshotId": "snap_3f7d73b5ca267ec9c40208a3ecaf5b1bb91c8c5bd82a1e17c8cb50a770843c45"
+              },
+              "entityId": "ent_318aff3041b3630aa49f8b267e05012922bf36211784016dd8e231cc4a5dc761"
+            }
+          ],
+          "direction": "out",
+          "maxDepth": 1,
+          "filters": null
+        },
+        "reason": "narrow the traversal from a returned frontier"
+      }
+    ]
+  }
+}

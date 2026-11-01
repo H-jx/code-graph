@@ -1,0 +1,22 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.24s
+     Running tests/lifecycle.rs (/root/.cache/project-knowledge-linux-probe/target/debug/deps/lifecycle-d9813bc6340822d3)
+
+running 15 tests
+test activation_auto_activate_false_keeps_validated_candidate ... ok
+test activation_concurrent_candidates_and_readers_never_mix_versions ... ok
+test activation_current_sources_artifacts_and_project_lock_are_rechecked ... ok
+test activation_discovery_deduplicates_and_auto_load_false_skips_directories ... ok
+test activation_failure_points_recover_to_complete_old_or_new_state ... ok
+test activation_includes_affected_active_link_from_other_plugin ... ok
+test activation_lock_release_does_not_wait_for_a_forked_descriptor_to_close ... ok
+test activation_new_candidate_group_validates_and_switches_together ... ok
+test activation_publish_io_failure_preserves_active_state_and_published_versions_are_immutable ... ok
+test activation_publish_real_filesystem_full_preserves_old_snapshot_and_retries ... ignored, requires isolated bounded full filesystem; linux-probe/full-filesystem.sh
+test activation_real_host_kill_inside_c_preserves_old_snapshot_and_retries ... ok
+test activation_rollback_runs_new_batches_and_tampering_persists_stale ... ok
+test activation_source_change_is_persistently_stale_even_when_content_is_restored ... ok
+test activation_sqlite_full_rolls_back_c_and_can_retry_after_capacity_returns ... ok
+test activation_submit_validate_publish_and_atomic_version_switch ... ok
+
+test result: ok. 14 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 8.41s
+

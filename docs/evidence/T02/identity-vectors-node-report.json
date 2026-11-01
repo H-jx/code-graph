@@ -1,6 +1,6 @@
-﻿{
-  "total": 18,
-  "passed": 18,
+{
+  "total": 22,
+  "passed": 22,
   "failed": 0,
   "results": [
     {
@@ -110,7 +110,30 @@
       "ok": true,
       "expected": "ev_c60ca8fe3eee812d2f6e88cd48684a1d14275df1350434082d242415d1984372",
       "actual": "ev_c60ca8fe3eee812d2f6e88cd48684a1d14275df1350434082d242415d1984372"
+    },
+    {
+      "id": "extension-absent",
+      "ok": true,
+      "expected": "ent_bbcfaa3871f1443237bd07c8856371715e549f21963f0e1d36612c5fc52360d5",
+      "actual": "ent_bbcfaa3871f1443237bd07c8856371715e549f21963f0e1d36612c5fc52360d5"
+    },
+    {
+      "id": "extension-empty",
+      "ok": true,
+      "expected": "ent_75e1843fc1231def4278fa58d15a327c86f41b2e724a9f87fbfa1f113d8ffee3",
+      "actual": "ent_75e1843fc1231def4278fa58d15a327c86f41b2e724a9f87fbfa1f113d8ffee3"
+    },
+    {
+      "id": "extension-relation",
+      "ok": true,
+      "expected": "rel_5b8d9c4b2e628b514035400b5a30995300c48a681cebe64e5ef50d69d50e5d85",
+      "actual": "rel_5b8d9c4b2e628b514035400b5a30995300c48a681cebe64e5ef50d69d50e5d85"
+    },
+    {
+      "id": "unicode-object-key-order",
+      "ok": true,
+      "expected": "rel_04bb4c1d50ac5fa57f2a3ef10a9bf8ca007ccee59b0810bfa8edf70d70526e4e",
+      "actual": "rel_04bb4c1d50ac5fa57f2a3ef10a9bf8ca007ccee59b0810bfa8edf70d70526e4e"
     }
   ]
 }
-

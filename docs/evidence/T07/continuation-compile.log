@@ -1,0 +1,9 @@
+    Checking tempfile v3.27.0
+    Checking console v0.16.6
+    Checking ignore v0.4.33
+    Checking handlebars v6.4.4
+    Checking rusty-fork v0.3.1
+    Checking insta v1.49.0
+    Checking proptest v1.12.0
+    Checking project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 11.38s

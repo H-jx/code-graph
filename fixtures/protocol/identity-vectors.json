@@ -454,6 +454,75 @@
       "endByte": 48,
       "role": "definition",
       "expectedId": "ev_c60ca8fe3eee812d2f6e88cd48684a1d14275df1350434082d242415d1984372"
+    },
+    {
+      "id": "extension-absent",
+      "note": "扩展身份显式包含槽位名和存在包装；空值不等于缺省",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "x.example.invoice",
+      "slots": [
+        {
+          "name": "scopeId",
+          "value": "app.采购"
+        },
+        {
+          "name": "semanticKey",
+          "value": "invoice😀"
+        },
+        {
+          "name": "catalog"
+        }
+      ],
+      "expectedId": "ent_bbcfaa3871f1443237bd07c8856371715e549f21963f0e1d36612c5fc52360d5"
+    },
+    {
+      "id": "extension-empty",
+      "note": "扩展身份显式包含槽位名和存在包装；空值不等于缺省",
+      "type": "entity",
+      "projectId": "erp",
+      "kind": "x.example.invoice",
+      "slots": [
+        {
+          "name": "scopeId",
+          "value": "app.采购"
+        },
+        {
+          "name": "semanticKey",
+          "value": "invoice😀"
+        },
+        {
+          "name": "catalog",
+          "value": ""
+        }
+      ],
+      "expectedId": "ent_75e1843fc1231def4278fa58d15a327c86f41b2e724a9f87fbfa1f113d8ffee3"
+    },
+    {
+      "id": "extension-relation",
+      "type": "relation",
+      "projectId": "erp",
+      "kind": "x.example.binds",
+      "fromId": "ent_a",
+      "toId": "ent_b",
+      "qualifiers": {
+        "role": "采购"
+      },
+      "expectedId": "rel_5b8d9c4b2e628b514035400b5a30995300c48a681cebe64e5ef50d69d50e5d85"
+    },
+    {
+      "id": "unicode-object-key-order",
+      "note": "对象键 UTF-8 字节序；BMP 私用区先于 emoji，与 JS 默认 UTF-16 排序不同",
+      "type": "relation",
+      "projectId": "erp",
+      "kind": "x.example.binds",
+      "fromId": "ent_a",
+      "toId": "ent_b",
+      "qualifiers": {
+        "😀": "astral",
+        "": "BMP"
+      },
+      "expectedId": "rel_04bb4c1d50ac5fa57f2a3ef10a9bf8ca007ccee59b0810bfa8edf70d70526e4e"
     }
   ],
   "generatedBy": "scripts/verify-vectors.mjs"

@@ -1,0 +1,276 @@
+{
+  "executed": [
+    "smoke.plugin:extract",
+    "smoke.plugin:link"
+  ],
+  "invalidated": [
+    "(core.base,r)",
+    "(smoke.plugin,extract,smoke)",
+    "(smoke.plugin,link,smoke)"
+  ],
+  "incremental": {
+    "entities": [
+      [
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "file",
+        "repo.r",
+        "b.ts",
+        "{\"path\":\"b.ts\",\"repositoryId\":\"r\",\"byteLength\":18,\"language\":\"typescript\"}"
+      ],
+      [
+        "ent_860f45e254596b189ff5f83b21c2b45bb77d8bb54c2f3dedad4add2b38da6e93",
+        "route",
+        "repo.r",
+        "// ROUTE:/renamed",
+        "{\"text\":\"// ROUTE:/renamed\"}"
+      ]
+    ],
+    "relations": [
+      [
+        "rel_c80d8a15312f34c955402ee9fd51cbaf1daad600bff2ab294923362ee6880401",
+        "contains",
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "ent_860f45e254596b189ff5f83b21c2b45bb77d8bb54c2f3dedad4add2b38da6e93",
+        "confirmed"
+      ]
+    ],
+    "search": [
+      [
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "repo.r",
+        null,
+        "b.ts\n// ROUTE:/renamed\n",
+        "ROUTE b renamed route ts",
+        "source"
+      ],
+      [
+        "ent_860f45e254596b189ff5f83b21c2b45bb77d8bb54c2f3dedad4add2b38da6e93",
+        "repo.r",
+        "/renamed",
+        "// ROUTE:/renamed\nroute\ntext=// ROUTE:/renamed",
+        "ROUTE renamed route text",
+        "entity"
+      ]
+    ],
+    "evidence": [
+      [
+        "src_d032b82da0a3f3cccb73b022d043b7f85f48cabb72dbaa6f5cd131875a7ce6af",
+        "f7ea4609893703375d2c835f1e5abb8cfe0aae28b826e810c1530cc4c1fb80c1",
+        0,
+        1,
+        1,
+        1,
+        "binding"
+      ],
+      [
+        "src_d032b82da0a3f3cccb73b022d043b7f85f48cabb72dbaa6f5cd131875a7ce6af",
+        "f7ea4609893703375d2c835f1e5abb8cfe0aae28b826e810c1530cc4c1fb80c1",
+        0,
+        1,
+        1,
+        1,
+        "file"
+      ]
+    ],
+    "sources": [
+      [
+        "r",
+        "b.ts",
+        "f7ea4609893703375d2c835f1e5abb8cfe0aae28b826e810c1530cc4c1fb80c1",
+        "selected"
+      ]
+    ],
+    "coverage": [
+      [
+        "api",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "base",
+        "repo.r",
+        "r",
+        "complete",
+        "{\"entities\":1,\"relations\":0,\"files\":1}",
+        "[]"
+      ],
+      [
+        "database",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "frontend",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "report",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "routes",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "workflow",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ]
+    ]
+  },
+  "clean": {
+    "entities": [
+      [
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "file",
+        "repo.r",
+        "b.ts",
+        "{\"path\":\"b.ts\",\"repositoryId\":\"r\",\"byteLength\":18,\"language\":\"typescript\"}"
+      ],
+      [
+        "ent_860f45e254596b189ff5f83b21c2b45bb77d8bb54c2f3dedad4add2b38da6e93",
+        "route",
+        "repo.r",
+        "// ROUTE:/renamed",
+        "{\"text\":\"// ROUTE:/renamed\"}"
+      ]
+    ],
+    "relations": [
+      [
+        "rel_c80d8a15312f34c955402ee9fd51cbaf1daad600bff2ab294923362ee6880401",
+        "contains",
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "ent_860f45e254596b189ff5f83b21c2b45bb77d8bb54c2f3dedad4add2b38da6e93",
+        "confirmed"
+      ]
+    ],
+    "search": [
+      [
+        "ent_649f128819a17ed38e69f145b64f757f9900a80c91e32eee4305a81fd770ffa0",
+        "repo.r",
+        null,
+        "b.ts\n// ROUTE:/renamed\n",
+        "ROUTE b renamed route ts",
+        "source"
+      ],
+      [
+        "ent_860f45e254596b189ff5f83b21c2b45bb77d8bb54c2f3dedad4add2b38da6e93",
+        "repo.r",
+        "/renamed",
+        "// ROUTE:/renamed\nroute\ntext=// ROUTE:/renamed",
+        "ROUTE renamed route text",
+        "entity"
+      ]
+    ],
+    "evidence": [
+      [
+        "src_d032b82da0a3f3cccb73b022d043b7f85f48cabb72dbaa6f5cd131875a7ce6af",
+        "f7ea4609893703375d2c835f1e5abb8cfe0aae28b826e810c1530cc4c1fb80c1",
+        0,
+        1,
+        1,
+        1,
+        "binding"
+      ],
+      [
+        "src_d032b82da0a3f3cccb73b022d043b7f85f48cabb72dbaa6f5cd131875a7ce6af",
+        "f7ea4609893703375d2c835f1e5abb8cfe0aae28b826e810c1530cc4c1fb80c1",
+        0,
+        1,
+        1,
+        1,
+        "file"
+      ]
+    ],
+    "sources": [
+      [
+        "r",
+        "b.ts",
+        "f7ea4609893703375d2c835f1e5abb8cfe0aae28b826e810c1530cc4c1fb80c1",
+        "selected"
+      ]
+    ],
+    "coverage": [
+      [
+        "api",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "base",
+        "repo.r",
+        "r",
+        "complete",
+        "{\"entities\":1,\"relations\":0,\"files\":1}",
+        "[]"
+      ],
+      [
+        "database",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "frontend",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "report",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "routes",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ],
+      [
+        "workflow",
+        "repo.r",
+        "r",
+        "not_configured",
+        "{}",
+        "[]"
+      ]
+    ]
+  },
+  "equal": true,
+  "modelRequests": 0,
+  "modelCounterBasis": "Core has no Agent/Rig dependency and constructs no model client"
+}

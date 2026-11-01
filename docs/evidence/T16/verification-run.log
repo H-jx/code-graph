@@ -1,0 +1,37 @@
+Running cargo test -p project-knowledge-core --test business_scenarios --locked -j 1 -- --test-threads=1
+{"command": ["cargo", "test", "-p", "project-knowledge-core", "--test", "business_scenarios", "--locked", "-j", "1", "--", "--test-threads=1"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/business-regression.log", "logSha256": "91173c4d6ede5cb7197d6e76e1ad5e5bcdcedc23e7f0eb38b4bb81c2cbb8e26f"}
+Running cargo test -p project-knowledge-core --test indexing --locked -j 1 -- --test-threads=1
+{"command": ["cargo", "test", "-p", "project-knowledge-core", "--test", "indexing", "--locked", "-j", "1", "--", "--test-threads=1"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/indexing-final.log", "logSha256": "49a7ab142494bf7222a44058659c4dcdff2408dedc9c65c4085bef4cd496e5b5"}
+Running cargo test -p project-knowledge-agent -p project-knowledge-cli --locked -j 1 -- --test-threads=1
+{"command": ["cargo", "test", "-p", "project-knowledge-agent", "-p", "project-knowledge-cli", "--locked", "-j", "1", "--", "--test-threads=1"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/agent-cli-regression.log", "logSha256": "32715a284b5546dea785d5ea3404c24e4c2cd1328d6f5ab05691ad232a673a0e"}
+Running cargo clippy --workspace --all-targets --locked -j 1 -- -D warnings
+{"command": ["cargo", "clippy", "--workspace", "--all-targets", "--locked", "-j", "1", "--", "-D", "warnings"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/clippy.log", "logSha256": "0351e90eb9cb06b1e1cfca3542c58ce048b9b1656e0ee9009fa0988a0d4b1442"}
+Running cargo fmt --all -- --check
+{"command": ["cargo", "fmt", "--all", "--", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/fmt.log", "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+Running cargo run -p xtask --locked -- export-contracts --check
+{"command": ["cargo", "run", "-p", "xtask", "--locked", "--", "export-contracts", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/contracts.log", "logSha256": "536ec9f792bb641e9b892caa172ef00bcb4cbe8c9025cc014b551b624c5f87b9"}
+Running node scripts/generate-types.mjs --check
+{"command": ["node", "scripts/generate-types.mjs", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/types.log", "logSha256": "ffd79024bf74c3f0e1a4a224e1b3a1783273115da81cc2ac0624af9984867368"}
+Running node scripts/verify-contract-types.mjs
+{"command": ["node", "scripts/verify-contract-types.mjs"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/type-boundaries.log", "logSha256": "ad333cbf26840bfb1904ed96b21df370ec69e86830df247dc15bc2799c31e7d5"}
+Running powershell -NoProfile -Command pnpm run typecheck
+{"command": ["powershell", "-NoProfile", "-Command", "pnpm run typecheck"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/typecheck.log", "logSha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"}
+Running node scripts/package-example-collectors.mjs --check
+{"command": ["node", "scripts/package-example-collectors.mjs", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/package-frontend.log", "logSha256": "22fc22e9133da901200b1c1476b4f2f194f03a9d8047c79a92422591af2779e3"}
+Running node scripts/package-api-examples.mjs --check
+{"command": ["node", "scripts/package-api-examples.mjs", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/package-api.log", "logSha256": "9cfd9460fbca0bbc9aa1dd1ee393cb5cff1af5408be5aa9b4500aac0a89749b7"}
+Running node scripts/package-database-examples.mjs --check
+{"command": ["node", "scripts/package-database-examples.mjs", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/package-database.log", "logSha256": "0311d80deb1f894622252871a0cd344a30e14b8811cb03211226076b9229d3ed"}
+Running node scripts/package-link-examples.mjs --check
+{"command": ["node", "scripts/package-link-examples.mjs", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/package-link.log", "logSha256": "6f0b3496e6b0a7707cb0d3815a91256843ae102d3c17aaa072b8d4ac36efa241"}
+Running node scripts/package-semantic-examples.mjs --check
+{"command": ["node", "scripts/package-semantic-examples.mjs", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/package-semantic.log", "logSha256": "6813db820b0c4010fec22bee10c7f514520691ecf8c3601012be8c10548772a8"}
+Running python scripts/verify-truth.py
+{"command": ["python", "scripts/verify-truth.py"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/truth-final.log", "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"}
+Running node scripts/audit-source.mjs --output E:\Project\my-project\code-graph\docs\evidence\T16\source-audit.json
+{"command": ["node", "scripts/audit-source.mjs", "--output", "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T16\\source-audit.json"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/source-audit.log", "logSha256": "df25622135b39e87faf345818df3a1aa8759de34cbd922d00c5f923791965a1c"}
+Running node scripts/verify-plan.mjs --plan ../plan/NEW-PROJECT-LONG-TASK.md
+{"command": ["node", "scripts/verify-plan.mjs", "--plan", "../plan/NEW-PROJECT-LONG-TASK.md"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/plan.log", "logSha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"}
+Running git diff --check
+{"command": ["git", "diff", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T16/diff.log", "logSha256": "0b3fc84b7e316f9e83ae5e1040572c2e86fcdf3bac40d45100201ea872530062"}
+T16 final verification complete

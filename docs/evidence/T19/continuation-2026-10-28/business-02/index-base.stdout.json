@@ -1,0 +1,67 @@
+{
+  "mode": "base",
+  "configPath": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-02\\project\\.project-knowledge\\project.json",
+  "indexDatabase": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-02\\project\\.project-knowledge\\index.sqlite",
+  "indexId": "e60771e5-ba8e-4014-9ae6-87680a56c918",
+  "generation": "1",
+  "sourceSnapshotId": "snap_291eac064736e01e173b2c879658e11d81d0cae1b0b324855098aff2ec5848ab",
+  "sourceSetHash": "a9ba1d9e053f619c72b3f62884bd5e3c7b233772f0022cf900012036b674f01f",
+  "entities": 1,
+  "relations": 0,
+  "searchDocuments": 1,
+  "gaps": 0,
+  "invalidated": [],
+  "executed": [],
+  "completedAt": "2026-10-28T15:37:57Z",
+  "coverage": {
+    "base@repo.business": {
+      "capability": "base",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "complete",
+      "gapIds": []
+    },
+    "routes@repo.business": {
+      "capability": "routes",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "frontend@repo.business": {
+      "capability": "frontend",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "api@repo.business": {
+      "capability": "api",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "database@repo.business": {
+      "capability": "database",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "workflow@repo.business": {
+      "capability": "workflow",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "report@repo.business": {
+      "capability": "report",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured",
+      "gapIds": []
+    }
+  }
+}

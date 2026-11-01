@@ -1,0 +1,19 @@
+
+> project-knowledge@0.1.0 test:mcp E:\Project\my-project\code-graph
+> pnpm --filter @project-knowledge/mcp run test
+
+
+> @project-knowledge/mcp@0.1.0 test E:\Project\my-project\code-graph\packages\mcp
+> node --test test/*.test.mjs
+
+✔ official stdio clients negotiate both eras; schemas, all queries, resources, pagination and readonly isolation (1561.2246ms)
+✔ schema works without an index; missing index calls never create a database (507.9997ms)
+✔ explicit maintenance lifecycle, cancel and disconnect stop real plugin descendants (3421.5254ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5701.2244

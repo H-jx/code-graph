@@ -1,0 +1,22 @@
+Running node scripts/package-link-examples.mjs --check
+{"command": ["node", "scripts/package-link-examples.mjs", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T13/artifacts.log", "logSha256": "6f0b3496e6b0a7707cb0d3815a91256843ae102d3c17aaa072b8d4ac36efa241"}
+Running cargo test --workspace --locked -j 1 -- --test-threads=1
+{"command": ["cargo", "test", "--workspace", "--locked", "-j", "1", "--", "--test-threads=1"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T13/workspace-tests.log", "logSha256": "2a4504e4566504cc30d7fbb8d2482af87f818d4a3cd409617d54ea786ca2922c"}
+Running cargo clippy --workspace --all-targets --locked -j 1 -- -D warnings
+{"command": ["cargo", "clippy", "--workspace", "--all-targets", "--locked", "-j", "1", "--", "-D", "warnings"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T13/clippy.log", "logSha256": "602a3c4ea5fe0971b279837a6c9916fb74e85bddc52b77f79370e7a3f4d857e3"}
+Running cargo fmt --all -- --check
+{"command": ["cargo", "fmt", "--all", "--", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T13/fmt.log", "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+Running cargo run -p xtask --locked -- export-contracts --check
+{"command": ["cargo", "run", "-p", "xtask", "--locked", "--", "export-contracts", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T13/contracts.log", "logSha256": "a93e7ae637fb3570865caf0598f861a5411354eb6d78ffac8b91588a44f380c2"}
+Running node scripts/generate-types.mjs --check
+{"command": ["node", "scripts/generate-types.mjs", "--check"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T13/types.log", "logSha256": "ffd79024bf74c3f0e1a4a224e1b3a1783273115da81cc2ac0624af9984867368"}
+Running node scripts/verify-contract-types.mjs
+{"command": ["node", "scripts/verify-contract-types.mjs"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T13/type-boundaries.log", "logSha256": "8da70dbc9bb1ddcfa33365795b959aef29d9f2db35720bd41fda12da62aa4c12"}
+Running powershell -NoProfile -Command pnpm run typecheck
+{"command": ["powershell", "-NoProfile", "-Command", "pnpm run typecheck"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T13/typecheck.log", "logSha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"}
+Running python scripts/verify-truth.py
+{"command": ["python", "scripts/verify-truth.py"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T13/truth.log", "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"}
+Running node scripts/verify-plan.mjs --plan ../plan/NEW-PROJECT-LONG-TASK.md
+{"command": ["node", "scripts/verify-plan.mjs", "--plan", "../plan/NEW-PROJECT-LONG-TASK.md"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T13/plan.log", "logSha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"}
+Running node scripts/audit-source.mjs --output E:\Project\my-project\code-graph\docs\evidence\T13\source-audit.json
+{"command": ["node", "scripts/audit-source.mjs", "--output", "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T13\\source-audit.json"], "cwd": "E:\\Project\\my-project\\code-graph", "exitCode": 0, "log": "docs/evidence/T13/source-audit.log", "logSha256": "258702c689babd14c6a071b793bbe73ddd611510f33c375fef5baa16b2f7712a"}

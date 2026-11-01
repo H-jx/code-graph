@@ -1,0 +1,6 @@
+{
+  "cases/case_documented_workflow.json": "42d2c491fed1d6af442e43ca82d09af64715cec48b7f963e432eeda8d4141109",
+  "fixtures/case_documented_workflow.input.json": "0b848364424cdc11db5a5edcfc4854c49fa432cdaf3e8365d84729d850284f14",
+  "identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+  "src/collect.mjs": "1751bde6871ff6f771b980edfb5e32e9a29f0619b9a69c3c7c3b5c0ee61d9d97"
+}

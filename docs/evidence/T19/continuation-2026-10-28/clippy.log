@@ -1,0 +1,25 @@
+    Checking project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+error: in an `if` condition, avoid complex blocks or closures with blocks; instead, move the block or closure higher and bind it with a `let`
+   --> crates\agent\src\runner.rs:680:12
+    |
+680 |       } else if {
+    |  ____________^
+681 | |         let state = state.lock().expect("run state");
+682 | |         state.progress.activation.is_some() && !state.progress.with_skill
+683 | |     } {
+    | |_____^
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#blocks_in_conditions
+    = note: `-D clippy::blocks-in-conditions` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::blocks_in_conditions)]`
+help: try
+    |
+680 ~     } else let res = {
+681 +         let state = state.lock().expect("run state");
+682 +         state.progress.activation.is_some() && !state.progress.with_skill
+683 ~     }; if res {
+    |
+
+error: could not compile `project-knowledge-agent` (lib) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `project-knowledge-agent` (lib test) due to 1 previous error

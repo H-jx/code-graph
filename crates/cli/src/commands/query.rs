@@ -3,6 +3,7 @@
 //! `--request <json-file>` 接受完整的 `QueryRequest`；
 //! `--operation search --text ...` 是便捷形式，转换为同一个 DTO。
 
+use std::io::Read;
 use std::path::PathBuf;
 
 use clap::Args;
@@ -72,12 +73,21 @@ pub fn run(args: QueryArgs) -> Result<Exit, CoreError> {
 /// 从请求文件或便捷参数构造统一 DTO。
 fn build_request(args: &QueryArgs) -> Result<QueryRequest, CoreError> {
     if let Some(path) = &args.request {
-        let raw = std::fs::read(path).map_err(|error| {
-            CoreError::new(
+        let mut raw = Vec::new();
+        std::fs::File::open(path)
+            .and_then(|file| file.take(1_048_577).read_to_end(&mut raw))
+            .map_err(|error| {
+                CoreError::new(
+                    project_knowledge_core::contract::error::codes::INVALID_REQUEST,
+                    format!("cannot read request file `{}`: {error}", path.display()),
+                )
+            })?;
+        if raw.len() > 1_048_576 {
+            return Err(CoreError::new(
                 project_knowledge_core::contract::error::codes::INVALID_REQUEST,
-                format!("cannot read request file `{}`: {error}", path.display()),
-            )
-        })?;
+                "query request exceeds 1 MiB",
+            ));
+        }
         let text = String::from_utf8(raw).map_err(|error| {
             CoreError::new(
                 project_knowledge_core::contract::error::codes::INVALID_REQUEST,

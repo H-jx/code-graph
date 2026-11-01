@@ -1,0 +1,22 @@
+{
+  "error": {
+    "code": "EVIDENCE_INVALID",
+    "message": "collector output has 2 invalid field(s)",
+    "retryable": false,
+    "issues": [
+      {
+        "code": "EVIDENCE_INVALID",
+        "instancePath": "/evidence/0",
+        "expected": "24",
+        "actual": "999999",
+        "repairHint": "证据字节区间超出来源长度"
+      },
+      {
+        "code": "REFERENCE_MISSING",
+        "instancePath": "/relations/0",
+        "actual": "ev_0981e9ebfac029b4fa12c29ee2193c2ee853be016686c2d2b69a8ee5910039a4",
+        "repairHint": "证据引用必须指向本次输出中的证据"
+      }
+    ]
+  }
+}

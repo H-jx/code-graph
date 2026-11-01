@@ -1,0 +1,247 @@
+{
+  "date": "2026-10-28 Asia/Shanghai",
+  "task": "T15",
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "indexing",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T15/indexing.log",
+      "logSha256": "19070bd198e77c301731b72050f14a7c82e5651c6a3c21f81ea267fe7cff3f7e"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-agent",
+        "-p",
+        "project-knowledge-cli",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T15/agent-cli.log",
+      "logSha256": "f7fb59d77313e1f191fde05ea75a3fd0abee64e3a6de36b7e25b35e1ae1f28e1"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "collectors",
+        "validation_registered_extensions_stage_commit_search_and_reexport",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T15/projection.log",
+      "logSha256": "0b5511b8a21257427f466a20e43ab81e448e55a3088654acd1a4c8204c3ea41a"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T15/clippy.log",
+      "logSha256": "e72439ffa16aa5da2a1c2f137a50984b92c915b8f3c9a3d046b9abb8dc0e9db0"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T15/fmt.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "-p",
+        "xtask",
+        "--locked",
+        "--",
+        "export-contracts",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T15/contracts.log",
+      "logSha256": "177a3ab14d2ce0e1c10b02f1006b9cb365e011470ff38e961ea8333810aee15b"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/generate-types.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T15/types.log",
+      "logSha256": "ffd79024bf74c3f0e1a4a224e1b3a1783273115da81cc2ac0624af9984867368"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-contract-types.mjs"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T15/type-boundaries.log",
+      "logSha256": "ad333cbf26840bfb1904ed96b21df370ec69e86830df247dc15bc2799c31e7d5"
+    },
+    {
+      "command": [
+        "powershell",
+        "-NoProfile",
+        "-Command",
+        "pnpm run typecheck"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T15/typecheck.log",
+      "logSha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-truth.py"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T15/truth.log",
+      "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/audit-source.mjs",
+        "--output",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T15\\source-audit.json"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T15/source-audit.log",
+      "logSha256": "7164ae23991a5bd9a79831d22b691068ead39b23ab99e77a52787885417f0884"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-plan.mjs",
+        "--plan",
+        "../plan/NEW-PROJECT-LONG-TASK.md"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T15/plan.log",
+      "logSha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T15/diff.log",
+      "logSha256": "0b3fc84b7e316f9e83ae5e1040572c2e86fcdf3bac40d45100201ea872530062"
+    }
+  ],
+  "fileHashes": {
+    "Cargo.lock": "37ac843abb2c07134ae3a0a38268c197e8bbe21686881f122969555771b54aee",
+    "Cargo.toml": "7e1fcb25d6a1b5591f627e9ea47420f6eac17efceee304e20b1d2726303f1d83",
+    "crates/agent/src/tools.rs": "167a4f11aa86c4a926c400661a9fed47d354a92529e115e68b78ae3a850232be",
+    "crates/cli/src/commands/query.rs": "65e7a8b1df0360769e504a27165c022f7d7c78a5164779e654c029fc445716d5",
+    "crates/core/src/codemap/mod.rs": "e77e4bf6275a77ed95976e27c1319ec48e42d91bfd3ae45bb28c0223767e3f48",
+    "crates/core/src/codemap/rank.rs": "39c520e472acc1f1e1ce501f9acc0c381afe3e14f598d1b6cc013b1efd11856c",
+    "crates/core/src/codemap/render.rs": "a13978568ac53bd0654a35f7b38d9b5fafa98a627d0ae5974984db2c3f8a7d05",
+    "crates/core/src/contract/query.rs": "8a0fcc4f78260af0289254ab4c2b65cd66353f877afc9c1251b430c635874817",
+    "crates/core/src/graph/mod.rs": "818a6583e7aa300362e1b7c1220adac292aec75fdecbbe9e59050b6ddb0f479d",
+    "crates/core/src/graph/neighbors.rs": "4bbe0716dc095020ddbba0c3934cbffcbd5cd3063a1849d5c0c5cd654390daca",
+    "crates/core/src/graph/paths.rs": "a43e52c63b21132c32cad8e29220d353195edf57bd66aa707373383c9bb60004",
+    "crates/core/src/project/scan.rs": "88cef723b253e08ea018b97c493cac20611743bbbf4806a7f844774ce178553d",
+    "crates/core/src/query/feature.rs": "39605769ceb863bfb1aa7df33bda5a26cf7d2b76dac54eac00de94c9c4094d23",
+    "crates/core/src/query/generic.rs": "a9ea7855f9deb19d44a86cdf5edd0c196244266635cb5282ab242d82d282400f",
+    "crates/core/src/query/mod.rs": "acc4ff9d57bdef40f52ff245aa7d6cd627b060ade8f44eda48dc9f9291b58bb0",
+    "crates/core/src/query/page.rs": "ad186ee7355f086ddde2aea8a17b754cc27fa47a52d3319d970e1d4c50ac16d7",
+    "crates/core/src/query/report.rs": "5848193147ab52837806841e1eecd44bdb640544d727bdc5408ff3f69e6e190f",
+    "crates/core/src/query/runtime.rs": "0b231a96340f9780402117f6a002b6e23800e6bfa2ef45d55366345db45a9fa8",
+    "crates/core/src/query/workflow.rs": "b8744197793ed954e596af0b669e9e07a20b6592d1293d514c155cfb34e3d93b",
+    "crates/core/src/storage/database.rs": "66dc862c6d6cd21dd137c9cc8b9de1cea607356fc316753d5faa64f6c5e5e99f",
+    "crates/core/tests/indexing.rs": "01bccdb2d6a4a8c9b89991d0a05240a72c98200b7559aa1148df8113fcf7cc3b",
+    "crates/core/tests/support/queries.rs": "5766ac5515bcd383e175d47a3edab239bfbcd4fbcfa917ed96ae0dffb2d602e0",
+    "docs/evidence/T15/verify.py": "eebac1d62254ad214754dddbfe5fb91bc18aafa237be61bdca2f5529a4b06d24",
+    "docs/protocol.md": "aea11297d5471445595a83e1e01ab25440f8852e88057fd62edbed746d0fea50",
+    "docs/schema/contract.schema.json": "9ae20bf425d73f08840b95c189df8a18b01fd0cc00ad2c50216bf797110a1b66",
+    "docs/schema/protocol.json": "b1248d0dc75cc5cc184bef9a0c424e75251c8e431b22562ef4e0f2aeeb2e8b5e",
+    "packages/sdk/src/generated/contract.ts": "2cd51cdbee49411ac4af2a3719177b1a7b6d2c85c9a05209907d25a614163dc6",
+    "scripts/verify-contract-types.mjs": "18cd0556826fc34a10c7f7934de73e06f8947c56458eaeb3fd977fe90b0a5974"
+  },
+  "snapshotHashes": {
+    "search.json": "b0f4386302f1818967be1461a36f25e35109a7c6481f9b48173c4ab84a76752b",
+    "graph.json": "0a2aff721ebb5fb01d654a3892786a70951fc2d86a5871a4c697d78a0fe56fe5",
+    "boundaries.json": "6405600e21306c8d6447d077c2022ebec5ec3e358c0a57f063f71587627a2d65",
+    "evidence-reads.json": "8e75ef3a9c19bfe8509d933bfb385cfaba433763d59c5e3d792edfb50c9d7ce5"
+  },
+  "testSummaries": [
+    "test result: ok. 49 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.41s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 14.40s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.01s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.86s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 35 filtered out; finished in 0.76s"
+  ],
+  "baselineTruthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "orderedSearchCount": 30,
+  "orderedNeighborCount": 58,
+  "persistentTablesChanged": false,
+  "mainFileChanged": false,
+  "externalModelRequests": 0,
+  "businessDatabaseConnections": 0,
+  "limitations": [
+    "Windows x64 only; four-platform delivery remains T23",
+    "Full workspace business-plugin regression is preserved in earlier task evidence, not rerun here",
+    "Coverage describes the requested indexed scope; business scenario composition remains T16"
+  ]
+}

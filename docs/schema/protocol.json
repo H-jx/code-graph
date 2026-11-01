@@ -25,6 +25,9 @@
     "dataSource",
     "service"
   ],
+  "extensionDeclarations": "PluginManifest.extensions.entities/relations; own namespace; local bundled $defs only",
+  "extensionEntityIdentity": "[projectId,kind,[[slotName,[]|[value]],...]]",
+  "extensionNamePattern": "^x\\.[A-Za-z0-9_-]+(?:\\.[A-Za-z0-9_-]+)*\\.[A-Za-z][A-Za-z0-9_-]*$",
   "extensionsNamespace": "x.<pluginId>.<localName>",
   "protocolVersion": "1.0",
   "relationKinds": [

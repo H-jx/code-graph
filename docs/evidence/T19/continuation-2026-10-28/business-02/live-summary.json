@@ -1,0 +1,20 @@
+{
+  "status": "failed",
+  "runId": "agent_d90e3a63-f128-40c8-9f92-2e174b830221",
+  "modelTurns": 48,
+  "toolCalls": 51,
+  "cli": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\500d3752dda054869b6efbfc4e633fa896f000995e49509d27907874e102b23b\\project-knowledge.exe",
+  "cliSha256": "500d3752dda054869b6efbfc4e633fa896f000995e49509d27907874e102b23b",
+  "oracleSha256": "e4cfd1e8c91339782387d417a1ccb2f17824dff4e6f0761b12a588701fe21fb6",
+  "sourceHash": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+  "sourceHashes": {
+    "crates/agent/src/runner.rs": "22572727b83240b7a1d7da3c93744dbd36c6aa7b69a3cb81519fbee4c234757e",
+    "crates/agent/src/tools.rs": "290978bbcf8d41e58f2832822d1b04ddfcf4a49cb51b2492ac36f47640c6a84b",
+    "prompts/collector.md": "3086dd4e7b087c9f30726d127d23865bd335a687422580647655bfef70a81b49",
+    "prompts/investigate.md": "90f30e94f5355bbf91829c07ae29829a5b2f842575a93f3c901f9df67cba5c7a",
+    "prompts/knowledge.md": "781c16bd881839c041edeea2cd8ff410eb54e45d9f3a3a862a6ce05ffa292a5b",
+    "prompts/link.md": "0853f48ffeeaf1bea00ef77b6bd6ce5b4051861540f47b6b927c054316944601",
+    "prompts/repair.md": "52b07014e1d08653a9766c20823d0e5683b17e85de90162c1b0db6b09a5653dd",
+    "prompts/shared.md": "c6c9095151713a02b852453bc79fa564c2f361e36081d139b2490c96101e199c"
+  }
+}

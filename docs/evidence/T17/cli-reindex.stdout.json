@@ -1,0 +1,67 @@
+{
+  "mode": "base",
+  "configPath": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\project.json",
+  "indexDatabase": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\knowledge-cli-0viaxm_3\\repo\\.project-knowledge\\index.sqlite",
+  "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+  "generation": "2",
+  "sourceSnapshotId": "snap_d1ea5910bde9b38f18c42e1d6629bd918cfbeb277316decfca84a99b96a2cd19",
+  "sourceSetHash": "f7cb6100abaa31f332fd7daff89d16ec5bad66b273e523cd9d73a6531509f02e",
+  "entities": 1,
+  "relations": 0,
+  "searchDocuments": 1,
+  "gaps": 0,
+  "invalidated": [],
+  "executed": [],
+  "completedAt": "2026-10-28T14:16:33Z",
+  "coverage": {
+    "base@repo.main": {
+      "capability": "base",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "complete",
+      "gapIds": []
+    },
+    "routes@repo.main": {
+      "capability": "routes",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "frontend@repo.main": {
+      "capability": "frontend",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "api@repo.main": {
+      "capability": "api",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "database@repo.main": {
+      "capability": "database",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "workflow@repo.main": {
+      "capability": "workflow",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "report@repo.main": {
+      "capability": "report",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured",
+      "gapIds": []
+    }
+  }
+}

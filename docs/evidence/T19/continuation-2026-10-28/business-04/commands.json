@@ -1,0 +1,223 @@
+[
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\12dc232b24eb183c82cb85d55f18038505f108f56b76ff226ce98cdbe42d7ea6\\project-knowledge.exe",
+      "agent",
+      "configure",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--env-file",
+      "E:\\Project\\my-project\\code-graph\\.env",
+      "--max-turns",
+      "64",
+      "--max-tool-calls",
+      "100",
+      "--timeout-seconds",
+      "900",
+      "--max-input-chars",
+      "500000",
+      "--max-output-tokens",
+      "8000"
+    ],
+    "exitCode": 0,
+    "stdout": "configure.stdout.json",
+    "stderr": "configure.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\12dc232b24eb183c82cb85d55f18038505f108f56b76ff226ce98cdbe42d7ea6\\project-knowledge.exe",
+      "index",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--base"
+    ],
+    "exitCode": 0,
+    "stdout": "index-base.stdout.json",
+    "stderr": "index-base.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\12dc232b24eb183c82cb85d55f18038505f108f56b76ff226ce98cdbe42d7ea6\\project-knowledge.exe",
+      "agent",
+      "build",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--env-file",
+      "E:\\Project\\my-project\\code-graph\\.env",
+      "--focus",
+      "workflow",
+      "--with-skill",
+      "--goal",
+      "Investigate the current rules.md and create an independent source-driven Node workflow collector, then a complete source-cited Skill in this SAME run. Scope is the explicitly labelled audited acceptance model, never the original synes business. Core/SDK must not change. Call code-map {}, export-snapshot include [rules.md,flow.ts], read-source, import-conventions notes/sourceIds. Use at most five schema lookups to get output, case and relation kind=transitions_to. Use includeIdentityHelper=true, list identity.mjs in artifacts; the helper exports computeEntityId(projectId,kind,orderedSlots), computeRelationId(projectId,kind,from,to,qualifiers), computeEvidenceId(sourceId,hash,start,end,role). orderedSlots are {name,value} objects, never a dictionary. workflowState slots scopeId,workflowId,semanticKey; documentType slots scopeId,semanticKey. Scope comes from configSubset, project ID also; choose one stable workflowId for this document. Implement a SMALL text grammar for documented lines STATE -> STATE: trigger, guard. Recompute states, edges and exact trigger/guard text from EACH current source; also parse the documented Documents chain and its ordered key names, emitting documentType entities and relates_document edges with qualifiers.orderedKeys as those names. Preserve the source words rather than interpreting code. Use declared/static assertions with actual UTF-8 evidence. Do not turn the conflict variant sentence, logging order or /help into transitions. This collector need not parse TS/SQL or invent router or column bindings. Handle empty input/deleted source as successful empty replacement; never hard-code states/paths/conditions as output. Coverage capability workflow, sourceSetId from the input sourceSets, complete for the supported current declarations; sources missing should yield empty output. One extract stage with rules.md selector and at least one meaningful case requiring real computed entity IDs and a real relation ID. Core schema=identity kind=workflowState slots={scopeId,workflowId,semanticKey} computes entity IDs. Core schema=identity kind=transitions_to fromId=... toId=... qualifiers={trigger,guard} computes the relation ID for the SAME qualifier values your script emits. For transitions_to ONLY use qualifiers trigger and guard, NOT orderedKeys or workflowId. orderedKeys belongs only to relates_document in this sample. Case input is the exact exported CollectorInput with pluginId/version/stageId adjusted to the manifest. Write manifest, collector, case and input in a bundle, validate-plugin, repair only structured errors within budget. After activation CONTINUE export-topic-context topicId=purchase-workflow query=flow.ts view=search maxChars=120000. Import a MINIMAL TopicArtifact preserving the returned metadata and ALL gaps: one or two short claims, one cited Markdown line per claim. OMIT modelInfo entirely; it is optional. Each explanatory line has [[claim:id]], original evidenceIds from context.sourceReferences. Use basis=declared,origin=static for original document claims; no AI-inferred claims without required gaps. Then export-skill name=purchase-workflow. Do not stop at activation; finish only with a fresh complete Skill. IMPORTANT implementation constraints: keep the collector below 120 lines. Do not implement glob matching, framework logic, generic config validation or extra capabilities. Sources are ALREADY selected by the host. Output dependencies:[]; the Core records and validates host source/sourceSet dependencies itself. Do not guess source-set dependency hashes/keys from selector IDs. If you do emit dependencies, they must exactly match the exported key and digest, so prefer the empty list. Use a regex with exactly THREE capture groups for transition lines: from, to, and rest; the rest is match[3], not match[4]. Split rest at its FIRST comma into trigger and guard. Do not reword conditions. Parse the Documents chain and ordered key tokens directly from that current line. No Core/SDK template collectors or output facts may be copied; generate the small document parser yourself from this project's current source. No identityDelta is needed in this fixture; do not call update-base after plain notes import. Every entity AND relation assertion must reference an evidence object included in output.evidence. The small original document permits one actual whole-file evidence: startByte=0,endByte=Buffer.byteLength(content),startLine=1,endLine based on the last nonempty byte. Avoid exploratory loops. Once source, conventions and schemas are read, write the candidate, validate and proceed to knowledge. flow.ts is the original frozen T06 executable workflow sample, not generated code. The knowledge query flow.ts deliberately selects supported original code outlines; rules.md stays original documentation and remains cited for its declarations. Do not expand the collector scope to TypeScript parsing; rules.md is its selector. The Core already indexes flow.ts."
+    ],
+    "exitCode": 2,
+    "stdout": "real-build.stdout.json",
+    "stderr": "real-build.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\69c9a1e1c36a4a9d9dfdc8e3fccfa7b9f0a25fcf7155f57a359ac3dc3651b37d\\project-knowledge.exe",
+      "agent",
+      "repair",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--env-file",
+      "E:\\Project\\my-project\\code-graph\\.env",
+      "--plugin",
+      "t19-audited.workflow",
+      "--with-skill",
+      "--goal",
+      "Inspect current code-map, export-snapshot [rules.md,flow.ts], read-source and import-conventions notes/sourceIds. Use get-capabilities schema=repair to read the complete ACTIVE artifact. Preserve plugin ID, every existing case/input byte and all selectors/capabilities. This source-driven collector already passed independent review; current source is unchanged. Copy its files into this new candidate and change ONLY manifest.version to a new unused version, e.g. 2.0.0. Use includeIdentityHelper=false because the existing bundle already contains identity.mjs. Validate-plugin, activate, then CONTINUE knowledge. Export-topic-context topicId=flow-guard query=flow.ts view=search kinds=[operation,symbol] maxChars=120000. Core code-map now follows fact roots rather than the topic label. Query only actual code declarations. Import one MINIMAL TopicArtifact from that new context, preserve metadata, ALL gaps and sourceReferences exactly, and OMIT modelInfo. Use ONE claim id guard. markdown must be exactly: The finish guard compares net received quantity and validates receipts. [[claim:guard]] claims must contain exactly one object: id guard, text The finish guard compares net received quantity and validates receipts., basis observed, origin static, evidenceRefs containing the ORIGINAL flow.ts evidenceId from context, gapIds []. The claim must be supported by the current source read; do not cite generated material. Then export-skill name=purchase-workflow. If old partial topics would make the export partial, choose the original topicId purchase-workflow for the new context/import so its current version replaces the partial explanation. No case edits, no source edits, no helper rewrites, no budget resets."
+    ],
+    "exitCode": 0,
+    "stdout": "repair.stdout.json",
+    "stderr": "repair.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\69c9a1e1c36a4a9d9dfdc8e3fccfa7b9f0a25fcf7155f57a359ac3dc3651b37d\\project-knowledge.exe",
+      "query",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--operation",
+      "workflow",
+      "--text",
+      "purchase"
+    ],
+    "exitCode": 2,
+    "stdout": "workflow-query.stdout.json",
+    "stderr": "workflow-query.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\69c9a1e1c36a4a9d9dfdc8e3fccfa7b9f0a25fcf7155f57a359ac3dc3651b37d\\project-knowledge.exe",
+      "index",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--incremental"
+    ],
+    "exitCode": 0,
+    "stdout": "no-model-change.stdout.json",
+    "stderr": "no-model-change.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\69c9a1e1c36a4a9d9dfdc8e3fccfa7b9f0a25fcf7155f57a359ac3dc3651b37d\\project-knowledge.exe",
+      "index",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--incremental"
+    ],
+    "exitCode": 0,
+    "stdout": "no-model-delete.stdout.json",
+    "stderr": "no-model-delete.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\69c9a1e1c36a4a9d9dfdc8e3fccfa7b9f0a25fcf7155f57a359ac3dc3651b37d\\project-knowledge.exe",
+      "index",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--incremental"
+    ],
+    "exitCode": 0,
+    "stdout": "no-model-restore.stdout.json",
+    "stderr": "no-model-restore.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\69c9a1e1c36a4a9d9dfdc8e3fccfa7b9f0a25fcf7155f57a359ac3dc3651b37d\\project-knowledge.exe",
+      "query",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--operation",
+      "status"
+    ],
+    "exitCode": 2,
+    "stdout": "after-incremental-status.stdout.json",
+    "stderr": "after-incremental-status.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\b70aa4f9c375fbf0eeeb2031c42044556ee55602ea6764c472589b49df1a9e5a\\project-knowledge.exe",
+      "agent",
+      "repair",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--env-file",
+      "E:\\Project\\my-project\\code-graph\\.env",
+      "--plugin",
+      "t19-audited.workflow",
+      "--with-skill",
+      "--goal",
+      "Inspect code-map, export-snapshot include [rules.md,flow.ts], read both original sources, import-conventions notes/sourceIds. Read ONLY get-capabilities schema=repair path=manifest.json. This repair run automatically inherits the verified active files. Write ONLY manifest.json with version=3.0.0, preserving every other manifest field; includeIdentityHelper=false. Do not echo or edit scripts, cases or inputs. Validate-plugin and activate. Then refresh BOTH existing topic IDs flow-guard and purchase-workflow, one at a time: export-topic-context query=flow.ts view=search kinds=[operation,symbol] maxChars=120000. For EACH topic import the returned metadata and all sourceReferences/gaps unchanged. Create exactly ONE claim id guard. Use this exact markdown: The finish guard requires netReceived >= orderedQty and allReceiptsValid. [[claim:guard]] The claim text is the same sentence WITHOUT the [[claim:guard]] marker; basis=observed, origin=static, gapIds=[]. Omit modelInfo. CRITICAL citation correction: find the flow.ts sourceId in context.codeMap.data.files. Among context.sourceReferences with that sourceId choose startByte=0 and the LARGEST endByte. This is the Core-generated full original file reference containing the actual finish guard. Use that evidenceId, NOT the six-byte finish identifier range. Never invent or modify a reference. Check its sourceReads snippet contains netReceived and allReceiptsValid. If it does not, do not claim success. After both topic imports export-skill name=purchase-workflow once, then finish. Retain all cases and evidence provenance."
+    ],
+    "exitCode": 0,
+    "stdout": "citation-repair.stdout.json",
+    "stderr": "citation-repair.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\b70aa4f9c375fbf0eeeb2031c42044556ee55602ea6764c472589b49df1a9e5a\\project-knowledge.exe",
+      "query",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--operation",
+      "workflow",
+      "--text",
+      "purchase"
+    ],
+    "exitCode": 2,
+    "stdout": "workflow-query.stdout.json",
+    "stderr": "workflow-query.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\b70aa4f9c375fbf0eeeb2031c42044556ee55602ea6764c472589b49df1a9e5a\\project-knowledge.exe",
+      "index",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--incremental"
+    ],
+    "exitCode": 0,
+    "stdout": "no-model-change.stdout.json",
+    "stderr": "no-model-change.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\b70aa4f9c375fbf0eeeb2031c42044556ee55602ea6764c472589b49df1a9e5a\\project-knowledge.exe",
+      "index",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--incremental"
+    ],
+    "exitCode": 0,
+    "stdout": "no-model-delete.stdout.json",
+    "stderr": "no-model-delete.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\b70aa4f9c375fbf0eeeb2031c42044556ee55602ea6764c472589b49df1a9e5a\\project-knowledge.exe",
+      "index",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--incremental"
+    ],
+    "exitCode": 0,
+    "stdout": "no-model-restore.stdout.json",
+    "stderr": "no-model-restore.stderr.log"
+  },
+  {
+    "command": [
+      "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\b70aa4f9c375fbf0eeeb2031c42044556ee55602ea6764c472589b49df1a9e5a\\project-knowledge.exe",
+      "query",
+      "--config",
+      "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+      "--operation",
+      "status"
+    ],
+    "exitCode": 2,
+    "stdout": "after-incremental-status.stdout.json",
+    "stderr": "after-incremental-status.stderr.log"
+  }
+]

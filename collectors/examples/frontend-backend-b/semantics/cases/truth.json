@@ -1,0 +1,104 @@
+{
+  "id": "T14-independent-semantic-source-review",
+  "baselineTruthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "classification": "source-reviewed synthetic business model; independent of plugin output; no production accounting or human signoff claim",
+  "sourceHashes": {
+    "fixtures/purchase-workflow/flow.ts": "3b8fa55c4a63cb3695bc33037235b7025b7628b40219af452288d021f1fb7af2",
+    "fixtures/purchase-workflow/rules.md": "47228846febce8fe3ea2a13fd1e3ddfad9ae3b668a755e1dae80b80afed57fdc",
+    "fixtures/purchase-ledger/schema.sql": "b11f24040c65a21fa62732f219ff17866bb447861568c918cb08b3e9268dc0ff",
+    "fixtures/purchase-ledger/correct.sql": "70d18548c33e29355647ca6486482e5729e803cf8b93fd9129137a9b32875c15",
+    "fixtures/purchase-ledger/fanout.sql": "927fd2c90c361f8cd3d747e510d1202baf182d23bb7f0a2e124508d24a0a1f18",
+    "fixtures/purchase-ledger/where-child.sql": "47644489804828d35411850ee6a0542844d0bdec6c4c7f09c22c9be21f4a4b2b",
+    "fixtures/purchase-ledger/policy.md": "e322f84f883405bfc419663cd0edb29996d442e99a30dd593ca9977295675b19"
+  },
+  "states": [
+    "DRAFT",
+    "SUBMITTED",
+    "APPROVED",
+    "RECEIVING",
+    "COMPLETED",
+    "CANCELLED"
+  ],
+  "operations": {
+    "submit": "(order)",
+    "approve": "(order,actor)",
+    "receive": "(order,receipts)",
+    "finish": "(order)",
+    "withdraw": "(order,actor)",
+    "cancel": "(order)"
+  },
+  "pages": [
+    "/purchase/approve",
+    "/Other/purchaseLedger",
+    "/purchase/receive"
+  ],
+  "documents": [
+    "purchase",
+    "receipt",
+    "return"
+  ],
+  "documentKeys": [
+    "tenant_id",
+    "purchase_no",
+    "line_no"
+  ],
+  "fields": {
+    "tenant_id": [
+      "purchase_detail.tenant_id"
+    ],
+    "purchase_no": [
+      "purchase_detail.purchase_no"
+    ],
+    "line_no": [
+      "purchase_detail.line_no"
+    ],
+    "name": [
+      "supplier.name"
+    ],
+    "grossReceived": [
+      "receipt.qty"
+    ],
+    "netReceived": [
+      "receipt.qty",
+      "return_line.qty"
+    ],
+    "outstanding": [
+      "purchase_detail.ordered_qty",
+      "receipt.qty",
+      "return_line.qty"
+    ],
+    "purchaseAmountCents": [
+      "purchase_detail.ordered_qty",
+      "purchase_detail.unit_price_cents"
+    ],
+    "invoiceAmountCents": [
+      "invoice.amount_cents"
+    ]
+  },
+  "evidence": [
+    {
+      "path": "fixtures/purchase-workflow/flow.ts",
+      "startLine": 1,
+      "endLine": 22,
+      "reason": "Actual state assignments and guard expressions; audit/save ordering is not a business transition."
+    },
+    {
+      "path": "fixtures/purchase-workflow/rules.md",
+      "startLine": 6,
+      "endLine": 16,
+      "reason": "Seven declared transitions, composite document keys, two business page predecessors, explicit gross/net conflict."
+    },
+    {
+      "path": "fixtures/purchase-ledger/correct.sql",
+      "startLine": 1,
+      "endLine": 22,
+      "reason": "CTE child preaggregation and nine existing output expressions; no SQL is generated."
+    },
+    {
+      "path": "fixtures/purchase-ledger/policy.md",
+      "startLine": 4,
+      "endLine": 9,
+      "reason": "Independent grain/state/NULL policy and monetary cent output names; time field and physical quantity units are unspecified."
+    }
+  ]
+}

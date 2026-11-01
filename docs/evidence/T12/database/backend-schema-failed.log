@@ -1,0 +1,34 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 49.48s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-c86b9f40fcb79f80.exe)
+
+running 2 tests
+test backend_database_incomplete_keys_dynamic_instances_and_invalid_sql_never_confirm_mappings ... FAILED
+test backend_database_two_asts_preserve_datasources_ddl_keys_query_joins_and_original_ranges ... FAILED
+
+failures:
+
+---- backend_database_incomplete_keys_dynamic_instances_and_invalid_sql_never_confirm_mappings stdout ----
+
+thread 'backend_database_incomplete_keys_dynamic_instances_and_invalid_sql_never_confirm_mappings' (23136) panicked at crates\core\tests\business_scenarios.rs:390:10:
+called `Result::unwrap()` on an `Err` value: CoreError { code: "SCHEMA_INVALID", message: "JSON does not match the Core schema", retryable: false, run_id: None, phase: None, issues: [Issue { code: "SCHEMA_INVALID", instance_path: "/relations/75/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }, Issue { code: "SCHEMA_INVALID", instance_path: "/relations/78/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }, Issue { code: "SCHEMA_INVALID", instance_path: "/relations/81/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }, Issue { code: "SCHEMA_INVALID", instance_path: "/relations/86/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }, Issue { code: "SCHEMA_INVALID", instance_path: "/relations/89/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }, Issue { code: "SCHEMA_INVALID", instance_path: "/relations/92/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }, Issue { code: "SCHEMA_INVALID", instance_path: "/relations/163/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }] }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- backend_database_two_asts_preserve_datasources_ddl_keys_query_joins_and_original_ranges stdout ----
+
+thread 'backend_database_two_asts_preserve_datasources_ddl_keys_query_joins_and_original_ranges' (32304) panicked at crates\core\tests\business_scenarios.rs:390:10:
+called `Result::unwrap()` on an `Err` value: CoreError { code: "SCHEMA_INVALID", message: "JSON does not match the Core schema", retryable: false, run_id: None, phase: None, issues: [Issue { code: "SCHEMA_INVALID", instance_path: "/relations/75/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }, Issue { code: "SCHEMA_INVALID", instance_path: "/relations/78/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }, Issue { code: "SCHEMA_INVALID", instance_path: "/relations/81/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }, Issue { code: "SCHEMA_INVALID", instance_path: "/relations/86/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }, Issue { code: "SCHEMA_INVALID", instance_path: "/relations/89/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }, Issue { code: "SCHEMA_INVALID", instance_path: "/relations/92/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }, Issue { code: "SCHEMA_INVALID", instance_path: "/relations/165/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }, Issue { code: "SCHEMA_INVALID", instance_path: "/relations/166/kind", source_reference: None, expected: Some("must satisfy schema keyword `anyOf`"), actual: None, repair_hint: Some("按 Core 导出的 JSON Schema 修复该字段") }] }
+
+
+failures:
+    backend_database_incomplete_keys_dynamic_instances_and_invalid_sql_never_confirm_mappings
+    backend_database_two_asts_preserve_datasources_ddl_keys_query_joins_and_original_ranges
+
+test result: FAILED. 0 passed; 2 failed; 0 ignored; 0 measured; 10 filtered out; finished in 51.39s
+
+error: test failed, to rerun pass `-p project-knowledge-core --test business_scenarios`

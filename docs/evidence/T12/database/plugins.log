@@ -1,0 +1,30 @@
+Verified both API artifacts; supplementary truth 0656a541167d8195b7a7286c1dc660fcb730fd826778e50f69051f129f5374cf
+
+running 2 tests
+test backend_api_and_frontend_share_service_scoped_graphql_fields_without_scope_overwrite ... ok
+test backend_api_two_languages_bind_registrations_and_reject_decoys_and_dynamic_targets ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 56.31s
+
+Verified both database artifacts; review c59bfa400fe1e49f2713e80374d1d97e9c5aa85e1744484c238578564d4ef6c6
+
+running 2 tests
+test backend_database_incomplete_keys_dynamic_instances_and_invalid_sql_never_confirm_mappings ... ok
+test backend_database_two_asts_preserve_datasources_ddl_keys_query_joins_and_original_ranges ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 20.76s
+
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.52s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-c86b9f40fcb79f80.exe)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.46s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-c86b9f40fcb79f80.exe)

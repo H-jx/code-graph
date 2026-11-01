@@ -1,0 +1,503 @@
+{
+  "passed": true,
+  "oracle": "JSON paths independently read by this verifier; candidate expectations are not used",
+  "businessTruthClaim": false,
+  "cli": "E:\\Project\\my-project\\code-graph\\target\\agent-verification\\core-only.exe",
+  "coreOnly": true,
+  "modelRequests": 0,
+  "basis": "Core-only binary has no Agent/Rig; credential variables removed; agent run count unchanged",
+  "agentRunsBefore": 11,
+  "agentRunsAfter": 11,
+  "observations": [
+    {
+      "case": "unicode-add-delete",
+      "expectedPaths": [
+        "/orders",
+        "/库存",
+        "/audit"
+      ],
+      "actual": [
+        {
+          "entityId": "ent_3829e868703a8886d857e540d5b2fdc920d82e7c7838024bb4bfa84eb0ce70ca",
+          "identity": [
+            "live-project",
+            "route",
+            "repo.repo.main",
+            "app",
+            "history",
+            "/库存"
+          ],
+          "state": "fresh",
+          "batchId": "bat_1974ec173b63ce43ea1cd5b2cbb2c1e2bbb0f659bf1512ecdc4ede6b45e3d17c"
+        },
+        {
+          "entityId": "ent_98c3f66664e810cd6efe9159025d390c0d726422cb78975cb562bdb71bda4235",
+          "identity": [
+            "live-project",
+            "route",
+            "repo.repo.main",
+            "app",
+            "history",
+            "/audit"
+          ],
+          "state": "fresh",
+          "batchId": "bat_1974ec173b63ce43ea1cd5b2cbb2c1e2bbb0f659bf1512ecdc4ede6b45e3d17c"
+        },
+        {
+          "entityId": "ent_d023c5b7b1847d6433677bfab770467189c7f74667609124f1f89523aff31a3f",
+          "identity": [
+            "live-project",
+            "route",
+            "repo.repo.main",
+            "app",
+            "history",
+            "/orders"
+          ],
+          "state": "fresh",
+          "batchId": "bat_1974ec173b63ce43ea1cd5b2cbb2c1e2bbb0f659bf1512ecdc4ede6b45e3d17c"
+        }
+      ],
+      "sourceHash": "c6ba42d1d9b8249c69e35031495753adf2c9d104097b080d010f0cb8e334e239"
+    },
+    {
+      "case": "empty-output",
+      "expectedPaths": [],
+      "actual": [],
+      "sourceHash": "7c8d0ad8daffdc39cad81c5e657938ce1c22123c9712299a50dfc119ba33d5b4"
+    },
+    {
+      "case": "source-deletion",
+      "expectedPaths": [],
+      "actual": [],
+      "sourceHash": null
+    }
+  ],
+  "restored": {
+    "response": {
+      "completedAt": "2026-10-27T15:55:28Z",
+      "configPath": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\project.json",
+      "coverage": {
+        "api@repo.repo.main": {
+          "capability": "api",
+          "gapIds": [],
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "base@repo.repo.main": {
+          "capability": "base",
+          "gapIds": [],
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "complete"
+        },
+        "database@repo.repo.main": {
+          "capability": "database",
+          "gapIds": [],
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "frontend@repo.repo.main": {
+          "capability": "frontend",
+          "gapIds": [],
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "report@repo.repo.main": {
+          "capability": "report",
+          "gapIds": [],
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "routes@repo.repo.main": {
+          "capability": "routes",
+          "gapIds": [],
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "workflow@repo.repo.main": {
+          "capability": "workflow",
+          "gapIds": [],
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        }
+      },
+      "entities": 3,
+      "executed": [
+        "live-project.routes:extract"
+      ],
+      "gaps": 0,
+      "generation": "21",
+      "indexDatabase": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\index.sqlite",
+      "indexId": "866e331c-0354-4794-b187-546fa50b974d",
+      "invalidated": [
+        "(core.base,repo.main)",
+        "(live-project.routes,extract,live-project)"
+      ],
+      "mode": "incremental",
+      "relations": 1,
+      "searchDocuments": 3,
+      "sourceSetHash": "768ed162047dacc4f9551a2ac3d0837cb68a806e15691556c2c28564d93452be",
+      "sourceSnapshotId": "snap_75f1608dbefae7be7d6d12abef39daabf5306dd563edae5405ea5cc75dabae84"
+    },
+    "routes": [
+      {
+        "entityId": "ent_4d0b1d9fc91c7c1928ec5ab9ef7875d377b80777fabfb26f4a62b667165be0ec",
+        "identity": [
+          "live-project",
+          "route",
+          "repo.repo.main",
+          "app",
+          "history",
+          "/inventory"
+        ],
+        "state": "fresh",
+        "batchId": "bat_edff3a04a20d2c9851bdcf565fef80613b1422f8ba889d1c3852ad7f93495e0e"
+      },
+      {
+        "entityId": "ent_d023c5b7b1847d6433677bfab770467189c7f74667609124f1f89523aff31a3f",
+        "identity": [
+          "live-project",
+          "route",
+          "repo.repo.main",
+          "app",
+          "history",
+          "/orders"
+        ],
+        "state": "fresh",
+        "batchId": "bat_edff3a04a20d2c9851bdcf565fef80613b1422f8ba889d1c3852ad7f93495e0e"
+      }
+    ]
+  },
+  "commands": [
+    {
+      "argv": [
+        "index",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\project.json",
+        "--incremental"
+      ],
+      "exitCode": 0,
+      "response": {
+        "completedAt": "2026-10-27T15:55:26Z",
+        "configPath": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\project.json",
+        "coverage": {
+          "api@repo.repo.main": {
+            "capability": "api",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "base@repo.repo.main": {
+            "capability": "base",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "complete"
+          },
+          "database@repo.repo.main": {
+            "capability": "database",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "frontend@repo.repo.main": {
+            "capability": "frontend",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "report@repo.repo.main": {
+            "capability": "report",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "routes@repo.repo.main": {
+            "capability": "routes",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "workflow@repo.repo.main": {
+            "capability": "workflow",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          }
+        },
+        "entities": 3,
+        "executed": [
+          "live-project.routes:extract"
+        ],
+        "gaps": 0,
+        "generation": "12",
+        "indexDatabase": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\index.sqlite",
+        "indexId": "866e331c-0354-4794-b187-546fa50b974d",
+        "invalidated": [
+          "(core.base,repo.main)",
+          "(live-project.routes,extract,live-project)"
+        ],
+        "mode": "incremental",
+        "relations": 1,
+        "searchDocuments": 3,
+        "sourceSetHash": "3cdadd727456714d36e72b79fe7acf7bf18f34ed2ce992d80000b85f141b20e9",
+        "sourceSnapshotId": "snap_7978643505956c588f18d749e4841d1b8c1280bf79d13502effdd829a7495ee3"
+      }
+    },
+    {
+      "argv": [
+        "index",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\project.json",
+        "--incremental"
+      ],
+      "exitCode": 0,
+      "response": {
+        "completedAt": "2026-10-27T15:55:27Z",
+        "configPath": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\project.json",
+        "coverage": {
+          "api@repo.repo.main": {
+            "capability": "api",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "base@repo.repo.main": {
+            "capability": "base",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "complete"
+          },
+          "database@repo.repo.main": {
+            "capability": "database",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "frontend@repo.repo.main": {
+            "capability": "frontend",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "report@repo.repo.main": {
+            "capability": "report",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "routes@repo.repo.main": {
+            "capability": "routes",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "workflow@repo.repo.main": {
+            "capability": "workflow",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          }
+        },
+        "entities": 3,
+        "executed": [
+          "live-project.routes:extract"
+        ],
+        "gaps": 0,
+        "generation": "15",
+        "indexDatabase": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\index.sqlite",
+        "indexId": "866e331c-0354-4794-b187-546fa50b974d",
+        "invalidated": [
+          "(core.base,repo.main)",
+          "(live-project.routes,extract,live-project)"
+        ],
+        "mode": "incremental",
+        "relations": 1,
+        "searchDocuments": 3,
+        "sourceSetHash": "aeb1f61e10de0079c7306b403e8cd493af713742f255fad806c50ea8dd97b88e",
+        "sourceSnapshotId": "snap_9664731d18d758abde86120fee1c6709b408e0300bf967a71b74400bca97d029"
+      }
+    },
+    {
+      "argv": [
+        "index",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\project.json",
+        "--incremental"
+      ],
+      "exitCode": 0,
+      "response": {
+        "completedAt": "2026-10-27T15:55:27Z",
+        "configPath": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\project.json",
+        "coverage": {
+          "api@repo.repo.main": {
+            "capability": "api",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "base@repo.repo.main": {
+            "capability": "base",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "complete"
+          },
+          "database@repo.repo.main": {
+            "capability": "database",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "frontend@repo.repo.main": {
+            "capability": "frontend",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "report@repo.repo.main": {
+            "capability": "report",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "routes@repo.repo.main": {
+            "capability": "routes",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "workflow@repo.repo.main": {
+            "capability": "workflow",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          }
+        },
+        "entities": 2,
+        "executed": [
+          "live-project.routes:extract"
+        ],
+        "gaps": 0,
+        "generation": "18",
+        "indexDatabase": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\index.sqlite",
+        "indexId": "866e331c-0354-4794-b187-546fa50b974d",
+        "invalidated": [
+          "(core.base,repo.main)",
+          "(live-project.routes,extract,live-project)"
+        ],
+        "mode": "incremental",
+        "relations": 1,
+        "searchDocuments": 2,
+        "sourceSetHash": "52acde2077abb4116aebec9cbc3c91ed0b8069b92a1928b2a7a68a5280006705",
+        "sourceSnapshotId": "snap_fb68ed0485da2796294cf99e5806ca9b6d4ebc5e05b3f69b9c7b7e25788cb9b2"
+      }
+    },
+    {
+      "argv": [
+        "index",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\project.json",
+        "--incremental"
+      ],
+      "exitCode": 0,
+      "response": {
+        "completedAt": "2026-10-27T15:55:28Z",
+        "configPath": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\project.json",
+        "coverage": {
+          "api@repo.repo.main": {
+            "capability": "api",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "base@repo.repo.main": {
+            "capability": "base",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "complete"
+          },
+          "database@repo.repo.main": {
+            "capability": "database",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "frontend@repo.repo.main": {
+            "capability": "frontend",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "report@repo.repo.main": {
+            "capability": "report",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "routes@repo.repo.main": {
+            "capability": "routes",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          },
+          "workflow@repo.repo.main": {
+            "capability": "workflow",
+            "gapIds": [],
+            "scopeId": "repo.repo.main",
+            "sourceSetId": "repo.main",
+            "status": "not_configured"
+          }
+        },
+        "entities": 3,
+        "executed": [
+          "live-project.routes:extract"
+        ],
+        "gaps": 0,
+        "generation": "21",
+        "indexDatabase": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T18\\live-project\\.project-knowledge\\index.sqlite",
+        "indexId": "866e331c-0354-4794-b187-546fa50b974d",
+        "invalidated": [
+          "(core.base,repo.main)",
+          "(live-project.routes,extract,live-project)"
+        ],
+        "mode": "incremental",
+        "relations": 1,
+        "searchDocuments": 3,
+        "sourceSetHash": "768ed162047dacc4f9551a2ac3d0837cb68a806e15691556c2c28564d93452be",
+        "sourceSnapshotId": "snap_75f1608dbefae7be7d6d12abef39daabf5306dd563edae5405ea5cc75dabae84"
+      }
+    }
+  ]
+}

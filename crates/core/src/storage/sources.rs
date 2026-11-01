@@ -6,6 +6,35 @@ use crate::contract::error::{CoreError, codes};
 use crate::contract::evidence::{SnapshotRef, Source, SourceClass};
 use crate::project::snapshot::{LineMap, SourceSnapshot};
 
+/// Match an untrusted reference against immutable evidence and original source rows.
+pub fn validate_original_reference(
+    connection: &Connection,
+    reference: &crate::contract::evidence::SourceReference,
+) -> Result<(), CoreError> {
+    let row:Option<(String,String,i64,i64,String,String)>=connection.query_row(
+        "SELECT e.source_id,e.content_hash,e.start_byte,e.end_byte,s.path,sv.source_class FROM evidence e JOIN sources s ON s.id=e.source_id JOIN source_versions sv ON sv.source_id=e.source_id AND sv.content_hash=e.content_hash WHERE e.id=?1",
+        [&reference.evidence_id],|r|Ok((r.get(0)?,r.get(1)?,r.get(2)?,r.get(3)?,r.get(4)?,r.get(5)?))).optional().map_err(super::database_error)?;
+    let valid = row.is_some_and(|(id, hash, start, end, path, class)| {
+        id == reference.source_id
+            && hash == reference.content_hash
+            && start as u64 == reference.start_byte
+            && end as u64 == reference.end_byte
+            && !crate::project::scan::is_hard_excluded(&path)
+            && matches!(
+                class.as_str(),
+                "code" | "config" | "schema" | "documentation"
+            )
+    });
+    if valid {
+        Ok(())
+    } else {
+        Err(CoreError::new(
+            codes::EVIDENCE_INVALID,
+            "reference must match stored original evidence",
+        ))
+    }
+}
+
 /// 写入来源行（幂等）。
 pub fn upsert_source(
     connection: &Connection,

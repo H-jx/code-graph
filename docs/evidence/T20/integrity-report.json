@@ -1,0 +1,16 @@
+{
+  "task": "T20",
+  "passed": true,
+  "verificationReportSha256": "2afb437a2641f38fa82a455f675d089770580f890b7f1e3811529138d764d75a",
+  "commands": 16,
+  "sourceHashesChecked": 121,
+  "artifactHashesChecked": 6,
+  "sourceAuditChecked": 192,
+  "zeroByteSources": 0,
+  "tests": {
+    "core": 131,
+    "native": 1,
+    "sdk": 7,
+    "total": 139
+  }
+}

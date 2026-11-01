@@ -2,7 +2,7 @@
   "name": "@project-knowledge/native",
   "version": "0.1.0",
   "private": true,
-  "description": "Rust Core 的 Node.js 原生绑定（napi-rs，骨架阶段）",
+  "description": "Rust Core 的 Node.js 原生绑定：只读查询与显式维护",
   "license": "MIT OR Apache-2.0",
   "main": "index.js",
   "types": "index.d.ts",
@@ -18,11 +18,14 @@
   "engines": {
     "node": ">=24.0.0"
   },
-  "files": ["index.js", "index.d.ts"],
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
   "scripts": {
-    "build": "napi build --platform",
-    "build:release": "napi build --platform --release",
-    "build:dist": "napi build --platform --profile dist --strip",
+    "build": "node build.mjs",
+    "build:release": "node build.mjs --release",
+    "build:dist": "node build.mjs --profile dist --strip",
     "watch": "napi build --platform --watch",
     "create-npm-dirs": "napi create-npm-dirs",
     "artifacts": "napi artifacts",

@@ -1,12 +1,11 @@
-name: CI
+name: Project Knowledge CI
 
 # 计划 T01 门禁：格式化 / Clippy / 全量检查与测试 / Core-only 构建 / 依赖方向，
-# Node 侧：安装、类型检查、构建与 native 加载冒烟。
-# `pnpm run check:contracts`、`verify:scenarios` 等入口在对应任务实现后才加入本文件。
+# Node 侧验证同源契约与已实现的原生/MCP/Rig 探针，不把尚为空的产品 binding 当作有效加载证明。
 
 on:
   push:
-    branches: ['**']
+    branches: ["**"]
   pull_request:
 
 permissions:
@@ -14,7 +13,7 @@ permissions:
 
 env:
   CARGO_TERM_COLOR: always
-  RUST_BACKTRACE: '1'
+  RUST_BACKTRACE: "1"
 
 jobs:
   rust:
@@ -27,7 +26,13 @@ jobs:
         os: [windows-latest, ubuntu-24.04, macos-15]
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@master
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.14.0"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.10"
+      - uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8 # verified 2026-10-26
         with:
           # 与 rust-toolchain.toml 一致；升级需同步依赖决策记录
           toolchain: 1.97.1
@@ -44,15 +49,7 @@ jobs:
       - name: Core-only CLI build (no Rig)
         run: cargo build -p project-knowledge-cli --no-default-features --locked
       - name: Dependency direction (Core must not see Rig)
-        shell: bash
-        run: |
-          set -uo pipefail
-          if cargo tree -p project-knowledge-core --edges normal | grep -Eq '(^|[^a-z])rig( v|@)'; then
-            echo "::error::project-knowledge-core 的依赖图中出现 Rig"
-            cargo tree -p project-knowledge-core --edges normal | grep -E 'rig' || true
-            exit 1
-          fi
-          echo "OK：Core 依赖图不含 Rig"
+        run: node scripts/verify-core-dependencies.mjs
 
   node:
     name: Node 24
@@ -63,13 +60,32 @@ jobs:
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: "24.14.0"
           cache: pnpm
-      - run: pnpm install --frozen-lockfile
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12.10"
+      - uses: dtolnay/rust-toolchain@683b588c487a69d01f6c6ddf40f036ff682cc2c8
+        with:
+          toolchain: 1.97.1
+      - uses: Swatinem/rust-cache@v2
+      - run: pnpm install --frozen-lockfile --ignore-scripts
       - run: pnpm run typecheck
       - run: pnpm run build:ts
-      - name: Build native binding for host target
+      - run: pnpm run check:contracts
+      - run: node scripts/verify-vectors.mjs
+      - run: pnpm run verify:docs
+      - name: Install locked probe-only Compiler API
+        run: npm ci --ignore-scripts --no-audit --no-fund --prefix docs/evidence/T00/probe/node
+      - name: Native, stdio MCP, Rig and Python probes
+        run: pnpm run verify:probes
+      - name: Build dependency-host CLI
+        run: cargo build -p project-knowledge-cli --no-default-features --locked
+      - name: Build product native binding
         run: pnpm run build:native
-      - name: Load binding smoke
-        run: node -e "const n=require('./bindings/node/index.js'); if(!n) process.exit(1)"
-      - run: pnpm run fmt:check
+      - name: SDK parity, read-only queries, cancellation and close
+        run: pnpm run test:sdk
+      - name: Product stdio MCP schemas, modes, resources, cancellation and close
+        run: pnpm run test:mcp
+      - name: Locked npm/pip preparation and cache-only collection
+        run: pnpm run verify:dependencies

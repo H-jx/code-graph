@@ -1,0 +1,125 @@
+{
+  "passed": true,
+  "cli": "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\1551664debd7849c4493c251ad0613a2fc469dab2439c183465d7e2709492254\\project-knowledge.exe",
+  "cliSha256": "1551664debd7849c4493c251ad0613a2fc469dab2439c183465d7e2709492254",
+  "coreOnly": true,
+  "modelRequests": 0,
+  "sourceArtifactHashes": {
+    "identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "manifest.json": "414bd642af123a862d4cc238c1ea6cc5d3196bf4d88371baf09d0a07e3ae8feb",
+    "cases/case_documented_workflow.json": "42d2c491fed1d6af442e43ca82d09af64715cec48b7f963e432eeda8d4141109",
+    "fixtures/case_documented_workflow.input.json": "0b848364424cdc11db5a5edcfc4854c49fa432cdaf3e8365d84729d850284f14",
+    "src/collect.mjs": "1751bde6871ff6f771b980edfb5e32e9a29f0619b9a69c3c7c3b5c0ee61d9d97"
+  },
+  "candidate": {
+    "artifactHash": "fd24dd3d586ba2b3671ee1c66397f167a32cb20f455e9d908577a483fb71328f",
+    "directory": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\external-core-only-final\\project\\.project-knowledge\\.project-knowledge/work/candidates\\candidate_6a6266ff-bb69-49c0-ac35-31b0de6815db",
+    "id": "candidate_6a6266ff-bb69-49c0-ac35-31b0de6815db",
+    "pluginId": "t19-audited.workflow",
+    "state": "generated",
+    "validationId": null,
+    "version": "3.0.0"
+  },
+  "activation": {
+    "activationId": "activation_validation_2ddd9f04-5764-4855-8286-18d913a23358",
+    "candidateId": "candidate_6a6266ff-bb69-49c0-ac35-31b0de6815db",
+    "generation": "2",
+    "status": "active"
+  },
+  "repeat": {
+    "alreadyCommitted": true,
+    "candidateId": "candidate_6a6266ff-bb69-49c0-ac35-31b0de6815db",
+    "generation": "2",
+    "status": "active"
+  },
+  "independentStates": [
+    "APPROVED",
+    "CANCELLED",
+    "COMPLETED",
+    "DRAFT",
+    "RECEIVING",
+    "SUBMITTED"
+  ],
+  "commands": [
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\1551664debd7849c4493c251ad0613a2fc469dab2439c183465d7e2709492254\\project-knowledge.exe",
+        "agent",
+        "build",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\external-core-only-final\\project\\.project-knowledge\\project.json"
+      ],
+      "exitCode": 1
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\1551664debd7849c4493c251ad0613a2fc469dab2439c183465d7e2709492254\\project-knowledge.exe",
+        "index",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\external-core-only-final\\project\\.project-knowledge\\project.json",
+        "--base"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\1551664debd7849c4493c251ad0613a2fc469dab2439c183465d7e2709492254\\project-knowledge.exe",
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\external-core-only-final\\project\\.project-knowledge\\project.json",
+        "submit",
+        "--path",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\external-core-only-final\\artifact"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\1551664debd7849c4493c251ad0613a2fc469dab2439c183465d7e2709492254\\project-knowledge.exe",
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\external-core-only-final\\project\\.project-knowledge\\project.json",
+        "prepare",
+        "--candidate",
+        "candidate_6a6266ff-bb69-49c0-ac35-31b0de6815db"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\1551664debd7849c4493c251ad0613a2fc469dab2439c183465d7e2709492254\\project-knowledge.exe",
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\external-core-only-final\\project\\.project-knowledge\\project.json",
+        "validate",
+        "--candidate",
+        "candidate_6a6266ff-bb69-49c0-ac35-31b0de6815db"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\1551664debd7849c4493c251ad0613a2fc469dab2439c183465d7e2709492254\\project-knowledge.exe",
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\external-core-only-final\\project\\.project-knowledge\\project.json",
+        "activate",
+        "--candidate",
+        "candidate_6a6266ff-bb69-49c0-ac35-31b0de6815db"
+      ],
+      "exitCode": 0
+    },
+    {
+      "command": [
+        "E:\\Project\\my-project\\code-graph\\target\\verified-cli\\1551664debd7849c4493c251ad0613a2fc469dab2439c183465d7e2709492254\\project-knowledge.exe",
+        "plugin",
+        "--config",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\external-core-only-final\\project\\.project-knowledge\\project.json",
+        "activate",
+        "--candidate",
+        "candidate_6a6266ff-bb69-49c0-ac35-31b0de6815db"
+      ],
+      "exitCode": 0
+    }
+  ]
+}

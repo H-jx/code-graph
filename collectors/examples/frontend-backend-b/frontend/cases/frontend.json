@@ -1,0 +1,41 @@
+{
+  "id": "frontend.b",
+  "inputFixture": "cases/input.json",
+  "truthRef": "cases/truth.json",
+  "truthHash": "f2f67faea50a075e32916c2d5e2482f3daa4cb144489c2686de92eb06ca5e3d4",
+  "expected": {
+    "entities": [
+      "ent_b894d232e3888ef66af5d653d153d278f12a5c9e5f0db5d0be906611329e71c2",
+      "ent_fed839fb5ab5174dfefb940165eae0817391635314a92cb458db6b76fb410f3b",
+      "ent_25e75a0ef419099e10520b621dc885056224410781f7780079e82c5d9862d139",
+      "ent_e6ebee921990e1df4dcecfd8b8b540fbef11823c170117fbd451347f1739c18f",
+      "ent_6b91d37dc6117a76c86d09c2aaa6ab184bcce33a3b1928d0ab1eb75cf39a9be3",
+      "ent_c286d79a3abe30747f6e31991fe95b6df3421fc0ca565f3e700df78251403fe9",
+      "ent_7e8550edcddbeed0913e0004f29dd333192b97c7c676eb9a5c684db8e037e571",
+      "ent_b4faaf13e55f0e95fa86e9ef68ed2b44a3dd4554cc92fb64e5f266107811cab9",
+      "ent_24938e071b89e6001b5827290f5e6820a719c4a764ab1b582720aac32c662dc6",
+      "ent_682101218a674eba8008a1260a5ac21e073f3240720820423022c9181e22ed7a",
+      "ent_e8b5a7ef700b2627285e2ece22432a69f74eca00c95d7d8fd8fc92eb132d7023",
+      "ent_90d4c67db420ac528a6c7d5ab0b2ac04b0af122fffdedc61c3c946b38c19b164",
+      "ent_39010b0bcb5fe39f9db1265d0e71e0468995fd0d1777db209e1b24eb617ff5ee"
+    ],
+    "relations": [
+      "rel_0866b4186cb352bc555bae733e4177808231d1707c0def1196bc0fc0a9199eca",
+      "rel_f5a4808ffba58886e894e68381a42daa37195b6018787489a04185e71f712d2a",
+      "rel_846052d222c61d020ede5c756cac10e739fcd35e2f3be4d536893f7fbca4e35d",
+      "rel_e2f3ab4c025d202f0bf8b3699e0c79b940613c700aacdd4ffdcf966bc2b79a9d",
+      "rel_1c98e568b1353a74e89c7d8395c9e74a9051c2aacc75e7d8b01faa4aab174e15",
+      "rel_d8215fbd5c2d5ef333bb3615c9b996ae3c6616fb4aea3cbf4e18a927c3699711",
+      "rel_21dda869213ff815ed3e9b757adb08afa013892a5b24cfe53d3cc888a86b8f63",
+      "rel_62e3d0f394545778dfa16e2dd331571e95fd93a7c8f503f82c8cb9379ca48eb4",
+      "rel_70d8bc8bd1441772e6c060154aa26883cd91e30f99c54a01822684ce7661b069",
+      "rel_bceeda423f5e43b290ae11396d82f620114dc98f0bd71e4af7ca1e75899eb76b"
+    ],
+    "forbiddenRelations": [
+      "rel_e3e94c9a020f6ac8c17d647adb22fba95f7e98da5531fb49c5fe8bd88de309c0"
+    ],
+    "gapCodes": [
+      "DYNAMIC_TARGET"
+    ]
+  }
+}

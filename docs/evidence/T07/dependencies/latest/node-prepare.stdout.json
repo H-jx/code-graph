@@ -1,0 +1,14 @@
+{
+  "cache": {
+    "digest": "8cbeaba99d1f894cff6f92525b1fdd6451ed15aa4565d883effdbd458ee96d14",
+    "directory": "D:\\WpSystem\\S-1-5-21-2994935133-1947544876-937300672-1001\\AppData\\Local\\Packages\\OpenAI.Codex_2p2nqsd0c76g0\\LocalCache\\Local\\project-knowledge\\dependencies\\8cbeaba99d1f894cff6f92525b1fdd6451ed15aa4565d883effdbd458ee96d14",
+    "env": {
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONUTF8": "1"
+    },
+    "executable": "C:\\Users\\hubo9\\AppData\\Local\\nvm\\v24.14.0\\node.exe",
+    "integrity": "52ea9021e254ff9810c46ebbdf93f7efd0d5a948c85de4dda053304fc599a3c3"
+  },
+  "candidateId": "candidate_5ae0e444-cf6b-4ab3-b51a-c8d4b211373e",
+  "status": "dependenciesPrepared"
+}

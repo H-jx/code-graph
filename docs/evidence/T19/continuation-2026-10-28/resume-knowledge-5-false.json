@@ -1,0 +1,236 @@
+{
+  "runId": "agent_ae6b31ab-9222-47a3-bab5-03f68f665dee",
+  "status": "complete",
+  "phase": "knowledge",
+  "goal": "Collect source-driven routes",
+  "focus": "routes",
+  "withSkill": true,
+  "configHash": "72c4758072af492a7e37e851e7d75a259222306de5b462a6ffc9d11cf63f2b21",
+  "sourceSnapshotId": "snap_5d06ab91e1f4f9013ec572a1f716607d5851d34bcd34ad825f00b150b9b07bc2",
+  "activeVersions": [
+    [
+      "agent.fixture",
+      "1.0.0"
+    ]
+  ],
+  "modelTurns": 10,
+  "toolCalls": 9,
+  "repairs": 0,
+  "needsRepair": false,
+  "elapsedMs": 1413,
+  "deadlineMs": 1793201628917,
+  "repairPlugin": null,
+  "smoke": false,
+  "revision": 1,
+  "candidateId": "candidate_720b418a-6c46-4704-a790-55601610a78f",
+  "candidateHash": "4f10373e6a75fc5779658ac91718481116b4d94d0c20e6d0b9c31193a1d67be3",
+  "validationId": "validation_756faf61-61f2-488b-bc23-d356687c46cc",
+  "activation": {
+    "candidateId": "candidate_720b418a-6c46-4704-a790-55601610a78f",
+    "activationId": "activation_validation_756faf61-61f2-488b-bc23-d356687c46cc",
+    "status": "active",
+    "generation": "2"
+  },
+  "investigation": {
+    "status": "imported",
+    "notes": "Fixture route evidence; mock tests mechanics only",
+    "evidenceRefs": [
+      {
+        "snapshot": {
+          "indexId": "6ae2badb-3d2a-4247-8131-3cced758ae28",
+          "generation": "1",
+          "sourceSnapshotId": "snap_5d06ab91e1f4f9013ec572a1f716607d5851d34bcd34ad825f00b150b9b07bc2"
+        },
+        "evidenceId": "ev_a6035ac688ff4927825dc803bc9b583d58cb6277f88061cca62871385e4583b2",
+        "sourceId": "src_dd9aadedc51afac86b4a28f1d4fa887b1fbbd8b06135db15716b75e1114c18c0",
+        "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+        "startByte": 0,
+        "endByte": 24
+      }
+    ],
+    "identityChangesApplied": false,
+    "convention": {
+      "conventionId": "d087fa6ae3a3a0404932f7c15cce8ab71af9f332d1a96442bdb48c762c93bede",
+      "sourceClass": "derivedConvention",
+      "originalReferences": [
+        {
+          "snapshot": {
+            "indexId": "6ae2badb-3d2a-4247-8131-3cced758ae28",
+            "generation": "1",
+            "sourceSnapshotId": "snap_5d06ab91e1f4f9013ec572a1f716607d5851d34bcd34ad825f00b150b9b07bc2"
+          },
+          "evidenceId": "ev_a6035ac688ff4927825dc803bc9b583d58cb6277f88061cca62871385e4583b2",
+          "sourceId": "src_dd9aadedc51afac86b4a28f1d4fa887b1fbbd8b06135db15716b75e1114c18c0",
+          "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+          "startByte": 0,
+          "endByte": 24
+        }
+      ],
+      "configHash": "72c4758072af492a7e37e851e7d75a259222306de5b462a6ffc9d11cf63f2b21",
+      "snapshot": {
+        "indexId": "6ae2badb-3d2a-4247-8131-3cced758ae28",
+        "generation": "1",
+        "sourceSnapshotId": "snap_5d06ab91e1f4f9013ec572a1f716607d5851d34bcd34ad825f00b150b9b07bc2"
+      },
+      "indexInvalidated": false
+    }
+  },
+  "topicContexts": [
+    "2cc9c974abd51ce2485f3c0217f203e2c747e77d1e257d4390b72999021752ca"
+  ],
+  "topics": [
+    {
+      "topicId": "smoke",
+      "version": 1,
+      "snapshot": {
+        "indexId": "6ae2badb-3d2a-4247-8131-3cced758ae28",
+        "generation": "2",
+        "sourceSnapshotId": "snap_5d06ab91e1f4f9013ec572a1f716607d5851d34bcd34ad825f00b150b9b07bc2"
+      },
+      "freshness": "fresh",
+      "status": "complete",
+      "artifactHash": "924ff5fae086a442b2b17ee5498ed6dbff25788bfedd6ab1d7febf99c6dcea55"
+    }
+  ],
+  "skill": {
+    "exportId": "614046b9-3611-49d9-bbda-927c8677e825",
+    "directory": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpLElSWB\\.project-knowledge\\.project-knowledge\\skills\\fixture-knowledge\\versions\\614046b9-3611-49d9-bbda-927c8677e825",
+    "pointer": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\.tmpLElSWB\\.project-knowledge\\.project-knowledge\\skills\\fixture-knowledge\\CURRENT.json",
+    "freshness": "fresh",
+    "status": "complete",
+    "manifestSha256": "a8371d1a4020454f852082d86f44a22f1da532515e822dc7c53ae10eb6c2ffdf",
+    "files": 11
+  },
+  "readSource": true,
+  "readMap": true,
+  "issues": [
+    {
+      "error": {
+        "code": "AGENT_INCOMPLETE",
+        "message": "model stopped before Core validation and activation completed"
+      }
+    }
+  ],
+  "events": [
+    {
+      "modelTurn": 1,
+      "responseId": "mock-response",
+      "elapsedMs": 47
+    },
+    {
+      "tool": "code-map",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "modelTurn": 2,
+      "responseId": "mock-response",
+      "elapsedMs": 89
+    },
+    {
+      "tool": "export-snapshot",
+      "ok": true,
+      "turn": 2,
+      "revision": 0
+    },
+    {
+      "modelTurn": 3,
+      "responseId": "mock-response",
+      "elapsedMs": 135
+    },
+    {
+      "tool": "read-source",
+      "ok": true,
+      "turn": 3,
+      "revision": 0
+    },
+    {
+      "modelTurn": 4,
+      "responseId": "mock-response",
+      "elapsedMs": 181
+    },
+    {
+      "tool": "import-conventions",
+      "ok": true,
+      "turn": 4,
+      "revision": 0
+    },
+    {
+      "modelTurn": 5,
+      "responseId": "mock-response",
+      "elapsedMs": 233
+    },
+    {
+      "tool": "write-candidate",
+      "ok": true,
+      "turn": 5,
+      "revision": 1
+    },
+    {
+      "modelTurn": 6,
+      "responseId": "mock-response",
+      "elapsedMs": 288
+    },
+    {
+      "tool": "validate-plugin",
+      "ok": true,
+      "turn": 6,
+      "revision": 1
+    },
+    {
+      "modelTurn": 7,
+      "responseId": "mock-response",
+      "elapsedMs": 1144
+    },
+    {
+      "tool": "export-topic-context",
+      "ok": true,
+      "turn": 7,
+      "revision": 1
+    },
+    {
+      "modelTurn": 8,
+      "responseId": "mock-response",
+      "elapsedMs": 1218
+    },
+    {
+      "tool": "import-topic",
+      "ok": true,
+      "turn": 8,
+      "revision": 1
+    },
+    {
+      "modelTurn": 9,
+      "responseId": "mock-response",
+      "elapsedMs": 1255
+    },
+    {
+      "tool": "export-skill",
+      "ok": true,
+      "turn": 9,
+      "revision": 1
+    },
+    {
+      "modelTurn": 10,
+      "responseId": "mock-response",
+      "elapsedMs": 1370
+    }
+  ],
+  "provider": "openai-compatible",
+  "model": "test-model",
+  "promptHash": "fc5a3e87fa5fe89bd8a85c42e0e93bf23dfb614b05780f50d1145fa60e70787d",
+  "budget": {
+    "enabled": true,
+    "provider": "openai-compatible",
+    "model": "test-model",
+    "baseUrl": "http://127.0.0.1:53889/v1",
+    "apiKeyEnv": "AGENT_TEST_SECRET",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 60,
+    "maxInputChars": 180000,
+    "maxOutputTokens": 8192
+  }
+}

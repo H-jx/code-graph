@@ -1,0 +1,26 @@
+{
+  "status": "committed",
+  "runId": "run_21dd9324-2533-4541-8df4-d1142c4ff2b5",
+  "expectedGeneration": "3",
+  "stagedResultHash": "e97d8be0c788467aa4b5a0354da74d2c2799780492719ff9d13c25785bb89c5b",
+  "cases": [],
+  "stages": [
+    {
+      "replacementKey": "(smoke.plugin,extract,smoke)",
+      "batchId": "bat_8c03712fa093028478465d8b31de16841115ca724bdb3b57acd9256b5d0fe61c",
+      "entities": 1,
+      "relations": 0,
+      "dependencies": 7
+    },
+    {
+      "replacementKey": "(smoke.plugin,link,smoke)",
+      "batchId": "bat_d980bb9074e2bcf5eb1545b671ac387236cff4df82408fcdcdad8a1727d6e908",
+      "entities": 0,
+      "relations": 1,
+      "dependencies": 8
+    }
+  ],
+  "validateOnly": false,
+  "committed": true,
+  "generation": "4"
+}

@@ -1,0 +1,73 @@
+{
+  "sourceRoot": "E:\\Project\\tbm\\synes",
+  "revision": "6f47bdbf901f66e59909f8e24edd2e41a1b4f379",
+  "access": "read-only; byte-identical copies",
+  "files": [
+    {
+      "path": "fixtures/original/synes/frontend/config/routes.ts",
+      "originalPath": "frontend/config/routes.ts",
+      "sha256": "9630722661db3b67949c302c8a9c10918a1fdc827d8aec7aab955e81ca974d73",
+      "lastCommit": "08049458a5c713bd9bcbfbd59e7fda9d8393bbf7|xiaguoqiang|2026-10-16T05:43:44+00:00"
+    },
+    {
+      "path": "fixtures/original/synes/frontend/src/locales/zh-CN/menu.ts",
+      "originalPath": "frontend/src/locales/zh-CN/menu.ts",
+      "sha256": "6ba1498595512c3bd9bbd4e499bf4794f3c6eb516da8d4cc7d6064fbf5a5ce50",
+      "lastCommit": "758bb4ee0aa09107e0868256d239b9214e2e3777|hubo|2026-10-09T07:39:12+00:00"
+    },
+    {
+      "path": "fixtures/original/synes/frontend/src/modules/purchase/production-request/pages/ResearchPurchaseLedger/index.tsx",
+      "originalPath": "frontend/src/modules/purchase/production-request/pages/ResearchPurchaseLedger/index.tsx",
+      "sha256": "c5b2d93726c01bbc083b44107871fb6ec57ef439dcae61a684d1fdf4618657ae",
+      "lastCommit": "5a701d5d6efc7845e45af647a3e9be2f3e74c79b|xiaguoqiang|2026-06-18T08:44:28+00:00"
+    },
+    {
+      "path": "fixtures/original/synes/frontend/src/modules/purchase/production-request/requests/queries/purchase-request.query.ts",
+      "originalPath": "frontend/src/modules/purchase/production-request/requests/queries/purchase-request.query.ts",
+      "sha256": "12c5d9090a6cdfb483f14598baa16c8d78fdcb7da80967e29a45b5f78ad63f37",
+      "lastCommit": "63fa78ba1a9fbc376609645dcdf7884fc2190a5c|Gan Mu|2026-08-14T01:37:31+00:00"
+    },
+    {
+      "path": "fixtures/original/synes/frontend/tests/e2e/specs/routes/other-purchase-ledger.spec.ts",
+      "originalPath": "frontend/tests/e2e/specs/routes/other-purchase-ledger.spec.ts",
+      "sha256": "43a837db833c044def219da9d9ecdb8ebf559ea73bc515967069039a2b5f6932",
+      "lastCommit": "827e188e5a7860c8ddae32de7925e67dc6c80991|Gan Mu|2026-09-23T01:56:00+00:00"
+    },
+    {
+      "path": "fixtures/original/synes/backend/src/modules/purchase-request/interface/graphql/resolvers/purchase-request.resolver.ts",
+      "originalPath": "backend/src/modules/purchase-request/interface/graphql/resolvers/purchase-request.resolver.ts",
+      "sha256": "c59c30371dcc5211947b778686a7b0f0aef8104df63ddf61bf4ce3147a7a2ab2",
+      "lastCommit": "4840e520a6372d936ef1b5fbd196d4c49649f0d7|hubo|2026-10-15T09:11:21+00:00"
+    },
+    {
+      "path": "fixtures/original/synes/backend/src/modules/purchase-request/domain/value-objects/purchase-request-status.vo.ts",
+      "originalPath": "backend/src/modules/purchase-request/domain/value-objects/purchase-request-status.vo.ts",
+      "sha256": "16a1a9c75fee1595ff09bab3faa58d09df1012348c5dd82eb70a82182b601e85",
+      "lastCommit": "5132c6e567d564eb14bf74574d7ccb57f59af64a|Gan Mu|2026-04-16T07:52:51+00:00"
+    },
+    {
+      "path": "fixtures/original/synes/backend/src/modules/purchase-request/domain/value-objects/purchase-request-status.vo.spec.ts",
+      "originalPath": "backend/src/modules/purchase-request/domain/value-objects/purchase-request-status.vo.spec.ts",
+      "sha256": "48b8e91c3aa2b000eac12028a8c7f71191bf8e5808526d614c7c609600225931",
+      "lastCommit": "09367c2601aad76daeacd350d245062d8a911719|Gan Mu|2026-09-23T22:58:42+00:00"
+    },
+    {
+      "path": "fixtures/original/synes/backend/src/modules/purchase-request/application/workflows/purchase-request.workflow.ts",
+      "originalPath": "backend/src/modules/purchase-request/application/workflows/purchase-request.workflow.ts",
+      "sha256": "d7bace23ff4ede2289e8a2c927f6c87219eca9fc40be6a27ea88b2ce59c52f3d",
+      "lastCommit": "a9e4369968923ad6665c4a1ee3a4be2d21abc9a6|xiaguoqiang|2026-10-09T08:59:35+00:00"
+    },
+    {
+      "path": "fixtures/original/synes/backend/src/modules/purchase-request/infrastructure/entities/purchase-request.orm-entity.ts",
+      "originalPath": "backend/src/modules/purchase-request/infrastructure/entities/purchase-request.orm-entity.ts",
+      "sha256": "2dabc9909f8dfee9a742f1b30739fe79e7d58be51cd6f7762ac74c50e7d1bb02",
+      "lastCommit": "240505e624a35aaa002f834ac2d26f8c30994ad7|Gan Mu|2026-06-22T09:38:33+00:00"
+    },
+    {
+      "path": "fixtures/original/synes/docs/260903-权限审计/03-采购.md",
+      "originalPath": "docs/260903-权限审计/03-采购.md",
+      "sha256": "359abe037af2d3663d17ef2aefba31220a70a8dbfdf63587fcef865b2e9d4f22",
+      "lastCommit": "86bbf2be665703ad83f6084d368e8916a4c4a43f|Gan Mu|2026-09-16T04:12:56+00:00"
+    }
+  ]
+}

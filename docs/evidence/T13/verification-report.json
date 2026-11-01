@@ -1,0 +1,248 @@
+{
+  "date": "2026-10-28 Asia/Shanghai",
+  "task": "T13",
+  "commands": [
+    {
+      "command": [
+        "node",
+        "scripts/package-link-examples.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T13/artifacts.log",
+      "logSha256": "6f0b3496e6b0a7707cb0d3815a91256843ae102d3c17aaa072b8d4ac36efa241"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--workspace",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T13/workspace-tests.log",
+      "logSha256": "2a4504e4566504cc30d7fbb8d2482af87f818d4a3cd409617d54ea786ca2922c"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T13/clippy.log",
+      "logSha256": "602a3c4ea5fe0971b279837a6c9916fb74e85bddc52b77f79370e7a3f4d857e3"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T13/fmt.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "-p",
+        "xtask",
+        "--locked",
+        "--",
+        "export-contracts",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T13/contracts.log",
+      "logSha256": "a93e7ae637fb3570865caf0598f861a5411354eb6d78ffac8b91588a44f380c2"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/generate-types.mjs",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T13/types.log",
+      "logSha256": "ffd79024bf74c3f0e1a4a224e1b3a1783273115da81cc2ac0624af9984867368"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-contract-types.mjs"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T13/type-boundaries.log",
+      "logSha256": "8da70dbc9bb1ddcfa33365795b959aef29d9f2db35720bd41fda12da62aa4c12"
+    },
+    {
+      "command": [
+        "powershell",
+        "-NoProfile",
+        "-Command",
+        "pnpm run typecheck"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T13/typecheck.log",
+      "logSha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-truth.py"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T13/truth.log",
+      "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-plan.mjs",
+        "--plan",
+        "../plan/NEW-PROJECT-LONG-TASK.md"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T13/plan.log",
+      "logSha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/audit-source.mjs",
+        "--output",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T13\\source-audit.json"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T13/source-audit.log",
+      "logSha256": "258702c689babd14c6a071b793bbe73ddd611510f33c375fef5baa16b2f7712a"
+    }
+  ],
+  "baselineTruthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "reviewHash": "3bcdf39118aedc61f2ac2187672b58a46b11e025681b5ceefa76c4c6939187fa",
+  "fileHashes": {
+    "collectors/examples/frontend-backend-a/api/api-ast.mjs": "8262259f25a502804e1706ac594185040f3a5ea6a590a76da463fceef259231f",
+    "collectors/examples/frontend-backend-a/api/cases/api.json": "69cf411d05f5871c6eddb2c3746605fa17882dfcb181e080fdaea2d7c9423fb2",
+    "collectors/examples/frontend-backend-a/api/cases/input.json": "b6a6e01ad2f17476aeb328f5a93b91b07ad462cbcfaf5779a148219037e161b7",
+    "collectors/examples/frontend-backend-a/api/cases/truth.json": "0656a541167d8195b7a7286c1dc660fcb730fd826778e50f69051f129f5374cf",
+    "collectors/examples/frontend-backend-a/api/collect.mjs": "402ef469d897e2cba4d486f8391ab1061dd56a964c3415ec5ccecda4a2500e80",
+    "collectors/examples/frontend-backend-a/api/conventions.json": "b4af62c5484a29bbed934bfa634c887225dfd293381a5aa18db0ebdbe455fa92",
+    "collectors/examples/frontend-backend-a/api/deps/package-lock.json": "4985349b5af6bfa1f45fa42f365697131386fb77d399b9b468b9fc9ab087297d",
+    "collectors/examples/frontend-backend-a/api/deps/package.json": "704d58792b4ee4599c74133f5c913fbc2eae5b10798ca1c6ed6a1c3d42541023",
+    "collectors/examples/frontend-backend-a/api/frontend-ast.mjs": "fc2253798d7c2d60abb9e38725bf67ea0c7e255e12b9fcabca958ee1e8cd95c4",
+    "collectors/examples/frontend-backend-a/api/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-a/api/manifest.json": "53c7dc5a222e187f6e11dbe21964a0f2bafd2dc233860adf14d1f6bd9e5cb156",
+    "collectors/examples/frontend-backend-a/api/README.md": "fda8ef7c66308a27a8f653a62b334080be708ef7d700308a0414cd935053999d",
+    "collectors/examples/frontend-backend-a/frontend/cases/frontend.json": "4d0af0f20f9bd2f70ec04a9750ad5b2638e4db7c09f76ddab3807e45b3004850",
+    "collectors/examples/frontend-backend-a/frontend/cases/input.json": "60d89a11fcfef168e18ee99ff67bc3eafa7c393e12a98c0c9dbae1741163ed38",
+    "collectors/examples/frontend-backend-a/frontend/cases/truth.json": "f2f67faea50a075e32916c2d5e2482f3daa4cb144489c2686de92eb06ca5e3d4",
+    "collectors/examples/frontend-backend-a/frontend/collect.mjs": "febfb345b10d8a417bd0c13f4c5330b911f5d6a7b058d13296b2ebe3841acbac",
+    "collectors/examples/frontend-backend-a/frontend/conventions.json": "f82bf677ac07214d7848892283ff7e454fe046f99b2771cde6c3d1dea8434fbb",
+    "collectors/examples/frontend-backend-a/frontend/deps/package-lock.json": "4985349b5af6bfa1f45fa42f365697131386fb77d399b9b468b9fc9ab087297d",
+    "collectors/examples/frontend-backend-a/frontend/deps/package.json": "704d58792b4ee4599c74133f5c913fbc2eae5b10798ca1c6ed6a1c3d42541023",
+    "collectors/examples/frontend-backend-a/frontend/frontend-ast.mjs": "fc2253798d7c2d60abb9e38725bf67ea0c7e255e12b9fcabca958ee1e8cd95c4",
+    "collectors/examples/frontend-backend-a/frontend/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-a/frontend/manifest.json": "95e8142b402e744a8c84869eb7f0c2cca63459682eabe46ed95627321fbd693b",
+    "collectors/examples/frontend-backend-a/link/cases/input.json": "e30ff871d7bec872814caebc2a92c407922321edda3c37d322d023b70a9f621e",
+    "collectors/examples/frontend-backend-a/link/cases/link.json": "784d6bf99f9c2148106356fce49f07694b2f2ee5134f21b0c1d4661aff2b1ee7",
+    "collectors/examples/frontend-backend-a/link/cases/truth.json": "3bcdf39118aedc61f2ac2187672b58a46b11e025681b5ceefa76c4c6939187fa",
+    "collectors/examples/frontend-backend-a/link/collect.mjs": "b865310224d42d108aa9477ddebe71f835f7145d31d4d59b37086a59bdccac5f",
+    "collectors/examples/frontend-backend-a/link/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-a/link/link-facts.mjs": "9d7b28aa92ecbe6c097f81700c0b52f345846c11cb7c78a4f9b81e50e14196ef",
+    "collectors/examples/frontend-backend-a/link/manifest.json": "b4fda31eef640bf53c69eba816f9765771da8e998bd35a4a389b65676cc1135c",
+    "collectors/examples/frontend-backend-b/api/api_ast.py": "75f989a6fa3cfc36167933c195d85f83e9a66b0d262152f79b6c93c68fc5c5ae",
+    "collectors/examples/frontend-backend-b/api/cases/api.json": "f3ea420343833633f0e1d25873ab5989cf7dc7d58c9b1ae753c533fb73e7c1e8",
+    "collectors/examples/frontend-backend-b/api/cases/input.json": "d6dade18d5cac2f592f97bd4e57b1acd599966679623e0d86b7f9ec8c231c2f6",
+    "collectors/examples/frontend-backend-b/api/cases/truth.json": "0656a541167d8195b7a7286c1dc660fcb730fd826778e50f69051f129f5374cf",
+    "collectors/examples/frontend-backend-b/api/collect.py": "7cea22aedcee7979da63b96ccca1e3b638eff79918fa2773b9ee4f50c53e7ca9",
+    "collectors/examples/frontend-backend-b/api/conventions.json": "610c900b7a95285810c815d71a63e33d6541eff4038667cc79555ff9ab17730d",
+    "collectors/examples/frontend-backend-b/api/identity-spec.json": "81c166af9f562d29ed5fed8c0f8cee2f99f92e9d55f002a6b301f97ce3cdb92d",
+    "collectors/examples/frontend-backend-b/api/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-b/api/manifest.json": "b8d8dc5f7fca00757e12016758374d141623a283c21086615c3c2b5210411f48",
+    "collectors/examples/frontend-backend-b/api/README.md": "edbc20a758ad3a495263ef9f3c800dd97b23f42400b4dbe4749b8c90a3e783b7",
+    "collectors/examples/frontend-backend-b/frontend/cases/frontend.json": "8bd54d328d0eddaf0ba9caa2f28f25fe3fae06b87975e6777e8bfd44201d9e47",
+    "collectors/examples/frontend-backend-b/frontend/cases/input.json": "93311b724bbacc3246af73854c7864f43a89f2036eea4a1948f9c8645862ecfc",
+    "collectors/examples/frontend-backend-b/frontend/cases/truth.json": "f2f67faea50a075e32916c2d5e2482f3daa4cb144489c2686de92eb06ca5e3d4",
+    "collectors/examples/frontend-backend-b/frontend/collect.mjs": "febfb345b10d8a417bd0c13f4c5330b911f5d6a7b058d13296b2ebe3841acbac",
+    "collectors/examples/frontend-backend-b/frontend/conventions.json": "81d8c877a94e7bb63d0e5d8136053eeef4c7d780c990ddecf2e46bb9dc4065d0",
+    "collectors/examples/frontend-backend-b/frontend/deps/package-lock.json": "4985349b5af6bfa1f45fa42f365697131386fb77d399b9b468b9fc9ab087297d",
+    "collectors/examples/frontend-backend-b/frontend/deps/package.json": "704d58792b4ee4599c74133f5c913fbc2eae5b10798ca1c6ed6a1c3d42541023",
+    "collectors/examples/frontend-backend-b/frontend/frontend-ast.mjs": "fc2253798d7c2d60abb9e38725bf67ea0c7e255e12b9fcabca958ee1e8cd95c4",
+    "collectors/examples/frontend-backend-b/frontend/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-b/frontend/manifest.json": "f3baca547a4f24f543c392ef80c5a25ade89c659738225f1a857bb9a55d7555b",
+    "collectors/examples/frontend-backend-b/link/cases/input.json": "ceff554752457d29d63ce9f5f93814c8761306b235ec3de9832b64a7b64d879f",
+    "collectors/examples/frontend-backend-b/link/cases/link.json": "c2826f1c975bcd20e5b40c2b2c5ac54eb5b06211d1da8c2e8c72562b9685e162",
+    "collectors/examples/frontend-backend-b/link/cases/truth.json": "3bcdf39118aedc61f2ac2187672b58a46b11e025681b5ceefa76c4c6939187fa",
+    "collectors/examples/frontend-backend-b/link/collect.mjs": "b865310224d42d108aa9477ddebe71f835f7145d31d4d59b37086a59bdccac5f",
+    "collectors/examples/frontend-backend-b/link/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-b/link/link-facts.mjs": "9d7b28aa92ecbe6c097f81700c0b52f345846c11cb7c78a4f9b81e50e14196ef",
+    "collectors/examples/frontend-backend-b/link/manifest.json": "e4be68839d5c4c598bdfcddc59293565a69dd4aed040f188366a931a98ac9a50",
+    "collectors/templates/node/lib/frontend-ast.mjs": "fc2253798d7c2d60abb9e38725bf67ea0c7e255e12b9fcabca958ee1e8cd95c4",
+    "collectors/templates/node/lib/link-facts.mjs": "9d7b28aa92ecbe6c097f81700c0b52f345846c11cb7c78a4f9b81e50e14196ef",
+    "crates/core/src/collect/import.rs": "2fb44cbd6afc1fd4631129f7b648d983e9a27f3dcdc7eb6f0d31d9e6b29d74ef",
+    "crates/core/src/collect/validate.rs": "02bfb8069703c1bc8e93a07b74cb6574392c61f0f379b63e16dbc5b05b232244",
+    "crates/core/src/contract/collector.rs": "e86ad023d46eedd54bb8f1056cdcdc9245fb92f6b964817507370bbe6bf048ea",
+    "crates/core/tests/business_scenarios.rs": "9a00c96dc78f2ee985af46b5fc0d9e675ca341a280f397d598953c62098a9312",
+    "crates/core/tests/collectors.rs": "0bccc7e9c2ee176906915271c954ea95622868a31c1c6671266eee5aecb14039",
+    "crates/core/tests/support/linking.rs": "0c23986607648c0878b1cc34d87cb5ddb36f21773354f620d16f9c48383d10f8",
+    "docs/protocol.md": "29f8f7903f6284eada6a3040239589b10f1fc64c650d0a308722e6542ba3122d",
+    "docs/schema/contract.schema.json": "0a7efd1b2d182829ce8b103cfa6023fb3f1cb6e33fcbdf5731536f9acd2d4b3b",
+    "docs/schema/protocol.json": "b1248d0dc75cc5cc184bef9a0c424e75251c8e431b22562ef4e0f2aeeb2e8b5e",
+    "fixtures/truth-supplements/T13-link.json": "3bcdf39118aedc61f2ac2187672b58a46b11e025681b5ceefa76c4c6939187fa",
+    "packages/sdk/src/generated/contract.ts": "1dafd502eeaf0d89f8ab01267eedb2e9b10e005bf12ab6c9f02ccfaefa4f9396",
+    "scripts/package-link-examples.mjs": "ee90355ffd8124637b5a7cce8f363bc365139e2f87e5b2d5b53f0e31594c4a18",
+    "scripts/verify-plugins.mjs": "88239750aef92db460d687882c73114b9a15b3bd53a934f4d668058773337812"
+  },
+  "testSummaries": [
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 14.69s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.23s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.93s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 526.26s",
+    "test result: ok. 36 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 20.63s",
+    "test result: ok. 45 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.43s",
+    "test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 69.50s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+  ],
+  "expectedCrossRepositoryBindings": 4,
+  "forbiddenConfirmed": 0,
+  "productModelRequests": 0,
+  "businessDatabaseConnections": 0,
+  "productionAccuracyClaimed": false,
+  "limitations": [
+    "Supported example registrations and binding shapes only",
+    "Windows x64 execution in this run; four platform install remains T23"
+  ]
+}

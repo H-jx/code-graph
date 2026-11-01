@@ -1,0 +1,30 @@
+{
+  "candidateId": "candidate_00b60357-400c-4a42-bc54-2e6d7aea37a4",
+  "candidateIds": [
+    "candidate_00b60357-400c-4a42-bc54-2e6d7aea37a4"
+  ],
+  "report": {
+    "cases": [],
+    "expectedGeneration": "2",
+    "runId": "run_5bbad5ed-e8b9-448a-86aa-5bc95249cdf1",
+    "stagedResultHash": "0f41ba6bb059f18b27882447bea4dce485ce15c5d3701a6b2a11a8a72844d3b4",
+    "stages": [
+      {
+        "batchId": "bat_5117b723a1320fe86fca4f2e6670e449088bd435598299a1c6a8e45bff42cd61",
+        "dependencies": 7,
+        "entities": 1,
+        "relations": 0,
+        "replacementKey": "(smoke.plugin,extract,smoke)"
+      },
+      {
+        "batchId": "bat_67944cd8f7094cf7f6caa20b54aaa75d446e7ad1e13aaa77dc8081ea0c6c1a43",
+        "dependencies": 8,
+        "entities": 0,
+        "relations": 1,
+        "replacementKey": "(smoke.plugin,link,smoke)"
+      }
+    ],
+    "status": "validated"
+  },
+  "validationId": "validation_fa73ab4f-2daf-4c50-bd21-b64a212c817f"
+}

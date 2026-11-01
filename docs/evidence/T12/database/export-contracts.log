@@ -1,0 +1,14 @@
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+   Compiling xtask v0.1.0 (E:\Project\my-project\code-graph\xtask)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\xtask.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\xtask.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `xtask` (bin "xtask") generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 14.25s
+     Running `target\debug\xtask.exe export-contracts`
+wrote E:\Project\my-project\code-graph\docs/schema\contract.schema.json
+wrote E:\Project\my-project\code-graph\docs/schema\entity-kinds.json
+wrote E:\Project\my-project\code-graph\docs/schema\error-codes.json
+wrote E:\Project\my-project\code-graph\docs/schema\protocol.json
+wrote E:\Project\my-project\code-graph\docs/schema\relation-kinds.json

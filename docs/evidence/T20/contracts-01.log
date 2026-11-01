@@ -1,0 +1,16 @@
+
+> project-knowledge@0.1.0 check:contracts E:\Project\my-project\code-graph
+> cargo run -p xtask -- export-contracts --check && node scripts/generate-types.mjs --check && node scripts/verify-contract-types.mjs
+
+契约文件与生成结果一致（5 个文件）
+生成的类型与 E:\Project\my-project\code-graph\packages\sdk\src\generated\contract.ts 一致。
+{"ok":true,"typescript":"5.9.3","positiveCases":8,"negativeCases":9,"source":"Rust generated contract.ts"}
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+   Compiling xtask v0.1.0 (E:\Project\my-project\code-graph\xtask)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\xtask.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\xtask.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `xtask` (bin "xtask") generated 1 warning
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 10.98s
+     Running `target\debug\xtask.exe export-contracts --check`

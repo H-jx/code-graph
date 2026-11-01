@@ -1,0 +1,18 @@
+   Compiling uuid v1.29.0
+   Compiling insta v1.49.0
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+   Compiling rig-core v0.45.0
+   Compiling rig-memory v0.45.0
+   Compiling rig-agent v0.45.0
+   Compiling rig v0.45.0
+   Compiling project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+error[E0609]: no field `thinking` on type `project_knowledge_core::project::AgentConfig`
+   --> crates\agent\src\runner.rs:492:34
+    |
+492 |     if let Some(thinking)=config.thinking {options=options.reasoning(if thinking{Reasoning::Effort(Effort::Medium)}else{Reasoning::...
+    |                                  ^^^^^^^^ unknown field
+    |
+    = note: available fields are: `enabled`, `provider`, `model`, `base_url`, `api_key_env` ... and 7 others
+
+For more information about this error, try `rustc --explain E0609`.
+error: could not compile `project-knowledge-agent` (lib) due to 1 previous error

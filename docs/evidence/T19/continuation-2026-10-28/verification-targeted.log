@@ -1,0 +1,15 @@
+Running cargo test -p project-knowledge-core --test indexing --locked -j 1 -- --test-threads=1
+Running cargo test -p project-knowledge-core --test collectors --locked -j 1 -- --test-threads=1
+Running cargo test -p project-knowledge-core --test lifecycle --locked -j 1 -- --test-threads=1
+Running cargo clippy --workspace --all-targets --locked -j 1 -- -D warnings
+Running cargo fmt --all -- --check
+Running cargo run -p xtask --locked -- export-contracts --check
+Running node scripts/generate-types.mjs --check
+Running node scripts/verify-contract-types.mjs
+Running powershell -NoProfile -Command pnpm run typecheck
+Running node scripts/verify-core-dependencies.mjs
+Running D:\AppData\Local\miniconda3\python.exe scripts/verify-truth.py
+Running node scripts/audit-source.mjs --output E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\source-audit.json
+Running node scripts/verify-plan.mjs --plan ../plan/NEW-PROJECT-LONG-TASK.md
+Running git diff --check
+T19 code gates passed; finalize after the external and subprocess checks

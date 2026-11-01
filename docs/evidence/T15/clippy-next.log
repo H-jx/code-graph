@@ -1,0 +1,27 @@
+    Checking project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+    Checking project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+   Compiling project-knowledge-native v0.1.0 (E:\Project\my-project\code-graph\bindings\node)
+    Checking xtask v0.1.0 (E:\Project\my-project\code-graph\xtask)
+    Checking project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli)
+error: unused import: `SnapshotRef`
+  --> crates\core\tests\indexing.rs:14:60
+   |
+14 | use project_knowledge_core::contract::evidence::{Evidence, SnapshotRef, Source};
+   |                                                            ^^^^^^^^^^^
+   |
+   = note: `-D unused-imports` implied by `-D warnings`
+   = help: to override `-D warnings` add `#[allow(unused_imports)]`
+
+error: found call to `str::trim` before `str::split_whitespace`
+   --> crates\core\tests\support\queries.rs:225:15
+    |
+225 |               s.trim()
+    |  _______________^
+226 | |                 .split_whitespace()
+    | |_________________^ help: remove `trim()`
+    |
+    = help: for further information visit https://rust-lang.github.io/rust-clippy/rust-1.97.0/index.html#trim_split_whitespace
+    = note: `-D clippy::trim-split-whitespace` implied by `-D warnings`
+    = help: to override `-D warnings` add `#[allow(clippy::trim_split_whitespace)]`
+
+error: could not compile `project-knowledge-core` (test "indexing") due to 2 previous errors

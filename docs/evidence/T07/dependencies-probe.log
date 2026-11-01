@@ -1,0 +1,5 @@
+
+> project-knowledge@0.1.0 verify:dependencies E:\Project\my-project\code-graph
+> node scripts/verify-dependencies.mjs
+
+{"ok":true,"commands":27,"caches":2,"report":"E:\\Project\\my-project\\code-graph\\docs\\evidence\\T07\\dependencies\\report.json"}

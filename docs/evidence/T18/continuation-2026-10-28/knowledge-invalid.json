@@ -1,0 +1,219 @@
+{
+  "runId": "agent_d21398cf-2994-45f5-bf77-1ff20ac44680",
+  "status": "partial",
+  "phase": "knowledge",
+  "goal": "Collect source-driven routes",
+  "focus": "routes",
+  "withSkill": true,
+  "configHash": "950e58be1ccb62c4e32d74307f1b7a6a5cd84344f7d96cba9f7436c2bc6dd82a",
+  "sourceSnapshotId": "snap_438caf71d1538019fbeac0649c903b9ead010a0a25917821df2118994adbb645",
+  "activeVersions": [
+    [
+      "agent.fixture",
+      "1.0.0"
+    ]
+  ],
+  "modelTurns": 9,
+  "toolCalls": 8,
+  "repairs": 0,
+  "needsRepair": false,
+  "elapsedMs": 1193,
+  "deadlineMs": 1793199527692,
+  "repairPlugin": null,
+  "smoke": false,
+  "revision": 1,
+  "candidateId": "candidate_b19d9564-f3be-4f55-a2ad-a067f5a78129",
+  "candidateHash": "388c3350508fb61809aec140af4842a6d155a0a94982db1e8c5c71c2100caaf0",
+  "validationId": "validation_61705868-8239-4b39-a878-ee4b45f523f8",
+  "activation": {
+    "candidateId": "candidate_b19d9564-f3be-4f55-a2ad-a067f5a78129",
+    "activationId": "activation_validation_61705868-8239-4b39-a878-ee4b45f523f8",
+    "status": "active",
+    "generation": "2"
+  },
+  "investigation": {
+    "status": "imported",
+    "notes": "Fixture route evidence; mock tests mechanics only",
+    "evidenceRefs": [
+      {
+        "snapshot": {
+          "indexId": "4ae6ee67-1e00-4103-896f-602d2faf012a",
+          "generation": "1",
+          "sourceSnapshotId": "snap_438caf71d1538019fbeac0649c903b9ead010a0a25917821df2118994adbb645"
+        },
+        "evidenceId": "ev_a6035ac688ff4927825dc803bc9b583d58cb6277f88061cca62871385e4583b2",
+        "sourceId": "src_dd9aadedc51afac86b4a28f1d4fa887b1fbbd8b06135db15716b75e1114c18c0",
+        "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+        "startByte": 0,
+        "endByte": 24
+      }
+    ],
+    "identityChangesApplied": false,
+    "convention": {
+      "conventionId": "9c27d96011afff128e970a6b32224d586955e2540ec350ce719cb02283043c58",
+      "sourceClass": "derivedConvention",
+      "originalReferences": [
+        {
+          "snapshot": {
+            "indexId": "4ae6ee67-1e00-4103-896f-602d2faf012a",
+            "generation": "1",
+            "sourceSnapshotId": "snap_438caf71d1538019fbeac0649c903b9ead010a0a25917821df2118994adbb645"
+          },
+          "evidenceId": "ev_a6035ac688ff4927825dc803bc9b583d58cb6277f88061cca62871385e4583b2",
+          "sourceId": "src_dd9aadedc51afac86b4a28f1d4fa887b1fbbd8b06135db15716b75e1114c18c0",
+          "contentHash": "f2c699748ffaf3d734a297263a0536f30dd4aff459a31b252be853bb01cd0411",
+          "startByte": 0,
+          "endByte": 24
+        }
+      ],
+      "configHash": "950e58be1ccb62c4e32d74307f1b7a6a5cd84344f7d96cba9f7436c2bc6dd82a",
+      "snapshot": {
+        "indexId": "4ae6ee67-1e00-4103-896f-602d2faf012a",
+        "generation": "1",
+        "sourceSnapshotId": "snap_438caf71d1538019fbeac0649c903b9ead010a0a25917821df2118994adbb645"
+      },
+      "indexInvalidated": false
+    }
+  },
+  "topicContexts": [
+    "aa430c1efce5b2b960353ecf1a1cfc30d1124489b92738d093a8d14fd52ca19d"
+  ],
+  "topics": [],
+  "skill": null,
+  "readSource": true,
+  "readMap": true,
+  "issues": [
+    {
+      "error": {
+        "code": "SCHEMA_INVALID",
+        "message": "JSON does not match the Core schema",
+        "retryable": false,
+        "issues": [
+          {
+            "code": "SCHEMA_INVALID",
+            "instancePath": "/claims/0/evidenceRefs/0",
+            "expected": "JSON type Single(String); send the value directly, not a JSON-encoded string",
+            "repairHint": "按 Core 导出的 JSON Schema 修复该字段"
+          }
+        ]
+      }
+    },
+    {
+      "error": {
+        "code": "KNOWLEDGE_INCOMPLETE",
+        "message": "plugin activated; current topic import and Skill output have not completed"
+      }
+    }
+  ],
+  "events": [
+    {
+      "modelTurn": 1,
+      "responseId": "mock-response",
+      "elapsedMs": 65
+    },
+    {
+      "tool": "code-map",
+      "ok": true,
+      "turn": 1,
+      "revision": 0
+    },
+    {
+      "modelTurn": 2,
+      "responseId": "mock-response",
+      "elapsedMs": 114
+    },
+    {
+      "tool": "export-snapshot",
+      "ok": true,
+      "turn": 2,
+      "revision": 0
+    },
+    {
+      "modelTurn": 3,
+      "responseId": "mock-response",
+      "elapsedMs": 159
+    },
+    {
+      "tool": "read-source",
+      "ok": true,
+      "turn": 3,
+      "revision": 0
+    },
+    {
+      "modelTurn": 4,
+      "responseId": "mock-response",
+      "elapsedMs": 194
+    },
+    {
+      "tool": "import-conventions",
+      "ok": true,
+      "turn": 4,
+      "revision": 0
+    },
+    {
+      "modelTurn": 5,
+      "responseId": "mock-response",
+      "elapsedMs": 244
+    },
+    {
+      "tool": "write-candidate",
+      "ok": true,
+      "turn": 5,
+      "revision": 1
+    },
+    {
+      "modelTurn": 6,
+      "responseId": "mock-response",
+      "elapsedMs": 322
+    },
+    {
+      "tool": "validate-plugin",
+      "ok": true,
+      "turn": 6,
+      "revision": 1
+    },
+    {
+      "modelTurn": 7,
+      "responseId": "mock-response",
+      "elapsedMs": 1070
+    },
+    {
+      "tool": "export-topic-context",
+      "ok": true,
+      "turn": 7,
+      "revision": 1
+    },
+    {
+      "modelTurn": 8,
+      "responseId": "mock-response",
+      "elapsedMs": 1146
+    },
+    {
+      "tool": "import-topic",
+      "ok": false,
+      "turn": 8,
+      "revision": 1
+    },
+    {
+      "modelTurn": 9,
+      "responseId": "mock-response",
+      "elapsedMs": 1175
+    }
+  ],
+  "provider": "openai-compatible",
+  "model": "test-model",
+  "promptHash": "fc5a3e87fa5fe89bd8a85c42e0e93bf23dfb614b05780f50d1145fa60e70787d",
+  "budget": {
+    "enabled": true,
+    "provider": "openai-compatible",
+    "model": "test-model",
+    "baseUrl": "http://127.0.0.1:55066/v1",
+    "apiKeyEnv": "AGENT_TEST_SECRET",
+    "maxTurns": 24,
+    "maxToolCalls": 80,
+    "maxRepairAttempts": 2,
+    "timeoutSeconds": 60,
+    "maxInputChars": 180000,
+    "maxOutputTokens": 8192
+  }
+}

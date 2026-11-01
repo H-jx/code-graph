@@ -1,0 +1,350 @@
+{
+  "protocolVersion": "1.0",
+  "topicId": "ledger",
+  "snapshot": {
+    "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+    "generation": "2",
+    "sourceSnapshotId": "snap_d1ea5910bde9b38f18c42e1d6629bd918cfbeb277316decfca84a99b96a2cd19"
+  },
+  "inputDigest": "9e298041f552bae5c444c6cc73f3e1cd5aa8f5e1f1d67c301f911fb662cbe23e",
+  "materialDigest": "7de8bbb5135d28e6c62e473c16cceb526fe4abce68b8e6fb71f4ca927bfa7234",
+  "request": {
+    "topicId": "ledger",
+    "query": {
+      "operation": "search",
+      "query": "ledger",
+      "filters": {
+        "repositoryIds": [
+          "main"
+        ]
+      },
+      "pageSize": 8
+    },
+    "maxChars": 80000
+  },
+  "facts": {
+    "protocolVersion": "1.0",
+    "requestId": "req_acffb4eb-fd85-4253-8471-527728ec2c14",
+    "snapshot": {
+      "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+      "generation": "2",
+      "sourceSnapshotId": "snap_d1ea5910bde9b38f18c42e1d6629bd918cfbeb277316decfca84a99b96a2cd19"
+    },
+    "status": "complete",
+    "data": {
+      "results": [
+        {
+          "entityRef": {
+            "snapshot": {
+              "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+              "generation": "2",
+              "sourceSnapshotId": "snap_d1ea5910bde9b38f18c42e1d6629bd918cfbeb277316decfca84a99b96a2cd19"
+            },
+            "entityId": "ent_31409eb031eeb635875632a66975843bd370cb35a63c68b2fa3caf77706f711e"
+          },
+          "kind": "file",
+          "scopeId": "repo.main",
+          "identity": [
+            {
+              "name": "repositoryId",
+              "value": "main"
+            },
+            {
+              "name": "path",
+              "value": "src/ledger.sql"
+            },
+            {
+              "name": "scopeId",
+              "value": "repo.main"
+            }
+          ],
+          "name": "src/ledger.sql",
+          "assertions": [
+            {
+              "assertionId": "as_07909fe483ce9726a2265c8c0594076e386190e858159fbb6ea756962c3fc565",
+              "producerKey": "core.base",
+              "batchId": "bat_49dfb489525e2685ab48307c1b11ad27f20b24c7703a9267f2181a5907d08253",
+              "basis": "observed",
+              "origin": "static",
+              "name": "src/ledger.sql",
+              "attributes": {
+                "path": "src/ledger.sql",
+                "repositoryId": "main",
+                "byteLength": 73,
+                "language": "unknown"
+              },
+              "evidenceRefs": [
+                "ev_4dcca09ae7d97986e9f65802522d190a43fcd0c4c5121d48653c9d8a014270ea"
+              ]
+            }
+          ],
+          "matchReason": "identifier",
+          "exactRank": 3,
+          "bm25": -9.661229611041405e-7,
+          "projection": "source"
+        }
+      ],
+      "fields": null,
+      "candidateSetComplete": true
+    },
+    "sourceReferences": [
+      {
+        "snapshot": {
+          "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+          "generation": "2",
+          "sourceSnapshotId": "snap_d1ea5910bde9b38f18c42e1d6629bd918cfbeb277316decfca84a99b96a2cd19"
+        },
+        "evidenceId": "ev_4dcca09ae7d97986e9f65802522d190a43fcd0c4c5121d48653c9d8a014270ea",
+        "sourceId": "src_49d6a31145eb044e0d5b607c380749db15073d1ae195758bacabfa5319fef318",
+        "contentHash": "b585a041851b46b0bbb73a703f3f110c2a60d1c90eb0f4a42b589539ffdc2e9d",
+        "startByte": 0,
+        "endByte": 1
+      }
+    ],
+    "gaps": [],
+    "completeness": {
+      "freshness": "fresh",
+      "diskChecked": true,
+      "checkedAt": "2026-10-28T14:16:33Z",
+      "coverage": "complete",
+      "candidateSetsComplete": true,
+      "truncated": false,
+      "reasons": []
+    },
+    "budgetUsed": {
+      "entities": 1,
+      "relations": 0,
+      "visited": 5,
+      "elapsedMs": 6,
+      "responseChars": 2093
+    },
+    "nextQueries": []
+  },
+  "codeMap": {
+    "protocolVersion": "1.0",
+    "requestId": "req_3855de81-18fb-4deb-87a7-950ca7384fb1",
+    "snapshot": {
+      "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+      "generation": "2",
+      "sourceSnapshotId": "snap_d1ea5910bde9b38f18c42e1d6629bd918cfbeb277316decfca84a99b96a2cd19"
+    },
+    "status": "partial",
+    "data": {
+      "files": [
+        {
+          "repositoryId": "main",
+          "path": "src/ledger.sql",
+          "sourceId": "src_49d6a31145eb044e0d5b607c380749db15073d1ae195758bacabfa5319fef318"
+        }
+      ],
+      "symbols": [],
+      "uncoveredLanguages": [
+        {
+          "language": "sql",
+          "reason": "text/evidence available; no built-in syntax outline"
+        }
+      ]
+    },
+    "sourceReferences": [
+      {
+        "snapshot": {
+          "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+          "generation": "2",
+          "sourceSnapshotId": "snap_d1ea5910bde9b38f18c42e1d6629bd918cfbeb277316decfca84a99b96a2cd19"
+        },
+        "evidenceId": "ev_4dcca09ae7d97986e9f65802522d190a43fcd0c4c5121d48653c9d8a014270ea",
+        "sourceId": "src_49d6a31145eb044e0d5b607c380749db15073d1ae195758bacabfa5319fef318",
+        "contentHash": "b585a041851b46b0bbb73a703f3f110c2a60d1c90eb0f4a42b589539ffdc2e9d",
+        "startByte": 0,
+        "endByte": 1
+      }
+    ],
+    "gaps": [],
+    "completeness": {
+      "freshness": "fresh",
+      "diskChecked": true,
+      "checkedAt": "2026-10-28T14:16:33Z",
+      "coverage": "partial",
+      "candidateSetsComplete": true,
+      "truncated": false,
+      "reasons": [
+        "some selected files have no syntax outline"
+      ]
+    },
+    "budgetUsed": {
+      "entities": 0,
+      "relations": 0,
+      "visited": 12,
+      "elapsedMs": 11,
+      "responseChars": 1335
+    },
+    "nextQueries": []
+  },
+  "sourceReads": {
+    "reads": [
+      {
+        "status": "current",
+        "sourceId": "src_49d6a31145eb044e0d5b607c380749db15073d1ae195758bacabfa5319fef318",
+        "path": "src/ledger.sql",
+        "evidenceId": "ev_4dcca09ae7d97986e9f65802522d190a43fcd0c4c5121d48653c9d8a014270ea",
+        "startByte": 0,
+        "returnedEndByte": 1,
+        "snippetTruncated": false,
+        "snippet": "-",
+        "lineMap": {
+          "startLine": 1,
+          "endLine": 1
+        },
+        "storedVersion": null,
+        "checkedAt": "2026-10-28T14:16:33Z"
+      },
+      {
+        "status": "current",
+        "sourceId": "src_49d6a31145eb044e0d5b607c380749db15073d1ae195758bacabfa5319fef318",
+        "path": "src/ledger.sql",
+        "evidenceId": "ev_c5ec8f8e2ab943607d7c0c883e09d28504fc5b44100556d4c954d9a10d151ae4",
+        "startByte": 0,
+        "returnedEndByte": 73,
+        "snippetTruncated": false,
+        "snippet": "-- ledger quantity changed\r\nSELECT SUM(ordered_qty) FROM purchase_line;\r\n",
+        "lineMap": {
+          "startLine": 1,
+          "endLine": 2
+        },
+        "storedVersion": null,
+        "checkedAt": "2026-10-28T14:16:33Z"
+      }
+    ]
+  },
+  "coverage": [
+    {
+      "replacementKey": "(core.base,main)",
+      "capability": "api",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "replacementKey": "(core.base,main)",
+      "capability": "base",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "complete"
+    },
+    {
+      "replacementKey": "(core.base,main)",
+      "capability": "database",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "replacementKey": "(core.base,main)",
+      "capability": "frontend",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "replacementKey": "(core.base,main)",
+      "capability": "report",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "replacementKey": "(core.base,main)",
+      "capability": "routes",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    },
+    {
+      "replacementKey": "(core.base,main)",
+      "capability": "workflow",
+      "scopeId": "repo.main",
+      "sourceSetId": "main",
+      "status": "not_configured"
+    }
+  ],
+  "sourceReferences": [
+    {
+      "snapshot": {
+        "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+        "generation": "2",
+        "sourceSnapshotId": "snap_d1ea5910bde9b38f18c42e1d6629bd918cfbeb277316decfca84a99b96a2cd19"
+      },
+      "evidenceId": "ev_4dcca09ae7d97986e9f65802522d190a43fcd0c4c5121d48653c9d8a014270ea",
+      "sourceId": "src_49d6a31145eb044e0d5b607c380749db15073d1ae195758bacabfa5319fef318",
+      "contentHash": "b585a041851b46b0bbb73a703f3f110c2a60d1c90eb0f4a42b589539ffdc2e9d",
+      "startByte": 0,
+      "endByte": 1
+    },
+    {
+      "snapshot": {
+        "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+        "generation": "2",
+        "sourceSnapshotId": "snap_d1ea5910bde9b38f18c42e1d6629bd918cfbeb277316decfca84a99b96a2cd19"
+      },
+      "evidenceId": "ev_c5ec8f8e2ab943607d7c0c883e09d28504fc5b44100556d4c954d9a10d151ae4",
+      "sourceId": "src_49d6a31145eb044e0d5b607c380749db15073d1ae195758bacabfa5319fef318",
+      "contentHash": "b585a041851b46b0bbb73a703f3f110c2a60d1c90eb0f4a42b589539ffdc2e9d",
+      "startByte": 0,
+      "endByte": 73
+    }
+  ],
+  "conventions": [],
+  "gaps": [
+    {
+      "id": "knowledge_material_partial",
+      "code": "KNOWLEDGE_MATERIAL_PARTIAL",
+      "capability": "knowledge",
+      "scopeId": "",
+      "sourceRefs": [],
+      "candidateIds": [],
+      "reason": "Some selected facts, outlines or source reads are partial; explanation completeness is limited by that material",
+      "requiredEvidence": [
+        "inspect completeness reasons and obtain the missing original material"
+      ]
+    }
+  ],
+  "promptHash": "c918ecd7f60af4f710c1f744d0e069cf63eb3f42b27b8280a5caa3f5a0de91c2",
+  "templateHash": "2812eb889355f58643d197f61873c80f2c562f7a549e370e5d493f3676337007",
+  "dependencies": [
+    {
+      "kind": "config",
+      "key": "project",
+      "digest": "196391c3b54db9e2026e01bc444ffb09bcbc4dbf7087d620fb0c4fd42b78db63"
+    },
+    {
+      "kind": "conventions",
+      "key": "all",
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "kind": "facts",
+      "key": "[\"main\"]",
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "kind": "plugins",
+      "key": "[\"main\"]",
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "kind": "prompt",
+      "key": "knowledge",
+      "digest": "c918ecd7f60af4f710c1f744d0e069cf63eb3f42b27b8280a5caa3f5a0de91c2"
+    },
+    {
+      "kind": "sourceSet",
+      "key": "main",
+      "digest": "f9439d891795ef8170c8daba68acf09f06dfd1c71736aa51c9a4ce0e1ed2c209"
+    },
+    {
+      "kind": "template",
+      "key": "skill",
+      "digest": "2812eb889355f58643d197f61873c80f2c562f7a549e370e5d493f3676337007"
+    }
+  ]
+}

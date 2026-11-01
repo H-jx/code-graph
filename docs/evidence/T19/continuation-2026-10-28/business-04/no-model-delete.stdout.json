@@ -1,0 +1,72 @@
+{
+  "mode": "incremental",
+  "configPath": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\project.json",
+  "indexDatabase": "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\business-04\\project\\.project-knowledge\\index.sqlite",
+  "indexId": "c009752d-bed4-4681-8b07-7bf57fe02431",
+  "generation": "19",
+  "sourceSnapshotId": "snap_c6c139053eb21233e0101e90b3b57c81c3ddf6bab22023f8d57c80a9faf40c79",
+  "sourceSetHash": "da10846a94bea40001f695a0cf99a9efc4a41700f413a17522db861b4d37856c",
+  "entities": 9,
+  "relations": 8,
+  "searchDocuments": 9,
+  "gaps": 0,
+  "invalidated": [
+    "(core.base,business)",
+    "(t19-audited.workflow,extract,T19-audited-purchase)"
+  ],
+  "executed": [
+    "t19-audited.workflow:extract"
+  ],
+  "completedAt": "2026-10-29T00:38:48Z",
+  "coverage": {
+    "base@repo.business": {
+      "capability": "base",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "complete",
+      "gapIds": []
+    },
+    "routes@repo.business": {
+      "capability": "routes",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "frontend@repo.business": {
+      "capability": "frontend",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "api@repo.business": {
+      "capability": "api",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "database@repo.business": {
+      "capability": "database",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "workflow@repo.business": {
+      "capability": "workflow",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured",
+      "gapIds": []
+    },
+    "report@repo.business": {
+      "capability": "report",
+      "scopeId": "repo.business",
+      "sourceSetId": "business",
+      "status": "not_configured",
+      "gapIds": []
+    }
+  }
+}

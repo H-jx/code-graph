@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "date": "2026-10-29 Asia/Shanghai",
+  "verificationReportSha256": "e079c54cc1d262c99a86814bbb20e54b9c2966ab24dca36e469d9e93894d74c6",
+  "hashCounts": {
+    "sourceHashes": 17,
+    "documentationHashes": 4,
+    "snapshotHashes": 241
+  },
+  "sourceAuditHashes": 185,
+  "sourceFiles": 185,
+  "zeroByteSources": 0,
+  "targetedTests": 137,
+  "modelTurnBudgetUsed": 235,
+  "countBasis": "durable model-turn hook counts, including the interrupted request; not a provider billing count",
+  "selectedGuardTopics": 2,
+  "credentialLiteralScanPerformed": true,
+  "defaultCliHashMatched": true
+}

@@ -1,0 +1,149 @@
+{
+  "declaredAndCodeTransitions": 14,
+  "documentKeyPairs": 3,
+  "expectedFields": 9,
+  "expectedStates": 6,
+  "forbiddenConfirmed": 0,
+  "queryAttributes": {
+    "aggregates": [
+      {
+        "expression": "SUM(qty)",
+        "function": "SUM",
+        "sourceColumnIds": [
+          "ent_f77f25eb6e3c0aa6164e7fb6ca1dfb7d6a73af042b604fd43368527137228092"
+        ]
+      },
+      {
+        "expression": "SUM(qty)",
+        "function": "SUM",
+        "sourceColumnIds": [
+          "ent_0e9d82170de5908a7ff935c163189bbaa29c80f2b91c76eb4add9c244f1b0d55"
+        ]
+      },
+      {
+        "expression": "SUM(amount_cents)",
+        "function": "SUM",
+        "sourceColumnIds": [
+          "ent_a2da17144b9c8a91eda87fdc474d86dd12fc4c617070206243c9fa45744ea69e"
+        ]
+      }
+    ],
+    "dialect": "sqlite",
+    "grainColumnIds": [
+      "ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e",
+      "ent_9d8ef7cd4f8105252bea3e13669b9faf7b50ce56e9c36e430b8d31441412c17a",
+      "ent_0789c355d1e54a7c5263afb225290697e27c6e30ae449e6d14b13addf3df83f5"
+    ],
+    "joins": [
+      {
+        "cardinality": "unknown",
+        "condition": "s.tenant_id = p.tenant_id AND s.supplier_id = p.supplier_id",
+        "joinType": "left",
+        "keyPairs": [
+          {
+            "leftColumnId": "ent_c484f02517fcaa7c9028f467202e5314240bdcc2f2fdac352855e5ce84b7d575",
+            "operator": "equals",
+            "rightColumnId": "ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e"
+          },
+          {
+            "leftColumnId": "ent_8bd886ab8ee184614d95d292a3394f5d0440f3943eacee85a9c8e49092ce50f3",
+            "operator": "equals",
+            "rightColumnId": "ent_1db2f0b822d4d2fccd885fc354b265946d9b8365abc8c1e7da3a9e76fbfbd83f"
+          }
+        ]
+      },
+      {
+        "cardinality": "oneToOne",
+        "condition": "r.tenant_id = p.tenant_id AND r.purchase_no = p.purchase_no AND r.line_no = p.line_no",
+        "joinType": "left",
+        "keyPairs": [
+          {
+            "leftColumnId": "ent_42f47b5018c195cb290492b5f8bfdc04424518fe32befd564a2b08e0a88194af",
+            "operator": "equals",
+            "rightColumnId": "ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e"
+          },
+          {
+            "leftColumnId": "ent_c30c246b41c217a9275cd5540bd2b18d1105d3c3122c6d0562905f319e7c6042",
+            "operator": "equals",
+            "rightColumnId": "ent_9d8ef7cd4f8105252bea3e13669b9faf7b50ce56e9c36e430b8d31441412c17a"
+          },
+          {
+            "leftColumnId": "ent_2a0c87e913725cb45fd1184a8d91e4c464754486e8c009ada4258b99ce00d2db",
+            "operator": "equals",
+            "rightColumnId": "ent_0789c355d1e54a7c5263afb225290697e27c6e30ae449e6d14b13addf3df83f5"
+          }
+        ]
+      },
+      {
+        "cardinality": "oneToOne",
+        "condition": "t.tenant_id = p.tenant_id AND t.purchase_no = p.purchase_no AND t.line_no = p.line_no",
+        "joinType": "left",
+        "keyPairs": [
+          {
+            "leftColumnId": "ent_7781c53cea80bc7699832383b745231350a3ac70e93dffa47a37ee433fe50b77",
+            "operator": "equals",
+            "rightColumnId": "ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e"
+          },
+          {
+            "leftColumnId": "ent_7d72d87973edea39e2be8b1338510952206bc862dd87e757668ae9eb8b877d4b",
+            "operator": "equals",
+            "rightColumnId": "ent_9d8ef7cd4f8105252bea3e13669b9faf7b50ce56e9c36e430b8d31441412c17a"
+          },
+          {
+            "leftColumnId": "ent_3a3d0918db29b3a5633b2b038487dd2a28888960f1625b8a7e7c1fd1dd1aecf6",
+            "operator": "equals",
+            "rightColumnId": "ent_0789c355d1e54a7c5263afb225290697e27c6e30ae449e6d14b13addf3df83f5"
+          }
+        ]
+      },
+      {
+        "cardinality": "oneToOne",
+        "condition": "i.tenant_id = p.tenant_id AND i.purchase_no = p.purchase_no AND i.line_no = p.line_no",
+        "joinType": "left",
+        "keyPairs": [
+          {
+            "leftColumnId": "ent_e83c7f90462613a51bad29f7d56b54c545da884fe5a4382b1de8828fa26c1e92",
+            "operator": "equals",
+            "rightColumnId": "ent_b1d586d423deba1e53470eb6dc44ecfd99282edb285dc78f65c6beb15cc98e2e"
+          },
+          {
+            "leftColumnId": "ent_b3be8f71dd507521380769b40df474378be19f476bad536fae39300e628d26c7",
+            "operator": "equals",
+            "rightColumnId": "ent_9d8ef7cd4f8105252bea3e13669b9faf7b50ce56e9c36e430b8d31441412c17a"
+          },
+          {
+            "leftColumnId": "ent_03409fbb5a99136cd122bd0895238a5204a5ca6d6e4092f9785d573b0405ee38",
+            "operator": "equals",
+            "rightColumnId": "ent_0789c355d1e54a7c5263afb225290697e27c6e30ae449e6d14b13addf3df83f5"
+          }
+        ]
+      }
+    ],
+    "nullHandling": "COALESCE to zero after LEFT JOIN",
+    "statement": {
+      "endByte": 1257,
+      "startByte": 0,
+      "text": "WITH r AS (\n SELECT tenant_id,purchase_no,line_no,SUM(qty) AS qty FROM receipt\n WHERE status='POSTED' AND deleted=0 GROUP BY tenant_id,purchase_no,line_no\n), t AS (\n SELECT tenant_id,purchase_no,line_no,SUM(qty) AS qty FROM return_line\n WHERE status='POSTED' AND deleted=0 GROUP BY tenant_id,purchase_no,line_no\n), i AS (\n SELECT tenant_id,purchase_no,line_no,SUM(amount_cents) AS amount FROM invoice\n WHERE status='POSTED' AND deleted=0 GROUP BY tenant_id,purchase_no,line_no\n)\nSELECT p.tenant_id,p.purchase_no,p.line_no,s.name,\n COALESCE(r.qty,0) AS grossReceived,COALESCE(r.qty,0)-COALESCE(t.qty,0) AS netReceived,\n p.ordered_qty-COALESCE(r.qty,0)+COALESCE(t.qty,0) AS outstanding,\n p.ordered_qty*p.unit_price_cents AS purchaseAmountCents,COALESCE(i.amount,0) AS invoiceAmountCents\nFROM purchase_detail p\nLEFT JOIN supplier s ON s.tenant_id=p.tenant_id AND s.supplier_id=p.supplier_id\nLEFT JOIN r ON r.tenant_id=p.tenant_id AND r.purchase_no=p.purchase_no AND r.line_no=p.line_no\nLEFT JOIN t ON t.tenant_id=p.tenant_id AND t.purchase_no=p.purchase_no AND t.line_no=p.line_no\nLEFT JOIN i ON i.tenant_id=p.tenant_id AND i.purchase_no=p.purchase_no AND i.line_no=p.line_no\nWHERE p.tenant_id=:tenant AND p.status='APPROVED' ORDER BY p.purchase_no,p.line_no;\n"
+    },
+    "timeFields": {
+      "gapIds": [
+        "gap_345ee3e286144fa1848f5e9550f139e8cdd1bc958bfd8c19214d84bdedc627f8"
+      ],
+      "status": "unknown"
+    },
+    "units": [
+      {
+        "field": "purchaseAmountCents",
+        "unit": "cent"
+      },
+      {
+        "field": "invoiceAmountCents",
+        "unit": "cent"
+      }
+    ],
+    "validStates": [
+      "APPROVED",
+      "POSTED"
+    ]
+  }
+}

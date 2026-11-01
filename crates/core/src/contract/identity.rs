@@ -81,8 +81,19 @@ impl IdentityValue {
 #[serde(deny_unknown_fields)]
 pub struct IdentitySlot {
     pub name: String,
-    #[serde(default, skip_serializing_if = "Option::is_none")]
+    #[serde(
+        default,
+        skip_serializing_if = "Option::is_none",
+        deserialize_with = "present_identity_value"
+    )]
+    #[schemars(with = "IdentityValue")]
     pub value: Option<IdentityValue>,
+}
+
+fn present_identity_value<'de, D: serde::Deserializer<'de>>(
+    deserializer: D,
+) -> Result<Option<IdentityValue>, D::Error> {
+    IdentityValue::deserialize(deserializer).map(Some)
 }
 
 impl IdentitySlot {
@@ -321,6 +332,7 @@ pub fn entity_components(kind: EntityKind) -> &'static [ComponentSpec] {
         EntityKind::Service | EntityKind::DataSource => CONFIGURED_COMPONENTS,
         EntityKind::Event | EntityKind::Title | EntityKind::Comment => LOCATED_COMPONENTS,
         EntityKind::Request => REQUEST_COMPONENTS,
+        EntityKind::Extension(_) => &[],
     }
 }
 
@@ -491,7 +503,28 @@ pub fn canonical_entity_identity(
     kind: EntityKind,
     slots: &[IdentitySlot],
 ) -> Result<String, IdentityError> {
-    let specs = entity_components(kind);
+    if matches!(&kind, EntityKind::Extension(_)) {
+        if slots.first().is_none_or(|s| {
+            s.name != "scopeId" || s.value.as_ref().and_then(IdentityValue::as_text).is_none()
+        }) || slots.iter().any(|s| s.name.is_empty())
+            || slots
+                .iter()
+                .map(|s| &s.name)
+                .collect::<std::collections::BTreeSet<_>>()
+                .len()
+                != slots.len()
+        {
+            return Err(IdentityError::NotCanonical(
+                "extension identity needs unique named slots beginning with scopeId".into(),
+            ));
+        }
+        let values = slots
+            .iter()
+            .map(|s| (&s.name, s.value.iter().collect::<Vec<_>>()))
+            .collect::<Vec<_>>();
+        return canonical_json(&serde_json::json!([project_id, kind.as_str(), values]));
+    }
+    let specs = entity_components(kind.clone());
     let mut parts = vec![
         IdentityValue::text(project_id.to_string()),
         IdentityValue::text(kind.as_str().to_string()),
@@ -525,7 +558,46 @@ pub fn identity_slots_from_canonical(
             "canonical identity must contain projectId and kind".to_string(),
         ));
     }
+    if items[0].as_str().is_none() || items[1].as_str() != Some(kind.as_str()) {
+        return Err(IdentityError::NotCanonical(
+            "canonical projectId or kind is invalid".into(),
+        ));
+    }
+    if matches!(&kind, EntityKind::Extension(_)) {
+        if items.len() != 3 {
+            return Err(IdentityError::NotCanonical(
+                "extension identity must have three fields".into(),
+            ));
+        }
+        let values: Vec<(String, Vec<IdentityValue>)> = serde_json::from_value(items[2].clone())
+            .map_err(|e| IdentityError::NotCanonical(e.to_string()))?;
+        let mut slots = Vec::new();
+        for (name, mut values) in values {
+            if values.len() > 1 {
+                return Err(IdentityError::NotCanonical(
+                    "extension presence wrapper must have zero or one value".into(),
+                ));
+            }
+            slots.push(IdentitySlot {
+                name,
+                value: values.pop(),
+            });
+        }
+        canonical_entity_identity(
+            items[0]
+                .as_str()
+                .ok_or_else(|| IdentityError::NotCanonical("projectId must be a string".into()))?,
+            kind,
+            &slots,
+        )?;
+        return Ok(slots);
+    }
     let specs = entity_components(kind);
+    if items.len() != specs.len() + 2 {
+        return Err(IdentityError::NotCanonical(
+            "canonical identity has the wrong slot count".into(),
+        ));
+    }
     let mut slots = Vec::with_capacity(specs.len());
     for (spec, item) in specs.iter().zip(items[2..].iter()) {
         let (present, value) = if spec.required {
@@ -533,8 +605,12 @@ pub fn identity_slots_from_canonical(
         } else {
             match item.as_array() {
                 Some(entries) if entries.is_empty() => (false, None),
-                Some(entries) => (true, Some(entries[0].clone())),
-                None => (false, None),
+                Some(entries) if entries.len() == 1 => (true, Some(entries[0].clone())),
+                _ => {
+                    return Err(IdentityError::NotCanonical(
+                        "optional presence wrapper must have zero or one value".into(),
+                    ));
+                }
             }
         };
         let _ = present;

@@ -1,0 +1,139 @@
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 13 tests
+test config_dotenv_validation_precedence_and_secret_boundaries ... ok
+test config_missing_key_invalid_response_and_input_budget_fail_closed ... ok
+test config_provider_errors_cancellation_timeout_and_turn_budget ... ok
+test lifecycle_fills_missing_initial_case_and_resume_validates_without_model ... ok
+test lifecycle_pending_activation_and_skill_partial ... ok
+test lifecycle_repairs_validates_activates_and_runs_without_model ... ok
+test lifecycle_resume_rechecks_sources_and_retains_spent_budget ... ok
+test lifecycle_stops_after_two_failed_repairs ... ok
+test tools_candidate_paths_reject_traversal_absolute_and_duplicate_files ... ok
+test tools_errors_keep_json_pointers_and_budget_is_global ... ok
+test tools_invalid_large_bundle_keeps_bounded_error_pointers ... ok
+test tools_roundtrip_and_no_tool_model_is_not_success ... ok
+test tools_unknown_calls_return_feedback_without_execution_and_count_budget ... ok
+
+test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 11.61s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 1 test
+test agent_cli_configuration_is_reachable_in_both_argument_orders ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.63s
+
+
+running 5 tests
+test collect_cli_validates_commits_and_returns_failure_for_invalid_output ... ok
+test collector_host_termination_cleans_descendants_and_releases_maintenance_lock ... ok
+test incremental_cli_and_failed_collect_preserve_invalidation_and_stage_boundaries ... ok
+test incremental_cli_host_termination_keeps_invalidation_and_cleans_owned_descendants ... ok
+test plugin_cli_submit_validate_activate_and_rollback ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.37s
+
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 7 tests
+test frontend_moves_renames_and_ambiguous_dynamic_registrations_remain_conservative ... ok
+test frontend_shadowed_imports_nested_registrations_and_parse_errors_do_not_confirm_targets ... ok
+test frontend_two_layouts_match_frozen_identities_attributes_relations_and_evidence ... ok
+test truth_candidate_writer_cannot_modify_the_baseline ... ok
+test truth_frontend_expected_and_forbidden_identities_are_complete ... ok
+test truth_frozen_sources_citations_and_provenance ... FAILED
+test truth_numeric_sql_matches_frozen_rows_and_rejects_both_mutants ... ok
+
+failures:
+
+---- truth_frozen_sources_citations_and_provenance stdout ----
+
+thread 'truth_frozen_sources_citations_and_provenance' (34900) panicked at crates\core\tests\business_scenarios.rs:122:5:
+assertion `left == right` failed
+  left: "e1d1697cd50bb0e4661225ac4a1a37639218180036c8fbcd08193b5d26c73ae4"
+ right: "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed"
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    truth_frozen_sources_citations_and_provenance
+
+test result: FAILED. 6 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 35.59s
+
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+   Compiling project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+   Compiling project-knowledge-native v0.1.0 (E:\Project\my-project\code-graph\bindings\node)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge_native.dll.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge_native.dll.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-native` (lib) generated 1 warning
+   Compiling xtask v0.1.0 (E:\Project\my-project\code-graph\xtask)
+   Compiling project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\collect-a8012af03dee8ff2.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\collect-a8012af03dee8ff2.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-cli` (test "collect") generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-cli` (bin "project-knowledge") generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\agent_lifecycle-f96d5cce7e19098a.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\agent_lifecycle-f96d5cce7e19098a.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-agent` (test "agent_lifecycle") generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\lifecycle-e5b33ee04fc86ff4.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\lifecycle-e5b33ee04fc86ff4.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "lifecycle") generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-d7c20e1605408678.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-d7c20e1605408678.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\collectors-37b148f27c61d47b.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\collectors-37b148f27c61d47b.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "collectors") generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\indexing-cb703ca7789686d1.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\indexing-cb703ca7789686d1.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "indexing") generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge_core-0ef44fdcf456af2e.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge_core-0ef44fdcf456af2e.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (lib test) generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge_agent-a41bd382263dfc35.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge_agent-a41bd382263dfc35.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-agent` (lib test) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1m 42s
+     Running unittests src\lib.rs (target\debug\deps\project_knowledge_agent-a41bd382263dfc35.exe)
+     Running tests\agent_lifecycle.rs (target\debug\deps\agent_lifecycle-f96d5cce7e19098a.exe)
+     Running unittests src\main.rs (target\debug\deps\project_knowledge-37c9d298e2afda52.exe)
+     Running tests\agent.rs (target\debug\deps\agent-ef1ccac5a3d28b0c.exe)
+     Running tests\collect.rs (target\debug\deps\collect-a8012af03dee8ff2.exe)
+     Running unittests src\lib.rs (target\debug\deps\project_knowledge_core-0ef44fdcf456af2e.exe)
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-d7c20e1605408678.exe)
+error: test failed, to rerun pass `-p project-knowledge-core --test business_scenarios`

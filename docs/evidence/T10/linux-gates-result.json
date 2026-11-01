@@ -1,0 +1,1 @@
+{"accepted":false,"reason":"The installed Linux Clippy component contained empty executables; its exit 0 is invalid lint evidence. Linux incremental tests are real and separately logged. Windows Clippy passed with a real compiler.","sourceHash":"f16d2b7294413bdedd6eb09232e7762635143e02d4e4199904958a0f20b2966f"}

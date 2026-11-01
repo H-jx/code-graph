@@ -1,0 +1,4 @@
+info: removing component clippy
+info: downloading component clippy
+info: rolling back changes
+error: failed to install component: 'clippy-preview-x86_64-unknown-linux-gnu', detected conflict: 'bin/cargo-clippy'

@@ -1,284 +1,197 @@
-//! `collect`：运行已激活的采集阶段。
-//!
-//! T07/T08：宿主校验 manifest、准备依赖、运行子进程并校验输出。
-//! 正式写入事实需要校验与导入流程（T08/T09），本命令当前只做“运行 + 校验”。
-
-use std::path::{Path, PathBuf};
-
+//! CLI 只解析参数；阶段排序、校验和事务提交由 Core 拥有。
+use crate::commands::{Exit, database_path, now_timestamp, print_json};
 use clap::Args;
-use project_knowledge_core::collect::import::export_input;
 use project_knowledge_core::collect::manifest::{load_manifest, validate_manifest};
-use project_knowledge_core::collect::runner::{PluginRunner, ResolvedRuntime, RunRequest};
-use project_knowledge_core::collect::validate::validate_output;
-use project_knowledge_core::contract::collector::{PluginManifest, StagePhase};
+use project_knowledge_core::collect::staging::stage_collection;
+use project_knowledge_core::contract::collector::StagePhase;
 use project_knowledge_core::contract::error::{CoreError, codes};
 use project_knowledge_core::project::config::LoadedProject;
-use project_knowledge_core::storage::database::Database;
-use serde_json::{Value, json};
+use project_knowledge_core::storage::Database;
+use std::path::PathBuf;
 use tokio_util::sync::CancellationToken;
 
-use crate::commands::{Exit, database_path, now_timestamp, print_json};
-
-/// `collect` 参数。
 #[derive(Debug, Args)]
 pub struct CollectArgs {
-    /// 项目配置文件。
     #[arg(long)]
     pub config: PathBuf,
-    /// 采集阶段：`extract` 或 `link`。
-    #[arg(long)]
+    /// all 在暂存库执行完整 extract/link 组；也可显式指定 extract 或 link。
+    #[arg(long, default_value = "all")]
     pub phase: String,
-    /// 只运行指定插件。
     #[arg(long)]
     pub plugin: Option<String>,
-    /// 只校验，不提交事实。
     #[arg(long)]
     pub validate_only: bool,
-    /// 直接指定候选 manifest 路径（用于尚未登记的候选）。
     #[arg(long)]
     pub manifest: Option<PathBuf>,
 }
 
-/// 执行 `collect`。
 pub fn run(args: CollectArgs) -> Result<Exit, CoreError> {
     let phase = match args.phase.as_str() {
-        "extract" => StagePhase::Extract,
-        "link" => StagePhase::Link,
-        other => {
+        "all" => None,
+        "extract" => Some(StagePhase::Extract),
+        "link" => Some(StagePhase::Link),
+        _ => {
             return Err(CoreError::new(
                 codes::INVALID_REQUEST,
-                format!("unknown phase `{other}` (expected extract or link)"),
+                "phase must be all, extract or link",
             ));
         }
     };
-
     let project = LoadedProject::load(&args.config)?;
-    let now = now_timestamp();
-    let database_path = database_path(&args.config);
-    let database = Database::open_readonly(&database_path)?;
-    let source_snapshot_id = database.current_source_snapshot_id()?.ok_or_else(|| {
-        CoreError::new(
-            codes::INDEX_MISSING,
-            "index has no source snapshot; run `index --base` first",
-        )
-    })?;
-
-    let manifests = discover_manifests(&project, args.manifest.as_deref())?;
-    // 同一插件可能同时出现在显式登记与插件目录中，按 (ID, 版本, 制品哈希) 去重。
-    let mut seen: Vec<(String, String, String)> = Vec::new();
-    let mut selected: Vec<(PathBuf, PluginManifest)> = Vec::new();
-    for (path, manifest) in manifests {
-        let directory = path.parent().map(Path::to_path_buf).unwrap_or_default();
-        let artifact_hash = validate_manifest(&manifest, &directory, &project.config.runtimes)
-            .map(|validated| validated.artifact_hash)
-            .unwrap_or_default();
-        let key = (
-            manifest.plugin_id.clone(),
-            manifest.version.clone(),
-            artifact_hash,
-        );
-        if seen.contains(&key) {
-            continue;
-        }
-        seen.push(key);
-        if args
-            .plugin
-            .as_ref()
-            .map(|plugin| manifest.plugin_id == *plugin)
-            .unwrap_or(true)
-        {
-            selected.push((path, manifest));
-        }
-    }
-    if selected.is_empty() {
+    let _lock = if args.validate_only {
+        None
+    } else {
+        Some(project_knowledge_core::collect::registry::MaintenanceLock::acquire(&project)?)
+    };
+    let path = database_path(&args.config);
+    if !path.is_file() {
         return Err(CoreError::new(
             codes::INDEX_MISSING,
-            "no collector manifest found; register one under `collectors` or `plugins.directories`",
+            "run index --base first",
         ));
     }
-
-    let runtime = tokio::runtime::Builder::new_multi_thread()
-        .enable_all()
-        .build()
-        .map_err(|error| {
-            CoreError::new(
-                codes::INTERNAL_ERROR,
-                format!("cannot start async runtime: {error}"),
-            )
-        })?;
-
-    let mut results: Vec<Value> = Vec::new();
-    let mut failures = 0usize;
-    for (manifest_path, manifest) in selected {
-        let directory = manifest_path
-            .parent()
-            .map(Path::to_path_buf)
-            .unwrap_or_else(|| PathBuf::from("."));
-        let validated = validate_manifest(&manifest, &directory, &project.config.runtimes)?;
-        for stage in manifest.stages.iter().filter(|stage| stage.phase == phase) {
-            let run_id = format!("run_{}", uuid::Uuid::new_v4());
-            let input = export_input(
+    if !args.validate_only {
+        let mut maintenance = Database::open_maintenance(
+            &path,
+            &project.config.project_id,
+            &project.config_hash()?,
+            &now_timestamp(),
+        )?;
+        _lock.as_ref().expect("maintenance lock").recover(
+            &project,
+            &maintenance,
+            &now_timestamp(),
+        )?;
+        project_knowledge_core::collect::registry::check_active_artifacts(
+            &project,
+            &mut maintenance,
+        )?;
+        tokio::runtime::Builder::new_multi_thread()
+            .enable_all()
+            .build()
+            .map_err(|e| CoreError::new(codes::INTERNAL_ERROR, e.to_string()))?
+            .block_on(
+                project_knowledge_core::index::incremental::invalidate_for_collect(
+                    &project,
+                    &mut maintenance,
+                    &now_timestamp(),
+                ),
+            )?;
+    }
+    let database = Database::open_readonly(&path)?;
+    let paths = if args.validate_only || args.manifest.is_some() {
+        discover_manifests(&project, args.manifest, args.plugin.as_deref())?
+    } else {
+        project_knowledge_core::storage::active_version_map(database.connection())?
+            .into_iter()
+            .filter(|(id, _)| args.plugin.as_ref().is_none_or(|wanted| wanted == id))
+            .map(|(id, version)| {
+                project_knowledge_core::storage::plugins::published_manifest(
+                    database.connection(),
+                    &id,
+                    &version,
+                )
+            })
+            .collect::<Result<Vec<_>, _>>()?
+    };
+    if !args.validate_only {
+        let active = project_knowledge_core::storage::active_version_map(database.connection())?;
+        for path in &paths {
+            let manifest = load_manifest(path)?;
+            if !active.contains(&(manifest.plugin_id.clone(), manifest.version.clone())) {
+                return Err(CoreError::new(
+                    codes::INVALID_REQUEST,
+                    "collect requires an active plugin; submit, validate and activate the candidate first",
+                ));
+            }
+            let published = project_knowledge_core::storage::plugins::published_manifest(
                 database.connection(),
-                &project,
-                stage,
-                &source_snapshot_id,
-                &run_id,
                 &manifest.plugin_id,
                 &manifest.version,
             )?;
-            let executable = resolve_runtime(&manifest, &project)?;
-            let entry = directory.join(&stage.entry);
-            let request = RunRequest {
-                runtime: ResolvedRuntime {
-                    executable: executable.clone(),
-                    version: "runtime".to_string(),
-                },
-                entry,
-                args: stage.args.clone(),
-                directory: directory.clone(),
-                input,
-                limits: manifest.limits.clone().unwrap_or_default(),
-                extra_env: Default::default(),
-            };
-            let runner = PluginRunner::default();
-            match runtime.block_on(runner.run(&request, &CancellationToken::new())) {
-                Ok(outcome) => {
-                    let report = validate_output(
-                        &project_knowledge_core::collect::validate::ValidationContext {
-                            project_id: &project.config.project_id,
-                            input: &request.input,
-                            manifest: &manifest,
-                            stage,
-                        },
-                        &outcome.output,
-                    )
-                    .map(|issues| json!({ "issues": issues }))
-                    .unwrap_or_else(|error| json!({ "issues": error.issues }));
-                    let mut entry_value = json!({
-                        "pluginId": manifest.plugin_id,
-                        "version": manifest.version,
-                        "stageId": stage.id,
-                        "artifactHash": validated.artifact_hash,
-                        "stdoutBytes": outcome.stdout_bytes,
-                        "stderrBytes": outcome.stderr_bytes,
-                        "durationMs": outcome.duration_ms,
-                        "entities": outcome.output.entities.len(),
-                        "relations": outcome.output.relations.len(),
-                        "evidence": outcome.output.evidence.len(),
-                        "gaps": outcome.output.gaps.len(),
-                        "validation": report,
-                        "committed": false,
-                    });
-                    entry_value["status"] = json!("validated");
-                    results.push(entry_value);
-                }
-                Err(error) => {
-                    failures += 1;
-                    results.push(json!({
-                        "pluginId": manifest.plugin_id,
-                        "version": manifest.version,
-                        "stageId": stage.id,
-                        "status": "failed",
-                        "error": {
-                            "code": error.code,
-                            "message": error.message,
-                            "issues": error.issues,
-                        },
-                    }));
-                }
+            let expected = validate_manifest(
+                &load_manifest(&published)?,
+                published.parent().expect("published parent"),
+                &project.config.runtimes,
+            )?;
+            let supplied = validate_manifest(
+                &manifest,
+                path.parent().expect("manifest parent"),
+                &project.config.runtimes,
+            )?;
+            if expected.artifact_hash != supplied.artifact_hash {
+                return Err(CoreError::new(
+                    codes::ARTIFACT_CHANGED,
+                    "collector differs from the active immutable artifact",
+                ));
             }
         }
     }
-
-    let payload = json!({
-        "phase": args.phase,
-        "validateOnly": args.validate_only,
-        "committed": false,
-        "results": results,
-        "note": "正式提交事实需要校验与导入流程（T08/T09）；本命令只运行并校验阶段输出。",
-        "completedAt": now,
-    });
-    print_json(&payload);
-    Ok(if failures == 0 {
-        Exit::ok()
-    } else {
-        crate::commands::Exit { code: 1 }
-    })
+    let runtime = tokio::runtime::Builder::new_multi_thread()
+        .enable_all()
+        .build()
+        .map_err(|e| CoreError::new(codes::INTERNAL_ERROR, e.to_string()))?;
+    let now = now_timestamp();
+    let staged = runtime.block_on(stage_collection(
+        &project,
+        &database,
+        &paths,
+        phase,
+        &CancellationToken::new(),
+        &now,
+    ))?;
+    let mut report = staged.report();
+    report["validateOnly"] = serde_json::json!(args.validate_only);
+    report["committed"] = serde_json::json!(!args.validate_only);
+    if !args.validate_only {
+        let mut database = Database::open_maintenance(
+            &path,
+            &project.config.project_id,
+            &project.config_hash()?,
+            &now,
+        )?;
+        let generation = runtime.block_on(staged.commit(&project, &mut database, &now))?;
+        report["generation"] = serde_json::json!(generation.to_string());
+        report["status"] = serde_json::json!("committed");
+    }
+    print_json(&report);
+    Ok(Exit::ok())
 }
 
-/// 发现候选 manifest：显式登记的 `collectors` 路径与插件目录。
 fn discover_manifests(
     project: &LoadedProject,
-    explicit: Option<&Path>,
-) -> Result<Vec<(PathBuf, PluginManifest)>, CoreError> {
-    let mut paths: Vec<PathBuf> = Vec::new();
-    if let Some(path) = explicit {
-        paths.push(path.to_path_buf());
+    explicit: Option<PathBuf>,
+    plugin: Option<&str>,
+) -> Result<Vec<PathBuf>, CoreError> {
+    let paths = if let Some(path) = explicit {
+        vec![path]
     } else {
-        paths.extend(project.collector_manifest_paths());
-        for directory in project.plugin_directories() {
-            let Ok(entries) = std::fs::read_dir(&directory) else {
-                continue;
-            };
-            for entry in entries.flatten() {
-                let plugin_dir = entry.path();
-                if !plugin_dir.is_dir() {
-                    continue;
-                }
-                let direct = plugin_dir.join("manifest.json");
-                if direct.is_file() {
-                    paths.push(direct);
-                    continue;
-                }
-                let Ok(versions) = std::fs::read_dir(&plugin_dir) else {
-                    continue;
-                };
-                for version in versions.flatten() {
-                    let candidate = version.path().join("manifest.json");
-                    if candidate.is_file() {
-                        paths.push(candidate);
-                    }
-                }
-            }
-        }
-    }
-
-    let mut result: Vec<(PathBuf, PluginManifest)> = Vec::new();
+        project_knowledge_core::collect::registry::discovery_paths(project)?
+    };
+    let mut seen = std::collections::BTreeSet::new();
+    let mut result = Vec::new();
     for path in paths {
         let manifest = load_manifest(&path)?;
-        result.push((path, manifest));
-    }
-    Ok(result)
-}
-
-/// 解析运行时可执行文件。
-fn resolve_runtime(
-    manifest: &PluginManifest,
-    project: &LoadedProject,
-) -> Result<PathBuf, CoreError> {
-    use project_knowledge_core::contract::collector::RuntimeKind;
-    match manifest.runtime.kind {
-        RuntimeKind::Node => Ok(PathBuf::from("node")),
-        RuntimeKind::Python => Ok(PathBuf::from("python")),
-        RuntimeKind::Executable => {
-            let id = manifest.runtime.executable_id.as_deref().ok_or_else(|| {
-                CoreError::new(
-                    codes::CONFIG_INVALID,
-                    "executable runtime requires `executableId`",
-                )
-            })?;
-            project
-                .config
-                .runtimes
-                .iter()
-                .find(|runtime| runtime.id == id)
-                .map(|runtime| PathBuf::from(&runtime.executable))
-                .ok_or_else(|| {
-                    CoreError::new(
-                        codes::RUNTIME_MISSING,
-                        format!("runtime `{id}` is not configured in this project"),
-                    )
-                })
+        if plugin.is_some_and(|id| id != manifest.plugin_id) {
+            continue;
+        }
+        let directory = path
+            .parent()
+            .ok_or_else(|| CoreError::new(codes::CONFIG_INVALID, "manifest has no parent"))?;
+        let validated = validate_manifest(&manifest, directory, &project.config.runtimes)?;
+        if seen.insert((
+            manifest.plugin_id,
+            manifest.version,
+            validated.artifact_hash,
+        )) {
+            result.push(path);
         }
     }
+    if result.is_empty() {
+        return Err(CoreError::new(
+            codes::INDEX_MISSING,
+            "no collector selected",
+        ));
+    }
+    Ok(result)
 }

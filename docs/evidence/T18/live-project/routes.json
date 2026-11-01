@@ -1,0 +1,1 @@
+{"routerId":"app","mode":"history","routes":[{"path":"/orders","name":"Orders"},{"path":"/inventory","name":"Inventory"}]}

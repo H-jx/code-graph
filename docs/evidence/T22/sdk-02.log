@@ -1,0 +1,23 @@
+
+> project-knowledge@0.1.0 test:sdk E:\Project\my-project\code-graph
+> pnpm --filter @project-knowledge/sdk run test
+
+
+> @project-knowledge/sdk@0.1.0 test E:\Project\my-project\code-graph\packages\sdk
+> node --test test/*.test.mjs
+
+✔ capabilities uses the exported Core schema without config/index or runtime discovery (12.2436ms)
+✔ read open never creates/migrates a missing or incompatible index (111.4572ms)
+✔ all ten query methods match CLI and keep database bytes/tables unchanged (3531.5544ms)
+✔ Core validation issues, pagination and snapshot/source references survive the transport (849.5779ms)
+✔ query load leaves the event loop responsive; pre-abort, request IDs and close are deterministic (2804.8ms)
+✔ maintenance uses Core candidate lifecycle; running abort and close stop owned plugin trees (1987.9251ms)
+✔ out-of-repo loading works and missing native reports an installation error (141.2072ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9523.7541

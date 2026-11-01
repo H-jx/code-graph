@@ -17,7 +17,7 @@ use crate::search::documents::SearchDocument;
 use crate::storage;
 
 /// 一个待提交的批次。
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, serde::Serialize, serde::Deserialize)]
 pub struct StagedBatch {
     pub project_id: String,
     pub batch_id: String,
@@ -36,7 +36,7 @@ pub struct StagedBatch {
 }
 
 /// 待提交实体及其断言。
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct StagedEntity {
     pub entity: Entity,
     pub name: Option<String>,
@@ -46,7 +46,7 @@ pub struct StagedEntity {
 }
 
 /// 待提交关系及其断言。
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct StagedRelation {
     pub relation: Relation,
     pub evidence_refs: Vec<String>,
@@ -67,6 +67,10 @@ pub fn commit_batch(
     // 旧批次单向失效。
     let previous = storage::runs::current_batch(connection, &staged.replacement_key)?;
     if let Some(previous) = previous {
+        storage::knowledge::invalidate_batches(
+            connection,
+            std::slice::from_ref(&staged.replacement_key),
+        )?;
         connection
             .execute(
                 "UPDATE batches SET state = 'stale', invalidated_generation = COALESCE(invalidated_generation, ?2)
@@ -101,7 +105,7 @@ pub fn commit_batch(
     for staged_entity in &staged.entities {
         let identity = canonical_entity_identity(
             &staged.project_id,
-            staged_entity.entity.kind,
+            staged_entity.entity.kind.clone(),
             &staged_entity.entity.identity,
         )
         .map_err(|error| {
@@ -114,7 +118,7 @@ pub fn commit_batch(
             connection,
             &storage::entities::EntityRow {
                 id: &staged_entity.entity.id,
-                kind: staged_entity.entity.kind,
+                kind: staged_entity.entity.kind.clone(),
                 scope_id: &staged_entity.entity.scope_id,
                 identity_json: &identity,
             },
@@ -218,5 +222,6 @@ pub fn commit_batch(
 
     // 切换当前批次。
     storage::set_current_batch(connection, &staged.replacement_key, &staged.batch_id)?;
+    crate::knowledge::documents::invalidate_changed(connection)?;
     Ok(())
 }

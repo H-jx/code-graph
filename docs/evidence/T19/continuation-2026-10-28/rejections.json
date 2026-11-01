@@ -1,0 +1,58 @@
+[
+  {
+    "case": 0,
+    "code": "REFERENCE_MISSING"
+  },
+  {
+    "case": 1,
+    "code": "SNAPSHOT_EXPIRED"
+  },
+  {
+    "case": 2,
+    "code": "EVIDENCE_INVALID"
+  },
+  {
+    "case": 3,
+    "code": "INVALID_REQUEST"
+  },
+  {
+    "case": 4,
+    "code": "INVALID_REQUEST"
+  },
+  {
+    "case": 5,
+    "code": "INVALID_REQUEST"
+  },
+  {
+    "case": 6,
+    "code": "INVALID_REQUEST"
+  },
+  {
+    "case": 7,
+    "code": "INVALID_REQUEST"
+  },
+  {
+    "case": 8,
+    "code": "INVALID_REQUEST"
+  },
+  {
+    "case": 9,
+    "code": "INVALID_REQUEST"
+  },
+  {
+    "case": 10,
+    "code": "REFERENCE_MISSING"
+  },
+  {
+    "case": 11,
+    "code": "INVALID_REQUEST"
+  },
+  {
+    "case": 12,
+    "code": "INVALID_REQUEST"
+  },
+  {
+    "case": 13,
+    "code": "INVALID_REQUEST"
+  }
+]

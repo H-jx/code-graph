@@ -1,0 +1,737 @@
+{
+  "passed": true,
+  "platform": "win32",
+  "cases": [
+    {
+      "id": "S1-01",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S1-02",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S1-03",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S1-04",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S1-05",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S1-06",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S1-07",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S2-01",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S2-02",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S2-03",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S2-04",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S2-05",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S2-06",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        },
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "semantics_workflow_report_preserve_original_conflicts_and_all_field_lineage",
+          "file": "crates/core/tests/support/semantics.rs"
+        }
+      ]
+    },
+    {
+      "id": "S2-07",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "lifecycle",
+          "name": "incremental_candidates_zero_one_two_rename_attributes_delete_and_clean_rebuild_agree",
+          "file": "crates/core/tests/lifecycle.rs"
+        },
+        {
+          "package": "project-knowledge-core",
+          "suite": "indexing",
+          "name": "knowledge_plugin_fact_and_candidate_sets_invalidate_zero_matches",
+          "file": "crates/core/tests/support/knowledge.rs"
+        }
+      ]
+    },
+    {
+      "id": "S3-01",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S3-02",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S3-03",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S3-04",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "truth_numeric_sql_matches_frozen_rows_and_rejects_both_mutants",
+          "file": "crates/core/tests/business_scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S3-05",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S3-06",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "scenario_queries_two_layouts_match_original_facts_and_cli",
+          "file": "crates/core/tests/support/scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "S3-07",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "lifecycle",
+          "name": "incremental_failure_cancel_base_only_and_restored_content_keep_old_batches_stale",
+          "file": "crates/core/tests/lifecycle.rs"
+        },
+        {
+          "package": "project-knowledge-core",
+          "suite": "indexing",
+          "name": "knowledge_relevant_sql_stales_rerender_does_not_refresh_and_unrelated_generation_survives",
+          "file": "crates/core/tests/support/knowledge.rs"
+        }
+      ]
+    },
+    {
+      "id": "X01",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "linking_two_layouts_use_original_bindings_and_reject_missing_or_incomplete_proof",
+          "file": "crates/core/tests/support/linking.rs"
+        }
+      ]
+    },
+    {
+      "id": "X02",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "backend_database_two_asts_preserve_datasources_ddl_keys_query_joins_and_original_ranges",
+          "file": "crates/core/tests/business_scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "X03",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "backend_database_incomplete_keys_dynamic_instances_and_invalid_sql_never_confirm_mappings",
+          "file": "crates/core/tests/business_scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "X04",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "frontend_moves_renames_and_ambiguous_dynamic_registrations_remain_conservative",
+          "file": "crates/core/tests/business_scenarios.rs"
+        }
+      ]
+    },
+    {
+      "id": "X05",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "business_scenarios",
+          "name": "linking_new_resolver_proxy_and_datasource_changes_match_clean_rebuild",
+          "file": "crates/core/tests/support/linking.rs"
+        }
+      ]
+    },
+    {
+      "id": "X06",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "collectors",
+          "name": "validation_empty_extract_invalidates_downstream_and_preserves_base",
+          "file": "crates/core/tests/collectors.rs"
+        }
+      ]
+    },
+    {
+      "id": "X07",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "lifecycle",
+          "name": "incremental_candidates_zero_one_two_rename_attributes_delete_and_clean_rebuild_agree",
+          "file": "crates/core/tests/lifecycle.rs"
+        }
+      ]
+    },
+    {
+      "id": "X08",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "collectors",
+          "name": "runner_rejects_non_zero_exit_and_invalid_json",
+          "file": "crates/core/tests/collectors.rs"
+        },
+        {
+          "package": "project-knowledge-core",
+          "suite": "collectors",
+          "name": "runner_bounds_blocked_input_and_simultaneous_output_floods",
+          "file": "crates/core/tests/collectors.rs"
+        }
+      ]
+    },
+    {
+      "id": "X09",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "lifecycle",
+          "name": "activation_concurrent_candidates_and_readers_never_mix_versions",
+          "file": "crates/core/tests/lifecycle.rs"
+        },
+        {
+          "package": "project-knowledge-core",
+          "suite": "collectors",
+          "name": "validation_commit_rechecks_source_artifact_and_generation",
+          "file": "crates/core/tests/collectors.rs"
+        }
+      ]
+    },
+    {
+      "id": "X10",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "lifecycle",
+          "name": "activation_real_host_kill_inside_c_preserves_old_snapshot_and_retries",
+          "file": "crates/core/tests/lifecycle.rs"
+        }
+      ]
+    },
+    {
+      "id": "X11",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "lifecycle",
+          "name": "incremental_failure_cancel_base_only_and_restored_content_keep_old_batches_stale",
+          "file": "crates/core/tests/lifecycle.rs"
+        }
+      ]
+    },
+    {
+      "id": "X12",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "indexing",
+          "name": "query_neighbors_bfs_cycles_filters_and_strict_budgets",
+          "file": "crates/core/tests/support/queries.rs"
+        },
+        {
+          "package": "project-knowledge-core",
+          "suite": "indexing",
+          "name": "query_read_source_rejects_forgery_and_preserves_expired_versions_explicitly",
+          "file": "crates/core/tests/support/queries.rs"
+        }
+      ]
+    },
+    {
+      "id": "X13",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "indexing",
+          "name": "query_search_keyset_fields_unicode_generation_and_readonly",
+          "file": "crates/core/tests/support/queries.rs"
+        }
+      ]
+    },
+    {
+      "id": "X14",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "indexing",
+          "name": "knowledge_rejects_forged_cyclic_and_unmarked_explanations",
+          "file": "crates/core/tests/support/knowledge.rs"
+        },
+        {
+          "package": "project-knowledge-core",
+          "suite": "collectors",
+          "name": "validation_rejects_generated_knowledge_as_evidence",
+          "file": "crates/core/tests/collectors.rs"
+        }
+      ]
+    },
+    {
+      "id": "X15",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-agent",
+          "suite": "agent_lifecycle",
+          "name": "lifecycle_stops_after_two_failed_repairs",
+          "file": "crates/agent/tests/agent_lifecycle.rs"
+        },
+        {
+          "package": "project-knowledge-agent",
+          "suite": "agent_lifecycle",
+          "name": "lifecycle_pending_activation_and_skill_partial",
+          "file": "crates/agent/tests/agent_lifecycle.rs"
+        },
+        {
+          "package": "project-knowledge-agent",
+          "suite": "agent_lifecycle",
+          "name": "config_provider_errors_cancellation_timeout_and_turn_budget",
+          "file": "crates/agent/tests/agent_lifecycle.rs"
+        }
+      ]
+    },
+    {
+      "id": "X16",
+      "passed": true,
+      "checks": [
+        {
+          "package": "project-knowledge-core",
+          "suite": "collectors",
+          "name": "deps_plan_requires_lock_file_and_reports_missing_runtime",
+          "file": "crates/core/tests/collectors.rs"
+        },
+        {
+          "package": "project-knowledge-agent",
+          "suite": "agent_lifecycle",
+          "name": "config_missing_key_invalid_response_and_input_budget_fail_closed",
+          "file": "crates/agent/tests/agent_lifecycle.rs"
+        }
+      ]
+    }
+  ],
+  "caseCount": 37,
+  "comparisonCount": 14,
+  "comparisons": [
+    {
+      "file": "205af082601ca6deb3c9dac1bf34b2aadd4a4db7728819dae04bb2aa1064e57a.json",
+      "operation": "workflow",
+      "snapshot": {
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "generation": "9",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sha256": "3c5806f2961433cb1454b628982004b237c4f495b54404e9f0abb76fc32a5957"
+    },
+    {
+      "file": "434af6c9dabd128ae38c9ea91f3cdd673da8154c7c666c2363956c52d26c5bdb.json",
+      "operation": "search",
+      "snapshot": {
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "generation": "6",
+        "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+      },
+      "sha256": "1f22b133c51cf5703200749a7402ed303ec46ede4c4119d28360e7a613202944"
+    },
+    {
+      "file": "4d76321580c076ba829717e15f1060e2305a9480ef09a9c12e8efc518a39548b.json",
+      "operation": "page",
+      "snapshot": {
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "generation": "9",
+        "sourceSnapshotId": "snap_0ca15d145428aa1eb105dbb88eccdb6b9c9f374ef3f9f595c478c9fe8e1b088a"
+      },
+      "sha256": "e13300b15042ead964b4bf1e1aacdf91c4b96ff35cd1a97f5cd43946f94bae17"
+    },
+    {
+      "file": "4fa90de7f449f6ac9e11ed03d94240972391905129178360cecef1edb8fc9b3e.json",
+      "operation": "search",
+      "snapshot": {
+        "indexId": "05093fcc-6e42-4f64-8348-36028ba690a3",
+        "generation": "6",
+        "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+      },
+      "sha256": "4d24c1c7c5dfe2e469ec4c7dc4f9e94f0a6db0ebe07e5325ca00c0dabbb5f619"
+    },
+    {
+      "file": "73a7578c1f397a9c621275659ff357bb1678c6d199bd319a26cc88c142d2e989.json",
+      "operation": "page",
+      "snapshot": {
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "generation": "6",
+        "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+      },
+      "sha256": "a116af62b915dd80cc92400e2a8cc16ff713cdfe0a70e96e3dca27e8eaa8bea1"
+    },
+    {
+      "file": "754f273b1451adfb171190ffd208177ea7b33d70b164d1587a95c88de8d87338.json",
+      "operation": "locateFeature",
+      "snapshot": {
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "generation": "6",
+        "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+      },
+      "sha256": "9f8b3b2008aa3e95ccdc74b4866fea6f8c4b30e0697f7bfe6f180a42d232c4b9"
+    },
+    {
+      "file": "9259d77ed8c4177d2eccd527baab1192ceaf19f303b56568c9afc3b8fbffa503.json",
+      "operation": "locateFeature",
+      "snapshot": {
+        "indexId": "05093fcc-6e42-4f64-8348-36028ba690a3",
+        "generation": "6",
+        "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+      },
+      "sha256": "58f0ada9eafef6dda843fc14b5e5a831a9b15ed2ce575ecaa82cf5b0d7054f94"
+    },
+    {
+      "file": "a870a42730f0e2631fd45c5693ea49bbcbda50021594c993d874d4080fe2696b.json",
+      "operation": "search",
+      "snapshot": {
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "generation": "6",
+        "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+      },
+      "sha256": "41b33ddef021202924e9a0cecbac5fc4bdf68da1618f4a3ba7ab41a88681185a"
+    },
+    {
+      "file": "be27db550227ece194cdc576a641abadd09977dbb32bf19da8230c1a9d5dfc1c.json",
+      "operation": "page",
+      "snapshot": {
+        "indexId": "05093fcc-6e42-4f64-8348-36028ba690a3",
+        "generation": "6",
+        "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+      },
+      "sha256": "cda3cca8c4d3e2c61cd169b9ca3a6a8943817cca8c58b262b7241396b81b963e"
+    },
+    {
+      "file": "cc799109fcf33d622b41dee657386d74b7013898cb7036fa36e708a50906be08.json",
+      "operation": "workflow",
+      "snapshot": {
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "generation": "6",
+        "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+      },
+      "sha256": "ecd11683c00a6413ab9ebeee5d1c2fc592159960b92dad7f35704ae8b042c8d5"
+    },
+    {
+      "file": "cf305ab920a852a0edf3959058b7e061e6094142a5b5fea536e27def418f2a25.json",
+      "operation": "search",
+      "snapshot": {
+        "indexId": "05093fcc-6e42-4f64-8348-36028ba690a3",
+        "generation": "6",
+        "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+      },
+      "sha256": "e498a4a0c030b359834af538af76043d22ef9b5f217b84e931a942f3a4935c28"
+    },
+    {
+      "file": "d010576b17cb3c1d154c616227972b61fda71306714e77653f226f67abaf2a4e.json",
+      "operation": "workflow",
+      "snapshot": {
+        "indexId": "05093fcc-6e42-4f64-8348-36028ba690a3",
+        "generation": "6",
+        "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+      },
+      "sha256": "1dc1f81d88c04817f29486564f23fedda505297aa59698441041b00d56cd6dfb"
+    },
+    {
+      "file": "d8b457e94377279d29137986c67d4e8528f267aa32a37cc13e87a41118e5673e.json",
+      "operation": "report",
+      "snapshot": {
+        "indexId": "d021e097-7720-4055-acdc-df38ba351b51",
+        "generation": "6",
+        "sourceSnapshotId": "snap_731f77066ee4bd7f08466d542658920c1491ce0cd09c6b5ae8bc53de49bed0e4"
+      },
+      "sha256": "8b46535a4ec9c76b45abe5a7f56c1ac68d34069cc629c0ff6e333d6d8ae31fb8"
+    },
+    {
+      "file": "e21b47bff12b69531e168e164ee1f97348e879b987815dc44549684cd84ce754.json",
+      "operation": "report",
+      "snapshot": {
+        "indexId": "05093fcc-6e42-4f64-8348-36028ba690a3",
+        "generation": "6",
+        "sourceSnapshotId": "snap_24467a36530e580a71470b4aa73906387884a6f39f2f18395687f7d7ce8c6c8d"
+      },
+      "sha256": "b2a89b227e9d570e71e283b4c74fd69c974a97bcf4d3e5fe08656f4cf8577037"
+    }
+  ],
+  "cohorts": [
+    {
+      "layout": "a",
+      "expectedEntities": 13,
+      "expectedRelations": 10,
+      "forbiddenRelations": 1,
+      "forbiddenConfirmed": 0,
+      "expectedEntityRecall": 1,
+      "expectedRelationRecall": 1,
+      "precisionWithinExpectedForbiddenPairs": 1,
+      "assertionSource": "frontend_two_layouts_match_frozen_identities_attributes_relations_and_evidence"
+    },
+    {
+      "layout": "b",
+      "expectedEntities": 13,
+      "expectedRelations": 10,
+      "forbiddenRelations": 1,
+      "forbiddenConfirmed": 0,
+      "expectedEntityRecall": 1,
+      "expectedRelationRecall": 1,
+      "precisionWithinExpectedForbiddenPairs": 1,
+      "assertionSource": "frontend_two_layouts_match_frozen_identities_attributes_relations_and_evidence"
+    }
+  ],
+  "originalSourceReview": {
+    "facts": 12,
+    "files": 11,
+    "currentMatchingFrozen": 11
+  },
+  "oracle": {
+    "truthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+    "verifiedFiles": 50,
+    "rows": [
+      [
+        "A",
+        "P1",
+        1,
+        "本租户供应商",
+        5,
+        4,
+        6,
+        5000,
+        2000
+      ],
+      [
+        "A",
+        "P1",
+        2,
+        "本租户供应商",
+        1,
+        1,
+        3,
+        8000,
+        0
+      ],
+      [
+        "A",
+        "P2",
+        1,
+        "无收货供应商",
+        0,
+        0,
+        3,
+        2100,
+        0
+      ]
+    ],
+    "totals": [
+      6,
+      5,
+      12,
+      15100,
+      2000
+    ],
+    "arithmetic": "Python keyed integer accumulation; no SQL or collector",
+    "productionAccuracyClaimed": false
+  },
+  "truthHash": "aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed",
+  "limitations": [
+    "Expected/forbidden cohorts cover source-reviewed synthetic layouts; no whole-project precision percentage",
+    "Real-source citations sampled separately; no production accounting claim",
+    "Host tests only; process/filesystem behavior on other platforms requires its own run"
+  ]
+}

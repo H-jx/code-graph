@@ -1,0 +1,17 @@
+    Checking project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+    Checking project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+    Checking xtask v0.1.0 (E:\Project\my-project\code-graph\xtask)
+    Checking project-knowledge-native v0.1.0 (E:\Project\my-project\code-graph\bindings\node)
+    Checking project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli)
+error[E0433]: cannot find module or crate `schemars` in this scope
+   --> crates\cli\src\commands\generate.rs:151:42
+    |
+151 | fn read<T: serde::de::DeserializeOwned + schemars::JsonSchema>(
+    |                                          ^^^^^^^^ use of unresolved module or unlinked crate `schemars`
+    |
+    = help: if you wanted to use a crate named `schemars`, use `cargo add schemars` to add it to your `Cargo.toml`
+
+For more information about this error, try `rustc --explain E0433`.
+error: could not compile `project-knowledge-cli` (bin "project-knowledge" test) due to 1 previous error
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `project-knowledge-cli` (bin "project-knowledge") due to 1 previous error

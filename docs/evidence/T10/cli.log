@@ -1,0 +1,37 @@
+   Compiling globset v0.4.20
+   Compiling ignore v0.4.33
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+   Compiling project-knowledge-agent v0.1.0 (E:\Project\my-project\code-graph\crates\agent)
+   Compiling project-knowledge-cli v0.1.0 (E:\Project\my-project\code-graph\crates\cli)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\collect-96cb7f266008b922.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\collect-96cb7f266008b922.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-cli` (test "collect") generated 1 warning
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\project_knowledge.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-cli` (bin "project-knowledge") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.38s
+     Running tests\collect.rs (target\debug\deps\collect-96cb7f266008b922.exe)
+
+running 2 tests
+test incremental_cli_and_failed_collect_preserve_invalidation_and_stage_boundaries ... FAILED
+test incremental_cli_host_termination_keeps_invalidation_and_cleans_owned_descendants ... ok
+
+failures:
+
+---- incremental_cli_and_failed_collect_preserve_invalidation_and_stage_boundaries stdout ----
+
+thread 'incremental_cli_and_failed_collect_preserve_invalidation_and_stage_boundaries' (34652) panicked at crates\cli\tests\collect.rs:26:61:
+called `Result::unwrap()` on an `Err` value: Error("EOF while parsing a value", line: 1, column: 0)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    incremental_cli_and_failed_collect_preserve_invalidation_and_stage_boundaries
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 3 filtered out; finished in 3.99s
+
+error: test failed, to rerun pass `-p project-knowledge-cli --test collect`

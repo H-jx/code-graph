@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-28 Asia/Shanghai",
+  "task": "T12",
+  "status": "doing",
+  "completedSubloop": "TS/Python HTTP and GraphQL API registration with Core execution and negative cases",
+  "remaining": [
+    "database/source-instance binding",
+    "DDL/SQLGlot AST",
+    "composite keys and joins",
+    "queryImplementation extraction"
+  ],
+  "commands": [
+    {
+      "command": [
+        "node",
+        "scripts/verify-plugins.mjs",
+        "--capabilities",
+        "routes,frontend,comments,modules,entrypoints,api"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/plugins-api.log",
+      "logSha256": "4641253b8f318fbaba1f0d74393ed61eb088fda0035825a1bf94d9a4740f2b80"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--workspace",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/workspace-tests.log",
+      "logSha256": "ae27bc13f21109929434436747d60c4c409ac632c61d15c2e664dc2ee0715af6"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/clippy.log",
+      "logSha256": "dc10aa078b4c343f66124a15d6491923d83effd1e732ecb5a39a76a7f301badc"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/fmt.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "python",
+        "scripts/verify-truth.py"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/truth.log",
+      "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-plan.mjs",
+        "--plan",
+        "../plan/NEW-PROJECT-LONG-TASK.md"
+      ],
+      "cwd": "E:\\Project\\my-project\\code-graph",
+      "exitCode": 0,
+      "log": "docs/evidence/T12/plan.log",
+      "logSha256": "d6bf1a3d763f53f446c99674b4435384c797b099403ed2ae4dd0978b00378568"
+    }
+  ],
+  "fileHashes": {
+    "crates/core/tests/business_scenarios.rs": "e492ab4cd533eb8e94e91706a4a70995cecb8c4011bd1a20931ca559d5dcd96e",
+    "scripts/verify-plugins.mjs": "1ab4e57c2692abfb702fb96fa8eebf575d288610a1a8fc66a6e42a6a47c4efa6",
+    "scripts/package-api-examples.mjs": "09e28d515be03c83247b4c7fc84c59346f981fead0dc994229bed9ea11c69d45",
+    "fixtures/truth-supplements/T12-api.json": "0656a541167d8195b7a7286c1dc660fcb730fd826778e50f69051f129f5374cf",
+    "collectors/examples/frontend-backend-a/frontend/collect.mjs": "febfb345b10d8a417bd0c13f4c5330b911f5d6a7b058d13296b2ebe3841acbac",
+    "collectors/examples/frontend-backend-a/frontend/conventions.json": "f82bf677ac07214d7848892283ff7e454fe046f99b2771cde6c3d1dea8434fbb",
+    "collectors/examples/frontend-backend-a/frontend/frontend-ast.mjs": "10b765e9d3ba831c6a7f5bf6bb94ea322e3299bebc2de1243349a0419f18d343",
+    "collectors/examples/frontend-backend-a/frontend/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-a/frontend/manifest.json": "95e8142b402e744a8c84869eb7f0c2cca63459682eabe46ed95627321fbd693b",
+    "collectors/examples/frontend-backend-a/frontend/cases/frontend.json": "4d0af0f20f9bd2f70ec04a9750ad5b2638e4db7c09f76ddab3807e45b3004850",
+    "collectors/examples/frontend-backend-a/frontend/cases/input.json": "60d89a11fcfef168e18ee99ff67bc3eafa7c393e12a98c0c9dbae1741163ed38",
+    "collectors/examples/frontend-backend-a/frontend/cases/truth.json": "f2f67faea50a075e32916c2d5e2482f3daa4cb144489c2686de92eb06ca5e3d4",
+    "collectors/examples/frontend-backend-a/frontend/deps/package-lock.json": "4985349b5af6bfa1f45fa42f365697131386fb77d399b9b468b9fc9ab087297d",
+    "collectors/examples/frontend-backend-a/frontend/deps/package.json": "704d58792b4ee4599c74133f5c913fbc2eae5b10798ca1c6ed6a1c3d42541023",
+    "collectors/examples/frontend-backend-a/api/api-ast.mjs": "8262259f25a502804e1706ac594185040f3a5ea6a590a76da463fceef259231f",
+    "collectors/examples/frontend-backend-a/api/collect.mjs": "402ef469d897e2cba4d486f8391ab1061dd56a964c3415ec5ccecda4a2500e80",
+    "collectors/examples/frontend-backend-a/api/conventions.json": "b4af62c5484a29bbed934bfa634c887225dfd293381a5aa18db0ebdbe455fa92",
+    "collectors/examples/frontend-backend-a/api/frontend-ast.mjs": "10b765e9d3ba831c6a7f5bf6bb94ea322e3299bebc2de1243349a0419f18d343",
+    "collectors/examples/frontend-backend-a/api/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-a/api/manifest.json": "53c7dc5a222e187f6e11dbe21964a0f2bafd2dc233860adf14d1f6bd9e5cb156",
+    "collectors/examples/frontend-backend-a/api/cases/api.json": "69cf411d05f5871c6eddb2c3746605fa17882dfcb181e080fdaea2d7c9423fb2",
+    "collectors/examples/frontend-backend-a/api/cases/input.json": "b6a6e01ad2f17476aeb328f5a93b91b07ad462cbcfaf5779a148219037e161b7",
+    "collectors/examples/frontend-backend-a/api/cases/truth.json": "0656a541167d8195b7a7286c1dc660fcb730fd826778e50f69051f129f5374cf",
+    "collectors/examples/frontend-backend-a/api/deps/package-lock.json": "4985349b5af6bfa1f45fa42f365697131386fb77d399b9b468b9fc9ab087297d",
+    "collectors/examples/frontend-backend-a/api/deps/package.json": "704d58792b4ee4599c74133f5c913fbc2eae5b10798ca1c6ed6a1c3d42541023",
+    "collectors/examples/frontend-backend-b/frontend/collect.mjs": "febfb345b10d8a417bd0c13f4c5330b911f5d6a7b058d13296b2ebe3841acbac",
+    "collectors/examples/frontend-backend-b/frontend/conventions.json": "81d8c877a94e7bb63d0e5d8136053eeef4c7d780c990ddecf2e46bb9dc4065d0",
+    "collectors/examples/frontend-backend-b/frontend/frontend-ast.mjs": "10b765e9d3ba831c6a7f5bf6bb94ea322e3299bebc2de1243349a0419f18d343",
+    "collectors/examples/frontend-backend-b/frontend/identity.mjs": "c1fbf8b9daa9e43dbe907799c07afa345b424b94c97f6360465c0034412b859b",
+    "collectors/examples/frontend-backend-b/frontend/manifest.json": "f3baca547a4f24f543c392ef80c5a25ade89c659738225f1a857bb9a55d7555b",
+    "collectors/examples/frontend-backend-b/frontend/cases/frontend.json": "8bd54d328d0eddaf0ba9caa2f28f25fe3fae06b87975e6777e8bfd44201d9e47",
+    "collectors/examples/frontend-backend-b/frontend/cases/input.json": "93311b724bbacc3246af73854c7864f43a89f2036eea4a1948f9c8645862ecfc",
+    "collectors/examples/frontend-backend-b/frontend/cases/truth.json": "f2f67faea50a075e32916c2d5e2482f3daa4cb144489c2686de92eb06ca5e3d4",
+    "collectors/examples/frontend-backend-b/frontend/deps/package-lock.json": "4985349b5af6bfa1f45fa42f365697131386fb77d399b9b468b9fc9ab087297d",
+    "collectors/examples/frontend-backend-b/frontend/deps/package.json": "704d58792b4ee4599c74133f5c913fbc2eae5b10798ca1c6ed6a1c3d42541023",
+    "collectors/examples/frontend-backend-b/api/api_ast.py": "75f989a6fa3cfc36167933c195d85f83e9a66b0d262152f79b6c93c68fc5c5ae",
+    "collectors/examples/frontend-backend-b/api/collect.py": "7cea22aedcee7979da63b96ccca1e3b638eff79918fa2773b9ee4f50c53e7ca9",
+    "collectors/examples/frontend-backend-b/api/conventions.json": "610c900b7a95285810c815d71a63e33d6541eff4038667cc79555ff9ab17730d",
+    "collectors/examples/frontend-backend-b/api/identity-spec.json": "81c166af9f562d29ed5fed8c0f8cee2f99f92e9d55f002a6b301f97ce3cdb92d",
+    "collectors/examples/frontend-backend-b/api/identity.py": "c85a5647603f04fb6bdae1a0ebbd0e7447739f3c72e2106b6d78700fd40e2791",
+    "collectors/examples/frontend-backend-b/api/manifest.json": "b8d8dc5f7fca00757e12016758374d141623a283c21086615c3c2b5210411f48",
+    "collectors/examples/frontend-backend-b/api/cases/api.json": "f3ea420343833633f0e1d25873ab5989cf7dc7d58c9b1ae753c533fb73e7c1e8",
+    "collectors/examples/frontend-backend-b/api/cases/input.json": "d6dade18d5cac2f592f97bd4e57b1acd599966679623e0d86b7f9ec8c231c2f6",
+    "collectors/examples/frontend-backend-b/api/cases/truth.json": "0656a541167d8195b7a7286c1dc660fcb730fd826778e50f69051f129f5374cf"
+  },
+  "testSummaries": [
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 13 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 9.51s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.13s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.53s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 34.65s",
+    "test result: ok. 36 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 14.14s",
+    "test result: ok. 45 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.15s",
+    "test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 37.95s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+  ],
+  "productModelRequests": 0,
+  "productionAccuracyClaimed": false
+}

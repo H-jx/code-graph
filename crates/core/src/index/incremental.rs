@@ -1,120 +1,659 @@
-//! 变化检测、失效、受影响任务重跑（计划 §3.6、T10）。
-//!
-//! v1 策略：全量与增量都**重算来源选择集合**，重跑受影响阶段的整个项目范围，
-//! 优先正确性，不做微分补丁。失效事务先提交；失败的采集不撤销失效。
-//!
-//! 增量入口不调用模型，也不执行任何插件运行时。
+//! 无模型增量：比较完整输入，先持久失效，再在暂存库按 DAG 运行，业务组一次提交。
+use std::collections::{BTreeMap, BTreeSet};
+use std::path::PathBuf;
 
 use rusqlite::Connection;
+use tokio_util::sync::CancellationToken;
 
+use crate::collect::import::{digest, export_input};
+use crate::collect::manifest::validate_stage_dag;
+use crate::collect::registry::{MaintenanceLock, check_active_artifacts};
+use crate::collect::staging::{
+    StagedCollection, resolve_runtime, stage_selected_collection, store_batch,
+};
+use crate::collect::workspace::StagingWorkspace;
+use crate::contract::collector::{PluginManifest, StagePhase, StageSpec};
 use crate::contract::error::{CoreError, codes};
-use crate::index::build::{BaseIndexResult, build_base_index};
+use crate::index::build::BaseIndexResult;
+use crate::index::dependencies::{
+    DependencyChange, DependencyKindTag, batch_dependencies, dependency_closure,
+};
 use crate::project::config::LoadedProject;
-use crate::storage;
-use crate::storage::database::Database;
+use crate::storage::{self, Database, database_error};
 
-/// 增量结果。
 #[derive(Debug, Clone)]
 pub struct IncrementalResult {
     pub base: BaseIndexResult,
-    /// 被标记为 stale 的替换范围。
     pub invalidated: Vec<String>,
+    pub executed: Vec<String>,
+    pub generation: u64,
 }
 
-/// 增量更新。
-///
-/// 步骤：
-/// 1. 收集当前批次及其依赖，计算失效集合；
-/// 2. 提交失效事务 A（批次单向失效、generation+1）；
-/// 3. 重跑基础层（全范围重算选择集合）。
-///
-/// 采集插件阶段的真正重跑在 T09/T10 的插件宿主完成后接入；在此之前业务批次会被
-/// 标记为 stale，并保留准确的诊断信息。
-pub fn run_incremental(
+struct Plan {
+    manifests: Vec<PluginManifest>,
+    paths: Vec<PathBuf>,
+    stages: BTreeMap<String, (usize, StageSpec)>,
+    runtimes: BTreeMap<String, String>,
+    base: BaseIndexResult,
+    affected: BTreeSet<String>,
+}
+
+/// Core 拥有整个维护生命周期；查询不会调用本入口。
+pub async fn run_incremental(
+    project: &LoadedProject,
+    database: &mut Database,
+    cancel: &CancellationToken,
+    now: &str,
+) -> Result<IncrementalResult, CoreError> {
+    crate::client::check_cancel(cancel)?;
+    let lock = MaintenanceLock::acquire(project)?;
+    lock.recover(project, database, now)?;
+    let work = StagingWorkspace::new(project)?;
+    let path = work.path().join("incremental.sqlite");
+    storage::backup_to(database.path(), &path)?;
+    let mut preview = Database::open_maintenance(
+        &path,
+        &project.config.project_id,
+        &project.config_hash()?,
+        now,
+    )?;
+    let plan = prepare_plan(project, database, &mut preview, now, cancel).await?;
+    let mut invalidated = plan.affected.clone();
+    persist_invalidation(project, database, &invalidated)?;
+    if cancel.is_cancelled() {
+        return Err(CoreError::new(
+            codes::CANCELLED,
+            "incremental cancelled after invalidation",
+        ));
+    }
+    // 基础层只重建改变的仓库；业务旧批次在基础结果可见之前已失效。
+    let mut base = if database.current_source_snapshot_id()?.as_deref()
+        != Some(&plan.base.snapshot.id)
+        || base_changed(database.connection(), preview.connection())?
+    {
+        crate::index::build::build_base_index_with_cancellation(project, database, now, cancel)?
+    } else {
+        let mut base = plan.base.clone();
+        base.generation = database.generation()?;
+        base
+    };
+    if base.snapshot.id != plan.base.snapshot.id {
+        let keys = business_keys(database.connection())?;
+        persist_invalidation(project, database, &keys)?;
+        return Err(CoreError::new(
+            codes::SOURCE_CHANGED,
+            "sources changed while preparing incremental update",
+        ));
+    }
+    // 重新复制已提交的基础快照。逐阶段把完整结果写入私有库，正式业务只切换一次。
+    drop(preview);
+    let path = work.path().join("execution.sqlite");
+    storage::backup_to(database.path(), &path)?;
+    let mut staging = Database::open_maintenance(
+        &path,
+        &project.config.project_id,
+        &project.config_hash()?,
+        now,
+    )?;
+    let mut pending: BTreeSet<_> = plan.stages.keys().cloned().collect();
+    let mut executed = Vec::new();
+    let mut combined: Option<StagedCollection> = None;
+    let mut runs = Vec::new();
+    let mut expected_generation = database.generation()?;
+    while !pending.is_empty() {
+        let key = pending
+            .iter()
+            .filter(|key| {
+                plan.stages[*key]
+                    .1
+                    .depends_on
+                    .iter()
+                    .all(|d| !pending.contains(d))
+            })
+            .min_by_key(|key| {
+                (
+                    if plan.stages[*key].1.phase == StagePhase::Extract {
+                        0
+                    } else {
+                        1
+                    },
+                    *key,
+                )
+            })
+            .cloned()
+            .ok_or_else(|| CoreError::new(codes::CONFIG_INVALID, "stage dependency cycle"))?;
+        pending.remove(&key);
+        let replacement = replacement_key(project, &key);
+        if !invalidated.contains(&replacement) && !stage_changed(project, &staging, &plan, &key)? {
+            continue;
+        }
+        let affected = affected_closure(
+            project,
+            database.connection(),
+            &plan,
+            BTreeSet::from([replacement.clone()]),
+        )?;
+        if database.generation()? != expected_generation {
+            return Err(CoreError::new(
+                codes::ACTIVATION_CONFLICT,
+                "index changed during incremental execution",
+            ));
+        }
+        persist_invalidation(project, database, &affected)?;
+        expected_generation = database.generation()?;
+        invalidated.extend(affected);
+        let run_id = format!("run_{}", uuid::Uuid::new_v4());
+        storage::create_run(
+            database.connection(),
+            &run_id,
+            "index.incremental",
+            &key,
+            Some(&base.snapshot.id),
+            now,
+        )?;
+        runs.push(run_id.clone());
+        // 不把自身与显式下游旧断言喂回本阶段，与首次整组 extract/link 一致。
+        let result = stage_selected_collection(
+            project,
+            &staging,
+            &plan.paths,
+            None,
+            Some(&BTreeSet::from([key.clone()])),
+            cancel,
+            now,
+        )
+        .await;
+        let group = match result {
+            Ok(group) => group,
+            Err(error) => {
+                for run in &runs {
+                    storage::finish_run(
+                        database.connection(),
+                        run,
+                        if error.code == codes::CANCELLED {
+                            storage::RunStatus::Cancelled
+                        } else {
+                            storage::RunStatus::Failed
+                        },
+                        Some(&serde_json::to_value(&error).expect("error JSON")),
+                        now,
+                    )?;
+                }
+                return Err(error.with_phase(&key).with_run_id(&run_id));
+            }
+        };
+        let transaction = staging.write_transaction()?;
+        for batch in &group.batches {
+            store_batch(&transaction, batch, base.generation + 1, now)?;
+        }
+        transaction.commit().map_err(database_error)?;
+        if let Some(combined) = &mut combined {
+            combined.batches.extend(group.batches);
+            combined.cases.extend(group.cases);
+        } else {
+            combined = Some(group);
+        }
+        executed.push(key);
+    }
+    if cancel.is_cancelled() {
+        for run in &runs {
+            storage::finish_run(
+                database.connection(),
+                run,
+                storage::RunStatus::Cancelled,
+                None,
+                now,
+            )?;
+        }
+        return Err(CoreError::new(
+            codes::CANCELLED,
+            "incremental cancelled before result commit",
+        ));
+    }
+    if let Some(mut group) = combined {
+        group.expected_generation = expected_generation;
+        group.result_hash = digest(&(&group.batches, &group.cases));
+        if let Err(error) = group
+            .commit_with_cancellation(project, database, cancel, now)
+            .await
+        {
+            if matches!(
+                error.code.as_str(),
+                codes::SOURCE_CHANGED | codes::DEPENDENCY_CHANGED | codes::ARTIFACT_CHANGED
+            ) {
+                persist_invalidation(project, database, &business_keys(database.connection())?)?;
+            }
+            for run in &runs {
+                storage::finish_run(
+                    database.connection(),
+                    run,
+                    storage::RunStatus::Failed,
+                    Some(&serde_json::to_value(&error).expect("error JSON")),
+                    now,
+                )?;
+            }
+            return Err(error);
+        }
+    }
+    if let Err(error) = crate::collect::staging::verify_sources(project, &base.snapshot.id) {
+        persist_invalidation(project, database, &business_keys(database.connection())?)?;
+        for run in &runs {
+            storage::finish_run(
+                database.connection(),
+                run,
+                storage::RunStatus::Failed,
+                Some(&serde_json::to_value(&error).expect("error JSON")),
+                now,
+            )?;
+        }
+        return Err(error);
+    }
+    for run in &runs {
+        storage::finish_run(
+            database.connection(),
+            run,
+            storage::RunStatus::Succeeded,
+            None,
+            now,
+        )?;
+    }
+    base.generation = database.generation()?;
+    Ok(IncrementalResult {
+        generation: base.generation,
+        base,
+        invalidated: invalidated.into_iter().collect(),
+        executed,
+    })
+}
+
+/// 显式 collect 不刷新基础索引，但在任何失败前登记已确认的输入变化。调用方持锁。
+pub async fn invalidate_for_collect(
     project: &LoadedProject,
     database: &mut Database,
     now: &str,
-) -> Result<IncrementalResult, CoreError> {
-    let invalidated = invalidate_stale_batches(database, now)?;
-    let base = build_base_index(project, database, now)?;
-    Ok(IncrementalResult { base, invalidated })
+) -> Result<Vec<String>, CoreError> {
+    invalidate_for_collect_with_cancellation(project, database, &CancellationToken::new(), now)
+        .await
 }
 
-/// 只刷新基础层，并使业务/知识批次 stale。
+pub async fn invalidate_for_collect_with_cancellation(
+    project: &LoadedProject,
+    database: &mut Database,
+    cancel: &CancellationToken,
+    now: &str,
+) -> Result<Vec<String>, CoreError> {
+    let work = StagingWorkspace::new(project)?;
+    let path = work.path().join("plan.sqlite");
+    storage::backup_to(database.path(), &path)?;
+    let mut preview = Database::open_maintenance(
+        &path,
+        &project.config.project_id,
+        &project.config_hash()?,
+        now,
+    )?;
+    let plan = prepare_plan(project, database, &mut preview, now, cancel).await?;
+    persist_invalidation(project, database, &plan.affected)?;
+    Ok(plan.affected.into_iter().collect())
+}
+
+/// --base 保留无 Node/Python 的独立可用性，不解析或执行插件。
 pub fn run_base_only(
     project: &LoadedProject,
     database: &mut Database,
     now: &str,
 ) -> Result<IncrementalResult, CoreError> {
-    let invalidated = invalidate_stale_batches(database, now)?;
-    let base = build_base_index(project, database, now)?;
-    Ok(IncrementalResult { base, invalidated })
+    run_base_only_with_cancellation(project, database, &CancellationToken::new(), now)
 }
 
-/// 失效事务 A：把非基础层的当前批次标记为 stale。
-fn invalidate_stale_batches(database: &mut Database, now: &str) -> Result<Vec<String>, CoreError> {
-    let transaction = database.write_transaction()?;
-    let connection = &transaction;
-    let current_generation: i64 = connection
-        .query_row(
-            "SELECT generation FROM index_meta WHERE id = 1",
-            [],
-            |row| row.get(0),
-        )
-        .map_err(|error| {
-            CoreError::new(
-                codes::INTERNAL_ERROR,
-                format!("cannot read generation: {error}"),
-            )
-        })?;
-    let generation = current_generation as u64 + 1;
+pub fn run_base_only_with_cancellation(
+    project: &LoadedProject,
+    database: &mut Database,
+    cancel: &CancellationToken,
+    now: &str,
+) -> Result<IncrementalResult, CoreError> {
+    crate::client::check_cancel(cancel)?;
+    let lock = MaintenanceLock::acquire(project)?;
+    lock.recover(project, database, now)?;
+    let keys = business_keys(database.connection())?;
+    persist_invalidation(project, database, &keys)?;
+    let base =
+        crate::index::build::build_base_index_with_cancellation(project, database, now, cancel)?;
+    Ok(IncrementalResult {
+        generation: base.generation,
+        base,
+        invalidated: keys.into_iter().collect(),
+        executed: Vec::new(),
+    })
+}
 
-    let mut invalidated: Vec<String> = Vec::new();
-    for (replacement_key, _) in storage::current_batches(connection)? {
-        if replacement_key.starts_with("(core.base,") {
-            continue;
+async fn prepare_plan(
+    project: &LoadedProject,
+    database: &mut Database,
+    preview: &mut Database,
+    now: &str,
+    cancel: &CancellationToken,
+) -> Result<Plan, CoreError> {
+    check_active_artifacts(project, database)?;
+    let base = match crate::index::build::build_base_index_with_cancellation(
+        project, preview, now, cancel,
+    ) {
+        Ok(base) => base,
+        Err(error) => {
+            persist_invalidation(project, database, &business_keys(database.connection())?)?;
+            return Err(error);
         }
-        invalidated.push(replacement_key.clone());
+    };
+    let manifests = storage::plugins::active_manifests(database.connection())?;
+    validate_stage_dag(&manifests)?;
+    let mut plan = Plan {
+        manifests,
+        paths: Vec::new(),
+        stages: BTreeMap::new(),
+        runtimes: BTreeMap::new(),
+        base,
+        affected: BTreeSet::new(),
+    };
+    for (index, manifest) in plan.manifests.iter().enumerate() {
+        plan.paths.push(storage::plugins::published_manifest(
+            database.connection(),
+            &manifest.plugin_id,
+            &manifest.version,
+        )?);
+        for stage in &manifest.stages {
+            plan.stages.insert(
+                format!("{}:{}", manifest.plugin_id, stage.id),
+                (index, stage.clone()),
+            );
+        }
+        let runtime = match resolve_runtime(manifest, project).await {
+            Ok(runtime) => runtime,
+            Err(error) => {
+                persist_invalidation(project, database, &business_keys(database.connection())?)?;
+                return Err(error);
+            }
+        };
+        plan.runtimes.insert(
+            manifest.plugin_id.clone(),
+            digest(&(runtime.executable.to_string_lossy(), &runtime.version)),
+        );
+        if manifest.dependencies.is_some() {
+            let directory = plan
+                .paths
+                .last()
+                .expect("published path")
+                .parent()
+                .expect("manifest parent");
+            let validated = crate::collect::manifest::validate_manifest(
+                manifest,
+                directory,
+                &project.config.runtimes,
+            )?;
+            let prepared = crate::collect::deps::plugin_plan(&validated, &runtime).and_then(
+                |(plan, inputs)| crate::collect::deps::prepared_dependencies(&plan, &inputs),
+            );
+            match prepared {
+                Ok(prepared) => {
+                    plan.runtimes.insert(
+                        format!("{}:dependencies", manifest.plugin_id),
+                        digest(&(&prepared.digest, &prepared.integrity)),
+                    );
+                }
+                Err(error) => {
+                    persist_invalidation(
+                        project,
+                        database,
+                        &business_keys(database.connection())?,
+                    )?;
+                    return Err(error);
+                }
+            }
+        }
     }
-    if !invalidated.is_empty() {
-        storage::invalidate_batches(connection, &invalidated, generation)?;
+    for key in plan.stages.keys() {
+        if stage_changed(project, preview, &plan, key)? {
+            plan.affected.insert(replacement_key(project, key));
+        }
+    }
+    for (key, id) in storage::current_batches(database.connection())? {
+        if key.starts_with("(core.base,")
+            && storage::current_batch(preview.connection(), &key)?.as_ref() != Some(&id)
+        {
+            plan.affected.insert(key);
+        }
+    }
+    plan.affected = affected_closure(project, database.connection(), &plan, plan.affected.clone())?;
+    Ok(plan)
+}
+
+fn stage_changed(
+    project: &LoadedProject,
+    database: &Database,
+    plan: &Plan,
+    key: &str,
+) -> Result<bool, CoreError> {
+    let replacement = replacement_key(project, key);
+    let Some(batch) = storage::current_batch(database.connection(), &replacement)? else {
+        return Ok(true);
+    };
+    if storage::batch_state(database.connection(), &batch)? != Some(storage::BatchState::Fresh) {
+        return Ok(true);
+    }
+    let previous = batch_dependencies(database.connection(), &batch)?;
+    let (index, stage) = &plan.stages[key];
+    let manifest = &plan.manifests[*index];
+    mask_stage(project, database.connection(), plan, key)?;
+    let result = export_input(
+        database.connection(),
+        project,
+        stage,
+        &plan.base.snapshot.id,
+        "incremental-plan",
+        &manifest.plugin_id,
+        &manifest.version,
+    );
+    unmask_stage(database.connection())?;
+    let input = result?;
+    let mut current = BTreeMap::new();
+    current.insert(
+        ("config".into(), project.config.project_id.clone()),
+        project.config_hash()?,
+    );
+    for (id, digest) in &plan.runtimes {
+        current.insert(("runtime".into(), id.clone()), digest.clone());
+    }
+    for source in input.sources {
+        current.insert(
+            ("source".into(), source.source.id),
+            source.source.content_hash,
+        );
+    }
+    for (kind, sets) in [
+        (
+            "sourceSet",
+            input
+                .source_sets
+                .iter()
+                .map(|s| (&s.selector_id, &s.digest))
+                .collect::<Vec<_>>(),
+        ),
+        (
+            "candidateSet",
+            input
+                .candidate_sets
+                .iter()
+                .map(|s| (&s.selector_id, &s.digest))
+                .collect(),
+        ),
+    ] {
+        for (id, digest) in sets {
+            current.insert(
+                (
+                    kind.to_string(),
+                    format!("{}:{}:{id}", manifest.plugin_id, stage.id),
+                ),
+                digest.clone(),
+            );
+        }
+    }
+    for assertion in input
+        .entities
+        .iter()
+        .flat_map(|e| &e.assertions)
+        .chain(input.relations.iter().flat_map(|r| &r.assertions))
+    {
+        current.insert(
+            ("upstreamBatch".into(), assertion.batch_id.clone()),
+            assertion.batch_id.clone(),
+        );
+    }
+    for dependency in &stage.depends_on {
+        if let Some(batch) =
+            storage::current_batch(database.connection(), &replacement_key(project, dependency))?
+        {
+            current.insert(("upstreamBatch".into(), batch.clone()), batch);
+        }
+    }
+    Ok(previous.iter().any(|((kind, key), value)| {
+        kind != "artifact" && current.get(&(kind.clone(), key.clone())) != Some(value)
+    }) || current.iter().any(|((kind, key), value)| {
+        kind != "runtime" && previous.get(&(kind.clone(), key.clone())) != Some(value)
+    }))
+}
+
+fn mask_stage(
+    project: &LoadedProject,
+    connection: &Connection,
+    plan: &Plan,
+    key: &str,
+) -> Result<(), CoreError> {
+    let mut masked = BTreeSet::from([key.to_string()]);
+    loop {
+        let before = masked.len();
+        for (key, (_, stage)) in &plan.stages {
+            if stage.depends_on.iter().any(|d| masked.contains(d)) {
+                masked.insert(key.clone());
+            }
+        }
+        if masked.len() == before {
+            break;
+        }
     }
     connection
-        .execute(
-            "UPDATE index_meta SET generation = ?1 WHERE id = 1",
-            rusqlite::params![generation as i64],
-        )
-        .map_err(|error| {
-            CoreError::new(
-                codes::INTERNAL_ERROR,
-                format!("cannot advance generation: {error}"),
+        .execute_batch("SAVEPOINT incremental_input")
+        .map_err(database_error)?;
+    for key in masked {
+        connection
+            .execute(
+                "DELETE FROM current_batches WHERE replacement_key=?1",
+                [replacement_key(project, &key)],
             )
-        })?;
-    let _ = now;
-    transaction.commit().map_err(|error| {
-        CoreError::new(
-            codes::BUSY,
-            format!("cannot commit invalidation transaction: {error}"),
-        )
-    })?;
-    Ok(invalidated)
+            .map_err(database_error)?;
+    }
+    Ok(())
+}
+fn unmask_stage(connection: &Connection) -> Result<(), CoreError> {
+    connection
+        .execute_batch("ROLLBACK TO incremental_input; RELEASE incremental_input")
+        .map_err(database_error)
+}
+fn replacement_key(project: &LoadedProject, key: &str) -> String {
+    let (plugin, stage) = key.split_once(':').expect("validated stage key");
+    storage::plugin_replacement_key(plugin, stage, &project.config.project_id)
+}
+fn business_keys(connection: &Connection) -> Result<BTreeSet<String>, CoreError> {
+    Ok(storage::current_batches(connection)?
+        .into_iter()
+        .filter(|(k, _)| !k.starts_with("(core.base,"))
+        .map(|(k, _)| k)
+        .collect())
+}
+fn base_changed(before: &Connection, after: &Connection) -> Result<bool, CoreError> {
+    Ok(storage::current_batches(before)?
+        .into_iter()
+        .filter(|(k, _)| k.starts_with("(core.base,"))
+        .collect::<Vec<_>>()
+        != storage::current_batches(after)?
+            .into_iter()
+            .filter(|(k, _)| k.starts_with("(core.base,"))
+            .collect::<Vec<_>>())
+}
+fn affected_closure(
+    project: &LoadedProject,
+    connection: &Connection,
+    plan: &Plan,
+    mut keys: BTreeSet<String>,
+) -> Result<BTreeSet<String>, CoreError> {
+    loop {
+        let before = keys.len();
+        let changes = storage::current_batches(connection)?
+            .into_iter()
+            .filter(|(k, _)| keys.contains(k))
+            .map(|(_, id)| DependencyChange {
+                kind: DependencyKindTag::UpstreamBatch,
+                key: id,
+                digest: String::new(),
+            })
+            .collect::<Vec<_>>();
+        keys.extend(
+            dependency_closure(connection, &changes)?
+                .into_iter()
+                .map(|(_, key)| key),
+        );
+        for (key, (_, stage)) in &plan.stages {
+            if stage
+                .depends_on
+                .iter()
+                .any(|d| keys.contains(&replacement_key(project, d)))
+            {
+                keys.insert(replacement_key(project, key));
+            }
+        }
+        if before == keys.len() {
+            return Ok(keys);
+        }
+    }
+}
+fn persist_invalidation(
+    project: &LoadedProject,
+    database: &mut Database,
+    keys: &BTreeSet<String>,
+) -> Result<(), CoreError> {
+    crate::knowledge::documents::refresh(database, project)?;
+    let generation = database.generation()? + 1;
+    let transaction = database.write_transaction()?;
+    if storage::invalidate_batches(
+        &transaction,
+        &keys.iter().cloned().collect::<Vec<_>>(),
+        generation,
+    )? > 0
+    {
+        transaction
+            .execute(
+                "UPDATE index_meta SET generation=?1 WHERE id=1",
+                [generation as i64],
+            )
+            .map_err(database_error)?;
+        storage::knowledge::invalidate_batches(
+            &transaction,
+            &keys.iter().cloned().collect::<Vec<_>>(),
+        )?;
+    }
+    transaction.commit().map_err(database_error)
 }
 
-/// 读取当前批次的失效状态（只读核验，不写库）。
 pub fn current_freshness(
     connection: &Connection,
 ) -> Result<Vec<(String, String, Option<u64>)>, CoreError> {
-    let mut result = Vec::new();
-    for (replacement_key, batch_id) in storage::current_batches(connection)? {
-        let state = storage::batch_state(connection, &batch_id)?;
-        let invalidated = storage::batch_invalidated_generation(connection, &batch_id)?;
-        result.push((
-            replacement_key,
-            state
-                .map(|state| state.as_str().to_string())
-                .unwrap_or_default(),
-            invalidated,
-        ));
-    }
-    Ok(result)
+    storage::current_batches(connection)?
+        .into_iter()
+        .map(|(key, id)| {
+            Ok((
+                key,
+                storage::batch_state(connection, &id)?
+                    .map(|s| s.as_str().to_string())
+                    .unwrap_or_default(),
+                storage::batch_invalidated_generation(connection, &id)?,
+            ))
+        })
+        .collect()
 }

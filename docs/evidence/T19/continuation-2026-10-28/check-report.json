@@ -1,0 +1,201 @@
+{
+  "commands": [
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "indexing",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "exitCode": 0,
+      "log": "indexing.log",
+      "logSha256": "9d714ceba12138dcf855a089dd3284964206ea532c6b8f5dcaa8bb8800571c92"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "collectors",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "exitCode": 0,
+      "log": "collectors.log",
+      "logSha256": "59a20684120782fa781259c8f556f3fa987943a87e5f16ab1b3a1689f1762b2e"
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "-p",
+        "project-knowledge-core",
+        "--test",
+        "lifecycle",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "--test-threads=1"
+      ],
+      "exitCode": 0,
+      "log": "lifecycle.log",
+      "logSha256": "eb8593dc8e253ed3854c6f7118d1c48e7dc589db9344aecf131558d56df53ddd"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--workspace",
+        "--all-targets",
+        "--locked",
+        "-j",
+        "1",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exitCode": 0,
+      "log": "clippy-gate.log",
+      "logSha256": "216063cd9e65470aa89459e7b3b7c446d23c6708ebc965d0273d8e9a101eb106"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "fmt.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": [
+        "cargo",
+        "run",
+        "-p",
+        "xtask",
+        "--locked",
+        "--",
+        "export-contracts",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "contracts.log",
+      "logSha256": "b7dca596e0c8dc75a2e5f49c236c978af410a47585ed04deeb7fd15b7b74270a"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/generate-types.mjs",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "types.log",
+      "logSha256": "ffd79024bf74c3f0e1a4a224e1b3a1783273115da81cc2ac0624af9984867368"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-contract-types.mjs"
+      ],
+      "exitCode": 0,
+      "log": "type-boundaries.log",
+      "logSha256": "ad333cbf26840bfb1904ed96b21df370ec69e86830df247dc15bc2799c31e7d5"
+    },
+    {
+      "command": [
+        "powershell",
+        "-NoProfile",
+        "-Command",
+        "pnpm run typecheck"
+      ],
+      "exitCode": 0,
+      "log": "typecheck.log",
+      "logSha256": "75f0996b8a850fd54d3f9a896503ccc35eaf9bc79470d2b2b3061ad07d13de00"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-core-dependencies.mjs"
+      ],
+      "exitCode": 0,
+      "log": "core-dependencies.log",
+      "logSha256": "d86cb488322612776fab22096a18b89f5f09cb436176051d29f703cb26c6227d"
+    },
+    {
+      "command": [
+        "D:\\AppData\\Local\\miniconda3\\python.exe",
+        "scripts/verify-truth.py"
+      ],
+      "exitCode": 0,
+      "log": "truth.log",
+      "logSha256": "64d2375d1ecee5bd4042b328298481a18f2f3643bde4ea7f3d77ddac6ffe2d36"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/audit-source.mjs",
+        "--output",
+        "E:\\Project\\my-project\\code-graph\\docs\\evidence\\T19\\continuation-2026-10-28\\source-audit.json"
+      ],
+      "exitCode": 0,
+      "log": "source-audit.log",
+      "logSha256": "f883ba6badd7749e255e39f507249e7904302821f56f7d0c7d3f345cdec8787c"
+    },
+    {
+      "command": [
+        "node",
+        "scripts/verify-plan.mjs",
+        "--plan",
+        "../plan/NEW-PROJECT-LONG-TASK.md"
+      ],
+      "exitCode": 0,
+      "log": "plan.log",
+      "logSha256": "71661198a7904771d1f016c66fd0d8d820784b0283cf51d0b9132d6fb48b6f60"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exitCode": 0,
+      "log": "diff.log",
+      "logSha256": "e3b7c5c014a87e11499a4d691326fd11c2c0ceae443a6190329f9c5499be103f"
+    }
+  ],
+  "sourceHashes": {
+    "crates/agent/src/config.rs": "37980c01b0047521811c120a23d4db83f9f115f6680d0ebdd2a1ed0c0a114685",
+    "crates/agent/src/lib.rs": "d4ea9a7c4983a9ffd0985215c4d5e2410f9eb93fbdeb470c4fb78c0065e00671",
+    "crates/agent/src/prompts.rs": "f6ddde0f1c080d6c27e4e7fdb2cfd15de3b9b76a10e21f67f5104bff30adefc3",
+    "crates/agent/src/runner.rs": "4035f347c0223cf2be94c7ee4186cf7c32e8acb63d6f7216c8dc355d4f03ca54",
+    "crates/agent/src/tools.rs": "138c56dbdb7fc94aca5b4e0cf351c7c1da16b1be28ab06c7b6b95f8bf16e408d",
+    "crates/agent/tests/agent_lifecycle.rs": "0a1065bf34c0b22ff612a9ff72de190fe178d9262cec88d3fc5820e25fe24342",
+    "crates/cli/src/commands/agent.rs": "d1a206b3db11ddae58b5639d033f6f702f9cb0fedf5fc4d7d7ad95a602cec7e3",
+    "crates/core/src/knowledge/context.rs": "5727fd8943a535ec4fbbbf0d9bffdb48098c6d87d3e1173fa8de13041d76d87f",
+    "crates/core/tests/support/knowledge.rs": "92a11b9e3cb48b59ed2ee60413445d30ca304fc45afef89fca83120058e95f92",
+    "prompts/collector.md": "3086dd4e7b087c9f30726d127d23865bd335a687422580647655bfef70a81b49",
+    "prompts/investigate.md": "90f30e94f5355bbf91829c07ae29829a5b2f842575a93f3c901f9df67cba5c7a",
+    "prompts/knowledge.md": "781c16bd881839c041edeea2cd8ff410eb54e45d9f3a3a862a6ce05ffa292a5b",
+    "prompts/link.md": "0853f48ffeeaf1bea00ef77b6bd6ce5b4051861540f47b6b927c054316944601",
+    "prompts/repair.md": "52b07014e1d08653a9766c20823d0e5683b17e85de90162c1b0db6b09a5653dd",
+    "prompts/shared.md": "c6c9095151713a02b852453bc79fa564c2f361e36081d139b2490c96101e199c",
+    "Cargo.toml": "7e1fcb25d6a1b5591f627e9ea47420f6eac17efceee304e20b1d2726303f1d83",
+    "Cargo.lock": "9165dc2d5d8104e092d0fc88aedc92515e19b6175243f0fdb70c92afa2d9d38b"
+  }
+}

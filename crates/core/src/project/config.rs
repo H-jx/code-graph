@@ -215,6 +215,9 @@ pub struct AgentConfig {
     pub max_output_tokens: u64,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub auto_activate: Option<bool>,
+    /// Optional portable reasoning toggle; omitted preserves provider defaults.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub thinking: Option<bool>,
 }
 
 fn default_api_key_env() -> String {

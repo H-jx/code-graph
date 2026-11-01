@@ -1,0 +1,37 @@
+{
+  "filesScanned": 185,
+  "zeroByteSources": 0,
+  "commentOnlySources": [
+    {
+      "path": "bindings/node/src/lib.rs",
+      "task": "T20"
+    },
+    {
+      "path": "crates/core/src/syntax/scip.rs",
+      "task": "optional-out-of-scope"
+    }
+  ],
+  "emptyModuleSources": [
+    {
+      "path": "packages/mcp/src/index.ts",
+      "task": "T21"
+    },
+    {
+      "path": "packages/mcp/src/resources.ts",
+      "task": "T21"
+    },
+    {
+      "path": "packages/mcp/src/tools.ts",
+      "task": "T21"
+    },
+    {
+      "path": "packages/sdk/src/client.ts",
+      "task": "T20"
+    },
+    {
+      "path": "packages/sdk/src/index.ts",
+      "task": "T20"
+    }
+  ],
+  "explicitPlaceholderFiles": 10
+}

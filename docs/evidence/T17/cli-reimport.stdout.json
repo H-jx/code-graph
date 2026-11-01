@@ -1,0 +1,12 @@
+{
+  "topicId": "ledger",
+  "version": 2,
+  "snapshot": {
+    "indexId": "1c03c4cd-a108-44a3-abdc-64f98adae283",
+    "generation": "2",
+    "sourceSnapshotId": "snap_d1ea5910bde9b38f18c42e1d6629bd918cfbeb277316decfca84a99b96a2cd19"
+  },
+  "freshness": "fresh",
+  "status": "partial",
+  "artifactHash": "119b7a301a39facd12617e97b286a42aa55ed03ce63e1bd5ba8161b4ec95f374"
+}

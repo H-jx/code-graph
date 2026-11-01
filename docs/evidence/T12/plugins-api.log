@@ -1,0 +1,35 @@
+Verified 18 example artifact files; truthHash aaf1fd10b75902583be1108b083e6d3a2f71cb515f633b116ca71967f780b1ed
+
+running 6 tests
+test backend_api_and_frontend_share_service_scoped_graphql_fields_without_scope_overwrite ... ok
+test frontend_literal_title_alias_array_and_proxy_are_preserved_with_dynamic_gaps ... ok
+test frontend_moves_renames_and_ambiguous_dynamic_registrations_remain_conservative ... ok
+test frontend_shadowed_imports_nested_registrations_and_parse_errors_do_not_confirm_targets ... ok
+test frontend_two_layouts_match_frozen_identities_attributes_relations_and_evidence ... ok
+test truth_frontend_expected_and_forbidden_identities_are_complete ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 4 filtered out; finished in 33.64s
+
+Verified both API artifacts; supplementary truth 0656a541167d8195b7a7286c1dc660fcb730fd826778e50f69051f129f5374cf
+
+running 2 tests
+test backend_api_and_frontend_share_service_scoped_graphql_fields_without_scope_overwrite ... ok
+test backend_api_two_languages_bind_registrations_and_reject_decoys_and_dynamic_targets ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 8 filtered out; finished in 14.14s
+
+   Compiling project-knowledge-core v0.1.0 (E:\Project\my-project\code-graph\crates\core)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.26s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-c86b9f40fcb79f80.exe)
+warning: linker stdout: 正在创建库 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.lib 和对象 E:\Project\my-project\code-graph\target\debug\deps\business_scenarios-c86b9f40fcb79f80.exp
+  |
+  = note: `#[warn(linker_messages)]` on by default
+
+warning: `project-knowledge-core` (test "business_scenarios") generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.48s
+     Running tests\business_scenarios.rs (target\debug\deps\business_scenarios-c86b9f40fcb79f80.exe)

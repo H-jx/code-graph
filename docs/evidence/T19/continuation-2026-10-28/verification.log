@@ -1,0 +1,13 @@
+Running cargo test --workspace --locked -j 1 -- --test-threads=1
+Traceback (most recent call last):
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\verify.py", line 103, in <module>
+    print(f"T19 complete evidence verified; workspace {count} passed", flush=True)
+  File "E:\Project\my-project\code-graph\docs\evidence\T19\continuation-2026-10-28\verify.py", line 47, in main
+    process = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, timeout=900)
+  File "D:\AppData\Local\miniconda3\lib\subprocess.py", line 505, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "D:\AppData\Local\miniconda3\lib\subprocess.py", line 1154, in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+  File "D:\AppData\Local\miniconda3\lib\subprocess.py", line 1546, in _communicate
+    raise TimeoutExpired(self.args, orig_timeout)
+subprocess.TimeoutExpired: Command '['cargo', 'test', '--workspace', '--locked', '-j', '1', '--', '--test-threads=1']' timed out after 900 seconds
