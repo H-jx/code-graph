@@ -5,6 +5,7 @@ name: Project Knowledge CI
 on:
   push:
     branches: ["**"]
+    tags: ["actions-check-*"]
   pull_request:
 
 permissions:
