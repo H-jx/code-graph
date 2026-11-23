@@ -4,14 +4,17 @@
 
 ## 接入
 
+先按 [安装指南](installation.md) 解压包含 Agent 的 CLI，并用仓库中的 [.env.example](../.env.example) 准备本地 `.env`。从源码构建时可运行 `cargo build -p project-knowledge-cli --locked`，然后将下方 `$cli` 改为 `.\target\debug\project-knowledge.exe`。
+
 ```powershell
-cargo build -p project-knowledge-cli --locked
-$cli = '.\target\debug\project-knowledge.exe'
-& $cli init --root E:/path/to/target
-$config = 'E:/path/to/target/.project-knowledge/project.json'
+$cli = 'C:/tools/project-knowledge/project-knowledge.exe'
+$project = 'C:/workspace/my-repo'
+$envFile = 'C:/tools/project-knowledge/.env'
+& $cli init --root $project
+$config = Join-Path $project '.project-knowledge/project.json'
 & $cli index --config $config --base
-& $cli agent configure --config $config --env-file E:/Project/my-project/code-graph/.env --check
-& $cli agent build --config $config --env-file E:/Project/my-project/code-graph/.env --focus routes --goal '调查本项目的实际路由注册，生成有来源依据和验收样例的采集插件'
+& $cli agent configure --config $config --env-file $envFile --check
+& $cli agent build --config $config --env-file $envFile --focus routes --goal '调查本项目的实际路由注册，生成有来源依据和验收样例的采集插件'
 & $cli index --config $config --incremental
 ```
 
@@ -90,8 +93,8 @@ Core 校验原始证据、登记 derivedConvention 和 provenance；身份变更
 ## 当前验收范围
 
 派生约定/identityDelta、主题与 Skill 已接入 Core；本地模拟 provider 的完整工具流与异常、预算、取消均有验证。
-T18 的真实端点验收是查询工具 smoke。T19 已在 Windows x64 用冻结的 T06 采购流程文档/源码完成真实生成、有限修复、激活、主题与 Skill，以及独立状态/条件/有序键和原文范围核对。
-Core-only 外部候选、去掉模型凭据的增量、实际终止 owned CLI 后的知识恢复、预算保留和激活幂等已验证。证据见 `docs/evidence/T19/continuation-2026-10-28/README.md`；完整三场景与 CLI/SDK/MCP 对照仍由 T22 验收。
+T18 用实际模型端点验证了查询工具。T19 在 Windows x64 基于冻结的采购流程资料验证了插件生成、有限修复、激活、主题和 Skill，以及状态、条件、有序键和原文范围。
+Core-only 外部候选、无模型凭据的增量更新、CLI 终止后的恢复、预算保留和激活幂等也已验证。三个业务场景及 CLI、SDK、MCP 的对照见 [验收范围](validation/acceptance.md)。
 候选自带用例始终是 candidate 来源，不能冒充 T06 独立业务真值。
 工具协议和激活回归、真实模型 smoke/小型 fixture 不代表三个业务场景或所有端点已通过验收。
 工程验证和真实请求摘要见 `docs/evidence/T18/`、`docs/evidence/T19/`。

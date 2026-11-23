@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "protocolVersion": "1.0",
+  "schemaHash": "e83503591016f39c45971d891862ab93091eb7deaae8717f72365a12e5c916f6",
+  "platformPackage": "@project-knowledge/native-win32-x64-msvc",
+  "databaseHashUnchanged": "1a03c6d12b77d040ffc7ffff3467a2439c5c5a296f06a17af71c7119d689c60d",
+  "nativeMissing": "RUNTIME_MISSING",
+  "node": "v24.14.0",
+  "externalModelRequests": 0,
+  "installedPluginActivation": {
+    "activationId": "activation_validation_a407be28-bd35-4305-a932-ca11aec26337",
+    "candidateId": "candidate_1582e7ee-d948-4ec5-820f-dcd2907efe73",
+    "generation": "2",
+    "status": "active"
+  },
+  "localProviderRequests": 2,
+  "installedAgent": {
+    "status": "complete",
+    "modelTurns": 2,
+    "toolCalls": 1,
+    "missingKeyRejected": true
+  }
+}

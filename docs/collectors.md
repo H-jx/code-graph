@@ -101,7 +101,6 @@ T06 已冻结独立来源包与合成样本，truthHash 和来源审阅见 docs/
 
 每种布局验收两个数据源、10 张表、62 列、16 个有序键和已写出的 SQL/ORM 查询；列 nullable 未有明确 NOT NULL 时保持 unknown。SQL joins 保存类型、完整条件与有序 keyPairs，不能确认完整键时返回 gap；即使存在外键，实际查询的 cardinality 仍为 unknown。业务粒度/状态/时间/NULL 策略/单位留待 T14，不把 T12 的语法结果当作完整台账口径。
 
-`node scripts/audit-source.mjs --output <report.json>` 生成零字节、注释文件、空导出模块、显式占位及源码哈希清单；自动扫描不能代替任务验收。当前 SDK/native/MCP、图遍历、知识输出和场景组合仍有未完成实现，按 T15—T21 状态继续处理。
 
 ## 跨仓库关联插件（T13）
 
@@ -119,8 +118,9 @@ workflow 解析明确配置的状态参数/属性、原始文档转换、guard�
 
 report 保存已有 SQLite SELECT/CTE 的字段表达式、聚合及列来源，追踪预聚合、完整粒度、必要状态/删除过滤和实际零回填。标记 JOIN_FANOUT_RISK、CHILD_FILTER_AFTER_LEFT_JOIN、PREAGGREGATION_GRAIN_MISMATCH；OR 条件或相同列名不能证明必需过滤成立。台账粒度/状态/NULL/单位均须有独立原始 policy；没有依据则 unknown+gap。货币字段只声明原文可证明的 cent 单位，未声明的物理数量单位保留缺口。只有两侧键均有完整唯一性依据时声明 1:1；其余基数未知。
 
-业务规则留在独立插件的 conventions.json 和原始来源；Core/SDK 没有采购专用判断，也不执行用户 SQL。当前是两布局合成样本的源码审阅验收，范围为支持的静态语法；Core 的页面/流程/台账场景组合仍由 T16 实施，不把采集完成等同于场景查询完成。
-# T16 场景查询接入后的采集补充
+业务规则保存在独立插件的 `conventions.json` 和原始来源。页面、流程及台账查询已在两种示例布局上验收，覆盖范围见 [验收说明](validation/acceptance.md)。
+
+## 场景查询的采集补充
 
 数据库采集对有完整同数据源声明的 `*`/`alias.*` 保存真实列 reads；重复输出名称不形成唯一的下游 CTE 绑定。未知范围继续 gap，不扩成其他数据源的同名表。Core 的搜索投影保留嵌套属性中的原始字符串，因此 queryImplementation.statement.text 可用于定位已有实现。
 

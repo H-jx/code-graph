@@ -1,4 +1,0 @@
-executable=/root/.cache/project-knowledge-linux-probe/node-v24.14.0-linux-x64/bin/node args=["/root/.cache/project-knowledge-linux-probe/node-v24.14.0-linux-x64/bin/../lib/node_modules/npm/bin/npm-cli.js","ci","--ignore-scripts","--no-audit","--no-fund","--registry=https://registry.npmjs.org"] exit=exit status: 0
-
-added 1 package in 878ms
-

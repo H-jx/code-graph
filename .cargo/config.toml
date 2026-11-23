@@ -1,6 +1,6 @@
 # 项目级 Cargo 配置：只放与仓库结构相关的设置。
 # 机器相关配置（registry 镜像、代理、交叉工具链）请写在 ~/.cargo/config.toml，
-# 不要提交到仓库，见 docs/DEPENDENCIES.md「网络与镜像」。
+# 不要提交到仓库，见 docs/decisions/dependencies.md。
 [alias]
 xtask = "run --package xtask --"
 check-all = "check --workspace --all-targets --all-features"

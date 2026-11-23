@@ -16,7 +16,7 @@ T09 已完成当前任务的候选、原子激活与中断恢复验收（2026-10
   文件锁释放，正式 generation 不变，只读检查不恢复，维护重启将 prepared 标为 failed。
   暂存目录有独立 OS 锁与标记；同一 Windows 综合用例也断言活动 validate-only 的目录不被并发维护删除，宿主终止后能够安全回收。
   该文件为较早定向运行记录；最终两种宿主模式及目录断言以最新 workspace-tests.log 的同名用例和源码哈希为准。
-- `cli/run-*/report.json`：`node scripts/verify-collection.mjs` 的真实 8 步 CLI 合成闭环；
+- [CLI 报告](cli/run-krFQq2/report.json)：`node scripts/verify-collection.mjs` 的真实 8 步 CLI 合成闭环；
   每步保留 argv、退出码、JSON 响应与 SHA-256，含基础索引、validate-only、submit、validate、activate、collect、坏 link 和 rollback。
   最后一次运行目录由 `latest-cli.json` 指向。
 - v1→v2 只在维护入口迁移；保留 indexId/generation，旧 Schema 只读打开会明确拒绝。

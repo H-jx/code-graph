@@ -1,6 +1,6 @@
 //! Project Knowledge Core —— 索引与查询的唯一实现。
 //!
-//! 职责边界（见 `docs/NEW-PROJECT-STRUCTURE.md` 第 3 节）：
+//! Core 的职责边界：
 //! - 统一拥有扫描、运行提取器、校验、事务、索引、检索、追踪、增量与材料输出；
 //! - 不负责模型调用：Agent 侧通过本 crate 的公开用例组合 Prompt 与工具；
 //! - `contract` 是共用类型的唯一来源，JSON Schema 由它导出，Node 侧类型再由 Schema 生成；

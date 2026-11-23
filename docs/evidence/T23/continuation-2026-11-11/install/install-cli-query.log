@@ -1,0 +1,173 @@
+{
+  "budgetUsed": {
+    "elapsedMs": 3,
+    "entities": 2,
+    "relations": 0,
+    "responseChars": 3769,
+    "visited": 4
+  },
+  "completeness": {
+    "candidateSetsComplete": true,
+    "checkedAt": "2026-11-11T11:56:39Z",
+    "coverage": "complete",
+    "diskChecked": true,
+    "freshness": "fresh",
+    "reasons": [],
+    "truncated": false
+  },
+  "data": {
+    "candidateSetComplete": true,
+    "fields": null,
+    "results": [
+      {
+        "assertions": [
+          {
+            "assertionId": "as_8da88fadbf4796fb1637530feee121661a0ed2d8906cdc571c5f14cbcc56306f",
+            "attributes": {
+              "lexicalPath": "purchase",
+              "name": "purchase",
+              "normalizedSignature": "functionpurchase(){return1;}",
+              "path": "purchase.ts",
+              "symbolKind": "function"
+            },
+            "basis": "observed",
+            "batchId": "bat_53d8089002ba2604d94ced0aced05630e1115d26779f943bba9945abca89a2b1",
+            "evidenceRefs": [
+              "ev_b8c70e1b33e1a168f2e004eacd24cfa5573623b8bc7afe7e05d8cf684cf22321"
+            ],
+            "name": "purchase",
+            "origin": "static",
+            "producerKey": "core.base"
+          }
+        ],
+        "bm25": -8.481927710843374e-7,
+        "entityRef": {
+          "entityId": "ent_73b6c29d7eaceff9aeca0e09e3c62dc80c86a5dea1b6458b17bcf7799fa9d05c",
+          "snapshot": {
+            "generation": "1",
+            "indexId": "c604523c-c3bf-4f5c-a2b4-eb6288300646",
+            "sourceSnapshotId": "snap_74fc2caf6268475bfd28f4c95e5b43336f178eae35fbc4544e060554858732e0"
+          }
+        },
+        "exactRank": 3,
+        "identity": [
+          {
+            "name": "repositoryId",
+            "value": "repo.main"
+          },
+          {
+            "name": "path",
+            "value": "purchase.ts"
+          },
+          {
+            "name": "scopeId",
+            "value": "repo.repo.main"
+          },
+          {
+            "name": "lexicalPath",
+            "value": "purchase"
+          },
+          {
+            "name": "symbolKind",
+            "value": "function"
+          },
+          {
+            "name": "normalizedSignature",
+            "value": "functionpurchase(){return1;}"
+          }
+        ],
+        "kind": "symbol",
+        "matchReason": "identifier",
+        "name": "purchase",
+        "projection": "entity",
+        "scopeId": "repo.repo.main"
+      },
+      {
+        "assertions": [
+          {
+            "assertionId": "as_9efff6390c2f72b0b8f17347ff4f6ecd2b8a6b8ddb4011582f3f0a57a2551552",
+            "attributes": {
+              "byteLength": 51,
+              "language": "typescript",
+              "path": "purchase.ts",
+              "repositoryId": "repo.main"
+            },
+            "basis": "observed",
+            "batchId": "bat_53d8089002ba2604d94ced0aced05630e1115d26779f943bba9945abca89a2b1",
+            "evidenceRefs": [
+              "ev_6881be67e76290868bf4935a545ea8983936f77764d19af512aaab95713c68be"
+            ],
+            "name": "purchase.ts",
+            "origin": "static",
+            "producerKey": "core.base"
+          }
+        ],
+        "bm25": -1.2179930795847753e-6,
+        "entityRef": {
+          "entityId": "ent_542d3fcb55fb4262342efd7bedfeb8b463457614e8f81f002ed21ea2ed690bd5",
+          "snapshot": {
+            "generation": "1",
+            "indexId": "c604523c-c3bf-4f5c-a2b4-eb6288300646",
+            "sourceSnapshotId": "snap_74fc2caf6268475bfd28f4c95e5b43336f178eae35fbc4544e060554858732e0"
+          }
+        },
+        "exactRank": 2,
+        "identity": [
+          {
+            "name": "repositoryId",
+            "value": "repo.main"
+          },
+          {
+            "name": "path",
+            "value": "purchase.ts"
+          },
+          {
+            "name": "scopeId",
+            "value": "repo.repo.main"
+          }
+        ],
+        "kind": "file",
+        "matchReason": "substring",
+        "name": "purchase.ts",
+        "projection": "source",
+        "scopeId": "repo.repo.main"
+      }
+    ]
+  },
+  "gaps": [],
+  "nextQueries": [],
+  "protocolVersion": "1.0",
+  "requestId": "req_0d476233-18a4-45ca-a75e-dfd0ef607728",
+  "snapshot": {
+    "generation": "1",
+    "indexId": "c604523c-c3bf-4f5c-a2b4-eb6288300646",
+    "sourceSnapshotId": "snap_74fc2caf6268475bfd28f4c95e5b43336f178eae35fbc4544e060554858732e0"
+  },
+  "sourceReferences": [
+    {
+      "contentHash": "eb45bd7316e965be58906cff33341fa8056b1f22a47c5e5f8f700a5976155408",
+      "endByte": 1,
+      "evidenceId": "ev_6881be67e76290868bf4935a545ea8983936f77764d19af512aaab95713c68be",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "c604523c-c3bf-4f5c-a2b4-eb6288300646",
+        "sourceSnapshotId": "snap_74fc2caf6268475bfd28f4c95e5b43336f178eae35fbc4544e060554858732e0"
+      },
+      "sourceId": "src_f7029b29e159f66791318571e74e67d77e79e4fc4d1301149bf5306529e8d1ca",
+      "startByte": 0
+    },
+    {
+      "contentHash": "eb45bd7316e965be58906cff33341fa8056b1f22a47c5e5f8f700a5976155408",
+      "endByte": 34,
+      "evidenceId": "ev_b8c70e1b33e1a168f2e004eacd24cfa5573623b8bc7afe7e05d8cf684cf22321",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "c604523c-c3bf-4f5c-a2b4-eb6288300646",
+        "sourceSnapshotId": "snap_74fc2caf6268475bfd28f4c95e5b43336f178eae35fbc4544e060554858732e0"
+      },
+      "sourceId": "src_f7029b29e159f66791318571e74e67d77e79e4fc4d1301149bf5306529e8d1ca",
+      "startByte": 26
+    }
+  ],
+  "status": "complete"
+}

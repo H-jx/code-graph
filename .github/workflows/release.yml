@@ -32,7 +32,9 @@ jobs:
             runner: macos-15-intel
             artifact: project-knowledge-darwin-x64
           - target: aarch64-apple-darwin
-            runner: macos-14
+            # macos-14 于 2026-11-02 退役（actions/runner-images#15226）；
+            # 2026-11-11 核对官方清单改用 macos-15（arm64）。
+            runner: macos-15
             artifact: project-knowledge-darwin-arm64
     runs-on: ${{ matrix.runner }}
     steps:

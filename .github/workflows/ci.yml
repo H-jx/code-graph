@@ -1,7 +1,6 @@
 name: Project Knowledge CI
 
-# 计划 T01 门禁：格式化 / Clippy / 全量检查与测试 / Core-only 构建 / 依赖方向，
-# Node 侧验证同源契约与已实现的原生/MCP/Rig 探针，不把尚为空的产品 binding 当作有效加载证明。
+# Rust 和 Node 工作区验证，包括 Core-only 构建与原生绑定、SDK、MCP 集成测试。
 
 on:
   push:
@@ -22,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # 主机平台各跑一次全量检查；四平台产物构建在 release.yml（计划 §6.2）
+        # 发布构建矩阵在 release.yml 单独维护。
         os: [windows-latest, ubuntu-24.04, macos-15]
     steps:
       - uses: actions/checkout@v4
@@ -45,7 +44,8 @@ jobs:
       - name: Check
         run: cargo check --workspace --all-targets --locked
       - name: Test
-        run: cargo test --workspace --locked
+        # 业务测试共享插件依赖缓存，串行准备依赖以避免竞争同一把锁。
+        run: cargo test --workspace --locked -- --test-threads=1
       - name: Core-only CLI build (no Rig)
         run: cargo build -p project-knowledge-cli --no-default-features --locked
       - name: Dependency direction (Core must not see Rig)

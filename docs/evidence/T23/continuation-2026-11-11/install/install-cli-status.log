@@ -1,0 +1,86 @@
+{
+  "protocolVersion": "1.0",
+  "requestId": "req_a639d27c-d917-4db7-8a67-94c5a890b50b",
+  "snapshot": {
+    "indexId": "c604523c-c3bf-4f5c-a2b4-eb6288300646",
+    "generation": "1",
+    "sourceSnapshotId": "snap_74fc2caf6268475bfd28f4c95e5b43336f178eae35fbc4544e060554858732e0"
+  },
+  "status": "partial",
+  "data": {
+    "base": {
+      "state": "fresh",
+      "coverage": {
+        "api@repo.repo.main": {
+          "capability": "api",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "base@repo.repo.main": {
+          "capability": "base",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "complete"
+        },
+        "database@repo.repo.main": {
+          "capability": "database",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "frontend@repo.repo.main": {
+          "capability": "frontend",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "report@repo.repo.main": {
+          "capability": "report",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "routes@repo.repo.main": {
+          "capability": "routes",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        },
+        "workflow@repo.repo.main": {
+          "capability": "workflow",
+          "scopeId": "repo.repo.main",
+          "sourceSetId": "repo.main",
+          "status": "not_configured"
+        }
+      }
+    },
+    "collectors": [],
+    "knowledge": {
+      "topics": [],
+      "exports": [],
+      "attempts": [],
+      "diskChecked": false
+    },
+    "activeVersions": {}
+  },
+  "sourceReferences": [],
+  "gaps": [],
+  "completeness": {
+    "freshness": "fresh",
+    "diskChecked": true,
+    "checkedAt": "2026-11-11T11:56:39Z",
+    "coverage": "partial",
+    "candidateSetsComplete": true,
+    "truncated": false,
+    "reasons": []
+  },
+  "budgetUsed": {
+    "entities": 0,
+    "relations": 0,
+    "visited": 2,
+    "elapsedMs": 3,
+    "responseChars": 1620
+  },
+  "nextQueries": []
+}

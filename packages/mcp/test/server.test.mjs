@@ -17,7 +17,7 @@ import { setTimeout as delay } from 'node:timers/promises';
 import { Client } from '@modelcontextprotocol/client';
 import { StdioClientTransport } from '@modelcontextprotocol/client/stdio';
 import { ProjectKnowledge } from '@project-knowledge/sdk';
-import { queryTools, maintenanceTools } from '../dist/tools.js';
+import { queryTools, maintenanceTools, withDefaultQueryTimeout } from '../dist/tools.js';
 import { coreSchema } from '../dist/schema-adapter.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
@@ -88,7 +88,11 @@ async function connect(t, config, mode = 'query', negotiation = 'legacy') {
 async function call(client, name, args = {}) {
   const response = await client.callTool({ name, arguments: args });
   assert.ok(response.structuredContent);
-  assert.deepEqual(JSON.parse(response.content[0].text), response.structuredContent);
+  // The text may lead with a "⚠️ degraded:" header (see result/degradedHint); strip it
+  // before asserting the payload still round-trips to structuredContent byte-for-byte.
+  const text = String(response.content[0].text);
+  const json = text.startsWith('⚠️ degraded:') ? text.slice(text.indexOf('\n') + 1) : text;
+  assert.deepEqual(JSON.parse(json), response.structuredContent);
   return response;
 }
 async function until(check) {
@@ -150,7 +154,13 @@ test(
         assert.notEqual(response.isError, true);
         assert.deepEqual(
           clean(response.structuredContent),
-          clean(await sdk.execute({ ...args, operation: queryTools[name] })),
+          // The MCP layer injects a default budget.timeoutMs for bounded read tools; apply
+          // the same default here so this asserts MCP == SDK plus that documented injection.
+          clean(
+            await sdk.execute(
+              withDefaultQueryTimeout({ ...args, operation: queryTools[name] }, false),
+            ),
+          ),
         );
         records.push({ era, tool: name, arguments: args, response });
       }

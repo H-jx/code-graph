@@ -1,0 +1,214 @@
+{
+  "date": "2026-11-11",
+  "task": "T23",
+  "executor": "opencode",
+  "platform": "win32",
+  "architecture": "x64",
+  "osRelease": "10.0.26200",
+  "node": "v24.14.0",
+  "rust": "rustc 1.97.1 (8bab26f4f 2026-07-14)",
+  "profile": "release",
+  "finalCandidate": "target/release-candidate/0.1.0/x86_64-pc-windows-msvc/candidate-vyk6Au",
+  "previousCandidate": "target/release-candidate/0.1.0/x86_64-pc-windows-msvc/candidate-4PxMWl",
+  "publication": "not-published",
+  "rootCause": {
+    "symptom": "sdk-mcp-consumer exit 0xC0000409 (3221226505), empty stdout/stderr",
+    "cause": "Node v24.14.0 / libuv fs.cpSync memory corruption on non-ASCII Windows paths; triggered by the acceptance harness missing-native check copying SDK dist from the Chinese consumer directory. Not a product defect.",
+    "fix": "scripts/package-consumer.mjs: replace fs.cpSync with equivalent manual recursive copy (mkdirSync + copyFileSync). Acceptance logic and Chinese-path product testing unchanged.",
+    "reference": "root-cause-0xC0000409.md",
+    "repro": "cpsync-repro.mjs"
+  },
+  "productSourceChange": {
+    "changedFiles": [
+      "scripts/package-consumer.mjs"
+    ],
+    "note": "Only the acceptance harness script changed; all product source (crates/bindings/packages src/prompts/xtask) hashes identical to the previous candidate. schemaHash unchanged.",
+    "schemaHash": "e83503591016f39c45971d891862ab93091eb7deaae8717f72365a12e5c916f6",
+    "schemaHashUnchanged": true
+  },
+  "buildDeterminismNote": "Separate release invocations recompiled CLI/native and produced different binary hashes (Rust release builds are not bit-for-bit deterministic across invocations). The final candidate is self-consistent: verify-packages checked its manifest SHA-256 against the actual artifacts and ran them successfully.",
+  "releaseManifest": {
+    "version": "0.1.0",
+    "target": "x86_64-pc-windows-msvc",
+    "protocolVersion": "1.0",
+    "schemaHash": "e83503591016f39c45971d891862ab93091eb7deaae8717f72365a12e5c916f6",
+    "databaseSchemaVersion": 3,
+    "components": {
+      "cli": "0.1.0",
+      "core": "0.1.0",
+      "agent": "0.1.0",
+      "native": "0.1.0",
+      "sdk": "0.1.0",
+      "mcp": "0.1.0",
+      "napiRs": "3.15.0",
+      "sqlite": "3.54.1",
+      "libsqlite3Sys": "0.39.1",
+      "sqliteBundled": true
+    },
+    "nativeBinarySha256": "de5bd048c3235a5f22fde92070ab492ce5cb3f130ea8ad02d4833a84814dd9b5",
+    "cliBinaryHashes": {
+      "project-knowledge.exe": "4b31b32ab8e052fe8e5a70fecea7a9393957d8829767e7ec6f731673e13177f8",
+      "project-knowledge-core.exe": "553a18f0f304698c9815141a15c16597c811a55c98b496673800013e56144f53"
+    },
+    "packages": [
+      {
+        "name": "@project-knowledge/native-win32-x64-msvc",
+        "path": "project-knowledge-native-win32-x64-msvc-0.1.0.tgz",
+        "sha256": "5a5dc5a5d976c9c00b327768c59a11eb26ed6c39bd6c0ff0d76bda6595e28db4"
+      },
+      {
+        "name": "@project-knowledge/native",
+        "path": "project-knowledge-native-0.1.0.tgz",
+        "sha256": "78d3721f783ecd1afcd69541dbff8972800f9025b9db800b7b3bd934ea815b2c"
+      },
+      {
+        "name": "@project-knowledge/sdk",
+        "path": "project-knowledge-sdk-0.1.0.tgz",
+        "sha256": "50c80fc364b7a8c1deccea2cfd57a00aa30888ba8cd383285d8a7b83e58e8691"
+      },
+      {
+        "name": "@project-knowledge/mcp",
+        "path": "project-knowledge-mcp-0.1.0.tgz",
+        "sha256": "0363550cad79dec967749c6d9b7b48f8fd26349f1b20982f1870a486bf48a3bc"
+      }
+    ],
+    "lockHashes": {
+      "Cargo.lock": "98e023cd3b7745437391db9248996c2669c38cd79890f72ca3794dee73fea63a",
+      "pnpm-lock.yaml": "b2c890ecd0d1d95b2a3a01537e097373d07aad4783d018690b5351c5ab716d9e"
+    }
+  },
+  "installation": {
+    "passed": true,
+    "buildProfile": "release",
+    "consumerDirectory": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m",
+    "manifestSha256": "18db3caf66ced64ae39ec1434822cd42898ea272c43d3548f75e1d45ac693028",
+    "consumer": {
+      "passed": true,
+      "protocolVersion": "1.0",
+      "schemaHash": "e83503591016f39c45971d891862ab93091eb7deaae8717f72365a12e5c916f6",
+      "platformPackage": "@project-knowledge/native-win32-x64-msvc",
+      "databaseHashUnchanged": "1a03c6d12b77d040ffc7ffff3467a2439c5c5a296f06a17af71c7119d689c60d",
+      "nativeMissing": "RUNTIME_MISSING",
+      "node": "v24.14.0",
+      "externalModelRequests": 0,
+      "installedPluginActivation": {
+        "activationId": "activation_validation_a407be28-bd35-4305-a932-ca11aec26337",
+        "candidateId": "candidate_1582e7ee-d948-4ec5-820f-dcd2907efe73",
+        "generation": "2",
+        "status": "active"
+      },
+      "localProviderRequests": 2,
+      "installedAgent": {
+        "status": "complete",
+        "modelTurns": 2,
+        "toolCalls": 1,
+        "missingKeyRejected": true
+      }
+    },
+    "externalModelRequests": 0,
+    "localProviderRequests": 2,
+    "businessDatabaseConnections": 0,
+    "commands": [
+      {
+        "label": "unpack-cli",
+        "exitCode": 0,
+        "log": "install-unpack-cli.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "label": "cli-init",
+        "exitCode": 0,
+        "log": "install-cli-init.log",
+        "sha256": "2099ef16d26ccbc6000f18e5fc8ae21c40b3adb1e43488d8ef4ee52edc3b9cbc"
+      },
+      {
+        "label": "cli-base",
+        "exitCode": 0,
+        "log": "install-cli-base.log",
+        "sha256": "fd85ccb8fd6adbbc01a57b3f31a8aa7d224e502d33df5bbdd1930849f0e24e25"
+      },
+      {
+        "label": "cli-status",
+        "exitCode": 0,
+        "log": "install-cli-status.log",
+        "sha256": "7dfbd68c092c60b28309428f0135da71a342451503ff36d83b2b0ec2b0d96c6a"
+      },
+      {
+        "label": "cli-query",
+        "exitCode": 0,
+        "log": "install-cli-query.log",
+        "sha256": "41700ebf633a40ca407a68950f812b9d7f1b06de949e5a0acf54a744e6ddd713"
+      },
+      {
+        "label": "cli-source",
+        "exitCode": 0,
+        "log": "install-cli-source.log",
+        "sha256": "1ba346fba00d378433c1d8fd976f8bd45699a1949045d5110495a3fbb69e3292"
+      },
+      {
+        "label": "agent-help",
+        "exitCode": 0,
+        "log": "install-agent-help.log",
+        "sha256": "6da683eb976298ffd3365b9a810a6c90631a2e890d66651814f234927529ccb9"
+      },
+      {
+        "label": "core-agent-disabled",
+        "exitCode": 1,
+        "log": "install-core-agent-disabled.log",
+        "sha256": "1085b565ff6ae666a58db5d5d22b656eca7461dc0b2310c7a349f26871d9b95e"
+      },
+      {
+        "label": "runtime-exclusions",
+        "exitCode": 0,
+        "log": "install-runtime-exclusions.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "label": "npm-install",
+        "exitCode": 0,
+        "log": "install-npm-install.log",
+        "sha256": "fb93bc59f97304d7652397f3da9c9841409943eced50f2d83e5d16d11b703f65"
+      },
+      {
+        "label": "npm-ci-offline",
+        "exitCode": 0,
+        "log": "install-npm-ci-offline.log",
+        "sha256": "d09096052365da393042ce6f9049f2f712bb3933846002dba63ee0c5420b10f3"
+      },
+      {
+        "label": "sdk-mcp-consumer",
+        "exitCode": 0,
+        "log": "install-sdk-mcp-consumer.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ]
+  },
+  "namingCheck": "name-check.json",
+  "runnerCheck": "runner-check.md",
+  "evidenceHashes": {
+    "install-agent-help.log": "6da683eb976298ffd3365b9a810a6c90631a2e890d66651814f234927529ccb9",
+    "install-cli-base.log": "fd85ccb8fd6adbbc01a57b3f31a8aa7d224e502d33df5bbdd1930849f0e24e25",
+    "install-cli-init.log": "2099ef16d26ccbc6000f18e5fc8ae21c40b3adb1e43488d8ef4ee52edc3b9cbc",
+    "install-cli-query.log": "41700ebf633a40ca407a68950f812b9d7f1b06de949e5a0acf54a744e6ddd713",
+    "install-cli-source.log": "1ba346fba00d378433c1d8fd976f8bd45699a1949045d5110495a3fbb69e3292",
+    "install-cli-status.log": "7dfbd68c092c60b28309428f0135da71a342451503ff36d83b2b0ec2b0d96c6a",
+    "install-commands.json": "eceb780cb2616e7ac898b87128b3608f9632afec875ea7e4cd322b5f1818e075",
+    "install-core-agent-disabled.log": "1085b565ff6ae666a58db5d5d22b656eca7461dc0b2310c7a349f26871d9b95e",
+    "install-npm-ci-offline.log": "d09096052365da393042ce6f9049f2f712bb3933846002dba63ee0c5420b10f3",
+    "install-npm-install.log": "fb93bc59f97304d7652397f3da9c9841409943eced50f2d83e5d16d11b703f65",
+    "install-runtime-exclusions.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "install-sdk-mcp-consumer.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "install-unpack-cli.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "release-manifest.json": "18db3caf66ced64ae39ec1434822cd42898ea272c43d3548f75e1d45ac693028",
+    "SHA256SUMS": "ffe94eb9e4286b98a5964c6bead9561036a126706ef0323ce1e990d511a78903",
+    "consumer-report.json": "cccc10671981888d48ce7d2bd7891747b4d7b6137082da1a00845f4962e62d47"
+  },
+  "limitations": [
+    "Only Windows x64 validated on the current host; not a fresh-VM or minimum-OS certification.",
+    "Linux/macOS x64/arm64 remain follow-up (D31); release.yml runner names corrected but no remote Actions run (no Git remote).",
+    "No new live-model business run; prior T19 evidence remains separate. Local mock provider only (2 requests).",
+    "Node/Python plugins retain explicit runtime requirements; no business database connections.",
+    "Public publication not performed; npm scope ownership/permission must be verified before any release.",
+    "Physical power-loss, second real multi-repo project, and original-author sign-off remain known boundaries."
+  ]
+}

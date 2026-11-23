@@ -103,7 +103,7 @@ const files = [
   'docs/evidence/T00/probe/node/python.test.mjs',
   'scripts/verify-vectors.py',
   'docs/NEW-PROJECT-DESIGN.md',
-  'docs/NEW-PROJECT-STRUCTURE.md',
+  'docs/protocol.md',
 ];
 const sha256 = (file) =>
   createHash('sha256')

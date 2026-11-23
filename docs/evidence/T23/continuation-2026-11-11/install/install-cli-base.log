@@ -1,0 +1,67 @@
+{
+  "completedAt": "2026-11-11T11:56:39Z",
+  "configPath": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project\\.project-knowledge\\project.json",
+  "coverage": {
+    "api@repo.repo.main": {
+      "capability": "api",
+      "gapIds": [],
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "not_configured"
+    },
+    "base@repo.repo.main": {
+      "capability": "base",
+      "gapIds": [],
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "complete"
+    },
+    "database@repo.repo.main": {
+      "capability": "database",
+      "gapIds": [],
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "not_configured"
+    },
+    "frontend@repo.repo.main": {
+      "capability": "frontend",
+      "gapIds": [],
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "not_configured"
+    },
+    "report@repo.repo.main": {
+      "capability": "report",
+      "gapIds": [],
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "not_configured"
+    },
+    "routes@repo.repo.main": {
+      "capability": "routes",
+      "gapIds": [],
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "not_configured"
+    },
+    "workflow@repo.repo.main": {
+      "capability": "workflow",
+      "gapIds": [],
+      "scopeId": "repo.repo.main",
+      "sourceSetId": "repo.main",
+      "status": "not_configured"
+    }
+  },
+  "entities": 2,
+  "executed": [],
+  "gaps": 0,
+  "generation": "1",
+  "indexDatabase": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project\\.project-knowledge\\index.sqlite",
+  "indexId": "c604523c-c3bf-4f5c-a2b4-eb6288300646",
+  "invalidated": [],
+  "mode": "base",
+  "relations": 1,
+  "searchDocuments": 2,
+  "sourceSetHash": "f0e9c097263b8dd4177b220edbc10d6f9e5094f547728458f455b181f5e5775e",
+  "sourceSnapshotId": "snap_74fc2caf6268475bfd28f4c95e5b43336f178eae35fbc4544e060554858732e0"
+}

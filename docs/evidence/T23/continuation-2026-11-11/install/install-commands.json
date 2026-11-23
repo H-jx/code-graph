@@ -1,0 +1,162 @@
+[
+  {
+    "label": "unpack-cli",
+    "command": "C:\\WINDOWS\\System32\\tar.exe",
+    "parameters": [
+      "-xzf",
+      "E:\\Project\\my-project\\code-graph\\target\\release-candidate\\0.1.0\\x86_64-pc-windows-msvc\\candidate-vyk6Au\\project-knowledge-0.1.0-win32-x64-msvc.tar.gz"
+    ],
+    "exitCode": 0,
+    "log": "install-unpack-cli.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "cli-init",
+    "command": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project-knowledge.exe",
+    "parameters": [
+      "init",
+      "--root",
+      "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project"
+    ],
+    "exitCode": 0,
+    "log": "install-cli-init.log",
+    "sha256": "2099ef16d26ccbc6000f18e5fc8ae21c40b3adb1e43488d8ef4ee52edc3b9cbc"
+  },
+  {
+    "label": "cli-base",
+    "command": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project-knowledge-core.exe",
+    "parameters": [
+      "index",
+      "--config",
+      "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project\\.project-knowledge\\project.json",
+      "--base"
+    ],
+    "exitCode": 0,
+    "log": "install-cli-base.log",
+    "sha256": "fd85ccb8fd6adbbc01a57b3f31a8aa7d224e502d33df5bbdd1930849f0e24e25"
+  },
+  {
+    "label": "cli-status",
+    "command": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project-knowledge.exe",
+    "parameters": [
+      "status",
+      "--config",
+      "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project\\.project-knowledge\\project.json",
+      "--check-freshness"
+    ],
+    "exitCode": 0,
+    "log": "install-cli-status.log",
+    "sha256": "7dfbd68c092c60b28309428f0135da71a342451503ff36d83b2b0ec2b0d96c6a"
+  },
+  {
+    "label": "cli-query",
+    "command": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project-knowledge-core.exe",
+    "parameters": [
+      "query",
+      "--config",
+      "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project\\.project-knowledge\\project.json",
+      "--operation",
+      "search",
+      "--text",
+      "purchase"
+    ],
+    "exitCode": 0,
+    "log": "install-cli-query.log",
+    "sha256": "41700ebf633a40ca407a68950f812b9d7f1b06de949e5a0acf54a744e6ddd713"
+  },
+  {
+    "label": "cli-source",
+    "command": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project-knowledge-core.exe",
+    "parameters": [
+      "query",
+      "--config",
+      "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project\\.project-knowledge\\project.json",
+      "--request",
+      "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\source-request.json"
+    ],
+    "exitCode": 0,
+    "log": "install-cli-source.log",
+    "sha256": "1ba346fba00d378433c1d8fd976f8bd45699a1949045d5110495a3fbb69e3292"
+  },
+  {
+    "label": "agent-help",
+    "command": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project-knowledge.exe",
+    "parameters": [
+      "agent",
+      "--help"
+    ],
+    "exitCode": 0,
+    "log": "install-agent-help.log",
+    "sha256": "6da683eb976298ffd3365b9a810a6c90631a2e890d66651814f234927529ccb9"
+  },
+  {
+    "label": "core-agent-disabled",
+    "command": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project-knowledge-core.exe",
+    "parameters": [
+      "agent",
+      "configure",
+      "--config",
+      "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project\\.project-knowledge\\project.json"
+    ],
+    "exitCode": 1,
+    "log": "install-core-agent-disabled.log",
+    "sha256": "1085b565ff6ae666a58db5d5d22b656eca7461dc0b2310c7a349f26871d9b95e"
+  },
+  {
+    "label": "runtime-exclusions",
+    "command": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\runtime\\node.exe",
+    "parameters": [
+      "--input-type=module",
+      "-e",
+      "import {spawnSync} from 'node:child_process';for(const command of ['rustc','cargo','cl','gcc','python','pnpm']) {const r=spawnSync(command,['--version']);if(!r.error) throw Error(command+' unexpectedly in runtime PATH');}"
+    ],
+    "exitCode": 0,
+    "log": "install-runtime-exclusions.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "label": "npm-install",
+    "command": "C:\\nvm4w\\nodejs\\node.exe",
+    "parameters": [
+      "C:\\nvm4w\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "install",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund",
+      "E:\\Project\\my-project\\code-graph\\target\\release-candidate\\0.1.0\\x86_64-pc-windows-msvc\\candidate-vyk6Au\\project-knowledge-native-win32-x64-msvc-0.1.0.tgz",
+      "E:\\Project\\my-project\\code-graph\\target\\release-candidate\\0.1.0\\x86_64-pc-windows-msvc\\candidate-vyk6Au\\project-knowledge-native-0.1.0.tgz",
+      "E:\\Project\\my-project\\code-graph\\target\\release-candidate\\0.1.0\\x86_64-pc-windows-msvc\\candidate-vyk6Au\\project-knowledge-sdk-0.1.0.tgz",
+      "E:\\Project\\my-project\\code-graph\\target\\release-candidate\\0.1.0\\x86_64-pc-windows-msvc\\candidate-vyk6Au\\project-knowledge-mcp-0.1.0.tgz",
+      "@modelcontextprotocol/client@2.4.0"
+    ],
+    "exitCode": 0,
+    "log": "install-npm-install.log",
+    "sha256": "fb93bc59f97304d7652397f3da9c9841409943eced50f2d83e5d16d11b703f65"
+  },
+  {
+    "label": "npm-ci-offline",
+    "command": "C:\\nvm4w\\nodejs\\node.exe",
+    "parameters": [
+      "C:\\nvm4w\\nodejs\\node_modules\\npm\\bin\\npm-cli.js",
+      "ci",
+      "--offline",
+      "--ignore-scripts",
+      "--no-audit",
+      "--no-fund"
+    ],
+    "exitCode": 0,
+    "log": "install-npm-ci-offline.log",
+    "sha256": "d09096052365da393042ce6f9049f2f712bb3933846002dba63ee0c5420b10f3"
+  },
+  {
+    "label": "sdk-mcp-consumer",
+    "command": "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\runtime\\node.exe",
+    "parameters": [
+      "verify.mjs",
+      "C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project\\.project-knowledge\\project.json"
+    ],
+    "exitCode": 0,
+    "log": "install-sdk-mcp-consumer.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

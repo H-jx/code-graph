@@ -1,0 +1,10 @@
+{
+  "configPath": "\\\\?\\C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project\\.project-knowledge\\project.json",
+  "projectId": "project",
+  "root": "\\\\?\\C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project",
+  "createdAt": "2026-11-11T11:56:39Z",
+  "indexDatabase": "\\\\?\\C:\\Users\\hubo9\\AppData\\Local\\Temp\\pk-installed-中文 空格-RSsK4m\\project\\.project-knowledge\\index.sqlite",
+  "next": [
+    "project-knowledge index --config <config> --base"
+  ]
+}

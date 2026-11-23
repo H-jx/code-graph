@@ -1,1 +1,0 @@
-{"schemaVersion":1,"projectId":"dependency-smoke","repositories":[{"id":"r","root":"repo"}],"selection":{},"runtimes":[{"id":"python312","kind":"python","executable":"/usr/bin/python3"}]}

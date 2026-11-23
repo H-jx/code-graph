@@ -1,0 +1,117 @@
+{
+  "version": "0.1.0",
+  "target": "x86_64-pc-windows-msvc",
+  "profile": "release",
+  "platform": "win32",
+  "architecture": "x64",
+  "osRelease": "10.0.26200",
+  "glibc": null,
+  "protocolVersion": "1.0",
+  "schemaHash": "e83503591016f39c45971d891862ab93091eb7deaae8717f72365a12e5c916f6",
+  "databaseSchemaVersion": 3,
+  "configSchemaVersion": 1,
+  "components": {
+    "cli": "0.1.0",
+    "core": "0.1.0",
+    "agent": "0.1.0",
+    "native": "0.1.0",
+    "sdk": "0.1.0",
+    "mcp": "0.1.0",
+    "napiRs": "3.15.0",
+    "sqlite": "3.54.1",
+    "libsqlite3Sys": "0.39.1",
+    "sqliteBundled": true
+  },
+  "nativeBinarySha256": "de5bd048c3235a5f22fde92070ab492ce5cb3f130ea8ad02d4833a84814dd9b5",
+  "node": "v24.14.0",
+  "rust": "rustc 1.97.1 (8bab26f4f 2026-07-14)\nbinary: rustc\ncommit-hash: 8bab26f4f68e0e26f0bb7960be334d5b520ea452\ncommit-date: 2026-07-14\nhost: x86_64-pc-windows-msvc\nrelease: 1.97.1\nLLVM version: 22.1.6",
+  "lockHashes": {
+    "Cargo.lock": "98e023cd3b7745437391db9248996c2669c38cd79890f72ca3794dee73fea63a",
+    "pnpm-lock.yaml": "b2c890ecd0d1d95b2a3a01537e097373d07aad4783d018690b5351c5ab716d9e"
+  },
+  "cli": "project-knowledge-0.1.0-win32-x64-msvc.tar.gz",
+  "cliBinaryHashes": {
+    "project-knowledge.exe": "4b31b32ab8e052fe8e5a70fecea7a9393957d8829767e7ec6f731673e13177f8",
+    "project-knowledge-core.exe": "553a18f0f304698c9815141a15c16597c811a55c98b496673800013e56144f53"
+  },
+  "packages": [
+    {
+      "name": "@project-knowledge/native-win32-x64-msvc",
+      "path": "project-knowledge-native-win32-x64-msvc-0.1.0.tgz",
+      "sha256": "5a5dc5a5d976c9c00b327768c59a11eb26ed6c39bd6c0ff0d76bda6595e28db4",
+      "files": [
+        "LICENSE-APACHE",
+        "LICENSE-MIT",
+        "package.json",
+        "project-knowledge-native.win32-x64-msvc.node"
+      ]
+    },
+    {
+      "name": "@project-knowledge/native",
+      "path": "project-knowledge-native-0.1.0.tgz",
+      "sha256": "78d3721f783ecd1afcd69541dbff8972800f9025b9db800b7b3bd934ea815b2c",
+      "files": [
+        "LICENSE-APACHE",
+        "LICENSE-MIT",
+        "index.d.ts",
+        "index.js",
+        "package.json"
+      ]
+    },
+    {
+      "name": "@project-knowledge/sdk",
+      "path": "project-knowledge-sdk-0.1.0.tgz",
+      "sha256": "50c80fc364b7a8c1deccea2cfd57a00aa30888ba8cd383285d8a7b83e58e8691",
+      "files": [
+        "LICENSE-APACHE",
+        "LICENSE-MIT",
+        "dist/client.d.ts",
+        "dist/client.js",
+        "dist/client.js.map",
+        "dist/generated/contract.d.ts",
+        "dist/generated/contract.js",
+        "dist/generated/contract.js.map",
+        "dist/index.d.ts",
+        "dist/index.js",
+        "dist/index.js.map",
+        "package.json"
+      ]
+    },
+    {
+      "name": "@project-knowledge/mcp",
+      "path": "project-knowledge-mcp-0.1.0.tgz",
+      "sha256": "0363550cad79dec967749c6d9b7b48f8fd26349f1b20982f1870a486bf48a3bc",
+      "files": [
+        "LICENSE-APACHE",
+        "LICENSE-MIT",
+        "dist/index.d.ts",
+        "dist/index.js",
+        "dist/index.js.map",
+        "dist/resources.d.ts",
+        "dist/resources.js",
+        "dist/resources.js.map",
+        "dist/schema-adapter.d.ts",
+        "dist/schema-adapter.js",
+        "dist/schema-adapter.js.map",
+        "dist/tools.d.ts",
+        "dist/tools.js",
+        "dist/tools.js.map",
+        "package.json"
+      ]
+    }
+  ],
+  "sha256": {
+    "project-knowledge-0.1.0-win32-x64-msvc.tar.gz": "2cb3a108a7f54a524cc81da5ec721758a925c9baaf8a21e00703aca069dcb818",
+    "sbom.json": "4238ab1757e413688a77f04b8822e2bf37509013f20d3cc44ea7b8b9c0dd60a5",
+    "source-manifest.json": "81f0b6a6aaca1ce0ae5fdd3952cecb2f0ab57afb73aa26a70298644805a40915",
+    "project-knowledge-native-win32-x64-msvc-0.1.0.tgz": "5a5dc5a5d976c9c00b327768c59a11eb26ed6c39bd6c0ff0d76bda6595e28db4",
+    "project-knowledge-native-0.1.0.tgz": "78d3721f783ecd1afcd69541dbff8972800f9025b9db800b7b3bd934ea815b2c",
+    "project-knowledge-sdk-0.1.0.tgz": "50c80fc364b7a8c1deccea2cfd57a00aa30888ba8cd383285d8a7b83e58e8691",
+    "project-knowledge-mcp-0.1.0.tgz": "0363550cad79dec967749c6d9b7b48f8fd26349f1b20982f1870a486bf48a3bc",
+    "Cargo.lock": "98e023cd3b7745437391db9248996c2669c38cd79890f72ca3794dee73fea63a",
+    "pnpm-lock.yaml": "b2c890ecd0d1d95b2a3a01537e097373d07aad4783d018690b5351c5ab716d9e"
+  },
+  "publication": "not-published",
+  "installation": "not-yet-verified",
+  "otherPlatforms": "not-validated-by-this-run"
+}

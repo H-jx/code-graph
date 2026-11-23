@@ -30,7 +30,6 @@ const task = (name) => {
   if (name.startsWith('crates/core/src/query/') && !name.endsWith('/mod.rs')) return 'T16';
   if (name.includes('verify-scenarios')) return 'T16/T22';
   if (name.includes('verify-packages') || name.startsWith('xtask/')) return 'T23';
-  if (name.includes('/syntax/scip.rs')) return 'optional-out-of-scope';
   return null;
 };
 const rows = files.map((name) => {

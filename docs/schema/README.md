@@ -5,24 +5,21 @@
 用途：
 
 1. `scripts/generate-types.mjs` 据此生成 `packages/sdk/src/generated/*.ts`；
-2. `crates/core/src/collect/validate.rs` 用 `jsonschema` 校验提取器输出与候选 manifest；
-3. MCP 的 schema 资源读取同一份内容，保证查询方与实现方看到的协议一致；
-4. 评审协议变化时直接 diff 本目录（`pnpm run check:contracts` 会在临时目录重生成并比较）。
+2. Core 从同一 Rust 契约构建 Schema，用于校验提取器输出与候选 manifest；
+3. MCP 的 schema 资源通过 Core 能力接口提供协议；
+4. `pnpm run check:contracts` 检查导出 Schema、生成类型和类型边界是否一致。
 
-预期文件（实现后由 T02 生成）：
+生成文件：
 
 ```text
 docs/schema/
-├── protocol.json               # 版本、枚举、错误 envelope
-├── entity.json
-├── relation.json
-├── evidence.json
-├── collector-manifest.json     # 插件 manifest
-├── collector-io.json           # CollectorInput / CollectorOutput
-├── query.json                  # QueryRequest / QueryResponse
-└── identity-vectors.json       # 稳定 ID 的跨语言测试向量
+├── contract.schema.json       # 查询、采集、配置和知识工件的统一 Schema
+├── protocol.json             # 协议版本
+├── entity-kinds.json         # 实体类型
+├── relation-kinds.json       # 关系类型
+└── error-codes.json          # 错误码
 ```
 
 约定：不加载远程 `$ref`；只允许本目录内已登记的 Schema 相互引用。
 
-> 骨架阶段本目录为空（仅 `.gitkeep`），因为 `xtask export-contracts` 尚未实现。
+跨语言稳定 ID 测试向量在 [fixtures/protocol](../../fixtures/protocol/)。

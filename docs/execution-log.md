@@ -556,4 +556,25 @@
 - T22 done：本轮全工作区 Rust 159、SDK 7、MCP 3，共 169 个独立测试；37 个 S/X 条目、14 组三端同库响应、独立整数 oracle 与来源核对通过。实际命令/哈希见 docs/evidence/T22/verification-report.json 与 acceptance-report.json，旧 T19 超时未改。
 - T23 doing、现暂缓：用户先确认 Windows x64，随后于 2026-10-30 明确要求先忽略安装。release 双 CLI 与四个 tarball 已生成；npm 安装/离线重装通过，但完整 consumer 退出 0xC0000409，未定位、未产生安装运行通过报告，不标 done。原始记录和候选路径见 docs/evidence/T23/README.md。
 - 本次仅核对：202 源码零字节 0、空导出 0；唯一功能占位为首版范围外 SCIP。已记录 Core/Agent/CLI/native/SDK/MCP 功能源码与通过回归快照哈希一致；后续变更限打包/验收辅助脚本，不能把旧报告当成其最终封板。计划检查再次通过。
-- 本次不继续安装、重现故障或调用模型；未提交 Git、未公开发布。功能开发可收口，已知运行异常与交付项单列保留，详见 docs/validation/closure-review-2026-10-30.md。
+- 安装故障与后续验收结果见 [T23 验收记录](evidence/T23/README.md)。
+
+---
+
+### 2026-11-11 — T23 完整验收闭环（0xC0000409 根因定位与修复） — opencode / Windows x64
+
+- 状态：T23 doing → done（前置 T22 已 done）。用户本轮明确选择「继续 T23 完整验收」，解除 2026-10-30 的安装暂缓。T00—T22 保持 done，未重做已完成工作。
+- 工作目录/版本：E:/Project/my-project/code-graph，基准提交 0cf8b75（工作树此前干净）；本轮改动 scripts/package-consumer.mjs、.github/workflows/release.yml 与新增证据/计划/记录。
+- 根因定位（逐层隔离，零产品代码最小复现）：
+  - dev profile native 在等价隔离环境（中文空格临时目录、复制 node.exe、PATH 仅 runtime+System32、净化 env、完整插件生命周期+MCP stdio+缺 native 检查）全通过 → 非环境/流程必然。
+  - release 候选复现崩溃（sdk-mcp-consumer exit 3221226505、日志 0 字节）；同步阶段标记诊断停在 stage 26（缺 native 检查），stage 01–25（SDK 查询/MCP/submit-prepare-validate-activate-collect/Agent configure --check）全通过。
+  - 单独运行 stage 26（未加载任何产品 native）崩在 `fs.cpSync` 复制 SDK dist（源路径含中文）；新鲜进程直接 cpSync 含中文源 → exit -1073740791（0xC0000409）。
+  - 受控矩阵（确定性）：含中文源→崩溃；含中文目标（ASCII 源）→静默漏复制；ASCII↔ASCII→正常。**根因为 Node v24.14.0 / libuv 在 Windows 上 fs.cpSync 对非 ASCII 路径的内存损坏缺陷，非产品缺陷**。产品源码（crates/bindings/packages src）无任何 cpSync。
+- 修复：scripts/package-consumer.mjs 以等价手动递归复制 copyTree（mkdirSync+copyFileSync，正确处理中文路径）替换 fs.cpSync 并移除其 import。缺 native 检查逻辑不变、中文空格路径产品测试完整保留，不削弱验收。属打包/验收辅助脚本改动；产品二进制功能源码不变。
+- 最终候选与验收：原候选目录已被清理，本轮重建。最终候选 candidate-vyk6Au（16 构建步全 exit 0），source-manifest 绑定修复后脚本哈希；与上一候选 candidate-4PxMWl 对比产品源码逐哈希一致（仅 scripts/package-consumer.mjs 变更）、schemaHash 不变（两次独立 release 构建二进制哈希不同属 Rust 跨次非确定性，最终候选以自身 manifest 哈希通过验收）。`node scripts/verify-packages.mjs --artifacts <candidate-vyk6Au>` 实际 passed:true：12 步全按预期退出（core-agent-disabled 预期 exit 1），sdk-mcp-consumer 0；consumer passed:true、nativeMissing:RUNTIME_MISSING、插件激活 active、Agent complete（2 轮/1 工具）、databaseHashUnchanged、externalModelRequests:0、localProviderRequests:2、businessDatabaseConnections:0；release profile、win32/x64、平台包 @project-knowledge/native-win32-x64-msvc、运行 PATH 排除 rustc/cargo/cl/gcc/python/pnpm、独立 consumer 与 npm ci --offline 离线重装通过。
+- 交付收尾：release-manifest（版本/protocol/schemaHash/SQLite 3.54.1/napi 3.15.0/二进制与四包 SHA-256/锁哈希）、sbom.json、SHA256SUMS、license、四包 npm pack --dry-run 由 package.mjs 产出并核验。命名核验：npm 四名 E404、crates.io 三名 404（无冲突；scope 权限未授予）。runner 核对官方清单：修正 release.yml 已退役 macos-14（2026-11-02 退役）→ macos-15；windows-2022/ubuntu-24.04/macos-15-intel 仍可用。
+- 命令与结果（完整命令/退出码/日志与源码哈希见 verification-report.json）：cargo run -p xtask -- package --target x86_64-pc-windows-msvc exit 0；node scripts/verify-packages.mjs --artifacts <candidate> exit 0（passed:true）；node scripts/verify-plan.mjs --plan plan/NEW-PROJECT-LONG-TASK.md exit 0（24 项状态/DAG/映射一致）；node docs/evidence/T23/continuation-2026-11-11/cpsync-repro.mjs 复现矩阵（含中文源用例 exit 3221226505）。
+- 失败/中断/回滚：首次 verify-packages 复现崩溃后保留残留 consumer 目录用于阶段标记定位；诊断重跑因首崩已提交空插件输出致 search 为空，重置 base 索引后重跑定位。未放宽任何产品校验或验收断言。
+- 预算：产品模型请求 0；普通采集模型调用 0；业务数据库连接 0；本地 mock provider 2 请求（仅验安装后 Agent 机制，不混计真实模型业务）。
+- 未验证/边界：仅 Windows x64 当前主机，非全新虚拟机/最低 OS 认证；Linux/macOS 三平台后续（D31），无 Git remote 未触发远程 Actions；公开发布未执行（scope 权限未核验/未授权）；物理断电、第二真实多仓项目、原始作者签认仍为已知边界。Node fs.cpSync 非 ASCII 缺陷建议上游报告；package.mjs:253 的 cpSync 源/目标恒 ASCII 不受影响，若从非 ASCII 构建路径打包需同样规避。
+- 完成证据：docs/evidence/T23/continuation-2026-11-11/{root-cause-0xC0000409.md,cpsync-repro.mjs,cpsync-repro-output.txt,verification-report.json,name-check.json,runner-check.md,assemble-report.mjs,install/}；T23/README.md 顶部更新指向本次闭环（历史记录保留）。
+- 下一可执行项：T00—T23 全 done，首版功能与 Windows x64 可安装候选交付完成（未公开发布）。后续为明确范围外/授权项：其余三平台构建+安装验收、公开发布授权与渠道凭据、SCIP/Repomix、第二真实多仓项目生产抽验、物理断电/最低 OS 验证。

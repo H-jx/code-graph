@@ -1,0 +1,62 @@
+{
+  "budgetUsed": {
+    "elapsedMs": 0,
+    "entities": 0,
+    "relations": 0,
+    "responseChars": 1417,
+    "visited": 1
+  },
+  "completeness": {
+    "candidateSetsComplete": true,
+    "checkedAt": "2026-11-11T11:56:39Z",
+    "coverage": "complete",
+    "diskChecked": true,
+    "freshness": "fresh",
+    "reasons": [],
+    "truncated": false
+  },
+  "data": {
+    "reads": [
+      {
+        "checkedAt": "2026-11-11T11:56:39Z",
+        "evidenceId": "ev_6881be67e76290868bf4935a545ea8983936f77764d19af512aaab95713c68be",
+        "lineMap": {
+          "endLine": 1,
+          "startLine": 1
+        },
+        "path": "purchase.ts",
+        "returnedEndByte": 1,
+        "snippet": "/",
+        "snippetTruncated": false,
+        "sourceId": "src_f7029b29e159f66791318571e74e67d77e79e4fc4d1301149bf5306529e8d1ca",
+        "startByte": 0,
+        "status": "current",
+        "storedVersion": null
+      }
+    ]
+  },
+  "gaps": [],
+  "nextQueries": [],
+  "protocolVersion": "1.0",
+  "requestId": "req_7b248afe-e0ec-479c-815a-a75eba964652",
+  "snapshot": {
+    "generation": "1",
+    "indexId": "c604523c-c3bf-4f5c-a2b4-eb6288300646",
+    "sourceSnapshotId": "snap_74fc2caf6268475bfd28f4c95e5b43336f178eae35fbc4544e060554858732e0"
+  },
+  "sourceReferences": [
+    {
+      "contentHash": "eb45bd7316e965be58906cff33341fa8056b1f22a47c5e5f8f700a5976155408",
+      "endByte": 1,
+      "evidenceId": "ev_6881be67e76290868bf4935a545ea8983936f77764d19af512aaab95713c68be",
+      "snapshot": {
+        "generation": "1",
+        "indexId": "c604523c-c3bf-4f5c-a2b4-eb6288300646",
+        "sourceSnapshotId": "snap_74fc2caf6268475bfd28f4c95e5b43336f178eae35fbc4544e060554858732e0"
+      },
+      "sourceId": "src_f7029b29e159f66791318571e74e67d77e79e4fc4d1301149bf5306529e8d1ca",
+      "startByte": 0
+    }
+  ],
+  "status": "complete"
+}

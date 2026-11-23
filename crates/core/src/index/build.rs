@@ -732,11 +732,6 @@ impl<'a> RepositoryBuilder<'a> {
                 return Ok(());
             }
         };
-        if text.is_empty() {
-            // 零字节文件没有可引用的非空区间，不建立实体。
-            return Ok(());
-        }
-
         let scope_id = select_scope(self.scopes, self.repository_id, &source.path)?;
         let source_id = compute_source_id(self.project_id, self.repository_id, &source.path);
         let source_class = classify_source(&source.path);
@@ -770,6 +765,11 @@ impl<'a> RepositoryBuilder<'a> {
             source_class,
             "",
         )?;
+        if text.is_empty() {
+            // 零字节文件没有可引用的非空区间，不建立实体；但来源行与版本已
+            // 登记，快照成员不会悬空外键（与排除文件的理由一致）。
+            return Ok(());
+        }
 
         // 文件实体。
         let file_slots = vec![

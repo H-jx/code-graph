@@ -1,0 +1,9 @@
+{
+  "error": {
+    "code": "NOT_IMPLEMENTED",
+    "issues": [],
+    "message": "agent feature disabled; rebuild with default features",
+    "retryable": false
+  }
+}
+error: [NOT_IMPLEMENTED] agent feature disabled; rebuild with default features

@@ -9,7 +9,6 @@ import {
   readdirSync,
   mkdirSync,
   mkdtempSync,
-  cpSync,
   copyFileSync,
 } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
@@ -21,6 +20,20 @@ import { ProjectKnowledge } from '@project-knowledge/sdk';
 import { Client } from '@modelcontextprotocol/client';
 import { StdioClientTransport } from '@modelcontextprotocol/client/stdio';
 const require = createRequire(import.meta.url);
+// Recursive copy via mkdirSync/copyFileSync. Node 24.14.0 fs.cpSync on Windows
+// corrupts the stack (0xC0000409) or silently no-ops when a path contains
+// non-ASCII characters; this consumer intentionally runs under a Chinese+space
+// directory, so the harness must not rely on cpSync. The product itself handles
+// such paths correctly (Core/native/SDK/MCP/Agent all pass under them).
+function copyTree(source, destination) {
+  mkdirSync(destination, { recursive: true });
+  for (const entry of readdirSync(source, { withFileTypes: true })) {
+    const from = join(source, entry.name);
+    const to = join(destination, entry.name);
+    if (entry.isDirectory()) copyTree(from, to);
+    else copyFileSync(from, to);
+  }
+}
 const config = process.argv[2];
 const db = join(resolve(config, '..'), 'index.sqlite');
 const sha = () => createHash('sha256').update(readFileSync(db)).digest('hex');
@@ -222,7 +235,7 @@ for (const name of ['sdk', 'native']) {
   mkdirSync(destination, { recursive: true });
   copyFileSync(join(installed, 'package.json'), join(destination, 'package.json'));
   if (name === 'sdk')
-    cpSync(join(installed, 'dist'), join(destination, 'dist'), { recursive: true });
+    copyTree(join(installed, 'dist'), join(destination, 'dist'));
   else
     for (const file of ['index.js', 'index.d.ts'])
       copyFileSync(join(installed, file), join(destination, file));

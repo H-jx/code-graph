@@ -7,7 +7,7 @@ Node 24，先安装同版本 native 平台包、native、SDK 和 MCP。首版只
   "mcpServers": {
     "project-knowledge": {
       "command": "node",
-      "args": ["C:/tools/project-knowledge/node_modules/@project-knowledge/mcp/dist/index.js", "--config", "C:/workspace/.project-knowledge/project.json"]
+      "args": ["C:/tools/project-knowledge/node_modules/@project-knowledge/mcp/dist/index.js", "--config", "C:/workspace/my-repo/.project-knowledge/project.json"]
     }
   }
 }
@@ -16,6 +16,8 @@ Node 24，先安装同版本 native 平台包、native、SDK 和 MCP。首版只
 默认 query 模式提供 `index_status`、`search`、`locate_feature`、`trace_links`、`neighbors`、`get_code_map`、`read_source`、`locate_page`、`explain_workflow`、`explain_report`。字段与 SDK 一致，工具名选择 operation；工具参数不能改变模式。查询不会创建或升级索引、发现或执行插件、调用模型。
 
 工具的 `structuredContent` 保留 Core 查询信封。`status=partial`、gaps、snapshot、分页和完整性必须一起读取；partial 不是执行错误。合法参数的 Core 执行失败返回 `isError=true` 与结构化 error；非法参数返回 MCP InvalidParams，错误不回显输入值。
+
+只读查询工具省略 `budget.timeoutMs` 时默认使用 30 秒，`index_status` 和 `read_source` 维持各自的请求格式。查询超时或遇到过期索引时，部分响应的文本可能带有 `⚠️ degraded:` 提示。程序化客户端可直接读取 `structuredContent`。
 
 维护连接须在启动参数显式增加 `--mode maintenance`。它额外提供候选提交、发现、准备、验证/cases、激活、回退、collect、基础/增量更新、主题上下文导出、主题/约定导入与 Skill 渲染；`tools/list` 公告每个工具的 Core 同源 Schema。`export_snapshot` 和 `export_topic` 都导出有收据的主题上下文；`validate_plugin` 和 `run_plugin_cases` 都使用完整 Core 候选验证。维护结果保留既有 Core JSON，不提供未运行的 Rust Agent 伪工具。
 

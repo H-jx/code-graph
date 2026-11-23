@@ -3,10 +3,11 @@
 首版按 D31 交付 Windows x64 可安装候选；安装见 [installation.md](installation.md)。Linux/macOS 后续。仓库开发使用 `pnpm run build:native`、`pnpm run build:sdk`，Node 24。native 缺失或不匹配时返回 `RUNTIME_MISSING` 和安装提示，不在使用时编译或下载。
 
 ```ts
-import { ProjectKnowledge, ProjectKnowledgeError } from "@project-knowledge/sdk";
+import { ProjectKnowledge } from "@project-knowledge/sdk";
 
 const capabilities = await ProjectKnowledge.getCapabilities(); // 无需配置或索引
-const client = await ProjectKnowledge.open({ configPath: "C:/workspace/.project-knowledge/project.json" });
+const configPath = "C:/workspace/my-repo/.project-knowledge/project.json";
+const client = await ProjectKnowledge.open({ configPath });
 try {
   const result = await client.search({ query: "采购", pageSize: 20 });
   // result.snapshot / sourceReferences / completeness / gaps 由 Core 原样返回。
@@ -21,6 +22,8 @@ try {
 查询方法为 `status`、`search`、`locateFeature`、`trace`、`neighbors`、`getCodeMap`、`readSource`、`locatePage`、`explainWorkflow`、`explainReport`，也可传完整 `QueryRequest` 给 `execute`。参数类型从 Rust Schema 生成；无命中、歧义、覆盖不足、过期和预算截断都保留 Core 的语义，调用方须检查 `status` 与 `completeness`。只读打开不会创建库、迁移、发现或运行插件。
 
 ```ts
+const configPath = "C:/workspace/my-repo/.project-knowledge/project.json";
+const pluginManifest = "C:/workspace/my-collector/manifest.json";
 const maintenance = await ProjectKnowledge.openMaintenance({ configPath });
 try {
   await maintenance.index({ mode: "base" }); // 显式创建/迁移并建立基础索引

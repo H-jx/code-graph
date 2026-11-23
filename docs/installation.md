@@ -1,11 +1,24 @@
 # Windows x64 候选安装
 
-首版范围为 Windows x64 MSVC。Linux/macOS 转后续验证；本轮不公开发布 npm 或 GitHub Release。下载/传递完整候选目录后，先核对 `release-manifest.json` 与 `SHA256SUMS`；不要混用不同候选的包或二进制。
+已验收的候选适用于 Windows x64 MSVC。使用 [构建指南](releasing.md) 在本机生成候选，或从构建方取得完整候选目录。CLI 压缩包、四个 npm tarball、`release-manifest.json` 和 `SHA256SUMS` 应来自同一次构建。验收记录见 [Windows 候选报告](evidence/T23/README.md)。
+
+在 PowerShell 中设置候选目录并验证校验和：
+
+```powershell
+$candidate = (Resolve-Path -LiteralPath 'C:/candidate').Path
+Get-Content -LiteralPath (Join-Path $candidate 'SHA256SUMS') | ForEach-Object {
+    $expected, $file = $_ -split '\s+', 2
+    $actual = Get-FileHash -LiteralPath (Join-Path $candidate $file) -Algorithm SHA256
+    if ($actual.Hash -ne $expected) { throw "SHA-256 mismatch: $file" }
+}
+```
 
 CLI 压缩包内有默认含 Agent 的 `project-knowledge.exe`、无 Agent 的 `project-knowledge-core.exe` 和许可证。解压到固定工具目录即可运行，基础索引无需 Rust、Node、Python、LLM 或业务数据库；SQLite 与 Prompt/模板资源已编译进入产品。
 
 ```powershell
-tar -xzf project-knowledge-0.1.0-win32-x64-msvc.tar.gz -C C:/tools/project-knowledge
+$toolDir = 'C:/tools/project-knowledge'
+New-Item -ItemType Directory -Force -Path $toolDir | Out-Null
+tar -xzf (Join-Path $candidate 'project-knowledge-0.1.0-win32-x64-msvc.tar.gz') -C $toolDir
 C:/tools/project-knowledge/project-knowledge.exe init --root C:/workspace/my-repo
 C:/tools/project-knowledge/project-knowledge.exe index --config C:/workspace/my-repo/.project-knowledge/project.json --base
 C:/tools/project-knowledge/project-knowledge.exe query --config C:/workspace/my-repo/.project-knowledge/project.json --operation search --text purchase
@@ -14,11 +27,20 @@ C:/tools/project-knowledge/project-knowledge.exe query --config C:/workspace/my-
 SDK/MCP 需 Node 24，不需 Rust 或 C 编译器。在独立 consumer 目录安装候选的四个 tarball，路径须指向同一候选目录：
 
 ```powershell
+$consumer = 'C:/tools/project-knowledge'
+New-Item -ItemType Directory -Force -Path $consumer | Out-Null
+Set-Location -LiteralPath $consumer
 npm init -y
-npm install --ignore-scripts C:/candidate/project-knowledge-native-win32-x64-msvc-0.1.0.tgz C:/candidate/project-knowledge-native-0.1.0.tgz C:/candidate/project-knowledge-sdk-0.1.0.tgz C:/candidate/project-knowledge-mcp-0.1.0.tgz
+$packages = @(
+    'project-knowledge-native-win32-x64-msvc-0.1.0.tgz'
+    'project-knowledge-native-0.1.0.tgz'
+    'project-knowledge-sdk-0.1.0.tgz'
+    'project-knowledge-mcp-0.1.0.tgz'
+) | ForEach-Object { Join-Path $candidate $_ }
+npm install --ignore-scripts @packages
 ```
 
-四个包必须一起安装，因为当前 npm scope 尚未作为本项目公开发布。保存生成的 package-lock.json 和 tarball 路径；依赖第一次安装可能访问 npm，缓存就绪后 `npm ci --offline --ignore-scripts` 可离线重装。运行 SDK/MCP 时不下载或编译 native；缺失平台包返回 `RUNTIME_MISSING`。用法见 [SDK](sdk-usage.md) 和 [MCP](mcp-usage.md)。
+四个包一起从候选目录安装。保留生成的 `package-lock.json` 和 tarball 路径。依赖第一次安装可能访问 npm，缓存就绪后可用 `npm ci --offline --ignore-scripts` 离线重装。缺失平台包时，SDK/MCP 会返回 `RUNTIME_MISSING`，可从同一候选目录重新安装。用法见 [SDK](sdk-usage.md) 和 [MCP](mcp-usage.md)。
 
 内置 Agent 需另配置 provider/model/凭据及模型网络；不配置也能使用基础索引和查询。Node/Python 插件只在显式准备、验证、激活或增量运行时需要各自 manifest 声明的运行时和依赖。详见 [agent-usage.md](agent-usage.md) 与 [collectors.md](collectors.md)。
 

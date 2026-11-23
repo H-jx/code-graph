@@ -3,7 +3,6 @@
 Cargo.lock.bak
 *.pdb
 *.exp
-bindings
 # ---- Node ----
 node_modules/
 dist/

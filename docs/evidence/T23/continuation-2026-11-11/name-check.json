@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-11T11:30:25.153Z",
+  "purpose": "T23 naming/scope conflict check before any publication (read-only)",
+  "publication": "not-published",
+  "note": "npm scope @project-knowledge is a target name; ownership/permission must be verified before any public release. Empty/404 results mean no current conflict, not a grant of rights.",
+  "results": [
+    {
+      "registry": "npmjs",
+      "name": "@project-knowledge/sdk",
+      "exitCode": 1,
+      "exists": false,
+      "evidence": "E404 not found",
+      "stdout": "{\n  \"error\": {\n    \"code\": \"E404\",\n    \"summary\": \"Not Found - GET https://registry.npmjs.org/@project-knowledge%2fsdk - Not found\",\n    \"detail\": \"The requested resource '@project-knowledge/sdk@*' could not be found or you do not have permission to access it.\\n\\nNote that you can also install from a\\ntarball, folder, http url, or git url.\"\n  }\n}"
+    },
+    {
+      "registry": "npmjs",
+      "name": "@project-knowledge/mcp",
+      "exitCode": 1,
+      "exists": false,
+      "evidence": "E404 not found",
+      "stdout": "{\n  \"error\": {\n    \"code\": \"E404\",\n    \"summary\": \"Not Found - GET https://registry.npmjs.org/@project-knowledge%2fmcp - Not found\",\n    \"detail\": \"The requested resource '@project-knowledge/mcp@*' could not be found or you do not have permission to access it.\\n\\nNote that you can also install from a\\ntarball, folder, http url, or git url.\"\n  }\n}"
+    },
+    {
+      "registry": "npmjs",
+      "name": "@project-knowledge/native",
+      "exitCode": 1,
+      "exists": false,
+      "evidence": "E404 not found",
+      "stdout": "{\n  \"error\": {\n    \"code\": \"E404\",\n    \"summary\": \"Not Found - GET https://registry.npmjs.org/@project-knowledge%2fnative - Not found\",\n    \"detail\": \"The requested resource '@project-knowledge/native@*' could not be found or you do not have permission to access it.\\n\\nNote that you can also install from a\\ntarball, folder, http url, or git url.\"\n  }\n}"
+    },
+    {
+      "registry": "npmjs",
+      "name": "@project-knowledge/native-win32-x64-msvc",
+      "exitCode": 1,
+      "exists": false,
+      "evidence": "E404 not found",
+      "stdout": "{\n  \"error\": {\n    \"code\": \"E404\",\n    \"summary\": \"Not Found - GET https://registry.npmjs.org/@project-knowledge%2fnative-win32-x64-msvc - Not found\",\n    \"detail\": \"The requested resource '@project-knowledge/native-win32-x64-msvc@*' could not be found or you do not have permission to access it.\\n\\nNote that you can also install from a\\ntarball, folder, http url, or git url.\"\n  }\n}"
+    },
+    {
+      "registry": "crates.io",
+      "name": "project-knowledge-core",
+      "httpStatus": 404,
+      "exists": false,
+      "evidence": "404 does not exist"
+    },
+    {
+      "registry": "crates.io",
+      "name": "project-knowledge-cli",
+      "httpStatus": 404,
+      "exists": false,
+      "evidence": "404 does not exist"
+    },
+    {
+      "registry": "crates.io",
+      "name": "project-knowledge-agent",
+      "httpStatus": 404,
+      "exists": false,
+      "evidence": "404 does not exist"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+内置 Rig Agent：配置、生成、修复与恢复。
+
+Usage: project-knowledge.exe agent [OPTIONS] <COMMAND>
+
+Commands:
+  configure  配置模型与预算。
+  build      调查并生成插件。
+  repair     修复指定插件。
+  resume     从中断处恢复。
+
+Options:
+      --config <CONFIG>      项目配置文件。
+      --env-file <ENV_FILE>  .env 文件；缺省读取工作目录或目标项目的 .env。
+  -h, --help                 Print help

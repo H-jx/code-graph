@@ -1,6 +1,6 @@
 # 新项目持续实施任务
 
-编制日期：2026-10-25。本文只定义待实施工作，不表示代码、命令或测试已经存在。
+编制日期为 2026-10-25。本文记录原始实施计划、任务状态和验收映射。当前安装与命令入口见 [README](../README.md)。
 
 收尾范围确认（2026-10-29，用户明确选择）：首版按 **Windows x64 可安装候选** 完成，Linux x64 glibc / macOS x64 / macOS arm64 转为后续范围（D31）。本轮不公开发布；不把 CI 配置存在当作其他平台已实测。编制时现场描述保留为历史，实际源码根目录为本仓库根 `E:/Project/my-project/code-graph/`。
 
@@ -11,8 +11,7 @@
 | 资料或现场 | 已确认内容 | 执行含义 |
 | --- | --- | --- |
 | `docs/NEW-PROJECT-DESIGN.md` | 已完整阅读；功能目标清单 | 功能要求，不是已实现能力清单 |
-| `docs/NEW-PROJECT-STRUCTURE.md` | 已完整阅读，共 659 行；明确声明目录、命令、配置和接口尚未实现 | 本文具体化其契约；冲突按第 2 节决策解决 |
-|  |
+| 初始结构草案 | 定义了目录、命令、配置和接口的目标结构 | 使用入口已迁移到根 README，契约以本计划记录和当前协议为准 |
 | 当前工作目录 | 存在两份设计、旧 SQLite、`target/`、`node_modules/` 和旧发布 workflow；没有根 `Cargo.toml`、`package.json`、锁文件或可用源码；不是 Git 工作树 | 缓存、数据库和 workflow 不证明功能存在，不复用旧表结构或发布命令 |
 | 当前工具 | 本次只读取版本：Rust/Cargo 1.95.0、Node 24.14.0、pnpm 9.15.9、Python 3.10.16 | 不等于目标依赖可编译；T00 解决工具链差异。本次未构建或测试新项目 |
 
@@ -819,8 +818,9 @@ Rust 测试目标按功能集中：`indexing`、`collectors`、`lifecycle`、`bu
 
 ### T23 — Windows x64 分层安装和发布候选（其余平台后续）
 
-- 状态：`doing`；前置依赖：T22。
-- 当前处置（2026-10-30）：用户明确要求先忽略安装，本项暂缓推进，状态不改为 done。Windows release 双 CLI、native 与四个 npm tarball 已构建；隔离 npm 安装与离线重装通过，但综合 consumer 以 0xC0000409 异常退出，尚未定位原因，不能认定只是安装故障，也不能宣称候选已通过运行验收。基础 native capabilities/open/status/close 的单独检查正常；完整异常继续保留为已知待查项，本轮不再重现或修复。除交付项外，T00—T22 功能源码与已通过回归快照一致；收尾核对见 docs/validation/closure-review-2026-10-30.md。
+- 状态：`done`；前置依赖：T22。
+- 完成核对（2026-11-11，Windows x64 / D31）：2026-10-30 暂缓的 consumer `0xC0000409` 已定位并修复——根因为 Node v24.14.0 / libuv 在 Windows 上 `fs.cpSync` 对非 ASCII 路径的内存损坏缺陷（验收脚本缺 native 检查从中文 consumer 目录复制 SDK dist 时触发），**非产品缺陷**；产品 Core/native/SDK/MCP/Agent 在中文空格路径下 stage 01–25 全通过。修复以等价手动递归复制（`mkdirSync`+`copyFileSync`）替换 `scripts/package-consumer.mjs` 的 `cpSync`，缺 native 检查逻辑与中文路径产品测试不变，不削弱验收。最终候选 `candidate-vyk6Au` 重建（source-manifest 绑定修复后脚本；产品源码逐哈希与上一候选一致，仅该验收脚本变更，schemaHash 不变），`node scripts/verify-packages.mjs --artifacts <candidate>` 实际 `passed:true`：12 步全按预期退出（core-agent-disabled 预期 exit 1），`sdk-mcp-consumer` 由 3221226505→0，consumer `nativeMissing:RUNTIME_MISSING`、插件激活 active、Agent complete（2 轮/1 工具，本地 mock 2 请求）、数据库字节不变、外部模型请求 0、业务 DB 连接 0；release profile、win32/x64、平台包 `@project-knowledge/native-win32-x64-msvc`、运行 PATH 排除构建工具、独立 consumer 与 `npm ci --offline` 离线重装均通过。release manifest/SBOM/SHA256SUMS/license、四包 `npm pack --dry-run`、npm 四名 E404 与 crates.io 三名 404 命名核验、runner 核对（修正已退役 `macos-14`→`macos-15`）完成。**公开发布未执行**（npm scope 权限未核验/未授权）；无 Git remote，未触发远程 Actions，其余三平台仍后续。证据 docs/evidence/T23/continuation-2026-11-11/{root-cause-0xC0000409.md,cpsync-repro.mjs,verification-report.json,name-check.json,runner-check.md,install/}。
+- 历史处置（2026-10-30）：隔离 npm 安装与离线重装通过，综合 consumer 以 0xC0000409 退出，安装验收暂缓。旧候选和后续修复记录见 [T23 验收记录](../docs/evidence/T23/README.md)。
 - 完成能力：CLI/Agent/native/SDK/MCP 可在声明支持的平台安装运行，发布候选不依赖本机缓存或仓库源码路径。
 - 模块/文件：`xtask/`、`bindings/node/npm/`、`scripts/{package,verify-packages}.mjs`、`.github/workflows/{ci,release}.yml`、`docs/{installation,releasing}.md`、各 Cargo/package manifest。
 - 步骤与约束：

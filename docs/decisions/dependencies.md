@@ -1,7 +1,7 @@
 # 依赖与工具链决策（计划 T00/T01 产出）
 
 核对日期：2026-10-25 → 2026-10-26。来源：crates.io / 包元数据、npmmirror、napi.rs、SQLite 源码、
-`plan/NEW-PROJECT-LONG-TASK.md` 第 2.2 节与 `docs/NEW-PROJECT-STRUCTURE.md`。
+`plan/NEW-PROJECT-LONG-TASK.md` 第 2.2 节与 [Core 协议](../protocol.md)。
 
 工作区位置说明：本仓库直接把 workspace 建在 `code-graph/` 根目录（`docs/` 与 `plan/` 与之同级），
 未按计划 §1.1 的 `new-project/` 子目录落地；这是本仓库的显式选择，后续引用相对路径时以根目录为准。

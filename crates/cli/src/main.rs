@@ -1,6 +1,6 @@
 //! `project-knowledge` CLI 入口。
 //!
-//! 目标命令形态见 `docs/NEW-PROJECT-STRUCTURE.md` 第 6 节：
+//! CLI 命令：
 //! `init` / `index` / `status` / `query` / `collect` / `plugin` / `agent` / `generate`。
 //!
 //! 约定：JSON 输出统一写 stdout，日志写 stderr；成功完整 exit 0，partial/stale
